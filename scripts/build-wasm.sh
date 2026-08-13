@@ -126,8 +126,7 @@ elif patch -p1 --dry-run --silent --forward < "$PATCH" >/dev/null 2>&1; then
   patch -p1 --silent --forward < "$PATCH" >/dev/null
   note "applied wasm-portability.patch to the staged copy (submodule untouched)"
 elif patch -p1 -R --dry-run --silent < "$PATCH" >/dev/null 2>&1; then
-  note "the pin already carries the wasm portability gates; patch not needed"
-  note "  -> crates/lupin-wasm/wasm-portability.patch can be deleted"
+  note "the pin carries the wasm portability gates (landed upstream in c1ec02e)"
 else
   die "crates/lupin-wasm/wasm-portability.patch does not apply to the pinned
     interpreter and is not already applied. The pin moved under the patch.
