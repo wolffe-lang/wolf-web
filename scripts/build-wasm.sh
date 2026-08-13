@@ -59,6 +59,39 @@ if [[ -n "${WOLF_WASM_SYSROOT:-}" ]]; then
   note "using WOLF_WASM_SYSROOT=$WOLF_WASM_SYSROOT"
 fi
 
+# -- stage the interpreter -------------------------------------------------
+
+rm -rf "$STAGE"
+mkdir -p "$STAGE/upstream" "$STAGE/crates"
+
+# `git archive` rather than cp: tracked files only, so the staged tree gets
+# neither the nested submodule nor a broken .git pointer, and the build is the
+# same whatever is lying around in the checkout.
+mkdir -p "$STAGE/upstream/wolf-interp"
+git -C "$INTERP" archive HEAD | tar -x -C "$STAGE/upstream/wolf-interp"
+test -f "$STAGE/upstream/wolf-interp/Cargo.toml" || die "staging the interpreter failed"
+
+# crates/lupin-wasm goes to the same depth it sits at in the repo, so its
+# `path = "../../upstream/wolf-interp"` resolves inside the staging tree with
+# no manifest rewriting.
+cp -R "$ROOT/crates/lupin-wasm" "$STAGE/crates/lupin-wasm"
+rm -rf "$STAGE/crates/lupin-wasm/target"
+
+# The interpreter pins its Rust version, and that pin governs this build too:
+# lupin-wasm compiles the interpreter's own source. rustup reads the file from
+# the build directory's ancestors, and the staged interpreter is a sibling of
+# the crate we build, so the pin goes at the staging root where it covers both.
+# Without this the build runs on whatever the box's default toolchain is, which
+# is how almanta tried to compile a 1.97.1 tree with 1.89.0.
+if [[ -f "$STAGE/upstream/wolf-interp/rust-toolchain.toml" ]]; then
+  cp "$STAGE/upstream/wolf-interp/rust-toolchain.toml" "$STAGE/rust-toolchain.toml"
+  note "staged the interpreter's toolchain pin: $(grep -oE '[0-9]+\.[0-9]+\.[0-9]+' "$STAGE/rust-toolchain.toml" | head -1)"
+fi
+
+# The probe runs from the staging root, after the pin is in place, so the
+# target is added to the toolchain that will actually build.
+cd "$STAGE"
+
 # rustup owns targets, but a distro rust with a wasm package has the std
 # without rustup ever being installed. Probe for the std, then fall back to
 # rustup only if the probe fails.
@@ -83,23 +116,6 @@ if ! have_target; then
   have_target || die "rustup reported success but $TARGET still does not build"
 fi
 
-# -- stage the interpreter -------------------------------------------------
-
-rm -rf "$STAGE"
-mkdir -p "$STAGE/upstream" "$STAGE/crates"
-
-# `git archive` rather than cp: tracked files only, so the staged tree gets
-# neither the nested submodule nor a broken .git pointer, and the build is the
-# same whatever is lying around in the checkout.
-mkdir -p "$STAGE/upstream/wolf-interp"
-git -C "$INTERP" archive HEAD | tar -x -C "$STAGE/upstream/wolf-interp"
-test -f "$STAGE/upstream/wolf-interp/Cargo.toml" || die "staging the interpreter failed"
-
-# crates/lupin-wasm goes to the same depth it sits at in the repo, so its
-# `path = "../../upstream/wolf-interp"` resolves inside the staging tree with
-# no manifest rewriting.
-cp -R "$ROOT/crates/lupin-wasm" "$STAGE/crates/lupin-wasm"
-rm -rf "$STAGE/crates/lupin-wasm/target"
 
 # -- patch the copy --------------------------------------------------------
 
