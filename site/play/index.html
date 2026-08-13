@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>playground · wolf</title>
+<meta name="description" content="Run wolf programs in the browser under lupin, the reference interpreter, compiled to WebAssembly.">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/wolf.svg" type="image/svg+xml">
+<script src="/play/lupin.js" type="module"></script>
+</head>
+<body class="wide">
+<header>
+  <h1>playground</h1>
+  <p class="sub">Programs run in your browser, under the reference interpreter.</p>
+  <nav class="site">
+    <a href="/">wolf</a>
+    <a href="/play/">playground</a>
+    <a href="/reading/">the book</a>
+    <a href="/docs/">docs</a>
+    <a href="/spec/">spec</a>
+  </nav>
+</header>
+
+<main>
+
+<div class="banner" id="banner">
+  <p id="banner-text">Loading the interpreter.</p>
+</div>
+
+<div class="pad">
+  <section class="pane">
+    <div class="bar">
+      <button type="button" id="run" class="primary" disabled>Run</button>
+      <kbd>Ctrl+Enter</kbd>
+      <span class="spacer"></span>
+      <label for="samples" class="k">Load</label>
+      <select id="samples" disabled>
+        <option value="">a sample program</option>
+      </select>
+    </div>
+    <div class="editor">
+      <pre class="gutter" id="gutter" aria-hidden="true">1</pre>
+      <textarea id="source" spellcheck="false" autocapitalize="off" autocorrect="off"
+        aria-label="wolf source" wrap="off"></textarea>
+    </div>
+    <p class="note" id="provenance"></p>
+  </section>
+
+  <section class="pane">
+    <div class="bar">
+      <h2>Output</h2>
+      <span class="spacer"></span>
+      <button type="button" id="record" disabled>Show the record</button>
+    </div>
+
+    <div class="verdict hidden" id="verdict"></div>
+
+    <div class="out hidden" id="out-stdout">
+      <h3>stdout</h3>
+      <pre id="stdout"></pre>
+    </div>
+
+    <div class="out hidden" id="out-stderr">
+      <h3>stderr</h3>
+      <pre class="diag" id="stderr"></pre>
+    </div>
+
+    <div class="out hidden" id="out-span">
+      <h3>Where</h3>
+      <pre class="diag" id="span"></pre>
+    </div>
+
+    <div class="out hidden" id="out-warnings">
+      <h3>Warnings</h3>
+      <pre class="warn" id="warnings"></pre>
+      <p class="note">The interpreter runs a subset of the compiler's warning
+        analyses, so a program the compiler warns about can come back clean
+        here. <code>lupin</code> reports these in its observation record, and at
+        a terminal they stay there.</p>
+    </div>
+
+    <div class="out hidden" id="out-record">
+      <h3>Observation record</h3>
+      <pre id="record-json"></pre>
+      <p class="note">The line <code>lupin run - --json</code> prints: the
+        spec/06 observation record, which is the only thing the compiler and the
+        interpreter compare through.</p>
+    </div>
+  </section>
+</div>
+
+<section>
+  <h2>What is running</h2>
+  <p><code>lupin</code> is the wolf reference interpreter. It is a separate
+  implementation from the compiler, written against the specification, and the
+  two share no code. The build in this page is that program, compiled to
+  WebAssembly from the revision this site was built from. Nothing is uploaded:
+  the source stays in the tab, and no request leaves the page after the module
+  and the samples have loaded.</p>
+
+  <p>The interpreter is not the compiler, and it reaches a different set of
+  programs. It runs the memory model as a dynamic machine, so every ownership
+  rule is a check at run time and every fault cites the clause it came from. It
+  has no type checker and no borrow checker, because those are the compiler's
+  half of the split, so a program that the compiler would reject at
+  <code>typecheck</code> can still run here. When a program is outside what
+  this implementation covers, the verdict is <code>unsupported</code> and the
+  reason says which tier declined.</p>
+
+  <h3>What this build declines</h3>
+  <p>Three tiers report <code>unsupported</code> here that work when you run
+  <code>lupin</code> at a terminal. Tasks and procs each need an operating
+  system thread, and a WebAssembly module in a page has none to spawn. The
+  <code>time</code> builtins need a clock the module cannot read. The
+  filesystem and network tiers are declined in every build of the interpreter,
+  including the terminal one, because it opens no files and no sockets by
+  design.</p>
+
+  <h3>The verdict vocabulary</h3>
+  <table>
+    <tr><th>verdict</th><th>what happened</th></tr>
+    <tr><td><code>exit(N)</code></td><td>The program ran to completion and returned N.</td></tr>
+    <tr><td><code>trap(kind)</code></td><td>A checked fault stopped it: overflow, a bad index, a use after move. Each kind is a closed vocabulary entry and cites a clause.</td></tr>
+    <tr><td><code>fail(CODE)</code></td><td>The program was rejected before it ran, with that diagnostic code.</td></tr>
+    <tr><td><code>ub(anchor)</code></td><td>The provenance oracle found undefined behavior, and names the row of the memory model that licenses it.</td></tr>
+    <tr><td><code>unsupported</code></td><td>Outside this implementation's coverage. The reason names the tier.</td></tr>
+  </table>
+
+  <p class="aside">Mahler kept revising the Fifth's orchestration between
+  performances, and the parts he left behind disagree with each other.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>The samples are conformance-corpus programs, copied verbatim from the
+  pinned compiler checkout, header comment and all. The header states what the
+  program is supposed to do; the panel beside it states what happened.</p>
+</footer>
+</body>
+</html>

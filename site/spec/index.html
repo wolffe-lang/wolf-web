@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>specification · wolf</title>
+<meta name="description" content="The normative wolf language specification: grammar, memory model, concurrency, ABI, conformance, and the differential protocol.">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/wolf.svg" type="image/svg+xml">
+</head>
+<body>
+<header>
+  <h1>specification</h1>
+  <p class="sub">Normative. Both implementations are readings of it.</p>
+  <nav class="site">
+    <a href="/">wolf</a>
+    <a href="/play/">playground</a>
+    <a href="/reading/">the book</a>
+    <a href="/docs/">docs</a>
+    <a href="/spec/">spec</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <p>These documents are the language. The compiler and the reference
+  interpreter share no code; what they share is this specification, the
+  conformance corpus, and the protocol they are compared through. When the two
+  disagree about a program, the specification is what gets read, and sometimes
+  amended.</p>
+  <p>Every document carries clause anchors in brackets, spelled like
+  <code>[mem.region.create.3]</code>. A diagnostic cites one, a trap cites one,
+  a corpus program declares which ones it conforms to, and the anchor index is
+  checked against the prose so a citation cannot point at a clause that was
+  renamed. Files are served as plain text.</p>
+</section>
+
+<section>
+  <h2>The documents</h2>
+  <dl class="index">
+    <dt><a href="/spec/01-grammar.md">01. Surface Grammar</a> (36 KiB)</dt>
+    <dd>Lexing, the mode stack that lets strings nest inside strings, the
+      expression grammar and its precedence tiers, statement and item forms, and
+      the ambiguity rulings. Status: normative, <code>grammar/1</code>, declared
+      at v0.1.0 and additive-only until v0.2. Anchors <code>[gram.*]</code>.</dd>
+
+    <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (30 KiB)</dt>
+    <dd>Regions, ownership tiers, moves, freezing, the shared and handle edges,
+      provenance, and the closed list of rows that are undefined behavior with
+      the optimization each one licenses. The interpreter implements this
+      document as a dynamic machine; the compiler implements a static
+      approximation of it. Anchors <code>[mem.*]</code>.</dd>
+
+    <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (20 KiB)</dt>
+    <dd>Structured tasks, supervised procs, channels with region transfer,
+      select, the memory model's happens-before rules, and the deterministic
+      schedule a seed selects. Written in the shape of the Go memory model
+      document, with the advice in front of the formalism. Anchors
+      <code>[conc.*]</code>.</dd>
+
+    <dt><a href="/spec/04-abi.md">04. ABI</a> (4.7 KiB)</dt>
+    <dd>Layout, calling convention, and the foreign boundary, differentially
+      fuzzed against platform C compilers. Anchors <code>[abi.*]</code>.</dd>
+
+    <dt><a href="/spec/05-conformance.md">05. Conformance</a> (7.7 KiB)</dt>
+    <dd>What makes the rest of it testable: clause anchors, test tagging, the
+      closed trap vocabulary, and coverage reporting. The interpreter reads only
+      the specification and the corpus, and this document is part of that sealed
+      interface. Anchors <code>[conf.*]</code>.</dd>
+
+    <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (8 KiB)</dt>
+    <dd>The two-implementation contract, and the only shared artifact between
+      the tracks. It defines the observation record: the phase reached, the
+      verdict, the diagnostics as code and span with no message, and the output
+      digest. Diagnostic wording is deliberately excluded, because wording is a
+      per-implementation concern and comparing it would manufacture
+      disagreements. The playground can show you a record for any program you
+      run. Anchors <code>[proto.*]</code>.</dd>
+
+    <dt><a href="/spec/07-schedule-points.md">07. Schedule Points</a> (10 KiB)</dt>
+    <dd>Where a schedule can make a decision, and the numbering a replayable
+      counterexample uses. Normative for shape and vocabulary, and append-only
+      from here. Anchors <code>[sched.*]</code>.</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>Extracted artifacts</h2>
+  <dl class="index">
+    <dt><a href="/spec/grammar.ebnf">grammar.ebnf</a> (9 KiB)</dt>
+    <dd>The grammar, extracted from document 01 by a command and checked in CI
+      to be in sync with the prose. The book's grammar appendix and the editor
+      highlighting both come from this file, so there is one lineage rather than
+      three transcriptions.</dd>
+    <dt><a href="/spec/anchors.json">anchors.json</a> (13 KiB)</dt>
+    <dd>The clause-anchor index: every stable anchor the documents define. Both
+      implementations validate their citations against it.</dd>
+    <dt><a href="/spec/README.md">README.md</a></dt>
+    <dd>The directory's own note on which sprint authored what.</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>Reading it against a program</h2>
+  <p>The conformance corpus is the specification's working end. Each program
+  states its own expected outcome in a header directive and lists the clauses it
+  conforms to, and CI in the compiler repository checks the claim on both
+  implementations. The <a href="/play/">playground</a> loads twenty-odd of those
+  programs with their headers intact, which is the shortest path from a clause
+  to a program that exercises it.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Copied from a pinned <a href="https://github.com/wolffe-lang/wolf-lang">wolf-lang</a>
+  checkout on every deploy. Sizes are from that checkout.</p>
+</footer>
+</body>
+</html>

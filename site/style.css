@@ -1,30 +1,230 @@
+/* lupp.us
+ *
+ * One stylesheet for every page. The nginx CSP is `style-src 'self'`, with no
+ * `unsafe-inline`, so there are no <style> blocks and no style attributes
+ * anywhere on the site: a state a page needs to show is a class it toggles.
+ *
+ * The palette follows the book's design contract (wolf-book
+ * principles/DESIGN.md): a warm near-white ground, near-black serif text, one
+ * measure, no decorative color. Color carries meaning here and nothing else,
+ * which is why a diagnostic is the only red on the page.
+ */
+
 :root {
   --ink: #1a1a1a;
   --paper: #fbfaf8;
   --muted: #5a5a5a;
   --rule: #d8d4cc;
   --link: #6b2020;
+  --code-bg: #f4f1ea;
+  --bad: #8c2b18;
+  --warn: #7a5a10;
+  --good: #2c5530;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --ink: #e8e6e1; --paper: #16161a; --muted: #a09a92; --rule: #34343c; --link: #d99a9a; }
+  :root {
+    --ink: #e8e6e1;
+    --paper: #16161a;
+    --muted: #a09a92;
+    --rule: #34343c;
+    --link: #d99a9a;
+    --code-bg: #1d1d23;
+    --bad: #e08c78;
+    --warn: #d4b464;
+    --good: #8fc196;
+  }
 }
+
 * { box-sizing: border-box; }
+
 body {
-  margin: 0 auto; padding: 2.5rem 1.25rem 4rem; max-width: 42rem;
-  background: var(--paper); color: var(--ink);
-  font: 16px/1.65 Charter, "Bitstream Charter", Georgia, serif;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  max-width: 42rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.65 Charter, "Bitstream Charter", "Sitka Text", "Iowan Old Style", Georgia, serif;
 }
+
+/* The playground needs room the prose pages do not. */
+body.wide { max-width: 60rem; }
+
 header { border-bottom: 1px solid var(--rule); padding-bottom: 1rem; margin-bottom: 1.5rem; }
 h1 { font-size: 2rem; margin: 0; letter-spacing: 0.02em; }
 .sub { color: var(--muted); margin: 0.35rem 0 0; }
 h2 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+h3 { font-size: 1rem; margin: 1.5rem 0 0.4rem; }
 a { color: var(--link); }
-code, pre { font-family: "Iosevka", "JetBrains Mono", ui-monospace, monospace; font-size: 0.9em; }
+
+code, pre, textarea, .mono {
+  font-family: "Source Code Pro", "Iosevka", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.9em;
+}
 pre {
-  background: color-mix(in srgb, var(--ink) 5%, transparent);
-  border: 1px solid var(--rule); border-radius: 3px;
-  padding: 0.75rem 0.9rem; overflow-x: auto;
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.75rem 0.9rem;
+  overflow-x: auto;
 }
 ul { padding-left: 1.2rem; }
-.aside { color: var(--muted); font-style: italic; border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: 1rem; }
-footer { border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: 1rem; color: var(--muted); font-size: 0.9rem; }
+li { margin: 0.25rem 0; }
+
+/* Site navigation: one line, present on every page but the front. */
+nav.site { margin: 0.6rem 0 0; font-size: 0.9rem; }
+nav.site a { margin-right: 0.9rem; }
+
+.aside {
+  color: var(--muted);
+  font-style: italic;
+  border-top: 1px solid var(--rule);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+}
+footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* A definition list used as an index of files: term is a link, description is
+ * one flat sentence about what the file is. */
+dl.index { margin: 0.5rem 0; }
+dl.index dt { margin-top: 0.9rem; font-weight: 600; }
+dl.index dd { margin: 0.1rem 0 0 0; color: var(--muted); }
+
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: 0.35rem 0.7rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+
+/* ------------------------------------------------------------------ */
+/* the playground                                                      */
+/* ------------------------------------------------------------------ */
+
+.pad { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 60rem) {
+  .pad { grid-template-columns: 1fr 1fr; }
+}
+
+.pane { min-width: 0; }
+.pane > h2 { margin-top: 0; }
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+}
+.bar .spacer { flex: 1 1 auto; }
+
+button, select {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.3rem 0.7rem;
+}
+button { cursor: pointer; }
+button:hover:not(:disabled), select:hover { border-color: var(--ink); }
+button:disabled { color: var(--muted); cursor: default; }
+button.primary { font-weight: 600; }
+
+kbd {
+  font-family: inherit;
+  font-size: 0.85em;
+  color: var(--muted);
+}
+
+/* The editor: a textarea with a line-number gutter beside it. Both scroll as
+ * one because the gutter mirrors the textarea's scrollTop. */
+.editor {
+  display: flex;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--code-bg);
+  overflow: hidden;
+}
+.gutter {
+  flex: 0 0 auto;
+  padding: 0.7rem 0.5rem 0.7rem 0.7rem;
+  margin: 0;
+  border-right: 1px solid var(--rule);
+  color: var(--muted);
+  text-align: right;
+  overflow: hidden;
+  white-space: pre;
+  user-select: none;
+  font-size: 0.9em;
+  line-height: 1.5;
+  font-family: "Source Code Pro", ui-monospace, monospace;
+}
+#source {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 26rem;
+  padding: 0.7rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  line-height: 1.5;
+  resize: vertical;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow: auto;
+  tab-size: 4;
+}
+#source:focus { outline: 2px solid var(--link); outline-offset: -2px; }
+
+/* Output blocks. Every one is empty until a run fills it, and an empty one is
+ * hidden rather than left as a labelled void. */
+.out { margin: 0 0 1rem; }
+.out > h3 { margin: 0 0 0.3rem; }
+.out pre { margin: 0; white-space: pre-wrap; word-break: break-word; }
+.hidden { display: none; }
+
+.verdict {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-left-width: 3px;
+  border-radius: 3px;
+  background: var(--code-bg);
+  font-size: 0.9rem;
+}
+.verdict .v { font-weight: 600; font-family: "Source Code Pro", ui-monospace, monospace; }
+.verdict .k { color: var(--muted); }
+.verdict.ok { border-left-color: var(--good); }
+.verdict.fault { border-left-color: var(--bad); }
+.verdict.declined { border-left-color: var(--warn); }
+
+/* The caret ruler under a diagnostic only lines up if the line is not wrapped. */
+#out-span pre { white-space: pre; overflow-x: auto; word-break: normal; }
+
+pre.diag { color: var(--bad); }
+pre.warn { color: var(--warn); }
+.note { color: var(--muted); font-size: 0.9rem; }
+
+/* The banner the page shows when the interpreter could not be loaded, and the
+ * one it shows while loading. Neither is decorative. */
+.banner {
+  margin: 0 0 1.5rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--warn);
+  border-radius: 3px;
+  background: var(--code-bg);
+  font-size: 0.95rem;
+}
+.banner.broken { border-left-color: var(--bad); }
+.banner p { margin: 0.4rem 0; }
+.banner p:first-child { margin-top: 0; }
+.banner p:last-child { margin-bottom: 0; }

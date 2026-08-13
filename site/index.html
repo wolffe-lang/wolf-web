@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>wolf</title>
+<meta name="description" content="Wolf is a compiled systems language. Memory lives in regions the compiler infers, so a program carries no lifetime annotations.">
 <link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/wolf.svg" type="image/svg+xml">
 </head>
 <body>
 <header>
   <h1>wolf</h1>
   <p class="sub">A compiled systems language. Pre-alpha; the surface still moves.</p>
+  <nav class="site">
+    <a href="/">wolf</a>
+    <a href="/play/">playground</a>
+    <a href="/reading/">the book</a>
+    <a href="/docs/">docs</a>
+    <a href="/spec/">spec</a>
+  </nav>
 </header>
 
 <main>
@@ -20,45 +29,96 @@
   access safe, and the aliasing that falls out of that is information the
   optimizer gets to use. Arithmetic is checked in every profile, including
   release.</p>
+
+<pre><code>fn fill(n: int) -&gt; List[int] {
+    var xs = List[int]()           // lands in the caller's current region
+    for i in 0..n { (mut xs).push(i) }
+    xs
+}
+
+fn main() -&gt; !int {
+    var total = 0
+    region tmp {
+        let xs = fill(100)         // allocated in tmp [mem.region.create.3]
+        for x in xs { total += x }
+    }                              // wholesale free [mem.region.intra.2]
+    if total == 4950 { 0 } else { 1 }
+}</code></pre>
+
+  <p>That is <code>corpus/memory/region_ambient_ok.lu</code>, verbatim below its
+  header. The callee allocates into the caller's region, so the list lives in
+  <code>tmp</code> and dies with it, and the bracketed names in the comments are
+  the specification clauses the program is pinned to.
+  <a href="/play/">Run it in the browser</a>, along with twenty-odd other
+  programs from the same corpus.</p>
 </section>
 
 <section>
   <h2>What runs today</h2>
   <p>v0.1.0 is tagged, under the codename wolfgang. <code>wolf build</code> and
   <code>wolf run</code> compile <code>.lu</code> source to native machine code
-  through the compiler's own backend. <code>wolf build --release</code> goes
-  through LLVM instead. Both tiers agree on every corpus program that runs.</p>
-  <p>There is a second implementation: <code>lupin</code>, a reference
-  interpreter written against the same specification and sharing no code with
-  the compiler. The two are compared program by program, and neither is allowed
-  to disagree with the other in silence.</p>
-  <p>The performance claim the project set for itself, beating
-  <code>clang -O3</code> on a kernel suite, does not hold yet. The measurements
-  are published with the code, including the ones that refute it.</p>
+  through the compiler's own backend, with no LLVM in the loop.
+  <code>wolf build --release</code> goes through LLVM instead. Both tiers
+  produce the same verdict and the same output on every corpus program they
+  both execute, and CI holds a floor under how many that is, so the comparison
+  cannot quietly shrink to nothing.</p>
+
+  <p>There is a second implementation. <code>lupin</code> is a reference
+  interpreter written against the same specification, sharing no code with the
+  compiler; the two are compared program by program through a published
+  observation protocol. Neither is allowed to disagree with the other in
+  silence. The playground on this site runs that interpreter, compiled to
+  WebAssembly.</p>
+
+  <p>The performance goal the project set for itself, beating naive
+  <code>clang -O3</code> across a kernel suite, does not hold. The most recent
+  measurement puts the suite geometric mean at 0.191 of that baseline, with
+  three kernels ahead, one level, and nine behind by more than ten percent. The
+  measurements ship with the code, including the ones that refute the goal, and
+  the protocol for reproducing them ships beside them.</p>
+
+  <p>There are no macros; compile-time evaluation and reflection are the
+  metaprogramming tier. There is no package registry.</p>
 </section>
 
 <section>
   <h2>Getting it</h2>
 <pre><code>git clone https://github.com/wolffe-lang/wolf-lang
 cd wolf-lang
-cargo xtask install</code></pre>
-  <p>That puts <code>wolf</code> and the runtime library where the compiler can
-  find them. The <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases
-  page</a> carries a linux x86-64 archive if you would rather not build it.</p>
+cargo build --release -p wolf_driver
+./target/release/wolf run corpus/hello.lu</code></pre>
+  <p>That prints <code>hello, wolf</code>. To put the toolchain on your path
+  instead, <code>cargo xtask install</code> copies both artifacts to
+  <code>~/.local/bin</code>: the <code>wolf</code> binary and the runtime
+  archive it links programs against. The binary cannot link anything without
+  the archive beside it, which is why the install step exists.</p>
+  <p>The toolchain pin is Rust 1.97.1, recorded in
+  <code>rust-toolchain.toml</code>, and rustup honors it on the first
+  <code>cargo</code> invocation. There are no build scripts anywhere in the
+  wolf ecosystem. CI builds and tests linux x86-64 and aarch64, macOS aarch64,
+  and windows x86-64. Tagged builds upload archives to the
+  <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>;
+  the packaging around them is a stub, so building from source is the path that
+  is known to work.</p>
 </section>
 
 <section>
   <h2>Reading</h2>
-  <ul>
-    <li><a href="/book/">The book</a>, which is written against a pinned
-      toolchain and re-verified whenever that pin moves.</li>
-    <li><a href="/docs/">Diagnostics and the standard library</a>, both
-      generated from the compiler rather than maintained by hand.</li>
-    <li><a href="/spec/">The specification</a>, which is normative; the two
-      implementations are readings of it.</li>
-    <li><a href="https://github.com/wolffe-lang">The source</a>, all of it,
-      including the issue tracker where the open problems live.</li>
-  </ul>
+  <dl class="index">
+    <dt><a href="/reading/">The Wolf Book</a></dt>
+    <dd>The language text. Every sample in it is executed by CI against a
+      pinned toolchain.</dd>
+    <dt><a href="/play/">The playground</a></dt>
+    <dd>The reference interpreter in your browser, with corpus programs to
+      load.</dd>
+    <dt><a href="/docs/">Diagnostics and warnings</a></dt>
+    <dd>Both catalogues, generated from the compiler's own registry.</dd>
+    <dt><a href="/spec/">The specification</a></dt>
+    <dd>Normative. Both implementations are readings of it.</dd>
+    <dt><a href="https://github.com/wolffe-lang">The source</a></dt>
+    <dd>All of it, including the issue tracker where the open problems and the
+      known divergences live.</dd>
+  </dl>
 </section>
 
 <section class="aside">
@@ -69,7 +129,9 @@ cargo xtask install</code></pre>
 
 <footer>
   <p>GPL-3.0-or-later, with a runtime exception: programs you compile with wolf
-  are yours, under any license you choose.</p>
+  are yours, under any license you choose. This site is built from pinned
+  checkouts of the compiler, the interpreter and the book, so a page here
+  cannot claim a version of wolf that does not exist.</p>
 </footer>
 </body>
 </html>

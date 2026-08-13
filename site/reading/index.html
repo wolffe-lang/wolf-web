@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the book · wolf</title>
+<meta name="description" content="The Wolf Book: the language text, with every sample executed by CI against a pinned toolchain.">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/wolf.svg" type="image/svg+xml">
+</head>
+<body>
+<header>
+  <h1>The Wolf Book</h1>
+  <p class="sub">The language text. Every sample in it was executed by CI.</p>
+  <nav class="site">
+    <a href="/">wolf</a>
+    <a href="/play/">playground</a>
+    <a href="/reading/">the book</a>
+    <a href="/docs/">docs</a>
+    <a href="/spec/">spec</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <p><a href="/book/"><strong>Read the book</strong></a>. It is set to look like
+  a printed page: white ground, one measure, no chrome.</p>
+
+  <p>Twenty-seven of the thirty-two chapters are written. Five are reserved and
+  each says so on its own page: chapters 19, 20 and 21 need a benchmark
+  instrument the toolchain does not ship, chapter 25 needs an edition mechanism
+  and a publish client, and chapter 29 needs two collection types to execute on
+  one lane. Chapters 13 and 23 reserve sections for the same kind of reason.</p>
+</section>
+
+<section>
+  <h2>The parts</h2>
+  <dl class="index">
+    <dt><a href="/book/ch01.html">Foundations</a> (1–6)</dt>
+    <dd>Hello, wolf. Strings, honestly. Values and expressions. Functions.
+      Collections and generics. Errors are values.</dd>
+    <dt><a href="/book/ch07.html">Memory</a> (7–9)</dt>
+    <dd>Who owns this. Regions, and memory in the shape you meant. The escape
+      hatch as a door.</dd>
+    <dt><a href="/book/ch10.html">Concurrency</a> (10–17)</dt>
+    <dd>Spawning is a scope. Scopes as values. Channels and select. Procs as
+      the unit of failure. Link, monitor, supervision. Region transfer. A
+      failing schedule, replayed.</dd>
+    <dt><a href="/book/ch18.html">Systems</a> (18–25)</dt>
+    <dd>Comptime, one tier and no macros. Perf contracts. Modules and the shape
+      of a project. Packages. The covenant against build scripts.</dd>
+    <dt><a href="/book/ch26.html">Projects</a> (26–32)</dt>
+    <dd>Six programs written twice, and a coda about the allocator you never
+      needed.</dd>
+  </dl>
+  <p>The back matter carries a grammar summary, the trap vocabulary, the
+  diagnostic catalogue, a specification cross-reference, solutions to every
+  printed exercise, a glossary and an errata page. Section numbers are the page
+  anchors, so <code>/book/ch08.html#8.4</code> is a stable link.</p>
+</section>
+
+<section>
+  <h2>How its claims are held</h2>
+  <p>No code appears in the book that CI did not execute. Samples are extracted
+  from the prose and run; console blocks are replayed against the pinned tools
+  and compared byte for byte; a claim about undefined behavior has to be
+  reproduced by both implementations before it can be printed, because one
+  implementation alone is not evidence. A verification lane checks the softer
+  things too: corpus counts, chapter numbering against the table of contents,
+  clause tags, diagnostic codes, and whether every printed exercise has a
+  published solution.</p>
+  <p>The book is written against a toolchain pin, recorded in the repository.
+  Where the toolchain and the book disagree, the book waits.</p>
+</section>
+
+<section>
+  <h2>Licensing</h2>
+  <p>The code samples are GPL-3.0-or-later with the runtime exception, matching
+  the runtime library, so code you take from the book into your own programs is
+  yours. The license for the prose is proposed as CC BY 4.0 and is not settled;
+  the repository is the authority for both.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>The book is rendered from a pinned checkout of
+  <a href="https://github.com/wolffe-lang/wolf-book">wolf-book</a> on every
+  deploy. If the render fails, the page under <a href="/book/">/book/</a> says
+  so rather than serving a stale copy.</p>
+</footer>
+</body>
+</html>
