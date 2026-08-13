@@ -1,0 +1,9 @@
+[submodule "book"]
+	path = upstream/wolf-book
+	url = https://github.com/wolffe-lang/wolf-book.git
+[submodule "interp"]
+	path = upstream/wolf-interp
+	url = https://github.com/wolffe-lang/wolf-interp.git
+[submodule "lang"]
+	path = upstream/wolf-lang
+	url = https://github.com/wolffe-lang/wolf-lang.git
