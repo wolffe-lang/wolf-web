@@ -1,0 +1,30 @@
+:root {
+  --ink: #1a1a1a;
+  --paper: #fbfaf8;
+  --muted: #5a5a5a;
+  --rule: #d8d4cc;
+  --link: #6b2020;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #e8e6e1; --paper: #16161a; --muted: #a09a92; --rule: #34343c; --link: #d99a9a; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto; padding: 2.5rem 1.25rem 4rem; max-width: 42rem;
+  background: var(--paper); color: var(--ink);
+  font: 16px/1.65 Charter, "Bitstream Charter", Georgia, serif;
+}
+header { border-bottom: 1px solid var(--rule); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+h1 { font-size: 2rem; margin: 0; letter-spacing: 0.02em; }
+.sub { color: var(--muted); margin: 0.35rem 0 0; }
+h2 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+a { color: var(--link); }
+code, pre { font-family: "Iosevka", "JetBrains Mono", ui-monospace, monospace; font-size: 0.9em; }
+pre {
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  border: 1px solid var(--rule); border-radius: 3px;
+  padding: 0.75rem 0.9rem; overflow-x: auto;
+}
+ul { padding-left: 1.2rem; }
+.aside { color: var(--muted); font-style: italic; border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: 1rem; }
+footer { border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: 1rem; color: var(--muted); font-size: 0.9rem; }

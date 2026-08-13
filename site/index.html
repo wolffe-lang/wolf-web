@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wolf</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>wolf</h1>
+  <p class="sub">A compiled systems language. Pre-alpha; the surface still moves.</p>
+</header>
+
+<main>
+<section>
+  <p>Memory lives in regions the compiler infers, so a program carries no
+  lifetime annotations. Allocation goes through arenas by default. A region
+  moves between tasks instead of being shared, which is what keeps concurrent
+  access safe, and the aliasing that falls out of that is information the
+  optimizer gets to use. Arithmetic is checked in every profile, including
+  release.</p>
+</section>
+
+<section>
+  <h2>What runs today</h2>
+  <p>v0.1.0 is tagged, under the codename wolfgang. <code>wolf build</code> and
+  <code>wolf run</code> compile <code>.lu</code> source to native machine code
+  through the compiler's own backend. <code>wolf build --release</code> goes
+  through LLVM instead. Both tiers agree on every corpus program that runs.</p>
+  <p>There is a second implementation: <code>lupin</code>, a reference
+  interpreter written against the same specification and sharing no code with
+  the compiler. The two are compared program by program, and neither is allowed
+  to disagree with the other in silence.</p>
+  <p>The performance claim the project set for itself, beating
+  <code>clang -O3</code> on a kernel suite, does not hold yet. The measurements
+  are published with the code, including the ones that refute it.</p>
+</section>
+
+<section>
+  <h2>Getting it</h2>
+<pre><code>git clone https://github.com/wolffe-lang/wolf-lang
+cd wolf-lang
+cargo xtask install</code></pre>
+  <p>That puts <code>wolf</code> and the runtime library where the compiler can
+  find them. The <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases
+  page</a> carries a linux x86-64 archive if you would rather not build it.</p>
+</section>
+
+<section>
+  <h2>Reading</h2>
+  <ul>
+    <li><a href="/book/">The book</a>, which is written against a pinned
+      toolchain and re-verified whenever that pin moves.</li>
+    <li><a href="/docs/">Diagnostics and the standard library</a>, both
+      generated from the compiler rather than maintained by hand.</li>
+    <li><a href="/spec/">The specification</a>, which is normative; the two
+      implementations are readings of it.</li>
+    <li><a href="https://github.com/wolffe-lang">The source</a>, all of it,
+      including the issue tracker where the open problems live.</li>
+  </ul>
+</section>
+
+<section class="aside">
+  <p>Bruckner revised the same symphony for twenty years and left several
+  versions behind. This is version 0.1.0.</p>
+</section>
+</main>
+
+<footer>
+  <p>GPL-3.0-or-later, with a runtime exception: programs you compile with wolf
+  are yours, under any license you choose.</p>
+</footer>
+</body>
+</html>

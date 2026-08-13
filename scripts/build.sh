@@ -28,7 +28,8 @@ rm -rf "$DIST"
 mkdir -p "$DIST"
 
 step "Static site"
-rsync -a --exclude 'play/vendor/.gitkeep' site/ "$DIST"/
+test -d site || { echo "site/ is missing — nothing to serve" >&2; exit 1; }
+rsync -a site/ "$DIST"/
 
 step "The book (web edition)"
 if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null 2>&1); then
