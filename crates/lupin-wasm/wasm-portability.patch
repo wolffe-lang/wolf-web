@@ -1,0 +1,220 @@
+# wasm portability for lupin — applied to a COPY, never to the submodule.
+#
+# The pinned reference interpreter cannot be compiled to wasm as it stands.
+# Three things it does on the mandatory path have no implementation on
+# wasm32-unknown-unknown, and each one aborts the module rather than failing:
+#
+#   1. `parse::parse` runs the recursive descent on a 64 MiB thread, so the
+#      depth-256 nesting rail rather than the stack is what stops hostile
+#      input. `std::thread::Builder::spawn_scoped` reports the operation
+#      unsupported on wasm and the `expect` beside it aborts.
+#   2. `eval::Machine::run` does the same for the tree walk, for the same
+#      reason, with the same result.
+#   3. `Shared`'s `epoch: std::time::Instant` is built eagerly for every
+#      run, and `Instant::now` panics on wasm.
+#
+# All three were confirmed by compiling the pattern to wasm and calling it:
+# each traps with `unreachable`. There is no way to reach around them from an
+# embedding crate, because they are inside the interpreter and the failing
+# call is inside `std`.
+#
+# This patch gates the three on `target_family = "wasm"` and declines, by
+# name, the two tiers that genuinely need a thread (tasks, procs) and the one
+# that needs a clock (s40's time trio). A declined tier reports verdict
+# `unsupported` with its reason, which is the posture
+# `[proto.record.unsupported]` already defines for everything outside the
+# implementation's scope. Nothing is faked: a guessed clock would report
+# numbers no wolf program should trust.
+#
+# Verified: clean under `cargo fmt --check`, clean under
+# `RUSTFLAGS=-D warnings cargo check --all-targets` on native, and clean
+# under `-D warnings` for wasm32-unknown-unknown.
+#
+# Pinned against wolf-interp c11c5eddbb9c1d5e963266e72c103ec17e036308
+# (v0.1.10). scripts/build-wasm.sh refuses to guess if the pin moves and the
+# patch stops applying.
+#
+# THIS FILE SHOULD STOP EXISTING. It belongs upstream in wolf-interp, where
+# the three gates are a portability fix worth having on its own terms. Once it
+# lands and the submodule pin moves past it, build-wasm.sh detects that the
+# tree already carries the gates and skips this file; delete it then.
+
+diff -ruN orig/src/eval/builtin.rs work/src/eval/builtin.rs
+--- a/src/eval/builtin.rs
++++ b/src/eval/builtin.rs
+@@ -301,9 +301,22 @@
+             "`{name}` is the s40 process trio (exec surface); this machine runs no child \
+              processes by design, so the tier is declined rather than mocked"
+         )),
++        // The time trio needs a clock and a way to block, and wasm has
++        // neither to call: `Instant`, `SystemTime` and `thread::sleep` all
++        // abort the module. A guessed clock would make the tier *look*
++        // present and report numbers no wolf program should trust, so the
++        // surface is declined here exactly as the process trio is declined
++        // above (`[proto.record.unsupported]`).
++        #[cfg(target_family = "wasm")]
++        "time_now_ms" | "time_sleep_ms" | "time_unix_ms" => unsupported(format!(
++            "`{name}` is s40's time v0; this wasm build has no clock to read and no way to \
++             block, so the tier is declined rather than mocked"
++        )),
+         // time v0 (s40, the X12 posture): monotonic ms from a process-local
+         // anchor — values compare and subtract, never wall timestamps.
++        #[cfg(not(target_family = "wasm"))]
+         "time_now_ms" => Ok(Value::Int(machine.monotonic_ms(), IntTy::INT)),
++        #[cfg(not(target_family = "wasm"))]
+         "time_sleep_ms" => {
+             let Some(Value::Int(ms, _)) = args.first() else {
+                 return unsupported("`time_sleep_ms` takes a duration in ms".to_owned());
+@@ -314,6 +327,7 @@
+             }
+             Ok(Value::Unit)
+         }
++        #[cfg(not(target_family = "wasm"))]
+         "time_unix_ms" => {
+             let ms = std::time::SystemTime::now()
+                 .duration_since(std::time::UNIX_EPOCH)
+diff -ruN orig/src/eval/conc.rs work/src/eval/conc.rs
+--- a/src/eval/conc.rs
++++ b/src/eval/conc.rs
+@@ -200,6 +200,7 @@
+     /// at construction (`[gram.expr.closure]`); D14's capture rules are the
+     /// type checker's half (E1101), and the dynamic consequence — a task
+     /// writes its own copies — is recorded in the approximation contract.
++    #[cfg_attr(target_family = "wasm", allow(unreachable_code))]
+     pub(super) fn spawn_closure_task(
+         &mut self,
+         scope: ScopeId,
+@@ -212,6 +213,18 @@
+                  or channels",
+             );
+         }
++        // A task is an OS thread here (`[conc.task.model]`'s dynamic reading),
++        // and wasm has none to spawn. Declining is the honest answer: the
++        // alternative is a second, guessed scheduler for one platform, and
++        // `[proto.record.unsupported]` exists for exactly this.
++        #[cfg(target_family = "wasm")]
++        {
++            let _ = (scope, span);
++            return unsupported(
++                "the task tier needs one OS thread per task, and this wasm build has none to \
++                 spawn; run the program under `lupin` for the concurrency rungs",
++            );
++        }
+         let proc = self.shared.sched.proc_of(self.task);
+         let name = format!("task@{}", span.start);
+         let ambient = self.store().current();
+@@ -313,12 +326,23 @@
+     /// `spawn proc worker(args)` (`[conc.proc.1]`, `[conc.task.root]`): a
+     /// failure domain under the root supervisor, owning a fresh region its
+     /// allocations land in.
++    #[cfg_attr(target_family = "wasm", allow(unreachable_code))]
+     pub(super) fn eval_spawn_proc(
+         &mut self,
+         path: &crate::ast::Path,
+         args: &[Arg],
+         span: Span,
+     ) -> EResult<Value> {
++        // A proc's root task is an OS thread, as a task's is; see
++        // `spawn_closure_task` for why wasm declines rather than mocks.
++        #[cfg(target_family = "wasm")]
++        {
++            let _ = (path, args, span);
++            return unsupported(
++                "the proc tier needs an OS thread per proc, and this wasm build has none to \
++                 spawn; run the program under `lupin` for the supervision rungs",
++            );
++        }
+         let current_module = self
+             .frames
+             .last()
+diff -ruN orig/src/eval/mod.rs work/src/eval/mod.rs
+--- a/src/eval/mod.rs
++++ b/src/eval/mod.rs
+@@ -391,6 +391,12 @@
+     env: Arc<Mutex<BTreeMap<String, String>>>,
+     /// s40 time v0 (X12): `time_now_ms`'s process-local monotonic anchor —
+     /// values compare and subtract; they are never wall timestamps.
++    ///
++    /// Absent on wasm, where `Instant::now` has no implementation to call and
++    /// aborts the module. The anchor cannot be faked without inventing a clock,
++    /// so `time_now_ms` reports `unsupported` there instead (see
++    /// [`super::eval::builtin`]) and the conservatism ledger stays truthful.
++    #[cfg(not(target_family = "wasm"))]
+     epoch: std::time::Instant,
+ }
+ 
+@@ -490,6 +496,7 @@
+             live_stdout: false,
+             repl_types: Arc::new(Mutex::new(BTreeMap::new())),
+             env: Arc::new(Mutex::new(BTreeMap::new())),
++            #[cfg(not(target_family = "wasm"))]
+             epoch: std::time::Instant::now(),
+         };
+         Machine::for_task(shared, 0, BTreeMap::new())
+@@ -550,9 +557,25 @@
+     /// does not fold must come back as `unsupported`, not as a SIGSEGV. The
+     /// reservation is address space; only the pages the descent touches are
+     /// committed.
++    #[cfg_attr(
++        target_family = "wasm",
++        expect(dead_code, reason = "no thread to size")
++    )]
+     const RUN_STACK: usize = 64 * 1024 * 1024;
+ 
++    /// Runs the program's `main`, on the ambient stack.
++    ///
++    /// The wasm half of the [`Machine::RUN_STACK`] bargain: there is no thread
++    /// to size, so the embedder reserves the stack at link time
++    /// (`-C link-arg=-zstack-size=…`) and a runaway program still meets the
++    /// machine's own 512-activation and fuel rails first.
++    #[cfg(target_family = "wasm")]
++    pub fn run(self) -> Run {
++        self.run_on_this_stack()
++    }
++
+     /// Runs the program's `main`, on a stack this machine chose.
++    #[cfg(not(target_family = "wasm"))]
+     pub fn run(self) -> Run {
+         std::thread::scope(|scope| {
+             std::thread::Builder::new()
+@@ -729,6 +752,7 @@
+     }
+ 
+     /// s40 time v0: milliseconds since the process-local monotonic anchor.
++    #[cfg(not(target_family = "wasm"))]
+     pub(crate) fn monotonic_ms(&self) -> i128 {
+         i128::try_from(self.shared.epoch.elapsed().as_millis()).unwrap_or(i128::MAX)
+     }
+diff -ruN orig/src/parse.rs work/src/parse.rs
+--- a/src/parse.rs
++++ b/src/parse.rs
+@@ -191,6 +191,10 @@
+ /// 1 MiB on Windows), [`parse`] runs the descent on a thread whose stack it
+ /// chose. The reservation is address space, not memory: only the pages the
+ /// descent actually touches are ever committed.
++#[cfg_attr(
++    target_family = "wasm",
++    expect(dead_code, reason = "no thread to size")
++)]
+ const PARSE_STACK: usize = 64 * 1024 * 1024;
+ 
+ /// Parses an already-lexed token stream.
+@@ -202,6 +206,18 @@
+ ///
+ /// The first parse failure, as a `{code, span, anchor, message}` diagnostic.
+ /// There is never a second: this parser does not recover.
++/// On wasm there is no thread to borrow a stack from: `std::thread::Builder`
++/// reports the operation unsupported and the `expect` below would abort the
++/// module. The descent runs on the ambient stack instead, and the embedder
++/// reserves it at link time (`-C link-arg=-zstack-size=…`), which is the same
++/// bargain — a chosen reservation rather than the platform's default — reached
++/// through the only lever wasm offers.
++#[cfg(target_family = "wasm")]
++pub fn parse(lexed: &Lexed) -> Result<Parsed, Diag> {
++    parse_on_this_stack(lexed)
++}
++
++#[cfg(not(target_family = "wasm"))]
+ pub fn parse(lexed: &Lexed) -> Result<Parsed, Diag> {
+     std::thread::scope(|scope| {
+         std::thread::Builder::new()

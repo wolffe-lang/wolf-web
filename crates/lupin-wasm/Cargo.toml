@@ -1,0 +1,42 @@
+# The playground's bridge: the pinned reference interpreter, compiled to
+# WebAssembly, behind a byte-buffer ABI the page's JS can call.
+#
+# This crate holds no language logic. Every answer it returns comes from
+# `wolf_interp`; the crate's whole job is to move UTF-8 across the wasm
+# boundary and to render the verdict the way `lupin` renders it at a terminal.
+#
+# There is no wasm-bindgen and no npm here on purpose (see build-wasm.sh):
+# a plain `cdylib` over four exported functions keeps the toolchain to cargo
+# and lets the site's CSP stay at `'self' 'wasm-unsafe-eval'`.
+
+[package]
+name = "lupin-wasm"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.97.1"
+license = "GPL-3.0-or-later"
+description = "WebAssembly bridge for lupin, the wolf reference interpreter."
+publish = false
+
+# Its own workspace root: this crate is built by scripts/build-wasm.sh out of
+# a staging tree, and it must not adopt a workspace from an ancestor.
+[workspace]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wolf-interp = { path = "../../upstream/wolf-interp" }
+serde_json = "1"
+
+[profile.release]
+# Size, in the order it pays: one codegen unit and fat LTO let the linker drop
+# the interpreter's tool surface (the differ, the exporter, the corpus walker),
+# none of which the playground calls. `panic = "abort"` because
+# wasm32-unknown-unknown cannot unwind anyway — a panic is a trap, and the
+# page's glue reports it as one rather than pretending to catch it.
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true

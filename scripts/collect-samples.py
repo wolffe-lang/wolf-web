@@ -1,0 +1,175 @@
+#!/usr/bin/env python3
+"""Collect playground sample programs from the pinned conformance corpus.
+
+    usage: scripts/collect-samples.py <corpus-dir> <out-dir>
+
+Every program the playground offers is a real corpus program, copied verbatim
+from the pinned `upstream/wolf-lang` checkout, header comment and all. The
+header is the point: each corpus file states its own expected outcome in a
+`//!` directive block, and CI in the compiler repo checks that claim. A reader
+who loads a sample gets the program *and* the sentence saying what it is
+supposed to do, from the same file, so the page cannot describe a program it is
+not showing.
+
+Nothing here is written by hand except the running order. `SAMPLES` names which
+corpus paths appear and in what sequence, because a menu ordered
+`allow_unknown_code, as_view_consuming, assert_fails, ...` teaches nobody
+anything. The bytes come from the corpus.
+
+Selection, and what is left out
+-------------------------------
+
+Only `phase: run` programs are candidates: the directive means the program is
+expected to execute, and the playground can only execute. Three groups of
+`phase: run` programs are deliberately absent, because the interpreter in the
+browser reports `unsupported` for them and a menu entry that cannot run is a
+menu entry that looks broken:
+
+  corpus/fs, corpus/net, corpus/os/args_cwd, corpus/projects/count
+      The filesystem and network tiers. `lupin` declines these by design on
+      every platform, not only in a browser: it opens no files and no sockets.
+
+  corpus/conc (most), corpus/procs.lu, corpus/test/conc_schedules_test.lu
+      Tasks and procs. The interpreter gives each task an OS thread, and the
+      wasm build has none to give. Three `conc` programs that never actually
+      spawn do run, and two of them are in the list below.
+
+  corpus/comptime, corpus/time
+      Compile-time evaluation, which the interpreter has not implemented, and
+      the s40 time trio, which needs a clock the browser build cannot reach.
+
+That leaves 106 candidates, of which 88 run and 14 trap on purpose. The list
+below is a spread across those, kept short enough to read in one glance.
+"""
+
+from __future__ import annotations
+
+import json
+import re
+import sys
+from pathlib import Path
+
+# (corpus path, the label the menu shows). Order is the running order: the
+# first entry is what the playground opens with.
+SAMPLES: list[tuple[str, str]] = [
+    ("hello.lu", "hello, wolf"),
+    ("strings/interp_value_position.lu", "interpolation"),
+    ("strings/format_spec_width.lu", "format specs"),
+    ("strings/builtin_methods.lu", "string methods"),
+    ("grammar/interp_nested.lu", "strings inside strings"),
+    ("memory/region_ambient_ok.lu", "a scratch region"),
+    ("memory/region_freeze_ok.lu", "regions as values, and freeze"),
+    ("memory/region_infer_list_builder.lu", "inferred regions"),
+    ("memory/move_ok.lu", "move, take, copy"),
+    ("memory/defer_order.lu", "defer runs backwards"),
+    ("memory/exclusivity.lu", "exclusivity, checked at run time"),
+    ("typecheck/receiver_modes.lu", "call-site mut and take"),
+    ("typecheck/match_exhaustive.lu", "match, exhaustively"),
+    ("rows/else_tag_payload.lu", "errors are values"),
+    ("rows/eu_main_err_exit.lu", "an error out of main"),
+    ("faults/overflow_add.lu", "arithmetic traps (overflow)"),
+    ("faults/div_zero_rem.lu", "arithmetic traps (divide by zero)"),
+    ("faults/bounds_slice.lu", "a bad slice traps"),
+    ("lints/mut_in_interp.lu", "a warning"),
+    ("conc/chan_drain_after_inclusive_loop.lu", "a channel"),
+    ("io/eprint.lu", "stdout and stderr"),
+    ("os/exit_code.lu", "exit codes"),
+    ("projects/rpn.lu", "a calculator"),
+    ("projects/wordtree.lu", "counting words"),
+]
+
+# A directive line is `//! key: value`; the rest of the `//!` block is prose.
+DIRECTIVE = re.compile(r"^//!\s*(check|phase|conforms|member)\s*:\s*(.*)$")
+
+
+def read_header(source: str) -> dict[str, str]:
+    """Read a corpus file's `//!` directives.
+
+    The prose in the same block is deliberately not extracted. It stays in the
+    file, where the reader sees it in the editor, and it is written for
+    contributors: it cites sprint numbers and internal decision ids that have
+    no business appearing as page copy.
+    """
+    directives: dict[str, str] = {}
+    for line in source.splitlines():
+        if not line.startswith("//!"):
+            # The block is contiguous and comes first, so the first line that
+            # is not part of it ends the header.
+            if directives:
+                break
+            continue
+        found = DIRECTIVE.match(line)
+        if found:
+            directives[found.group(1)] = found.group(2).strip()
+    return directives
+
+
+def main() -> int:
+    if len(sys.argv) != 3:
+        print(__doc__.strip().splitlines()[2].strip(), file=sys.stderr)
+        return 2
+
+    corpus, out = Path(sys.argv[1]), Path(sys.argv[2])
+    if not corpus.is_dir():
+        print(f"collect-samples: {corpus} is not a directory", file=sys.stderr)
+        return 1
+    out.mkdir(parents=True, exist_ok=True)
+
+    index = []
+    missing = []
+    for corpus_path, title in SAMPLES:
+        source_file = corpus / corpus_path
+        if not source_file.is_file():
+            missing.append(corpus_path)
+            continue
+
+        source = source_file.read_text(encoding="utf-8")
+        directives = read_header(source)
+
+        # The whole selection rests on this directive. If the corpus moved a
+        # program off the run rung, saying so is more useful than shipping it.
+        if directives.get("phase") != "run":
+            missing.append(f"{corpus_path} (phase: {directives.get('phase', 'absent')})")
+            continue
+
+        name = corpus_path.replace("/", "-")
+        (out / name).write_text(source, encoding="utf-8")
+        index.append(
+            {
+                "name": name,
+                "title": title,
+                "corpus_path": f"corpus/{corpus_path}",
+                # The program's own claim about itself, verbatim from its
+                # header. The page shows it next to what actually happened.
+                "check": directives.get("check", ""),
+                "phase": directives.get("phase", ""),
+                "conforms": [
+                    anchor.strip()
+                    for anchor in directives.get("conforms", "").split(",")
+                    if anchor.strip()
+                ],
+                "bytes": len(source.encode("utf-8")),
+            }
+        )
+
+    (out / "index.json").write_text(
+        json.dumps({"samples": index}, indent=2) + "\n", encoding="utf-8"
+    )
+
+    print(f"  samples: {len(index)} programs from the pinned corpus")
+    if missing:
+        # Loud, but not fatal: a site with 20 samples instead of 23 is still a
+        # site, and the build should not stop for it. The pin moved under the
+        # list and someone needs to look.
+        print(
+            f"  samples: {len(missing)} listed program(s) no longer match the pin "
+            f"— update SAMPLES in scripts/collect-samples.py:",
+            file=sys.stderr,
+        )
+        for item in missing:
+            print(f"    {item}", file=sys.stderr)
+    return 0 if index else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
