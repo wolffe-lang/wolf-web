@@ -19,10 +19,25 @@ DIST="$ROOT/dist"
 
 step() { printf '\n▶ %s\n' "$1"; }
 
-test -f upstream/wolf-interp/Cargo.toml || {
-  echo "submodules are empty — run: git submodule update --init --recursive" >&2
+# Sync the submodules to the revisions this repo pins. `git pull` does not
+# move a submodule, so without this a checkout can build yesterday's
+# interpreter while version.json reports today's pin: the site would be
+# lying about what it serves, quietly, which is the one thing it must not
+# do.
+step "Submodules at their pinned revisions"
+git submodule update --init --recursive --quiet || {
+  echo "could not sync submodules" >&2
   exit 1
 }
+for m in wolf-book wolf-interp wolf-lang; do
+  want=$(git ls-tree HEAD "upstream/$m" | awk '{print $3}')
+  have=$(git -C "upstream/$m" rev-parse HEAD 2>/dev/null || echo none)
+  if [[ "$want" != "$have" ]]; then
+    echo "upstream/$m is at ${have:0:7}, the pin says ${want:0:7}" >&2
+    exit 1
+  fi
+  echo "  $m ${have:0:7}"
+done
 
 rm -rf "$DIST"
 mkdir -p "$DIST"
