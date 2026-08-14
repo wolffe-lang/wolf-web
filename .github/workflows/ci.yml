@@ -1,0 +1,73 @@
+name: CI
+on:
+  push: {branches: [trunk]}
+  pull_request:
+
+jobs:
+  build:
+    name: build the site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with: {submodules: recursive}
+
+      # The pins are the site's honesty guarantee: a page may not claim a
+      # version of wolf that does not exist. Check them before anything
+      # else, because everything else is generated from them.
+      - name: submodule pins match their gitlinks
+        run: |
+          for m in wolf-book wolf-interp wolf-lang; do
+            want=$(git ls-tree HEAD "upstream/$m" | awk '{print $3}')
+            have=$(git -C "upstream/$m" rev-parse HEAD)
+            test "$want" = "$have" || { echo "::error::upstream/$m is $have, the pin says $want"; exit 1; }
+            echo "$m ${have:0:7}"
+          done
+
+      - uses: dtolnay/rust-toolchain@stable
+      - name: the wasm target
+        run: rustup target add wasm32-unknown-unknown
+
+      - name: shell scripts parse
+        run: for f in scripts/*.sh; do bash -n "$f"; done
+
+      - name: build
+        run: ./scripts/build.sh
+
+      - name: the site has what it advertises
+        run: |
+          test -s dist/index.html
+          test -s dist/play/lupin.wasm
+          test -s dist/version.json
+          test -d dist/book
+          # Every internal href must resolve to a file we shipped.
+          missing=0
+          while read -r href; do
+            case "$href" in http*|"#"*|mailto:*) continue;; esac
+            p="dist/${href#/}"; p="${p%%#*}"; p="${p%%\?*}"
+            [ -z "$p" ] && continue
+            if [ ! -e "$p" ] && [ ! -e "$p/index.html" ] && [ ! -e "$p.html" ]; then
+              echo "::error::dead link: $href"; missing=1
+            fi
+          done < <(grep -rhoE 'href="[^"]+"' dist --include '*.html' | sed 's/href="//;s/"//' | sort -u)
+          exit $missing
+
+  deploy:
+    name: deploy to lupp.us
+    needs: build
+    if: github.ref == 'refs/heads/trunk' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    concurrency: {group: deploy-lupp-us, cancel-in-progress: false}
+    steps:
+      - name: ssh to almanta and deploy trunk
+        env:
+          KEY: ${{ secrets.ALMANTA_DEPLOY_KEY }}
+          HOST: ${{ secrets.ALMANTA_HOST }}
+          USER: ${{ secrets.ALMANTA_USER }}
+        run: |
+          test -n "$KEY" || { echo "::error::ALMANTA_DEPLOY_KEY is not set"; exit 1; }
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # The key is restricted to scripts/ci-deploy.sh on the server, so
+          # this command string is ignored; it is here for the log.
+          ssh -i ~/.ssh/deploy -o BatchMode=yes "$USER@$HOST" deploy
