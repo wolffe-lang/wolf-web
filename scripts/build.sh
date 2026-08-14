@@ -49,6 +49,15 @@ rsync -a site/ "$DIST"/
 step "The book (web edition)"
 if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null 2>&1); then
   rsync -a upstream/wolf-book/target/render/web/ "$DIST/book/"
+  # The book's pages link css/print.css and its renderer does not emit the
+  # css/ directory, so every published page references a stylesheet that
+  # 404s (wolffe-lang/wolf-book#2). The site ships what its pages ask for
+  # until the render is fixed upstream.
+  if [[ ! -f "$DIST/book/css/print.css" && -d upstream/wolf-book/theme/css ]]; then
+    mkdir -p "$DIST/book/css"
+    rsync -a upstream/wolf-book/theme/css/ "$DIST/book/css/"
+    echo "  book: supplied css/ from the theme (wolf-book#2)"
+  fi
   echo "  book: $(find "$DIST/book" -name '*.html' | wc -l) pages"
 else
   echo "  book: render failed — see upstream/wolf-book; leaving a placeholder"

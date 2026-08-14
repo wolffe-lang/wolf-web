@@ -39,17 +39,7 @@ jobs:
           test -s dist/play/lupin.wasm
           test -s dist/version.json
           test -d dist/book
-          # Every internal href must resolve to a file we shipped.
-          missing=0
-          while read -r href; do
-            case "$href" in http*|"#"*|mailto:*) continue;; esac
-            p="dist/${href#/}"; p="${p%%#*}"; p="${p%%\?*}"
-            [ -z "$p" ] && continue
-            if [ ! -e "$p" ] && [ ! -e "$p/index.html" ] && [ ! -e "$p.html" ]; then
-              echo "::error::dead link: $href"; missing=1
-            fi
-          done < <(grep -rhoE 'href="[^"]+"' dist --include '*.html' | sed 's/href="//;s/"//' | sort -u)
-          exit $missing
+          python3 scripts/check-links.py dist
 
   deploy:
     name: deploy to lupp.us
