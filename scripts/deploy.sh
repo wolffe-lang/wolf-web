@@ -26,6 +26,19 @@ fi
 
 test -f dist/index.html || { echo "dist/index.html missing — build failed?" >&2; exit 1; }
 
+# build.sh degrades rather than dies when the wasm toolchain is absent,
+# which is right for a developer's laptop and wrong for a deploy: the
+# playground is the reason most visitors are here, and a version.json
+# health check cannot see that it is missing. 200 KiB is well under any
+# real build and well over a stub.
+wasm=dist/play/lupin.wasm
+if [[ ! -f "$wasm" ]] || [[ $(wc -c < "$wasm") -lt 200000 ]]; then
+  echo "$wasm missing or implausibly small — refusing to deploy a dead playground." >&2
+  echo "Set DEPLOY_WITHOUT_WASM=1 to ship the site anyway." >&2
+  test "${DEPLOY_WITHOUT_WASM:-0}" = "1" || exit 1
+  echo "note: shipping without a working playground, as asked" >&2
+fi
+
 # The webroot belongs to this user and carries httpd_sys_content_t, which
 # new files inherit, and nginx resolves `current` per request. So a
 # content deploy needs no root at all: no chown, no restorecon, no
