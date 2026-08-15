@@ -49,12 +49,36 @@ echo "▶ Prune old releases (keeping 5)"
 (cd "$WEBROOT/releases" && ls -1dt */ | tail -n +6 | xargs -r rm -rf)
 
 echo "▶ Verify what is being served"
-served=$(curl -sS -o /dev/null -w '%{http_code}' -H "Host: $DOMAIN" http://127.0.0.1/ || echo 000)
-test "$served" = "200" || {
-  echo "the site answers $served, not 200 — rolling 'current' back" >&2
+
+# Probe by name against this box, following the port-80 redirect, so the
+# certificate is validated too. Port 80 answers 301 once TLS is on — the
+# old probe read that as a dead site and rolled back good releases.
+code=$(curl -sS -o /dev/null -w '%{http_code}' -L \
+  --resolve "$DOMAIN:80:127.0.0.1" --resolve "$DOMAIN:443:127.0.0.1" \
+  "http://$DOMAIN/" || echo 000)
+
+# A fresh box has no certificate yet, so the redirect target does not
+# answer. Plain HTTP serving the site directly is a legitimate state
+# there, and only there.
+if [[ "$code" != "200" ]]; then
+  code=$(curl -sS -o /dev/null -w '%{http_code}' -H "Host: $DOMAIN" http://127.0.0.1/ || echo 000)
+fi
+
+# And it must be THIS release: a symlink that did not take, or an nginx
+# still holding an old root, answers 200 all day with last week's site.
+live=$(curl -sS -L --resolve "$DOMAIN:80:127.0.0.1" --resolve "$DOMAIN:443:127.0.0.1" \
+  "http://$DOMAIN/version.json" 2>/dev/null \
+  || curl -sS -H "Host: $DOMAIN" http://127.0.0.1/version.json 2>/dev/null || true)
+
+if [[ "$code" != "200" || "$live" != "$(cat dist/version.json)" ]]; then
+  if [[ "$code" != "200" ]]; then
+    echo "the site answers $code, not 200 — rolling 'current' back" >&2
+  else
+    echo "the site answers 200 but not with $STAMP's version.json — rolling back" >&2
+  fi
   prev=$(cd "$WEBROOT/releases" && ls -1dt */ | sed -n 2p | tr -d /)
   test -n "$prev" && ln -nfs "$WEBROOT/releases/$prev" "$WEBROOT/current"
   exit 1
-}
+fi
 
 echo "✓ Deployed $STAMP to https://$DOMAIN"
