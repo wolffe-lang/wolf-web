@@ -479,6 +479,23 @@ async function boot() {
   dom.source.value = FALLBACK;
   drawGutter();
   dom.source.addEventListener("input", drawGutter);
+  // The page owns the vertical axis (wolf-web#2); the textarea's one
+  // remaining axis is horizontal, and browsers hand a textarea's
+  // shift+wheel to UA text-control scrolling that goes nowhere once
+  // overflow-y is hidden (wolf-web#3). Own it: shift+wheel and
+  // trackpad deltaX pan the code; plain vertical wheel still falls
+  // through to the page untouched.
+  dom.source.addEventListener(
+    "wheel",
+    (event) => {
+      const dx = event.deltaX !== 0 ? event.deltaX : event.shiftKey ? event.deltaY : 0;
+      if (dx === 0) return;
+      if (dom.source.scrollWidth <= dom.source.clientWidth) return;
+      dom.source.scrollLeft += dx;
+      event.preventDefault();
+    },
+    { passive: false },
+  );
   dom.source.addEventListener("keydown", onKeyDown);
   dom.run.addEventListener("click", run);
   dom.record.addEventListener("click", showRecord);
