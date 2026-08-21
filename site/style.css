@@ -141,8 +141,12 @@ kbd {
   color: var(--muted);
 }
 
-/* The editor: a textarea with a line-number gutter beside it. Both scroll as
- * one because the gutter mirrors the textarea's scrollTop. */
+/* The editor: a textarea with a line-number gutter beside it. The textarea
+ * auto-grows to its content, so there is NO inner vertical scroll context —
+ * the page is the only thing that scrolls, and gutter line N sits beside
+ * source line N by construction (same font, size, line-height, padding).
+ * Long lines still scroll horizontally inside the textarea (wrap=off);
+ * horizontal motion cannot desync a vertical gutter. */
 .editor {
   display: flex;
   border: 1px solid var(--rule);
@@ -157,7 +161,7 @@ kbd {
   border-right: 1px solid var(--rule);
   color: var(--muted);
   text-align: right;
-  overflow: hidden;
+  background: transparent;
   white-space: pre;
   user-select: none;
   font-size: 0.9em;
@@ -167,16 +171,17 @@ kbd {
 #source {
   flex: 1 1 auto;
   min-width: 0;
-  height: 26rem;
+  min-height: 12rem;
   padding: 0.7rem;
   border: 0;
   background: transparent;
   color: var(--ink);
   line-height: 1.5;
-  resize: vertical;
+  resize: none;
   white-space: pre;
   overflow-wrap: normal;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   tab-size: 4;
 }
 #source:focus { outline: 2px solid var(--link); outline-offset: -2px; }

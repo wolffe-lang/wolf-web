@@ -162,7 +162,11 @@ function drawGutter() {
   const numbers = new Array(lines);
   for (let i = 0; i < lines; i += 1) numbers[i] = i + 1;
   dom.gutter.textContent = numbers.join("\n");
-  dom.gutter.scrollTop = dom.source.scrollTop;
+  // The textarea grows to its content, so the page is the only vertical
+  // scroll context and gutter line N sits beside source line N by
+  // construction — no scrollTop mirroring, nothing to desync (#2).
+  dom.source.style.height = "auto";
+  dom.source.style.height = `${dom.source.scrollHeight}px`;
 }
 
 /** Tab indents by four spaces. A textarea that moves focus instead is not an
@@ -444,7 +448,7 @@ async function pick(position) {
   }
   dom.source.value = await response.text();
   drawGutter();
-  dom.source.scrollTop = 0;
+  window.scrollTo({ top: 0 });
   clearOutput();
   dom.record.disabled = true;
   describe(sample);
@@ -475,9 +479,6 @@ async function boot() {
   dom.source.value = FALLBACK;
   drawGutter();
   dom.source.addEventListener("input", drawGutter);
-  dom.source.addEventListener("scroll", () => {
-    dom.gutter.scrollTop = dom.source.scrollTop;
-  });
   dom.source.addEventListener("keydown", onKeyDown);
   dom.run.addEventListener("click", run);
   dom.record.addEventListener("click", showRecord);
