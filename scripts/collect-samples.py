@@ -38,8 +38,9 @@ menu entry that looks broken:
       Compile-time evaluation, which the interpreter has not implemented, and
       the s40 time trio, which needs a clock the browser build cannot reach.
 
-That leaves 106 candidates, of which 88 run and 14 trap on purpose. The list
-below is a spread across those, kept short enough to read in one glance.
+That leaves 128 candidates at the current pin, of which 112 run and 16 trap
+on purpose. The list below is a spread across those, kept short enough to
+read in one glance.
 """
 
 from __future__ import annotations
@@ -65,6 +66,10 @@ SAMPLES: list[tuple[str, str]] = [
     ("memory/exclusivity.lu", "exclusivity, checked at run time"),
     ("typecheck/receiver_modes.lu", "call-site mut and take"),
     ("typecheck/match_exhaustive.lu", "match, exhaustively"),
+    ("generics/first_of_list.lu", "a generic function"),
+    ("generics/two_instances.lu", "two instantiations"),
+    ("grammar/brackets_generic_call.lu", "an explicit type argument"),
+    ("traits/dyn_ok.lu", "traits, and a trait object"),
     ("rows/else_tag_payload.lu", "errors are values"),
     ("rows/eu_main_err_exit.lu", "an error out of main"),
     ("faults/overflow_add.lu", "arithmetic traps (overflow)"),
