@@ -27,6 +27,14 @@ jobs:
       - name: the wasm target
         run: rustup target add wasm32-unknown-unknown
 
+      # The book's PDF is typst-set. A pinned release binary, not
+      # `cargo install`: the compile takes minutes and proves nothing.
+      - name: typst (sets the book PDF)
+        run: |
+          curl -sSL https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz \
+            | tar -xJ -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/typst-x86_64-unknown-linux-musl" >> "$GITHUB_PATH"
+
       - name: shell scripts parse
         run: for f in scripts/*.sh; do bash -n "$f"; done
 
@@ -39,6 +47,9 @@ jobs:
           test -s dist/play/lupin.wasm
           test -s dist/version.json
           test -d dist/book
+          test -s dist/book/wolf-book.pdf
+          head -c 5 dist/book/wolf-book.pdf | grep -q '%PDF-'
+          grep -q '/book/wolf-book.pdf' dist/reading/index.html
           python3 scripts/check-links.py dist
 
   deploy:

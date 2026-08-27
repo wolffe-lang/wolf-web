@@ -26,6 +26,11 @@
   <p><a href="/book/"><strong>Read the book</strong></a>. It is set to look like
   a printed page: white ground, one measure, no chrome.</p>
 
+  <!-- One line, on purpose: build.sh stamps the measured size over the
+       size placeholder, or deletes that whole line when the build has no
+       PDF, so the page never advertises a file the dist does not carry. -->
+  <p><a href="/book/wolf-book.pdf" download>Download the PDF</a> · __PDF_SIZE__ — the typst-set print edition, rendered from the same pinned source as the pages here, for reading offline.</p>
+
   <p>Twenty-seven of the thirty-two chapters are written. Five are reserved and
   each says so on its own page: chapters 19, 20 and 21 need a benchmark
   instrument the toolchain does not ship, chapter 25 needs an edition mechanism
