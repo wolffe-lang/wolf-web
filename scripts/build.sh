@@ -97,12 +97,14 @@ if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render pdf >/dev/null
   tmp=$(mktemp)
   sed "s/__PDF_SIZE__/$pdf_mb MB/" "$DIST/reading/index.html" > "$tmp" \
     && mv "$tmp" "$DIST/reading/index.html"
+  chmod 644 "$DIST/reading/index.html"   # mktemp is 0600; nginx must read it
   echo "  pdf: $pdf_mb MB at dist/book/wolf-book.pdf"
 else
   echo "  pdf: not built (typst missing, or the render failed) — dropping the download link"
   tmp=$(mktemp)
   sed "/__PDF_SIZE__/d" "$DIST/reading/index.html" > "$tmp" \
     && mv "$tmp" "$DIST/reading/index.html"
+  chmod 644 "$DIST/reading/index.html"   # mktemp is 0600; nginx must read it
   degrade "pdf:ALLOW_NO_PDF:the book cannot be downloaded"
 fi
 
@@ -174,5 +176,16 @@ cat > "$DIST/version.json" <<EOF
   "missing": [$WAIVED_JSON]
 }
 EOF
+
+# Every shipped file must be world-readable — nginx serves as its own user.
+# A 0600 file (mktemp's default, if one slips into the dist unnormalized)
+# is a silent 403 in production; refuse to ship it. This guard exists
+# because reading/index.html once shipped 0600 and 403'd the live page.
+unreadable=$(find "$DIST" -type f ! -perm -004)
+if [[ -n "$unreadable" ]]; then
+  echo "refusing to ship files nginx cannot read (not world-readable):" >&2
+  echo "$unreadable" >&2
+  exit 1
+fi
 
 printf '\n✓ dist/ built (%s)\n' "$(du -sh "$DIST" | cut -f1)"
