@@ -83,11 +83,27 @@ live=$(curl -sS -L --resolve "$DOMAIN:80:127.0.0.1" --resolve "$DOMAIN:443:127.0
   "http://$DOMAIN/version.json" 2>/dev/null \
   || curl -sS -H "Host: $DOMAIN" http://127.0.0.1/version.json 2>/dev/null || true)
 
-if [[ "$code" != "200" || "$live" != "$(cat dist/version.json)" ]]; then
+# The book's PDF, when this dist ships one, must come back as a PDF: a
+# 404 (path drift between dist and the webroot) or an error page dressed
+# in a 200 would turn the reading page's download link into an ambush.
+pdf_state=ok
+if [[ -f dist/book/wolf-book.pdf ]]; then
+  pdf_state=$(curl -sS -o /dev/null -w '%{http_code} %{content_type}' -L \
+    --resolve "$DOMAIN:80:127.0.0.1" --resolve "$DOMAIN:443:127.0.0.1" \
+    "http://$DOMAIN/book/wolf-book.pdf" 2>/dev/null \
+    || curl -sS -o /dev/null -w '%{http_code} %{content_type}' \
+      -H "Host: $DOMAIN" http://127.0.0.1/book/wolf-book.pdf 2>/dev/null \
+    || echo 000)
+  [[ "$pdf_state" == "200 application/pdf" ]] && pdf_state=ok
+fi
+
+if [[ "$code" != "200" || "$live" != "$(cat dist/version.json)" || "$pdf_state" != "ok" ]]; then
   if [[ "$code" != "200" ]]; then
     echo "the site answers $code, not 200 — rolling 'current' back" >&2
-  else
+  elif [[ "$live" != "$(cat dist/version.json)" ]]; then
     echo "the site answers 200 but not with $STAMP's version.json — rolling back" >&2
+  else
+    echo "the book PDF answers '$pdf_state', not 200 application/pdf — rolling back" >&2
   fi
   prev=$(cd "$WEBROOT/releases" && ls -1dt */ | sed -n 2p | tr -d /)
   test -n "$prev" && ln -nfs "$WEBROOT/releases/$prev" "$WEBROOT/current"
