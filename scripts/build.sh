@@ -78,6 +78,34 @@ else
   degrade "book:ALLOW_NO_BOOK:the book is a placeholder, not the book"
 fi
 
+step "The book (PDF)"
+# The reading page offers this file for download and prints its size, so a
+# phone is not ambushed by a silent multi-megabyte fetch. Both facts are
+# stamped here at build time: the PDF is rendered from the SAME pinned
+# checkout as the web pages above (never ingested from anywhere else, so
+# the pair cannot drift), and the size on the page is measured from the
+# file actually shipped. If there is no PDF — typst absent, render broken —
+# the page's download line is removed rather than left to 404: the site
+# does not advertise a file the dist does not carry.
+rm -f upstream/wolf-book/target/render/wolf-book.pdf   # never ship a stale one
+if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render pdf >/dev/null 2>&1) \
+    && [[ -s upstream/wolf-book/target/render/wolf-book.pdf ]]; then
+  mkdir -p "$DIST/book"
+  cp upstream/wolf-book/target/render/wolf-book.pdf "$DIST/book/wolf-book.pdf"
+  pdf_bytes=$(wc -c < "$DIST/book/wolf-book.pdf")
+  pdf_mb=$(awk "BEGIN { printf \"%.1f\", $pdf_bytes / 1000000 }")
+  tmp=$(mktemp)
+  sed "s/__PDF_SIZE__/$pdf_mb MB/" "$DIST/reading/index.html" > "$tmp" \
+    && mv "$tmp" "$DIST/reading/index.html"
+  echo "  pdf: $pdf_mb MB at dist/book/wolf-book.pdf"
+else
+  echo "  pdf: not built (typst missing, or the render failed) — dropping the download link"
+  tmp=$(mktemp)
+  sed "/__PDF_SIZE__/d" "$DIST/reading/index.html" > "$tmp" \
+    && mv "$tmp" "$DIST/reading/index.html"
+  degrade "pdf:ALLOW_NO_PDF:the book cannot be downloaded"
+fi
+
 step "The interpreter (wasm)"
 if ./scripts/build-wasm.sh; then
   echo "  wasm: $(du -h "$DIST/play/lupin.wasm" 2>/dev/null | cut -f1) at dist/play/lupin.wasm"
