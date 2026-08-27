@@ -26,6 +26,13 @@ interpreter, compiled to WebAssembly and run in the visitor's browser.
 `deploy.sh` needs sudo for the parts under `/var/www` and for the nginx
 reload; it will ask.
 
+The book ships twice from the one pinned checkout: the web edition under
+`dist/book/`, and the typst-set `dist/book/wolf-book.pdf` that the reading
+page offers for download with its measured size. The PDF needs `typst` on
+the box (PATH, `$TYPST`, or `~/.cargo/bin`); CI installs a pinned release
+binary. Without it the build refuses (`ALLOW_NO_PDF=1` waives) and the
+reading page drops the download link rather than leaving it to 404.
+
 Every step of `build.sh` degrades rather than aborting: a book that will not
 render leaves a page saying so, a wasm build that fails leaves a playground
 that says so, and the deploy still happens. The exit code is about the build,
