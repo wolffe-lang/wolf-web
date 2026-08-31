@@ -159,6 +159,33 @@ if [[ -d upstream/wolf-lang/docs/api ]]; then
   rsync -a upstream/wolf-lang/docs/api/ "$DIST/docs/api/"
 fi
 
+step "The changelogs"
+# Each public project's CHANGELOG.md, rendered from the checkout this
+# build pins (the reading-page discipline: the page can only show what
+# the pins carry). A repo without one gets a page that says so — absence
+# is a fact to report, never a build failure. Lupin's page is named for
+# the program, since that is what the playground runs.
+LANG_PIN=$(git -C upstream/wolf-lang rev-parse --short HEAD)
+INTERP_PIN=$(git -C upstream/wolf-interp rev-parse --short HEAD)
+BOOK_PIN=$(git -C upstream/wolf-book rev-parse --short HEAD)
+SELF_REV=$(git rev-parse --short HEAD 2>/dev/null || echo working-tree)
+python3 scripts/render-changelog.py wolf \
+  "The compiler. An entry per tagged release, written at the release commit." \
+  upstream/wolf-lang/CHANGELOG.md https://github.com/wolffe-lang/wolf-lang \
+  "$LANG_PIN" "$DIST/changelog/wolf"
+python3 scripts/render-changelog.py lupin \
+  "The reference interpreter. An entry per tagged release, each against a named specification pin." \
+  upstream/wolf-interp/CHANGELOG.md https://github.com/wolffe-lang/wolf-interp \
+  "$INTERP_PIN" "$DIST/changelog/lupin"
+python3 scripts/render-changelog.py "the book" \
+  "The language text. An entry per merged sprint of writing." \
+  upstream/wolf-book/CHANGELOG.md https://github.com/wolffe-lang/wolf-book \
+  "$BOOK_PIN" "$DIST/changelog/book"
+python3 scripts/render-changelog.py "this site" \
+  "lupp.us itself. An entry per merged sprint." \
+  CHANGELOG.md https://github.com/wolffe-lang/wolf-web \
+  "$SELF_REV" "$DIST/changelog/site"
+
 step "Sample programs for the playground"
 mkdir -p "$DIST/play/samples"
 python3 scripts/collect-samples.py upstream/wolf-lang/corpus "$DIST/play/samples" || {
