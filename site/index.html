@@ -55,7 +55,9 @@ fn main() -&gt; !int {
 
 <section>
   <h2>What runs today</h2>
-  <p>v0.2.0 is tagged, still under the codename wolfgang. <code>wolf
+  <!-- __WOLF_VERSION__ is stamped by build.sh from the pinned wolf-lang
+       CHANGELOG, so this claim tracks the pin instead of fossilizing. -->
+  <p>v__WOLF_VERSION__ is tagged, still under the codename wolfgang. <code>wolf
   build</code> and <code>wolf run</code> compile <code>.lu</code> source to
   native machine code through the compiler's own backend, with no LLVM in the
   loop. <code>wolf build --release</code> emits textual LLVM IR and hands it
@@ -130,7 +132,7 @@ cargo build --release -p wolf_driver
 
 <section class="aside">
   <p>Bruckner revised the same symphony for twenty years and left several
-  versions behind. This is version 0.2.0.</p>
+  versions behind. This is version __WOLF_VERSION__.</p>
 </section>
 </main>
 

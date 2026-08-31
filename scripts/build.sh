@@ -54,9 +54,41 @@ done
 rm -rf "$DIST"
 mkdir -p "$DIST"
 
+# The versions the pins carry, derived once and used everywhere below.
+# Wolf's is the first release heading of the pinned CHANGELOG — content,
+# not tag objects, so a shallow submodule clone cannot mislead it.
+WOLF_VER=$(sed -n 's/^## \([0-9][0-9.]*\) .*/\1/p' upstream/wolf-lang/CHANGELOG.md | head -1)
+LUPIN_VER=$(grep -m1 '^version' upstream/wolf-interp/Cargo.toml | cut -d'"' -f2)
+[[ -n "$WOLF_VER" && -n "$LUPIN_VER" ]] || {
+  echo "could not read the pinned versions (wolf '$WOLF_VER', lupin '$LUPIN_VER')" >&2
+  exit 1
+}
+
 step "Static site"
 test -d site || { echo "site/ is missing — nothing to serve" >&2; exit 1; }
+
+# The version-drift tripwire. Current-version claims in site prose are
+# __WOLF_VERSION__/__LUPIN_VERSION__ placeholders stamped below from the
+# pins; every literal version mention must be a listed, counted, audited
+# entry in scripts/version-allowlist.txt. The prose fossilized at v0.1.0
+# once; this is what keeps the class at zero.
+python3 scripts/check-version-prose.py site upstream/wolf-lang
+
 rsync -a site/ "$DIST"/
+
+# Stamp the placeholders. dist/ holds only the static site at this point,
+# so the sweep cannot touch the book's rendered pages.
+while IFS= read -r f; do
+  tmp=$(mktemp)
+  sed -e "s/__WOLF_VERSION__/$WOLF_VER/g" -e "s/__LUPIN_VERSION__/$LUPIN_VER/g" "$f" > "$tmp" \
+    && mv "$tmp" "$f"
+  chmod 644 "$f"
+done < <(grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__' "$DIST" || true)
+if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__' "$DIST"; then
+  echo "a version placeholder survived the stamp" >&2
+  exit 1
+fi
+echo "  version prose stamped: wolf $WOLF_VER, lupin $LUPIN_VER"
 
 step "The book (web edition)"
 if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null 2>&1); then
@@ -161,7 +193,6 @@ step "Version stamp"
 BOOK_SHA=$(git -C upstream/wolf-book rev-parse --short HEAD 2>/dev/null || echo unknown)
 INTERP_SHA=$(git -C upstream/wolf-interp rev-parse --short HEAD 2>/dev/null || echo unknown)
 LANG_SHA=$(git -C upstream/wolf-lang rev-parse --short HEAD 2>/dev/null || echo unknown)
-LUPIN_VER=$(grep -m1 '^version' upstream/wolf-interp/Cargo.toml | cut -d'"' -f2)
 # A waived build is still a build that is missing something. Say so in
 # the stamp: the site's one rule is that it does not misreport itself.
 WAIVED_JSON=""

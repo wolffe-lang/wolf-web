@@ -1,0 +1,13 @@
+# Deliberate version literals in the site's own prose, one line each:
+#   <path under site/> <literal> <count> audited-at=<pinned wolf version>
+#
+# Current-version claims never belong here — they are written as
+# __WOLF_VERSION__ / __LUPIN_VERSION__ and stamped by build.sh from the
+# pins. This list is for history: sentences that name an old version on
+# purpose. check-version-prose.py fails the build when a literal is
+# missing from this list, when its count drifts, or when the pinned wolf
+# version moves past an entry's audited-at — so every pin bump forces
+# these sentences to be re-read rather than trusted.
+spec/index.html v0.1.0 1 audited-at=0.2.0
+spec/index.html v0.2.0 1 audited-at=0.2.0
+docs/index.html v0.1.0 1 audited-at=0.2.0
