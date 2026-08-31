@@ -186,6 +186,50 @@ kbd {
 }
 #source:focus { outline: 2px solid var(--link); outline-offset: -2px; }
 
+/* The multi-cursor mirror. The textarea can draw exactly one caret, so the
+ * extra ones live in this layer: the same text, in the same font at the same
+ * padding, rendered transparent — only the caret marks and selection
+ * highlights are visible, and they sit on the textarea's glyphs because the
+ * two elements lay the text out identically. Hidden entirely (and empty)
+ * while there is one cursor, which is almost always. */
+.surface {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+}
+.carets {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  padding: 0.7rem;
+  color: transparent;
+  white-space: pre;
+  line-height: 1.5;
+  tab-size: 4;
+  font-family: "Source Code Pro", "Iosevka", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.9em;
+}
+.mc-caret {
+  display: inline-block;
+  width: 0;
+  height: 1.2em;
+  border-left: 2px solid var(--link);
+  vertical-align: text-bottom;
+  animation: mc-blink 1s steps(1) infinite;
+}
+.mc-sel {
+  background: var(--rule);
+  color: transparent;
+}
+@keyframes mc-blink {
+  50% { border-color: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-caret { animation: none; }
+}
+
 /* Output blocks. Every one is empty until a run fills it, and an empty one is
  * hidden rather than left as a labelled void. */
 .out { margin: 0 0 1rem; }
