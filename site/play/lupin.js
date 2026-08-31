@@ -268,11 +268,34 @@ function drawVerdict(observation) {
 const expand = (text) => text.replace(/\t/g, "    ");
 
 /**
+ * The 1-based `line:col` of a byte offset, columns counted in characters —
+ * the interpreter's own location grammar (`diag::line_col`, is27's
+ * `[conf.trap.render]`), so the panel and lupin's stderr spell one place one
+ * way. Spans on the wire stay byte offsets; this is only how they read.
+ */
+function lineColOf(source, offset) {
+  const bytes = encoder.encode(source);
+  const at = Math.min(offset, bytes.length);
+  let line = 1;
+  let lineStart = 0;
+  for (let i = 0; i < at; i += 1) {
+    if (bytes[i] === 0x0a) {
+      line += 1;
+      lineStart = i + 1;
+    }
+  }
+  const column = [...decoder.decode(bytes.subarray(lineStart, at))].length + 1;
+  return `${line}:${column}`;
+}
+
+/**
  * Locates a byte span in the source and renders it the way a compiler does:
  * the line, then a ruler under the offending bytes.
  *
  * Spans on the wire are byte offsets into the UTF-8 source, so the arithmetic
- * happens in bytes and only the slices that get displayed are decoded.
+ * happens in bytes and only the slices that get displayed are decoded. The
+ * footer leads with the human `line:col` (is27); the byte offsets stay, in
+ * parentheses, because they are what the record and the protocol carry.
  */
 function locate(source, span) {
   if (!span || span.length !== 2) return "";
@@ -307,7 +330,7 @@ function locate(source, span) {
     `${label} | ${text}`,
     `${pad} | ${" ".repeat(column)}${"^".repeat(width)}`,
     `${pad} |`,
-    `${pad} = bytes ${from}..${to}, line ${line} column ${column + 1}`,
+    `${pad} = at ${line}:${column + 1} (bytes ${from}..${to})`,
   ].join("\n");
 }
 
@@ -320,7 +343,7 @@ function drawWarnings(observation, source) {
   const lines = warnings.map((warning) => {
     const where = locate(source, warning.span);
     const first = where ? where.split("\n")[0].trim() : "";
-    return `${warning.code} at bytes ${warning.span[0]}..${warning.span[1]}${first ? `\n    ${first}` : ""}`;
+    return `${warning.code} at ${lineColOf(source, warning.span[0])}${first ? `\n    ${first}` : ""}`;
   });
   show(dom.outWarnings, dom.warnings, lines.join("\n"));
 }
