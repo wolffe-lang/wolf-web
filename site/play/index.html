@@ -109,13 +109,16 @@
   reason says which tier declined.</p>
 
   <h3>What this build declines</h3>
-  <p>Three tiers report <code>unsupported</code> here that work when you run
+  <p>Five tiers report <code>unsupported</code> here that work when you run
   <code>lupin</code> at a terminal. Tasks and procs each need an operating
   system thread, and a WebAssembly module in a page has none to spawn. The
-  <code>time</code> builtins need a clock the module cannot read. The
-  filesystem and network tiers are declined in every build of the interpreter,
-  including the terminal one, because it opens no files and no sockets by
-  design.</p>
+  <code>time</code> builtins need a clock the module cannot read, the process
+  trio needs processes the page cannot spawn, and the net tier needs sockets
+  the page cannot open. The filesystem tier is declined in every build of the
+  interpreter, including the terminal one, because it opens no files by
+  design. A program whose module graph names sibling files is likewise
+  <code>unsupported</code>: the editor is one buffer, and there is no
+  directory beside it.</p>
 
   <h3>The verdict vocabulary</h3>
   <table>
