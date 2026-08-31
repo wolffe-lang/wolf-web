@@ -52,21 +52,20 @@ The build needs the wasm target. On a rustup box the script adds it. On a
 distro rust without rustup, install the distribution's wasm std, or point
 `WOLF_WASM_SYSROOT` at a sysroot that has one.
 
-### One piece of debt
+### A debt repaid
 
-The pinned interpreter does not compile to wasm as it stands: the parser and
-the evaluator each run on a thread they size themselves, and the machine reads
-a monotonic clock at startup. None of the three exists on
-`wasm32-unknown-unknown`, and each aborts the module rather than failing.
-`crates/lupin-wasm/wasm-portability.patch` gates them on the target and
-declines, by name, the two tiers that need a thread and the one that needs a
-clock. `build-wasm.sh` applies it to a staged copy under `target/`; the
-submodule is never touched.
-
-That patch belongs upstream in wolf-interp. Once it lands and the pin moves
-past it, `build-wasm.sh` reports that the pin already carries the gates and
-skips the file, which is the signal to delete it. If the pin moves and the
-patch stops applying, the script fails loudly rather than guessing.
+The site once carried `crates/lupin-wasm/wasm-portability.patch`: the pinned
+interpreter ran the parser and the evaluator on threads they sized themselves
+and read a monotonic clock at startup, none of which exists on
+`wasm32-unknown-unknown`, and the patch gated all three on the target.
+Upstream took the gates in wolf-interp c1ec02e and the patch was deleted; the
+interpreter has owned its own wasm story since. At the current pin (v0.1.18)
+that story covers is18's bigger surface too: the s39 net tier and s40's
+process trio decline by name on wasm, exactly as tasks, procs and the time
+trio do, so the build applies nothing and the module still imports nothing.
+`build-wasm.sh` keeps the staging-and-patch machinery: if a future pin ever
+regresses, a patch dropped back into `crates/lupin-wasm/` is picked up again,
+and one that does not apply fails the build loudly rather than guessing.
 
 ## The samples
 
