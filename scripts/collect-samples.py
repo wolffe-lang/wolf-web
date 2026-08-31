@@ -26,21 +26,31 @@ browser reports `unsupported` for them and a menu entry that cannot run is a
 menu entry that looks broken:
 
   corpus/fs, corpus/net, corpus/os/args_cwd, corpus/projects/count
-      The filesystem and network tiers. `lupin` declines these by design on
-      every platform, not only in a browser: it opens no files and no sockets.
+      The filesystem tier (declined by design on every platform) and the s39
+      net tier, which the wasm build declines: no sockets in a browser tab.
 
   corpus/conc (most), corpus/procs.lu, corpus/test/conc_schedules_test.lu
       Tasks and procs. The interpreter gives each task an OS thread, and the
       wasm build has none to give. Three `conc` programs that never actually
-      spawn do run, and two of them are in the list below.
+      spawn do run (measured against the built module at this pin), and two
+      of them are in the list below.
 
   corpus/comptime, corpus/time
       Compile-time evaluation, which the interpreter has not implemented, and
       the s40 time trio, which needs a clock the browser build cannot reach.
 
-That leaves 128 candidates at the current pin, of which 112 run and 16 trap
-on purpose. The list below is a spread across those, kept short enough to
-read in one glance.
+  corpus/os (random, signal, spawn), multi-file module programs
+      is18's os tiers decline in the browser the same way: no entropy
+      source, no signals, no processes to spawn. And a program whose D59
+      module graph names sibling files (`resolve/`, `rows/propagate/`, the
+      module-lint witnesses) reports `unsupported` from a stdin buffer,
+      which is all the playground has to offer.
+
+That leaves 223 candidates at this pin, of which 171 run, 29 trap on
+purpose, and 23 report `unsupported` in the browser build (the os-tier and
+module-graph programs above, measured through the built wasm). The list
+below is a spread across the ones that answer, kept short enough to read
+in one glance.
 """
 
 from __future__ import annotations
@@ -57,6 +67,7 @@ SAMPLES: list[tuple[str, str]] = [
     ("strings/interp_value_position.lu", "interpolation"),
     ("strings/format_spec_width.lu", "format specs"),
     ("strings/builtin_methods.lu", "string methods"),
+    ("strings/char_interp.lu", "the char scalar"),
     ("grammar/interp_nested.lu", "strings inside strings"),
     ("memory/region_ambient_ok.lu", "a scratch region"),
     ("memory/region_freeze_ok.lu", "regions as values, and freeze"),

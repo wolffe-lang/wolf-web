@@ -38,6 +38,12 @@ jobs:
       - name: shell scripts parse
         run: for f in scripts/*.sh; do bash -n "$f"; done
 
+      # The editor's math is pure functions (site/play/editor-core.js) and
+      # the CSP gate proves the doctrine: no new script sources, no inline
+      # anything, no dependency creeping into the playground.
+      - name: editor core and CSP gates
+        run: node --test tests/*.test.mjs
+
       - name: build
         run: ./scripts/build.sh
 

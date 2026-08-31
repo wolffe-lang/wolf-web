@@ -14,6 +14,8 @@
  * nothing else.
  */
 
+import { attachEditor } from "./editor.js";
+
 const WASM_URL = "/play/lupin.wasm";
 const SAMPLES_URL = "/play/samples/index.json";
 const VERSION_URL = "/version.json";
@@ -40,6 +42,7 @@ const dom = {
   samples: el("samples"),
   source: el("source"),
   gutter: el("gutter"),
+  carets: el("carets"),
   provenance: el("provenance"),
   verdict: el("verdict"),
   stdout: el("stdout"),
@@ -157,51 +160,10 @@ function call(name, source) {
 /* the editor                                                          */
 /* ------------------------------------------------------------------ */
 
-function drawGutter() {
-  const lines = dom.source.value.split("\n").length;
-  const numbers = new Array(lines);
-  for (let i = 0; i < lines; i += 1) numbers[i] = i + 1;
-  dom.gutter.textContent = numbers.join("\n");
-  // The textarea grows to its content, so the page is the only vertical
-  // scroll context and gutter line N sits beside source line N by
-  // construction — no scrollTop mirroring, nothing to desync (#2).
-  dom.source.style.height = "auto";
-  dom.source.style.height = `${dom.source.scrollHeight}px`;
-}
-
-/** Tab indents by four spaces. A textarea that moves focus instead is not an
- * editor, and wolf source is indented four. */
-function onKeyDown(event) {
-  if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
-    event.preventDefault();
-    run();
-    return;
-  }
-  if (event.key !== "Tab" || event.ctrlKey || event.metaKey || event.altKey) return;
-  event.preventDefault();
-  const box = dom.source;
-  const { selectionStart: from, selectionEnd: to, value } = box;
-
-  if (from === to && !event.shiftKey) {
-    box.value = `${value.slice(0, from)}    ${value.slice(to)}`;
-    box.selectionStart = box.selectionEnd = from + 4;
-    drawGutter();
-    return;
-  }
-
-  /* A selection indents or outdents whole lines. */
-  const start = value.lastIndexOf("\n", from - 1) + 1;
-  const endBreak = value.indexOf("\n", to);
-  const end = endBreak === -1 ? value.length : endBreak;
-  const block = value.slice(start, end);
-  const shifted = event.shiftKey
-    ? block.replace(/^ {1,4}/gm, "")
-    : block.replace(/^/gm, "    ");
-  box.value = value.slice(0, start) + shifted + value.slice(end);
-  box.selectionStart = start;
-  box.selectionEnd = start + shifted.length;
-  drawGutter();
-}
+/* The editor behaviors — auto-indent, pairing, goal columns, multiple
+ * cursors, undo — live in editor.js over the pure math in editor-core.js.
+ * This file only asks it for the source text and hands it new programs. */
+let editor = null;
 
 /* ------------------------------------------------------------------ */
 /* drawing an observation                                              */
@@ -268,11 +230,34 @@ function drawVerdict(observation) {
 const expand = (text) => text.replace(/\t/g, "    ");
 
 /**
+ * The 1-based `line:col` of a byte offset, columns counted in characters —
+ * the interpreter's own location grammar (`diag::line_col`, is27's
+ * `[conf.trap.render]`), so the panel and lupin's stderr spell one place one
+ * way. Spans on the wire stay byte offsets; this is only how they read.
+ */
+function lineColOf(source, offset) {
+  const bytes = encoder.encode(source);
+  const at = Math.min(offset, bytes.length);
+  let line = 1;
+  let lineStart = 0;
+  for (let i = 0; i < at; i += 1) {
+    if (bytes[i] === 0x0a) {
+      line += 1;
+      lineStart = i + 1;
+    }
+  }
+  const column = [...decoder.decode(bytes.subarray(lineStart, at))].length + 1;
+  return `${line}:${column}`;
+}
+
+/**
  * Locates a byte span in the source and renders it the way a compiler does:
  * the line, then a ruler under the offending bytes.
  *
  * Spans on the wire are byte offsets into the UTF-8 source, so the arithmetic
- * happens in bytes and only the slices that get displayed are decoded.
+ * happens in bytes and only the slices that get displayed are decoded. The
+ * footer leads with the human `line:col` (is27); the byte offsets stay, in
+ * parentheses, because they are what the record and the protocol carry.
  */
 function locate(source, span) {
   if (!span || span.length !== 2) return "";
@@ -307,7 +292,7 @@ function locate(source, span) {
     `${label} | ${text}`,
     `${pad} | ${" ".repeat(column)}${"^".repeat(width)}`,
     `${pad} |`,
-    `${pad} = bytes ${from}..${to}, line ${line} column ${column + 1}`,
+    `${pad} = at ${line}:${column + 1} (bytes ${from}..${to})`,
   ].join("\n");
 }
 
@@ -320,7 +305,7 @@ function drawWarnings(observation, source) {
   const lines = warnings.map((warning) => {
     const where = locate(source, warning.span);
     const first = where ? where.split("\n")[0].trim() : "";
-    return `${warning.code} at bytes ${warning.span[0]}..${warning.span[1]}${first ? `\n    ${first}` : ""}`;
+    return `${warning.code} at ${lineColOf(source, warning.span[0])}${first ? `\n    ${first}` : ""}`;
   });
   show(dom.outWarnings, dom.warnings, lines.join("\n"));
 }
@@ -371,7 +356,7 @@ let lastSource = "";
 
 async function run() {
   if (!exports) return;
-  const source = dom.source.value;
+  const source = editor.getValue();
   dom.run.disabled = true;
   dom.run.textContent = "Running";
   /* Let the button repaint before a synchronous call that can take a moment.
@@ -446,8 +431,7 @@ async function pick(position) {
     dom.provenance.textContent = `${sample.corpus_path} could not be fetched (${response.status}).`;
     return;
   }
-  dom.source.value = await response.text();
-  drawGutter();
+  editor.setValue(await response.text());
   window.scrollTo({ top: 0 });
   clearOutput();
   dom.record.disabled = true;
@@ -476,27 +460,13 @@ function fail(message, detail) {
 }
 
 async function boot() {
-  dom.source.value = FALLBACK;
-  drawGutter();
-  dom.source.addEventListener("input", drawGutter);
-  // The page owns the vertical axis (wolf-web#2); the textarea's one
-  // remaining axis is horizontal, and browsers hand a textarea's
-  // shift+wheel to UA text-control scrolling that goes nowhere once
-  // overflow-y is hidden (wolf-web#3). Own it: shift+wheel and
-  // trackpad deltaX pan the code; plain vertical wheel still falls
-  // through to the page untouched.
-  dom.source.addEventListener(
-    "wheel",
-    (event) => {
-      const dx = event.deltaX !== 0 ? event.deltaX : event.shiftKey ? event.deltaY : 0;
-      if (dx === 0) return;
-      if (dom.source.scrollWidth <= dom.source.clientWidth) return;
-      dom.source.scrollLeft += dx;
-      event.preventDefault();
-    },
-    { passive: false },
-  );
-  dom.source.addEventListener("keydown", onKeyDown);
+  editor = attachEditor({
+    textarea: dom.source,
+    gutter: dom.gutter,
+    caretLayer: dom.carets,
+    onRun: run,
+  });
+  editor.setValue(FALLBACK);
   dom.run.addEventListener("click", run);
   dom.record.addEventListener("click", showRecord);
   dom.samples.addEventListener("change", (event) => {

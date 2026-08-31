@@ -41,10 +41,20 @@
     </div>
     <div class="editor">
       <pre class="gutter" id="gutter" aria-hidden="true">1</pre>
-      <textarea id="source" spellcheck="false" autocapitalize="off" autocorrect="off"
-        aria-label="wolf source" wrap="off"></textarea>
+      <div class="surface">
+        <textarea id="source" spellcheck="false" autocapitalize="off" autocorrect="off"
+          aria-label="wolf source" wrap="off"></textarea>
+        <div class="carets hidden" id="carets" aria-hidden="true"></div>
+      </div>
     </div>
     <p class="note" id="provenance"></p>
+    <p class="note">The editor auto-indents and pairs brackets (interpolation
+      braces pair inside strings). <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>↑</kbd>/<kbd>↓</kbd>
+      adds a cursor, <kbd>Esc</kbd> collapses, <kbd>Alt</kbd>+click adds one at
+      the click. <kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd> indents,
+      <kbd>Ctrl</kbd>+<kbd>/</kbd> comments, <kbd>Ctrl</kbd>+<kbd>D</kbd>
+      selects the next occurrence. On a Mac, <kbd>Cmd</kbd> where you expect
+      it.</p>
   </section>
 
   <section class="pane">
@@ -109,13 +119,16 @@
   reason says which tier declined.</p>
 
   <h3>What this build declines</h3>
-  <p>Three tiers report <code>unsupported</code> here that work when you run
+  <p>Five tiers report <code>unsupported</code> here that work when you run
   <code>lupin</code> at a terminal. Tasks and procs each need an operating
   system thread, and a WebAssembly module in a page has none to spawn. The
-  <code>time</code> builtins need a clock the module cannot read. The
-  filesystem and network tiers are declined in every build of the interpreter,
-  including the terminal one, because it opens no files and no sockets by
-  design.</p>
+  <code>time</code> builtins need a clock the module cannot read, the process
+  trio needs processes the page cannot spawn, and the net tier needs sockets
+  the page cannot open. The filesystem tier is declined in every build of the
+  interpreter, including the terminal one, because it opens no files by
+  design. A program whose module graph names sibling files is likewise
+  <code>unsupported</code>: the editor is one buffer, and there is no
+  directory beside it.</p>
 
   <h3>The verdict vocabulary</h3>
   <table>
