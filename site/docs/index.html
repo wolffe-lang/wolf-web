@@ -18,6 +18,7 @@
     <a href="/reading/">the book</a>
     <a href="/docs/">docs</a>
     <a href="/spec/">spec</a>
+    <a href="/changelog/">changelog</a>
   </nav>
 </header>
 
@@ -32,14 +33,14 @@
 <section>
   <h2>Catalogues</h2>
   <dl class="index">
-    <dt><a href="/docs/diagnostics.md">Diagnostics</a> (117 codes, 122 KiB of text)</dt>
+    <dt><a href="/docs/diagnostics.md">Diagnostics</a> (135 codes, 147 KiB of text)</dt>
     <dd>Every error the compiler can emit, with the explanation
       <code>wolf --explain E0001</code> prints. Each code ships with that
       explanation and at least one reviewed snapshot fixture, and CI enforces
       both, so a code cannot exist without a documented meaning and a test that
       pins its wording.</dd>
 
-    <dt><a href="/docs/warnings.md">Warnings</a> (31 codes, 21 KiB of text)</dt>
+    <dt><a href="/docs/warnings.md">Warnings</a> (33 codes, 23 KiB of text)</dt>
     <dd>Every warning, with the severity contract in front of the catalogue: an
       error rejects meaning and cannot be configured away, and a warning marks a
       program that is legal and inadvisable. The file also covers the level
@@ -72,8 +73,9 @@
   <p>Two files that are not copied here are worth knowing about. The lint triage
   ledger records every case of the language permitting something that turned out
   to be wrong or confusing, each with a verdict, and it is the evidence behind
-  the warning catalogue. The release audit is a criteria table for the v0.1.0
-  tag, with a red row on it. Both live under <code>docs/</code> in
+  the warning catalogue. The release audit is the criteria table the v0.1.0 tag
+  shipped against, red row and all; the releases since tell their story in the
+  repository's CHANGELOG. Both files live under <code>docs/</code> in
   <a href="https://github.com/wolffe-lang/wolf-lang/tree/trunk/docs">wolf-lang</a>.</p>
 </section>
 

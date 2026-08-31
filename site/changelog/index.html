@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>changelogs · wolf</title>
+<meta name="description" content="Every public wolf project's CHANGELOG, rendered from the pinned checkouts this site is built from.">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/wolf.svg" type="image/svg+xml">
+</head>
+<body>
+<header>
+  <h1>changelogs</h1>
+  <p class="sub">What each release changed, in each project's own words.</p>
+  <nav class="site">
+    <a href="/">wolf</a>
+    <a href="/play/">playground</a>
+    <a href="/reading/">the book</a>
+    <a href="/docs/">docs</a>
+    <a href="/spec/">spec</a>
+    <a href="/changelog/">changelog</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <p>Every repository in the project keeps a <code>CHANGELOG.md</code> at its
+  root, maintained as part of the work rather than reconstructed after it. The
+  pages below are those files, rendered from the same pinned checkouts the rest
+  of this site is built from — so a page here can only show what the pins
+  carry: never wrong, only honestly behind. A pinned repository that does not
+  carry a changelog yet gets a page that says exactly that.</p>
+</section>
+
+<section>
+  <h2>The projects</h2>
+  <dl class="index">
+    <dt><a href="/changelog/wolf/">wolf</a></dt>
+    <dd>The compiler. An entry per tagged release, written at the release
+      commit.</dd>
+    <dt><a href="/changelog/lupin/">lupin</a></dt>
+    <dd>The reference interpreter — the one the <a href="/play/">playground</a>
+      runs. An entry per tagged release, each naming the specification pin it
+      was released against.</dd>
+    <dt><a href="/changelog/book/">the book</a></dt>
+    <dd>The language text. An entry per merged sprint of writing.</dd>
+    <dt><a href="/changelog/site/">this site</a></dt>
+    <dd>lupp.us itself. An entry per merged sprint, kept in the
+      <a href="https://github.com/wolffe-lang/wolf-web">wolf-web</a>
+      repository.</dd>
+  </dl>
+</section>
+</main>
+
+<footer>
+  <p>Rendered on every deploy from the pinned checkouts recorded in
+  <a href="/version.json">version.json</a>. When a changelog here trails its
+  repository, the site's pin has not moved yet — the repository is ahead, not
+  wrong.</p>
+</footer>
+</body>
+</html>

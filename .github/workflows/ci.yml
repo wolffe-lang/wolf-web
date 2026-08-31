@@ -50,6 +50,13 @@ jobs:
       - name: the site has what it advertises
         run: |
           test -s dist/index.html
+          # The prose tracks the pins: the stamped version is the pinned
+          # CHANGELOG's, and no placeholder survives to the reader.
+          wolfver=$(sed -n 's/^## \([0-9][0-9.]*\) .*/\1/p' upstream/wolf-lang/CHANGELOG.md | head -1)
+          grep -q "This is version $wolfver" dist/index.html
+          if grep -rq '__WOLF_VERSION__\|__LUPIN_VERSION__' dist; then
+            echo "::error::a version placeholder reached dist/"; exit 1
+          fi
           test -s dist/play/lupin.wasm
           test -s dist/version.json
           test -d dist/book
