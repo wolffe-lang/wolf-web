@@ -39,12 +39,13 @@
 //!
 //! # Coverage
 //!
-//! `lupin` compiled for wasm declines three tiers it declines nowhere else:
-//! tasks, procs, and s40's time trio. All three need a thread or a clock the
-//! platform does not have, and a guessed one would make the tiers *look*
-//! present while reporting numbers no program should trust. Each comes back as
-//! verdict `unsupported` with the reason on the wire, which is the same posture
-//! the interpreter takes toward everything outside its scope
+//! `lupin` compiled for wasm declines five tiers it declines nowhere else:
+//! tasks, procs, s40's time trio, s40's process trio, and the s39 net tier.
+//! All five need a thread, a clock, a process table or a socket the platform
+//! does not have, and a guessed one would make the tiers *look* present while
+//! reporting numbers no program should trust. Each comes back as verdict
+//! `unsupported` with the reason on the wire, which is the same posture the
+//! interpreter takes toward everything outside its scope
 //! (`[proto.record.unsupported]`).
 
 use serde_json::{Value, json};
@@ -127,7 +128,10 @@ pub unsafe extern "C" fn lupin_observe(ptr: *const u8, len: usize) -> *mut u8 {
     // `seeded: false`. A seed selector is a thing the page could grow later;
     // it is not a thing this crate should invent a spelling for.
     let observation = frontend::observe_buffer(source, None, &SchedRequest::Default);
-    result(&terminal_view(&observation))
+    // The same lossy decode `run_run` makes before rendering fault lines: a
+    // non-UTF-8 source never gets past the lexer's E0107 at offset zero, so
+    // the replacement characters can only appear where no span points.
+    result(&terminal_view(&observation, &String::from_utf8_lossy(source)))
 }
 
 /// Observes one program and returns the spec/06 observation record, byte-identical
@@ -210,25 +214,42 @@ fn exit_code(verdict: &Verdict) -> u8 {
 /// What `lupin run -` writes to stderr for this outcome, including the trailing
 /// newline `eprintln!` adds, and nothing it would not write.
 ///
-/// The `Display` impls doing the work are the interpreter's: `Diag` renders as
-/// `CODE: message [clause] at start..end`, a `Trap` as `trap(kind): message
-/// [clause] at start..end` with its secondary span appended, a `UbFinding` as
-/// its `§7` row over several lines. Reimplementing any of that here would be a
+/// The renderers doing the work are the interpreter's `render(source)` methods
+/// — is27 made `line:col` the human location grammar (`[conf.trap.render]`),
+/// and `run_run` spells every fault line through them: a `Diag` as
+/// `CODE: message [clause] at line:col`, a `Trap` as `trap(kind): message
+/// [clause] at line:col` with its secondary span appended, a `UbFinding` as its
+/// `§7` row over several lines. Reimplementing any of that here would be a
 /// second opinion about wording, which is the one thing this crate must not
-/// have.
-fn terminal_stderr(observation: &Observation) -> String {
+/// have. Byte offsets stay on the wire untouched: the JSON spans are the
+/// protocol shape.
+///
+/// The one branch `run_run` has that this door cannot take: a static diagnostic
+/// whose reason names a *sibling module file*. The terminal reads that file so
+/// the `line:col` points into the text it indexes; the playground is a buffer
+/// with no directory, so it takes `run_run`'s own unreadable-file fallback —
+/// the offset spelling, which misleads no one about lines it cannot know.
+fn terminal_stderr(observation: &Observation, source: &str) -> String {
     match &observation.verdict {
         Verdict::Exit(_) | Verdict::Pass => String::new(),
         Verdict::Trap(_) => match &observation.trap {
-            Some(trap) => format!("{DISPLAY}: {trap}\n"),
+            Some(trap) => format!("{DISPLAY}: {}\n", trap.render(source)),
             None => String::new(),
         },
         Verdict::Ub(_) => match &observation.ub {
-            Some(finding) => format!("{DISPLAY}: {finding}\n"),
+            Some(finding) => format!("{DISPLAY}: {}\n", finding.render(source)),
             None => String::new(),
         },
         Verdict::Fail(_) => match &observation.detail {
-            Some(diag) => format!("{DISPLAY}: {diag}\n"),
+            Some(diag) => match observation
+                .reason
+                .as_deref()
+                .and_then(|reason| reason.strip_prefix("in module file `"))
+                .and_then(|reason| reason.strip_suffix('`'))
+            {
+                Some(module) => format!("{DISPLAY}: {diag} (in module file `{module}`)\n"),
+                None => format!("{DISPLAY}: {}\n", diag.render(source)),
+            },
             None => String::new(),
         },
         Verdict::Unsupported => format!(
@@ -241,7 +262,7 @@ fn terminal_stderr(observation: &Observation) -> String {
     }
 }
 
-fn terminal_view(observation: &Observation) -> Value {
+fn terminal_view(observation: &Observation, source: &str) -> Value {
     json!({
         "verdict": observation.verdict.to_string(),
         "phase": observation.phase_reached.as_str(),
@@ -251,7 +272,7 @@ fn terminal_view(observation: &Observation) -> Value {
         // it wrote raw bytes; `from_utf8_lossy` is the honest fallback and the
         // replacement character is visible in the page.
         "stdout": String::from_utf8_lossy(&observation.stdout),
-        "stderr": terminal_stderr(observation),
+        "stderr": terminal_stderr(observation, source),
         "diagnostics": observation
             .diagnostics
             .iter()
@@ -418,10 +439,12 @@ mod tests {
         let observed = observe("fn main() -> int {\n    var d = 0\n    10 / d\n}\n");
         assert_eq!(observed["verdict"], "trap(div-zero)");
         assert_eq!(observed["exit"], 3);
+        // is27: the human line spells the location line:col, byte offsets
+        // stay on the JSON span. Offset 37 is line 3 column 5.
         assert_eq!(
             observed["stderr"],
             "<stdin>: trap(div-zero): division by zero is defined behavior in wolf: it \
-             traps [mem.ub.defined] at 37..43\n"
+             traps [mem.ub.defined] at 3:5\n"
         );
         assert_eq!(observed["trap"]["anchor"], "mem.ub.defined");
         assert_eq!(observed["trap"]["span"], serde_json::json!([37, 43]));
@@ -436,11 +459,13 @@ mod tests {
         assert_eq!(observed["diagnostics"][0]["code"], "E0001");
         assert_eq!(observed["diagnostics"][0]["severity"], "error");
         assert_eq!(observed["detail"]["anchor"], "gram.amb.newline");
+        let stderr = observed["stderr"].as_str().expect("a line");
+        assert!(stderr.starts_with("<stdin>: E0001: "));
+        // The static line carries the line:col spelling too — `+` opens
+        // line 3 at column 9.
         assert!(
-            observed["stderr"]
-                .as_str()
-                .expect("a line")
-                .starts_with("<stdin>: E0001: ")
+            stderr.trim_end().ends_with("at 3:9"),
+            "expected a line:col location, got: {stderr}"
         );
     }
 
