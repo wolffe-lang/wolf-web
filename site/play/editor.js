@@ -334,8 +334,10 @@ export function attachEditor({ textarea, gutter, caretLayer, onRun }) {
     const from = textarea.selectionStart;
     const to = textarea.selectionEnd;
     const prim = primary();
+    /* An echo of the primary is not a user move — a browser may re-fire
+     * selectionchange after focus churn, and it must not cost the extra
+     * cursors their lives. */
     if (
-      state.cursors.length === 1 &&
       Math.min(prim.anchor, prim.head) === from &&
       Math.max(prim.anchor, prim.head) === to
     ) {
