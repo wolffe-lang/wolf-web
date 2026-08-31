@@ -55,13 +55,16 @@ fn main() -&gt; !int {
 
 <section>
   <h2>What runs today</h2>
-  <p>v0.1.0 is tagged, under the codename wolfgang. <code>wolf build</code> and
-  <code>wolf run</code> compile <code>.lu</code> source to native machine code
-  through the compiler's own backend, with no LLVM in the loop.
-  <code>wolf build --release</code> goes through LLVM instead. Both tiers
-  produce the same verdict and the same output on every corpus program they
-  both execute, and CI holds a floor under how many that is, so the comparison
-  cannot quietly shrink to nothing.</p>
+  <p>v0.2.0 is tagged, still under the codename wolfgang. <code>wolf
+  build</code> and <code>wolf run</code> compile <code>.lu</code> source to
+  native machine code through the compiler's own backend, with no LLVM in the
+  loop. <code>wolf build --release</code> emits textual LLVM IR and hands it
+  to the system clang — no LLVM libraries linked, no new dependencies. Both
+  tiers produce the same verdict and the same output on every corpus program
+  they both execute, and CI holds a floor under how many that is, so the
+  comparison cannot quietly shrink to nothing. A binary never claims a release
+  it is not: <code>wolf --version</code> built anywhere but the tag answers
+  with the build's commit.</p>
 
   <p>There is a second implementation. <code>lupin</code> is a reference
   interpreter written against the same specification, sharing no code with the
@@ -71,14 +74,17 @@ fn main() -&gt; !int {
   WebAssembly.</p>
 
   <p>The performance goal the project set for itself, beating naive
-  <code>clang -O3</code> across a kernel suite, does not hold. The most recent
-  measurement puts the suite geometric mean at 0.191 of that baseline, with
-  three kernels ahead, one level, and nine behind by more than ten percent. The
-  measurements ship with the code, including the ones that refute the goal, and
-  the protocol for reproducing them ships beside them.</p>
+  <code>clang -O3</code> across a kernel suite, was declared met on
+  2026-08-24: three consecutive nightly runs of the benchmark ritual held the
+  suite geometric mean above that baseline — 1.099, 1.066, 1.080 — with two
+  documented exceptions renounced in writing. The suite once measured 0.191 of
+  the same baseline, and the measurements that refuted the goal along the way
+  still ship with the code, beside the protocol for reproducing all of
+  them.</p>
 
   <p>There are no macros; compile-time evaluation and reflection are the
-  metaprogramming tier. There is no package registry.</p>
+  metaprogramming tier. Packages are declarative — reading a dependency graph
+  never executes anything — and there is no hosted registry.</p>
 </section>
 
 <section>
@@ -95,8 +101,9 @@ cargo build --release -p wolf_driver
   <p>The toolchain pin is Rust 1.97.1, recorded in
   <code>rust-toolchain.toml</code>, and rustup honors it on the first
   <code>cargo</code> invocation. There are no build scripts anywhere in the
-  wolf ecosystem. CI builds and tests linux x86-64 and aarch64, macOS aarch64,
-  and windows x86-64. Tagged builds upload archives to the
+  wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
+  x86-64; linux aarch64 gets release archives at every tag, and a CI runner
+  for it is an open issue. Tagged builds upload archives to the
   <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>;
   the packaging around them is a stub, so building from source is the path that
   is known to work.</p>
@@ -123,7 +130,7 @@ cargo build --release -p wolf_driver
 
 <section class="aside">
   <p>Bruckner revised the same symphony for twenty years and left several
-  versions behind. This is version 0.1.0.</p>
+  versions behind. This is version 0.2.0.</p>
 </section>
 </main>
 
