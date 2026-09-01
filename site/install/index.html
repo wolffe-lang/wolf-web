@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>install · wolf</title>
+<meta name="description" content="Getting wolf onto a machine, platform by platform — including Windows, where what works and what refuses were both measured against the published archive.">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/wolf.svg" type="image/svg+xml">
+</head>
+<body>
+<header>
+  <h1>install</h1>
+  <p class="sub">What the published archives do on each platform, measured rather than assumed.</p>
+  <nav class="site">
+    <a href="/">wolf</a>
+    <a href="/install/">install</a>
+    <a href="/play/">playground</a>
+    <a href="/reading/">the book</a>
+    <a href="/docs/">docs</a>
+    <a href="/spec/">spec</a>
+    <a href="/changelog/">changelog</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <p>Every tagged release uploads archives to the
+  <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>:
+  linux x86-64 and aarch64, macOS aarch64, and Windows x86-64. An archive is a
+  folder with the <code>wolf</code> binary in it and the runtime archive it
+  links programs against — there is no installer and nothing to register.
+  Building from source is the path the project itself uses; the recipe is on
+  the <a href="/">front page</a>.</p>
+  <p>Wolf is version __WOLF_VERSION__ and pre-alpha. This page describes that
+  release and no other.</p>
+</section>
+
+<section>
+  <h2>Windows</h2>
+
+  <p>Read this part before you download anything, because it decides whether
+  the rest is worth your evening: <strong>the compiler cannot yet produce a
+  Windows executable</strong>. <code>wolf build</code> and <code>wolf
+  run</code> refuse this host by name. Everything in front of code generation
+  works — the parser, the type and region checkers, the formatter, the
+  diagnostics — and a checked machine inside the compiler will execute your
+  program and show you its output. That is a real first day with the language,
+  and it is less than a Linux or macOS learner gets. Both halves are below.</p>
+
+  <p>Nothing here is guessed. A
+  <a href="https://github.com/wolffe-lang/wolf-web/actions/workflows/windows.yml">job
+  in this site's own CI</a> downloads the archive linked below onto a Windows
+  runner, unpacks it with the same command you are about to type, and asserts
+  every claim on this page — the refusals included, word for word and exit
+  code for exit code. It runs on every change to this site and once a week
+  besides, so a sentence here that stops being true goes red before you find
+  out the hard way.</p>
+
+  <h3>Get it</h3>
+
+  <p>Download
+  <a href="https://github.com/wolffe-lang/wolf-lang/releases/download/v__WOLF_VERSION__/wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz"><code>wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></a>,
+  then unpack it in PowerShell. <code>tar</code> has shipped with Windows
+  since Windows 10 build 1803, so nothing needs installing to open this:</p>
+
+<pre><code>tar -xzf wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></pre>
+
+  <p>That leaves a folder holding <code>wolf.exe</code>, the C-import worker,
+  the runtime library <code>wolf_rt.lib</code> and the licenses. Move the
+  folder wherever you keep tools and put it on your PATH. For one PowerShell
+  session:</p>
+
+<pre><code>$env:Path = "C:\tools\wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc;$env:Path"</code></pre>
+
+  <p>To keep it, add the same folder to your user PATH under Settings →
+  System → About → Advanced system settings → Environment Variables. Then, in
+  a new window:</p>
+
+<pre><code>wolf --version</code></pre>
+
+  <p>It answers with <code>wolf __WOLF_VERSION__</code>, the commit it was
+  built at, and the <code>lupin</code> release it was differentially tested
+  against. A binary never claims a release it is not: anything but a build
+  made at the tag says so in that line.</p>
+
+  <h3>Your first program</h3>
+
+  <p>Make a folder and put one file in it. The folder matters: every
+  <code>.lu</code> file in a directory is one module, so two files each with a
+  <code>main</code> is a duplicate definition rather than two programs.
+  <code>hello.lu</code>:</p>
+
+<pre><code>fn main() -&gt; !int {
+    let who = "wolf"
+    print("hello, {who}")
+    0
+}</code></pre>
+
+  <p>From that folder, run it:</p>
+
+<pre><code>wolf conform-run .\hello.lu --checked</code></pre>
+
+<pre><code>{"commit":"…","diagnostics":[],"file":"./hello.lu","impl":"wolfgang",
+ "impl_version":"__WOLF_VERSION__","phase_reached":"run","protocol":1,
+ "seeded":false,"stdout_inline":"hello, wolf\n","stdout_sha256":"…",
+ "verdict":"exit(0)","warnings":[]}</code></pre>
+
+  <p>That is one line in the record; it is wrapped here, and the build commit
+  and the output digest are elided. Your program's output is the
+  <code>stdout_inline</code> field — <code>hello, wolf</code> — and
+  <code>verdict</code> is the exit status it returned. This is a conformance
+  harness rather than a nice runner, and on Windows today it is the way a
+  program runs.</p>
+
+  <p>Two things about that command line are load-bearing.
+  <code>--checked</code> is what makes it <em>run</em>: it hands your program
+  to the compiler's checked machine, which executes it directly and watches
+  for the undefined behaviour a native build would let past. Drop the flag and
+  the same command stops before code generation and answers
+  <code>"verdict":"unsupported"</code>. And write <code>.\hello.lu</code>, not
+  <code>hello.lu</code>: a bare filename makes this one command answer
+  <code>the package root has no wolf source files</code>, which is
+  <a href="https://github.com/wolffe-lang/wolf-lang/issues/206">wolf-lang#206</a>
+  and describes nothing you did wrong.</p>
+
+  <p><code>wolf test .\hello.lu</code> runs on the same machine and reports
+  <code>1 passed</code> instead of your output, which is the shorter way to
+  ask whether a program still works.</p>
+
+  <h3>What refuses, and what that means</h3>
+
+<pre><code>wolf build .\hello.lu</code></pre>
+
+<pre><code>wolf build: this host cannot run the native tier: native codegen targets
+linux/x86-64 and macOS/aarch64 (s28 + s59; the rest of D35's matrix is
+c13) — host: x86_64-pc-windows-msvc</code></pre>
+
+  <p>Exit code 2, and <code>wolf run</code> says the same thing in the same
+  words. It is an honest refusal rather than a crash: native code generation
+  serves linux/x86-64 and macOS/aarch64 today, this host is neither, and the
+  compiler declines instead of half-working. <code>wolf run --checked</code>
+  refuses identically — on the native path that flag selects a checked
+  <em>build</em>, which still needs the code generator this host does not
+  have, and it is not the <code>--checked</code> of the paragraph above.
+  Native Windows builds are in progress. This page will not name a date; it
+  will change when the job that measures it measures something else.</p>
+
+  <h3>Line endings</h3>
+
+  <p>If you wrote <code>hello.lu</code> in Notepad, it has Windows line
+  endings, and:</p>
+
+<pre><code>wolf fmt --check .\hello.lu
+wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
+
+  <p>Exit code 1. Canonical wolf source is LF, and <code>wolf fmt
+  .\hello.lu</code> rewrites the file — line endings included — after which
+  the check passes. The formatter has no options, so there is nothing to
+  configure and nothing to argue about.</p>
+
+  <h3>What runs on Windows today</h3>
+
+  <table>
+    <tr><th>command</th><th>on Windows</th></tr>
+    <tr><td><code>wolf --version</code></td><td>works</td></tr>
+    <tr><td><code>wolf --explain E0001</code></td><td>works — the whole diagnostic catalogue is in the binary</td></tr>
+    <tr><td><code>wolf fmt</code>, <code>wolf fmt --check</code></td><td>works</td></tr>
+    <tr><td><code>wolf conform-run <em>file</em> --checked</code></td><td>works — runs your program and prints its output in a record</td></tr>
+    <tr><td><code>wolf test</code></td><td>works</td></tr>
+    <tr><td><code>wolf build</code>, <code>wolf run</code></td><td>refuses, exit 2 — no native code generation for this host yet</td></tr>
+    <tr><td><code>lupin</code>, the reference interpreter</td><td>not published as a binary for any platform</td></tr>
+  </table>
+
+  <h3>The interpreter, and the playground</h3>
+
+  <p>Wolf has a second implementation: <code>lupin</code>, a reference
+  interpreter written against the same specification, sharing no code with the
+  compiler. It would be the natural thing to hand a Windows learner, and it is
+  not published as a binary — for Windows or for anything else
+  (<a href="https://github.com/wolffe-lang/wolf-interp/issues/54">wolf-interp#54</a>).
+  This page will not point you at a Linux tarball and wish you luck.</p>
+
+  <p>What you can have today is the same interpreter compiled to WebAssembly:
+  the <a href="/play/">playground</a> runs lupin __LUPIN_VERSION__ in the tab, with
+  the corpus programs to load, and it behaves on Windows exactly as it does
+  anywhere else. If you want to watch a program run while the native tier is
+  still on its way, that is the place.</p>
+</section>
+
+<section>
+  <h2>Everywhere else</h2>
+  <p>On linux x86-64 and macOS aarch64 the whole toolchain works:
+  <code>wolf run</code> compiles to native machine code through the compiler's
+  own backend and executes it, and <code>wolf build --release</code> goes
+  through LLVM. Take the archive for your platform from the
+  <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>
+  and put its folder on your PATH — the binary and the runtime archive have to
+  stay together, because the binary cannot link a program without it.
+  linux aarch64 gets archives at every tag without a CI runner behind them
+  yet.</p>
+  <p>The <a href="/">front page</a> has the four lines that build the same
+  toolchain from source, which is the path the project itself is known to
+  work on.</p>
+</section>
+</main>
+
+<footer>
+  <p>The Windows facts on this page were measured on a Windows runner against
+  the published archive, by a job that reruns weekly. If the page and the
+  archive disagree, the archive is right and the job is about to say so.</p>
+</footer>
+</body>
+</html>
