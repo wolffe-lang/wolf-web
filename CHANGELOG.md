@@ -3,6 +3,22 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww08 — 2026-09-01
+
+The site catches the wave. The pins move to wolf v0.2.1, lupin 0.1.20 and
+the book at bs22, four book sprints and two releases in one turn of the
+crank. The playground now runs an interpreter whose `match` arms take a
+struct apart by field name, and whose `defer` in a loop body fires at the
+end of every turn rather than when the function returns — the transcript
+the book's §4.3 now teaches. The book on the site gains the 45-exercise
+K&R ladder, chapter 25's first printed section on `wolf publish`, the
+corrected `defer` teaching and three pattern exercises: 327 exercises in
+the corpus, 278 printed on the pages, each with a solution. /changelog
+carries the book's own entries for the first time — bs19 through bs22 —
+beside wolf 0.2.1 and lupin 0.1.20. Three prose claims the new pins moved
+were re-recorded, and the spec page's `grammar/1` posture is now stamped
+from the pin at build time instead of naming a version by hand.
+
 ## ww07 — 2026-08-31
 
 The prose catches up. Every version claim on the site was re-recorded
