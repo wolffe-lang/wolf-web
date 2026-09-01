@@ -1,0 +1,182 @@
+name: windows learner path
+
+# What a Windows learner can actually do with the archive this site links.
+#
+# The site's rule is that a page may not claim a version of wolf that does
+# not exist; this job extends the rule to the platform. Every sentence the
+# Windows section writes about a command is a line this job PROVED against
+# the LIVE published archive — fetched by the same URL the page prints,
+# unpacked with the same `tar` the page tells a learner to type. It runs on
+# every push (so a prose change cannot outrun the measurement) and weekly
+# (so a withdrawn or broken archive is loud even when nobody is editing).
+on:
+  push:
+  schedule:
+    - cron: '23 7 * * 1'   # Mondays, 07:23 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: windows-learner-path-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  learner-path:
+    name: the archive, on a real windows box
+    runs-on: windows-latest
+    defaults:
+      run: {shell: pwsh}
+    steps:
+      # The pinned wolf-lang checkout is where the advertised version comes
+      # from — the same reading build.sh uses to stamp the pages. The job
+      # therefore tests the archive the site advertises, not whatever
+      # happens to be newest.
+      - uses: actions/checkout@v5
+        with: {submodules: recursive}
+
+      - name: the version the site advertises
+        run: |
+          $line = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' | Select-Object -First 1
+          if (-not $line) { Write-Output "::error::no release heading in the pinned wolf-lang CHANGELOG.md"; exit 1 }
+          $ver = $line.Matches[0].Groups[1].Value
+          "WOLF_VER=$ver" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "the pin says wolf $ver"
+
+      # The page's own link, fetched the page's own way. A 404 here is the
+      # finding the weekly schedule exists to catch.
+      - name: download the published archive
+        run: |
+          $url = "https://github.com/wolffe-lang/wolf-lang/releases/download/v$env:WOLF_VER/wolf-$env:WOLF_VER-x86_64-pc-windows-msvc.tar.gz"
+          "GET $url"
+          Invoke-WebRequest -Uri $url -OutFile wolf.tar.gz
+          $bytes = (Get-Item wolf.tar.gz).Length
+          "$bytes bytes"
+          if ($bytes -lt 1000000) { Write-Output "::error::the windows archive is $bytes bytes — that is not a toolchain"; exit 1 }
+
+      # `tar` has shipped with Windows since the 1803 build of Windows 10.
+      # The page tells a learner to type exactly this; so does the job.
+      - name: unpack it with the native tar
+        run: |
+          tar -xzf wolf.tar.gz
+          if ($LASTEXITCODE -ne 0) { Write-Output "::error::tar refused the archive"; exit 1 }
+          $dir = Join-Path (Get-Location) "wolf-$env:WOLF_VER-x86_64-pc-windows-msvc"
+          Get-ChildItem $dir | ForEach-Object { "  {0}  {1}" -f $_.Name, $_.Length }
+          $exe = Join-Path $dir "wolf.exe"
+          if (-not (Test-Path $exe)) { Write-Output "::error::no wolf.exe in the archive"; exit 1 }
+          "WOLF_DIR=$dir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "WOLF_EXE=$exe" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          # PATH placement, the way the page teaches it.
+          $dir | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+
+      - name: the first program
+        run: |
+          $src = @(
+            'fn main() -> !int {',
+            '    let who = "wolf"',
+            '    print("hello, {who}")',
+            '    0',
+            '}'
+          )
+          $src | Set-Content -Path hello.lu -Encoding utf8
+          Get-Content hello.lu
+
+      # THE TRUTH TABLE. Every command the page could plausibly tell a
+      # learner to type, run here with its exact exit code and its exact
+      # output recorded — the refusals included. A refusal is a
+      # measurement, not a failure; the assertions come after.
+      - name: probe every command a learner might type
+        run: |
+          $rows = @()
+          function Probe([string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -RedirectStandardOutput $so -RedirectStandardError $se
+            $out = Get-Content $so -Raw; $err = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $out) { $out = "" }
+            if ($null -eq $err) { $err = "" }
+            "=== wolf $($cmdargs -join ' ')"
+            "    exit $($p.ExitCode)"
+            if ($out.Trim()) { "    stdout |"; ($out -split "`r?`n" | ForEach-Object { "      $_" }) }
+            if ($err.Trim()) { "    stderr |"; ($err -split "`r?`n" | ForEach-Object { "      $_" }) }
+            ""
+            $script:rows += [pscustomobject]@{ cmd = "wolf $($cmdargs -join ' ')"; code = $p.ExitCode; out = $out; err = $err }
+          }
+
+          Probe @("--version")
+          Probe @("--explain", "E0001")
+          Probe @("fmt", "--check", "hello.lu")
+          Probe @("run", "--checked", "hello.lu")
+          Probe @("run", "hello.lu")
+          Probe @("build", "hello.lu")
+          Probe @("conform-run", "hello.lu", "--checked", "--json")
+          Probe @("test", "hello.lu")
+          Probe @("doctor")
+
+          # The same table in the run summary, so a reader does not have to
+          # open a log to see what a Windows learner gets.
+          $md = @("| command | exit | first line of output |", "|---|---|---|")
+          foreach ($r in $rows) {
+            $first = ((($r.out + $r.err) -split "`r?`n") | Where-Object { $_.Trim() } | Select-Object -First 1)
+            if (-not $first) { $first = "(no output)" }
+            $first = $first -replace '\|', '\|'
+            $md += "| ``$($r.cmd)`` | $($r.code) | $first |"
+          }
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+      # THE ASSERTIONS. The page's claims, one per sentence. When one fails
+      # the page is wrong, and this job says so before a learner finds out.
+      - name: the claims the page makes
+        run: |
+          function Cap([string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -RedirectStandardOutput $so -RedirectStandardError $se
+            $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $o) { $o = "" }
+            if ($null -eq $e) { $e = "" }
+            [pscustomobject]@{ code = $p.ExitCode; out = ($o -replace "`r`n", "`n"); err = ($e -replace "`r`n", "`n") }
+          }
+          $fail = 0
+          function Claim([string]$what, [bool]$ok, [string]$saw) {
+            if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
+          }
+
+          # The binary runs at all, and names the release the page names.
+          $v = Cap @("--version")
+          Claim "wolf --version exits 0" ($v.code -eq 0) "exit $($v.code)"
+          Claim "wolf --version names $env:WOLF_VER" ($v.out.Split("`n")[0].Trim() -eq $env:WOLF_VER) $v.out.Split("`n")[0]
+
+          # The formatter is pure Rust and works on this host.
+          $f = Cap @("fmt", "--check", "hello.lu")
+          Claim "wolf fmt --check exits 0 on formatted source" ($f.code -eq 0) "exit $($f.code): $($f.err)"
+
+          # The diagnostic catalogue is in the binary.
+          $e = Cap @("--explain", "E0001")
+          Claim "wolf --explain E0001 exits 0" ($e.code -eq 0) "exit $($e.code)"
+
+          # The native tier refuses this host, by name, with exit 2.
+          $b = Cap @("build", "hello.lu")
+          Claim "wolf build exits 2 on windows" ($b.code -eq 2) "exit $($b.code)"
+          Claim "wolf build names the unserved host" ($b.err -match "this host cannot run the native tier") $b.err
+          Claim "wolf build names the triple" ($b.err -match "x86_64-pc-windows") $b.err
+
+          if ($fail -gt 0) { Write-Output "::error::$fail claim(s) the page makes are not true of the published archive"; exit 1 }
+          "every claim held"
+
+      # Not a failure — a tripwire. The page says the interpreter is not
+      # published for Windows yet, and must stop saying it the day that
+      # stops being true (wolffe-lang/wolf-interp).
+      - name: does lupin publish a windows binary yet?
+        continue-on-error: true
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          $rel = gh release view --repo wolffe-lang/wolf-interp --json tagName,assets | ConvertFrom-Json
+          if (-not $rel) { "could not read wolf-interp releases"; exit 0 }
+          "latest wolf-interp release: $($rel.tagName), $($rel.assets.Count) asset(s)"
+          $win = $rel.assets | Where-Object { $_.name -match "windows" }
+          if ($win) {
+            "::warning::wolf-interp now publishes $($win.name) — add lupin's smoke here and drop 'interpreter: coming' from the page"
+          } else {
+            "no windows asset on the latest release — the page's 'the interpreter is not published for Windows' is still the truth"
+          }
