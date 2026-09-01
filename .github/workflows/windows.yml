@@ -238,3 +238,28 @@ jobs:
           } else {
             "no windows asset on the latest release — the page's 'the interpreter is not published for Windows' is still the truth"
           }
+
+  # The playground's editor is the one piece of this site whose behaviour
+  # is platform-dependent: `MAC = /Mac|iPhone|iPad/.test(navigator.platform)`
+  # decides whether the modifier is Cmd or Ctrl, and every binding hangs off
+  # that. On a windows runner node reports `Win32`, so the DOM suite here
+  # exercises the CONTROL spelling of every binding the playground page
+  # documents — the half a macOS or ubuntu run can never reach.
+  #
+  # This is not a browser. A real Edge/Chrome-on-Windows check would need a
+  # webdriver dependency, and the playground takes no dependencies; what is
+  # proved here is that the editor's key routing, undo coalescing and caret
+  # mirror behave on a Windows-shaped platform string.
+  editor-on-windows:
+    name: the editor's windows key spelling
+    runs-on: windows-latest
+    defaults:
+      run: {shell: pwsh}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: node reports a windows platform
+        run: node -e "console.log(navigator.platform, process.platform)"
+      - name: the editor suites, with Ctrl as the modifier
+        run: node --test @((Get-ChildItem tests/*.test.mjs).FullName)
