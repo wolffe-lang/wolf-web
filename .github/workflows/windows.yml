@@ -167,7 +167,16 @@ jobs:
           Claim "wolf --explain E0001 exits 0" ($e.code -eq 0) "exit $($e.code)"
 
           # "A file saved by Notepad is not canonically formatted; `wolf fmt`
-          # fixes it." Both halves, because the page teaches both.
+          # fixes it." Both halves, because the page teaches both — and the
+          # fixture is rewritten here, because the probe step above already
+          # ran `wolf fmt` over it.
+          [IO.File]::WriteAllText("$PWD\notepad\hello.lu", (@(
+            'fn main() -> !int {',
+            '    let who = "wolf"',
+            '    print("hello, {who}")',
+            '    0',
+            '}'
+          ) -join "`r`n") + "`r`n")
           $n1 = Cap "notepad" @("fmt", "--check", ".\hello.lu")
           Claim "wolf fmt --check exits 1 on a CRLF file" ($n1.code -eq 1) "exit $($n1.code)"
           Claim "wolf fmt --check names the file it refuses" ($n1.err -match "is not canonically formatted") $n1.err
@@ -188,6 +197,11 @@ jobs:
             Claim "the record's verdict is exit(0)" ($rec.verdict -eq "exit(0)") $rec.verdict
             Claim "the record carries the program's stdout" ($rec.stdout_inline -eq "hello, wolf`n") ("{0}" -f ($rec.stdout_inline -replace "`n", "\n"))
           }
+
+          # "`wolf test` runs it too, and reports a verdict instead of output."
+          $t = Cap "hello" @("test", ".\hello.lu")
+          Claim "wolf test exits 0" ($t.code -eq 0) "exit $($t.code): $($t.err)"
+          Claim "wolf test reports one passing test" ($t.out -match "1 passed; 0 failed") $t.out
 
           # "Without --checked it does not run your program."
           $u = Cap "hello" @("conform-run", ".\hello.lu")
