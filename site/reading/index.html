@@ -32,10 +32,13 @@
        PDF, so the page never advertises a file the dist does not carry. -->
   <p><a href="/book/wolf-book.pdf" download>Download the PDF</a> · __PDF_SIZE__ — the typst-set print edition, rendered from the same pinned source as the pages here, for reading offline.</p>
 
-  <p>Thirty of the thirty-two chapters are written. Two are reserved and each
-  says so on its own page: chapter 25 needs an edition mechanism, a standard
-  library on the page and a publish client, and chapter 29 needs two collection
-  types to execute on one lane. Chapter 21 is written but reserves two of its
+  <p>Thirty of the thirty-two chapters are written through, and every chapter
+  that holds something back says so on its own page. Chapter 29 is reserved
+  whole: its virtual machine needs a <code>Pool</code> constructor the compiler
+  will not lower and a field write through a handle the interpreter declines.
+  Chapter 25 is one section in — §25.3 teaches <code>wolf publish</code> and the
+  record it writes — while §25.1 and §25.2 wait on an edition mechanism and a
+  standard library on the page. Chapter 21 is written but reserves two of its
   five sections for benchmark claims not yet legally won.</p>
 </section>
 
