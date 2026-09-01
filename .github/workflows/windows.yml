@@ -67,17 +67,25 @@ jobs:
           # PATH placement, the way the page teaches it.
           $dir | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
 
-      - name: the first program
+      # Two hello.lu files, in two directories, because every `.lu` file in
+      # one directory is one module (D32) and two `main`s collide. One is
+      # written the way a unix-born editor writes it (LF); the other the way
+      # Notepad does (CRLF) — the difference is visible to `wolf fmt`, and
+      # the page has to say so.
+      - name: the first program, twice — LF and the way Notepad saves it
         run: |
-          $src = @(
+          $lines = @(
             'fn main() -> !int {',
             '    let who = "wolf"',
             '    print("hello, {who}")',
             '    0',
             '}'
           )
-          $src | Set-Content -Path hello.lu -Encoding utf8
-          Get-Content hello.lu
+          New-Item -ItemType Directory -Force -Path hello, notepad | Out-Null
+          [IO.File]::WriteAllText("$PWD\hello\hello.lu", ($lines -join "`n") + "`n")
+          [IO.File]::WriteAllText("$PWD\notepad\hello.lu", ($lines -join "`r`n") + "`r`n")
+          "hello\hello.lu    $((Get-Item hello\hello.lu).Length) bytes (LF)"
+          "notepad\hello.lu  $((Get-Item notepad\hello.lu).Length) bytes (CRLF)"
 
       # THE TRUTH TABLE. Every command the page could plausibly tell a
       # learner to type, run here with its exact exit code and its exact
@@ -86,40 +94,45 @@ jobs:
       - name: probe every command a learner might type
         run: |
           $rows = @()
-          function Probe([string[]]$cmdargs) {
+          function Probe([string]$dir, [string[]]$cmdargs) {
             $so = New-TemporaryFile; $se = New-TemporaryFile
             $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
-                   -RedirectStandardOutput $so -RedirectStandardError $se
+                   -WorkingDirectory (Join-Path $PWD $dir) -RedirectStandardOutput $so -RedirectStandardError $se
             $out = Get-Content $so -Raw; $err = Get-Content $se -Raw
             Remove-Item $so, $se -Force
             if ($null -eq $out) { $out = "" }
             if ($null -eq $err) { $err = "" }
-            "=== wolf $($cmdargs -join ' ')"
+            "=== $dir> wolf $($cmdargs -join ' ')"
             "    exit $($p.ExitCode)"
             if ($out.Trim()) { "    stdout |"; ($out -split "`r?`n" | ForEach-Object { "      $_" }) }
             if ($err.Trim()) { "    stderr |"; ($err -split "`r?`n" | ForEach-Object { "      $_" }) }
             ""
-            $script:rows += [pscustomobject]@{ cmd = "wolf $($cmdargs -join ' ')"; code = $p.ExitCode; out = $out; err = $err }
+            $script:rows += [pscustomobject]@{ cmd = "wolf $($cmdargs -join ' ')"; dir = $dir; code = $p.ExitCode; out = $out; err = $err }
           }
 
-          Probe @("--version")
-          Probe @("--explain", "E0001")
-          Probe @("fmt", "--check", "hello.lu")
-          Probe @("run", "--checked", "hello.lu")
-          Probe @("run", "hello.lu")
-          Probe @("build", "hello.lu")
-          Probe @("conform-run", "hello.lu", "--checked", "--json")
-          Probe @("test", "hello.lu")
-          Probe @("doctor")
+          Probe "hello"   @("--version")
+          Probe "hello"   @("--explain", "E0001")
+          Probe "hello"   @("fmt", "--check", ".\hello.lu")
+          Probe "hello"   @("conform-run", ".\hello.lu", "--checked")
+          Probe "hello"   @("conform-run", ".\hello.lu")
+          Probe "hello"   @("conform-run", "hello.lu", "--checked")
+          Probe "hello"   @("run", "--checked", ".\hello.lu")
+          Probe "hello"   @("run", ".\hello.lu")
+          Probe "hello"   @("build", ".\hello.lu")
+          Probe "hello"   @("test", ".\hello.lu")
+          Probe "hello"   @("doctor")
+          Probe "notepad" @("fmt", "--check", ".\hello.lu")
+          Probe "notepad" @("fmt", ".\hello.lu")
+          Probe "notepad" @("fmt", "--check", ".\hello.lu")
 
           # The same table in the run summary, so a reader does not have to
           # open a log to see what a Windows learner gets.
-          $md = @("| command | exit | first line of output |", "|---|---|---|")
+          $md = @("| directory | command | exit | first line of output |", "|---|---|---|---|")
           foreach ($r in $rows) {
             $first = ((($r.out + $r.err) -split "`r?`n") | Where-Object { $_.Trim() } | Select-Object -First 1)
             if (-not $first) { $first = "(no output)" }
             $first = $first -replace '\|', '\|'
-            $md += "| ``$($r.cmd)`` | $($r.code) | $first |"
+            $md += "| $($r.dir) | ``$($r.cmd)`` | $($r.code) | $first |"
           }
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
 
@@ -127,10 +140,10 @@ jobs:
       # the page is wrong, and this job says so before a learner finds out.
       - name: the claims the page makes
         run: |
-          function Cap([string[]]$cmdargs) {
+          function Cap([string]$dir, [string[]]$cmdargs) {
             $so = New-TemporaryFile; $se = New-TemporaryFile
             $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
-                   -RedirectStandardOutput $so -RedirectStandardError $se
+                   -WorkingDirectory (Join-Path $PWD $dir) -RedirectStandardOutput $so -RedirectStandardError $se
             $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
             Remove-Item $so, $se -Force
             if ($null -eq $o) { $o = "" }
@@ -142,27 +155,58 @@ jobs:
             if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
           }
 
-          # The binary runs at all, and names the release the page names.
-          $v = Cap @("--version")
+          # "wolf --version answers, and names the release this site pins."
+          $v = Cap "hello" @("--version")
           Claim "wolf --version exits 0" ($v.code -eq 0) "exit $($v.code)"
-          Claim "wolf --version names $env:WOLF_VER" ($v.out.Split("`n")[0].Trim() -eq $env:WOLF_VER) $v.out.Split("`n")[0]
+          Claim "wolf --version names wolf $env:WOLF_VER" ($v.out.Split("`n")[0].StartsWith("wolf $env:WOLF_VER ")) $v.out.Split("`n")[0]
 
-          # The formatter is pure Rust and works on this host.
-          $f = Cap @("fmt", "--check", "hello.lu")
-          Claim "wolf fmt --check exits 0 on formatted source" ($f.code -eq 0) "exit $($f.code): $($f.err)"
-
-          # The diagnostic catalogue is in the binary.
-          $e = Cap @("--explain", "E0001")
+          # "The formatter and the diagnostic catalogue are in the binary."
+          $f = Cap "hello" @("fmt", "--check", ".\hello.lu")
+          Claim "wolf fmt --check exits 0 on canonical LF source" ($f.code -eq 0) "exit $($f.code): $($f.err)"
+          $e = Cap "hello" @("--explain", "E0001")
           Claim "wolf --explain E0001 exits 0" ($e.code -eq 0) "exit $($e.code)"
 
-          # The native tier refuses this host, by name, with exit 2.
-          $b = Cap @("build", "hello.lu")
-          Claim "wolf build exits 2 on windows" ($b.code -eq 2) "exit $($b.code)"
-          Claim "wolf build names the unserved host" ($b.err -match "this host cannot run the native tier") $b.err
-          Claim "wolf build names the triple" ($b.err -match "x86_64-pc-windows") $b.err
+          # "A file saved by Notepad is not canonically formatted; `wolf fmt`
+          # fixes it." Both halves, because the page teaches both.
+          $n1 = Cap "notepad" @("fmt", "--check", ".\hello.lu")
+          Claim "wolf fmt --check exits 1 on a CRLF file" ($n1.code -eq 1) "exit $($n1.code)"
+          Claim "wolf fmt --check names the file it refuses" ($n1.err -match "is not canonically formatted") $n1.err
+          $n2 = Cap "notepad" @("fmt", ".\hello.lu")
+          Claim "wolf fmt rewrites it, exit 0" ($n2.code -eq 0) "exit $($n2.code): $($n2.err)"
+          $n3 = Cap "notepad" @("fmt", "--check", ".\hello.lu")
+          Claim "wolf fmt --check then exits 0" ($n3.code -eq 0) "exit $($n3.code): $($n3.err)"
+
+          # "`wolf conform-run --checked` is how a program runs on this host,
+          # and your program's stdout is in the record it prints."
+          $c = Cap "hello" @("conform-run", ".\hello.lu", "--checked")
+          Claim "conform-run --checked exits 0" ($c.code -eq 0) "exit $($c.code): $($c.err)"
+          $rec = $null
+          try { $rec = $c.out | ConvertFrom-Json } catch { }
+          Claim "conform-run --checked prints a JSON record" ($null -ne $rec) $c.out
+          if ($rec) {
+            Claim "the record reached the run phase" ($rec.phase_reached -eq "run") $rec.phase_reached
+            Claim "the record's verdict is exit(0)" ($rec.verdict -eq "exit(0)") $rec.verdict
+            Claim "the record carries the program's stdout" ($rec.stdout_inline -eq "hello, wolf`n") ("{0}" -f ($rec.stdout_inline -replace "`n", "\n"))
+          }
+
+          # "Without --checked it does not run your program."
+          $u = Cap "hello" @("conform-run", ".\hello.lu")
+          $urec = $null
+          try { $urec = $u.out | ConvertFrom-Json } catch { }
+          Claim "conform-run without --checked does not run it" ($urec -and $urec.verdict -eq "unsupported") $u.out
+
+          # "The native tier refuses this host by name, and says so the same
+          # way for `build` and for `run`, with or without --checked."
+          foreach ($probe in @(@("build", ".\hello.lu"), @("run", ".\hello.lu"), @("run", "--checked", ".\hello.lu"))) {
+            $b = Cap "hello" $probe
+            $label = "wolf $($probe -join ' ')"
+            Claim "$label exits 2 on windows" ($b.code -eq 2) "exit $($b.code)"
+            Claim "$label names the unserved host" ($b.err -match "this host cannot run the native tier: native codegen targets linux/x86-64 and macOS/aarch64") $b.err
+            Claim "$label names the triple" ($b.err -match "host: x86_64-pc-windows-msvc") $b.err
+          }
 
           if ($fail -gt 0) { Write-Output "::error::$fail claim(s) the page makes are not true of the published archive"; exit 1 }
-          "every claim held"
+          "every claim the page makes held against the published archive"
 
       # Not a failure — a tripwire. The page says the interpreter is not
       # published for Windows yet, and must stop saying it the day that
