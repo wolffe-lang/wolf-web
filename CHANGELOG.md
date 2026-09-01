@@ -3,6 +3,31 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww09 — 2026-09-01
+
+The Windows welcome. The site gains /install/, and its Windows section was
+written after the measurement rather than before it: a windows-latest job in
+this repo's CI downloads the published archive by the same URL the page
+prints, unpacks it with the same `tar`, and asserts every claim the page
+makes — word for word, exit code for exit code — on every push and once a
+week besides. What that job found is what the page now says. The compiler
+runs on Windows up to code generation: `wolf --version`, `wolf --explain`,
+`wolf fmt`, `wolf test`, and `wolf conform-run <file> --checked`, which
+executes a first program on the compiler's checked machine and prints its
+output in the record. `wolf build` and `wolf run` refuse the host by name
+with exit 2, and the page quotes that refusal whole instead of paraphrasing
+it; native Windows builds are in progress and the page names no date. Two
+Windows-shaped facts a learner would otherwise hit blind are on the page
+because the runner hit them: a file saved by Notepad is not canonically
+formatted until `wolf fmt` rewrites it, and `conform-run` needs `.\hello.lu`
+where every other verb takes a bare name (wolf-lang#206). The reference
+interpreter is published as a binary for no platform at all, so the page says
+so and points at the playground rather than linking a Linux tarball
+(wolf-interp#54). The playground's own Windows caveat is now printed beside
+its key bindings — Ctrl+Alt+arrows is screen rotation on some laptops — and
+the editor's suites run on a Windows runner, where node reports Win32 and
+every binding is exercised in its Ctrl spelling.
+
 ## ww08 — 2026-09-01
 
 The site catches the wave. The pins move to wolf v0.2.1, lupin 0.1.20 and

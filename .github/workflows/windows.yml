@@ -1,0 +1,280 @@
+name: windows learner path
+
+# What a Windows learner can actually do with the archive this site links.
+#
+# The site's rule is that a page may not claim a version of wolf that does
+# not exist; this job extends the rule to the platform. Every sentence the
+# Windows section writes about a command is a line this job PROVED against
+# the LIVE published archive — fetched by the same URL the page prints,
+# unpacked with the same `tar` the page tells a learner to type. It runs on
+# every push (so a prose change cannot outrun the measurement) and weekly
+# (so a withdrawn or broken archive is loud even when nobody is editing).
+on:
+  push:
+  schedule:
+    - cron: '23 7 * * 1'   # Mondays, 07:23 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: windows-learner-path-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  learner-path:
+    name: the archive, on a real windows box
+    runs-on: windows-latest
+    defaults:
+      run: {shell: pwsh}
+    steps:
+      # The pinned wolf-lang checkout is where the advertised version comes
+      # from — the same reading build.sh uses to stamp the pages. The job
+      # therefore tests the archive the site advertises, not whatever
+      # happens to be newest.
+      - uses: actions/checkout@v5
+        with: {submodules: recursive}
+
+      - name: the version the site advertises
+        run: |
+          $line = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' | Select-Object -First 1
+          if (-not $line) { Write-Output "::error::no release heading in the pinned wolf-lang CHANGELOG.md"; exit 1 }
+          $ver = $line.Matches[0].Groups[1].Value
+          "WOLF_VER=$ver" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "the pin says wolf $ver"
+
+      # The page's own link, fetched the page's own way. A 404 here is the
+      # finding the weekly schedule exists to catch.
+      - name: download the published archive
+        run: |
+          $url = "https://github.com/wolffe-lang/wolf-lang/releases/download/v$env:WOLF_VER/wolf-$env:WOLF_VER-x86_64-pc-windows-msvc.tar.gz"
+          "GET $url"
+          Invoke-WebRequest -Uri $url -OutFile wolf.tar.gz
+          $bytes = (Get-Item wolf.tar.gz).Length
+          "$bytes bytes"
+          if ($bytes -lt 1000000) { Write-Output "::error::the windows archive is $bytes bytes — that is not a toolchain"; exit 1 }
+
+      # `tar` has shipped with Windows since the 1803 build of Windows 10.
+      # The page tells a learner to type exactly this; so does the job.
+      - name: unpack it with the native tar
+        run: |
+          tar -xzf wolf.tar.gz
+          if ($LASTEXITCODE -ne 0) { Write-Output "::error::tar refused the archive"; exit 1 }
+          $dir = Join-Path (Get-Location) "wolf-$env:WOLF_VER-x86_64-pc-windows-msvc"
+          Get-ChildItem $dir | ForEach-Object { "  {0}  {1}" -f $_.Name, $_.Length }
+          $exe = Join-Path $dir "wolf.exe"
+          if (-not (Test-Path $exe)) { Write-Output "::error::no wolf.exe in the archive"; exit 1 }
+          "WOLF_DIR=$dir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "WOLF_EXE=$exe" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          # PATH placement, the way the page teaches it.
+          $dir | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+
+      # Two hello.lu files, in two directories, because every `.lu` file in
+      # one directory is one module (D32) and two `main`s collide. One is
+      # written the way a unix-born editor writes it (LF); the other the way
+      # Notepad does (CRLF) — the difference is visible to `wolf fmt`, and
+      # the page has to say so.
+      - name: the first program, twice — LF and the way Notepad saves it
+        run: |
+          $lines = @(
+            'fn main() -> !int {',
+            '    let who = "wolf"',
+            '    print("hello, {who}")',
+            '    0',
+            '}'
+          )
+          New-Item -ItemType Directory -Force -Path hello, notepad | Out-Null
+          [IO.File]::WriteAllText("$PWD\hello\hello.lu", ($lines -join "`n") + "`n")
+          [IO.File]::WriteAllText("$PWD\notepad\hello.lu", ($lines -join "`r`n") + "`r`n")
+          "hello\hello.lu    $((Get-Item hello\hello.lu).Length) bytes (LF)"
+          "notepad\hello.lu  $((Get-Item notepad\hello.lu).Length) bytes (CRLF)"
+
+      # THE TRUTH TABLE. Every command the page could plausibly tell a
+      # learner to type, run here with its exact exit code and its exact
+      # output recorded — the refusals included. A refusal is a
+      # measurement, not a failure; the assertions come after.
+      - name: probe every command a learner might type
+        run: |
+          $rows = @()
+          function Probe([string]$dir, [string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -WorkingDirectory (Join-Path $PWD $dir) -RedirectStandardOutput $so -RedirectStandardError $se
+            $out = Get-Content $so -Raw; $err = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $out) { $out = "" }
+            if ($null -eq $err) { $err = "" }
+            "=== $dir> wolf $($cmdargs -join ' ')"
+            "    exit $($p.ExitCode)"
+            if ($out.Trim()) { "    stdout |"; ($out -split "`r?`n" | ForEach-Object { "      $_" }) }
+            if ($err.Trim()) { "    stderr |"; ($err -split "`r?`n" | ForEach-Object { "      $_" }) }
+            ""
+            $script:rows += [pscustomobject]@{ cmd = "wolf $($cmdargs -join ' ')"; dir = $dir; code = $p.ExitCode; out = $out; err = $err }
+          }
+
+          Probe "hello"   @("--version")
+          Probe "hello"   @("--explain", "E0001")
+          Probe "hello"   @("fmt", "--check", ".\hello.lu")
+          Probe "hello"   @("conform-run", ".\hello.lu", "--checked")
+          Probe "hello"   @("conform-run", ".\hello.lu")
+          Probe "hello"   @("conform-run", "hello.lu", "--checked")
+          Probe "hello"   @("run", "--checked", ".\hello.lu")
+          Probe "hello"   @("run", ".\hello.lu")
+          Probe "hello"   @("build", ".\hello.lu")
+          Probe "hello"   @("test", ".\hello.lu")
+          Probe "hello"   @("doctor")
+          Probe "notepad" @("fmt", "--check", ".\hello.lu")
+          Probe "notepad" @("fmt", ".\hello.lu")
+          Probe "notepad" @("fmt", "--check", ".\hello.lu")
+
+          # The same table in the run summary, so a reader does not have to
+          # open a log to see what a Windows learner gets.
+          $md = @("| directory | command | exit | first line of output |", "|---|---|---|---|")
+          foreach ($r in $rows) {
+            $first = ((($r.out + $r.err) -split "`r?`n") | Where-Object { $_.Trim() } | Select-Object -First 1)
+            if (-not $first) { $first = "(no output)" }
+            $first = $first -replace '\|', '\|'
+            $md += "| $($r.dir) | ``$($r.cmd)`` | $($r.code) | $first |"
+          }
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+      # THE ASSERTIONS. The page's claims, one per sentence. When one fails
+      # the page is wrong, and this job says so before a learner finds out.
+      - name: the claims the page makes
+        run: |
+          function Cap([string]$dir, [string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -WorkingDirectory (Join-Path $PWD $dir) -RedirectStandardOutput $so -RedirectStandardError $se
+            $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $o) { $o = "" }
+            if ($null -eq $e) { $e = "" }
+            [pscustomobject]@{ code = $p.ExitCode; out = ($o -replace "`r`n", "`n"); err = ($e -replace "`r`n", "`n") }
+          }
+          $fail = 0
+          function Claim([string]$what, [bool]$ok, [string]$saw) {
+            if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
+          }
+
+          # "That leaves a folder holding wolf.exe, the C-import worker, the
+          # runtime library wolf_rt.lib and the licenses."
+          foreach ($f in @("wolf.exe", "wolf-cimport-worker.exe", "wolf_rt.lib", "LICENSE", "LICENSE-EXCEPTION")) {
+            Claim "the archive carries $f" (Test-Path (Join-Path $env:WOLF_DIR $f)) "missing from $env:WOLF_DIR"
+          }
+
+          # "Every .lu file in a directory is one module, so two files each
+          # with a main is a duplicate definition rather than two programs."
+          New-Item -ItemType Directory -Force -Path twomains | Out-Null
+          $prog = @('fn main() -> !int {', '    print("hello, wolf")', '    0', '}')
+          [IO.File]::WriteAllText("$PWD\twomains\hello.lu", ($prog -join "`n") + "`n")
+          [IO.File]::WriteAllText("$PWD\twomains\other.lu", ($prog -join "`n") + "`n")
+          $d = Cap "twomains" @("conform-run", ".\hello.lu", "--checked")
+          Claim "two mains in one folder is a duplicate definition" (($d.out + $d.err) -match "E0302") ($d.out + $d.err)
+
+          # "wolf --version answers, and names the release this site pins."
+          $v = Cap "hello" @("--version")
+          Claim "wolf --version exits 0" ($v.code -eq 0) "exit $($v.code)"
+          Claim "wolf --version names wolf $env:WOLF_VER" ($v.out.Split("`n")[0].StartsWith("wolf $env:WOLF_VER ")) $v.out.Split("`n")[0]
+
+          # "The formatter and the diagnostic catalogue are in the binary."
+          $f = Cap "hello" @("fmt", "--check", ".\hello.lu")
+          Claim "wolf fmt --check exits 0 on canonical LF source" ($f.code -eq 0) "exit $($f.code): $($f.err)"
+          $e = Cap "hello" @("--explain", "E0001")
+          Claim "wolf --explain E0001 exits 0" ($e.code -eq 0) "exit $($e.code)"
+
+          # "A file saved by Notepad is not canonically formatted; `wolf fmt`
+          # fixes it." Both halves, because the page teaches both — and the
+          # fixture is rewritten here, because the probe step above already
+          # ran `wolf fmt` over it.
+          [IO.File]::WriteAllText("$PWD\notepad\hello.lu", (@(
+            'fn main() -> !int {',
+            '    let who = "wolf"',
+            '    print("hello, {who}")',
+            '    0',
+            '}'
+          ) -join "`r`n") + "`r`n")
+          $n1 = Cap "notepad" @("fmt", "--check", ".\hello.lu")
+          Claim "wolf fmt --check exits 1 on a CRLF file" ($n1.code -eq 1) "exit $($n1.code)"
+          Claim "wolf fmt --check names the file it refuses" ($n1.err -match "is not canonically formatted") $n1.err
+          $n2 = Cap "notepad" @("fmt", ".\hello.lu")
+          Claim "wolf fmt rewrites it, exit 0" ($n2.code -eq 0) "exit $($n2.code): $($n2.err)"
+          $n3 = Cap "notepad" @("fmt", "--check", ".\hello.lu")
+          Claim "wolf fmt --check then exits 0" ($n3.code -eq 0) "exit $($n3.code): $($n3.err)"
+
+          # "`wolf conform-run --checked` is how a program runs on this host,
+          # and your program's stdout is in the record it prints."
+          $c = Cap "hello" @("conform-run", ".\hello.lu", "--checked")
+          Claim "conform-run --checked exits 0" ($c.code -eq 0) "exit $($c.code): $($c.err)"
+          $rec = $null
+          try { $rec = $c.out | ConvertFrom-Json } catch { }
+          Claim "conform-run --checked prints a JSON record" ($null -ne $rec) $c.out
+          if ($rec) {
+            Claim "the record reached the run phase" ($rec.phase_reached -eq "run") $rec.phase_reached
+            Claim "the record's verdict is exit(0)" ($rec.verdict -eq "exit(0)") $rec.verdict
+            Claim "the record carries the program's stdout" ($rec.stdout_inline -eq "hello, wolf`n") ("{0}" -f ($rec.stdout_inline -replace "`n", "\n"))
+          }
+
+          # "`wolf test` runs it too, and reports a verdict instead of output."
+          $t = Cap "hello" @("test", ".\hello.lu")
+          Claim "wolf test exits 0" ($t.code -eq 0) "exit $($t.code): $($t.err)"
+          Claim "wolf test reports one passing test" ($t.out -match "1 passed; 0 failed") $t.out
+
+          # "Without --checked it does not run your program."
+          $u = Cap "hello" @("conform-run", ".\hello.lu")
+          $urec = $null
+          try { $urec = $u.out | ConvertFrom-Json } catch { }
+          Claim "conform-run without --checked does not run it" ($urec -and $urec.verdict -eq "unsupported") $u.out
+
+          # "The native tier refuses this host by name, and says so the same
+          # way for `build` and for `run`, with or without --checked."
+          foreach ($probe in @(@("build", ".\hello.lu"), @("run", ".\hello.lu"), @("run", "--checked", ".\hello.lu"))) {
+            $b = Cap "hello" $probe
+            $label = "wolf $($probe -join ' ')"
+            Claim "$label exits 2 on windows" ($b.code -eq 2) "exit $($b.code)"
+            Claim "$label names the unserved host" ($b.err -match "this host cannot run the native tier: native codegen targets linux/x86-64 and macOS/aarch64") $b.err
+            Claim "$label names the triple" ($b.err -match "host: x86_64-pc-windows-msvc") $b.err
+          }
+
+          if ($fail -gt 0) { Write-Output "::error::$fail claim(s) the page makes are not true of the published archive"; exit 1 }
+          "every claim the page makes held against the published archive"
+
+      # Not a failure — a tripwire. The page says the interpreter is not
+      # published for Windows yet, and must stop saying it the day that
+      # stops being true (wolffe-lang/wolf-interp).
+      - name: does lupin publish a windows binary yet?
+        continue-on-error: true
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          $rel = gh release view --repo wolffe-lang/wolf-interp --json tagName,assets | ConvertFrom-Json
+          if (-not $rel) { "could not read wolf-interp releases"; exit 0 }
+          "latest wolf-interp release: $($rel.tagName), $($rel.assets.Count) asset(s)"
+          $win = $rel.assets | Where-Object { $_.name -match "windows" }
+          if ($win) {
+            "::warning::wolf-interp now publishes $($win.name) — add lupin's smoke here and drop 'interpreter: coming' from the page"
+          } else {
+            "no windows asset on the latest release — the page's 'the interpreter is not published for Windows' is still the truth"
+          }
+
+  # The playground's editor is the one piece of this site whose behaviour
+  # is platform-dependent: `MAC = /Mac|iPhone|iPad/.test(navigator.platform)`
+  # decides whether the modifier is Cmd or Ctrl, and every binding hangs off
+  # that. On a windows runner node reports `Win32`, so the DOM suite here
+  # exercises the CONTROL spelling of every binding the playground page
+  # documents — the half a macOS or ubuntu run can never reach.
+  #
+  # This is not a browser. A real Edge/Chrome-on-Windows check would need a
+  # webdriver dependency, and the playground takes no dependencies; what is
+  # proved here is that the editor's key routing, undo coalescing and caret
+  # mirror behave on a Windows-shaped platform string.
+  editor-on-windows:
+    name: the editor's windows key spelling
+    runs-on: windows-latest
+    defaults:
+      run: {shell: pwsh}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: node reports a windows platform
+        run: node -e "console.log(navigator.platform, process.platform)"
+      - name: the editor suites, with Ctrl as the modifier
+        run: node --test @((Get-ChildItem tests/*.test.mjs).FullName)
