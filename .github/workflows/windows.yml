@@ -155,6 +155,21 @@ jobs:
             if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
           }
 
+          # "That leaves a folder holding wolf.exe, the C-import worker, the
+          # runtime library wolf_rt.lib and the licenses."
+          foreach ($f in @("wolf.exe", "wolf-cimport-worker.exe", "wolf_rt.lib", "LICENSE", "LICENSE-EXCEPTION")) {
+            Claim "the archive carries $f" (Test-Path (Join-Path $env:WOLF_DIR $f)) "missing from $env:WOLF_DIR"
+          }
+
+          # "Every .lu file in a directory is one module, so two files each
+          # with a main is a duplicate definition rather than two programs."
+          New-Item -ItemType Directory -Force -Path twomains | Out-Null
+          $prog = @('fn main() -> !int {', '    print("hello, wolf")', '    0', '}')
+          [IO.File]::WriteAllText("$PWD\twomains\hello.lu", ($prog -join "`n") + "`n")
+          [IO.File]::WriteAllText("$PWD\twomains\other.lu", ($prog -join "`n") + "`n")
+          $d = Cap "twomains" @("conform-run", ".\hello.lu", "--checked")
+          Claim "two mains in one folder is a duplicate definition" (($d.out + $d.err) -match "E0302") ($d.out + $d.err)
+
           # "wolf --version answers, and names the release this site pins."
           $v = Cap "hello" @("--version")
           Claim "wolf --version exits 0" ($v.code -eq 0) "exit $($v.code)"
