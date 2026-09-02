@@ -1,6 +1,6 @@
 name: windows learner path
 
-# What a Windows learner can actually do with the archive this site links.
+# What a Windows learner can actually do with the archives this site links.
 #
 # The site's rule is that a page may not claim a version of wolf that does
 # not exist; this job extends the rule to the platform. Every sentence the
@@ -9,6 +9,16 @@ name: windows learner path
 # unpacked with the same `tar` the page tells a learner to type. It runs on
 # every push (so a prose change cannot outrun the measurement) and weekly
 # (so a withdrawn or broken archive is loud even when nobody is editing).
+#
+# At v0.2.2 the table this job holds FLIPPED. `wolf build` and `wolf run`
+# were exit-2 refusals through v0.2.1; the s60a bring-up makes them produce
+# and execute a real `hello.exe`, on one condition — the import libraries
+# that come with Visual Studio Build Tools. The runner has them, so the job
+# measures both branches: the toolchain present (build and run succeed), and
+# the toolchain absent (the named refusal, quoted on the page verbatim). The
+# second branch is reached honestly, by taking the Windows SDK's registry
+# root out from under the compiler's MSVC discovery for the length of one
+# command and putting it back.
 on:
   push:
   schedule:
@@ -26,20 +36,22 @@ jobs:
     defaults:
       run: {shell: pwsh}
     steps:
-      # The pinned wolf-lang checkout is where the advertised version comes
-      # from — the same reading build.sh uses to stamp the pages. The job
-      # therefore tests the archive the site advertises, not whatever
-      # happens to be newest.
+      # The pinned checkouts are where the advertised versions come from —
+      # the same reading build.sh uses to stamp the pages. The job therefore
+      # tests the archives the site advertises, not whatever is newest.
       - uses: actions/checkout@v5
         with: {submodules: recursive}
 
-      - name: the version the site advertises
+      - name: the versions the site advertises
         run: |
           $line = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' | Select-Object -First 1
           if (-not $line) { Write-Output "::error::no release heading in the pinned wolf-lang CHANGELOG.md"; exit 1 }
           $ver = $line.Matches[0].Groups[1].Value
           "WOLF_VER=$ver" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-          "the pin says wolf $ver"
+          $lup = (Select-String -Path upstream/wolf-interp/Cargo.toml -Pattern '^version\s*=\s*"([^"]+)"' | Select-Object -First 1).Matches[0].Groups[1].Value
+          if (-not $lup) { Write-Output "::error::no version in the pinned wolf-interp Cargo.toml"; exit 1 }
+          "LUPIN_VER=$lup" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "the pins say wolf $ver, lupin $lup"
 
       # The page's own link, fetched the page's own way. A 404 here is the
       # finding the weekly schedule exists to catch.
@@ -67,11 +79,26 @@ jobs:
           # PATH placement, the way the page teaches it.
           $dir | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
 
+      # The interpreter's own published binary. Until v0.1.22 wolf-interp
+      # published no binary for any platform (wolf-interp#54); the bare
+      # `lupin.exe` on the release page is what the page now links, so the
+      # job downloads that exact asset rather than the zip beside it.
+      - name: download the published lupin.exe
+        run: |
+          $url = "https://github.com/wolffe-lang/wolf-interp/releases/download/v$env:LUPIN_VER/lupin.exe"
+          "GET $url"
+          Invoke-WebRequest -Uri $url -OutFile lupin.exe
+          $bytes = (Get-Item lupin.exe).Length
+          "$bytes bytes"
+          if ($bytes -lt 500000) { Write-Output "::error::lupin.exe is $bytes bytes — that is not an interpreter"; exit 1 }
+          "LUPIN_EXE=$((Get-Item lupin.exe).FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
       # Two hello.lu files, in two directories, because every `.lu` file in
       # one directory is one module (D32) and two `main`s collide. One is
       # written the way a unix-born editor writes it (LF); the other the way
       # Notepad does (CRLF) — the difference is visible to `wolf fmt`, and
-      # the page has to say so.
+      # the page has to say so. A third directory holds the corpus program
+      # that uses the task layer, which this host refuses by name.
       - name: the first program, twice — LF and the way Notepad saves it
         run: |
           $lines = @(
@@ -81,11 +108,13 @@ jobs:
             '    0',
             '}'
           )
-          New-Item -ItemType Directory -Force -Path hello, notepad | Out-Null
+          New-Item -ItemType Directory -Force -Path hello, notepad, tasks | Out-Null
           [IO.File]::WriteAllText("$PWD\hello\hello.lu", ($lines -join "`n") + "`n")
           [IO.File]::WriteAllText("$PWD\notepad\hello.lu", ($lines -join "`r`n") + "`r`n")
+          Copy-Item upstream/wolf-lang/corpus/conc/spawn_fanout_loop.lu tasks/fanout.lu
           "hello\hello.lu    $((Get-Item hello\hello.lu).Length) bytes (LF)"
           "notepad\hello.lu  $((Get-Item notepad\hello.lu).Length) bytes (CRLF)"
+          "tasks\fanout.lu   $((Get-Item tasks\fanout.lu).Length) bytes (the task layer)"
 
       # THE TRUTH TABLE. Every command the page could plausibly tell a
       # learner to type, run here with its exact exit code and its exact
@@ -113,14 +142,16 @@ jobs:
           Probe "hello"   @("--version")
           Probe "hello"   @("--explain", "E0001")
           Probe "hello"   @("fmt", "--check", ".\hello.lu")
-          Probe "hello"   @("conform-run", ".\hello.lu", "--checked")
-          Probe "hello"   @("conform-run", ".\hello.lu")
+          Probe "hello"   @("build", "hello.lu")
+          Probe "hello"   @("build", "--verbose", "hello.lu")
+          Probe "hello"   @("run", "hello.lu")
+          Probe "hello"   @("run", "--checked", "hello.lu")
+          Probe "hello"   @("build", "--release", "hello.lu")
           Probe "hello"   @("conform-run", "hello.lu", "--checked")
-          Probe "hello"   @("run", "--checked", ".\hello.lu")
-          Probe "hello"   @("run", ".\hello.lu")
-          Probe "hello"   @("build", ".\hello.lu")
-          Probe "hello"   @("test", ".\hello.lu")
-          Probe "hello"   @("doctor")
+          Probe "hello"   @("conform-run", ".\hello.lu", "--checked")
+          Probe "hello"   @("conform-run", "hello.lu")
+          Probe "hello"   @("test", "hello.lu")
+          Probe "tasks"   @("build", "fanout.lu")
           Probe "notepad" @("fmt", "--check", ".\hello.lu")
           Probe "notepad" @("fmt", ".\hello.lu")
           Probe "notepad" @("fmt", "--check", ".\hello.lu")
@@ -167,7 +198,7 @@ jobs:
           $prog = @('fn main() -> !int {', '    print("hello, wolf")', '    0', '}')
           [IO.File]::WriteAllText("$PWD\twomains\hello.lu", ($prog -join "`n") + "`n")
           [IO.File]::WriteAllText("$PWD\twomains\other.lu", ($prog -join "`n") + "`n")
-          $d = Cap "twomains" @("conform-run", ".\hello.lu", "--checked")
+          $d = Cap "twomains" @("build", "hello.lu")
           Claim "two mains in one folder is a duplicate definition" (($d.out + $d.err) -match "E0302") ($d.out + $d.err)
 
           # "wolf --version answers, and names the release this site pins."
@@ -180,6 +211,82 @@ jobs:
           Claim "wolf fmt --check exits 0 on canonical LF source" ($f.code -eq 0) "exit $($f.code): $($f.err)"
           $e = Cap "hello" @("--explain", "E0001")
           Claim "wolf --explain E0001 exits 0" ($e.code -eq 0) "exit $($e.code)"
+
+          # ---- THE HEADLINE: this host compiles and runs. (s60a, v0.2.2) ----
+          # "wolf build hello.lu writes hello.exe. Run it."
+          Remove-Item "$PWD\hello\hello.exe" -ErrorAction SilentlyContinue
+          $b = Cap "hello" @("build", "hello.lu")
+          Claim "wolf build exits 0 on this host" ($b.code -eq 0) "exit $($b.code): $($b.err)"
+          $exe = Join-Path $PWD "hello\hello.exe"
+          Claim "wolf build leaves hello.exe beside the source" (Test-Path $exe) "no $exe"
+          if (Test-Path $exe) {
+            $so = New-TemporaryFile
+            $r = Start-Process -FilePath $exe -NoNewWindow -Wait -PassThru -WorkingDirectory (Join-Path $PWD "hello") -RedirectStandardOutput $so
+            $ro = (Get-Content $so -Raw) -replace "`r`n", "`n"
+            Remove-Item $so -Force
+            Claim "hello.exe prints hello, wolf" ($ro -eq "hello, wolf`n") ("{0}" -f ($ro -replace "`n", "\n"))
+            Claim "hello.exe exits 0" ($r.ExitCode -eq 0) "exit $($r.ExitCode)"
+          }
+
+          # "wolf run hello.lu does both in one step."
+          $r1 = Cap "hello" @("run", "hello.lu")
+          Claim "wolf run exits 0" ($r1.code -eq 0) "exit $($r1.code): $($r1.err)"
+          Claim "wolf run prints hello, wolf" ($r1.out -eq "hello, wolf`n") ("{0}" -f ($r1.out -replace "`n", "\n"))
+
+          # "--checked builds the same program with the checked runtime, and
+          # it runs here too."
+          $r2 = Cap "hello" @("run", "--checked", "hello.lu")
+          Claim "wolf run --checked exits 0" ($r2.code -eq 0) "exit $($r2.code): $($r2.err)"
+          Claim "wolf run --checked prints hello, wolf" ($r2.out -eq "hello, wolf`n") ("{0}" -f ($r2.out -replace "`n", "\n"))
+
+          # "wolf build --verbose names the linker it chose."
+          $vb = Cap "hello" @("build", "--verbose", "--no-cache", "hello.lu")
+          Claim "wolf build --verbose exits 0" ($vb.code -eq 0) "exit $($vb.code): $($vb.err)"
+          Claim "wolf build --verbose names the linker rung" ($vb.err -match "lld-link|rust-lld|link\.exe|WOLF_LINKER") $vb.err
+
+          # "wolf build --release refuses this host by name: the LLVM tier is
+          # s60b's."
+          $rel = Cap "hello" @("build", "--release", "hello.lu")
+          Claim "wolf build --release refuses" ($rel.code -ne 0) "exit $($rel.code)"
+          Claim "wolf build --release names the release tier" ($rel.err -match "release tier") $rel.err
+
+          # "Twenty-one rows of the corpus refuse by name — the task layer,
+          # os.signal and net deadlines. The refusal says which sprint owns
+          # it and never pretends to link."
+          $tk = Cap "tasks" @("build", "fanout.lu")
+          Claim "the task layer refuses on this host" ($tk.code -ne 0) "exit $($tk.code)"
+          Claim "the refusal names windows-native and the bring-up" ($tk.err -match "windows-native serves no" -and $tk.err -match "s60a") $tk.err
+          Claim "the refusal names it as the ledger, not a bug in your program" ($tk.err -match "conservatism ledger") $tk.err
+
+          # "wolf conform-run --checked runs a program on the compiler's
+          # checked machine and prints its output in a record."
+          $c = Cap "hello" @("conform-run", "hello.lu", "--checked")
+          Claim "conform-run --checked exits 0" ($c.code -eq 0) "exit $($c.code): $($c.err)"
+          $rec = $null
+          try { $rec = $c.out | ConvertFrom-Json } catch { }
+          Claim "conform-run --checked prints a JSON record" ($null -ne $rec) $c.out
+          if ($rec) {
+            Claim "the record reached the run phase" ($rec.phase_reached -eq "run") $rec.phase_reached
+            Claim "the record's verdict is exit(0)" ($rec.verdict -eq "exit(0)") $rec.verdict
+            Claim "the record carries the program's stdout" ($rec.stdout_inline -eq "hello, wolf`n") ("{0}" -f ($rec.stdout_inline -replace "`n", "\n"))
+          }
+
+          # "A bare entry name works everywhere now (wolf-lang#206 closed at
+          # v0.2.2): `hello.lu` and `.\hello.lu` produce the same record."
+          $c2 = Cap "hello" @("conform-run", ".\hello.lu", "--checked")
+          Claim "conform-run takes a bare entry name" ($c.code -eq 0 -and $c2.code -eq 0) "bare exit $($c.code), dotted exit $($c2.code)"
+          Claim "both spellings produce the same record" ($c.out -eq $c2.out) "the records differ"
+
+          # "wolf test runs it too, and reports a verdict instead of output."
+          $t = Cap "hello" @("test", "hello.lu")
+          Claim "wolf test exits 0" ($t.code -eq 0) "exit $($t.code): $($t.err)"
+          Claim "wolf test reports one passing test" ($t.out -match "1 passed; 0 failed") $t.out
+
+          # "Without --checked conform-run does not run your program."
+          $u = Cap "hello" @("conform-run", "hello.lu")
+          $urec = $null
+          try { $urec = $u.out | ConvertFrom-Json } catch { }
+          Claim "conform-run without --checked does not run it" ($urec -and $urec.verdict -eq "unsupported") $u.out
 
           # "A file saved by Notepad is not canonically formatted; `wolf fmt`
           # fixes it." Both halves, because the page teaches both — and the
@@ -200,59 +307,157 @@ jobs:
           $n3 = Cap "notepad" @("fmt", "--check", ".\hello.lu")
           Claim "wolf fmt --check then exits 0" ($n3.code -eq 0) "exit $($n3.code): $($n3.err)"
 
-          # "`wolf conform-run --checked` is how a program runs on this host,
-          # and your program's stdout is in the record it prints."
-          $c = Cap "hello" @("conform-run", ".\hello.lu", "--checked")
-          Claim "conform-run --checked exits 0" ($c.code -eq 0) "exit $($c.code): $($c.err)"
-          $rec = $null
-          try { $rec = $c.out | ConvertFrom-Json } catch { }
-          Claim "conform-run --checked prints a JSON record" ($null -ne $rec) $c.out
-          if ($rec) {
-            Claim "the record reached the run phase" ($rec.phase_reached -eq "run") $rec.phase_reached
-            Claim "the record's verdict is exit(0)" ($rec.verdict -eq "exit(0)") $rec.verdict
-            Claim "the record carries the program's stdout" ($rec.stdout_inline -eq "hello, wolf`n") ("{0}" -f ($rec.stdout_inline -replace "`n", "\n"))
-          }
-
-          # "`wolf test` runs it too, and reports a verdict instead of output."
-          $t = Cap "hello" @("test", ".\hello.lu")
-          Claim "wolf test exits 0" ($t.code -eq 0) "exit $($t.code): $($t.err)"
-          Claim "wolf test reports one passing test" ($t.out -match "1 passed; 0 failed") $t.out
-
-          # "Without --checked it does not run your program."
-          $u = Cap "hello" @("conform-run", ".\hello.lu")
-          $urec = $null
-          try { $urec = $u.out | ConvertFrom-Json } catch { }
-          Claim "conform-run without --checked does not run it" ($urec -and $urec.verdict -eq "unsupported") $u.out
-
-          # "The native tier refuses this host by name, and says so the same
-          # way for `build` and for `run`, with or without --checked."
-          foreach ($probe in @(@("build", ".\hello.lu"), @("run", ".\hello.lu"), @("run", "--checked", ".\hello.lu"))) {
-            $b = Cap "hello" $probe
-            $label = "wolf $($probe -join ' ')"
-            Claim "$label exits 2 on windows" ($b.code -eq 2) "exit $($b.code)"
-            Claim "$label names the unserved host" ($b.err -match "this host cannot run the native tier: native codegen targets linux/x86-64 and macOS/aarch64") $b.err
-            Claim "$label names the triple" ($b.err -match "host: x86_64-pc-windows-msvc") $b.err
-          }
-
           if ($fail -gt 0) { Write-Output "::error::$fail claim(s) the page makes are not true of the published archive"; exit 1 }
           "every claim the page makes held against the published archive"
 
-      # Not a failure — a tripwire. The page says the interpreter is not
-      # published for Windows yet, and must stop saying it the day that
-      # stops being true (wolffe-lang/wolf-interp).
-      - name: does lupin publish a windows binary yet?
-        continue-on-error: true
-        env: {GH_TOKEN: '${{ github.token }}'}
+      # THE OTHER BRANCH. Everything above ran on a box that HAS Visual
+      # Studio Build Tools; a learner's box may not, and the page has to
+      # quote what that learner sees rather than imagine it.
+      #
+      # Reaching it honestly takes two moves. First the shell: `LIB` and
+      # `INCLUDE` unset and PATH cut back to System32 plus the wolf folder —
+      # a plain PowerShell window, not a Developer Command Prompt. That
+      # alone is NOT enough, and the page says so: wolf's discovery finds
+      # the Visual Studio install by itself, which is the point of having a
+      # discovery order. So, second, the Windows SDK's registry root is
+      # taken away for the length of one command — the same condition as a
+      # box where "Desktop development with C++" was never installed, since
+      # that root is where the import libraries are found — and put back
+      # immediately after, restored again by the always() step below even if
+      # this one dies.
+      - name: what a learner without Build Tools sees
         run: |
-          $rel = gh release view --repo wolffe-lang/wolf-interp --json tagName,assets | ConvertFrom-Json
-          if (-not $rel) { "could not read wolf-interp releases"; exit 0 }
-          "latest wolf-interp release: $($rel.tagName), $($rel.assets.Count) asset(s)"
-          $win = $rel.assets | Where-Object { $_.name -match "windows" }
-          if ($win) {
-            "::warning::wolf-interp now publishes $($win.name) — add lupin's smoke here and drop 'interpreter: coming' from the page"
-          } else {
-            "no windows asset on the latest release — the page's 'the interpreter is not published for Windows' is still the truth"
+          $keys = @(
+            "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows Kits\Installed Roots",
+            "HKLM:\SOFTWARE\Microsoft\Windows Kits\Installed Roots"
+          )
+          $saved = @{}
+          foreach ($k in $keys) {
+            $v = (Get-ItemProperty -Path $k -Name KitsRoot10 -ErrorAction SilentlyContinue).KitsRoot10
+            if ($v) { $saved[$k] = $v }
           }
+          ($saved.GetEnumerator() | ForEach-Object { "saved $($_.Key) KitsRoot10 = $($_.Value)" })
+          $saved | ConvertTo-Json | Out-File -FilePath "$PWD\kitsroot.json" -Encoding utf8
+
+          # A command in a chosen environment: the current one, minus the
+          # names a Developer Command Prompt sets, with PATH cut back.
+          function RunPlain([string]$dir, [string[]]$cmdargs) {
+            $psi = New-Object System.Diagnostics.ProcessStartInfo
+            $psi.FileName = $env:WOLF_EXE
+            foreach ($a in $cmdargs) { $psi.ArgumentList.Add($a) }
+            $psi.WorkingDirectory = (Join-Path $PWD $dir)
+            $psi.UseShellExecute = $false
+            $psi.RedirectStandardOutput = $true
+            $psi.RedirectStandardError = $true
+            foreach ($n in @("LIB", "INCLUDE", "WindowsSdkDir", "WindowsSDKVersion",
+                             "VCINSTALLDIR", "VSINSTALLDIR", "VCToolsInstallDir",
+                             "VSCMD_ARG_TGT_ARCH", "VCPKG_ROOT")) {
+              $psi.Environment.Remove($n) | Out-Null
+            }
+            $psi.Environment["PATH"] = "C:\Windows\System32;C:\Windows;$env:WOLF_DIR"
+            $p = [System.Diagnostics.Process]::Start($psi)
+            $o = $p.StandardOutput.ReadToEnd(); $e = $p.StandardError.ReadToEnd()
+            $p.WaitForExit()
+            [pscustomobject]@{ code = $p.ExitCode; out = ($o -replace "`r`n", "`n"); err = ($e -replace "`r`n", "`n") }
+          }
+
+          Remove-Item "$PWD\hello\hello.exe" -ErrorAction SilentlyContinue
+          Remove-Item "$PWD\hello\.lu-cache" -Recurse -Force -ErrorAction SilentlyContinue
+
+          "=== rung A: a plain shell, LIB unset, PATH cut to System32 + the wolf folder"
+          $a = RunPlain "hello" @("build", "--no-cache", "hello.lu")
+          "    exit $($a.code)"
+          if ($a.err.Trim()) { "    stderr | $($a.err)" }
+
+          "=== rung B: the same shell on a box with no Windows SDK installed"
+          if ($saved.Count -eq 0) { Write-Output "::error::no KitsRoot10 to take away — this runner is not shaped the way the probe assumes"; exit 1 }
+          foreach ($k in $saved.Keys) {
+            Remove-ItemProperty -Path $k -Name KitsRoot10 -ErrorAction Stop
+          }
+          Remove-Item "$PWD\hello\hello.exe" -ErrorAction SilentlyContinue
+          Remove-Item "$PWD\hello\.lu-cache" -Recurse -Force -ErrorAction SilentlyContinue
+          $b = RunPlain "hello" @("build", "--no-cache", "hello.lu")
+          $brun = RunPlain "hello" @("run", "--no-cache", "hello.lu")
+          foreach ($k in $saved.Keys) {
+            Set-ItemProperty -Path $k -Name KitsRoot10 -Value $saved[$k]
+          }
+          "    wolf build: exit $($b.code)"
+          if ($b.err.Trim()) { "    stderr | $($b.err)" }
+          "    wolf run:   exit $($brun.code)"
+          if ($brun.err.Trim()) { "    stderr | $($brun.err)" }
+
+          $fail = 0
+          function Claim([string]$what, [bool]$ok, [string]$saw) {
+            if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
+          }
+
+          # "You do not need a Developer Command Prompt: wolf finds the
+          # toolchain itself."
+          Claim "a plain shell with LIB unset still builds (the discovery works)" ($a.code -eq 0) "exit $($a.code): $($a.err)"
+
+          # THE SENTENCE THE PAGE QUOTES.
+          Claim "with no Windows SDK, wolf build refuses with exit 2" ($b.code -eq 2) "exit $($b.code)"
+          Claim "the refusal names the missing toolset" ($b.err -match "windows-native: no MSVC toolset / Windows SDK found") $b.err
+          Claim "the refusal names the import libraries by file" ($b.err -match "kernel32\.lib" -and $b.err -match "msvcrt\.lib") $b.err
+          Claim "the refusal names the workload to install" ($b.err -match 'Visual Studio Build Tools.+Desktop development with C\+\+') $b.err
+          Claim "wolf run refuses identically" ($brun.code -eq 2 -and $brun.err -match "no MSVC toolset / Windows SDK found") "exit $($brun.code): $($brun.err)"
+
+          # The page prints this refusal verbatim; put it in the summary too.
+          $md = @("", "### What a learner without Build Tools sees", "",
+                  "``wolf build hello.lu`` — exit $($b.code)", "", '```text', $b.err.TrimEnd(), '```', "")
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+          if ($fail -gt 0) { Write-Output "::error::$fail claim(s) about the no-toolchain branch are wrong"; exit 1 }
+          "the no-toolchain branch says what the page quotes"
+
+      # Whatever happened above, the runner leaves with its SDK root intact.
+      - name: put the Windows SDK root back
+        if: always()
+        run: |
+          if (-not (Test-Path "$PWD\kitsroot.json")) { "nothing was taken away"; exit 0 }
+          $saved = Get-Content "$PWD\kitsroot.json" -Raw | ConvertFrom-Json
+          foreach ($p in $saved.PSObject.Properties) {
+            $now = (Get-ItemProperty -Path $p.Name -Name KitsRoot10 -ErrorAction SilentlyContinue).KitsRoot10
+            if ($now -ne $p.Value) {
+              Set-ItemProperty -Path $p.Name -Name KitsRoot10 -Value $p.Value
+              "restored $($p.Name)"
+            } else {
+              "$($p.Name) is already back"
+            }
+          }
+
+      # The interpreter a Windows learner can now download and double-click.
+      # Every claim the page's interpreter section makes about it.
+      - name: lupin.exe, the published interpreter
+        run: |
+          $fail = 0
+          function Claim([string]$what, [bool]$ok, [string]$saw) {
+            if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
+          }
+          function CapLupin([string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:LUPIN_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -WorkingDirectory (Join-Path $PWD "hello") -RedirectStandardOutput $so -RedirectStandardError $se
+            $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $o) { $o = "" }
+            if ($null -eq $e) { $e = "" }
+            [pscustomobject]@{ code = $p.ExitCode; out = ($o -replace "`r`n", "`n"); err = ($e -replace "`r`n", "`n") }
+          }
+
+          # "One file, no installer, no runtime library beside it."
+          $v = CapLupin @("--version")
+          "lupin --version | $($v.out.Trim())"
+          Claim "lupin --version exits 0" ($v.code -eq 0) "exit $($v.code): $($v.err)"
+          Claim "lupin --version names lupin $env:LUPIN_VER" ($v.out -match "^lupin $([regex]::Escape($env:LUPIN_VER))") $v.out
+
+          # "Running a file takes no subcommand."
+          $r = CapLupin @("hello.lu")
+          Claim "lupin hello.lu exits 0" ($r.code -eq 0) "exit $($r.code): $($r.err)"
+          Claim "lupin hello.lu prints hello, wolf" ($r.out -eq "hello, wolf`n") ("{0}" -f ($r.out -replace "`n", "\n"))
+
+          if ($fail -gt 0) { Write-Output "::error::$fail claim(s) the page makes about lupin.exe are wrong"; exit 1 }
+          "lupin.exe runs a first program on this host"
 
   # The playground's editor is the one piece of this site whose behaviour
   # is platform-dependent: `MAC = /Mac|iPhone|iPad/.test(navigator.platform)`

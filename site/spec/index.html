@@ -40,7 +40,7 @@
 <section>
   <h2>The documents</h2>
   <dl class="index">
-    <dt><a href="/spec/01-grammar.md">01. Surface Grammar</a> (47 KiB)</dt>
+    <dt><a href="/spec/01-grammar.md">01. Surface Grammar</a> (50 KiB)</dt>
     <dd>Lexing, the mode stack that lets strings nest inside strings, the
       expression grammar and its precedence tiers, statement and item forms, and
       the ambiguity rulings. Status: normative, <code>grammar/1</code>, declared
@@ -50,25 +50,25 @@
       Anchors
       <code>[gram.*]</code>.</dd>
 
-    <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (42 KiB)</dt>
+    <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (47 KiB)</dt>
     <dd>Regions, ownership tiers, moves, freezing, the shared and handle edges,
       provenance, and the closed list of rows that are undefined behavior with
       the optimization each one licenses. The interpreter implements this
       document as a dynamic machine; the compiler implements a static
       approximation of it. Anchors <code>[mem.*]</code>.</dd>
 
-    <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (20 KiB)</dt>
+    <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (21 KiB)</dt>
     <dd>Structured tasks, supervised procs, channels with region transfer,
       select, the memory model's happens-before rules, and the deterministic
       schedule a seed selects. Written in the shape of the Go memory model
       document, with the advice in front of the formalism. Anchors
       <code>[conc.*]</code>.</dd>
 
-    <dt><a href="/spec/04-abi.md">04. ABI</a> (9.7 KiB)</dt>
+    <dt><a href="/spec/04-abi.md">04. ABI</a> (10 KiB)</dt>
     <dd>Layout, calling convention, and the foreign boundary, differentially
       fuzzed against platform C compilers. Anchors <code>[abi.*]</code>.</dd>
 
-    <dt><a href="/spec/05-conformance.md">05. Conformance</a> (11 KiB)</dt>
+    <dt><a href="/spec/05-conformance.md">05. Conformance</a> (12 KiB)</dt>
     <dd>What makes the rest of it testable: clause anchors, test tagging, the
       closed trap vocabulary, and coverage reporting. The interpreter reads only
       the specification and the corpus, and this document is part of that sealed
@@ -116,7 +116,7 @@
 <section>
   <h2>Extracted artifacts</h2>
   <dl class="index">
-    <dt><a href="/spec/grammar.ebnf">grammar.ebnf</a> (9 KiB)</dt>
+    <dt><a href="/spec/grammar.ebnf">grammar.ebnf</a> (9.6 KiB)</dt>
     <dd>The grammar, extracted from document 01 by a command and checked in CI
       to be in sync with the prose. The book's grammar appendix and the editor
       highlighting both come from this file, so there is one lineage rather than
