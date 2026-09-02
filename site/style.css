@@ -103,9 +103,15 @@ th { font-weight: 600; }
 /* the playground                                                      */
 /* ------------------------------------------------------------------ */
 
+/* One column — the editor takes the full width and the output sits below
+ * it — until the page is wide enough that a side-by-side editor still shows
+ * ~80 columns of wolf. At 60rem the old split gave the editor ~30rem: about
+ * 50 columns, with wrap=off clipping the rest and the (empty until a run)
+ * output pane reading as wasted editor space. When it does split, the editor
+ * keeps the larger share. */
 .pad { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-@media (min-width: 60rem) {
-  .pad { grid-template-columns: 1fr 1fr; }
+@media (min-width: 96rem) {
+  .pad { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
 }
 
 .pane { min-width: 0; }

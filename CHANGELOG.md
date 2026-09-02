@@ -3,6 +3,15 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww09a — 2026-09-02 — the editor gets its width back
+
+- The playground's two-column split moved from 60rem to 96rem and became
+  3:2 in the editor's favor: below that, one column — the editor at the
+  page's full width, output beneath. At the old breakpoint the editor got
+  ~30rem (about 50 columns), `wrap=off` clipped the rest, and the empty
+  output pane looked like reserved editor space (the human's report).
+  CSS only; CSP, editor code, and markup untouched.
+
 ## ww09 — 2026-09-01
 
 The Windows welcome. The site gains /install/, and its Windows section was
