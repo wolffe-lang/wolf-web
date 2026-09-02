@@ -63,6 +63,42 @@ jobs:
           "LUPIN_VER=$lup" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           "the pins say wolf $ver, lupin $lup"
 
+      # THE PIN LAG. The two implementations are compared against one
+      # specification, but they do not tag together, and at ww12 the site has
+      # to say which one is behind: lupin 0.1.23 was released against the wolf
+      # release BEFORE the one this site advertises. /install/ says exactly
+      # that in prose, so it is held here rather than trusted — both facts
+      # come out of the two pinned CHANGELOGs, no tag objects needed.
+      #
+      # When lupin catches up this goes red, and the sentence gets rewritten
+      # instead of quietly becoming false. Two releases behind fails too: the
+      # claim is "one", and one is what is checked.
+      - name: the specification pin lag the site records
+        run: |
+          $rel = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' |
+                   ForEach-Object { $_.Matches[0].Groups[1].Value }
+          if ($rel.Count -lt 2) { Write-Output "::error::the pinned wolf-lang CHANGELOG has fewer than two releases"; exit 1 }
+          $prev = $rel[1]
+          $lupChanges = Get-Content upstream/wolf-interp/CHANGELOG.md -Raw
+          $entry = ($lupChanges -split '(?m)^## ')[1]
+          $m = [regex]::Match($entry, 'Released against pin `([0-9a-f]+)`,\s*wolf-lang \*\*v(\d[\d.]*)\*\*')
+          if (-not $m.Success) { Write-Output "::error::the pinned lupin CHANGELOG's newest entry does not name a wolf-lang release it was built against"; exit 1 }
+          $lupPin = $m.Groups[1].Value
+          $lupSpec = $m.Groups[2].Value
+          "wolf $env:WOLF_VER is the release this site advertises; the one before it is $prev"
+          "lupin $env:LUPIN_VER was released against pin $lupPin — wolf-lang v$lupSpec"
+          if ($lupSpec -ne $prev) {
+            Write-Output "::error::/install/ says the interpreter is ONE wolf release behind the compiler; lupin $env:LUPIN_VER reads v$lupSpec while the release before wolf $env:WOLF_VER is $prev"
+            exit 1
+          }
+          $md = @("", "### The specification pin lag", "",
+                  "| | release | specification pin |", "|---|---|---|",
+                  "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",
+                  "| the interpreter beside it | lupin $env:LUPIN_VER | ``$lupPin`` — wolf-lang v$lupSpec |", "",
+                  "One release behind, which is what /install/ says in prose.", "")
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+          "lupin reads the release before this one — the page's sentence holds"
+
       # The page's own link, fetched the page's own way. A 404 here is the
       # finding the weekly schedule exists to catch.
       - name: download the published archive
