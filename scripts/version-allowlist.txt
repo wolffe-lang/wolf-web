@@ -8,6 +8,12 @@
 # missing from this list, when its count drifts, or when the pinned wolf
 # version moves past an entry's audited-at — so every pin bump forces
 # these sentences to be re-read rather than trusted.
+#
+# The audit column is the WOLF pin even for a sentence that names a lupin
+# release, because that is the only clock this checker has. A lupin literal
+# is therefore re-read when wolf tags, not when lupin does — the coarser
+# trigger, and a hole while lupin moves faster (wolf-web#8, filed at ww11).
 spec/index.html v0.1.0 1 audited-at=0.2.2
 docs/index.html v0.1.0 1 audited-at=0.2.2
 install/index.html v0.2.1 1 audited-at=0.2.2
+play/index.html v0.1.22 1 audited-at=0.2.2
