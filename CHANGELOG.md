@@ -3,6 +3,51 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww11 — 2026-09-02
+
+The site tells the parity. The playground moves to lupin 0.1.23, and all three
+of that release's visible changes were verified through the rebuilt wasm
+before a word was written. A program that traps no longer runs the defers it
+had pending: `faults/trap_skips_root_defers.lu` printed
+`inner inner-defer before-trap root-defer` in the tab at the previous
+pin and prints
+`inner inner-defer before-trap` now, which is what all three of the compiler's
+lanes print — so the witness joins the sample menu as **a trap runs no
+defers**, and a reader can watch the two implementations agree. The reason
+nobody could see that disagreement is the second change: through v0.1.22 the
+observation record reported `stdout_inline: null` on every trapping program,
+so the two machines were record-identical whatever they printed, and the
+playground's record note now says so beside the button that shows one. The
+third is a kindness a learner meets first: a missing comma used to answer
+``expected `}`, found identifier `y` `` and stop, and now finishes the
+sentence — "the members of a struct literal are separated — add the comma" —
+with a second line, `the comma goes here at 18:25`, pointing at the
+zero-width spot where it belongs. The primary span did not move a byte. The
+whole run set was re-measured against the new module: 270 conformance
+programs, every one in the verdict class it answered in at 0.1.22.
+
+The **compiler** pin does not move. wolf's trunk already serves tasks,
+channels and signals on Windows, which will make /install/'s limits paragraph
+false the moment it is tagged — but there is no tag, no archive, and nothing
+this site's CI could fetch to check a sentence about it, so the page keeps
+v0.2.2's measured truth and promises nothing about the next release. What the
+Windows job gained instead is the measurement, taken early: three parity
+probes — the task layer, channel transfer, signal reception — run on the
+runner every week and are **recorded, not asserted**. At v0.2.2 all three
+refuse by name with exit 1, each naming the symbol that would not link
+(`__wolf_rt_scope_new`, `__wolf_rt_chan_new`, `__wolf_rt_os_signal_listen`)
+and the sprint that closes it. When the tag arrives, one line turns those
+three rows into claims that can go red.
+
+The prose sweep at the new pin found two claims the menu had outgrown: the
+front page and the spec page both said the playground loads "twenty-odd"
+corpus programs, and it loads thirty-two.
+
+/changelog re-renders with lupin 0.1.23. One finding went upstream the same
+day, against this repo: the version-prose tripwire cannot see a bare
+`0.1.22`-shaped literal at all, and audits lupin sentences against the wolf
+pin because that is the only clock it reads (wolf-web#8).
+
 ## ww10 — 2026-09-02
 
 The learners' page. The pins move to wolf v0.2.2 and lupin 0.1.22, and the

@@ -104,7 +104,12 @@
       <pre id="record-json"></pre>
       <p class="note">The line <code>lupin run - --json</code> prints: the
         spec/06 observation record, which is the only thing the compiler and the
-        interpreter compare through.</p>
+        interpreter compare through. A program that traps now carries what it
+        printed before it died in <code>stdout_inline</code>. Through
+        v0.1.22 that field was <code>null</code> on every trapping program, so
+        the two implementations were record-identical whatever they printed —
+        and one real disagreement about what a trap does to a pending
+        <code>defer</code> sat behind it, unmeasured, until this release.</p>
     </div>
   </section>
 </div>
