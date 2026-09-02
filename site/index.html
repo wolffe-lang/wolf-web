@@ -114,11 +114,13 @@ cargo build --release -p wolf_driver
   wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
   x86-64, which are also the three hosts native code generation serves; linux
   aarch64 is tier-1 in the matrix without a CI runner or a backend behind it
-  yet. Tagged builds upload an archive per host that passes their own
-  unpack-and-run smoke to the
-  <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>;
-  the packaging around them is a stub, so building from source is the path that
-  is known to work.</p>
+  yet, so its archive runs programs on the checked tier rather than compiling
+  them. Tagged builds upload an archive per tier-1 host to the
+  <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>
+  — four at v__WOLF_VERSION__, and a job in this site's own CI asks every one
+  of those four URLs for a 200 on every change to this site. The packaging
+  around them is a stub, so building from source is the path that is known to
+  work.</p>
 </section>
 
 <section>
