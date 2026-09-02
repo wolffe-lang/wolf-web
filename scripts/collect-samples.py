@@ -46,11 +46,13 @@ menu entry that looks broken:
       module-lint witnesses) reports `unsupported` from a stdin buffer,
       which is all the playground has to offer.
 
-That leaves 223 candidates at this pin, of which 171 run, 29 trap on
-purpose, and 23 report `unsupported` in the browser build (the os-tier and
-module-graph programs above, measured through the built wasm). The list
-below is a spread across the ones that answer, kept short enough to read
-in one glance.
+That leaves 233 candidates at this pin, of which 186 run, 31 trap on
+purpose, and 16 report `unsupported` in the browser build (the module-graph
+programs above, and the tiers a tab cannot serve). Every one of those
+numbers is measured by feeding each candidate to the wasm module this build
+publishes and reading the verdict back — re-measure on a pin bump rather
+than trusting the line. The list below is a spread across the ones that
+answer, kept short enough to read in one glance.
 """
 
 from __future__ import annotations
@@ -75,6 +77,7 @@ SAMPLES: list[tuple[str, str]] = [
     ("memory/move_ok.lu", "move, take, copy"),
     ("memory/defer_order.lu", "defer runs backwards"),
     ("memory/exclusivity.lu", "exclusivity, checked at run time"),
+    ("memory/region_cap_boundary.lu", "a region with a budget"),
     ("typecheck/receiver_modes.lu", "call-site mut and take"),
     ("typecheck/match_exhaustive.lu", "match, exhaustively"),
     ("generics/first_of_list.lu", "a generic function"),
@@ -86,6 +89,7 @@ SAMPLES: list[tuple[str, str]] = [
     ("faults/overflow_add.lu", "arithmetic traps (overflow)"),
     ("faults/div_zero_rem.lu", "arithmetic traps (divide by zero)"),
     ("faults/bounds_slice.lu", "a bad slice traps"),
+    ("faults/region_cap_breach.lu", "a region over its budget traps"),
     ("lints/mut_in_interp.lu", "a warning"),
     ("conc/chan_drain_after_inclusive_loop.lu", "a channel"),
     ("io/eprint.lu", "stdout and stderr"),
