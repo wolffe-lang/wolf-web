@@ -3,6 +3,63 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww12 — 2026-09-02
+
+The flip. ww11 left one line to change and a runner that had been recording
+the "before" every week: three corpus programs — the task layer, channel
+transfer, signal reception — run on a Windows box against the published
+archive and tabulated, asserted nothing, and waited for a tag. v0.2.3 is the
+tag. Against `wolf-0.2.3-x86_64-pc-windows-msvc.tar.gz`, fetched by the URL
+the page prints, all three serve: `corpus/conc/spawn_fanout_loop.lu` exits 0
+printing `204`, `corpus/conc/message_passing.lu` exits 0 printing nothing,
+`corpus/os/signal_loopback.lu` exits 0 printing `reload` — each byte-for-byte
+the `stdout=` its own corpus header pins. They are claims now, not a table.
+
+So **/install/'s limits paragraph retires**. The twenty-one by-name refusals
+are gone, the `windows-native serves no `spawn`/scopes` transcript comes off
+the page, and two named refusals take their place: `wolf build --release`,
+exit 2, quoted as the runner printed it (the page had been truncating the
+sentence's parenthetical), and external `reload`/`upgrade` delivery, which has
+no Windows analog. The second needed care — the page must not say `os.signal`
+is unserved when the loopback witness prints `reload` on that host; what a
+learner cannot do is send one from another process. The no-toolchain refusal
+was re-captured at the tag and has not moved a byte. Three claims in the job
+inverted with the prose: `wolf build fanout.lu` now asserts exit 0, an
+ordinary `fanout.exe`, and that no refusal names `windows-native` at all.
+
+**The linux-aarch64 hedge retires too.** ww10 wrote "an archive per host that
+passes their own unpack-and-run smoke" because v0.2.2 shipped three archives
+and threw the arm one away (wolf-lang#213, filed at ww10, fixed here). Four
+archives at this tag, and the qualifier is replaced by a measurement rather
+than deleted: the Windows job HEADs all four release URLs on every push and
+requires 200 and a toolchain-sized body — 68.2 MB linux x86-64, 57.2 MB linux
+aarch64, 13.4 MB macOS, 11.5 MB windows. /install/ gained the paragraph that
+says what the arm archive serves, which is the checked tier, because that host
+still has no native backend.
+
+**The two pins are one release apart, and the site says so.** lupin 0.1.23 was
+released against pin `8cda3aa` — wolf v0.2.2 — while the compiler this site
+advertises is v0.2.3. `wolf --version` prints both on the runner: `wolf 0.2.3
+(wolfgang, pin 3befc3e)`, then `paired with lupin 0.1.23 (reference
+interpreter), pin 8cda3aa`. /install/ records it beside the line that explains
+that output, the playground records it where the interpreter actually runs
+(the honest explanation for a program answering differently in the tab than
+under a freshly installed wolf), and a CI step holds the gap at exactly one
+release in both directions — when lupin catches up, the sentence goes red
+instead of rotting.
+
+The prose sweep at the new pin moved five more claims: the Windows headline
+said native build and run were new in the version build.sh stamps into it,
+which was true of the release before and would have printed a falsehood the
+moment the pin moved; the windows archive is
+11 MB, not 10; three spec documents grew (01 50→52 KiB, 11 13→14,
+`grammar.ebnf` 9.6→10); the front page's pointer to /install/ now carries the
+release's headline; and lupin stops being described as the way to run what the
+Windows backend cannot reach, because there is nothing on that host it reaches
+that the compiler does not. The four allowlisted version literals were re-read
+at 0.2.3 and all four still hold. /changelog renders v0.2.3, learner-first
+paragraph at the top: THE ARCHIVE RETURNS.
+
 ## ww11 — 2026-09-02
 
 The site tells the parity. The playground moves to lupin 0.1.23, and all three

@@ -123,6 +123,14 @@
   the source stays in the tab, and no request leaves the page after the module
   and the samples have loaded.</p>
 
+  <p>The revision of the specification it reads is not the compiler's. This
+  interpreter, lupin __LUPIN_VERSION__, was released against the wolf release
+  <em>before</em> __WOLF_VERSION__ — the one <a href="/install/">install</a>
+  advertises — so it is one release behind on the spec, and a program can
+  answer here differently from a wolf you download today for no reason worse
+  than that. Where the two disagree, the <a href="/spec/">specification</a> is
+  what gets read.</p>
+
   <p>The interpreter is not the compiler, and it reaches a different set of
   programs. It runs the memory model as a dynamic machine, so every ownership
   rule is a check at run time and every fault cites the clause it came from. It

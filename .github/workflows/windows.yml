@@ -19,6 +19,16 @@ name: windows learner path
 # second branch is reached honestly, by taking the Windows SDK's registry
 # root out from under the compiler's MSVC discovery for the length of one
 # command and putting it back.
+#
+# At v0.2.3 it flipped a second time, and this one retires a paragraph. The
+# s60b task layer serves `spawn`/scopes, channels and `os.signal` on this
+# host, so the twenty-one corpus rows that refused by construct name at
+# v0.2.2 are gone, and the three parity probes ww11 recorded weekly are
+# ASSERTED here rather than tabulated. What is left of the refusal story is
+# two named rows, and the job holds them both: `wolf build --release` (the
+# LLVM tier, s60c) refuses by name, and external `reload`/`upgrade` delivery
+# has no Windows analog — the self-raise the corpus witness uses works, and
+# the signal probe below is what proves it.
 on:
   push:
   schedule:
@@ -53,6 +63,42 @@ jobs:
           "LUPIN_VER=$lup" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           "the pins say wolf $ver, lupin $lup"
 
+      # THE PIN LAG. The two implementations are compared against one
+      # specification, but they do not tag together, and at ww12 the site has
+      # to say which one is behind: lupin 0.1.23 was released against the wolf
+      # release BEFORE the one this site advertises. /install/ says exactly
+      # that in prose, so it is held here rather than trusted — both facts
+      # come out of the two pinned CHANGELOGs, no tag objects needed.
+      #
+      # When lupin catches up this goes red, and the sentence gets rewritten
+      # instead of quietly becoming false. Two releases behind fails too: the
+      # claim is "one", and one is what is checked.
+      - name: the specification pin lag the site records
+        run: |
+          $rel = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' |
+                   ForEach-Object { $_.Matches[0].Groups[1].Value }
+          if ($rel.Count -lt 2) { Write-Output "::error::the pinned wolf-lang CHANGELOG has fewer than two releases"; exit 1 }
+          $prev = $rel[1]
+          $lupChanges = Get-Content upstream/wolf-interp/CHANGELOG.md -Raw
+          $entry = ($lupChanges -split '(?m)^## ')[1]
+          $m = [regex]::Match($entry, 'Released against pin `([0-9a-f]+)`,\s*wolf-lang \*\*v(\d[\d.]*)\*\*')
+          if (-not $m.Success) { Write-Output "::error::the pinned lupin CHANGELOG's newest entry does not name a wolf-lang release it was built against"; exit 1 }
+          $lupPin = $m.Groups[1].Value
+          $lupSpec = $m.Groups[2].Value
+          "wolf $env:WOLF_VER is the release this site advertises; the one before it is $prev"
+          "lupin $env:LUPIN_VER was released against pin $lupPin — wolf-lang v$lupSpec"
+          if ($lupSpec -ne $prev) {
+            Write-Output "::error::/install/ says the interpreter is ONE wolf release behind the compiler; lupin $env:LUPIN_VER reads v$lupSpec while the release before wolf $env:WOLF_VER is $prev"
+            exit 1
+          }
+          $md = @("", "### The specification pin lag", "",
+                  "| | release | specification pin |", "|---|---|---|",
+                  "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",
+                  "| the interpreter beside it | lupin $env:LUPIN_VER | ``$lupPin`` — wolf-lang v$lupSpec |", "",
+                  "One release behind, which is what /install/ says in prose.", "")
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+          "lupin reads the release before this one — the page's sentence holds"
+
       # The page's own link, fetched the page's own way. A 404 here is the
       # finding the weekly schedule exists to catch.
       - name: download the published archive
@@ -63,6 +109,42 @@ jobs:
           $bytes = (Get-Item wolf.tar.gz).Length
           "$bytes bytes"
           if ($bytes -lt 1000000) { Write-Output "::error::the windows archive is $bytes bytes — that is not a toolchain"; exit 1 }
+
+      # THE FOUR ARCHIVES. The front page says a tagged build uploads an
+      # archive per host; at v0.2.2 that was a hedge, because the new dist
+      # smoke gated the upload on a native tier linux/aarch64 does not serve
+      # and the arm archive was built and thrown away (wolf-lang#213). v0.2.3
+      # reads the driver's exit-code contract instead and the arm archive is
+      # back, so the sentence loses its hedge — and a sentence the site makes
+      # unhedged is a sentence this job holds. One HEAD per host: 200, and a
+      # size that is a toolchain rather than an error page.
+      - name: an archive per host, all four answering
+        run: |
+          $hosts = @("x86_64-unknown-linux-gnu", "aarch64-unknown-linux-gnu",
+                     "aarch64-apple-darwin", "x86_64-pc-windows-msvc")
+          $fail = 0
+          $md = @("", "### The archives the front page promises", "",
+                  "| host | status | bytes |", "|---|---|---|")
+          foreach ($h in $hosts) {
+            $url = "https://github.com/wolffe-lang/wolf-lang/releases/download/v$env:WOLF_VER/wolf-$env:WOLF_VER-$h.tar.gz"
+            $code = 0; $len = 0
+            try {
+              $r = Invoke-WebRequest -Uri $url -Method Head -MaximumRedirection 5
+              $code = [int]$r.StatusCode
+              $cl = $r.Headers['Content-Length']
+              if ($cl) { $len = [int]($cl | Select-Object -First 1) }
+            } catch {
+              $code = if ($_.Exception.Response) { [int]$_.Exception.Response.StatusCode } else { 0 }
+            }
+            "$h — HTTP $code, $len bytes"
+            $md += "| ``$h`` | $code | $len |"
+            if ($code -ne 200) { "  FAIL $h answers $code, not 200"; $fail++ }
+            elseif ($len -lt 1000000) { "  FAIL $h is $len bytes — that is not a toolchain"; $fail++ }
+            else { "  ok   $h" }
+          }
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+          if ($fail -gt 0) { Write-Output "::error::$fail of the four archives v$env:WOLF_VER promises does not answer 200"; exit 1 }
+          "four archives at v$env:WOLF_VER, linux aarch64 included"
 
       # `tar` has shipped with Windows since the 1803 build of Windows 10.
       # The page tells a learner to type exactly this; so does the job.
@@ -98,7 +180,8 @@ jobs:
       # written the way a unix-born editor writes it (LF); the other the way
       # Notepad does (CRLF) — the difference is visible to `wolf fmt`, and
       # the page has to say so. A third directory holds the corpus program
-      # that uses the task layer, which this host refuses by name.
+      # that uses the task layer, which this host refused by name through
+      # v0.2.2 and builds like any other program at v0.2.3.
       - name: the first program, twice — LF and the way Notepad saves it
         run: |
           $lines = @(
@@ -117,9 +200,9 @@ jobs:
           "tasks\fanout.lu   $((Get-Item tasks\fanout.lu).Length) bytes (the task layer)"
 
           # The three parity probes, one directory each for the same D32
-          # reason. These are corpus programs the page's table says refuse
-          # on this host at the pinned release; the step below runs them
-          # and records what they do, without asserting anything.
+          # reason. These are the corpus programs the page's table used to
+          # call "refuses by name, exit 1"; at this pin the step below
+          # ASSERTS that each one runs and prints what its header says.
           New-Item -ItemType Directory -Force -Path probe-spawn, probe-chan, probe-signal | Out-Null
           Copy-Item upstream/wolf-lang/corpus/conc/spawn_fanout_loop.lu probe-spawn/prog.lu
           Copy-Item upstream/wolf-lang/corpus/conc/message_passing.lu   probe-chan/prog.lu
@@ -176,27 +259,26 @@ jobs:
           }
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
 
-      # THE PARITY PROBES — spawn, channels, signals. INFORMATIONAL.
+      # THE PARITY PROBES — spawn, channels, signals. ASSERTED (ww12).
       #
-      # These three corpus programs are the region the page's table calls
-      # "refuses by name, exit 1": the task layer, channel transfer, and
-      # signal reception. At the release this site pins they refuse, and the
-      # step below RECORDS that rather than asserting it, because the answer
-      # is about to change and the site must not be the thing that decides
-      # when. The compiler's trunk already serves all three on this host
-      # (s60b); the site does not promise trunk, so nothing here is a claim
-      # until there is a tag to fetch it from.
+      # These three corpus programs are the region the page's table USED to
+      # call "refuses by name, exit 1": the task layer, channel transfer, and
+      # signal reception. ww11 landed this step with $assert = $false, so the
+      # runner recorded the "before" every week while the answer was still
+      # trunk's; v0.2.3 tags s60b and the archive serves all three, so the
+      # line below is $true and these are claims that can go red — exit 0,
+      # and byte-for-byte the stdout each program's own corpus header pins
+      # (`204\n`, nothing, `reload\n`). Nothing else in the step changed.
       #
-      # WW12's FLIP IS THE NEXT LINE. Set $assert = $true when the pin moves
-      # to the release that serves the task layer, and these three stop being
-      # a table in the summary and become claims that can go red — exit 0,
-      # and the stdout each program's own corpus header pins. Nothing else in
-      # this step changes; the fixtures and the runner are already here, so
-      # ww12 measures on a runner that has been recording the "before" every
-      # week since this line landed.
-      - name: parity probes — spawn, channels, signals (informational)
+      # The signal probe carries a second job: it is the measurement behind
+      # /install/'s sentence that a program's OWN reload path works on this
+      # host. `os_signal_raise` is an in-process loopback here (a real
+      # console event is console-wide), so what stays unserved is EXTERNAL
+      # reload/upgrade delivery — the ledger's named gap, which no runner
+      # can send and the page therefore cites rather than measures.
+      - name: parity probes — spawn, channels, signals (asserted)
         run: |
-          $assert = $false
+          $assert = $true
 
           $probes = @(
             @{ dir = "probe-spawn";  what = "the task layer (spawn + scope + join)";
@@ -242,7 +324,7 @@ jobs:
           }
 
           $md = @("", "### Parity probes — spawn, channels, signals", "",
-                  $(if ($assert) { "Asserted at this pin." } else { "Informational at this pin: recorded, not asserted. The site does not promise trunk." }), "",
+                  $(if ($assert) { "Asserted at this pin: every row must serve, with the stdout its corpus header pins." } else { "Informational at this pin: recorded, not asserted. The site does not promise trunk." }), "",
                   "| region | corpus program | ``wolf run`` exit | what happened |", "|---|---|---|---|")
           foreach ($r in $rows) {
             $md += "| $($r.what) | ``$($r.corpus)`` | $($r.code) | $($r.note) |"
@@ -250,7 +332,8 @@ jobs:
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
 
           if ($assert -and $fail -gt 0) { Write-Output "::error::$fail parity probe(s) the page now claims are not true of the published archive"; exit 1 }
-          if (-not $assert) { "recorded, not asserted — ww12 flips `$assert when there is a tag that serves these" }
+          if (-not $assert) { "recorded, not asserted — the site does not promise trunk" }
+          if ($assert) { "the three regions the page says this host serves, served" }
 
       # THE ASSERTIONS. The page's claims, one per sentence. When one fails
       # the page is wrong, and this job says so before a learner finds out.
@@ -330,18 +413,27 @@ jobs:
           Claim "wolf build --verbose names the linker rung" ($vb.err -match "lld-link|rust-lld|link\.exe|WOLF_LINKER") $vb.err
 
           # "wolf build --release refuses this host by name: the LLVM tier is
-          # s60b's."
+          # s60c's." The page quotes this sentence, so the transcript goes to
+          # the run summary as well as through the regex.
           $rel = Cap "hello" @("build", "--release", "hello.lu")
-          Claim "wolf build --release refuses" ($rel.code -ne 0) "exit $($rel.code)"
-          Claim "wolf build --release names the release tier" ($rel.err -match "release tier") $rel.err
+          Claim "wolf build --release refuses with exit 2" ($rel.code -eq 2) "exit $($rel.code)"
+          Claim "wolf build --release names the release tier" ($rel.err -match "cannot run the release tier") $rel.err
+          Claim "the refusal names the two hosts the tier serves" ($rel.err -match "linux/x86-64" -and $rel.err -match "macOS/aarch64") $rel.err
+          $md = @("", "### ``wolf build --release`` — the sentence the page quotes", "",
+                  "exit $($rel.code)", "", '```text', $rel.err.TrimEnd(), '```', "")
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
 
-          # "Twenty-one rows of the corpus refuse by name — the task layer,
-          # os.signal and net deadlines. The refusal says which sprint owns
-          # it and never pretends to link."
+          # "A program that uses the task layer builds like any other." At
+          # v0.2.2 this was the twenty-one-row refusal paragraph; s60b lands
+          # at v0.2.3 and the page's limits section retires it, so the claim
+          # inverts. The parity step above runs the same program; this asserts
+          # that the ORDINARY verb a learner types on it produces an ordinary
+          # executable, which is the sentence /install/ now makes.
+          Remove-Item "$PWD\tasks\fanout.exe" -ErrorAction SilentlyContinue
           $tk = Cap "tasks" @("build", "fanout.lu")
-          Claim "the task layer refuses on this host" ($tk.code -ne 0) "exit $($tk.code)"
-          Claim "the refusal names windows-native and the bring-up" ($tk.err -match "windows-native serves no" -and $tk.err -match "s60a") $tk.err
-          Claim "the refusal names it as the ledger, not a bug in your program" ($tk.err -match "conservatism ledger") $tk.err
+          Claim "the task layer builds on this host" ($tk.code -eq 0) "exit $($tk.code): $($tk.err)"
+          Claim "wolf build leaves fanout.exe beside the source" (Test-Path (Join-Path $PWD "tasks\fanout.exe")) "no tasks\fanout.exe"
+          Claim "no refusal names windows-native any more" (-not ($tk.err -match "windows-native serves no")) $tk.err
 
           # "wolf conform-run --checked runs a program on the compiler's
           # checked machine and prints its output in a record."
