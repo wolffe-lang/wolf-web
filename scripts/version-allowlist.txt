@@ -8,5 +8,5 @@
 # missing from this list, when its count drifts, or when the pinned wolf
 # version moves past an entry's audited-at — so every pin bump forces
 # these sentences to be re-read rather than trusted.
-spec/index.html v0.1.0 1 audited-at=0.2.1
-docs/index.html v0.1.0 1 audited-at=0.2.1
+spec/index.html v0.1.0 1 audited-at=0.2.2
+docs/index.html v0.1.0 1 audited-at=0.2.2
