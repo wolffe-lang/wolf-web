@@ -74,6 +74,42 @@ jobs:
           "$bytes bytes"
           if ($bytes -lt 1000000) { Write-Output "::error::the windows archive is $bytes bytes — that is not a toolchain"; exit 1 }
 
+      # THE FOUR ARCHIVES. The front page says a tagged build uploads an
+      # archive per host; at v0.2.2 that was a hedge, because the new dist
+      # smoke gated the upload on a native tier linux/aarch64 does not serve
+      # and the arm archive was built and thrown away (wolf-lang#213). v0.2.3
+      # reads the driver's exit-code contract instead and the arm archive is
+      # back, so the sentence loses its hedge — and a sentence the site makes
+      # unhedged is a sentence this job holds. One HEAD per host: 200, and a
+      # size that is a toolchain rather than an error page.
+      - name: an archive per host, all four answering
+        run: |
+          $hosts = @("x86_64-unknown-linux-gnu", "aarch64-unknown-linux-gnu",
+                     "aarch64-apple-darwin", "x86_64-pc-windows-msvc")
+          $fail = 0
+          $md = @("", "### The archives the front page promises", "",
+                  "| host | status | bytes |", "|---|---|---|")
+          foreach ($h in $hosts) {
+            $url = "https://github.com/wolffe-lang/wolf-lang/releases/download/v$env:WOLF_VER/wolf-$env:WOLF_VER-$h.tar.gz"
+            $code = 0; $len = 0
+            try {
+              $r = Invoke-WebRequest -Uri $url -Method Head -MaximumRedirection 5
+              $code = [int]$r.StatusCode
+              $cl = $r.Headers['Content-Length']
+              if ($cl) { $len = [int]($cl | Select-Object -First 1) }
+            } catch {
+              $code = if ($_.Exception.Response) { [int]$_.Exception.Response.StatusCode } else { 0 }
+            }
+            "$h — HTTP $code, $len bytes"
+            $md += "| ``$h`` | $code | $len |"
+            if ($code -ne 200) { "  FAIL $h answers $code, not 200"; $fail++ }
+            elseif ($len -lt 1000000) { "  FAIL $h is $len bytes — that is not a toolchain"; $fail++ }
+            else { "  ok   $h" }
+          }
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+          if ($fail -gt 0) { Write-Output "::error::$fail of the four archives v$env:WOLF_VER promises does not answer 200"; exit 1 }
+          "four archives at v$env:WOLF_VER, linux aarch64 included"
+
       # `tar` has shipped with Windows since the 1803 build of Windows 10.
       # The page tells a learner to type exactly this; so does the job.
       - name: unpack it with the native tar
