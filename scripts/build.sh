@@ -235,6 +235,18 @@ cat > "$DIST/version.json" <<EOF
 }
 EOF
 
+# The placeholder sweep above ran on site/ alone, before the book, the docs
+# and the changelog pages existed. A page generated AFTER it — the rendered
+# CHANGELOGs, most easily — can carry a live placeholder all the way to the
+# reader, and did: a ww12 changelog entry quoting `__WOLF_VERSION__` reached
+# dist/ with the token intact, past a guard that had already run. Sweep the
+# finished tree, where every generated page is finally present.
+if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__' "$DIST"; then
+  echo "a version placeholder reached the finished dist/ (the files above)" >&2
+  echo "the early sweep runs on site/ only; a generated page needs its own" >&2
+  exit 1
+fi
+
 # Every shipped file must be world-readable — nginx serves as its own user.
 # A 0600 file (mktemp's default, if one slips into the dist unnormalized)
 # is a silent 403 in production; refuse to ship it. This guard exists
