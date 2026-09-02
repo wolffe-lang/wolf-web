@@ -3,6 +3,39 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww10 — 2026-09-02
+
+The learners' page. The pins move to wolf v0.2.2 and lupin 0.1.22, and the
+sentence /install/ was built to say last week is retracted: **the compiler
+builds and runs native Windows programs now**. `wolf run hello.lu` prints
+`hello, wolf` on a Windows box, `wolf build` leaves an ordinary `hello.exe`
+you can send to someone who has no wolf at all, and the page leads with that
+instead of with a refusal. One thing has to be installed beside it — Visual
+Studio Build Tools, "Desktop development with C++" — and rather than
+describe what a learner without it sees, the CI job takes the Windows SDK
+away from its own runner for the length of one command and quotes the
+transcript: exit 2, and a refusal that names the three import libraries and
+the workload that carries them. The same job asserts the other half of that
+story, which is that no Developer Command Prompt is needed: wolf finds the
+toolchain itself from a plain shell with `LIB` unset. What still refuses is
+one region of the language rather than a tier — concurrency and the
+operating system's edges, twenty-one corpus programs — and the page quotes
+that refusal too, with the compiler's own per-host ledger linked at the tag.
+`wolf conform-run --checked`, which was the only way to run a program on
+Windows through v0.2.1, is demoted to the specialist's tool it always was,
+and the paragraph teaching learners to type `.\hello.lu` is gone because
+wolf-lang#206 closed at this tag. The reference interpreter has binaries for
+the first time, so the section that pointed at nothing now links
+`lupin.exe` — one file, downloaded and smoked on the runner beside the
+compiler. The playground runs 0.1.22, whose headline is a region with a
+budget, and both cap witnesses are in its menu: the boundary that holds and
+the breach that traps with the ledger arithmetic in the message. Three
+findings went upstream the same morning — v0.2.2 shipped no linux-aarch64
+archive because the new dist smoke gates upload on a native tier that host
+does not serve (wolf-lang#213), its release page carries no notes at all
+(wolf-lang#214), and lupin's comma refusals carry no "add the comma" note
+where the compiler's do (wolf-interp#56).
+
 ## ww09a — 2026-09-02 — the editor gets its width back
 
 - The playground's two-column split moved from 60rem to 96rem and became
