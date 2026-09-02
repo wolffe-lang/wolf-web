@@ -116,6 +116,15 @@ jobs:
           "notepad\hello.lu  $((Get-Item notepad\hello.lu).Length) bytes (CRLF)"
           "tasks\fanout.lu   $((Get-Item tasks\fanout.lu).Length) bytes (the task layer)"
 
+          # The three parity probes, one directory each for the same D32
+          # reason. These are corpus programs the page's table says refuse
+          # on this host at the pinned release; the step below runs them
+          # and records what they do, without asserting anything.
+          New-Item -ItemType Directory -Force -Path probe-spawn, probe-chan, probe-signal | Out-Null
+          Copy-Item upstream/wolf-lang/corpus/conc/spawn_fanout_loop.lu probe-spawn/prog.lu
+          Copy-Item upstream/wolf-lang/corpus/conc/message_passing.lu   probe-chan/prog.lu
+          Copy-Item upstream/wolf-lang/corpus/os/signal_loopback.lu     probe-signal/prog.lu
+
       # THE TRUTH TABLE. Every command the page could plausibly tell a
       # learner to type, run here with its exact exit code and its exact
       # output recorded — the refusals included. A refusal is a
@@ -166,6 +175,82 @@ jobs:
             $md += "| $($r.dir) | ``$($r.cmd)`` | $($r.code) | $first |"
           }
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+      # THE PARITY PROBES — spawn, channels, signals. INFORMATIONAL.
+      #
+      # These three corpus programs are the region the page's table calls
+      # "refuses by name, exit 1": the task layer, channel transfer, and
+      # signal reception. At the release this site pins they refuse, and the
+      # step below RECORDS that rather than asserting it, because the answer
+      # is about to change and the site must not be the thing that decides
+      # when. The compiler's trunk already serves all three on this host
+      # (s60b); the site does not promise trunk, so nothing here is a claim
+      # until there is a tag to fetch it from.
+      #
+      # WW12's FLIP IS THE NEXT LINE. Set $assert = $true when the pin moves
+      # to the release that serves the task layer, and these three stop being
+      # a table in the summary and become claims that can go red — exit 0,
+      # and the stdout each program's own corpus header pins. Nothing else in
+      # this step changes; the fixtures and the runner are already here, so
+      # ww12 measures on a runner that has been recording the "before" every
+      # week since this line landed.
+      - name: parity probes — spawn, channels, signals (informational)
+        run: |
+          $assert = $false
+
+          $probes = @(
+            @{ dir = "probe-spawn";  what = "the task layer (spawn + scope + join)";
+               corpus = "corpus/conc/spawn_fanout_loop.lu"; stdout = "204`n" },
+            @{ dir = "probe-chan";   what = "channel transfer (move sends a region)";
+               corpus = "corpus/conc/message_passing.lu";   stdout = "" },
+            @{ dir = "probe-signal"; what = "signal reception (listen + wait + raise)";
+               corpus = "corpus/os/signal_loopback.lu";     stdout = "reload`n" }
+          )
+
+          $rows = @()
+          $fail = 0
+          foreach ($p in $probes) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $proc = Start-Process -FilePath $env:WOLF_EXE -ArgumentList @("run", "prog.lu") `
+                      -NoNewWindow -Wait -PassThru -WorkingDirectory (Join-Path $PWD $p.dir) `
+                      -RedirectStandardOutput $so -RedirectStandardError $se
+            $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $o) { $o = "" }
+            if ($null -eq $e) { $e = "" }
+            $o = $o -replace "`r`n", "`n"; $e = $e -replace "`r`n", "`n"
+
+            "=== $($p.what)"
+            "    $($p.corpus) — wolf run prog.lu — exit $($proc.ExitCode)"
+            if ($o.Trim()) { "    stdout | $($o.Trim())" }
+            if ($e.Trim()) { "    stderr |"; ($e -split "`n" | ForEach-Object { "      $_" }) }
+
+            $served = ($proc.ExitCode -eq 0 -and $o -eq $p.stdout)
+            $note = if ($served) { "serves" }
+                    elseif ($e -match "windows-native serves no") { "refuses by name (the ledger)" }
+                    elseif ($e -match "cannot compile this yet") { "refuses by name" }
+                    else { "neither — read the log" }
+            $first = (($e -split "`n") | Where-Object { $_.Trim() } | Select-Object -First 1)
+            if (-not $first) { $first = ($o.Trim() -split "`n" | Select-Object -First 1) }
+            if (-not $first) { $first = "(no output)" }
+            $rows += [pscustomobject]@{ what = $p.what; corpus = $p.corpus; code = $proc.ExitCode; note = $note; first = $first }
+
+            if ($assert) {
+              if ($served) { "  ok   $($p.what) serves on this host" }
+              else { "  FAIL $($p.what) does not serve: exit $($proc.ExitCode)"; $script:fail++ }
+            }
+          }
+
+          $md = @("", "### Parity probes — spawn, channels, signals", "",
+                  $(if ($assert) { "Asserted at this pin." } else { "Informational at this pin: recorded, not asserted. The site does not promise trunk." }), "",
+                  "| region | corpus program | ``wolf run`` exit | what happened |", "|---|---|---|---|")
+          foreach ($r in $rows) {
+            $md += "| $($r.what) | ``$($r.corpus)`` | $($r.code) | $($r.note) |"
+          }
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+          if ($assert -and $fail -gt 0) { Write-Output "::error::$fail parity probe(s) the page now claims are not true of the published archive"; exit 1 }
+          if (-not $assert) { "recorded, not asserted — ww12 flips `$assert when there is a tag that serves these" }
 
       # THE ASSERTIONS. The page's claims, one per sentence. When one fails
       # the page is wrong, and this job says so before a learner finds out.
