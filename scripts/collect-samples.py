@@ -53,6 +53,17 @@ numbers is measured by feeding each candidate to the wasm module this build
 publishes and reading the verdict back — re-measure on a pin bump rather
 than trusting the line. The list below is a spread across the ones that
 answer, kept short enough to read in one glance.
+
+Re-measured at the lupin 0.1.23 pin: all 270 `phase: run` corpus programs
+were fed to the module this build publishes and every one came back in the
+same verdict class it answered in at 0.1.22 — 190 `exit`, 31 `trap`, 49
+`unsupported` over the whole set, so the candidate counts above are
+unchanged. The corpus did not move either (wolf-lang stays at v0.2.2), which
+is the other half of why. What DID move is inside two of those verdicts:
+`faults/trap_skips_root_defers.lu` still traps, and now prints
+`inner inner-defer before-trap` instead of `... root-defer` (wolf-lang#209),
+and the record for a trapping program carries its stdout at last
+(wolf-interp#55).
 """
 
 from __future__ import annotations
@@ -90,6 +101,7 @@ SAMPLES: list[tuple[str, str]] = [
     ("faults/div_zero_rem.lu", "arithmetic traps (divide by zero)"),
     ("faults/bounds_slice.lu", "a bad slice traps"),
     ("faults/region_cap_breach.lu", "a region over its budget traps"),
+    ("faults/trap_skips_root_defers.lu", "a trap runs no defers"),
     ("lints/mut_in_interp.lu", "a warning"),
     ("conc/chan_drain_after_inclusive_loop.lu", "a channel"),
     ("io/eprint.lu", "stdout and stderr"),
