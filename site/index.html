@@ -104,15 +104,18 @@ cargo build --release -p wolf_driver
   the archive beside it, which is why the install step exists.</p>
   <p>Or take a published archive instead of building one:
   <a href="/install/">installing wolf</a> has the per-platform story, including
-  what a Windows learner can and cannot do with the toolchain today — the
-  compiler runs there, but it cannot yet produce a Windows executable, and
-  that page says exactly what it can.</p>
+  Windows, where the compiler now builds and runs native programs once Visual
+  Studio Build Tools is installed beside it — that page quotes what a machine
+  without it sees, and every Windows sentence on it is asserted against the
+  published archive by a job on a Windows runner.</p>
   <p>The toolchain pin is Rust 1.97.1, recorded in
   <code>rust-toolchain.toml</code>, and rustup honors it on the first
   <code>cargo</code> invocation. There are no build scripts anywhere in the
   wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
-  x86-64; linux aarch64 gets release archives at every tag, and a CI runner
-  for it is an open issue. Tagged builds upload archives to the
+  x86-64, which are also the three hosts native code generation serves; linux
+  aarch64 is tier-1 in the matrix without a CI runner or a backend behind it
+  yet. Tagged builds upload an archive per host that passes their own
+  unpack-and-run smoke to the
   <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>;
   the packaging around them is a stub, so building from source is the path that
   is known to work.</p>
