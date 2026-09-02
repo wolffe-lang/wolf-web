@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>install · wolf</title>
-<meta name="description" content="Getting wolf onto a machine, platform by platform — including Windows, where the compiler now builds and runs native programs, and where the one thing you have to install first was measured rather than guessed.">
+<meta name="description" content="Getting wolf onto a machine, platform by platform — including Windows, where the compiler now builds and runs all of the language natively, and where everything that is still refused was measured rather than guessed.">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="/wolf.svg" type="image/svg+xml">
 </head>
@@ -38,11 +38,16 @@
 <section>
   <h2>Windows</h2>
 
-  <p><strong>The compiler builds and runs native Windows programs.</strong>
+  <p><strong>The compiler builds and runs native Windows programs, and at
+  __WOLF_VERSION__ it runs all of the language.</strong>
   <code>wolf build hello.lu</code> writes <code>hello.exe</code> and
   <code>wolf run hello.lu</code> compiles and executes it — machine code on
-  the host, not an interpreter. That is new in __WOLF_VERSION__; every earlier
-  release refused this host by name, and this page said so.</p>
+  the host, not an interpreter. Native compilation arrived one release ago,
+  and it arrived refusing a whole region by name: tasks, channels,
+  <code>os.signal</code>, twenty-one programs of the conformance corpus that
+  this page listed. That paragraph is gone. They compile and run here now, and
+  the job that measures this page runs three of them on a Windows box every
+  time this site changes.</p>
 
   <p>There is one thing to install first, and it is not wolf's:
   <strong>Visual Studio Build Tools</strong> with the <strong>"Desktop
@@ -69,7 +74,7 @@
 
   <p>Download
   <a href="https://github.com/wolffe-lang/wolf-lang/releases/download/v__WOLF_VERSION__/wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz"><code>wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></a>
-  — about 10 MB — then unpack it in PowerShell. <code>tar</code> has shipped
+  — about 11 MB — then unpack it in PowerShell. <code>tar</code> has shipped
   with Windows since Windows 10 build 1803, so nothing needs installing to
   open this:</p>
 
@@ -164,37 +169,54 @@ is s47's (the s60 campaign).</code></pre>
   libraries inside the archive so that nothing has to be installed is planned
   work, and the refusal names it.</p>
 
-  <h3>What still refuses, and what that means</h3>
+  <h3>What still refuses</h3>
 
-  <p>The Windows backend is a bring-up, and what it does not serve yet it
-  refuses <em>by name</em> before the link — never a silent stub, never a
-  mystery link error. Twenty-one programs in the conformance corpus take that
-  refusal, and they are all one region of the language: <strong>concurrency
-  and the operating system's edges</strong> — tasks and scopes,
+  <p>Two things, and the compiler names each one to your face rather than
+  compiling something that quietly is not what you asked for.</p>
+
+  <p><strong><code>wolf build --release</code></strong>, the LLVM optimizing
+  tier, refuses this host with exit code 2:</p>
+
+<pre><code>wolf build: this host cannot run the release tier: the release
+tier targets linux/x86-64 and macOS/aarch64 (s41 + s127; c13 owns the
+matrix) — this host is neither, and further platforms follow as their
+own sprints</code></pre>
+
+  <p>Wrapped here and printed on one line there. The plain <code>wolf
+  build</code> is the one you want on Windows today, and it is a real native
+  build: the same machine code through the compiler's own backend, without an
+  LLVM pass pipeline over it.</p>
+
+  <p><strong>External <code>reload</code> and <code>upgrade</code>
+  signals</strong> have nothing on Windows to arrive through. The console
+  offers Ctrl+C, Ctrl+Break and the window closing — which wolf reads as
+  <code>terminate</code> and <code>quit</code> — and nothing at all that means
+  "reload". Inside your own program every meaning works: the corpus's signal
+  witness listens for <code>reload</code>, raises it, waits for it and prints
+  <code>reload</code>, and the CI job runs that program on a Windows runner
+  and reads exactly that back. What you cannot do is send one <em>from
+  another process</em>, so a long-running program that wants reload or upgrade
+  on this host takes them over a control channel instead.</p>
+
+  <p>Everything else the language has is here. Tasks and scopes,
   <code>proc</code>, channels and <code>select</code>, <code>sync</code>/
-  <code>when</code>, region transfer, <code>os.signal</code>, and network
-  deadlines. Everything a first month of wolf touches is served: printing,
-  strings, lists, JSON, files, environment and child processes, time, random,
-  regions and the region ledger, and blocking network sockets. Asking for one
-  of the unserved ones reads like this:</p>
-
-<pre><code>wolf build: cannot compile this yet — windows-native serves no
-`spawn`/scopes (the task layer) at the s60a bring-up (the runtime's task
-layer, io reactor, and signal delivery are s60b's — the IOCP road);
-`__wolf_rt_scope_new` would not link (pipeline is honest through `wir`;
-the conservatism ledger, not a bug in your program)</code></pre>
-
-  <p>Exit code 1. <code>wolf build --release</code> — the LLVM optimizing tier
-  — refuses this host in the same spirit, with exit code 2 and its own
-  sentence: <code>this host cannot run the release tier: the release tier
-  targets linux/x86-64 and macOS/aarch64</code>. The plain
-  <code>wolf build</code> is the one you want on Windows today, and it is a
-  real native build.</p>
+  <code>when</code>, region transfer, <code>os.signal</code> and network
+  deadlines all compile and run, alongside everything a first month of wolf
+  touches — printing, strings, lists, JSON, files, environment and child
+  processes, time, random, regions and the region ledger, and network sockets.
+  The release records this host at macOS parity across the conformance corpus,
+  with no row refused by construct name at all. A stack overflow inside a task
+  even reports in wolf's own words now — <code>wolf-rt: stack overflow in task
+  '…'</code>, exit 134 — where the release before this one died as a bare
+  <code>0xC00000FD</code> and said nothing.</p>
 
   <p>The compiler's own per-host ledger is
   <a href="https://github.com/wolffe-lang/wolf-lang/blob/v__WOLF_VERSION__/docs/platforms.md"><code>docs/platforms.md</code></a>
   at the release tag: the table of what each host serves, the refusals row by
-  row, the linker order in full, and the named sprints that close the gaps.</p>
+  row, the linker order in full, and the named sprints that close the gaps —
+  including two this page does not measure because no first program meets
+  them, structs passed by value across the <code>extern "c"</code> boundary
+  and the debugger.</p>
 
   <h3>Line endings</h3>
 
@@ -244,8 +266,9 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
     <tr><td><code>wolf fmt</code>, <code>wolf fmt --check</code></td><td>works</td></tr>
     <tr><td><code>wolf --version</code>, <code>wolf --explain E0001</code></td><td>works — the whole diagnostic catalogue is in the binary</td></tr>
     <tr><td><code>wolf conform-run <em>file</em> --checked</code></td><td>works — runs your program on the checked machine and prints a record</td></tr>
-    <tr><td>tasks, procs, channels, <code>select</code>, <code>os.signal</code>, network deadlines</td><td>refuses by name, exit 1 — twenty-one corpus programs, the s60b road</td></tr>
+    <tr><td>tasks, procs, channels, <code>select</code>, region transfer, <code>os.signal</code>, network deadlines</td><td>works — the whole concurrency and OS surface, at macOS parity on the corpus</td></tr>
     <tr><td><code>wolf build --release</code></td><td>refuses, exit 2 — the LLVM tier serves linux and macOS</td></tr>
+    <tr><td>an external <code>reload</code>/<code>upgrade</code> signal</td><td>no Windows analog — your own program can raise and receive both; another process cannot send them</td></tr>
     <tr><td><code>lupin</code>, the reference interpreter</td><td>works — <code>lupin.exe</code>, one file, no install</td></tr>
   </table>
 
@@ -262,9 +285,13 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
 hello, wolf</code></pre>
 
   <p>It is a good second opinion when the compiler and your expectations
-  disagree, and it runs the parts of the language the Windows backend has not
-  reached yet. <code>lupin --version</code> names the release and the
-  specification pin it was built against.</p>
+  disagree — a different implementation reading the same specification, not a
+  fallback for what the backend cannot do. That distinction is new at
+  __WOLF_VERSION__: through the previous release lupin was also the only way
+  to run a program on this host that used a task or a channel, and now it is
+  not. <code>lupin --version</code> names the release and the specification
+  pin it was built against, which is the pin the second line of <code>wolf
+  --version</code> quotes back — one release behind, as above.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
   to WebAssembly — lupin __LUPIN_VERSION__, in the tab, with the corpus
@@ -285,9 +312,17 @@ hello, wolf</code></pre>
   there. Take the archive for your platform from the
   <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>
   and put its folder on your PATH — the binary and the runtime archive have to
-  stay together, because the binary cannot link a program without it. For a
-  host with no archive at a given tag, the source recipe below is the
-  path.</p>
+  stay together, because the binary cannot link a program without it.</p>
+  <p>__WOLF_VERSION__ carries four archives, one for every tier-1 host: those
+  two, windows x86-64, and linux aarch64. That last one has no native backend
+  behind it yet, so what its archive serves is the checked tier —
+  <code>wolf test</code> and <code>wolf conform-run --checked</code> run your
+  program, <code>wolf run</code> refuses the host by name — and the release
+  before this one shipped no arm archive at all, because the smoke that gates
+  the upload could not tell an unserved host from a broken build. All four
+  URLs are asked for a 200 by the same job that measures the Windows section,
+  every time this site changes. For a host outside the matrix, the source
+  recipe is the path.</p>
   <p>The <a href="/">front page</a> has the four lines that build the same
   toolchain from source, which is the path the project itself is known to
   work on.</p>
