@@ -39,6 +39,10 @@ refuse by name with exit 1, each naming the symbol that would not link
 and the sprint that closes it. When the tag arrives, one line turns those
 three rows into claims that can go red.
 
+The prose sweep at the new pin found two claims the menu had outgrown: the
+front page and the spec page both said the playground loads "twenty-odd"
+corpus programs, and it loads thirty-two.
+
 /changelog re-renders with lupin 0.1.23. One finding went upstream the same
 day, against this repo: the version-prose tripwire cannot see a bare
 `0.1.22`-shaped literal at all, and audits lupin sentences against the wolf
