@@ -348,8 +348,9 @@ jobs:
       #
       # Both halves are measured: the refusal AND the one-line fix, because
       # a teach-note that names a spelling has to be checked against the
-      # spelling actually working. The exit code is recorded rather than
-      # guessed — what the page quotes is the note.
+      # spelling actually working. The exit code is 1 — an ordinary program
+      # that does not compile, not the exit 2 this host's own refusals use,
+      # which is a distinction /install/ now draws on the page.
       - name: the byte a learner meets — E0401, and the one-line fix
         run: |
           New-Item -ItemType Directory -Force -Path byte-bad, byte-good | Out-Null
@@ -391,7 +392,7 @@ jobs:
           ($bad.err -split "`n" | ForEach-Object { "    $_" })
           $text = $bad.out + $bad.err
 
-          Claim "comparing a byte to an int literal is refused" ($bad.code -ne 0) "exit $($bad.code)"
+          Claim "comparing a byte to an int literal is refused, exit 1" ($bad.code -eq 1) "exit $($bad.code)"
           Claim "the refusal is E0401" ($text -match "error\[E0401\]") $text
           Claim "it names which side made it a byte" ($text -match "the other side of ``==`` makes it ``byte``") $text
           Claim "the note names the widening spelling, b as int" ($text -match "``b as int``") $text
