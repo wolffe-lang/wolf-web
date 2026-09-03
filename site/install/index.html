@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>install · wolf</title>
-<meta name="description" content="Getting wolf onto a machine, platform by platform — including Windows, where the compiler now builds and runs all of the language natively, and where everything that is still refused was measured rather than guessed.">
+<meta name="description" content="Getting wolf onto a machine, platform by platform — including Windows, where the compiler builds and runs native programs across the concurrency and OS surface, and where everything that is still refused was measured rather than guessed.">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="/wolf.svg" type="image/svg+xml">
 </head>
@@ -38,16 +38,16 @@
 <section>
   <h2>Windows</h2>
 
-  <p><strong>The compiler builds and runs native Windows programs, and at
-  __WOLF_VERSION__ it runs all of the language.</strong>
+  <p><strong>The compiler builds and runs native Windows programs, and the
+  concurrency and operating-system surface is among what it runs.</strong>
   <code>wolf build hello.lu</code> writes <code>hello.exe</code> and
   <code>wolf run hello.lu</code> compiles and executes it — machine code on
-  the host, not an interpreter. Native compilation arrived one release ago,
-  and it arrived refusing a whole region by name: tasks, channels,
-  <code>os.signal</code>, twenty-one programs of the conformance corpus that
-  this page listed. That paragraph is gone. They compile and run here now, and
-  the job that measures this page runs three of them on a Windows box every
-  time this site changes.</p>
+  the host, not an interpreter. Native compilation arrived at v0.2.2 refusing
+  a whole region by name — tasks, channels, <code>os.signal</code>,
+  twenty-one programs of the conformance corpus that this page listed one by
+  one — and v0.2.3 took that paragraph off the page. Three of those programs
+  run on a Windows box every time this site changes, which is how the
+  sentence stays a measurement.</p>
 
   <p>There is one thing to install first, and it is not wolf's:
   <strong>Visual Studio Build Tools</strong> with the <strong>"Desktop
@@ -146,6 +146,39 @@ hello, wolf</code></pre>
   <code>rust-lld</code> a Rust toolchain already carries, then MSVC
   <code>link.exe</code>, and takes the first one it finds.</p>
 
+  <h3>The byte, the moment you touch a string's octets</h3>
+
+  <p>__WOLF_VERSION__ gives wolf a byte-width scalar — <code>byte</code>, an
+  8-bit unsigned octet, <code>0..=255</code> — and every builtin that produces
+  or takes raw octets now speaks <code>List[byte]</code> where it used to say
+  <code>List[int]</code>. That is the release's headline, and it is a breaking
+  change, which is why it is on an install page rather than only in a
+  changelog: the first thing anyone does with a byte is compare it to a
+  number, and a <code>byte</code> adopts no numeric literal. So this does not
+  build:</p>
+
+<pre><code>let b = s.bytes()[0]
+if b == 119 { print("w") }</code></pre>
+
+  <p>The compiler finishes the sentence rather than leaving you to guess which
+  side to change:</p>
+
+<pre><code>error[E0401]: this is `{integer}`, but the other side of `==` makes it `byte`
+  = note: `byte` adopts no literal and takes no `int` implicitly ([type.byte]):
+    widen the byte — `b as int` — or narrow this side with `as byte`, which
+    keeps the value's low eight bits ([type.byte.cast]).</code></pre>
+
+  <p>One line per site, and the note names the line. Comparisons and
+  arithmetic against integers want <code>as int</code>, which widens by
+  zero-extension; a value going back into a byte list wants <code>as
+  byte</code>, which keeps the low eight bits and never traps. The same
+  refusal, with the same note, meets an index (<code>table[b]</code>), a
+  binding written <code>let n: int = b</code>, and a literal
+  <code>match</code> arm. Nothing widens behind your back, which is the point
+  of a scalar that carries its width. The job that measures this page builds
+  the broken program above on a Windows runner and reads that note back, then
+  builds the fixed one and runs it.</p>
+
   <h3 id="no-build-tools">What you see without Build Tools</h3>
 
   <p>You do not need a Developer Command Prompt: wolf finds the Visual Studio
@@ -171,10 +204,10 @@ is s47's (the s60 campaign).</code></pre>
 
   <h3>What still refuses</h3>
 
-  <p>Two things a learner's program can reach, and the compiler names each
-  one to your face rather than building something that quietly is not what you
-  asked for. (The ledger at the end of this section has the rest, none of
-  which a first program meets.)</p>
+  <p>Three things a program can reach, and the compiler names each one to
+  your face rather than building something that quietly is not what you asked
+  for. (The ledger at the end of this section has the rest, none of which a
+  first program meets.)</p>
 
   <p><strong><code>wolf build --release</code></strong>, the LLVM optimizing
   tier, refuses this host with exit code 2:</p>
@@ -200,17 +233,33 @@ own sprints</code></pre>
   another process</em>, so a long-running program that wants reload or upgrade
   on this host takes them over a control channel instead.</p>
 
+  <p><strong>Unix-domain sockets</strong> — <code>net_listen_unix</code> and
+  <code>net_connect_unix</code>, which are new at __WOLF_VERSION__ — answer
+  the <code>unsupported</code> row on this host. By name, rather than as a
+  bare <code>io</code> failure: the difference is whether a program can branch
+  on the host at all, and it is the whole reason the row exists.
+  <code>AF_UNIX</code> has been in Windows since build 1803 and the compiler's
+  own test suite measures the kernel's answer on a runner, but the runtime
+  carries no winsock binding for the family, so the ledger names the rung
+  instead of claiming it. A program that wants a local control endpoint here
+  keeps it on loopback TCP. The job that measures this page runs the corpus's
+  unix witness on a Windows box and reads the named row back from it.</p>
+
   <p>Everything else the language has is here. Tasks and scopes,
   <code>proc</code>, channels and <code>select</code>, <code>sync</code>/
   <code>when</code>, region transfer, <code>os.signal</code> and network
   deadlines all compile and run, alongside everything a first month of wolf
   touches — printing, strings, lists, JSON, files, environment and child
-  processes, time, random, regions and the region ledger, and network sockets.
+  processes, time, random, regions and the region ledger, and TCP sockets.
   The release records this host at macOS parity across the conformance corpus,
-  with no row refused by construct name at all. A stack overflow inside a task
-  even reports in wolf's own words now — <code>wolf-rt: stack overflow in task
-  '…'</code>, exit 134 — where the release before this one died as a bare
-  <code>0xC00000FD</code> and said nothing.</p>
+  with no row refused by construct name at all: the thirty-six rows the native
+  lane does not execute here are exactly the thirty-six it does not execute on
+  macOS, which makes them the lanes' own scope gaps rather than this host's. A
+  stack overflow inside a task reports in wolf's own words — <code>wolf-rt:
+  stack overflow in task '…'</code>, exit 134 — while one in a program that
+  never spawns still dies as a bare <code>0xC00000FD</code>, because the
+  reporter is installed when the task pool starts and a program with no tasks
+  never starts one.</p>
 
   <p>The compiler's own per-host ledger is
   <a href="https://github.com/wolffe-lang/wolf-lang/blob/v__WOLF_VERSION__/docs/platforms.md"><code>docs/platforms.md</code></a>
@@ -271,6 +320,7 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
     <tr><td>tasks, procs, channels, <code>select</code>, region transfer, <code>os.signal</code>, network deadlines</td><td>works — the whole concurrency and OS surface, at macOS parity on the corpus</td></tr>
     <tr><td><code>wolf build --release</code></td><td>refuses, exit 2 — the LLVM tier serves linux and macOS</td></tr>
     <tr><td>an external <code>reload</code>/<code>upgrade</code> signal</td><td>no Windows analog — your own program can raise and receive both; another process cannot send them</td></tr>
+    <tr><td><code>net_listen_unix</code>, <code>net_connect_unix</code></td><td>the <code>unsupported</code> row, by name — a local control endpoint stays on loopback TCP here</td></tr>
     <tr><td><code>lupin</code>, the reference interpreter</td><td>works — <code>lupin.exe</code>, one file, no install</td></tr>
   </table>
 
@@ -288,10 +338,10 @@ hello, wolf</code></pre>
 
   <p>It is a good second opinion when the compiler and your expectations
   disagree — a different implementation reading the same specification, not a
-  fallback for what the backend cannot do. That distinction is new at
-  __WOLF_VERSION__: through the previous release lupin was also the only way
-  to run a program on this host that used a task or a channel, and now it is
-  not. <code>lupin --version</code> names the release and the specification
+  fallback for what the backend cannot do. That distinction had to be won:
+  through v0.2.2 lupin was also the only way to run a program on this host
+  that used a task or a channel, and it has not been that since v0.2.3.
+  <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
   --version</code> quotes back — one release behind, as above.</p>
 
@@ -319,9 +369,10 @@ hello, wolf</code></pre>
   two, windows x86-64, and linux aarch64. That last one has no native backend
   behind it yet, so what its archive serves is the checked tier —
   <code>wolf test</code> and <code>wolf conform-run --checked</code> run your
-  program, <code>wolf run</code> refuses the host by name — and the release
-  before this one shipped no arm archive at all, because the smoke that gates
-  the upload could not tell an unserved host from a broken build. All four
+  program, <code>wolf run</code> refuses the host by name — and v0.2.2
+  shipped no arm archive at all, because the smoke that gates the upload could
+  not tell an unserved host from a broken build. Every release since carries
+  it. All four
   URLs are asked for a 200 by the same job that measures the Windows section,
   every time this site changes. For a host outside the matrix, the source
   recipe is the path.</p>
