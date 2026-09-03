@@ -64,15 +64,19 @@ jobs:
           "the pins say wolf $ver, lupin $lup"
 
       # THE PIN LAG. The two implementations are compared against one
-      # specification, but they do not tag together, and at ww12 the site has
-      # to say which one is behind: lupin 0.1.23 was released against the wolf
-      # release BEFORE the one this site advertises. /install/ says exactly
-      # that in prose, so it is held here rather than trusted — both facts
-      # come out of the two pinned CHANGELOGs, no tag objects needed.
+      # specification, but they do not tag together, and the site has to say
+      # which one is behind. /install/ and /play/ both write that sentence in
+      # prose, so it is held here rather than trusted — both facts come out of
+      # the two pinned CHANGELOGs, no tag objects needed.
       #
-      # When lupin catches up this goes red, and the sentence gets rewritten
-      # instead of quietly becoming false. Two releases behind fails too: the
-      # claim is "one", and one is what is checked.
+      # Through ww13 this step accepted exactly ONE release of lag, because
+      # that is what the pages said. lupin 0.1.25 caught up — it was released
+      # against pin `982f857`, wolf v0.2.4, the tag this site advertises — and
+      # the step went red the way it was built to, which is how the sentence
+      # got rewritten instead of quietly becoming false. The rule is now
+      # ZERO OR ONE, and the step decides WHICH and says so: the pages are
+      # written for both, and a lag of two is still a red, because it means a
+      # lupin release was skipped or a pin was never bumped.
       - name: the specification pin lag the site records
         run: |
           $rel = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' |
@@ -87,17 +91,20 @@ jobs:
           $lupSpec = $m.Groups[2].Value
           "wolf $env:WOLF_VER is the release this site advertises; the one before it is $prev"
           "lupin $env:LUPIN_VER was released against pin $lupPin — wolf-lang v$lupSpec"
-          if ($lupSpec -ne $prev) {
-            Write-Output "::error::/install/ says the interpreter is ONE wolf release behind the compiler; lupin $env:LUPIN_VER reads v$lupSpec while the release before wolf $env:WOLF_VER is $prev"
+          if ($lupSpec -eq $env:WOLF_VER) { $gap = 0 }
+          elseif ($lupSpec -eq $prev)     { $gap = 1 }
+          else {
+            Write-Output "::error::/install/ says the interpreter reads THIS wolf release or the one before it; lupin $env:LUPIN_VER reads v$lupSpec, and this site advertises wolf $env:WOLF_VER (the release before it is $prev)"
             exit 1
           }
+          $reads = if ($gap -eq 0) { "this release" } else { "the release before this one" }
           $md = @("", "### The specification pin lag", "",
                   "| | release | specification pin |", "|---|---|---|",
                   "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",
                   "| the interpreter beside it | lupin $env:LUPIN_VER | ``$lupPin`` — wolf-lang v$lupSpec |", "",
-                  "One release behind, which is what /install/ says in prose.", "")
+                  "A gap of $gap: the interpreter reads $reads, which is what /install/ says in prose.", "")
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
-          "lupin reads the release before this one — the page's sentence holds"
+          "lupin reads $reads — the page's sentence holds"
 
       # The page's own link, fetched the page's own way. A 404 here is the
       # finding the weekly schedule exists to catch.
