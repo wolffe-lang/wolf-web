@@ -148,7 +148,7 @@ hello, wolf</code></pre>
 
   <h3>The byte, the moment you touch a string's octets</h3>
 
-  <p>__WOLF_VERSION__ gives wolf a byte-width scalar — <code>byte</code>, an
+  <p>At __WOLF_VERSION__ wolf has a byte-width scalar — <code>byte</code>, an
   8-bit unsigned octet, <code>0..=255</code> — and every builtin that produces
   or takes raw octets now speaks <code>List[byte]</code> where it used to say
   <code>List[int]</code>. That is the release's headline, and it is a breaking
@@ -160,16 +160,17 @@ hello, wolf</code></pre>
 <pre><code>let b = s.bytes()[0]
 if b == 119 { print("w") }</code></pre>
 
-  <p>Exit code 1 — an ordinary program that does not compile, not the exit 2
-  this host's own refusals answer with. The compiler finishes the sentence
-  rather than leaving you to guess which side to change:</p>
+  <p>The compiler finishes the sentence rather than leaving you to guess which
+  side to change:</p>
 
 <pre><code>error[E0401]: this is `{integer}`, but the other side of `==` makes it `byte`
   = note: `byte` adopts no literal and takes no `int` implicitly ([type.byte]):
     widen the byte — `b as int` — or narrow this side with `as byte`, which
     keeps the value's low eight bits ([type.byte.cast]).</code></pre>
 
-  <p>One line per site, and the note names the line. Comparisons and
+  <p>Exit code 1 — an ordinary program that does not compile, which is a
+  different thing from the exit 2 this host's own refusals answer with. One
+  line per site, and the note names the line. Comparisons and
   arithmetic against integers want <code>as int</code>, which widens by
   zero-extension; a value going back into a byte list wants <code>as
   byte</code>, which keeps the low eight bits and never traps. The same
