@@ -13,7 +13,8 @@
 # release, because that is the only clock this checker has. A lupin literal
 # is therefore re-read when wolf tags, not when lupin does — the coarser
 # trigger, and a hole while lupin moves faster (wolf-web#8, filed at ww11).
-spec/index.html v0.1.0 1 audited-at=0.2.3
-docs/index.html v0.1.0 1 audited-at=0.2.3
-install/index.html v0.2.1 1 audited-at=0.2.3
-play/index.html v0.1.22 1 audited-at=0.2.3
+spec/index.html v0.1.0 1 audited-at=0.2.4
+docs/index.html v0.1.0 1 audited-at=0.2.4
+install/index.html v0.2.1 1 audited-at=0.2.4
+play/index.html v0.1.22 1 audited-at=0.2.4
+play/index.html v0.1.23 1 audited-at=0.2.4
