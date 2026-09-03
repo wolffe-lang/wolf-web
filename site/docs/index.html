@@ -34,14 +34,14 @@
 <section>
   <h2>Catalogues</h2>
   <dl class="index">
-    <dt><a href="/docs/diagnostics.md">Diagnostics</a> (136 codes, 151 KiB of text)</dt>
+    <dt><a href="/docs/diagnostics.md">Diagnostics</a> (136 codes, __KIB_docs/diagnostics.md__ KiB of text)</dt>
     <dd>Every error the compiler can emit, with the explanation
       <code>wolf --explain E0001</code> prints. Each code ships with that
       explanation and at least one reviewed snapshot fixture, and CI enforces
       both, so a code cannot exist without a documented meaning and a test that
       pins its wording.</dd>
 
-    <dt><a href="/docs/warnings.md">Warnings</a> (33 codes, 23 KiB of text)</dt>
+    <dt><a href="/docs/warnings.md">Warnings</a> (33 codes, __KIB_docs/warnings.md__ KiB of text)</dt>
     <dd>Every warning, with the severity contract in front of the catalogue: an
       error rejects meaning and cannot be configured away, and a warning marks a
       program that is legal and inadvisable. The file also covers the level
@@ -83,8 +83,10 @@
 </main>
 
 <footer>
-  <p>Counts on this page were taken from the checkout this site was built from.
-  If they disagree with the files, the files are right and this page is stale.</p>
+  <p>The sizes on this page are measured at build time from the checkout the
+  site was built from. The code counts are not, and were re-read at this pin;
+  if they disagree with the files, the files are right and this page is
+  stale.</p>
 </footer>
 </body>
 </html>

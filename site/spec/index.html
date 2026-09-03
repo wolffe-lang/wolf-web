@@ -40,7 +40,7 @@
 <section>
   <h2>The documents</h2>
   <dl class="index">
-    <dt><a href="/spec/01-grammar.md">01. Surface Grammar</a> (52 KiB)</dt>
+    <dt><a href="/spec/01-grammar.md">01. Surface Grammar</a> (__KIB_spec/01-grammar.md__ KiB)</dt>
     <dd>Lexing, the mode stack that lets strings nest inside strings, the
       expression grammar and its precedence tiers, statement and item forms, and
       the ambiguity rulings. Status: normative, <code>grammar/1</code>, declared
@@ -50,31 +50,31 @@
       Anchors
       <code>[gram.*]</code>.</dd>
 
-    <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (47 KiB)</dt>
+    <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
     <dd>Regions, ownership tiers, moves, freezing, the shared and handle edges,
       provenance, and the closed list of rows that are undefined behavior with
       the optimization each one licenses. The interpreter implements this
       document as a dynamic machine; the compiler implements a static
       approximation of it. Anchors <code>[mem.*]</code>.</dd>
 
-    <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (21 KiB)</dt>
+    <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
     <dd>Structured tasks, supervised procs, channels with region transfer,
       select, the memory model's happens-before rules, and the deterministic
       schedule a seed selects. Written in the shape of the Go memory model
       document, with the advice in front of the formalism. Anchors
       <code>[conc.*]</code>.</dd>
 
-    <dt><a href="/spec/04-abi.md">04. ABI</a> (10 KiB)</dt>
+    <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
     <dd>Layout, calling convention, and the foreign boundary, differentially
       fuzzed against platform C compilers. Anchors <code>[abi.*]</code>.</dd>
 
-    <dt><a href="/spec/05-conformance.md">05. Conformance</a> (12 KiB)</dt>
+    <dt><a href="/spec/05-conformance.md">05. Conformance</a> (__KIB_spec/05-conformance.md__ KiB)</dt>
     <dd>What makes the rest of it testable: clause anchors, test tagging, the
       closed trap vocabulary, and coverage reporting. The interpreter reads only
       the specification and the corpus, and this document is part of that sealed
       interface. Anchors <code>[conf.*]</code>.</dd>
 
-    <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (9 KiB)</dt>
+    <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (__KIB_spec/06-differential-protocol.md__ KiB)</dt>
     <dd>The two-implementation contract, and the only shared artifact between
       the tracks. It defines the observation record: the phase reached, the
       verdict, the diagnostics as code and span with no message, and the output
@@ -83,45 +83,52 @@
       disagreements. The playground can show you a record for any program you
       run. Anchors <code>[proto.*]</code>.</dd>
 
-    <dt><a href="/spec/07-schedule-points.md">07. Schedule Points</a> (10 KiB)</dt>
+    <dt><a href="/spec/07-schedule-points.md">07. Schedule Points</a> (__KIB_spec/07-schedule-points.md__ KiB)</dt>
     <dd>Where a schedule can make a decision, and the numbering a replayable
       counterexample uses. Normative for shape and vocabulary, and append-only
       from here. Anchors <code>[sched.*]</code>.</dd>
 
-    <dt><a href="/spec/08-package.md">08. Packages</a> (5.8 KiB)</dt>
+    <dt><a href="/spec/08-package.md">08. Packages</a> (__KIB_spec/08-package.md__ KiB)</dt>
     <dd>The package layer's formats, under one covenant: reading the dependency
       graph never executes anything — no build scripts, no hooks, no fallbacks.
       The manifest is data, resolution is minimal-version, and the registry
       entry's shape is fixed before any hosted registry exists to serve it.
       Anchors <code>[pkg.*]</code>.</dd>
 
-    <dt><a href="/spec/09-constant-time.md">09. Constant-Time</a> (8.9 KiB)</dt>
+    <dt><a href="/spec/09-constant-time.md">09. Constant-Time</a> (__KIB_spec/09-constant-time.md__ KiB)</dt>
     <dd><code>#[consttime]</code> as a verified contract: secret-tainted data
       cannot decide a branch, index memory, pick a call target, or feed a
       variable-time instruction, refused fail-closed on every lane in every
       build mode. Anchors <code>[ct.*]</code>.</dd>
 
-    <dt><a href="/spec/10-types.md">10. Types</a> (13 KiB)</dt>
+    <dt><a href="/spec/10-types.md">10. Types</a> (__KIB_spec/10-types.md__ KiB)</dt>
     <dd>The numeric-literal typing rules written down in one place: how a bare
       literal takes its type, int adopting float in mixed arithmetic, and the
-      casts that trap instead of wrapping. Anchors <code>[type.*]</code>.</dd>
+      casts that trap instead of wrapping. It is also where <code>byte</code>
+      is declared — the 8-bit unsigned octet the toolchain gained at
+      v__WOLF_VERSION__, with the clauses for its cast in both directions, the
+      widening its operators do before they compute, and what an interpolation
+      hole prints. Anchors <code>[type.*]</code>.</dd>
 
-    <dt><a href="/spec/11-os.md">11. OS surface</a> (14 KiB)</dt>
+    <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
     <dd>The operating-system surface the builtin tier exposes. v1 covers signal
       reception and OS randomness — the latter with no fallback and no seeding,
-      so failure traps honestly. Anchors <code>[os.*]</code>.</dd>
+      so failure traps honestly — and, since v__WOLF_VERSION__, the first
+      socket clause: unix-domain streams in the TCP pair's shape, with the
+      error rows that tell an unserved host apart from a bad path. Anchors
+      <code>[os.*]</code>.</dd>
   </dl>
 </section>
 
 <section>
   <h2>Extracted artifacts</h2>
   <dl class="index">
-    <dt><a href="/spec/grammar.ebnf">grammar.ebnf</a> (10 KiB)</dt>
+    <dt><a href="/spec/grammar.ebnf">grammar.ebnf</a> (__KIB_spec/grammar.ebnf__ KiB)</dt>
     <dd>The grammar, extracted from document 01 by a command and checked in CI
       to be in sync with the prose. The book's grammar appendix and the editor
       highlighting both come from this file, so there is one lineage rather than
       three transcriptions.</dd>
-    <dt><a href="/spec/anchors.json">anchors.json</a> (17 KiB)</dt>
+    <dt><a href="/spec/anchors.json">anchors.json</a> (__KIB_spec/anchors.json__ KiB)</dt>
     <dd>The clause-anchor index: every stable anchor the documents define. Both
       implementations validate their citations against it.</dd>
     <dt><a href="/spec/README.md">README.md</a></dt>
@@ -143,7 +150,8 @@
 
 <footer>
   <p>Copied from a pinned <a href="https://github.com/wolffe-lang/wolf-lang">wolf-lang</a>
-  checkout on every deploy. Sizes are from that checkout.</p>
+  checkout on every deploy. Every size on this page is measured from that
+  checkout at build time, not written here by hand.</p>
 </footer>
 </body>
 </html>

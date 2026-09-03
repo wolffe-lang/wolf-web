@@ -90,6 +90,13 @@ if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__' "$DIST"; then
 fi
 echo "  version prose stamped: wolf $WOLF_VER, lupin $LUPIN_VER"
 
+# The other class of claim that rots without failing anything: how big a
+# document is. The spec and docs pages print a size beside every link so a
+# reader knows what one costs before following it, and those numbers were
+# written by hand until four of them had drifted at once. They are stamped
+# from the pinned checkout now, the way the versions are.
+python3 scripts/stamp-sizes.py "$DIST" upstream/wolf-lang
+
 step "The book (web edition)"
 if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null 2>&1); then
   rsync -a upstream/wolf-book/target/render/web/ "$DIST/book/"
@@ -241,8 +248,8 @@ EOF
 # reader, and did: a ww12 changelog entry quoting `__WOLF_VERSION__` reached
 # dist/ with the token intact, past a guard that had already run. Sweep the
 # finished tree, where every generated page is finally present.
-if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__' "$DIST"; then
-  echo "a version placeholder reached the finished dist/ (the files above)" >&2
+if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__\|__KIB_' "$DIST"; then
+  echo "a placeholder reached the finished dist/ (the files above)" >&2
   echo "the early sweep runs on site/ only; a generated page needs its own" >&2
   exit 1
 fi

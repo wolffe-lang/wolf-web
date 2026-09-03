@@ -3,6 +3,84 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww13 — 2026-09-03
+
+The byte on the page. The pins move to wolf **v0.2.4** and lupin **0.1.24**,
+and the release's headline is a breaking change one line wide, so it is on
+/install/ rather than only in the changelog. `str.bytes()` yields `byte` now —
+an 8-bit unsigned octet — and the first thing anyone does with one is compare
+it to a number, which is `E0401`. The page quotes the compiler finishing that
+sentence: **"`byte` adopts no literal and takes no `int` implicitly
+([type.byte]): widen the byte — `b as int` — or narrow this side with `as
+byte`"** — and the Windows job builds that exact program on a Windows runner,
+reads the note back, and then builds the line the note names and runs it:
+`w is 119`, exit 0. Exit 1 for the refusal, measured rather than guessed, and
+the page draws the distinction a learner needs — an ordinary program that does
+not compile, not the exit 2 this host's own refusals answer with.
+
+**Unix-domain sockets are the third named refusal on Windows**, new at this
+release. `net_listen_unix` compiles here and answers the `unsupported` row BY
+NAME rather than a bare `io` failure, which is the difference between a
+program that can branch on the host and one that cannot; the limits section's
+opener owns its count and now says three. Both halves are measured: the
+corpus's own witness runs on the runner for its exact stdout and for the exit
+3 it would take if a bind ever failed with a path row, and a second probe
+beside it says which branch of that construction this host took, because a
+witness that passes vacuously proves nothing about a sentence.
+
+**The playground runs a byte sample that does not run.**
+`corpus/typecheck/byte_casts.lu` — the cast ladder, where 256 truncates to 0
+and -1 to 255 and the widen is zero-extension — is the thirty-third program on
+the menu, and lupin 0.1.24 answers `fail(E0301)` on it at resolve, because
+`as byte` names no type that release knows. It is on the menu anyway, marked,
+with the reason on the page: the interpreter tagged its byte work at is35 and
+the type's producers landed after the wolf release 0.1.24 was built against.
+The page promises nothing about when that changes. What holds it honest is a
+gate rather than a memory — `scripts/check-samples.mjs` feeds every menu
+program to the wasm module the build published and refuses in both directions,
+so an unnoted entry must answer `exit` or `trap` and a noted one must not. The
+day the interpreter starts running it, CI goes red and the note comes off
+because it has to. The whole run set was re-measured through that module at
+the new pin: 282 `phase: run` corpus programs, 192 `exit`, 31 `trap`, 49
+`unsupported`, and 10 `fail` — a class that was empty a week ago, and exactly
+the nine byte programs plus `grammar/bom_at_start.lu`.
+
+**The pin lag is still exactly one release, and the CI step needed no
+loosening.** lupin 0.1.24 was released against pin `3befc3e` — wolf v0.2.3 —
+while this site advertises v0.2.4, so the gap the step holds at one is one,
+and the sentence /install/ and /play/ both write is unchanged. It would have
+gone to zero at a lupin 0.1.25; there is no 0.1.25.
+
+**Three sentences had rotted the way ww12's Windows headline did**, each
+phrased relative to "the release before this one" and each false the moment
+the pin moved: native compilation arriving "one release ago", lupin's
+second-opinion distinction being "new at" this version, and the missing arm
+archive. All three name the release they mean now — five new version literals,
+listed and audited, which is what the allowlist is for.
+
+**And the measured sizes stamp themselves.** The spec and docs pages print how
+big each document is so a reader knows what a link costs, and those numbers
+were written by hand: four had drifted (spec/01 52 to 53 KiB, spec/02 47 to
+48, spec/10 13 to 17 because `byte` is declared in it, spec/11 14 to 16
+because the first socket clause is), plus the diagnostics catalogue at 151 to
+154. ww12 had re-recorded three of the same class by hand a week earlier. They
+work the way version claims have worked since ww07 now — a page names the
+document it is sizing in a placeholder and the build fills the number in from
+the pinned checkout, refusing when the placeholder names a file the pin does
+not carry. (Writing that token literally in this entry is what the finished
+dist sweep ww12 added exists to catch, and it caught it.) Fifteen
+numbers that can no longer be wrong. The code counts are still by hand and
+were re-read at this pin: 136 diagnostics, 33 warnings, both unmoved.
+
+Twenty claims re-recorded in all. /changelog renders v0.2.4, learner-first
+paragraph at the top: THE BYTE SHIPS. One finding went upstream the same day —
+lupin resolves a cast target by scope lookup, so `as byte` and a misspelled
+`as itn` produce byte-identical reports, and the note tells a reader to hunt
+for a typo that is not there (wolf-interp#60). The lupin-shaped hole in this
+repo's own tripwire (wolf-web#8) had to be dodged again, by spelling a
+historical lupin version `v0.1.23` where a bare `0.1.23` would have been
+invisible to the checker.
+
 ## ww12 — 2026-09-02
 
 The flip. ww11 left one line to change and a runner that had been recording

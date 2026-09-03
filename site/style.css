@@ -267,6 +267,9 @@ kbd {
 pre.diag { color: var(--bad); }
 pre.warn { color: var(--warn); }
 .note { color: var(--muted); font-size: 0.9rem; }
+/* A sample the pinned interpreter declines: the provenance line says so
+   before the reader presses Run. */
+.note .dark { color: var(--warn); }
 
 /* The banner the page shows when the interpreter could not be loaded, and the
  * one it shows while loading. Neither is decorative. */

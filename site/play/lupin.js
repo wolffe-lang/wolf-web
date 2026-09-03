@@ -442,6 +442,17 @@ function describe(sample) {
   const parts = [sample.corpus_path];
   if (sample.check) parts.push(`the file expects ${sample.check}`);
   dom.provenance.textContent = `${parts.join(" — ")}.`;
+  /* A sample the pinned interpreter does not run says so here, before the
+   * reader presses Run and reads a refusal as a broken page. The index only
+   * carries this string for a program CI has measured NOT running (see
+   * scripts/check-samples.mjs), so the line cannot appear beside one that
+   * works. */
+  if (sample.note) {
+    const mark = document.createElement("span");
+    mark.className = "dark";
+    mark.textContent = ` ${sample.note}`;
+    dom.provenance.append(mark);
+  }
 }
 
 /* ------------------------------------------------------------------ */
