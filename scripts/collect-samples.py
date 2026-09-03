@@ -98,6 +98,13 @@ SAMPLES: list[tuple[str, ...]] = [
     ("strings/format_spec_width.lu", "format specs"),
     ("strings/builtin_methods.lu", "string methods"),
     ("strings/char_interp.lu", "the char scalar"),
+    (
+        "typecheck/byte_casts.lu",
+        "the byte, and its cast ladder",
+        "The interpreter in this tab does not run this one: it answers "
+        "fail(E0301) at resolve, because `as byte` names no type it knows. "
+        "What is running, below, has the reason.",
+    ),
     ("grammar/interp_nested.lu", "strings inside strings"),
     ("memory/region_ambient_ok.lu", "a scratch region"),
     ("memory/region_freeze_ok.lu", "regions as values, and freeze"),

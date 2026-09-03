@@ -152,6 +152,26 @@
   <code>unsupported</code>: the editor is one buffer, and there is no
   directory beside it.</p>
 
+  <h3>One sample this build refuses</h3>
+  <p>The menu's <strong>byte, and its cast ladder</strong> is
+  <code>corpus/typecheck/byte_casts.lu</code>, and pressing Run on it gets
+  <code>fail(E0301)</code> rather than a program. That is the pin gap above,
+  with a face on it. <code>byte</code> — an 8-bit unsigned octet — is the
+  compiler's headline at v__WOLF_VERSION__, and it landed after the wolf
+  release lupin __LUPIN_VERSION__ was built against, so <code>as byte</code>
+  names no type this interpreter resolves and it says so at the cast. The
+  program is on the menu anyway because reading it is the point: the header
+  states what the cast ladder is supposed to print, the compiler prints that,
+  and this machine does not have the type yet. Nine other corpus programs are
+  dark here for the same reason, and one more — <code>grammar/bom_at_start.lu</code>,
+  whose leading byte order mark this interpreter refuses and the compiler
+  strips.</p>
+  <p>Nothing on this page decides that by hand. A gate in this site's CI feeds
+  every program in the menu to the module the build publishes and requires each
+  one to answer in the class the page claims for it — so a sample that stops
+  running goes red, and the note above goes red the day the interpreter starts
+  running it.</p>
+
   <h3>The verdict vocabulary</h3>
   <table>
     <tr><th>verdict</th><th>what happened</th></tr>
