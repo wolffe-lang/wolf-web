@@ -65,6 +65,14 @@ jobs:
           grep -q '/book/wolf-book.pdf' dist/reading/index.html
           python3 scripts/check-links.py dist
 
+      # The menu is a promise. collect-samples.py can only read the corpus
+      # header, which is the COMPILER's claim about a program; this feeds
+      # every listed program to the wasm module the build just published and
+      # holds what the PAGE says about it — an unnoted entry must run or trap,
+      # and a noted one must not, so a note cannot outlive its refusal.
+      - name: the playground's menu answers what the page claims
+        run: node scripts/check-samples.mjs dist
+
   deploy:
     name: deploy to lupp.us
     needs: build

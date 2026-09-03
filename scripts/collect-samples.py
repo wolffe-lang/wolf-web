@@ -54,16 +54,30 @@ publishes and reading the verdict back — re-measure on a pin bump rather
 than trusting the line. The list below is a spread across the ones that
 answer, kept short enough to read in one glance.
 
-Re-measured at the lupin 0.1.23 pin: all 270 `phase: run` corpus programs
-were fed to the module this build publishes and every one came back in the
-same verdict class it answered in at 0.1.22 — 190 `exit`, 31 `trap`, 49
-`unsupported` over the whole set, so the candidate counts above are
-unchanged. The corpus did not move either (wolf-lang stays at v0.2.2), which
-is the other half of why. What DID move is inside two of those verdicts:
-`faults/trap_skips_root_defers.lu` still traps, and now prints
-`inner inner-defer before-trap` instead of `... root-defer` (wolf-lang#209),
-and the record for a trapping program carries its stdout at last
-(wolf-interp#55).
+A sample may also carry a NOTE, and one does. The third element of a
+`SAMPLES` entry is prose the playground prints beside the provenance line,
+and it exists for the case this file's selection rule cannot otherwise
+admit: a program the pinned interpreter does not run. That is not a
+loophole. `scripts/check-samples.mjs` feeds every listed program to the
+wasm module the build publishes and holds the rule in BOTH directions — an
+entry with no note must answer `exit` or `trap`, and an entry WITH a note
+must not. A note therefore cannot outlive the refusal it explains: the
+release that makes the program run turns the gate red, and the note comes
+off instead of quietly lying.
+
+Re-measured at the lupin 0.1.24 pin, against the module this build
+publishes: 282 `phase: run` corpus programs, up from 270, because the
+corpus moved too (wolf-lang v0.2.2 to v0.2.4). 192 `exit`, 31 `trap`, 49
+`unsupported` — and a class that was empty at the last pin, 10 `fail`.
+Those ten are `phase: run` programs the interpreter now REJECTS: nine are
+s136's byte producers, which `as byte` reaches and lupin 0.1.24 answers
+`fail(E0301)` on, because 0.1.24 was released against wolf v0.2.3 and the
+byte's producers landed after that tag; the tenth is
+`grammar/bom_at_start.lu`, whose leading `ef bb bf` wolfc strips and this
+interpreter refuses with `fail(E0105)`. At a terminal that one refusal
+names itself in twenty more rows of `corpus/grammar/`, because the
+interpreter loads a file's directory siblings as modules; here it is
+exactly one, because the editor is one buffer.
 """
 
 from __future__ import annotations
@@ -73,9 +87,12 @@ import re
 import sys
 from pathlib import Path
 
-# (corpus path, the label the menu shows). Order is the running order: the
-# first entry is what the playground opens with.
-SAMPLES: list[tuple[str, str]] = [
+# (corpus path, the label the menu shows, and optionally a note the page
+# prints beside the provenance line). Order is the running order: the first
+# entry is what the playground opens with. A note means "this build does not
+# run this program, and here is why" — see the module docstring, and
+# scripts/check-samples.mjs, which holds that meaning in both directions.
+SAMPLES: list[tuple[str, ...]] = [
     ("hello.lu", "hello, wolf"),
     ("strings/interp_value_position.lu", "interpolation"),
     ("strings/format_spec_width.lu", "format specs"),
@@ -149,7 +166,9 @@ def main() -> int:
 
     index = []
     missing = []
-    for corpus_path, title in SAMPLES:
+    for entry in SAMPLES:
+        corpus_path, title = entry[0], entry[1]
+        note = entry[2] if len(entry) > 2 else ""
         source_file = corpus / corpus_path
         if not source_file.is_file():
             missing.append(corpus_path)
@@ -174,6 +193,9 @@ def main() -> int:
                 # The program's own claim about itself, verbatim from its
                 # header. The page shows it next to what actually happened.
                 "check": directives.get("check", ""),
+                # Prose for a program this build does not run. Empty for every
+                # sample that does; check-samples.mjs holds both halves.
+                "note": note,
                 "phase": directives.get("phase", ""),
                 "conforms": [
                     anchor.strip()
