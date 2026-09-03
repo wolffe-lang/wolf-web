@@ -102,7 +102,7 @@ jobs:
                   "| | release | specification pin |", "|---|---|---|",
                   "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",
                   "| the interpreter beside it | lupin $env:LUPIN_VER | ``$lupPin`` — wolf-lang v$lupSpec |", "",
-                  "A gap of $gap: the interpreter reads $reads, which is what /install/ says in prose.", "")
+                  "A gap of ${gap} — the interpreter reads $reads, which is what /install/ says in prose.", "")
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
           "lupin reads $reads — the page's sentence holds"
 
