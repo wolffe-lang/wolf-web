@@ -335,6 +335,169 @@ jobs:
           if (-not $assert) { "recorded, not asserted — the site does not promise trunk" }
           if ($assert) { "the three regions the page says this host serves, served" }
 
+      # THE BYTE A LEARNER MEETS. v0.2.4 gives the language a byte-width
+      # scalar and makes every octet builtin speak `List[byte]`, and the
+      # release calls that a breaking change with one line of fix per site.
+      # The site that matters here is a learner's: `s.bytes()[0]` used to be
+      # an `int`, so the first thing anyone does with it — compare it to a
+      # number — is now a type error. That refusal is not a limitation of
+      # this host and the page does not file it as one; it is the first
+      # thing a Windows learner walking off /install/'s first program will
+      # hit, so the page teaches it, and a sentence the page teaches is a
+      # sentence this job holds.
+      #
+      # Both halves are measured: the refusal AND the one-line fix, because
+      # a teach-note that names a spelling has to be checked against the
+      # spelling actually working. The exit code is recorded rather than
+      # guessed — what the page quotes is the note.
+      - name: the byte a learner meets — E0401, and the one-line fix
+        run: |
+          New-Item -ItemType Directory -Force -Path byte-bad, byte-good | Out-Null
+          [IO.File]::WriteAllText("$PWD\byte-bad\prog.lu", (@(
+            'fn main() -> !int {',
+            '    let s = "wolf"',
+            '    let b = s.bytes()[0]',
+            '    if b == 119 { print("w") }',
+            '    0',
+            '}'
+          ) -join "`n") + "`n")
+          [IO.File]::WriteAllText("$PWD\byte-good\prog.lu", (@(
+            'fn main() -> !int {',
+            '    let s = "wolf"',
+            '    let b = s.bytes()[0]',
+            '    let n = b as int',
+            '    if n == 119 { print("w is {n}") }',
+            '    0',
+            '}'
+          ) -join "`n") + "`n")
+
+          function Cap([string]$dir, [string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -WorkingDirectory (Join-Path $PWD $dir) -RedirectStandardOutput $so -RedirectStandardError $se
+            $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $o) { $o = "" }
+            if ($null -eq $e) { $e = "" }
+            [pscustomobject]@{ code = $p.ExitCode; out = ($o -replace "`r`n", "`n"); err = ($e -replace "`r`n", "`n") }
+          }
+          $fail = 0
+          function Claim([string]$what, [bool]$ok, [string]$saw) {
+            if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
+          }
+
+          $bad = Cap "byte-bad" @("build", "prog.lu")
+          "=== comparing a byte to a literal — wolf build prog.lu — exit $($bad.code)"
+          ($bad.err -split "`n" | ForEach-Object { "    $_" })
+          $text = $bad.out + $bad.err
+
+          Claim "comparing a byte to an int literal is refused" ($bad.code -ne 0) "exit $($bad.code)"
+          Claim "the refusal is E0401" ($text -match "error\[E0401\]") $text
+          Claim "it names which side made it a byte" ($text -match "the other side of ``==`` makes it ``byte``") $text
+          Claim "the note names the widening spelling, b as int" ($text -match "``b as int``") $text
+          Claim "the note names the narrowing spelling, as byte" ($text -match "``as byte``") $text
+          Claim "the note cites the clause" ($text -match "\[type\.byte") $text
+          Claim "no hello.exe was written for a program that does not typecheck" `
+            (-not (Test-Path (Join-Path $PWD "byte-bad\prog.exe"))) "byte-bad\prog.exe exists"
+
+          # The fix the note names, run. A teach-note is only worth quoting
+          # if the spelling it teaches actually builds.
+          $good = Cap "byte-good" @("run", "prog.lu")
+          "=== the one-line fix — wolf run prog.lu — exit $($good.code)"
+          if ($good.err.Trim()) { ($good.err -split "`n" | ForEach-Object { "    $_" }) }
+          Claim "the fix the note names builds and runs" ($good.code -eq 0) "exit $($good.code): $($good.err)"
+          Claim "b as int widens by zero-extension — 'w' is 119" ($good.out -eq "w is 119`n") ("{0}" -f ($good.out -replace "`n", "\n"))
+
+          $md = @("", "### The byte a learner meets", "",
+                  "``wolf build`` on a program comparing ``s.bytes()[0]`` to ``119`` — exit $($bad.code)", "",
+                  '```text', $bad.err.TrimEnd(), '```', "",
+                  "The spelling that note names — ``let n = b as int`` — builds and runs: ``$($good.out.Trim())``.", "")
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+          if ($fail -gt 0) { Write-Output "::error::$fail claim(s) about the byte teach-note are not true of the published archive"; exit 1 }
+          "the byte's refusal and its one-line fix, both measured"
+
+      # UNIX-DOMAIN SOCKETS — the third named refusal, new at v0.2.4.
+      #
+      # s136 gives wolf `net_listen_unix`/`net_connect_unix` on linux and
+      # macOS, and this host answers `unsupported` BY NAME — which is the
+      # whole point of the row, and the thing #227 was filed about: a posture
+      # a program cannot measure is no posture at all. /install/ names it, so
+      # it is measured here two ways. The corpus witness prints the same
+      # stdout on every host by construction and exits 3 if a bind ever fails
+      # with a bare `io` row; a two-branch probe beside it says which side of
+      # that construction THIS host took, because a witness that passes
+      # vacuously proves nothing about the sentence the page writes.
+      - name: unix-domain sockets refuse this host by name
+        run: |
+          New-Item -ItemType Directory -Force -Path unix-witness, unix-probe | Out-Null
+          Copy-Item upstream/wolf-lang/corpus/net/unix_echo.lu unix-witness/prog.lu
+          New-Item -ItemType Directory -Force -Path unix-witness/target | Out-Null
+          [IO.File]::WriteAllText("$PWD\unix-probe\prog.lu", (@(
+            'fn main() -> !int {',
+            '    var served = true',
+            '    let s = net_listen_unix("ww13.sock") else |e| match e {',
+            '        unsupported => {',
+            '            served = false',
+            '            0 - 1',
+            '        },',
+            '        _ => {',
+            '            print("a path row, not the host row")',
+            '            return 1',
+            '        },',
+            '    }',
+            '    if served {',
+            '        net_close(s)?',
+            '        print("served")',
+            '    } else {',
+            '        print("unsupported")',
+            '    }',
+            '    0',
+            '}'
+          ) -join "`n") + "`n")
+
+          function Cap([string]$dir, [string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -WorkingDirectory (Join-Path $PWD $dir) -RedirectStandardOutput $so -RedirectStandardError $se
+            $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $o) { $o = "" }
+            if ($null -eq $e) { $e = "" }
+            [pscustomobject]@{ code = $p.ExitCode; out = ($o -replace "`r`n", "`n"); err = ($e -replace "`r`n", "`n") }
+          }
+          $fail = 0
+          function Claim([string]$what, [bool]$ok, [string]$saw) {
+            if ($ok) { "  ok   $what" } else { "  FAIL $what"; "       saw: $saw"; $script:fail++ }
+          }
+
+          $w = Cap "unix-witness" @("run", "prog.lu")
+          "=== corpus/net/unix_echo.lu — wolf run prog.lu — exit $($w.code)"
+          if ($w.out.Trim()) { "    stdout | $($w.out.Trim())" }
+          if ($w.err.Trim()) { ($w.err -split "`n" | ForEach-Object { "    $_" }) }
+          Claim "the unix witness builds and runs on this host" ($w.code -eq 0) "exit $($w.code): $($w.err)"
+          Claim "no bind failed with a bare io row (exit 3 is that failure)" ($w.code -ne 3) "exit $($w.code)"
+          Claim "the witness prints what its header pins" `
+            ($w.out -eq "unix sockets | served_or_named true | echo true | port_is_io true | cleaned true`n") `
+            ("{0}" -f ($w.out -replace "`n", "\n"))
+
+          $p2 = Cap "unix-probe" @("run", "prog.lu")
+          "=== which branch this host takes — wolf run prog.lu — exit $($p2.code)"
+          if ($p2.out.Trim()) { "    stdout | $($p2.out.Trim())" }
+          if ($p2.err.Trim()) { ($p2.err -split "`n" | ForEach-Object { "    $_" }) }
+          Claim "net_listen_unix compiles here (the refusal is a row, not a build error)" ($p2.code -eq 0) "exit $($p2.code): $($p2.err)"
+          Claim "and it answers the unsupported row by name" ($p2.out -eq "unsupported`n") ("{0}" -f ($p2.out -replace "`n", "\n"))
+
+          $md = @("", "### Unix-domain sockets on this host", "",
+                  "| probe | exit | stdout |", "|---|---|---|",
+                  "| ``corpus/net/unix_echo.lu`` | $($w.code) | ``$($w.out.Trim())`` |",
+                  "| which branch this host takes | $($p2.code) | ``$($p2.out.Trim())`` |", "",
+                  "``net_listen_unix`` answers the ``unsupported`` row by name — never a bare ``io``, which is the posture ``[os.net.unix]`` requires and the one /install/ writes down.", "")
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+          if ($fail -gt 0) { Write-Output "::error::$fail claim(s) about the unix-domain row are not true of the published archive"; exit 1 }
+          "the unix family refuses this host by name, and the page may say so"
+
       # THE ASSERTIONS. The page's claims, one per sentence. When one fails
       # the page is wrong, and this job says so before a learner finds out.
       - name: the claims the page makes
