@@ -46,38 +46,41 @@ menu entry that looks broken:
       module-lint witnesses) reports `unsupported` from a stdin buffer,
       which is all the playground has to offer.
 
-That leaves 233 candidates at this pin, of which 186 run, 31 trap on
-purpose, and 16 report `unsupported` in the browser build (the module-graph
-programs above, and the tiers a tab cannot serve). Every one of those
-numbers is measured by feeding each candidate to the wasm module this build
-publishes and reading the verdict back — re-measure on a pin bump rather
-than trusting the line. The list below is a spread across the ones that
-answer, kept short enough to read in one glance.
+That leaves 228 candidates at this pin — the programs that actually answer
+`exit` or `trap` in the browser build, the other 54 reporting `unsupported`
+(the module-graph programs above, and the tiers a tab cannot serve). Every
+one of those numbers is measured by feeding each candidate to the wasm
+module this build publishes and reading the verdict back — re-measure on a
+pin bump rather than trusting the line. The list below is a spread across
+the ones that answer, kept short enough to read in one glance.
 
-A sample may also carry a NOTE, and one does. The third element of a
-`SAMPLES` entry is prose the playground prints beside the provenance line,
-and it exists for the case this file's selection rule cannot otherwise
-admit: a program the pinned interpreter does not run. That is not a
-loophole. `scripts/check-samples.mjs` feeds every listed program to the
-wasm module the build publishes and holds the rule in BOTH directions — an
-entry with no note must answer `exit` or `trap`, and an entry WITH a note
-must not. A note therefore cannot outlive the refusal it explains: the
-release that makes the program run turns the gate red, and the note comes
-off instead of quietly lying.
+A sample may also carry a NOTE, and at some pins one does. The third
+element of a `SAMPLES` entry is prose the playground prints beside the
+provenance line, and it exists for the case this file's selection rule
+cannot otherwise admit: a program the pinned interpreter does not run. That
+is not a loophole. `scripts/check-samples.mjs` feeds every listed program
+to the wasm module the build publishes and holds the rule in BOTH
+directions — an entry with no note must answer `exit` or `trap`, and an
+entry WITH a note must not. A note therefore cannot outlive the refusal it
+explains: the release that makes the program run turns the gate red, and
+the note comes off instead of quietly lying. That is not a hypothetical any
+more. `typecheck/byte_casts.lu` carried the only note this file has ever
+written, added at the lupin 0.1.24 pin; 0.1.25 landed the byte and the gate
+went red with `runs at this pin, and still carries the note that says it
+does not`, which is how the note came off. No entry carries one now.
 
-Re-measured at the lupin 0.1.24 pin, against the module this build
-publishes: 282 `phase: run` corpus programs, up from 270, because the
-corpus moved too (wolf-lang v0.2.2 to v0.2.4). 192 `exit`, 31 `trap`, 49
-`unsupported` — and a class that was empty at the last pin, 10 `fail`.
-Those ten are `phase: run` programs the interpreter now REJECTS: nine are
-s136's byte producers, which `as byte` reaches and lupin 0.1.24 answers
-`fail(E0301)` on, because 0.1.24 was released against wolf v0.2.3 and the
-byte's producers landed after that tag; the tenth is
-`grammar/bom_at_start.lu`, whose leading `ef bb bf` wolfc strips and this
-interpreter refuses with `fail(E0105)`. At a terminal that one refusal
-names itself in twenty more rows of `corpus/grammar/`, because the
-interpreter loads a file's directory siblings as modules; here it is
-exactly one, because the editor is one buffer.
+Re-measured at the lupin 0.1.25 pin, against the module this build
+publishes: 282 `phase: run` corpus programs, unmoved, because the corpus
+did not move (wolf-lang is still v0.2.4). 197 `exit`, 31 `trap`, 54
+`unsupported` — and the `fail` class that held ten a release ago is EMPTY.
+lupin 0.1.25 was released against pin `982f857`, which is wolf v0.2.4
+itself, so `as byte` names a type it knows: five of those ten run or trap
+now (the cast ladder among them, and `grammar/bom_at_start.lu`, whose
+leading `ef bb bf` this release strips the way wolfc does), and five report
+`unsupported` by naming the tier that declines them rather than the type —
+`fs_write_bytes` and `fs_create_dir_all` do not resolve here, the s39 net
+tier has no sockets to open in a tab, and `strings/byte_view_lend.lu` wants
+a `List.first` this machine's std subset does not carry.
 """
 
 from __future__ import annotations
@@ -98,13 +101,7 @@ SAMPLES: list[tuple[str, ...]] = [
     ("strings/format_spec_width.lu", "format specs"),
     ("strings/builtin_methods.lu", "string methods"),
     ("strings/char_interp.lu", "the char scalar"),
-    (
-        "typecheck/byte_casts.lu",
-        "the byte, and its cast ladder",
-        "The interpreter in this tab does not run this one: it answers "
-        "fail(E0301) at resolve, because `as byte` names no type it knows. "
-        "What is running, below, has the reason.",
-    ),
+    ("typecheck/byte_casts.lu", "the byte, and its cast ladder"),
     ("grammar/interp_nested.lu", "strings inside strings"),
     ("memory/region_ambient_ok.lu", "a scratch region"),
     ("memory/region_freeze_ok.lu", "regions as values, and freeze"),

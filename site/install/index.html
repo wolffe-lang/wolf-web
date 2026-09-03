@@ -102,16 +102,18 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   a release it is not — anything but a build made at the tag says so in that
   first line.</p>
 
-  <p>Read the second line closely, because at these pins the two commits are
-  not the same commit. <code>lupin __LUPIN_VERSION__</code> was released
-  against the wolf release <em>before</em> __WOLF_VERSION__, so the reference
-  interpreter is one release behind the compiler on the specification — the
-  ordinary shape of a two-implementation project between tags, and the reason
-  the <a href="/play/">playground</a> can answer a program differently from
-  the compiler you just installed. When they disagree, the
+  <p>Read the second line closely, because it is the one that moves. At these
+  pins the two commits ARE the same commit: <code>lupin
+  __LUPIN_VERSION__</code> was released against __WOLF_VERSION__ itself, so
+  the reference interpreter and the compiler are reading one revision of the
+  specification and the gap is zero. It is usually one — the ordinary shape of
+  a two-implementation project between tags, and the reason the
+  <a href="/play/">playground</a> can answer a program differently from the
+  compiler you just installed. When they disagree, the
   <a href="/spec/">specification</a> is what gets read. The CI job that
-  measures this page checks that gap is exactly one release, so this sentence
-  goes red when it stops being true rather than quietly rotting.</p>
+  measures this page checks the gap is zero or one release and prints which,
+  so this sentence goes red when it stops being true rather than quietly
+  rotting.</p>
 
   <h3>Your first program</h3>
 
@@ -345,7 +347,8 @@ hello, wolf</code></pre>
   that used a task or a channel, and it has not been that since v0.2.3.
   <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
-  --version</code> quotes back — one release behind, as above.</p>
+  --version</code> quotes back — the same pin as the compiler's at this
+  release, as above.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
   to WebAssembly — lupin __LUPIN_VERSION__, in the tab, with the corpus

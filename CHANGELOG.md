@@ -3,6 +3,92 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww14 — 2026-09-03
+
+The ladder lights. The interpreter pin moves to lupin **0.1.25**; the compiler
+pin does not move, and that is the whole story of this entry. lupin 0.1.25 was
+released against pin `982f857` — wolf **v0.2.4**, the tag itself, the release
+this site advertises — so for the first time the two implementations behind
+this site are reading one revision of the specification.
+
+**The dark sample lights up, and the gate is what turned the page.** ww13 put
+`corpus/typecheck/byte_casts.lu` on the playground menu knowing it did not
+run, marked with a note explaining the refusal, and built
+`scripts/check-samples.mjs` to hold that note in both directions: an unnoted
+entry must answer `exit` or `trap`, a noted one must not. At the new pin the
+gate went **red** before anything else did —
+
+    FAIL corpus/typecheck/byte_casts.lu   exit(0)  (noted)
+         runs at this pin, and still carries the note that says it does not —
+         retire the note in scripts/collect-samples.py
+
+— exit 1, one of thirty-three entries wrong. That red is the retirement
+mechanism working: the note came off because CI refused the build, not because
+someone remembered a week later. Press Run on **the byte, and its cast
+ladder** now and it prints the line its own corpus header claims:
+
+    widen 200 200 | trunc 0 255 0 255 44 | arith 201 400 -1 -200 | order true true true | eq true true
+
+exit 0, no diagnostics, no warnings — the whole D72 ruling in one line: the
+widen is zero-extension (200 back, never -56), `256` truncates to 0 and `-1`
+to 255 and `300` to 44 with no trap and no `W0401`, arithmetic widens to `int`
+first so `200 + 200` is 400, and the comparisons are octet order. All
+thirty-three menu entries run or trap on purpose now, and **no sample carries
+a note** for the first time since ww13 introduced them.
+
+**The `fail` class is empty.** Re-measured through the module this build
+publishes: 282 `phase: run` corpus programs (unmoved — the corpus did not
+move), **197 `exit`, 31 `trap`, 54 `unsupported`, 0 `fail`**, against 192 /
+31 / 49 / 10 a release ago. Of the ten the interpreter rejected at 0.1.24,
+five run or trap now — the cast ladder among them, and `grammar/bom_at_start.lu`,
+whose leading `ef bb bf` this release strips the way wolfc does — and five
+report `unsupported` by naming the tier that declines them rather than the
+type they could not resolve: `fs_write_bytes` and `fs_create_dir_all` do not
+exist in this machine, the s39 net tier has no sockets to open in a tab, and
+one wants a `List.first` the std subset does not carry. A refusal that names
+the right reason is a different fact from a refusal that names the wrong one,
+and only one of the two is worth printing on a page.
+
+**The pin lag rule is 0-or-1 now, and the step says which.** The Windows job
+has held the gap at exactly one release since ww12, deliberately, so that
+lupin catching up would go red rather than quietly falsify /install/ and
+/play/. It went red. The step now accepts zero or one, computes which, and
+writes the sentence from the measurement — at these pins `lupin reads this
+release — the page's sentence holds`, and the run summary's table says `A gap
+of 0`. Two is still a red, because two means a lupin release was skipped or a
+pin was never bumped. Both pages are rewritten to match: /install/ says the
+two commits in `wolf --version`'s second line ARE the same commit at these
+pins and that one is the usual gap, /play/ says a disagreement here is now
+about the text rather than a lag behind it.
+
+**Nineteen claims re-recorded**, across /play/, /install/,
+`scripts/collect-samples.py` and the Windows job — every sentence phrased
+"one release behind", the whole "One sample this build refuses" section, the
+sample-selection census, and the job's error string, summary line and closing
+sentence. The `lupin.exe` link on /install/ and the Windows job's lupin smoke
+both follow the pin without a hand edit: the link is a stamped lupin-version
+placeholder and the job reads the pinned `Cargo.toml`, so both point at the
+0.1.25 asset (5.3 MB, one file, `about 5 MB` still true) with no version
+literal to rot. (Writing that placeholder's name literally in this entry is
+the trap ww12's finished-dist sweep exists to catch, and it is dodged here
+the way ww13 dodged it.) /changelog renders the new entry: **THE BYTE ARRIVES (is36)**.
+
+The two lupin literals /play/ carries on purpose — `v0.1.22` and `v0.1.23`,
+about when the observation record started carrying a trapping program's
+output — were re-read by hand at this bump and both hold. They are audited
+against the *wolf* pin, which did not move, so the allowlist did not force
+that reading; wolf-web#8 is still the hole it was, and this is the second
+wave in a row it had to be covered manually.
+
+One upstream finding rides along without touching this site: **byte has the
+type but not the domain** (wolf-interp#62). `byte` resolves and the casts
+hold, but `0..=255` is not enforced where an un-cast `int` flows into a byte
+slot — `List[byte].push(256)` stores 256 here where the compilers refuse
+`E0401`. All thirty-three menu programs were checked against it and none is
+exposed: the ladder truncates by clause (`256 as byte`), and the only other
+sample that touches the type is `projects/rpn.lu`, which reads bytes out of
+`tok.bytes()` with `b as int` and pushes nothing back in. is37 fixes it.
+
 ## ww13 — 2026-09-03
 
 The byte on the page. The pins move to wolf **v0.2.4** and lupin **0.1.24**,
