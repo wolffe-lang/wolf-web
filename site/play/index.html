@@ -123,13 +123,16 @@
   the source stays in the tab, and no request leaves the page after the module
   and the samples have loaded.</p>
 
-  <p>The revision of the specification it reads is not the compiler's. This
-  interpreter, lupin __LUPIN_VERSION__, was released against the wolf release
-  <em>before</em> __WOLF_VERSION__ — the one <a href="/install/">install</a>
-  advertises — so it is one release behind on the spec, and a program can
-  answer here differently from a wolf you download today for no reason worse
-  than that. Where the two disagree, the <a href="/spec/">specification</a> is
-  what gets read.</p>
+  <p>The revision of the specification it reads is the compiler's, at these
+  pins. This interpreter, lupin __LUPIN_VERSION__, was released against
+  __WOLF_VERSION__ itself — the release <a href="/install/">install</a>
+  advertises — so the two are reading the same specification for once, and a
+  program that answers differently here from a wolf you download today is a
+  disagreement about the text rather than a lag behind it. Where they
+  disagree, the <a href="/spec/">specification</a> is what gets read. The gap
+  has been one release for most of this project's life and will be again the
+  next time the compiler tags first; the CI job that measures this page allows
+  it to be zero or one and makes the page say which.</p>
 
   <p>The interpreter is not the compiler, and it reaches a different set of
   programs. It runs the memory model as a dynamic machine, so every ownership
@@ -152,26 +155,26 @@
   <code>unsupported</code>: the editor is one buffer, and there is no
   directory beside it.</p>
 
-  <h3>One sample this build refuses</h3>
-  <p>The menu's <strong>byte, and its cast ladder</strong> is
-  <code>corpus/typecheck/byte_casts.lu</code>, and pressing Run on it gets
-  <code>fail(E0301)</code> rather than a program. That is the pin gap above,
-  with a face on it. <code>byte</code> — an 8-bit unsigned octet — is the
-  compiler's headline at v__WOLF_VERSION__, and it landed after the wolf
-  release lupin __LUPIN_VERSION__ was built against, so <code>as byte</code>
-  names no type this interpreter resolves and it says so at the cast. The
-  program is on the menu anyway because reading it is the point: the header
-  states what the cast ladder is supposed to print, the compiler prints that,
-  and this machine does not have the type yet. It is one of nine corpus
-  programs dark here for that reason, and there is a tenth for another —
-  <code>grammar/bom_at_start.lu</code>,
-  whose leading byte order mark this interpreter refuses and the compiler
-  strips.</p>
-  <p>Nothing on this page decides that by hand. A gate in this site's CI feeds
+  <h3>Every sample on the menu runs</h3>
+  <p>Last release one did not. The menu's <strong>byte, and its cast
+  ladder</strong> — <code>corpus/typecheck/byte_casts.lu</code> — answered
+  <code>fail(E0301)</code> here and carried a note on this page saying so,
+  because <code>byte</code> was the compiler's headline at
+  v__WOLF_VERSION__ and the interpreter beside it had been built against the
+  release before. lupin __LUPIN_VERSION__ closes that. Press Run on it and it
+  prints the line its own header claims:</p>
+<pre><code>widen 200 200 | trunc 0 255 0 255 44 | arith 201 400 -1 -200 | order true true true | eq true true</code></pre>
+  <p>which is the whole ruling in one line: <code>200 as byte</code> widens
+  back to 200 and never -56, <code>256</code> truncates to 0 and <code>-1</code>
+  to 255 and <code>300</code> to 44 without a trap or a warning, arithmetic
+  widens to <code>int</code> before it computes so <code>200 + 200</code> is
+  400, and the comparisons are octet order.</p>
+  <p>Nothing on this page decided that by hand. A gate in this site's CI feeds
   every program in the menu to the module the build publishes and requires each
   one to answer in the class the page claims for it — so a sample that stops
-  running goes red, and the note above goes red the day the interpreter starts
-  running it.</p>
+  running goes red, and so does a note that outlives the refusal it explains.
+  That is how the note above came off: the gate went red at this pin, naming
+  the sample, and the sentence had to go.</p>
 
   <h3>The verdict vocabulary</h3>
   <table>
