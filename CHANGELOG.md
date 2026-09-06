@@ -3,6 +3,83 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww15 — 2026-09-06
+
+The tripwire sees lupin. `scripts/check-version-prose.py` has kept the site's
+version prose honest since ww07 — every literal allowlisted, counted, and
+re-read when the pin moves past its audit — with a lupin-shaped hole in both
+halves, filed as **wolf-web#8** at ww11 and covered by hand at ww11 and again
+at ww14. Two waves of manual work is the cost of a rule that does not run, so
+this wave fixed it first and proved it before taking a pin.
+
+**The audit names its clock.** The checker reads two pins now, wolf's
+CHANGELOG heading and lupin's `Cargo.toml` version — the same two `build.sh`
+already derives — and an allowlist entry says which one audits it:
+`audited-at-wolf=` or `audited-at-lupin=`. **The proof is the exact shape that
+cost the hand coverage.** With the lupin pin moved and the wolf pin held —
+ww14's tree, its checker and its allowlist verbatim — the old rule exits **0**.
+This one exits **1**:
+
+    version prose: play/index.html: '0.1.22' was audited at lupin 0.1.25, the
+    lupin pin is now 0.1.26 — re-read the sentence, then re-stamp its
+    audited-at-lupin
+
+Both sentences were re-read against 0.1.26 and both hold.
+
+**And the regex sees a bare `0.1.x`.** It matched only `v`-prefixed literals,
+so `lupin 0.1.22` — the spelling the site uses everywhere else, since the
+stamped placeholder renders without a `v` — was invisible: a claim about an
+old lupin could be written into a page and fossilize with nothing to catch it.
+ww11 dodged that by spelling `v0.1.22` on purpose. That workaround is retired;
+/play/ spells both literals bare now, and with them deleted from the allowlist
+the old checker still reports a clean run while this one names them. The
+widened rule found something on its first pass, too: **`Rust 1.97.1` on the
+front page**, a toolchain claim the site has carried unaudited. It has a line
+now, on the wolf clock, and the v0.2.5 bump forced its first re-reading.
+
+**The pins move to wolf v0.2.5 and lupin 0.1.26.** Six allowlisted literals
+went red at the wolf bump and every one was re-read at the tag. Two more
+sentences would have been falsified *by the stamp* — the class no tripwire
+catches, because a placeholder is exempt by construction: /install/ and /spec/
+both said `byte` arrived at this release and the unix-domain clause was new at
+it. Both arrived at v0.2.4, and both say so as counted literals now. **The pin
+lag is one again** — lupin 0.1.26 reads `982f857`, wolf v0.2.4, while the site
+advertises v0.2.5 — so ww14's "the two commits ARE the same commit" is false
+and both pages say one release apart. The Windows step needed no loosening:
+ww14 made it 0-or-1 and it computes which.
+
+**Five named refusals on Windows, not three.** wolf v0.2.5 is **THE SERVER HAS
+CORES** (s137), and this is the host where a prefork server is written a
+different way. `reuse_port` answers the `unsupported` row by name, and it is a
+refusal *on purpose*: Windows has no `SO_REUSEPORT`, and `SO_REUSEADDR` is a
+false synonym that lets any process take a held port — measured on a runner,
+two sockets carrying it bound one port and **all sixteen dials went to the
+first bound, none to the second**, so a worker that thought it had joined a
+group would sit idle forever. A descriptor handed across a spawn is missing
+twice over: the `SOCKET` does not cross the spawn the runtime performs, and a
+`SOCKET` is not the small stable number `[os.proc.inherit]` hands over by
+position. The page says what SERVES in the same breath, because a section
+listing only refusals would describe a worse host than the one a learner has:
+`net_wait` is the one s137 clause that names no refusal anywhere, `os_cpus`
+answers, and `net_listen_with` without the option is `net_listen` with a
+backlog hint. The Windows job holds all of it — four s137 corpus witnesses run
+on the runner for their pinned stdout with the exit-3 guard that catches a
+refusal arriving as the *wrong* row, two probes saying which branch this host
+actually took, and a third holding the positive half.
+
+**The census re-measured, and the corpus moved for the first time in two
+releases.** Through the module this build publishes: **286** `phase: run`
+corpus programs (282 a release ago — s137 added `net/wait_readiness.lu`,
+`net/reuse_port.lu`, `net/inherit_listener.lu` and `os/cpus.lu`), **197
+`exit`, 31 `trap`, 58 `unsupported`, 0 `fail`**. All four new programs answer
+`unsupported`, so the candidate count is unchanged at 228: three want sockets
+a tab cannot open and the fourth wants the machine's core count, which is
+is18's os tier declining in the browser the way `os/random` already does.
+**is37's byte domain moved no menu entry's class** — thirty-three entries,
+each in the class the page claims for it, none carrying a note, the cast
+ladder still `exit(0)`. /changelog renders both new entries: **THE SERVER HAS
+CORES** and **THE BYTE HAS A DOMAIN (is37)**.
+
 ## ww14 — 2026-09-03
 
 The ladder lights. The interpreter pin moves to lupin **0.1.25**; the compiler
