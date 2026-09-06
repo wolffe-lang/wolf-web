@@ -209,10 +209,15 @@ is s47's (the s60 campaign).</code></pre>
 
   <h3>What still refuses</h3>
 
-  <p>Three things a program can reach, and the compiler names each one to
-  your face rather than building something that quietly is not what you asked
-  for. (The ledger at the end of this section has the rest, none of which a
-  first program meets.)</p>
+  <p>Five things a program can reach, and every one of them is named to your
+  face rather than quietly becoming something else. One is the compiler's own
+  refusal, exit 2. One is a gap in what the Windows console gives a program.
+  Three are the <code>unsupported</code> row — a value your program can read
+  and branch on, which is the difference between code that can serve this
+  host differently and code that cannot. Two of those three are new here,
+  because __WOLF_VERSION__ is a release about writing servers and this is the
+  host where a prefork server is written a different way. (The ledger at the
+  end of this section has the rest, none of which a first program meets.)</p>
 
   <p><strong><code>wolf build --release</code></strong>, the LLVM optimizing
   tier, refuses this host with exit code 2:</p>
@@ -249,6 +254,48 @@ own sprints</code></pre>
   instead of claiming it. A program that wants a local control endpoint here
   keeps it on loopback TCP. The job that measures this page runs the corpus's
   unix witness on a Windows box and reads the named row back from it.</p>
+
+  <p><strong>A shared listening address</strong> —
+  <code>net_listen_with</code>'s <code>reuse_port</code> option — answers the
+  <code>unsupported</code> row here, and this one is a refusal <em>on
+  purpose</em> rather than a binding nobody has written yet. Windows has no
+  <code>SO_REUSEPORT</code>. It has <code>SO_REUSEADDR</code>, which is
+  spelled like a synonym in a manual and means something else entirely: it
+  lets any process take a port another process already holds, and promises
+  nothing about which of them a connection reaches. The compiler's own
+  Windows suite measured what the alias would have bought — two sockets both
+  carrying it bound one port, and <strong>every one of sixteen dials went to
+  the first socket bound, none to the second</strong> — so a worker that
+  thought it had joined a group would sit idle forever with nothing to
+  report. Refusing by name is the better answer, and it is the one you get.
+  <code>net_listen_with</code> without the option serves this host exactly
+  like <code>net_listen</code>, backlog hint included, and an address already
+  held answers <code>exists</code> by name rather than a bare
+  <code>io</code>.</p>
+
+  <p><strong>Handing a descriptor to a child</strong> —
+  <code>os_spawn_with</code>'s inherit set, and the
+  <code>net_adopt_listener</code> on the other side of it — answers the
+  <code>unsupported</code> row too. Two things are missing rather than one,
+  and both were measured rather than assumed: a listener's <code>SOCKET</code>
+  marked inheritable and named to a re-executed child <em>is not a usable
+  socket in that child at all</em>, because the spawn the runtime performs
+  publishes only stdio handles to it; and a <code>SOCKET</code> is not the
+  small stable number the clause hands over by position, so "the listener is
+  3" has nothing to be true of. <code>os_spawn_with</code> with an
+  <em>empty</em> set already works — it is <code>os_spawn</code> with the
+  program named apart from its arguments — so what a Windows port of a
+  prefork master waits on is the handoff, not the spawn.</p>
+
+  <p>What that leaves is the call the release is named for, and it is here.
+  <code>net_wait</code> — readiness over a whole set of handles, the thing a
+  serving loop has instead of a scheduler — is the one socket clause s137
+  added that names no refusal on any host: <code>poll(2)</code> and
+  <code>WSAPoll</code> answer the same question, and the corpus's witness for
+  it runs on this host in the job that measures this page.
+  <code>os_cpus()</code> answers here too. So a single-process server that
+  waits on many sockets is written the same way on Windows as anywhere; it is
+  the many-processes-one-port shape that takes a different route.</p>
 
   <p>Everything else the language has is here. Tasks and scopes,
   <code>proc</code>, channels and <code>select</code>, <code>sync</code>/
@@ -326,6 +373,9 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
     <tr><td><code>wolf build --release</code></td><td>refuses, exit 2 — the LLVM tier serves linux and macOS</td></tr>
     <tr><td>an external <code>reload</code>/<code>upgrade</code> signal</td><td>no Windows analog — your own program can raise and receive both; another process cannot send them</td></tr>
     <tr><td><code>net_listen_unix</code>, <code>net_connect_unix</code></td><td>the <code>unsupported</code> row, by name — a local control endpoint stays on loopback TCP here</td></tr>
+    <tr><td><code>net_wait</code>, <code>os_cpus</code></td><td>works — readiness over a whole set of handles, and the core count to size a server by</td></tr>
+    <tr><td><code>net_listen_with</code></td><td>works without <code>reuse_port</code>, backlog hint included; with it, the <code>unsupported</code> row, by name</td></tr>
+    <tr><td><code>os_spawn_with</code>, <code>net_adopt_listener</code></td><td>works with an empty inherit set; a descriptor handed to a child is the <code>unsupported</code> row, by name</td></tr>
     <tr><td><code>lupin</code>, the reference interpreter</td><td>works — <code>lupin.exe</code>, one file, no install</td></tr>
   </table>
 

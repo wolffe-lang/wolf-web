@@ -25,10 +25,16 @@ name: windows learner path
 # host, so the twenty-one corpus rows that refused by construct name at
 # v0.2.2 are gone, and the three parity probes ww11 recorded weekly are
 # ASSERTED here rather than tabulated. What is left of the refusal story is
-# two named rows, and the job holds them both: `wolf build --release` (the
-# LLVM tier, s60c) refuses by name, and external `reload`/`upgrade` delivery
-# has no Windows analog — the self-raise the corpus witness uses works, and
-# the signal probe below is what proves it.
+# named rows, and the job holds every one: `wolf build --release` (the LLVM
+# tier, s60c) refuses by name, external `reload`/`upgrade` delivery has no
+# Windows analog — the self-raise the corpus witness uses works, and the
+# signal probe below is what proves it — the unix-domain family answers the
+# `unsupported` row (ww13), and at v0.2.5 two more join them: `reuse_port`
+# and a non-empty inherit set, both s137's, both measured below against
+# their own corpus witnesses. Five is what /install/ counts, so five is what
+# this job proves. The same step measures what s137 DOES serve here, because
+# a page that only listed the refusals would be describing a worse host than
+# the one a learner has.
 on:
   push:
   schedule:
@@ -505,6 +511,168 @@ jobs:
 
           if ($fail -gt 0) { Write-Output "::error::$fail claim(s) about the unix-domain row are not true of the published archive"; exit 1 }
           "the unix family refuses this host by name, and the page may say so"
+
+      # THE TWO s137 ROWS. wolf v0.2.5 is a release about writing servers,
+      # and this is the host where a prefork server is written a different
+      # way: `reuse_port` and a descriptor handed across a spawn both answer
+      # the `unsupported` row BY NAME. /install/ says so in two paragraphs,
+      # so both are measured here the way the unix row is — the corpus's own
+      # witness for its exact stdout and for the exit 3 it would take if the
+      # refusal ever arrived as the WRONG row, and a probe beside it saying
+      # which branch of that construction this host actually took, because a
+      # witness that passes vacuously proves nothing about a sentence.
+      #
+      # The third s137 clause is measured for the opposite reason: `net_wait`
+      # names no refusal on any host, and the page says a serving loop is
+      # written the same way here as anywhere. That is a positive claim, so
+      # it gets the witness that would go red if it stopped being one.
+      - name: the server surface — two named refusals, and the wait that is not one
+        run: |
+          function Cap([string]$dir, [string[]]$cmdargs) {
+            $so = New-TemporaryFile; $se = New-TemporaryFile
+            $p = Start-Process -FilePath $env:WOLF_EXE -ArgumentList $cmdargs -NoNewWindow -Wait -PassThru `
+                   -WorkingDirectory (Join-Path $PWD $dir) -RedirectStandardOutput $so -RedirectStandardError $se
+            $o = Get-Content $so -Raw; $e = Get-Content $se -Raw
+            Remove-Item $so, $se -Force
+            if ($null -eq $o) { $o = "" }
+            if ($null -eq $e) { $e = "" }
+            [pscustomobject]@{ code = $p.ExitCode; out = ($o -replace "`r`n", "`n"); err = ($e -replace "`r`n", "`n") }
+          }
+          $fail = 0
+          function Claim([string]$what, [bool]$ok, [string]$saw) {
+            if ($ok) { Write-Host "  ok   $what" } else { Write-Host "  FAIL $what"; Write-Host "       saw: $saw"; $script:fail++ }
+          }
+          function Witness([string]$dir, [string]$corpusFile, [string]$expect, [string]$label) {
+            New-Item -ItemType Directory -Force -Path $dir | Out-Null
+            Copy-Item "upstream/wolf-lang/corpus/$corpusFile" "$dir/prog.lu"
+            $r = Cap $dir @("run", "prog.lu")
+            Write-Host "=== corpus/$corpusFile — wolf run prog.lu — exit $($r.code)"
+            if ($r.out.Trim()) { Write-Host "    stdout | $($r.out.Trim())" }
+            if ($r.err.Trim()) { ($r.err -split "`n" | ForEach-Object { Write-Host "    $_" }) }
+            Claim "$label builds and runs on this host" ($r.code -eq 0) "exit $($r.code): $($r.err)"
+            Claim "$label took no wrong-row branch (exit 3 is that branch)" ($r.code -ne 3) "exit $($r.code)"
+            Claim "$label prints what its header pins" ($r.out -eq ($expect + "`n")) `
+              ("{0}" -f ($r.out -replace "`n", "\n"))
+            return $r
+          }
+
+          # A program can only branch on a row it can NAME, so each probe
+          # prints the branch it took rather than asserting the relation the
+          # witness already covers.
+          $reuseProbe = @(
+            'fn main() -> !int {',
+            '    var served = true',
+            '    let a = net_listen_with("127.0.0.1:0", true, 16) else |e| match e {',
+            '        unsupported => {',
+            '            served = false',
+            '            0 - 1',
+            '        },',
+            '        _ => {',
+            '            print("an address row, not the host row")',
+            '            return 1',
+            '        },',
+            '    }',
+            '    if served {',
+            '        net_close(a)?',
+            '        print("served")',
+            '    } else {',
+            '        print("unsupported")',
+            '    }',
+            '    0',
+            '}'
+          )
+          # The option-LESS shape must SERVE here — /install/ says so in the
+          # same breath as the refusal, and a page that gets that backwards
+          # would send a Windows learner looking for a workaround they do
+          # not need.
+          $plainProbe = @(
+            'fn main() -> !int {',
+            '    let a = net_listen_with("127.0.0.1:0", false, 16)?',
+            '    let port = net_port(a)?',
+            '    let ok = port > 0',
+            '    net_close(a)?',
+            '    print("plain listen_with | bound {ok}")',
+            '    0',
+            '}'
+          )
+          $inheritProbe = @(
+            'fn main() -> !int {',
+            '    var served = true',
+            '    let srv = net_listen_with("127.0.0.1:0", false, 16)?',
+            '    let exe = os_exe()?',
+            '    let argv = List[str]()',
+            '    (mut argv).push("never-runs")',
+            '    let inherit = List[int]()',
+            '    (mut inherit).push(srv)',
+            '    let kid = os_spawn_with(exe, argv, inherit) else |e| match e {',
+            '        unsupported => {',
+            '            served = false',
+            '            0 - 1',
+            '        },',
+            '        _ => {',
+            '            print("a program row, not the host row")',
+            '            return 1',
+            '        },',
+            '    }',
+            '    net_close(srv)?',
+            '    if served {',
+            '        print("served")',
+            '    } else {',
+            '        print("unsupported")',
+            '    }',
+            '    0',
+            '}'
+          )
+          function Probe([string]$dir, [string[]]$lines) {
+            New-Item -ItemType Directory -Force -Path $dir | Out-Null
+            [IO.File]::WriteAllText("$PWD\$dir\prog.lu", (($lines -join "`n") + "`n"))
+            $r = Cap $dir @("run", "prog.lu")
+            Write-Host "=== $dir — wolf run prog.lu — exit $($r.code)"
+            if ($r.out.Trim()) { Write-Host "    stdout | $($r.out.Trim())" }
+            if ($r.err.Trim()) { ($r.err -split "`n" | ForEach-Object { Write-Host "    $_" }) }
+            return $r
+          }
+
+          $w1 = Witness "reuse-witness" "net/reuse_port.lu" `
+            "reuse_port | served_or_named true | one_port true | in_use_named true | both_accepted true | gapless true" `
+            "the reuse_port witness"
+          $p1 = Probe "reuse-probe" $reuseProbe
+          Claim "net_listen_with compiles here (the refusal is a row, not a build error)" ($p1.code -eq 0) "exit $($p1.code): $($p1.err)"
+          Claim "and reuse_port answers the unsupported row by name" ($p1.out -eq "unsupported`n") ("{0}" -f ($p1.out -replace "`n", "\n"))
+
+          $p2 = Probe "plain-probe" $plainProbe
+          Claim "net_listen_with WITHOUT the option serves this host" `
+            ($p2.code -eq 0 -and $p2.out -eq "plain listen_with | bound true`n") `
+            ("exit {0}: {1}" -f $p2.code, ($p2.out -replace "`n", "\n"))
+
+          $w2 = Witness "inherit-witness" "net/inherit_listener.lu" `
+            "inherit | served_or_named true | child_served true | reaped true" `
+            "the inherit witness"
+          $p3 = Probe "inherit-probe" $inheritProbe
+          Claim "os_spawn_with compiles here (the refusal is a row, not a build error)" ($p3.code -eq 0) "exit $($p3.code): $($p3.err)"
+          Claim "and a non-empty inherit set answers the unsupported row by name" ($p3.out -eq "unsupported`n") ("{0}" -f ($p3.out -replace "`n", "\n"))
+
+          $w3 = Witness "wait-witness" "net/wait_readiness.lu" `
+            "net_wait | quiet_is_empty true | woke_on_the_right_one true | level_triggered true | drained true | closed_peer_is_ready true | forged_is_io true" `
+            "the net_wait witness"
+          $w4 = Witness "cpus-witness" "os/cpus.lu" `
+            "cpus | answered true | at_least_one true | stable true" `
+            "the os_cpus witness"
+
+          $md = @("", "### The s137 server surface on this host", "",
+                  "| probe | exit | stdout |", "|---|---|---|",
+                  "| ``corpus/net/reuse_port.lu`` | $($w1.code) | ``$($w1.out.Trim())`` |",
+                  "| which branch reuse_port takes here | $($p1.code) | ``$($p1.out.Trim())`` |",
+                  "| ``net_listen_with`` without the option | $($p2.code) | ``$($p2.out.Trim())`` |",
+                  "| ``corpus/net/inherit_listener.lu`` | $($w2.code) | ``$($w2.out.Trim())`` |",
+                  "| which branch the inherit set takes here | $($p3.code) | ``$($p3.out.Trim())`` |",
+                  "| ``corpus/net/wait_readiness.lu`` | $($w3.code) | ``$($w3.out.Trim())`` |",
+                  "| ``corpus/os/cpus.lu`` | $($w4.code) | ``$($w4.out.Trim())`` |", "",
+                  "``reuse_port`` and a non-empty inherit set answer the ``unsupported`` row BY NAME — the fourth and fifth named refusals /install/ counts. ``net_wait`` and ``os_cpus`` serve, and the option-less ``net_listen_with`` serves, which is the other half of the same paragraph.", "")
+          ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+          if ($fail -gt 0) { Write-Output "::error::$fail claim(s) about the s137 server surface are not true of the published archive"; exit 1 }
+          "two named refusals and three served calls, all measured — the page may say five"
 
       # THE ASSERTIONS. The page's claims, one per sentence. When one fails
       # the page is wrong, and this job says so before a learner finds out.
