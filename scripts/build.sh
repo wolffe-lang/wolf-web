@@ -71,8 +71,10 @@ test -d site || { echo "site/ is missing — nothing to serve" >&2; exit 1; }
 # __WOLF_VERSION__/__LUPIN_VERSION__ placeholders stamped below from the
 # pins; every literal version mention must be a listed, counted, audited
 # entry in scripts/version-allowlist.txt. The prose fossilized at v0.1.0
-# once; this is what keeps the class at zero.
-python3 scripts/check-version-prose.py site upstream/wolf-lang
+# once; this is what keeps the class at zero. It takes BOTH pinned
+# checkouts, because an entry names the clock that audits it and lupin
+# releases on its own (wolf-web#8).
+python3 scripts/check-version-prose.py site upstream/wolf-lang upstream/wolf-interp
 
 rsync -a site/ "$DIST"/
 
