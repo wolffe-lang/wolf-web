@@ -47,7 +47,7 @@ menu entry that looks broken:
       which is all the playground has to offer.
 
 That leaves 228 candidates at this pin — the programs that actually answer
-`exit` or `trap` in the browser build, the other 54 reporting `unsupported`
+`exit` or `trap` in the browser build, the other 58 reporting `unsupported`
 (the module-graph programs above, and the tiers a tab cannot serve). Every
 one of those numbers is measured by feeding each candidate to the wasm
 module this build publishes and reading the verdict back — re-measure on a
@@ -67,20 +67,22 @@ the note comes off instead of quietly lying. That is not a hypothetical any
 more. `typecheck/byte_casts.lu` carried the only note this file has ever
 written, added at the lupin 0.1.24 pin; 0.1.25 landed the byte and the gate
 went red with `runs at this pin, and still carries the note that says it
-does not`, which is how the note came off. No entry carries one now.
+does not`, which is how the note came off. No entry carries one now, and
+none has since.
 
-Re-measured at the lupin 0.1.25 pin, against the module this build
-publishes: 282 `phase: run` corpus programs, unmoved, because the corpus
-did not move (wolf-lang is still v0.2.4). 197 `exit`, 31 `trap`, 54
-`unsupported` — and the `fail` class that held ten a release ago is EMPTY.
-lupin 0.1.25 was released against pin `982f857`, which is wolf v0.2.4
-itself, so `as byte` names a type it knows: five of those ten run or trap
-now (the cast ladder among them, and `grammar/bom_at_start.lu`, whose
-leading `ef bb bf` this release strips the way wolfc does), and five report
-`unsupported` by naming the tier that declines them rather than the type —
-`fs_write_bytes` and `fs_create_dir_all` do not resolve here, the s39 net
-tier has no sockets to open in a tab, and `strings/byte_view_lend.lu` wants
-a `List.first` this machine's std subset does not carry.
+Re-measured at the wolf v0.2.5 / lupin 0.1.26 pins, against the module this
+build publishes: 286 `phase: run` corpus programs — four more than a release
+ago, because the corpus moved for the first time in two: s137 added
+`net/wait_readiness.lu`, `net/reuse_port.lu`, `net/inherit_listener.lu` and
+`os/cpus.lu`. 197 `exit`, 31 `trap`, 58 `unsupported`, and the `fail` class
+stays EMPTY. The candidate count is therefore unchanged at 228: every one of
+the four new programs reports `unsupported`, which is the right answer and
+not a regression — three of them want sockets a tab cannot open and the
+fourth wants the machine's core count, which is is18's os tier declining in
+the browser exactly as `os/random` and `os/spawn` do. lupin 0.1.26 reads
+pin `982f857`, wolf v0.2.4, so those four are also programs written against
+a specification revision this interpreter has not been released against
+yet; when it is, they will still want sockets.
 """
 
 from __future__ import annotations

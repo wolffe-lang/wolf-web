@@ -1,22 +1,36 @@
 # Deliberate version literals in the site's own prose, one line each:
-#   <path under site/> <literal> <count> audited-at=<pinned wolf version>
+#   <path under site/> <literal> <count> audited-at-<project>=<pinned version>
 #
 # Current-version claims never belong here — they are written as
 # __WOLF_VERSION__ / __LUPIN_VERSION__ and stamped by build.sh from the
 # pins. This list is for history: sentences that name an old version on
 # purpose. check-version-prose.py fails the build when a literal is
-# missing from this list, when its count drifts, or when the pinned wolf
-# version moves past an entry's audited-at — so every pin bump forces
-# these sentences to be re-read rather than trusted.
+# missing from this list, when its count drifts, or when the named pin
+# moves past an entry's audited-at — so every pin bump forces these
+# sentences to be re-read rather than trusted.
 #
-# The audit column is the WOLF pin even for a sentence that names a lupin
-# release, because that is the only clock this checker has. A lupin literal
-# is therefore re-read when wolf tags, not when lupin does — the coarser
-# trigger, and a hole while lupin moves faster (wolf-web#8, filed at ww11).
-spec/index.html v0.1.0 1 audited-at=0.2.4
-docs/index.html v0.1.0 1 audited-at=0.2.4
-install/index.html v0.2.1 1 audited-at=0.2.4
-install/index.html v0.2.2 3 audited-at=0.2.4
-install/index.html v0.2.3 2 audited-at=0.2.4
-play/index.html v0.1.22 1 audited-at=0.2.4
-play/index.html v0.1.23 1 audited-at=0.2.4
+# The audit column names ITS OWN CLOCK. `audited-at-wolf=` is re-read when
+# the compiler tags; `audited-at-lupin=` when the interpreter does. Through
+# ww14 there was one clock, wolf's, so a lupin-only bump re-read nothing and
+# the lupin sentences below were covered by hand twice (ww11, ww14). That was
+# wolf-web#8's second half; its first was a regex that saw only `v`-prefixed
+# literals, which is why the lupin entries here were spelled `v0.1.22` on
+# purpose. Both are fixed, so they are spelled the way the site spells a
+# lupin release everywhere else — bare.
+#
+# A version-shaped number that is not a wolf or lupin claim still gets a
+# line: the toolchain pin below is such a number, and it was invisible to
+# this file until the regex widened. It rides the clock of the checkout that
+# records it.
+index.html 1.97.1 1 audited-at-wolf=0.2.5
+spec/index.html v0.1.0 1 audited-at-wolf=0.2.5
+docs/index.html v0.1.0 1 audited-at-wolf=0.2.5
+install/index.html v0.2.1 1 audited-at-wolf=0.2.5
+install/index.html v0.2.2 3 audited-at-wolf=0.2.5
+install/index.html v0.2.3 2 audited-at-wolf=0.2.5
+play/index.html 0.1.22 1 audited-at-lupin=0.1.26
+play/index.html 0.1.23 1 audited-at-lupin=0.1.26
+install/index.html v0.2.4 3 audited-at-wolf=0.2.5
+spec/index.html v0.2.4 2 audited-at-wolf=0.2.5
+play/index.html v0.2.4 2 audited-at-wolf=0.2.5
+play/index.html 0.1.25 1 audited-at-lupin=0.1.26

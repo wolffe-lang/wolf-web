@@ -106,16 +106,21 @@
       literal takes its type, int adopting float in mixed arithmetic, and the
       casts that trap instead of wrapping. It is also where <code>byte</code>
       is declared — the 8-bit unsigned octet the toolchain gained at
-      v__WOLF_VERSION__, with the clauses for its cast in both directions, the
+      v0.2.4, with the clauses for its cast in both directions, the
       widening its operators do before they compute, and what an interpolation
       hole prints. Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
     <dd>The operating-system surface the builtin tier exposes. v1 covers signal
       reception and OS randomness — the latter with no fallback and no seeding,
-      so failure traps honestly — and, since v__WOLF_VERSION__, the first
-      socket clause: unix-domain streams in the TCP pair's shape, with the
-      error rows that tell an unserved host apart from a bad path. Anchors
+      so failure traps honestly. The socket section opened at v0.2.4 with
+      unix-domain streams in the TCP pair's shape and the error rows that tell
+      an unserved host apart from a bad path; at v__WOLF_VERSION__ it gained
+      what a serving loop needs — one wait over a whole set of handles
+      (<code>[os.net.wait]</code>), a listener several processes may hold at
+      once (<code>[os.net.listen.opts]</code>), descriptors handed down across
+      a spawn by position (<code>[os.proc.inherit]</code>), and the count of
+      cores this process may be scheduled on (<code>[os.cpus]</code>). Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>
