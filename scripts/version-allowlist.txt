@@ -38,3 +38,4 @@ install/index.html v0.2.5 3 audited-at-wolf=0.2.6
 spec/index.html v0.2.5 1 audited-at-wolf=0.2.6
 play/index.html v0.2.5 1 audited-at-wolf=0.2.6
 play/index.html 0.1.24 1 audited-at-lupin=0.1.27
+index.html v0.2.5 2 audited-at-wolf=0.2.6
