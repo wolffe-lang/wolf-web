@@ -115,7 +115,7 @@
       reception and OS randomness — the latter with no fallback and no seeding,
       so failure traps honestly. The socket section opened at v0.2.4 with
       unix-domain streams in the TCP pair's shape and the error rows that tell
-      an unserved host apart from a bad path; at v__WOLF_VERSION__ it gained
+      an unserved host apart from a bad path; at v0.2.5 it gained
       what a serving loop needs — one wait over a whole set of handles
       (<code>[os.net.wait]</code>), a listener several processes may hold at
       once (<code>[os.net.listen.opts]</code>), descriptors handed down across

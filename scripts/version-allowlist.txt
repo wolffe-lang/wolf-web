@@ -22,15 +22,19 @@
 # line: the toolchain pin below is such a number, and it was invisible to
 # this file until the regex widened. It rides the clock of the checkout that
 # records it.
-index.html 1.97.1 1 audited-at-wolf=0.2.5
-spec/index.html v0.1.0 1 audited-at-wolf=0.2.5
-docs/index.html v0.1.0 1 audited-at-wolf=0.2.5
-install/index.html v0.2.1 1 audited-at-wolf=0.2.5
-install/index.html v0.2.2 3 audited-at-wolf=0.2.5
-install/index.html v0.2.3 2 audited-at-wolf=0.2.5
-play/index.html 0.1.22 1 audited-at-lupin=0.1.26
-play/index.html 0.1.23 1 audited-at-lupin=0.1.26
-install/index.html v0.2.4 3 audited-at-wolf=0.2.5
-spec/index.html v0.2.4 2 audited-at-wolf=0.2.5
-play/index.html v0.2.4 2 audited-at-wolf=0.2.5
-play/index.html 0.1.25 1 audited-at-lupin=0.1.26
+index.html 1.97.1 1 audited-at-wolf=0.2.6
+spec/index.html v0.1.0 1 audited-at-wolf=0.2.6
+docs/index.html v0.1.0 1 audited-at-wolf=0.2.6
+install/index.html v0.2.1 1 audited-at-wolf=0.2.6
+install/index.html v0.2.2 3 audited-at-wolf=0.2.6
+install/index.html v0.2.3 2 audited-at-wolf=0.2.6
+play/index.html 0.1.22 1 audited-at-lupin=0.1.27
+play/index.html 0.1.23 1 audited-at-lupin=0.1.27
+install/index.html v0.2.4 3 audited-at-wolf=0.2.6
+spec/index.html v0.2.4 2 audited-at-wolf=0.2.6
+play/index.html v0.2.4 2 audited-at-wolf=0.2.6
+play/index.html 0.1.25 1 audited-at-lupin=0.1.27
+install/index.html v0.2.5 3 audited-at-wolf=0.2.6
+spec/index.html v0.2.5 1 audited-at-wolf=0.2.6
+play/index.html v0.2.5 1 audited-at-wolf=0.2.6
+play/index.html 0.1.24 1 audited-at-lupin=0.1.27

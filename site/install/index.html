@@ -104,11 +104,11 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
 
   <p>Read the second line closely, because it is the one that moves. At these
   pins the two commits are one release apart: <code>lupin
-  __LUPIN_VERSION__</code> was released against v0.2.4, the release before
+  __LUPIN_VERSION__</code> was released against v0.2.5, the release before
   this one, so the interpreter is reading the revision of the specification
   the compiler shipped last. That gap is the ordinary shape of a
-  two-implementation project between tags — it was zero a release ago, when
-  lupin caught up to the tag itself — and it is the reason the
+  two-implementation project between tags — it was zero at the v0.2.4 pins,
+  when lupin caught up to the tag itself — and it is the reason the
   <a href="/play/">playground</a> can answer a program differently from the
   compiler you just installed. When they disagree, the
   <a href="/spec/">specification</a> is what gets read. The CI job that
@@ -214,10 +214,11 @@ is s47's (the s60 campaign).</code></pre>
   refusal, exit 2. One is a gap in what the Windows console gives a program.
   Three are the <code>unsupported</code> row — a value your program can read
   and branch on, which is the difference between code that can serve this
-  host differently and code that cannot. Two of those three are new here,
-  because __WOLF_VERSION__ is a release about writing servers and this is the
-  host where a prefork server is written a different way. (The ledger at the
-  end of this section has the rest, none of which a first program meets.)</p>
+  host differently and code that cannot. Two of those three arrived at
+  v0.2.5, the release that made a prefork server writable, because this is
+  the host where a prefork server is written a different way. (The ledger at
+  the end of this section has the rest, none of which a first program
+  meets.)</p>
 
   <p><strong><code>wolf build --release</code></strong>, the LLVM optimizing
   tier, refuses this host with exit code 2:</p>
@@ -287,7 +288,7 @@ own sprints</code></pre>
   program named apart from its arguments — so what a Windows port of a
   prefork master waits on is the handoff, not the spawn.</p>
 
-  <p>What that leaves is the call the release is named for, and it is here.
+  <p>What that leaves is the call v0.2.5 was named for, and it is here.
   <code>net_wait</code> — readiness over a whole set of handles, the thing a
   serving loop has instead of a scheduler — is the one socket clause s137
   added that names no refusal on any host: <code>poll(2)</code> and
