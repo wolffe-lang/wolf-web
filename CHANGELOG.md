@@ -3,6 +3,71 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww16 — 2026-09-07
+
+**The site takes the accept.** Pins move to wolf **v0.2.6** and lupin
+**0.1.27**, and the front page tells v0.2.6's story instead of listing it.
+
+**The class the tripwire could not catch now has a rule.** ww15 found two
+sentences falsified *by the version stamp itself* — a placeholder is exempt
+from the literal allowlist by construction, so a page that renders "byte
+arrived at this release" becomes false the moment the stamp moves, with
+nothing anywhere to notice. Fixing two by hand is not a rule.
+`scripts/stamp-allowlist.txt` enumerates every placeholder occurrence with a
+total and how many of them are **release-bound** — true only of the release
+the stamp names — and a file with a bound one carries an `audited-at` the pin
+bump moves past exactly as it does for a literal. The clock is the
+placeholder's own name, which caught a hole in the older half: the pin-lag
+paragraph reads "lupin *(the lupin stamp)* was released against v0.2.5", whose
+only literal rides the *wolf* clock, so a lupin-only release would have
+falsified the sentence without ever re-reading it.
+
+**Six sentences were wrong at this bump, and only two carried a version
+anywhere.** /install/ "because *(the wolf stamp)* is a release about writing
+servers" and /spec/ "at *(the wolf stamp)* it gained what a serving loop
+needs" were both true of v0.2.5 and both rendered under v0.2.6. /install/ "the
+call **the release** is named for" reads the stamp with no version in it at
+all. /install/ "it was zero a release ago" and /play/ "the gap was zero one
+release ago" were true when ww15 wrote them and false a release later, because
+the lag has been one for two releases now. /play/ "that was not true two
+releases ago" counted lupin releases from the stamp and drifts every bump. All
+six are literals the allowlist counts. All twelve pre-existing literals went
+red at the bump, both clocks at once, and every one was re-read at the tag.
+
+**The lag is one and the rule computed it.** lupin 0.1.27 reads pin `6ade878`
+— wolf v0.2.5 — while the site advertises v0.2.6, so ww14's "the two commits
+ARE the same commit" is false again and both pages say one release apart. The
+Windows job's 0-or-1 step printed it rather than trusting the prose.
+
+**The accept, for a stranger.** A server in wolf is several hands on one
+listening socket; every arrival wakes more than one and exactly one takes it.
+Through v0.2.5 a loser then parked in a blocking `accept(2)` with its deadline
+already spent, until the *next* connection — microseconds on a busy server and
+on a quiet one never. Now it comes back inside the budget its `net_deadline`
+armed, and nothing in `net_accept`'s signature moved. Both numbers on the page
+are measured and say what on: the compiler's ~30,000 req/s before and after
+(three hands, `ab -n 6000 -c 32`, macOS arm64 — under load the fix buys
+nothing, which is the honest half), and lobo's deletion of its ten-millisecond
+accept turn, re-run as an A/B in one session on macOS 15 arm64 with 18 cpus —
+**12,866 → 23,663 req/s** at three hands and **9,554 → 38,961** at eighteen on
+keepalive. `[conf.anchor.ns]` and #239 get a line on /spec/ and nothing on the
+front page.
+
+**The census was re-measured and the prediction half held.** 287 `phase: run`
+corpus programs, **198 exit, 31 trap, 58 unsupported, 0 fail**, candidates
+228 → 229. `net/accept_race.lu` is `unsupported` as predicted, but the
+aggregate was not: `os/cpus.lu` came *off* the unsupported rung, because lupin
+0.1.27 registers `os_cpus` and the call no longer fails to resolve. It still
+cannot be answered in a tab — what comes back is the `io` row, which
+`[os.cpus]` requires of a host that cannot answer rather than a silent 1 — so
+the program exits 0 printing `answered false`. Verdict `exit`, and the menu
+stays at thirty-three, because a sample shown beside a header it contradicts
+looks broken. Two clocks move a census, not one.
+
+**And /play/ undercounted what it declines** — "five tiers" omitted
+`os_random` and `os_signal_listen`, both of which report `unsupported` here
+and serve at a terminal. Seven, with the two named (**wolf-web#13**).
+
 ## ww15 — 2026-09-06
 
 The tripwire sees lupin. `scripts/check-version-prose.py` has kept the site's

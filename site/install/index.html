@@ -104,11 +104,11 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
 
   <p>Read the second line closely, because it is the one that moves. At these
   pins the two commits are one release apart: <code>lupin
-  __LUPIN_VERSION__</code> was released against v0.2.4, the release before
+  __LUPIN_VERSION__</code> was released against v0.2.5, the release before
   this one, so the interpreter is reading the revision of the specification
   the compiler shipped last. That gap is the ordinary shape of a
-  two-implementation project between tags — it was zero a release ago, when
-  lupin caught up to the tag itself — and it is the reason the
+  two-implementation project between tags — it was zero at the v0.2.4 pins,
+  when lupin caught up to the tag itself — and it is the reason the
   <a href="/play/">playground</a> can answer a program differently from the
   compiler you just installed. When they disagree, the
   <a href="/spec/">specification</a> is what gets read. The CI job that
@@ -214,10 +214,11 @@ is s47's (the s60 campaign).</code></pre>
   refusal, exit 2. One is a gap in what the Windows console gives a program.
   Three are the <code>unsupported</code> row — a value your program can read
   and branch on, which is the difference between code that can serve this
-  host differently and code that cannot. Two of those three are new here,
-  because __WOLF_VERSION__ is a release about writing servers and this is the
-  host where a prefork server is written a different way. (The ledger at the
-  end of this section has the rest, none of which a first program meets.)</p>
+  host differently and code that cannot. Two of those three arrived at
+  v0.2.5, the release that made a prefork server writable, because this is
+  the host where a prefork server is written a different way. (The ledger at
+  the end of this section has the rest, none of which a first program
+  meets.)</p>
 
   <p><strong><code>wolf build --release</code></strong>, the LLVM optimizing
   tier, refuses this host with exit code 2:</p>
@@ -287,7 +288,7 @@ own sprints</code></pre>
   program named apart from its arguments — so what a Windows port of a
   prefork master waits on is the handoff, not the spawn.</p>
 
-  <p>What that leaves is the call the release is named for, and it is here.
+  <p>What that leaves is the call v0.2.5 was named for, and it is here.
   <code>net_wait</code> — readiness over a whole set of handles, the thing a
   serving loop has instead of a scheduler — is the one socket clause s137
   added that names no refusal on any host: <code>poll(2)</code> and
@@ -296,6 +297,17 @@ own sprints</code></pre>
   <code>os_cpus()</code> answers here too. So a single-process server that
   waits on many sockets is written the same way on Windows as anywhere; it is
   the many-processes-one-port shape that takes a different route.</p>
+
+  <p>The fair accept v__WOLF_VERSION__ is named for is here too, and it is not
+  a new call — it is what <code>net_accept</code> already did, corrected.
+  Windows is one of the three reactor hosts the clause names, so a listener
+  lives non-blocking under the runtime here as well: a hand woken by an
+  arrival that another hand took waits again against the budget its
+  <code>net_deadline</code> armed, rather than in the kernel's accept queue.
+  Nothing a program written against v0.2.5 does changes. What the correction
+  would buy this host is the prefork shape, and that still waits on the
+  descriptor handoff above — a single-process Windows server accepting on its
+  own listener never loses the race in the first place.</p>
 
   <p>Everything else the language has is here. Tasks and scopes,
   <code>proc</code>, channels and <code>select</code>, <code>sync</code>/
@@ -374,6 +386,7 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
     <tr><td>an external <code>reload</code>/<code>upgrade</code> signal</td><td>no Windows analog — your own program can raise and receive both; another process cannot send them</td></tr>
     <tr><td><code>net_listen_unix</code>, <code>net_connect_unix</code></td><td>the <code>unsupported</code> row, by name — a local control endpoint stays on loopback TCP here</td></tr>
     <tr><td><code>net_wait</code>, <code>os_cpus</code></td><td>works — readiness over a whole set of handles, and the core count to size a server by</td></tr>
+    <tr><td><code>net_accept</code></td><td>works, and this host is one of the three the fair accept names — a hand that loses a race comes back inside its budget rather than parking in the kernel</td></tr>
     <tr><td><code>net_listen_with</code></td><td>works without <code>reuse_port</code>, backlog hint included; with it, the <code>unsupported</code> row, by name</td></tr>
     <tr><td><code>os_spawn_with</code>, <code>net_adopt_listener</code></td><td>works with an empty inherit set; a descriptor handed to a child is the <code>unsupported</code> row, by name</td></tr>
     <tr><td><code>lupin</code>, the reference interpreter</td><td>works — <code>lupin.exe</code>, one file, no install</td></tr>

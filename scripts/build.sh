@@ -73,7 +73,11 @@ test -d site || { echo "site/ is missing — nothing to serve" >&2; exit 1; }
 # entry in scripts/version-allowlist.txt. The prose fossilized at v0.1.0
 # once; this is what keeps the class at zero. It takes BOTH pinned
 # checkouts, because an entry names the clock that audits it and lupin
-# releases on its own (wolf-web#8).
+# releases on its own (wolf-web#8). Since ww16 it also holds
+# scripts/stamp-allowlist.txt: a placeholder cannot fossilize, but a
+# sentence built around one can be true of exactly the release it names
+# and false the moment the stamp moves, so the release-bound ones are
+# counted and re-read at a bump like any literal.
 python3 scripts/check-version-prose.py site upstream/wolf-lang upstream/wolf-interp
 
 rsync -a site/ "$DIST"/

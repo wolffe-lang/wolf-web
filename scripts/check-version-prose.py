@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """No version claim in the site's prose may drift from the pins.
 
-The rule has two halves:
+The rule has three halves:
 
   1. A claim about the CURRENT version never appears as a literal. It is
      written as __WOLF_VERSION__ (or __LUPIN_VERSION__) and build.sh
@@ -33,6 +33,18 @@ below, which through ww14 saw only `v`-prefixed forms and so was blind to
 The widened regex also sees version-shaped numbers that are not wolf or
 lupin claims (a toolchain pin, say). Those are what the allowlist is for:
 they get an entry, a count, and the clock whose checkout carries them.
+
+  3. A PLACEHOLDER is exempt from half two by construction, and that
+     exemption is the third half's whole reason. `__WOLF_VERSION__ is a
+     release about writing servers` cannot fossilize — but it is true of
+     exactly one release, and when the stamp moves it renders with a new
+     number and is simply false, with nothing anywhere to notice. ww15
+     found two such sentences; ww16 found four more, three of them
+     carrying no placeholder at all ("the release", "a release ago").
+     So every placeholder occurrence is enumerated in
+     scripts/stamp-allowlist.txt with a total and how many of them are
+     RELEASE-BOUND, and a file with a bound one carries an audited-at
+     that the pin bump moves past exactly as it does for a literal.
 
 Usage: check-version-prose.py <site-dir> <pinned-wolf-lang-dir> <pinned-wolf-interp-dir>
 """
@@ -110,6 +122,71 @@ for (path, literal), count in sorted(found.items()):
 for (path, literal) in sorted(set(allowed) - set(found)):
     problems.append(f"{allowfile.name} lists {literal!r} in {path}, which no longer carries it")
 
+# Half three: the placeholders. Their clock is their own name, so a
+# __LUPIN_VERSION__ sentence is re-read when the interpreter tags even when
+# every literal beside it rides the wolf clock — which is the pin-lag
+# paragraph on /install/ and /play/, exactly.
+PLACEHOLDER = {"__WOLF_VERSION__": "wolf", "__LUPIN_VERSION__": "lupin"}
+STAMP = re.compile(
+    r"^(\S+)\s+(__(?:WOLF|LUPIN)_VERSION__)\s+(\d+)\s+bound=(\d+)"
+    r"(?:\s+audited-at-(wolf|lupin)=(\S+))?$"
+)
+
+stamps: dict[tuple[str, str], int] = {}
+for page in sorted(SITE.rglob("*.html")):
+    rel = page.relative_to(SITE).as_posix()
+    text = page.read_text()
+    for token in PLACEHOLDER:
+        n = text.count(token)
+        if n:
+            stamps[(rel, token)] = n
+
+declared: dict[tuple[str, str], tuple[int, int, str, str]] = {}
+stampfile = Path(__file__).parent / "stamp-allowlist.txt"
+for n, line in enumerate(stampfile.read_text().splitlines(), 1):
+    line = line.strip()
+    if not line or line.startswith("#"):
+        continue
+    entry = STAMP.match(line)
+    if not entry:
+        sys.exit(
+            f"check-version-prose: {stampfile.name}:{n}: cannot parse {line!r} — an entry is "
+            f"<path> <placeholder> <total> bound=<n> [audited-at-<project>=<version>]"
+        )
+    path, token, total, bound, project, audited = entry.groups()
+    if int(bound) > int(total):
+        sys.exit(f"check-version-prose: {stampfile.name}:{n}: bound={bound} of only {total}")
+    if int(bound) and not project:
+        sys.exit(
+            f"check-version-prose: {stampfile.name}:{n}: {path} has {bound} release-bound "
+            f"{token} — a bound stamp needs an audited-at-{PLACEHOLDER[token]}="
+        )
+    if project and project != PLACEHOLDER[token]:
+        sys.exit(
+            f"check-version-prose: {stampfile.name}:{n}: {token} is stamped from the "
+            f"{PLACEHOLDER[token]} pin, so it is audited-at-{PLACEHOLDER[token]}=, not {project}"
+        )
+    declared[(path, token)] = (int(total), int(bound), project or "", audited or "")
+
+for (path, token), count in sorted(stamps.items()):
+    if (path, token) not in declared:
+        problems.append(
+            f"{path}: {token} ×{count} is not in {stampfile.name} — say how many of "
+            f"them are release-bound (true only of the release the stamp names)"
+        )
+        continue
+    total, bound, project, audited = declared[(path, token)]
+    if count != total:
+        problems.append(f"{path}: {token} appears ×{count}, {stampfile.name} says ×{total}")
+    if bound and audited != pins[project]:
+        problems.append(
+            f"{path}: {bound} release-bound {token} sentence(s) were audited at {project} "
+            f"{audited}, the {project} pin is now {pins[project]} — re-read them, then "
+            f"re-stamp its audited-at-{project}"
+        )
+for (path, token) in sorted(set(declared) - set(stamps)):
+    problems.append(f"{stampfile.name} lists {token} in {path}, which no longer carries it")
+
 if problems:
     for p in problems:
         print(f"version prose: {p}", file=sys.stderr)
@@ -120,4 +197,9 @@ print(
     f"version prose: {sum(found.values())} literal mention(s) audited against wolf "
     f"{pins['wolf']} and lupin {pins['lupin']}, {len(allowed)} allowlisted "
     f"({by_project['wolf']} on the wolf clock, {by_project['lupin']} on lupin's)"
+)
+print(
+    f"version prose: {sum(stamps.values())} placeholder(s) in {len(declared)} entries, "
+    f"{sum(b for _, b, _, _ in declared.values())} of them release-bound and re-read at "
+    f"this bump"
 )

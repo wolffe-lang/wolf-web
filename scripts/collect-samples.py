@@ -46,7 +46,7 @@ menu entry that looks broken:
       module-lint witnesses) reports `unsupported` from a stdin buffer,
       which is all the playground has to offer.
 
-That leaves 228 candidates at this pin — the programs that actually answer
+That leaves 229 candidates at this pin — the programs that actually answer
 `exit` or `trap` in the browser build, the other 58 reporting `unsupported`
 (the module-graph programs above, and the tiers a tab cannot serve). Every
 one of those numbers is measured by feeding each candidate to the wasm
@@ -70,19 +70,36 @@ went red with `runs at this pin, and still carries the note that says it
 does not`, which is how the note came off. No entry carries one now, and
 none has since.
 
-Re-measured at the wolf v0.2.5 / lupin 0.1.26 pins, against the module this
-build publishes: 286 `phase: run` corpus programs — four more than a release
-ago, because the corpus moved for the first time in two: s137 added
-`net/wait_readiness.lu`, `net/reuse_port.lu`, `net/inherit_listener.lu` and
-`os/cpus.lu`. 197 `exit`, 31 `trap`, 58 `unsupported`, and the `fail` class
-stays EMPTY. The candidate count is therefore unchanged at 228: every one of
-the four new programs reports `unsupported`, which is the right answer and
-not a regression — three of them want sockets a tab cannot open and the
-fourth wants the machine's core count, which is is18's os tier declining in
-the browser exactly as `os/random` and `os/spawn` do. lupin 0.1.26 reads
-pin `982f857`, wolf v0.2.4, so those four are also programs written against
-a specification revision this interpreter has not been released against
-yet; when it is, they will still want sockets.
+Re-measured at the wolf v0.2.6 / lupin 0.1.27 pins, against the module this
+build publishes: 287 `phase: run` corpus programs, 198 `exit`, 31 `trap`, 58
+`unsupported`, and the `fail` class stays EMPTY. Candidates 228 -> 229.
+
+TWO things moved and they cancelled in the `unsupported` column, which is
+why that number has to be read rather than glanced at. The corpus gained
+`net/accept_race.lu`, s138's witness for the fair accept: two hands on one
+inherited listener, one connection, both hands returning. It is
+`unsupported` here — `net_listen_with` is the s39 net tier and a tab has no
+sockets — which is the same answer the compiler's own lanes give it, for a
+different reason (they are handed no listener to inherit). And `os/cpus.lu`
+came OFF the unsupported rung, which is the movement worth reading twice.
+lupin 0.1.27 REGISTERS `os_cpus`, so the call no longer fails to resolve and
+the program is no longer declined by tier — but the wasm host still cannot
+answer it, and what it answers instead is the `io` row. The witness pins
+relations rather than a number and treats a host that cannot answer as a
+legal outcome, so it exits 0 here printing `answered false`. Verdict `exit`,
+not `unsupported`; the count of programs a tab declines is flat at 58 while
+one of them changed identity, and `exit` is the column that grew.
+
+That is also why `os/cpus.lu` is NOT on the menu. A sample is shown beside
+its own header, and this one's header says `answered true` while the tab
+prints `answered false` — a program that looks broken and is not, which is
+the thing this file's selection rule exists to keep off the list.
+`check-samples.mjs` would have passed it: the gate holds the VERDICT class,
+and this program's verdict is honest. The output is what disagrees.
+
+lupin 0.1.27 reads pin `6ade878`, wolf v0.2.5, so `net/accept_race.lu` is
+also a program written against a specification revision this interpreter has
+not been released against yet; when it is, it will still want sockets.
 """
 
 from __future__ import annotations
