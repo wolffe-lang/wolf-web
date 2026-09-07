@@ -144,19 +144,37 @@
   reason says which tier declined.</p>
 
   <h3>What this build declines</h3>
-  <p>Five tiers report <code>unsupported</code> here that work when you run
+  <p>Seven tiers report <code>unsupported</code> here that work when you run
   <code>lupin</code> at a terminal. Tasks and procs each need an operating
   system thread, and a WebAssembly module in a page has none to spawn. The
   <code>time</code> builtins need a clock the module cannot read, the process
-  trio needs processes the page cannot spawn, and the net tier needs sockets
-  the page cannot open. The filesystem tier is declined in every build of the
-  interpreter, including the terminal one, because it opens no files by
+  trio needs processes the page cannot spawn, the net tier needs sockets the
+  page cannot open, <code>os_random</code> needs an entropy source the module
+  has no way to ask for, and <code>os_signal_listen</code> needs signals
+  nothing in a tab can send. The filesystem tier is declined in every build of
+  the interpreter, including the terminal one, because it opens no files by
   design. A program whose module graph names sibling files is likewise
   <code>unsupported</code>: the editor is one buffer, and there is no
   directory beside it.</p>
+  <p>Twelve of the corpus's net programs land in that count, and the newest of
+  them is the witness for what this release is about:
+  <code>corpus/net/accept_race.lu</code> puts two hands on one inherited
+  listener, sends one connection, and requires both hands to come back. It
+  wants three things a tab has none of — a listener, a spawn, and a
+  descriptor handed across it — so the page declines it rather than mocking
+  it. The <a href="/changelog/wolf/">changelog</a> has what it proves.</p>
 
   <h3>Every sample on the menu runs</h3>
-  <p>All thirty-three of them, and none carries a note. That was not true at
+  <p>All thirty-four of them, and none carries a note. The thirty-fourth is
+  new at this pin and it arrived by measurement: <code>corpus/os/cpus.lu</code>
+  reported <code>unsupported</code> here for as long as the call existed, and
+  the census taken at every pin bump found it answering <code>exit(0)</code>
+  this time, because lupin __LUPIN_VERSION__ serves <code>os_cpus()</code> and the count
+  of cores a process may be scheduled on needs no socket, no clock and no
+  thread. In a browser tab the honest answer is one, and the program asserts
+  relations rather than a number — that the host answered at all, that the
+  count is never zero, and that two reads in one run agree. That was not true
+  at
   the lupin 0.1.24 pin: the menu's <strong>byte, and its cast ladder</strong> —
   <code>corpus/typecheck/byte_casts.lu</code> — answered
   <code>fail(E0301)</code> here and carried a note on this page saying so,
