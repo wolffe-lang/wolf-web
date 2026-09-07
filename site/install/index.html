@@ -298,6 +298,17 @@ own sprints</code></pre>
   waits on many sockets is written the same way on Windows as anywhere; it is
   the many-processes-one-port shape that takes a different route.</p>
 
+  <p>The fair accept __WOLF_VERSION__ is named for is here too, and it is not
+  a new call — it is what <code>net_accept</code> already did, corrected.
+  Windows is one of the three reactor hosts the clause names, so a listener
+  lives non-blocking under the runtime here as well: a hand woken by an
+  arrival that another hand took waits again against the budget its
+  <code>net_deadline</code> armed, rather than in the kernel's accept queue.
+  Nothing a program written against v0.2.5 does changes. What the correction
+  would buy this host is the prefork shape, and that still waits on the
+  descriptor handoff above — a single-process Windows server accepting on its
+  own listener never loses the race in the first place.</p>
+
   <p>Everything else the language has is here. Tasks and scopes,
   <code>proc</code>, channels and <code>select</code>, <code>sync</code>/
   <code>when</code>, region transfer, <code>os.signal</code> and network
@@ -375,6 +386,7 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
     <tr><td>an external <code>reload</code>/<code>upgrade</code> signal</td><td>no Windows analog — your own program can raise and receive both; another process cannot send them</td></tr>
     <tr><td><code>net_listen_unix</code>, <code>net_connect_unix</code></td><td>the <code>unsupported</code> row, by name — a local control endpoint stays on loopback TCP here</td></tr>
     <tr><td><code>net_wait</code>, <code>os_cpus</code></td><td>works — readiness over a whole set of handles, and the core count to size a server by</td></tr>
+    <tr><td><code>net_accept</code></td><td>works, and this host is one of the three the fair accept names — a hand that loses a race comes back inside its budget rather than parking in the kernel</td></tr>
     <tr><td><code>net_listen_with</code></td><td>works without <code>reuse_port</code>, backlog hint included; with it, the <code>unsupported</code> row, by name</td></tr>
     <tr><td><code>os_spawn_with</code>, <code>net_adopt_listener</code></td><td>works with an empty inherit set; a descriptor handed to a child is the <code>unsupported</code> row, by name</td></tr>
     <tr><td><code>lupin</code>, the reference interpreter</td><td>works — <code>lupin.exe</code>, one file, no install</td></tr>
