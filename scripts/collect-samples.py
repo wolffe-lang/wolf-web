@@ -81,16 +81,25 @@ inherited listener, one connection, both hands returning. It is
 `unsupported` here — `net_listen_with` is the s39 net tier and a tab has no
 sockets — which is the same answer the compiler's own lanes give it, for a
 different reason (they are handed no listener to inherit). And `os/cpus.lu`
-came OFF the unsupported rung: lupin 0.1.27 serves `os_cpus()`, and
-`available_parallelism` answers in a wasm module where it needs no socket,
-no clock and no thread. So the count of programs a tab declines is flat at
-58 while one of them changed identity, and `exit` is the column that grew.
+came OFF the unsupported rung, which is the movement worth reading twice.
+lupin 0.1.27 REGISTERS `os_cpus`, so the call no longer fails to resolve and
+the program is no longer declined by tier — but the wasm host still cannot
+answer it, and what it answers instead is the `io` row. The witness pins
+relations rather than a number and treats a host that cannot answer as a
+legal outcome, so it exits 0 here printing `answered false`. Verdict `exit`,
+not `unsupported`; the count of programs a tab declines is flat at 58 while
+one of them changed identity, and `exit` is the column that grew.
 
-`os/cpus.lu` is on the menu from this pin, which is the first s137 call the
-browser can run at all. lupin 0.1.27 reads pin `6ade878`, wolf v0.2.5, so
-`net/accept_race.lu` is also a program written against a specification
-revision this interpreter has not been released against yet; when it is, it
-will still want sockets.
+That is also why `os/cpus.lu` is NOT on the menu. A sample is shown beside
+its own header, and this one's header says `answered true` while the tab
+prints `answered false` — a program that looks broken and is not, which is
+the thing this file's selection rule exists to keep off the list.
+`check-samples.mjs` would have passed it: the gate holds the VERDICT class,
+and this program's verdict is honest. The output is what disagrees.
+
+lupin 0.1.27 reads pin `6ade878`, wolf v0.2.5, so `net/accept_race.lu` is
+also a program written against a specification revision this interpreter has
+not been released against yet; when it is, it will still want sockets.
 """
 
 from __future__ import annotations
@@ -137,7 +146,6 @@ SAMPLES: list[tuple[str, ...]] = [
     ("conc/chan_drain_after_inclusive_loop.lu", "a channel"),
     ("io/eprint.lu", "stdout and stderr"),
     ("os/exit_code.lu", "exit codes"),
-    ("os/cpus.lu", "how many cores"),
     ("projects/rpn.lu", "a calculator"),
     ("projects/wordtree.lu", "counting words"),
 ]

@@ -57,8 +57,12 @@ front page.
 corpus programs, **198 exit, 31 trap, 58 unsupported, 0 fail**, candidates
 228 → 229. `net/accept_race.lu` is `unsupported` as predicted, but the
 aggregate was not: `os/cpus.lu` came *off* the unsupported rung, because lupin
-0.1.27 serves `os_cpus()` and it needs no socket, no clock and no thread. Two
-clocks move a census, not one. `os/cpus.lu` joins the menu at thirty-four.
+0.1.27 registers `os_cpus` and the call no longer fails to resolve. It still
+cannot be answered in a tab — what comes back is the `io` row, which
+`[os.cpus]` requires of a host that cannot answer rather than a silent 1 — so
+the program exits 0 printing `answered false`. Verdict `exit`, and the menu
+stays at thirty-three, because a sample shown beside a header it contradicts
+looks broken. Two clocks move a census, not one.
 
 **And /play/ undercounted what it declines** — "five tiers" omitted
 `os_random` and `os_signal_listen`, both of which report `unsupported` here

@@ -156,6 +156,18 @@
   design. A program whose module graph names sibling files is likewise
   <code>unsupported</code>: the editor is one buffer, and there is no
   directory beside it.</p>
+  <p><code>os_cpus()</code> is the near miss, and it is worth a sentence
+  because the census caught it. This build answers the call now rather than
+  declining it — but what it answers is the <code>io</code> row, because a
+  wasm module has no way to ask how many cores a process may be scheduled on,
+  and <code>[os.cpus]</code> says a host that cannot answer takes that row
+  instead of quietly saying one. So <code>corpus/os/cpus.lu</code> stopped
+  reporting <code>unsupported</code> at this pin and started exiting 0 with
+  <code>answered false</code> on the line, which is the program working as
+  written. It is not on the menu, because its own header says
+  <code>answered true</code> and a sample shown beside a header it contradicts
+  looks broken.</p>
+
   <p>Twelve of the corpus's net programs land in that count, and the newest of
   them is the witness for what this release is about:
   <code>corpus/net/accept_race.lu</code> puts two hands on one inherited
@@ -165,15 +177,7 @@
   it. The <a href="/changelog/wolf/">changelog</a> has what it proves.</p>
 
   <h3>Every sample on the menu runs</h3>
-  <p>All thirty-four of them, and none carries a note. The thirty-fourth is
-  new at this pin and it arrived by measurement: <code>corpus/os/cpus.lu</code>
-  reported <code>unsupported</code> here for as long as the call existed, and
-  the census taken at every pin bump found it answering <code>exit(0)</code>
-  this time, because lupin __LUPIN_VERSION__ serves <code>os_cpus()</code> and the count
-  of cores a process may be scheduled on needs no socket, no clock and no
-  thread. In a browser tab the honest answer is one, and the program asserts
-  relations rather than a number — that the host answered at all, that the
-  count is never zero, and that two reads in one run agree. That was not true
+  <p>All thirty-three of them, and none carries a note. That was not true
   at
   the lupin 0.1.24 pin: the menu's <strong>byte, and its cast ladder</strong> —
   <code>corpus/typecheck/byte_casts.lu</code> — answered
