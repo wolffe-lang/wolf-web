@@ -176,7 +176,7 @@ widen is zero-extension (200 back, never -56), `256` truncates to 0 and `-1`
 to 255 and `300` to 44 with no trap and no `W0401`, arithmetic widens to `int`
 first so `200 + 200` is 400, and the comparisons are octet order. All
 thirty-three menu entries run or trap by design now, and no sample carries a
-note for the first time since ww13 introduced them.
+note for the first time since the notes were introduced at ww13.
 
 The `fail` class is empty. Re-measured through the module this build
 publishes: 282 `phase: run` corpus programs (the corpus did not move), 197
@@ -211,8 +211,8 @@ placeholder and the job reads the pinned `Cargo.toml`, so both point at the
 0.1.25 asset (5.3 MB, one file, `about 5 MB` still true) with no version
 literal to rot. (Writing that placeholder's name literally in this entry is
 the trap ww12's finished-dist sweep exists to catch, and it is dodged here
-the way ww13 dodged it.) /changelog renders the new entry, THE BYTE ARRIVES
-(is36).
+the way it was dodged at ww13.) /changelog renders the new entry, THE BYTE
+ARRIVES (is36).
 
 The two lupin literals /play/ carries by design (`v0.1.22` and `v0.1.23`,
 about when the observation record started carrying a trapping program's
@@ -295,7 +295,8 @@ earlier. They work the way version claims have worked since ww07 now: a page
 names the document it is sizing in a placeholder and the build fills the
 number in from the pinned checkout, refusing when the placeholder names a
 file the pin does not carry. (Writing that token literally in this entry is
-what the finished dist sweep ww12 added exists to catch, and it caught it.)
+what the finished dist sweep added at ww12 exists to catch, and it caught
+it.)
 Fifteen numbers can no longer be wrong. The code counts are still by hand and
 were re-read at this pin: 136 diagnostics, 33 warnings, both unmoved.
 
