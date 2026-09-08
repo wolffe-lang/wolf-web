@@ -147,64 +147,62 @@ CORES and THE BYTE HAS A DOMAIN (is37).
 
 ## ww14 — 2026-09-03
 
-The ladder lights. The interpreter pin moves to lupin **0.1.25**; the compiler
-pin does not move, and that is the whole story of this entry. lupin 0.1.25 was
-released against pin `982f857` — wolf **v0.2.4**, the tag itself, the release
-this site advertises — so for the first time the two implementations behind
-this site are reading one revision of the specification.
+The ladder lights. The interpreter pin moves to lupin 0.1.25; the compiler
+pin does not move, and this entry follows from that. lupin 0.1.25 was
+released against pin `982f857` (wolf v0.2.4, the tag itself, the release this
+site advertises), so for the first time the two implementations behind this
+site are reading one revision of the specification.
 
-**The dark sample lights up, and the gate is what turned the page.** ww13 put
+The dark sample lights up, and the gate turned the page. The ww13 pass put
 `corpus/typecheck/byte_casts.lu` on the playground menu knowing it did not
 run, marked with a note explaining the refusal, and built
 `scripts/check-samples.mjs` to hold that note in both directions: an unnoted
 entry must answer `exit` or `trap`, a noted one must not. At the new pin the
-gate went **red** before anything else did —
+gate went red before anything else did:
 
     FAIL corpus/typecheck/byte_casts.lu   exit(0)  (noted)
          runs at this pin, and still carries the note that says it does not —
          retire the note in scripts/collect-samples.py
 
-— exit 1, one of thirty-three entries wrong. That red is the retirement
-mechanism working: the note came off because CI refused the build, not because
-someone remembered a week later. Press Run on **the byte, and its cast
-ladder** now and it prints the line its own corpus header claims:
+Exit 1, one of thirty-three entries wrong. That red is the retirement
+mechanism working: the note came off because CI refused the build. Press Run
+on *the byte, and its cast ladder* now and it prints the line its own corpus
+header claims:
 
     widen 200 200 | trunc 0 255 0 255 44 | arith 201 400 -1 -200 | order true true true | eq true true
 
-exit 0, no diagnostics, no warnings — the whole D72 ruling in one line: the
+exit 0, no diagnostics, no warnings, and the D72 ruling in one line: the
 widen is zero-extension (200 back, never -56), `256` truncates to 0 and `-1`
 to 255 and `300` to 44 with no trap and no `W0401`, arithmetic widens to `int`
 first so `200 + 200` is 400, and the comparisons are octet order. All
-thirty-three menu entries run or trap on purpose now, and **no sample carries
-a note** for the first time since ww13 introduced them.
+thirty-three menu entries run or trap by design now, and no sample carries a
+note for the first time since ww13 introduced them.
 
-**The `fail` class is empty.** Re-measured through the module this build
-publishes: 282 `phase: run` corpus programs (unmoved — the corpus did not
-move), **197 `exit`, 31 `trap`, 54 `unsupported`, 0 `fail`**, against 192 /
-31 / 49 / 10 a release ago. Of the ten the interpreter rejected at 0.1.24,
-five run or trap now — the cast ladder among them, and `grammar/bom_at_start.lu`,
-whose leading `ef bb bf` this release strips the way wolfc does — and five
-report `unsupported` by naming the tier that declines them rather than the
-type they could not resolve: `fs_write_bytes` and `fs_create_dir_all` do not
-exist in this machine, the s39 net tier has no sockets to open in a tab, and
-one wants a `List.first` the std subset does not carry. A refusal that names
-the right reason is a different fact from a refusal that names the wrong one,
-and only one of the two is worth printing on a page.
+The `fail` class is empty. Re-measured through the module this build
+publishes: 282 `phase: run` corpus programs (the corpus did not move), 197
+`exit`, 31 `trap`, 54 `unsupported`, 0 `fail`, against 192 / 31 / 49 / 10 a
+release ago. Of the ten the interpreter rejected at 0.1.24, five run or trap
+now (the cast ladder among them, and `grammar/bom_at_start.lu`, whose leading
+`ef bb bf` this release strips the way wolfc does), and five report
+`unsupported` naming the tier that declines them instead of the type they
+could not resolve: `fs_write_bytes` and `fs_create_dir_all` do not exist in
+this machine, the s39 net tier has no sockets to open in a tab, and one wants
+a `List.first` the std subset does not carry.
 
-**The pin lag rule is 0-or-1 now, and the step says which.** The Windows job
-has held the gap at exactly one release since ww12, deliberately, so that
-lupin catching up would go red rather than quietly falsify /install/ and
-/play/. It went red. The step now accepts zero or one, computes which, and
-writes the sentence from the measurement — at these pins `lupin reads this
-release — the page's sentence holds`, and the run summary's table says `A gap
-of 0`. Two is still a red, because two means a lupin release was skipped or a
-pin was never bumped. Both pages are rewritten to match: /install/ says the
-two commits in `wolf --version`'s second line ARE the same commit at these
-pins and that one is the usual gap, /play/ says a disagreement here is now
-about the text rather than a lag behind it.
+The pin lag rule is 0-or-1 now, and the step says which. The Windows job has
+held the gap at one release since ww12, so that lupin catching up would go
+red instead of quietly falsifying /install/ and /play/. It went red. The step
+now accepts zero or one, computes which, and writes the sentence from the
+measurement: at these pins `lupin reads this release — the page's sentence
+holds`, and the run summary's table says `A gap of 0`. Two is still a red,
+because two means a lupin release was skipped or a pin was never bumped. Both
+pages are rewritten to match: /install/ says the two commits in
+`wolf --version`'s second line ARE the same commit at these pins and that one
+is the usual gap, /play/ says a disagreement here is now about the text
+instead of a lag behind it.
 
-**Nineteen claims re-recorded**, across /play/, /install/,
-`scripts/collect-samples.py` and the Windows job — every sentence phrased
+Nineteen claims re-recorded, across /play/, /install/,
+`scripts/collect-samples.py` and the Windows job: every sentence phrased
 "one release behind", the whole "One sample this build refuses" section, the
 sample-selection census, and the job's error string, summary line and closing
 sentence. The `lupin.exe` link on /install/ and the Windows job's lupin smoke
@@ -213,19 +211,19 @@ placeholder and the job reads the pinned `Cargo.toml`, so both point at the
 0.1.25 asset (5.3 MB, one file, `about 5 MB` still true) with no version
 literal to rot. (Writing that placeholder's name literally in this entry is
 the trap ww12's finished-dist sweep exists to catch, and it is dodged here
-the way ww13 dodged it.) /changelog renders the new entry: **THE BYTE ARRIVES (is36)**.
+the way ww13 dodged it.) /changelog renders the new entry, THE BYTE ARRIVES (is36).
 
-The two lupin literals /play/ carries on purpose — `v0.1.22` and `v0.1.23`,
+The two lupin literals /play/ carries by design (`v0.1.22` and `v0.1.23`,
 about when the observation record started carrying a trapping program's
-output — were re-read by hand at this bump and both hold. They are audited
+output) were re-read by hand at this bump and both hold. They are audited
 against the *wolf* pin, which did not move, so the allowlist did not force
 that reading; wolf-web#8 is still the hole it was, and this is the second
 wave in a row it had to be covered manually.
 
-One upstream finding rides along without touching this site: **byte has the
-type but not the domain** (wolf-interp#62). `byte` resolves and the casts
+One upstream finding rides along without touching this site: byte has the
+type but not the domain (wolf-interp#62). `byte` resolves and the casts
 hold, but `0..=255` is not enforced where an un-cast `int` flows into a byte
-slot — `List[byte].push(256)` stores 256 here where the compilers refuse
+slot: `List[byte].push(256)` stores 256 here where the compilers refuse
 `E0401`. All thirty-three menu programs were checked against it and none is
 exposed: the ladder truncates by clause (`256 as byte`), and the only other
 sample that touches the type is `projects/rpn.lu`, which reads bytes out of
@@ -233,75 +231,75 @@ sample that touches the type is `projects/rpn.lu`, which reads bytes out of
 
 ## ww13 — 2026-09-03
 
-The byte on the page. The pins move to wolf **v0.2.4** and lupin **0.1.24**,
-and the release's headline is a breaking change one line wide, so it is on
-/install/ rather than only in the changelog. `str.bytes()` yields `byte` now —
-an 8-bit unsigned octet — and the first thing anyone does with one is compare
-it to a number, which is `E0401`. The page quotes the compiler finishing that
-sentence: **"`byte` adopts no literal and takes no `int` implicitly
+The byte on the page. The pins move to wolf v0.2.4 and lupin 0.1.24, and the
+release's headline is a breaking change one line wide, so it is on /install/
+rather than only in the changelog. `str.bytes()` yields `byte` now, an 8-bit
+unsigned octet, and the first thing anyone does with one is compare it to a
+number, which is `E0401`. The page quotes the compiler finishing that
+sentence: "`byte` adopts no literal and takes no `int` implicitly
 ([type.byte]): widen the byte — `b as int` — or narrow this side with `as
-byte`"** — and the Windows job builds that exact program on a Windows runner,
-reads the note back, and then builds the line the note names and runs it:
-`w is 119`, exit 0. Exit 1 for the refusal, measured rather than guessed, and
-the page draws the distinction a learner needs — an ordinary program that does
-not compile, not the exit 2 this host's own refusals answer with.
+byte`". The Windows job builds that program on a Windows runner, reads the
+note back, and then builds the line the note names and runs it: `w is 119`,
+exit 0. Exit 1 for the refusal, measured on the runner, and the page draws
+the distinction a learner needs: an ordinary program that does not compile,
+where this host's own refusals answer exit 2.
 
-**Unix-domain sockets are the third named refusal on Windows**, new at this
-release. `net_listen_unix` compiles here and answers the `unsupported` row BY
-NAME rather than a bare `io` failure, which is the difference between a
+Unix-domain sockets are the third named refusal on Windows, new at this
+release. `net_listen_unix` compiles here and answers the `unsupported` row
+with a name instead of a bare `io` failure, which is the difference between a
 program that can branch on the host and one that cannot; the limits section's
 opener owns its count and now says three. Both halves are measured: the
-corpus's own witness runs on the runner for its exact stdout and for the exit
+corpus's own witness runs on the runner for its pinned stdout and for the exit
 3 it would take if a bind ever failed with a path row, and a second probe
 beside it says which branch of that construction this host took, because a
 witness that passes vacuously proves nothing about a sentence.
 
-**The playground runs a byte sample that does not run.**
-`corpus/typecheck/byte_casts.lu` — the cast ladder, where 256 truncates to 0
-and -1 to 255 and the widen is zero-extension — is the thirty-third program on
+The playground runs a byte sample that does not run.
+`corpus/typecheck/byte_casts.lu` (the cast ladder, where 256 truncates to 0
+and -1 to 255 and the widen is zero-extension) is the thirty-third program on
 the menu, and lupin 0.1.24 answers `fail(E0301)` on it at resolve, because
 `as byte` names no type that release knows. It is on the menu anyway, marked,
 with the reason on the page: the interpreter tagged its byte work at is35 and
 the type's producers landed after the wolf release 0.1.24 was built against.
-The page promises nothing about when that changes. What holds it honest is a
-gate rather than a memory — `scripts/check-samples.mjs` feeds every menu
-program to the wasm module the build published and refuses in both directions,
-so an unnoted entry must answer `exit` or `trap` and a noted one must not. The
-day the interpreter starts running it, CI goes red and the note comes off
-because it has to. The whole run set was re-measured through that module at
-the new pin: 282 `phase: run` corpus programs, 192 `exit`, 31 `trap`, 49
-`unsupported`, and 10 `fail` — a class that was empty a week ago, and exactly
-the nine byte programs plus `grammar/bom_at_start.lu`.
+The page promises nothing about when that changes. A gate holds it rather
+than a memory: `scripts/check-samples.mjs` feeds every menu program to the
+wasm module the build published and refuses in both directions, so an unnoted
+entry must answer `exit` or `trap` and a noted one must not. The day the
+interpreter starts running it, CI goes red and the note comes off because it
+has to. The whole run set was re-measured through that module at the new pin:
+282 `phase: run` corpus programs, 192 `exit`, 31 `trap`, 49 `unsupported`,
+and 10 `fail`, a class that was empty a week ago and one holding the nine
+byte programs plus `grammar/bom_at_start.lu`.
 
-**The pin lag is still exactly one release, and the CI step needed no
-loosening.** lupin 0.1.24 was released against pin `3befc3e` — wolf v0.2.3 —
-while this site advertises v0.2.4, so the gap the step holds at one is one,
-and the sentence /install/ and /play/ both write is unchanged. It would have
-gone to zero at a lupin 0.1.25; there is no 0.1.25.
+The pin lag is still one release, and the CI step stayed as it was. lupin
+0.1.24 was released against pin `3befc3e` (wolf v0.2.3) while this site
+advertises v0.2.4, so the gap the step holds at one is one, and the sentence
+/install/ and /play/ both write is unchanged. It would have gone to zero at a
+lupin 0.1.25; there is no 0.1.25.
 
-**Three sentences had rotted the way ww12's Windows headline did**, each
+Three sentences had rotted the way ww12's Windows headline did, each
 phrased relative to "the release before this one" and each false the moment
 the pin moved: native compilation arriving "one release ago", lupin's
 second-opinion distinction being "new at" this version, and the missing arm
-archive. All three name the release they mean now — five new version literals,
-listed and audited, which is what the allowlist is for.
+archive. All three name the release they mean now, as five new version
+literals, listed and audited in the allowlist.
 
-**And the measured sizes stamp themselves.** The spec and docs pages print how
+And the measured sizes stamp themselves. The spec and docs pages print how
 big each document is so a reader knows what a link costs, and those numbers
 were written by hand: four had drifted (spec/01 52 to 53 KiB, spec/02 47 to
 48, spec/10 13 to 17 because `byte` is declared in it, spec/11 14 to 16
 because the first socket clause is), plus the diagnostics catalogue at 151 to
-154. ww12 had re-recorded three of the same class by hand a week earlier. They
-work the way version claims have worked since ww07 now — a page names the
-document it is sizing in a placeholder and the build fills the number in from
-the pinned checkout, refusing when the placeholder names a file the pin does
-not carry. (Writing that token literally in this entry is what the finished
-dist sweep ww12 added exists to catch, and it caught it.) Fifteen
-numbers that can no longer be wrong. The code counts are still by hand and
+154. The ww12 pass had re-recorded three of the same class by hand a week
+earlier. They work the way version claims have worked since ww07 now: a page
+names the document it is sizing in a placeholder and the build fills the
+number in from the pinned checkout, refusing when the placeholder names a
+file the pin does not carry. (Writing that token literally in this entry is
+what the finished dist sweep ww12 added exists to catch, and it caught it.)
+Fifteen numbers can no longer be wrong. The code counts are still by hand and
 were re-read at this pin: 136 diagnostics, 33 warnings, both unmoved.
 
 Twenty claims re-recorded in all. /changelog renders v0.2.4, learner-first
-paragraph at the top: THE BYTE SHIPS. One finding went upstream the same day —
+paragraph at the top: THE BYTE SHIPS. One finding went upstream the same day:
 lupin resolves a cast target by scope lookup, so `as byte` and a misspelled
 `as itn` produce byte-identical reports, and the note tells a reader to hunt
 for a typo that is not there (wolf-interp#60). The lupin-shaped hole in this
