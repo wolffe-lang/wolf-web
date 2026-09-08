@@ -5,85 +5,85 @@ shape D65 rules: user-visible changes only, the sprint id named.
 
 ## ww16 — 2026-09-07
 
-**The site takes the accept.** Pins move to wolf **v0.2.6** and lupin
-**0.1.27**, and the front page tells v0.2.6's story instead of listing it.
+The site takes the accept. Pins move to wolf v0.2.6 and lupin 0.1.27, and
+the front page tells v0.2.6's story instead of listing it.
 
-**The class the tripwire could not catch now has a rule.** ww15 found two
-sentences falsified *by the version stamp itself* — a placeholder is exempt
+The class the tripwire could not catch now has a rule. The ww15 pass found
+two sentences falsified *by the version stamp itself*: a placeholder is exempt
 from the literal allowlist by construction, so a page that renders "byte
 arrived at this release" becomes false the moment the stamp moves, with
-nothing anywhere to notice. Fixing two by hand is not a rule.
-`scripts/stamp-allowlist.txt` enumerates every placeholder occurrence with a
-total and how many of them are **release-bound** — true only of the release
-the stamp names — and a file with a bound one carries an `audited-at` the pin
-bump moves past exactly as it does for a literal. The clock is the
-placeholder's own name, which caught a hole in the older half: the pin-lag
-paragraph reads "lupin *(the lupin stamp)* was released against v0.2.5", whose
-only literal rides the *wolf* clock, so a lupin-only release would have
-falsified the sentence without ever re-reading it.
+nothing anywhere to notice. `scripts/stamp-allowlist.txt` generalizes the two
+hand fixes. It enumerates every placeholder occurrence with a total and how
+many of them are release-bound (true only of the release the stamp names), and
+a file with a bound one carries an `audited-at` the pin bump moves past as it
+does for a literal. The clock is the placeholder's own name, which caught a
+hole in the older half: the pin-lag paragraph reads "lupin *(the lupin stamp)*
+was released against v0.2.5", whose only literal rides the *wolf* clock, so a
+lupin-only release would have falsified the sentence without ever re-reading
+it.
 
-**Six sentences were wrong at this bump, and only two carried a version
-anywhere.** /install/ "because *(the wolf stamp)* is a release about writing
+Six sentences were wrong at this bump, and only two carried a version
+anywhere. /install/ "because *(the wolf stamp)* is a release about writing
 servers" and /spec/ "at *(the wolf stamp)* it gained what a serving loop
 needs" were both true of v0.2.5 and both rendered under v0.2.6. /install/ "the
-call **the release** is named for" reads the stamp with no version in it at
+call *the release* is named for" reads the stamp with no version in it at
 all. /install/ "it was zero a release ago" and /play/ "the gap was zero one
-release ago" were true when ww15 wrote them and false a release later, because
-the lag has been one for two releases now. /play/ "that was not true two
-releases ago" counted lupin releases from the stamp and drifts every bump. All
-six are literals the allowlist counts. All twelve pre-existing literals went
-red at the bump, both clocks at once, and every one was re-read at the tag.
+release ago" were true when the ww15 pass wrote them and false a release
+later, because the lag has been one for two releases now. /play/ "that was not
+true two releases ago" counted lupin releases from the stamp and drifts every
+bump. All six are literals the allowlist counts. All twelve pre-existing
+literals went red at the bump, both clocks at once, and every one was re-read
+at the tag.
 
-**The lag is one and the rule computed it.** lupin 0.1.27 reads pin `6ade878`
-— wolf v0.2.5 — while the site advertises v0.2.6, so ww14's "the two commits
+The lag is one and the rule computed it. lupin 0.1.27 reads pin `6ade878`
+(wolf v0.2.5) while the site advertises v0.2.6, so ww14's "the two commits
 ARE the same commit" is false again and both pages say one release apart. The
-Windows job's 0-or-1 step printed it rather than trusting the prose.
+Windows job's 0-or-1 step printed it.
 
-**The accept, for a stranger.** A server in wolf is several hands on one
-listening socket; every arrival wakes more than one and exactly one takes it.
-Through v0.2.5 a loser then parked in a blocking `accept(2)` with its deadline
-already spent, until the *next* connection — microseconds on a busy server and
-on a quiet one never. Now it comes back inside the budget its `net_deadline`
-armed, and nothing in `net_accept`'s signature moved. Both numbers on the page
-are measured and say what on: the compiler's ~30,000 req/s before and after
-(three hands, `ab -n 6000 -c 32`, macOS arm64 — under load the fix buys
-nothing, which is the honest half), and lobo's deletion of its ten-millisecond
-accept turn, re-run as an A/B in one session on macOS 15 arm64 with 18 cpus —
-**12,866 → 23,663 req/s** at three hands and **9,554 → 38,961** at eighteen on
-keepalive. `[conf.anchor.ns]` and #239 get a line on /spec/ and nothing on the
-front page.
+The accept, explained for a stranger. A server in wolf is several hands on
+one listening socket; every arrival wakes more than one and exactly one takes
+it. Through v0.2.5 a loser then parked in a blocking `accept(2)` with its
+deadline already spent, until the *next* connection: microseconds on a busy
+server and on a quiet one never. Now it comes back inside the budget its
+`net_deadline` armed, and nothing in `net_accept`'s signature moved. Both
+numbers on the page are measured, and the page says what they were measured
+on. The compiler holds at ~30,000 req/s before and after (three hands,
+`ab -n 6000 -c 32`, macOS arm64; under load the fix buys nothing), and lobo
+deleted its ten-millisecond accept turn, re-run as an A/B in one session on
+macOS 15 arm64 with 18 cpus: 12,866 → 23,663 req/s at three hands and
+9,554 → 38,961 at eighteen on keepalive. `[conf.anchor.ns]` and #239 get a
+line on /spec/ and nothing on the front page.
 
-**The census was re-measured and the prediction half held.** 287 `phase: run`
-corpus programs, **198 exit, 31 trap, 58 unsupported, 0 fail**, candidates
+The census was re-measured and the prediction half held. 287 `phase: run`
+corpus programs, 198 exit, 31 trap, 58 unsupported, 0 fail, candidates
 228 → 229. `net/accept_race.lu` is `unsupported` as predicted, but the
 aggregate was not: `os/cpus.lu` came *off* the unsupported rung, because lupin
 0.1.27 registers `os_cpus` and the call no longer fails to resolve. It still
-cannot be answered in a tab — what comes back is the `io` row, which
-`[os.cpus]` requires of a host that cannot answer rather than a silent 1 — so
+cannot be answered in a tab. What comes back is the `io` row, which
+`[os.cpus]` requires of a host that cannot answer, in place of a silent 1, so
 the program exits 0 printing `answered false`. Verdict `exit`, and the menu
 stays at thirty-three, because a sample shown beside a header it contradicts
-looks broken. Two clocks move a census, not one.
+looks broken.
 
-**And /play/ undercounted what it declines** — "five tiers" omitted
-`os_random` and `os_signal_listen`, both of which report `unsupported` here
-and serve at a terminal. Seven, with the two named (**wolf-web#13**).
+And /play/ undercounted what it declines: "five tiers" omitted `os_random`
+and `os_signal_listen`, both of which report `unsupported` here and serve at
+a terminal. The page says seven now, with the two named (wolf-web#13).
 
 ## ww15 — 2026-09-06
 
-The tripwire sees lupin. `scripts/check-version-prose.py` has kept the site's
-version prose honest since ww07 — every literal allowlisted, counted, and
-re-read when the pin moves past its audit — with a lupin-shaped hole in both
-halves, filed as **wolf-web#8** at ww11 and covered by hand at ww11 and again
-at ww14. Two waves of manual work is the cost of a rule that does not run, so
-this wave fixed it first and proved it before taking a pin.
+The tripwire sees lupin. `scripts/check-version-prose.py` has audited the
+site's version prose since ww07 (every literal allowlisted, counted, and
+re-read when the pin moves past its audit), with a lupin-shaped hole in both
+halves, filed as wolf-web#8 at ww11 and covered by hand at ww11 and again at
+ww14. That is two waves of manual work, so this wave fixed the rule first and
+proved it before taking a pin.
 
-**The audit names its clock.** The checker reads two pins now, wolf's
-CHANGELOG heading and lupin's `Cargo.toml` version — the same two `build.sh`
-already derives — and an allowlist entry says which one audits it:
-`audited-at-wolf=` or `audited-at-lupin=`. **The proof is the exact shape that
-cost the hand coverage.** With the lupin pin moved and the wolf pin held —
-ww14's tree, its checker and its allowlist verbatim — the old rule exits **0**.
-This one exits **1**:
+The audit names its clock. The checker reads two pins now, wolf's CHANGELOG
+heading and lupin's `Cargo.toml` version (the same two `build.sh` already
+derives), and an allowlist entry says which one audits it: `audited-at-wolf=`
+or `audited-at-lupin=`. The proof is the shape that cost the hand coverage.
+With the lupin pin moved and the wolf pin held, on ww14's tree with its
+checker and its allowlist verbatim, the old rule exits 0. This one exits 1:
 
     version prose: play/index.html: '0.1.22' was audited at lupin 0.1.25, the
     lupin pin is now 0.1.26 — re-read the sentence, then re-stamp its
@@ -91,59 +91,59 @@ This one exits **1**:
 
 Both sentences were re-read against 0.1.26 and both hold.
 
-**And the regex sees a bare `0.1.x`.** It matched only `v`-prefixed literals,
-so `lupin 0.1.22` — the spelling the site uses everywhere else, since the
-stamped placeholder renders without a `v` — was invisible: a claim about an
-old lupin could be written into a page and fossilize with nothing to catch it.
-ww11 dodged that by spelling `v0.1.22` on purpose. That workaround is retired;
+And the regex sees a bare `0.1.x`. It matched only `v`-prefixed literals, so
+`lupin 0.1.22` (the spelling the site uses everywhere else, since the stamped
+placeholder renders without a `v`) was invisible: a claim about an old lupin
+could be written into a page and fossilize with nothing to catch it. The ww11
+pass worked around that by spelling `v0.1.22`. That workaround is retired;
 /play/ spells both literals bare now, and with them deleted from the allowlist
 the old checker still reports a clean run while this one names them. The
-widened rule found something on its first pass, too: **`Rust 1.97.1` on the
-front page**, a toolchain claim the site has carried unaudited. It has a line
+widened rule found something on its first pass, too: `Rust 1.97.1` on the
+front page, a toolchain claim the site has carried unaudited. It has a line
 now, on the wolf clock, and the v0.2.5 bump forced its first re-reading.
 
-**The pins move to wolf v0.2.5 and lupin 0.1.26.** Six allowlisted literals
-went red at the wolf bump and every one was re-read at the tag. Two more
-sentences would have been falsified *by the stamp* — the class no tripwire
-catches, because a placeholder is exempt by construction: /install/ and /spec/
-both said `byte` arrived at this release and the unix-domain clause was new at
-it. Both arrived at v0.2.4, and both say so as counted literals now. **The pin
-lag is one again** — lupin 0.1.26 reads `982f857`, wolf v0.2.4, while the site
-advertises v0.2.5 — so ww14's "the two commits ARE the same commit" is false
-and both pages say one release apart. The Windows step needed no loosening:
-ww14 made it 0-or-1 and it computes which.
+The pins move to wolf v0.2.5 and lupin 0.1.26. Six allowlisted literals went
+red at the wolf bump and every one was re-read at the tag. Two more sentences
+would have been falsified *by the stamp*, the class no tripwire catches,
+because a placeholder is exempt by construction: /install/ and /spec/ both
+said `byte` arrived at this release and the unix-domain clause was new at it.
+Both arrived at v0.2.4, and both say so as counted literals now. The pin lag
+is one again: lupin 0.1.26 reads `982f857`, wolf v0.2.4, while the site
+advertises v0.2.5, so ww14's "the two commits ARE the same commit" is false
+and both pages say one release apart. The Windows step stayed as it was; the
+ww14 pass made it 0-or-1 and it computes which.
 
-**Five named refusals on Windows, not three.** wolf v0.2.5 is **THE SERVER HAS
-CORES** (s137), and this is the host where a prefork server is written a
-different way. `reuse_port` answers the `unsupported` row by name, and it is a
-refusal *on purpose*: Windows has no `SO_REUSEPORT`, and `SO_REUSEADDR` is a
-false synonym that lets any process take a held port — measured on a runner,
-two sockets carrying it bound one port and **all sixteen dials went to the
-first bound, none to the second**, so a worker that thought it had joined a
+Five named refusals on Windows, not three. wolf v0.2.5 is THE SERVER HAS
+CORES (s137), and this is the host where a prefork server is written a
+different way. `reuse_port` answers the `unsupported` row, and the refusal is
+the designed behavior: Windows has no `SO_REUSEPORT`, and `SO_REUSEADDR` is a
+false synonym that lets any process take a held port. Measured on a runner,
+two sockets carrying it bound one port and all sixteen dials went to the
+first bound, none to the second, so a worker that thought it had joined a
 group would sit idle forever. A descriptor handed across a spawn is missing
 twice over: the `SOCKET` does not cross the spawn the runtime performs, and a
 `SOCKET` is not the small stable number `[os.proc.inherit]` hands over by
-position. The page says what SERVES in the same breath, because a section
+position. The page says what serves in the same breath, because a section
 listing only refusals would describe a worse host than the one a learner has:
 `net_wait` is the one s137 clause that names no refusal anywhere, `os_cpus`
 answers, and `net_listen_with` without the option is `net_listen` with a
-backlog hint. The Windows job holds all of it — four s137 corpus witnesses run
+backlog hint. The Windows job holds all of it: four s137 corpus witnesses run
 on the runner for their pinned stdout with the exit-3 guard that catches a
 refusal arriving as the *wrong* row, two probes saying which branch this host
 actually took, and a third holding the positive half.
 
-**The census re-measured, and the corpus moved for the first time in two
-releases.** Through the module this build publishes: **286** `phase: run`
-corpus programs (282 a release ago — s137 added `net/wait_readiness.lu`,
-`net/reuse_port.lu`, `net/inherit_listener.lu` and `os/cpus.lu`), **197
-`exit`, 31 `trap`, 58 `unsupported`, 0 `fail`**. All four new programs answer
+The census re-measured, and the corpus moved for the first time in two
+releases. Through the module this build publishes: 286 `phase: run` corpus
+programs (282 a release ago; s137 added `net/wait_readiness.lu`,
+`net/reuse_port.lu`, `net/inherit_listener.lu` and `os/cpus.lu`), 197
+`exit`, 31 `trap`, 58 `unsupported`, 0 `fail`. All four new programs answer
 `unsupported`, so the candidate count is unchanged at 228: three want sockets
 a tab cannot open and the fourth wants the machine's core count, which is
 is18's os tier declining in the browser the way `os/random` already does.
-**is37's byte domain moved no menu entry's class** — thirty-three entries,
+The is37 byte domain moved no menu entry's class: thirty-three entries,
 each in the class the page claims for it, none carrying a note, the cast
-ladder still `exit(0)`. /changelog renders both new entries: **THE SERVER HAS
-CORES** and **THE BYTE HAS A DOMAIN (is37)**.
+ladder still `exit(0)`. /changelog renders both new entries, THE SERVER HAS
+CORES and THE BYTE HAS A DOMAIN (is37).
 
 ## ww14 — 2026-09-03
 
