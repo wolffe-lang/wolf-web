@@ -211,7 +211,8 @@ placeholder and the job reads the pinned `Cargo.toml`, so both point at the
 0.1.25 asset (5.3 MB, one file, `about 5 MB` still true) with no version
 literal to rot. (Writing that placeholder's name literally in this entry is
 the trap ww12's finished-dist sweep exists to catch, and it is dodged here
-the way ww13 dodged it.) /changelog renders the new entry, THE BYTE ARRIVES (is36).
+the way ww13 dodged it.) /changelog renders the new entry, THE BYTE ARRIVES
+(is36).
 
 The two lupin literals /play/ carries by design (`v0.1.22` and `v0.1.23`,
 about when the observation record started carrying a trapping program's
@@ -395,7 +396,7 @@ measured truth and promises nothing about the next release. What the Windows
 job gained instead is the measurement, taken early: three parity probes (the
 task layer, channel transfer, signal reception) run on the runner every week
 and are recorded, not asserted. At v0.2.2 all three
-refuse by name with exit 1, each naming the symbol that would not link
+refuse with exit 1, each naming the symbol that would not link
 (`__wolf_rt_scope_new`, `__wolf_rt_chan_new`, `__wolf_rt_os_signal_listen`)
 and the sprint that closes it. When the tag arrives, one line turns those
 three rows into claims that can go red.
@@ -457,8 +458,9 @@ The Windows welcome. The site gains /install/, and its Windows section was
 written from the measurement: a windows-latest job in this repo's CI
 downloads the published archive by the same URL the page prints, unpacks it
 with the same `tar`, and asserts every claim the page makes (word for word,
-exit code for exit code) on every push and once a week besides. What that job found is what the page now says. The compiler
-runs on Windows up to code generation: `wolf --version`, `wolf --explain`,
+exit code for exit code) on every push and once a week besides. What that job
+found is what the page now says. The compiler runs on Windows up to code
+generation: `wolf --version`, `wolf --explain`,
 `wolf fmt`, `wolf test`, and `wolf conform-run <file> --checked`, which
 executes a first program on the compiler's checked machine and prints its
 output in the record. `wolf build` and `wolf run` name the host in their
@@ -482,12 +484,12 @@ The site catches the wave. The pins move to wolf v0.2.1, lupin 0.1.20 and
 the book at bs22, four book sprints and two releases in one turn of the
 crank. The playground now runs an interpreter whose `match` arms take a
 struct apart by field name, and whose `defer` in a loop body fires at the
-end of every turn rather than when the function returns — the transcript
-the book's §4.3 now teaches. The book on the site gains the 45-exercise
-K&R ladder, chapter 25's first printed section on `wolf publish`, the
+end of every turn rather than when the function returns, which is the
+transcript the book's §4.3 now teaches. The book on the site gains the
+45-exercise K&R ladder, chapter 25's first printed section on `wolf publish`, the
 corrected `defer` teaching and three pattern exercises: 327 exercises in
 the corpus, 278 printed on the pages, each with a solution. /changelog
-carries the book's own entries for the first time — bs19 through bs22 —
+carries the book's own entries for the first time (bs19 through bs22)
 beside wolf 0.2.1 and lupin 0.1.20. Three prose claims the new pins moved
 were re-recorded, and the spec page's `grammar/1` posture is now stamped
 from the pin at build time instead of naming a version by hand.
@@ -495,9 +497,9 @@ from the pin at build time instead of naming a version by hand.
 ## ww07 — 2026-08-31
 
 The prose catches up. Every version claim on the site was re-recorded
-against the pins it already served — eleven stale claims, from "this is
+against the pins it already served: eleven stale claims, from "this is
 version 0.1.0" under a v0.2.0 toolchain to a spec page missing four
-normative documents — and a tripwire now keeps the class at zero:
+normative documents. A tripwire now keeps the class at zero:
 current-version claims are stamped into the pages at build time from the
 pinned checkouts, and every literal version mention must be counted and
 re-audited on each pin bump or the build refuses. The site also grew
@@ -507,19 +509,19 @@ that says so instead of a broken link.
 
 ## ww06 — 2026-08-30
 
-The site catches up: pins move to wolf v0.2.0, lupin v0.1.18 and the
+The site catches up. Pins move to wolf v0.2.0, lupin v0.1.18 and the
 post-bs19 book, so the playground runs six releases' worth of
 interpreter (+10.7% wasm) and diagnostics point at line:col instead of
-byte offsets. The editor grows manners — auto-indent, wolf-aware bracket
+byte offsets. The editor grows manners: auto-indent, wolf-aware bracket
 pairing (interpolation braces pair inside strings), goal columns, and
-multi-cursor editing with one-step undo — under a CSP gate that proves
-no script source was added to get them.
+multi-cursor editing with one-step undo. A CSP gate proves no script
+source was added to get them.
 
 ## ww05 — 2026-08-26
 
-The PDF on the page: the reading page offers the typst-set print edition
+The PDF on the page. The reading page offers the typst-set print edition
 for download, rendered from the same pinned book source as the web
-pages, with its measured size printed beside the link — and the line
+pages, with its measured size printed beside the link, and the line
 removed entirely when a build has no PDF, so the page never advertises a
 file the dist does not carry. Trunk work soon after fixed the page the
 fix shipped on: a 0600 file had been 403ing live, and the build now
@@ -530,8 +532,8 @@ refuses any dist file nginx cannot read.
 The site exists. A landing page, the playground (lupin compiled to
 WebAssembly, running conformance-corpus samples entirely in the tab),
 the spec and diagnostic catalogues copied from a pinned compiler
-checkout, and the book rendered from its own pinned repo — everything
-served generated from submodule pins, so no page can claim a version of
-wolf that does not exist. CI builds on every push, a link checker walks
+checkout, and the book rendered from its own pinned repo. Everything
+served is generated from submodule pins, so no page can claim a version
+of wolf that does not exist. CI builds on every push, a link checker walks
 the dist, deploys go to lupp.us over a restricted key, and a build
-missing a piece refuses to ship unless waived by name.
+missing a piece refuses to ship unless a waiver names it.
