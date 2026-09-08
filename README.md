@@ -60,7 +60,7 @@ and read a monotonic clock at startup, none of which exists on
 `wasm32-unknown-unknown`, and the patch gated all three on the target.
 Upstream took the gates in wolf-interp c1ec02e and the patch was deleted; the
 interpreter has owned its own wasm story since. At the current pin (v0.1.18)
-that story covers is18's bigger surface too: the s39 net tier and s40's
+that story covers the interpreter's bigger surface too: the net tier and the
 process trio decline by name on wasm, exactly as tasks, procs and the time
 trio do, so the build applies nothing and the module still imports nothing.
 `build-wasm.sh` keeps the staging-and-patch machinery: if a future pin ever
