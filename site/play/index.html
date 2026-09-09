@@ -123,16 +123,17 @@
   the source stays in the tab, and no request leaves the page after the module
   and the samples have loaded.</p>
 
-  <p>The revision of the specification it reads is one behind the compiler's,
-  at these pins. This interpreter, lupin __LUPIN_VERSION__, was released
-  against v0.2.5, while <a href="/install/">install</a> advertises
-  __WOLF_VERSION__ — the compiler tagged first again, which is the ordinary
-  shape. So a program that answers differently here from a wolf you download
-  today may be a disagreement about the text, or it may be this build reading
-  the text as it stood a release ago. Where the reading is what differs, the
+  <p>The revision of the specification it reads is two releases behind the
+  compiler's, at these pins. This interpreter, lupin __LUPIN_VERSION__, was
+  released against v0.2.5, while <a href="/install/">install</a> advertises
+  __WOLF_VERSION__ — the compiler has tagged twice since the interpreter last
+  did, which is the ordinary shape stretched by one. So a program that answers
+  differently here from a wolf you download today may be a disagreement about
+  the text, or it may be this build reading the text as it stood two tags ago.
+  Where the reading is what differs, the
   <a href="/spec/">specification</a> is what gets read. The gap was zero once,
   at the v0.2.4 pins, and it will be zero again; the CI job that measures this
-  page allows it to be zero or one and makes the page say which.</p>
+  page counts it and requires both pages to spell the number.</p>
 
   <p>The interpreter is not the compiler, and it reaches a different set of
   programs. It runs the memory model as a dynamic machine, so every ownership

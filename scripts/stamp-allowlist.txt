@@ -23,9 +23,17 @@
 # against v0.2.4" — the literal there rides the WOLF clock, so a lupin-only
 # release would leave the sentence unread while making it false. The bound
 # __LUPIN_VERSION__ entry is what catches that one.
-index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.6
-install/index.html __WOLF_VERSION__ 11 bound=3 audited-at-wolf=0.2.6
+#
+# Neither this file nor the literal allowlist beside it can see a sentence
+# that carries no version and no placeholder, and the pin-lag prose is
+# written three times across /install/ and /play/ — one of those three
+# ("one release behind the compiler's at these pins") has neither. Both
+# audits were green over it while it was stale. The windows job's pin-lag
+# step counts the gap and holds the phrase on both pages, which is where
+# that third sentence is covered; it is not covered here.
+index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.7
+install/index.html __WOLF_VERSION__ 10 bound=2 audited-at-wolf=0.2.7
 install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.27
-spec/index.html __WOLF_VERSION__ 3 bound=3 audited-at-wolf=0.2.6
-play/index.html __WOLF_VERSION__ 1 bound=0
+spec/index.html __WOLF_VERSION__ 3 bound=3 audited-at-wolf=0.2.7
+play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.7
 play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.27

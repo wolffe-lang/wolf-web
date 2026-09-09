@@ -70,15 +70,32 @@ fn main() -&gt; !int {
   it is not: <code>wolf --version</code> built anywhere but the tag answers
   with the build's commit.</p>
 
-  <p><strong>The accept is fair.</strong> A server in wolf is several hands on
-  one listening socket — processes that share the address, or children handed
-  one listener by the parent that opened it. Every arriving connection wakes
-  more than one of them and exactly one takes it, so the others lose a race.
+  <p><strong>The pairing is checked where it rots.</strong> That second line is
+  the one that had gone quiet. It names the <code>lupin</code> release this
+  compiler was differentially tested against, and its only job is to be true; it
+  stopped being true when the interpreter published 0.1.27 while the compiler's
+  stamp still said 0.1.26. The gate that exists to catch exactly that did catch
+  it, on every machine in the house at once and on none of the six CI jobs,
+  because the comparison needs a lupin binary standing beside the compiler and
+  no runner had one. v__WOLF_VERSION__ re-measures the pairing against the
+  interpreter as released, and gives the linux job the pinned lupin release
+  archive, fetched by the digest the release page reports and checked against
+  the bytes that arrive, so the comparison that used to run only on a laptop now
+  runs where something is watching. A stamp naming a lupin release that does
+  not exist now fails the step, and a download that fails reds as a failed
+  download instead of arriving as a green skip. No language surface moved:
+  nothing a program observes is different at this release.</p>
+
+  <p><strong>The accept is fair</strong>, and has been since v0.2.6. A server
+  in wolf is several hands on one listening socket — processes that share the
+  address, or children handed one listener by the parent that opened it. Every
+  arriving connection wakes more than one of them and exactly one takes it, so
+  the others lose a race.
   Through v0.2.5 a loser then called a <em>blocking</em>
   <code>accept(2)</code> with its deadline already spent, and parked in the
   kernel until the <strong>next</strong> connection arrived: microseconds on
   a busy server, and on a quiet one, never — alive at 0.0% CPU, answering no
-  control verb, reaped by its master as dead. At v__WOLF_VERSION__ a loser
+  control verb, reaped by its master as dead. At v0.2.6 a loser
   comes back inside the budget its <code>net_deadline</code> armed when the
   call began, never a fresh one, so the most a lost race can cost a serving
   loop is that budget. Nothing in <code>net_accept</code>'s signature or its
@@ -134,13 +151,15 @@ cargo build --release -p wolf_driver
   <code>~/.local/bin</code>: the <code>wolf</code> binary and the runtime
   archive it links programs against. The binary cannot link anything without
   the archive beside it, which is why the install step exists.</p>
-  <p>Or take a published archive instead of building one:
-  <a href="/install/">installing wolf</a> has the per-platform story, including
-  Windows, where the compiler builds and runs native programs once Visual
-  Studio Build Tools is installed beside it — tasks, channels and signals
-  included, with five named refusals left and each of the five measured
-  rather than described. That page quotes what a machine without Build Tools
-  sees, and every Windows sentence on it is asserted against the published
+  <p>Or let a package manager do it (a Homebrew tap on macOS and linux, five
+  packages on the AUR, all of them the project's own), or take a published
+  archive instead of building one:
+  <a href="/install/">installing wolf</a> has both, and the per-platform
+  story, including Windows, where the compiler builds and runs native programs
+  once Visual Studio Build Tools is installed beside it — tasks, channels and
+  signals included, with five named refusals left and each of the five
+  measured rather than described. That page quotes what a machine without
+  Build Tools sees, and every Windows sentence on it is asserted against the published
   archive by a job on a Windows runner.</p>
   <p>The toolchain pin is Rust 1.97.1, recorded in
   <code>rust-toolchain.toml</code>, and rustup honors it on the first

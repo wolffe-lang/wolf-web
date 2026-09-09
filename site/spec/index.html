@@ -72,11 +72,16 @@
     <dd>What makes the rest of it testable: clause anchors, test tagging, the
       closed trap vocabulary, and coverage reporting. The interpreter reads only
       the specification and the corpus, and this document is part of that sealed
-      interface. Its own register of anchor namespaces named seven while the
-      documents were publishing anchors in eleven, and at v__WOLF_VERSION__
-      the clause caught up to the practice: the four unlisted namespaces were
-      appended and not one anchor moved, because a published anchor is never
-      renumbered and the citations that would have had to move number in the
+      interface. Its own register of anchor namespaces has been wrong in both
+      directions, and is checked in both now. At v0.2.6 it named seven while the
+      documents were publishing anchors in eleven, and the four unlisted ones
+      were appended. At v__WOLF_VERSION__ the mirror closed: 07-schedule-points.md
+      had been declaring seven <code>[sched.*]</code> anchors that no register
+      carried, so no extractor read the document and no gate anywhere held an
+      opinion, while the runtime cited four of the seven from live scheduler
+      code. <code>sched</code> is registered now and its anchors are published,
+      424 to 431. Neither change renumbered anything, because a published anchor
+      is never moved and the citations that would have had to move number in the
       thousands. Anchors <code>[conf.*]</code>.</dd>
 
     <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (__KIB_spec/06-differential-protocol.md__ KiB)</dt>
@@ -91,7 +96,10 @@
     <dt><a href="/spec/07-schedule-points.md">07. Schedule Points</a> (__KIB_spec/07-schedule-points.md__ KiB)</dt>
     <dd>Where a schedule can make a decision, and the numbering a replayable
       counterexample uses. Normative for shape and vocabulary, and append-only
-      from here. Anchors <code>[sched.*]</code>.</dd>
+      from here. Its <code>[sched.*]</code> anchors are published in the index
+      as of v__WOLF_VERSION__; before that they were declared here and carried
+      by no register, so a program citing one was rejected for citing a clause
+      that existed. Anchors <code>[sched.*]</code>.</dd>
 
     <dt><a href="/spec/08-package.md">08. Packages</a> (__KIB_spec/08-package.md__ KiB)</dt>
     <dd>The package layer's formats, under one covenant: reading the dependency
@@ -126,7 +134,7 @@
       once (<code>[os.net.listen.opts]</code>), descriptors handed down across
       a spawn by position (<code>[os.proc.inherit]</code>), and the count of
       cores this process may be scheduled on (<code>[os.cpus]</code>). At
-      v__WOLF_VERSION__ it states what those hands actually see when a
+      v0.2.6 it stated what those hands actually see when a
       connection arrives (<code>[os.net.accept]</code>): a wake is not a
       connection, so the hand that loses the race carries no answer and waits
       again against the budget its deadline armed, in the runtime's wait

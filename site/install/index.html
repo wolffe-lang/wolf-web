@@ -29,10 +29,68 @@
   <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>.
   An archive is a folder with the <code>wolf</code> binary in it and the
   runtime archive it links programs against — there is no installer and
-  nothing to register. Building from source is the path the project itself
-  uses; the recipe is on the <a href="/">front page</a>.</p>
+  nothing to register. On macOS and linux a package manager will do it for
+  you instead: <a href="#package-managers">the doors are below</a>. Building
+  from source is the path the project itself uses; the recipe is on the
+  <a href="/">front page</a>.</p>
   <p>Wolf is version __WOLF_VERSION__ and pre-alpha. This page describes that
   release and no other.</p>
+</section>
+
+<section id="package-managers">
+  <h2>Package managers</h2>
+
+  <p>Two channels carry wolf, and the project publishes both. On macOS and
+  linux, a Homebrew tap — three lines, and the first one is not optional:</p>
+
+<pre><code>brew trust wolffe-lang/wolf
+brew tap wolffe-lang/wolf
+brew install wolf</code></pre>
+
+  <p>Skip <code>brew trust</code> and Homebrew tells you something that is not
+  true. It declines to load formulae from a third-party tap you have not
+  trusted, and then reports the refusal in its generic words:</p>
+
+<pre><code>Refusing to load formula wolffe-lang/wolf/wolf from untrusted tap wolffe-lang/wolf.
+Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
+
+  <p>There is no syntax error. Both formulae parse, and the second line is
+  what Homebrew says about any tap it declined to read, whatever the reason.
+  Trust the tap and it taps cleanly. The tap carries three formulae:
+  <code>wolf</code>, the compiler; <code>lupin</code>, the reference
+  interpreter; and <code>lobo</code>, the web server this project is writing
+  in wolf. The first two build from the tagged git source rather than a
+  release archive, which is deliberate — a build made at the tag is what lets
+  <code>wolf --version</code> print a bare version and a pin instead of the
+  <code>+dev</code> suffix an unverifiable build carries, and each formula's
+  test block asserts that before the binary reaches you.</p>
+
+  <h3>Arch</h3>
+
+  <p>On the AUR the packages are named for the language rather than for the
+  compiler, because <code>wolf</code> was taken a long time ago: it is
+  <em>Return to Castle Wolfenstein</em>, and installing it gets you a
+  first-person shooter that wants the retail game files. What you want is</p>
+
+<pre><code>yay -S wolf-lang-bin</code></pre>
+
+  <p>and there are five packages in all. <code>wolf-lang</code> and
+  <code>wolf-lang-bin</code> are the compiler, built at the tag and unpacked
+  from the published archive respectively; <code>lupin</code> and
+  <code>lupin-bin</code> are the interpreter the same two ways; and
+  <code>lobo-bin</code> is the server. The <code>-bin</code> packages are the
+  fast door, and they install the same archives the releases page serves.</p>
+
+  <p>Neither channel is built by this site, and nothing on this page can tell
+  you they are current. What can is a gate in the tap's own repository that
+  reads what is <em>published</em> — the live AUR, the live tap, the live
+  release pages — and goes red when a package trails its upstream or names a
+  digest the release does not carry. When this page was last read against the
+  pins, all eight packages across the two channels named their upstream's
+  latest release: v0.2.7 for the compiler on both, 0.1.27 for the interpreter
+  on both, which is this release and the interpreter beside it. If a door is
+  stale when you get there, the archives below need nothing installed
+  first.</p>
 </section>
 
 <section>
@@ -103,18 +161,20 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   first line.</p>
 
   <p>Read the second line closely, because it is the one that moves. At these
-  pins the two commits are one release apart: <code>lupin
-  __LUPIN_VERSION__</code> was released against v0.2.5, the release before
-  this one, so the interpreter is reading the revision of the specification
-  the compiler shipped last. That gap is the ordinary shape of a
-  two-implementation project between tags — it was zero at the v0.2.4 pins,
-  when lupin caught up to the tag itself — and it is the reason the
-  <a href="/play/">playground</a> can answer a program differently from the
+  pins the two commits are two releases apart: <code>lupin
+  __LUPIN_VERSION__</code> was released against v0.2.5, and the compiler has
+  tagged twice since, so the interpreter is reading the revision of the
+  specification the compiler shipped two tags back. A gap opens because the
+  compiler tags and the interpreter has not yet followed, which is the ordinary
+  shape of a two-implementation project between tags — it was zero at the
+  v0.2.4 pins, when lupin caught up to the tag itself — and it is the reason
+  the <a href="/play/">playground</a> can answer a program differently from the
   compiler you just installed. When they disagree, the
   <a href="/spec/">specification</a> is what gets read. The CI job that
-  measures this page checks the gap is zero or one release and prints which,
-  so this sentence goes red when it stops being true rather than quietly
-  rotting.</p>
+  measures this page counts the gap in releases against the compiler's own
+  changelog and requires this page and the playground's to spell the number it
+  counted, so the sentence goes red when it stops being true rather than
+  quietly rotting.</p>
 
   <h3>Your first program</h3>
 
@@ -298,7 +358,7 @@ own sprints</code></pre>
   waits on many sockets is written the same way on Windows as anywhere; it is
   the many-processes-one-port shape that takes a different route.</p>
 
-  <p>The fair accept v__WOLF_VERSION__ is named for is here too, and it is not
+  <p>The fair accept v0.2.6 was named for is here too, and it is not
   a new call — it is what <code>net_accept</code> already did, corrected.
   Windows is one of the three reactor hosts the clause names, so a listener
   lives non-blocking under the runtime here as well: a hand woken by an
@@ -411,7 +471,7 @@ hello, wolf</code></pre>
   that used a task or a channel, and it has not been that since v0.2.3.
   <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
-  --version</code> quotes back — one release behind the compiler's at these
+  --version</code> quotes back — two releases behind the compiler's at these
   pins, as above.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
