@@ -3,6 +3,86 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww19 — 2026-09-09
+
+The site takes the interpreter. Pins move to lupin 0.1.28, and for the first
+time the counted lag is zero: 0.1.28 was released against 5c729e8, which is
+the commit v0.2.8 was tagged at and the commit this site already pinned. Both
+/install/ and /play/ say "the same commit", and neither carries a phrase for
+one, two or three releases.
+
+The census was written down before the harness ran and held on every number.
+293 `phase: run` corpus programs, 200 `exit`, 31 `trap`, 62 `unsupported`, 0
+`fail`, candidates 231, identical to the pins before these. It was a cheap
+prediction to make: the compiler pin does not move at this bump, so the corpus
+is byte-identical and only the module in the tab changes. wolf-interp#69 is
+the one item in the release that could have moved a verdict, since it reparses
+`str.to_int` as the `i64` the type is, and the corpus witness does not reach
+it. wolf-lang held the overflow input in its own crate tests while the two
+implementations disagreed, so `strings/to_int.lu` shows the i64 extremes and
+nothing outside them, and it exits 0 here as before.
+
+Closing the gap changed nothing about what the playground declines, which is
+what ww18 said would happen and what both pages now say instead of leaving a
+reader to infer it. `net_writev` and `net_nodelay` are in this interpreter and
+`fs_fstat` was never a question of age, so all four witnesses still report
+`unsupported` in the tab. A browser has no sockets and this interpreter opens
+no files anywhere. Those refusals had two reasons at once while the pins were
+apart and one of them has gone.
+
+Five literals reddened on the lupin clock rather than the four this pass
+expected. The four historical ones on /play/ hold, and `byte_casts.lu` still
+exits 0, so "0.1.25 closed that and it has stayed closed" is still a true
+sentence. The fifth is /install/'s package freshness claim, and it is a claim
+about somebody else's repository, so it was read live: the AUR has `lupin` and
+`lupin-bin` at 0.1.28-1 and the tap's formula builds tag v0.1.28. The doors
+were already current, which is the opposite of the ww18 reading and the reason
+that sentence is a literal instead of a stamp.
+
+One sentence on /play/ had gone false while carrying no version at all. The
+`to_int` sample "could not have been on the menu at the last pin", which
+stopped being true the moment those became the last pins. It says what it
+means now.
+
+The windows job stopped the build before any of it, over its own defect rather
+than the site's. It read the interpreter's specification pin out of a sentence
+("Released against pin `x`, wolf-lang **vY**"), and 0.1.28 does not write that
+sentence. wolf-interp records the pin as a submodule gitlink, which cannot be
+worded differently, so that is where it is read now; the changelog is still
+consulted, but only to say which release that commit is, and it has to name
+that commit rather than some other pin in the same entry. A counted gap of
+zero also gets proved outright now: the phrase the pages carry says "the same
+commit", so the two gitlinks have to be it.
+
+Every count in the prose is held by something (wolf-web#17). Eight numbers
+were written as English words with no gate anywhere, and one of them was
+wrong: /play/ said twelve of the corpus's net programs were declined here from
+ww16 to ww18, when thirteen was already the truth and it is sixteen now. Five
+of the eight come off something a build can measure and are stamped from it,
+the way file sizes have been since ww13 — the diagnostic and warning code
+counts off the pinned documents' own headings, the net count off the pinned
+`corpus/net/`, the menu count and the front page's "thirty-odd" off the sample
+index the build wrote. A placeholder names a source and a spelling, because
+the pages spell a number three ways and all three have to come off one
+measurement.
+
+The other three are a reading rather than a measurement: the tiers the browser
+build declines, the things a Windows program can still reach, the rows the
+native lane skips. Those are literals in `scripts/count-allowlist.txt`, which
+lists every number word in the site's prose with a total and says how many of
+its occurrences a pin bump can still move. A live one carries an `audited-at`
+and reddens at the bump, so it is re-read against the thing it counts. There
+are three clocks now, because /reading/'s chapter counts move with the book,
+which publishes no version and so rides its pin. The frozen ones carry no
+clock at all, which the file requires rather than permits.
+
+Counting a directory is only the right measurement while the whole directory
+behaves the way the sentence beside it claims, so `check-samples.mjs` takes
+every program in `corpus/net/` through the module the build publishes and
+requires all sixteen to be declined. The count and the claim are held
+separately, because the count was wrong for two releases and the sentence
+around it was not.
+
 ## ww18 — 2026-09-09
 
 The site takes the first chapter. Pins move to wolf v0.2.8; lupin holds at
