@@ -40,6 +40,7 @@ population rather than a measurement of one. Those are literals, enumerated
 in scripts/count-allowlist.txt with a count and the clock that re-reads them,
 and scripts/check-counts.py holds that half.
 """
+from __future__ import annotations
 
 import json
 import re
