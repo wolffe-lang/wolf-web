@@ -82,6 +82,11 @@ jobs:
       # got rewritten instead of quietly becoming false. ww14 widened it to
       # ZERO OR ONE and had it decide which.
       #
+      # ww18 added the phrase for a gap of three and nothing else: v0.2.8
+      # tagged with lupin still at 0.1.27, the step stopped the job naming
+      # the missing sentence, both paragraphs were written, and the phrase
+      # went in the table after them. That is the order this is built for.
+      #
       # ww17 retired the ceiling, because at wolf v0.2.7 the ceiling was
       # wrong rather than the world. That release is a pairing re-stamp and a
       # CI job; it moved no language surface, and the interpreter had no
@@ -91,6 +96,12 @@ jobs:
       # never bumped" — a diagnosis that was never true. The gap is now
       # COUNTED, as the distance from the advertised release back to the one
       # lupin names, over the pinned CHANGELOG's own ordering.
+      #
+      # NOTE for whoever writes the next lag sentence: the phrases in the
+      # table below are RESERVED VOCABULARY on /install/ and /play/. The
+      # absent-phrase half of this check is page-wide, so an unrelated
+      # sentence that happens to say "one release" (the packaging lag, say)
+      # reds the job. Word around them; they are short on purpose.
       #
       # And the number is held against the PROSE, which is the half a version
       # literal cannot cover. The lag is stated in three places across two
@@ -121,9 +132,9 @@ jobs:
           # The closed set of sentences the two pages are written for. A gap
           # outside it is not a bug in this step: it is a gap nothing on the
           # site has words for, so it stops the job until someone writes them.
-          $phrases = [ordered]@{ '0' = 'the same commit'; '1' = 'one release'; '2' = 'two releases' }
+          $phrases = [ordered]@{ '0' = 'the same commit'; '1' = 'one release'; '2' = 'two releases'; '3' = 'three releases' }
           if (-not $phrases.Contains("$gap")) {
-            Write-Output "::error::the interpreter is $gap releases behind and /install/ and /play/ have prose for 0, 1 and 2 only — write the sentence, then add its phrase here"
+            Write-Output "::error::the interpreter is $gap releases behind and /install/ and /play/ have prose for 0 through 3 only — write the sentence, then add its phrase here"
             exit 1
           }
           $want = $phrases["$gap"]
