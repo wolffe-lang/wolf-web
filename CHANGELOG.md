@@ -3,6 +3,100 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww17 — 2026-09-09
+
+The site takes the pairing. Pins move to wolf v0.2.7; lupin holds at 0.1.27,
+which is the whole shape of this bump. The compiler tagged and the interpreter
+had no reason to.
+
+What v0.2.7 is. `wolf --version` prints a second line naming the lupin release
+the compiler is differentially tested against, and that line has one job, which
+is to be true. It stopped being true when the interpreter published 0.1.27 and
+the compiler's stamp still said 0.1.26. The gate that exists to catch that did
+catch it, on every machine in the house at once and on none of the six CI jobs,
+because the comparison needs a lupin binary standing beside the compiler and no
+runner had one. The release re-measures the pairing against the interpreter as
+released and gives the linux job the pinned lupin release archive, fetched by
+the digest the release page reports and checked against the bytes that arrive.
+No language surface moved. The front page carries the story and nothing below
+it moves for it.
+
+The census did not move, which was the prediction. 287 `phase: run` corpus
+programs, 198 `exit`, 31 `trap`, 58 `unsupported`, 0 `fail`, candidates 229,
+every number identical to ww16's. The prediction was cheap to make and worth
+making anyway: no corpus file was added or removed between the two tags, the
+only corpus edit is a `conforms:` tag and a comment on
+`corpus/test/conc_schedules_test.lu` (a program the playground already
+declines), and the module in the tab is unchanged because lupin did not tag.
+The numbers were re-measured through the published module rather than reasoned
+about, because the rule this file keeps is that they are read, not glanced at.
+
+Thirteen literals reddened, every one of them on the wolf clock, and the four
+lupin entries stayed green because 0.1.27 is still 0.1.27. This is the first
+bump where the two clocks disagreed, which is what ww15 built them for. Nine
+release-bound placeholder sentences reddened beside them (ww16), and four of
+the nine were false.
+
+The four. On the front page, "At (the wolf stamp) a loser comes back inside the
+budget its `net_deadline` armed" was v0.2.6's fair accept rendering under
+v0.2.7; it names v0.2.6 now. On /install/, "the fair accept (the wolf stamp) is
+named for is here too" was the same sentence one page over. On /spec/, document
+11's "at (the wolf stamp) it states what those hands actually see
+(`[os.net.accept]`)" was the third copy of it. Document 05's was different and
+more interesting: "at (the wolf stamp) the clause caught up to the practice"
+was true of v0.2.6, where four namespaces the documents were already publishing
+in got appended to `[conf.anchor.ns]`, and false at v0.2.7, where the register
+moved again in the opposite direction. 07-schedule-points.md had been declaring
+seven `[sched.*]` anchors that no register carried, so no extractor read the
+document and no gate held an opinion about it, while the native runtime cited
+four of the seven from live scheduler code. The page says both halves now, and
+says the clause is checked in both directions.
+
+The lag is two, and the step that measures it was wrong about why. The windows
+job has held the pin lag since ww11 and accepted zero or one since ww14, with a
+comment saying a lag of two means a lupin release was skipped or a pin was
+never bumped. Neither happened. The compiler tagged twice (v0.2.6, v0.2.7)
+while the interpreter held, because a pairing re-stamp gives an interpreter
+nothing to catch up to. So the ceiling is retired. The step counts the gap as
+the distance from the advertised release back to the one lupin names, over the
+pinned CHANGELOG's own ordering, and a gap the pages have no words for stops
+the job instead of being called a skipped release.
+
+And the number is now held against the prose, which is the half neither audit
+can see. The lag is stated three times across /install/ and /play/, and the
+third of the three, "one release behind the compiler's at these pins", carries
+no version literal and no placeholder at all. Both audits were green over it
+while it was stale, through this bump and, going by the sentence itself, the
+one before. The step requires the phrase for the counted gap on both pages and
+the phrases for the other gaps on neither, so a paragraph left unrewritten
+stops the job and says which page it is on.
+
+/install/ says how the doors open. Two channels carry wolf and the project
+publishes both, and until now the page mentioned neither. Homebrew wants
+`brew trust wolffe-lang/wolf` before `brew tap wolffe-lang/wolf && brew install
+wolf`, and the page says so because skipping the trust line produces an error
+that is not true: Homebrew declines to load formulae from an untrusted
+third-party tap and reports the refusal as `invalid syntax in tap!`, which is
+its generic wording for a tap it would not read. Both formulae parse. The tap
+carries `wolf`, `lupin` and `lobo`. On the AUR the packages are named for the
+language, because `wolf` there is Return to Castle Wolfenstein and has been for
+years: `wolf-lang` and `wolf-lang-bin`, `lupin` and `lupin-bin`, `lobo-bin`.
+The freshness claim (all eight packages across the two channels named their
+upstream's latest, v0.2.7 for the compiler and 0.1.27 for the interpreter) is
+written as counted literals rather than stamps, one on each clock. A stamped freshness claim would re-render with the
+new number at the next bump and assert, with nobody looking, that a packager
+had already pushed; as literals they red and someone reads the live channel.
+
+Filed upstream, wolf-lang#264. v0.2.7's own CHANGELOG entry documents #253 and
+nothing else, but the tag also carries the s139 admission above (#246) and the
+s140 driver work: a real `wolf --help` on stdout at exit 0 with per-verb help,
+a man page and shell completions, a compile-failure footer that names the code
+it actually reported, and a `use std.…` miss that says no standard library is
+configured. Four of those issues are still open. The site renders that
+CHANGELOG from the pinned checkout, so /changelog/wolf/ now publishes a v0.2.7
+entry with two thirds of the release missing, and nothing on this side can fix
+it.
+
 ## ww16 — 2026-09-07
 
 The site takes the accept. Pins move to wolf v0.2.6 and lupin 0.1.27, and
