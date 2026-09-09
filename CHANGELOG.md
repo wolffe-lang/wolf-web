@@ -3,6 +3,13 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+This file is rendered to /changelog/site/ from the checkout the build pins,
+and the render happens BEFORE the stamps run. An entry that spells one of the
+build's placeholder tokens out — the version ones, the KiB ones, the count ones
+— therefore has it filled in on the served page and says something else there
+than it says here, and one of them stops the build outright. Name the source
+in words; do not quote the token.
+
 ## ww20 — 2026-09-09
 
 The site takes the line. Pins move to wolf v0.2.9 and lupin 0.1.29, both clocks
@@ -54,10 +61,10 @@ each, including the one no verdict count can see: `conc/chan_closed_row.lu`
 exits 0 on both machines and prints `Closed` where the compiler prints
 `closed`.
 
-That distance is measured rather than written. It is a
-`__COUNT_speccommits_word__` stamp now, counted with git over the two pinned
-gitlinks, and it is the first count in this file's scheme whose source is
-history rather than a file — which is why the build job now deepens the pinned
+That distance is measured rather than written. It is a stamp now, filled in
+at build time by a new `speccommits` source that counts commits with git over
+the two pinned gitlinks — the first count in the site's scheme whose source is
+history rather than a file, which is why the build job now deepens the pinned
 compiler checkout that actions/checkout took at depth 1.
 
 The windows job went red over the SOURCE of the number for the second bump
