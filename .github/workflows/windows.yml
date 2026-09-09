@@ -93,6 +93,26 @@ jobs:
       # old parser knew. The pin is read off the interpreter's own gitlink now
       # and the changelog only has to say which release that commit is.
       #
+      # ww20 went red over the source a SECOND time, and this one retires the
+      # changelog as a source altogether. lupin 0.1.29 was built to `e9a17cb`,
+      # which is not a release and never will be: it is a development revision
+      # of the compiler's trunk, taken because the clauses that release mirrors
+      # did not exist at the newest tag. No sentence anywhere can say which
+      # release that commit "is", because it is not one. So the gap is counted
+      # by ANCESTRY in the pinned compiler's own history — the newest release
+      # tag that is an ancestor of the interpreter's pin — and the distance to
+      # the advertised tag is reported in commits beside it. Both ends are
+      # gitlinks and the history is the compiler's; nothing here reads prose.
+      #
+      # That needs history, and actions/checkout takes submodules at depth 1,
+      # so the step deepens the one checkout that has to answer. It is the only
+      # network this job does that is not the archive itself.
+      #
+      # A pin that is not a tag also gets its own half of the prose check. The
+      # pages have to say so — "a development revision" is reserved vocabulary
+      # beside the four gap phrases — and when the pin IS a tag, neither page
+      # may say it. Same discipline, same both-directions shape.
+      #
       # ww17 retired the ceiling, because at wolf v0.2.7 the ceiling was
       # wrong rather than the world. That release is a pairing re-stamp and a
       # CI job; it moved no language surface, and the interpreter had no
@@ -122,43 +142,64 @@ jobs:
           $rel = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' |
                    ForEach-Object { $_.Matches[0].Groups[1].Value }
           if ($rel.Count -lt 2) { Write-Output "::error::the pinned wolf-lang CHANGELOG has fewer than two releases"; exit 1 }
-          # WHICH pin the interpreter was built to is read off its own gitlink
-          # for the specification, not off a sentence about it. Through ww18
-          # this step parsed 'Released against pin `x`, wolf-lang **vY**' out
-          # of the newest lupin entry, and 0.1.28 does not write that sentence:
-          # it opens each of its two half-entries with 'Pin `a` -> `b`,
-          # wolf-lang **vY**' instead, so the step stopped the job over an
-          # upstream prose habit rather than over anything about this site.
-          # The gitlink cannot be worded differently. The CHANGELOG is still
-          # read, but only to map that commit to a release the compiler names,
-          # and it must name THAT commit — a prose line about some other pin
-          # in the same entry (0.1.28 has one, is39's) does not answer.
+
+          # Both ends of the distance are gitlinks, which cannot be worded
+          # differently: the interpreter records the specification checkout it
+          # was built to, and this site records the compiler it advertises.
           $link = git -C upstream/wolf-interp ls-tree HEAD upstream
           $pin = [regex]::Match("$link", '^160000 commit ([0-9a-f]{40})')
           if (-not $pin.Success) { Write-Output "::error::upstream/wolf-interp records no gitlink for its specification checkout — the pin cannot be read"; exit 1 }
-          $lupPin = $pin.Groups[1].Value.Substring(0, 7)
-          $lupChanges = Get-Content upstream/wolf-interp/CHANGELOG.md -Raw
-          $entry = ($lupChanges -split '(?m)^## ')[1]
-          $m = [regex]::Match($entry, '`' + $lupPin + '[0-9a-f]*`,\s*wolf-lang\s+\*{0,2}v(\d[\d.]*)')
-          if (-not $m.Success) { Write-Output "::error::the pinned lupin CHANGELOG's newest entry does not say which wolf-lang release pin $lupPin is"; exit 1 }
-          $lupSpec = $m.Groups[1].Value
-          "wolf $env:WOLF_VER is the release this site advertises"
-          "lupin $env:LUPIN_VER was built at pin $lupPin — wolf-lang v$lupSpec"
-          $gap = [array]::IndexOf([string[]]$rel, $lupSpec)
-          if ($gap -lt 0) {
-            Write-Output "::error::lupin $env:LUPIN_VER names wolf-lang v$lupSpec, which is not a release in the pinned wolf CHANGELOG at all — one of the two pins is wrong"
+          $lupPin = $pin.Groups[1].Value
+          $own = [regex]::Match("$(git ls-tree HEAD upstream/wolf-lang)", '^160000 commit ([0-9a-f]{40})').Groups[1].Value
+          $short = $lupPin.Substring(0, 7)
+
+          # Depth 1 cannot answer a question about history.
+          if ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {
+            git -C upstream/wolf-lang fetch --quiet --unshallow --tags origin
+          } else {
+            git -C upstream/wolf-lang fetch --quiet --tags origin
+          }
+          git -C upstream/wolf-lang cat-file -e "$lupPin^{commit}" 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            Write-Output "::error::lupin $env:LUPIN_VER was built to $short, which is not a commit in the pinned compiler checkout — one of the two pins is wrong, or the revision was never pushed"
             exit 1
           }
-          # A counted gap of zero is the one claim this job can prove outright
-          # rather than infer from two changelogs: the phrase the pages carry
-          # for it says THE SAME COMMIT, so require the two gitlinks to be it.
-          if ($gap -eq 0) {
-            $own = (git ls-tree HEAD upstream/wolf-lang) -replace '^160000 commit ([0-9a-f]{40}).*$', '$1'
-            if ($own.Substring(0, 7) -ne $lupPin) {
-              Write-Output "::error::the counted gap is zero but this site pins wolf-lang at $($own.Substring(0,7)) while lupin was built at $lupPin — the two pages would say 'the same commit' about two commits"
-              exit 1
-            }
-            "both pins are commit $lupPin"
+          git -C upstream/wolf-lang merge-base --is-ancestor $lupPin $own
+          if ($LASTEXITCODE -ne 0) {
+            Write-Output "::error::lupin $env:LUPIN_VER was built to $short, which the compiler this site pins does not descend from — the interpreter is reading a specification that is not on this line"
+            exit 1
+          }
+          $commits = [int](git -C upstream/wolf-lang rev-list --count "$lupPin..$own")
+
+          # WHICH release that revision belongs to: the newest release tag that
+          # is an ancestor of it. A pin that IS a tag answers with its own.
+          $lupSpec = ""
+          foreach ($r in $rel) {
+            git -C upstream/wolf-lang rev-parse -q --verify "v$r^{commit}" > $null 2>&1
+            if ($LASTEXITCODE -ne 0) { continue }
+            git -C upstream/wolf-lang merge-base --is-ancestor "v$r^{commit}" $lupPin
+            if ($LASTEXITCODE -eq 0) { $lupSpec = $r; break }
+          }
+          if (-not $lupSpec) {
+            Write-Output "::error::no release in the pinned wolf CHANGELOG is an ancestor of $short — the interpreter was built to a revision older than every tag this site can see"
+            exit 1
+          }
+          $tagged = ((git -C upstream/wolf-lang rev-parse "v$lupSpec^{commit}") -eq $lupPin)
+          $gap = [array]::IndexOf([string[]]$rel, $lupSpec)
+          "wolf $env:WOLF_VER is the release this site advertises"
+          if ($tagged) {
+            "lupin $env:LUPIN_VER was built at the v$lupSpec tag ($short)"
+          } else {
+            "lupin $env:LUPIN_VER was built at $short, a development revision past v$lupSpec — $commits commits behind the advertised tag"
+          }
+
+          # A counted gap of zero is the one claim this job can prove outright:
+          # the phrase the pages carry for it says THE SAME COMMIT, so the two
+          # gitlinks have to be it. A dev revision past the newest release
+          # counts as zero and is not the same commit, and lands here.
+          if ($gap -eq 0 -and $lupPin -ne $own) {
+            Write-Output "::error::the counted gap is zero but this site pins wolf-lang at $($own.Substring(0,7)) while lupin was built at $short — the two pages would say 'the same commit' about two commits"
+            exit 1
           }
           # The closed set of sentences the two pages are written for. A gap
           # outside it is not a bug in this step: it is a gap nothing on the
@@ -182,12 +223,34 @@ jobs:
                 exit 1
               }
             }
+            # Whether the pin is a tag is a second fact about the same gap, and
+            # the pages say it in their own reserved words.
+            if ((-not $tagged) -and ($text -notlike '*a development revision*')) {
+              Write-Output "::error::lupin was built at $short, which is no release, and $pg does not say so — it must carry the phrase 'a development revision'"
+              exit 1
+            }
+            if ($tagged -and ($text -like '*a development revision*')) {
+              Write-Output "::error::lupin was built at the v$lupSpec tag and $pg still calls it 'a development revision' — a lag paragraph was left unrewritten"
+              exit 1
+            }
+            # And the distance itself is stamped, not written, so the page has
+            # to carry the stamp exactly when there is a distance to state.
+            $stamp = ($text -like '*__COUNT_speccommits_word__*')
+            if (($commits -gt 0) -and (-not $stamp)) {
+              Write-Output "::error::the interpreter's pin is $commits commits behind and $pg states no distance — it must carry __COUNT_speccommits_word__, which the build measures"
+              exit 1
+            }
+            if (($commits -eq 0) -and $stamp) {
+              Write-Output "::error::$pg carries __COUNT_speccommits_word__ while the two pins are one commit — there is no distance to state"
+              exit 1
+            }
           }
           $reads = switch ($gap) { 0 { "this release" } 1 { "the release before this one" } default { "$gap releases back" } }
+          $spec = if ($tagged) { "``$short`` — the v$lupSpec tag" } else { "``$short`` — a development revision past v$lupSpec, $commits commits back" }
           $md = @("", "### The specification pin lag", "",
                   "| | release | specification pin |", "|---|---|---|",
                   "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",
-                  "| the interpreter beside it | lupin $env:LUPIN_VER | ``$lupPin`` — wolf-lang v$lupSpec |", "",
+                  "| the interpreter beside it | lupin $env:LUPIN_VER | $spec |", "",
                   "A counted gap of ${gap} — the interpreter reads $reads, and both pages say '$want'.", "")
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
           "lupin reads $reads — both pages carry '$want' and neither carries another"
