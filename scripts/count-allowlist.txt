@@ -1,0 +1,63 @@
+# Every number word in the site's own prose, one line each:
+#   <path under site/> <word> <total> counted=<n> [audited-at-<project>=<pin>]
+#
+# A count a machine can measure never appears here, because it never appears
+# on the page: it is a __COUNT_<source>_<spelling>__ placeholder that
+# scripts/stamp-counts.py fills in from the pinned checkout or from the sample
+# index the build wrote. This list is for the rest — the reading of a
+# population rather than a measurement of one, and the number that measures
+# no population at all.
+#
+# `counted=<n>` says how many of the file's occurrences state a number a pin
+# bump can still move. Those get a clock, and the bump moves past it the way
+# it does for a version literal: re-read the sentence against the thing it
+# counts, then re-stamp. The rest are frozen — a historical measurement, a
+# property of the language, a duration — and carry no clock, because there is
+# nothing for a pin to move.
+#
+# Three projects can move a number here, so there are three clocks:
+#   audited-at-wolf=    the compiler's releases, its corpus, its documents
+#   audited-at-lupin=   what the interpreter in the tab answers
+#   audited-at-book=    the book, which publishes no version, so its pin
+#
+# The vocabulary starts at five. One through four are ordinary English on this
+# site and enumerating them would produce a file nobody reads; the defect this
+# list exists for (wolf-web#17 — /play/ said TWELVE net programs for two
+# releases while the corpus carried thirteen and then sixteen) lived well
+# above that line. See scripts/check-counts.py.
+#
+# What each live entry was read against, at this pass:
+#   docs/     `seven items` — docs/api/index.json, two modules, 2 + 5 items
+#   /         `five packages on the AUR` — the live AUR, five results
+#   / and /install/ the five named Windows refusals — the windows job proves
+#             each one by name, and its header comment counts them
+#   /install/ `thirty-six rows` — docs/platforms.md, "the 36 rows the native
+#             lane does not execute here are the same 36 ... on macOS"
+#   /play/    `Seven tiers` — the census's own reason strings: tasks, procs,
+#             time, the process trio, net, os_random, os_signal_listen. The
+#             filesystem tier and the module graph are declined too and are
+#             not in the seven, because the sentence counts what a terminal
+#             lupin serves and this build does not.
+#   /reading/ 32 chapter files, ch29 reserved whole and ch25 one section in,
+#             so thirty are written through; ch21 carries §21.1–§21.5 with
+#             §21.3 and §21.5 reserved; chapters 26–32 are six programs and a
+#             coda.
+docs/index.html seven 1 counted=1 audited-at-wolf=0.2.8
+index.html five 3 counted=3 audited-at-wolf=0.2.8
+index.html six 1 counted=0
+index.html twenty 1 counted=0
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.8
+install/index.html eight 2 counted=0
+install/index.html five 1 counted=1 audited-at-wolf=0.2.8
+install/index.html sixteen 1 counted=0
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.8
+install/index.html twenty-one 1 counted=0
+play/index.html Seven 1 counted=1 audited-at-lupin=0.1.28
+play/index.html thirteen 1 counted=0
+play/index.html twelve 1 counted=0
+reading/index.html Six 1 counted=1 audited-at-book=f0e2dd1
+reading/index.html Thirty 1 counted=1 audited-at-book=f0e2dd1
+reading/index.html five 1 counted=1 audited-at-book=f0e2dd1
+reading/index.html thirty-two 1 counted=1 audited-at-book=f0e2dd1
+spec/index.html eleven 1 counted=0
+spec/index.html seven 3 counted=0

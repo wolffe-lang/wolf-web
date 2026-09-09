@@ -80,6 +80,14 @@ test -d site || { echo "site/ is missing — nothing to serve" >&2; exit 1; }
 # counted and re-read at a bump like any literal.
 python3 scripts/check-version-prose.py site upstream/wolf-lang upstream/wolf-interp
 
+# The same rule for a count. A number written into prose as an English word
+# read exactly as trustworthy as the gated numbers beside it and was held by
+# nothing, and one of them was wrong for two releases (wolf-web#17). A count
+# a machine can measure is a __COUNT_ placeholder, stamped below; every other
+# number word is a listed, counted entry in scripts/count-allowlist.txt that
+# says how many of its occurrences a pin bump can still move.
+python3 scripts/check-counts.py site upstream/wolf-lang upstream/wolf-interp upstream/wolf-book
+
 rsync -a site/ "$DIST"/
 
 # Stamp the placeholders. dist/ holds only the static site at this point,
