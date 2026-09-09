@@ -123,25 +123,26 @@
   the source stays in the tab, and no request leaves the page after the module
   and the samples have loaded.</p>
 
-  <p>The revision of the specification it reads is three releases behind the
-  compiler's, at these pins. This interpreter, lupin __LUPIN_VERSION__, was
-  released against v0.2.5, while <a href="/install/">install</a> advertises
-  __WOLF_VERSION__ — the compiler has tagged three times since the interpreter
-  last did. So a program that answers differently here from a wolf you download
-  today may be a disagreement about the text, or it may be this build reading
-  the text as it stood three tags ago. Where the reading is what differs, the
-  <a href="/spec/">specification</a> is what gets read. The gap was zero once,
-  at the v0.2.4 pins, and it will be zero again; the CI job that measures this
-  page counts it and requires both pages to spell the number.</p>
+  <p>The revision of the specification it reads is the compiler's own, at these
+  pins. This interpreter, lupin __LUPIN_VERSION__, was released against the
+  same commit that the release <a href="/install/">install</a> advertises was
+  tagged at, so there is no distance between the text the two implementations
+  read, and a program that answers differently here from a __WOLF_VERSION__ you
+  download today is a disagreement about that text rather than a difference of
+  vintage. The <a href="/spec/">specification</a> is what gets read. It has not
+  always been so and it will not stay so by itself: the interpreter tags on its
+  own schedule, and the CI job that measures this page counts the distance back
+  from the advertised release and requires both pages to spell what it
+  counted.</p>
 
-  <p>The first two of those three tags moved no language surface, so the gap
-  cost you nothing. This one does: <code>net_writev</code>,
-  <code>net_nodelay</code> and <code>fs_fstat</code> are calls the compiler
-  gained at the release <a href="/install/">install</a> advertises and this
-  interpreter predates, so a program using one is declined here for a reason
-  that has nothing to do with the browser. <code>str.to_int</code> ran the
-  other way and is worth knowing about for the same reason: the interpreter has
-  answered it all along, and the compiler is the one that just caught up.</p>
+  <p>Closing that distance changed nothing about what this page declines, which
+  is worth a sentence because the pins before it made the refusals look
+  temporary. <code>net_writev</code> and <code>net_nodelay</code> are in this
+  interpreter now, and <code>fs_fstat</code> is declined by design in every
+  build of it, so all three still report <code>unsupported</code> here: a tab
+  has no sockets, and this interpreter opens no files anywhere. Each of those
+  refusals had two reasons at once while the pins were apart, and what is left
+  of them is the tier.</p>
 
   <p>The interpreter is not the compiler, and it reaches a different set of
   programs. It runs the memory model as a dynamic machine, so every ownership
@@ -192,11 +193,11 @@
   <p>All thirty-four of them, and none carries a note. The newest is
   <strong>text to a number, and the row when it is not</strong> —
   <code>corpus/strings/to_int.lu</code>, the call the book's chapter 1 makes
-  in its cold open. It is on the menu at this pin and could not have been at
-  the last one, and the reason runs against the usual direction: the
-  interpreter has answered <code>str.to_int</code> all along and the compiler
-  is what joined it, so the program the tab could always have run is the one
-  that only just started compiling. That was not true
+  in its cold open. It reached the menu when the compiler gained the call
+  rather than when the interpreter did, and the reason runs against the usual
+  direction: the interpreter has answered <code>str.to_int</code> all along, so
+  the program the tab could always have run is the one that only just started
+  compiling. That was not true
   at
   the lupin 0.1.24 pin: the menu's <strong>byte, and its cast ladder</strong> —
   <code>corpus/typecheck/byte_casts.lu</code> — answered

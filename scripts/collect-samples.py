@@ -46,8 +46,8 @@ menu entry that looks broken:
       module-lint witnesses) reports `unsupported` from a stdin buffer,
       which is all the playground has to offer.
 
-That leaves 229 candidates at this pin — the programs that actually answer
-`exit` or `trap` in the browser build, the other 58 reporting `unsupported`
+That leaves 231 candidates at this pin — the programs that actually answer
+`exit` or `trap` in the browser build, the other 62 reporting `unsupported`
 (the module-graph programs above, and the tiers a tab cannot serve). Every
 one of those numbers is measured by feeding each candidate to the wasm
 module this build publishes and reading the verdict back — re-measure on a
@@ -70,46 +70,44 @@ went red with `runs at this pin, and still carries the note that says it
 does not`, which is how the note came off. No entry carries one now, and
 none has since.
 
-Re-measured at the wolf v0.2.8 / lupin 0.1.27 pins, against the module this
+Re-measured at the wolf v0.2.8 / lupin 0.1.28 pins, against the module this
 build publishes: 293 `phase: run` corpus programs, 200 `exit`, 31 `trap`, 62
-`unsupported`, and the `fail` class stays EMPTY. Candidates 229 -> 231.
+`unsupported`, and the `fail` class stays EMPTY. Candidates 231 — every number
+identical to the pins before these.
 
-Six programs arrived and every one landed in the class predicted for it before
-the harness ran, which is the first time this file has recorded the prediction
-and the measurement as separate acts:
+That was the prediction, written down before the harness ran, and it was cheap
+to make: the compiler pin does not move at this bump, so the corpus is
+byte-identical and only the module in the tab changes. The one item in the
+release that could have moved a verdict is wolf-interp#69, which reparses
+`str.to_int` as the `i64` the type is, so one past either extreme is the
+`NotAnInt` row now instead of a value no `int` can hold. The corpus witness
+does not reach it. `strings/to_int.lu` shows `max` and `min` at the i64
+extremes and nothing outside them, because wolf-lang held the overflow input
+in its own crate tests while the two implementations disagreed, so the file
+pinned neither side. It answers `exit(0)` here as it did before.
+
+The four refusals ww18 called over-determined came apart the way it said they
+would. `net_writev` and `net_nodelay` are in the interpreter at this release,
+and `fs_fstat` was never a question of age — the filesystem tier is declined
+in EVERY build of the interpreter, the terminal one included. All four still
+answer `unsupported` in the tab, on the tier alone now: no sockets in a
+browser, and no files anywhere.
 
   net/syscall_first.lu, net/nodelay.lu, net/writev_gather.lu   unsupported
   fs/fstat.lu                                                  unsupported
+  net/accept_race.lu                                           unsupported
   strings/to_int.lu                                            exit(0)
-  rows/to_int_not_an_int.lu                                    exit(1)
+  typecheck/byte_casts.lu                                      exit(0)
 
-The four refusals are over-determined and it is worth saying why, because the
-two reasons will come apart at the next interpreter release. The net trio and
-the fstat witness are tiers a tab cannot serve (no sockets, and the filesystem
-tier is declined in EVERY build of the interpreter including the terminal
-one). They are ALSO calls this interpreter predates: `net_writev`,
-`net_nodelay` and `fs_fstat` are new at wolf v0.2.8 and lupin is pinned three
-releases back. When lupin catches up, the net trio and fstat stay
-`unsupported` on the tier alone, and nothing here moves.
+The last of those is what the page's oldest lupin sentence rests on: 0.1.25
+landed the byte, and it has stayed landed at every pin since.
 
-`strings/to_int.lu` went the other way and is the reason this bump reads
-oddly: the compiler is what caught up. `str.to_int` has been in the reference
-interpreter all along and joined the builtin set at v0.2.8 (#263), so the
-witness that could not compile last week runs in the tab today. It is on the
-menu because of that, which is what takes the list to 34.
-
-`rows/to_int_not_an_int.lu` exits 1 carrying `NotAnInt` out of `main`, which
-is the `exit` class and not `trap` — the same shape as `os/exit_code.lu` at
-`exit(7)`. It is off the menu: a sample that prints `error: NotAnInt` and
-exits 1 beside a header saying so is fine on a terminal and reads as a broken
-playground.
-
-Sixteen of the corpus's net programs answer `unsupported` here, up from
-thirteen. The page said TWELVE from ww16 until this pass, and thirteen was
-already the truth when it said it — a hand count no gate holds, off by one for
-two releases. Re-measuring is what found it.
-
-TWO things moved at the v0.2.6 bump and they cancelled"""
+Sixteen of the corpus's net programs answer `unsupported` here, unmoved, and
+that is every `.lu` file in `corpus/net/`. Fifteen of them decline on the net
+tier by name and the sixteenth, `net/accept_race.lu`, reaches for `os_spawn`
+first and declines on the process trio, which is a distinction the count on
+/play/ does not draw and does not need to.
+"""
 
 from __future__ import annotations
 
