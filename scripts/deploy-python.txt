@@ -1,0 +1,25 @@
+# The python3 the DEPLOY HOST runs, as MAJOR.MINOR. One line, no `v`.
+#
+# wolf-web#19. Every python script in scripts/ runs twice: once on a CI
+# runner during the PR, and once on almanta when trunk deploys. Those were
+# not the same interpreter, and the difference was invisible until it was
+# not. `scripts/stamp-counts.py` used `-> int | None` in a nested signature;
+# a PEP 604 union in an annotation is evaluated when the function is defined,
+# CI's runner is 3.11+ where that is fine, and the host is 3.9 where it
+# raises TypeError. The PR run was green and the trunk deploy crashed.
+#
+# So this file is the one place the host's interpreter is written down, and
+# two gates read it:
+#
+#   .github/workflows/ci.yml   installs exactly this python for the build
+#                              job, so a PR run is the deploy's rehearsal and
+#                              every script is exercised under it.
+#   scripts/ci-deploy.sh       prints the host's version beside this one on
+#                              every deploy, and refuses to deploy when they
+#                              differ — so an upgraded host is a red deploy
+#                              that names both versions, not a silent change
+#                              of rehearsal.
+#
+# Upgrading the host means editing this line, and the next PR run rehearses
+# on the new interpreter before anything reaches trunk.
+3.9

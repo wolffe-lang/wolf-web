@@ -23,6 +23,44 @@ jobs:
             echo "$m ${have:0:7}"
           done
 
+      # wolf-web#19. Every python script here runs twice — once on this
+      # runner during the PR, once on the deploy host when trunk lands — and
+      # for a while those were different interpreters with nothing saying so.
+      # stamp-counts.py used a PEP 604 union in a nested signature; the runner
+      # was 3.11+ where that is fine and the host is 3.9 where it raises at
+      # call time, so a green PR run crashed the trunk deploy. The host's
+      # version is written down in one place and installed here, so the PR run
+      # IS the rehearsal: build.sh below runs six of the seven scripts and the
+      # link check runs the seventh, all under this interpreter.
+      - name: the python the deploy host runs
+        id: deploy-python
+        run: |
+          want=$(grep -v '^#' scripts/deploy-python.txt | tr -d '[:space:]')
+          test -n "$want" || { echo "::error::scripts/deploy-python.txt names no version"; exit 1; }
+          echo "version=$want" >> "$GITHUB_OUTPUT"
+          echo "the deploy host runs python3 $want; this job will too"
+      - uses: actions/setup-python@v5
+        with: {python-version: '${{ steps.deploy-python.outputs.version }}'}
+      - name: and this job actually got it
+        run: |
+          have=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
+          want='${{ steps.deploy-python.outputs.version }}'
+          test "$have" = "$want" || { echo "::error::asked for python $want, this job has $have — the rehearsal would not be one"; exit 1; }
+          python3 --version
+
+      # The site states a DISTANCE now: how far the specification revision the
+      # interpreter was built to sits behind the commit the compiler was tagged
+      # at, in commits of the compiler's own history (scripts/stamp-counts.py,
+      # `speccommits`). actions/checkout takes submodules at depth 1, which
+      # cannot answer that. The deploy host clones with full history and needs
+      # nothing here.
+      - name: the pinned compiler checkout gets its history
+        run: |
+          if [ "$(git -C upstream/wolf-lang rev-parse --is-shallow-repository)" = true ]; then
+            git -C upstream/wolf-lang fetch --quiet --unshallow --tags origin
+          fi
+          echo "upstream/wolf-lang carries $(git -C upstream/wolf-lang rev-list --count HEAD) commits"
+
       - uses: dtolnay/rust-toolchain@stable
       - name: the wasm target
         run: rustup target add wasm32-unknown-unknown
@@ -90,6 +128,9 @@ jobs:
           USER: ${{ secrets.ALMANTA_USER }}
         run: |
           test -n "$KEY" || { echo "::error::ALMANTA_DEPLOY_KEY is not set"; exit 1; }
+          # scripts/ci-deploy.sh on the host prints its own python3 beside the
+          # version the build job rehearsed on, and refuses when they differ
+          # (wolf-web#19). Both numbers land in this log.
           install -m 700 -d ~/.ssh
           printf '%s\n' "$KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
           ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
