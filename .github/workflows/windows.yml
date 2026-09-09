@@ -87,6 +87,12 @@ jobs:
       # the missing sentence, both paragraphs were written, and the phrase
       # went in the table after them. That is the order this is built for.
       #
+      # ww19 is the first zero this table has served, and the first time the
+      # step went red over the SOURCE of the number rather than the prose:
+      # lupin 0.1.28 does not write "Released against pin", which is all the
+      # old parser knew. The pin is read off the interpreter's own gitlink now
+      # and the changelog only has to say which release that commit is.
+      #
       # ww17 retired the ceiling, because at wolf v0.2.7 the ceiling was
       # wrong rather than the world. That release is a pairing re-stamp and a
       # CI job; it moved no language surface, and the interpreter had no
@@ -116,18 +122,43 @@ jobs:
           $rel = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' |
                    ForEach-Object { $_.Matches[0].Groups[1].Value }
           if ($rel.Count -lt 2) { Write-Output "::error::the pinned wolf-lang CHANGELOG has fewer than two releases"; exit 1 }
+          # WHICH pin the interpreter was built to is read off its own gitlink
+          # for the specification, not off a sentence about it. Through ww18
+          # this step parsed 'Released against pin `x`, wolf-lang **vY**' out
+          # of the newest lupin entry, and 0.1.28 does not write that sentence:
+          # it opens each of its two half-entries with 'Pin `a` -> `b`,
+          # wolf-lang **vY**' instead, so the step stopped the job over an
+          # upstream prose habit rather than over anything about this site.
+          # The gitlink cannot be worded differently. The CHANGELOG is still
+          # read, but only to map that commit to a release the compiler names,
+          # and it must name THAT commit — a prose line about some other pin
+          # in the same entry (0.1.28 has one, is39's) does not answer.
+          $link = git -C upstream/wolf-interp ls-tree HEAD upstream
+          $pin = [regex]::Match("$link", '^160000 commit ([0-9a-f]{40})')
+          if (-not $pin.Success) { Write-Output "::error::upstream/wolf-interp records no gitlink for its specification checkout — the pin cannot be read"; exit 1 }
+          $lupPin = $pin.Groups[1].Value.Substring(0, 7)
           $lupChanges = Get-Content upstream/wolf-interp/CHANGELOG.md -Raw
           $entry = ($lupChanges -split '(?m)^## ')[1]
-          $m = [regex]::Match($entry, 'Released against pin `([0-9a-f]+)`,\s*wolf-lang \*\*v(\d[\d.]*)\*\*')
-          if (-not $m.Success) { Write-Output "::error::the pinned lupin CHANGELOG's newest entry does not name a wolf-lang release it was built against"; exit 1 }
-          $lupPin = $m.Groups[1].Value
-          $lupSpec = $m.Groups[2].Value
+          $m = [regex]::Match($entry, '`' + $lupPin + '[0-9a-f]*`,\s*wolf-lang\s+\*{0,2}v(\d[\d.]*)')
+          if (-not $m.Success) { Write-Output "::error::the pinned lupin CHANGELOG's newest entry does not say which wolf-lang release pin $lupPin is"; exit 1 }
+          $lupSpec = $m.Groups[1].Value
           "wolf $env:WOLF_VER is the release this site advertises"
-          "lupin $env:LUPIN_VER was released against pin $lupPin — wolf-lang v$lupSpec"
+          "lupin $env:LUPIN_VER was built at pin $lupPin — wolf-lang v$lupSpec"
           $gap = [array]::IndexOf([string[]]$rel, $lupSpec)
           if ($gap -lt 0) {
             Write-Output "::error::lupin $env:LUPIN_VER names wolf-lang v$lupSpec, which is not a release in the pinned wolf CHANGELOG at all — one of the two pins is wrong"
             exit 1
+          }
+          # A counted gap of zero is the one claim this job can prove outright
+          # rather than infer from two changelogs: the phrase the pages carry
+          # for it says THE SAME COMMIT, so require the two gitlinks to be it.
+          if ($gap -eq 0) {
+            $own = (git ls-tree HEAD upstream/wolf-lang) -replace '^160000 commit ([0-9a-f]{40}).*$', '$1'
+            if ($own.Substring(0, 7) -ne $lupPin) {
+              Write-Output "::error::the counted gap is zero but this site pins wolf-lang at $($own.Substring(0,7)) while lupin was built at $lupPin — the two pages would say 'the same commit' about two commits"
+              exit 1
+            }
+            "both pins are commit $lupPin"
           }
           # The closed set of sentences the two pages are written for. A gap
           # outside it is not a bug in this step: it is a gap nothing on the
