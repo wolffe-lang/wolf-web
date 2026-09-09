@@ -70,11 +70,22 @@ went red with `runs at this pin, and still carries the note that says it
 does not`, which is how the note came off. No entry carries one now, and
 none has since.
 
-Re-measured at the wolf v0.2.6 / lupin 0.1.27 pins, against the module this
+Re-measured at the wolf v0.2.7 / lupin 0.1.27 pins, against the module this
 build publishes: 287 `phase: run` corpus programs, 198 `exit`, 31 `trap`, 58
-`unsupported`, and the `fail` class stays EMPTY. Candidates 228 -> 229.
+`unsupported`, and the `fail` class stays EMPTY. Candidates 229, flat.
 
-TWO things moved and they cancelled in the `unsupported` column, which is
+NOTHING MOVED at the v0.2.7 bump, and that was the prediction rather than a
+shrug. v0.2.7 is a pairing re-stamp and a CI job: no corpus file was added or
+removed between the two tags, the single corpus edit is a `conforms:` tag and
+a comment on `test/conc_schedules_test.lu` (excluded above as a conc program
+either way), and the module in the tab is byte-identical because lupin did
+not tag. Every number below is the same number ww16 measured. It was measured
+again anyway, through the published module, because the rule this docstring
+keeps is that these are read and not glanced at.
+
+The paragraphs below are ww16's, and they still describe the pins.
+
+TWO things moved at the PREVIOUS bump and they cancelled in the `unsupported` column, which is
 why that number has to be read rather than glanced at. The corpus gained
 `net/accept_race.lu`, s138's witness for the fair accept: two hands on one
 inherited listener, one connection, both hands returning. It is
