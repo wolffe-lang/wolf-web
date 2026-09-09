@@ -79,38 +79,76 @@ jobs:
       # that is what the pages said. lupin 0.1.25 caught up — it was released
       # against pin `982f857`, wolf v0.2.4, the tag this site advertises — and
       # the step went red the way it was built to, which is how the sentence
-      # got rewritten instead of quietly becoming false. The rule is now
-      # ZERO OR ONE, and the step decides WHICH and says so: the pages are
-      # written for both, and a lag of two is still a red, because it means a
-      # lupin release was skipped or a pin was never bumped.
+      # got rewritten instead of quietly becoming false. ww14 widened it to
+      # ZERO OR ONE and had it decide which.
+      #
+      # ww17 retired the ceiling, because at wolf v0.2.7 the ceiling was
+      # wrong rather than the world. That release is a pairing re-stamp and a
+      # CI job; it moved no language surface, and the interpreter had no
+      # reason to tag against it. So the compiler tagged twice (v0.2.6,
+      # v0.2.7) while lupin held at 0.1.27, the gap became two, and the old
+      # step would have called that "a lupin release was skipped or a pin was
+      # never bumped" — a diagnosis that was never true. The gap is now
+      # COUNTED, as the distance from the advertised release back to the one
+      # lupin names, over the pinned CHANGELOG's own ordering.
+      #
+      # And the number is held against the PROSE, which is the half a version
+      # literal cannot cover. The lag is stated in three places across two
+      # pages, and one of them ("one release behind the compiler's at these
+      # pins") carries no version literal and no placeholder at all, so both
+      # site audits are blind to it and it sat stale through a bump. This step
+      # requires the phrase for the counted gap to appear on BOTH pages and
+      # the phrases for the other gaps to appear on NEITHER, so a paragraph
+      # that was not rewritten reds by name.
       - name: the specification pin lag the site records
         run: |
           $rel = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' |
                    ForEach-Object { $_.Matches[0].Groups[1].Value }
           if ($rel.Count -lt 2) { Write-Output "::error::the pinned wolf-lang CHANGELOG has fewer than two releases"; exit 1 }
-          $prev = $rel[1]
           $lupChanges = Get-Content upstream/wolf-interp/CHANGELOG.md -Raw
           $entry = ($lupChanges -split '(?m)^## ')[1]
           $m = [regex]::Match($entry, 'Released against pin `([0-9a-f]+)`,\s*wolf-lang \*\*v(\d[\d.]*)\*\*')
           if (-not $m.Success) { Write-Output "::error::the pinned lupin CHANGELOG's newest entry does not name a wolf-lang release it was built against"; exit 1 }
           $lupPin = $m.Groups[1].Value
           $lupSpec = $m.Groups[2].Value
-          "wolf $env:WOLF_VER is the release this site advertises; the one before it is $prev"
+          "wolf $env:WOLF_VER is the release this site advertises"
           "lupin $env:LUPIN_VER was released against pin $lupPin — wolf-lang v$lupSpec"
-          if ($lupSpec -eq $env:WOLF_VER) { $gap = 0 }
-          elseif ($lupSpec -eq $prev)     { $gap = 1 }
-          else {
-            Write-Output "::error::/install/ says the interpreter reads THIS wolf release or the one before it; lupin $env:LUPIN_VER reads v$lupSpec, and this site advertises wolf $env:WOLF_VER (the release before it is $prev)"
+          $gap = [array]::IndexOf([string[]]$rel, $lupSpec)
+          if ($gap -lt 0) {
+            Write-Output "::error::lupin $env:LUPIN_VER names wolf-lang v$lupSpec, which is not a release in the pinned wolf CHANGELOG at all — one of the two pins is wrong"
             exit 1
           }
-          $reads = if ($gap -eq 0) { "this release" } else { "the release before this one" }
+          # The closed set of sentences the two pages are written for. A gap
+          # outside it is not a bug in this step: it is a gap nothing on the
+          # site has words for, so it stops the job until someone writes them.
+          $phrases = [ordered]@{ '0' = 'the same commit'; '1' = 'one release'; '2' = 'two releases' }
+          if (-not $phrases.Contains("$gap")) {
+            Write-Output "::error::the interpreter is $gap releases behind and /install/ and /play/ have prose for 0, 1 and 2 only — write the sentence, then add its phrase here"
+            exit 1
+          }
+          $want = $phrases["$gap"]
+          foreach ($pg in @('site/install/index.html', 'site/play/index.html')) {
+            $text = (Get-Content $pg -Raw) -replace '\s+', ' '
+            if ($text -notlike "*$want*") {
+              Write-Output "::error::the gap is $gap releases and $pg does not say so — it must carry the phrase '$want'"
+              exit 1
+            }
+            foreach ($k in $phrases.Keys) {
+              if ($k -eq "$gap") { continue }
+              if ($text -like "*$($phrases[$k])*") {
+                Write-Output "::error::$pg still carries '$($phrases[$k])' while the counted gap is $gap — a lag paragraph was left unrewritten"
+                exit 1
+              }
+            }
+          }
+          $reads = switch ($gap) { 0 { "this release" } 1 { "the release before this one" } default { "$gap releases back" } }
           $md = @("", "### The specification pin lag", "",
                   "| | release | specification pin |", "|---|---|---|",
                   "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",
                   "| the interpreter beside it | lupin $env:LUPIN_VER | ``$lupPin`` — wolf-lang v$lupSpec |", "",
-                  "A gap of ${gap} — the interpreter reads $reads, which is what /install/ says in prose.", "")
+                  "A counted gap of ${gap} — the interpreter reads $reads, and both pages say '$want'.", "")
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
-          "lupin reads $reads — the page's sentence holds"
+          "lupin reads $reads — both pages carry '$want' and neither carries another"
 
       # The page's own link, fetched the page's own way. A 404 here is the
       # finding the weekly schedule exists to catch.
