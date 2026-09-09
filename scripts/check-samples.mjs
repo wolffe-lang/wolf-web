@@ -1,7 +1,7 @@
 /* Every program in the playground's menu, fed to the module the build
  * publishes, through the same export the page calls.
  *
- *     usage: node scripts/check-samples.mjs <dist-dir>
+ *     usage: node scripts/check-samples.mjs <dist-dir> [<pinned-corpus-dir>]
  *
  * The menu is a promise: a visitor picks a label and expects a program that
  * does something. scripts/collect-samples.py could only ever check the
@@ -25,6 +25,17 @@
  * the note comes off because it has to rather than because someone
  * remembered.
  *
+ * Since ww19 it holds a second claim, for the same reason and against the
+ * same module. /play/ says how many of the corpus's net programs the browser
+ * build declines, and that number was written by hand and wrong for two
+ * releases (wolf-web#17). The number is a __COUNT_netprograms_ stamp now,
+ * counted off `corpus/net/` in the pinned checkout — but a count of the
+ * directory is only the right number if the whole directory really does
+ * answer `unsupported`, and nothing said so. So every `.lu` file in
+ * `corpus/net/` goes through the module here and every one must decline.
+ * When a browser grows sockets, or the interpreter starts serving one of
+ * them some other way, this is what says the sentence has to change.
+ *
  * No dependencies: node's own WebAssembly, and the wasm ABI documented in
  * crates/lupin-wasm/src/lib.rs — a result is a pointer to four bytes of
  * little-endian length followed by that many bytes of UTF-8 JSON, and the
@@ -36,14 +47,23 @@ import fs from "node:fs";
 import path from "node:path";
 
 const dist = process.argv[2] || "dist";
+const corpus = process.argv[3] || path.join("upstream", "wolf-lang", "corpus");
 const wasmPath = path.join(dist, "play", "lupin.wasm");
 const indexPath = path.join(dist, "play", "samples", "index.json");
+const netDir = path.join(corpus, "net");
 
 for (const f of [wasmPath, indexPath]) {
   if (!fs.existsSync(f)) {
     console.error(`check-samples: ${f} is missing — run scripts/build.sh first`);
     process.exit(1);
   }
+}
+if (!fs.existsSync(netDir)) {
+  console.error(
+    `check-samples: ${netDir} is missing — the net half needs the pinned corpus; ` +
+      `pass it as the second argument, or run: git submodule update --init`,
+  );
+  process.exit(1);
 }
 
 const compiled = await WebAssembly.compile(fs.readFileSync(wasmPath));
@@ -135,4 +155,40 @@ if (failures > 0) {
 console.log(
   `\ncheck-samples: ${rows.length} menu entries, each in the class the page ` +
     `claims for it (${rows.filter((r) => r.noted).length} noted as not running here)`,
+);
+
+/* The net directory, whole. /play/ counts it and says every one of them is
+ * declined here; the count is stamped off this directory, and this is the
+ * half that makes counting it the right thing to do. */
+const netFiles = fs.readdirSync(netDir).filter((f) => f.endsWith(".lu")).sort();
+if (netFiles.length === 0) {
+  console.error(`check-samples: ${netDir} carries no .lu programs — the count would be zero`);
+  process.exit(1);
+}
+const served = [];
+for (const name of netFiles) {
+  let verdict;
+  try {
+    verdict = String(observe(fs.readFileSync(path.join(netDir, name), "utf8")).verdict ?? "?");
+  } catch (cause) {
+    verdict = `the module trapped (${cause.message})`;
+    exports = new WebAssembly.Instance(compiled, {}).exports;
+  }
+  if (verdict.split("(")[0] !== "unsupported") served.push(`${name} ${verdict}`);
+}
+if (served.length > 0) {
+  console.error(
+    `\ncheck-samples: ${served.length} of ${netFiles.length} programs in ` +
+      `${netDir} do NOT answer unsupported in this build:`,
+  );
+  for (const row of served) console.error(`       ${row}`);
+  console.error(
+    `       /play/ counts that directory and says the browser declines all of ` +
+      `it — rewrite the sentence, then decide what the count should be off`,
+  );
+  process.exit(1);
+}
+console.log(
+  `check-samples: all ${netFiles.length} programs in ${netDir} answer ` +
+    `unsupported, which is what /play/ counts`,
 );

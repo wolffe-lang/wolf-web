@@ -107,6 +107,15 @@ that is every `.lu` file in `corpus/net/`. Fifteen of them decline on the net
 tier by name and the sixteenth, `net/accept_race.lu`, reaches for `os_spawn`
 first and declines on the process trio, which is a distinction the count on
 /play/ does not draw and does not need to.
+
+That count is not written by hand any more. /play/ carries
+`__COUNT_netprograms_Word__`, which scripts/stamp-counts.py fills in from the
+pinned `corpus/net/`, and scripts/check-samples.mjs takes every file in that
+directory through the published module and requires all of them to decline.
+The number and the claim are held separately on purpose: counting a directory
+is only the right measurement while the whole directory really is declined,
+and the page said TWELVE for two releases with nothing holding either half
+(wolf-web#17).
 """
 
 from __future__ import annotations

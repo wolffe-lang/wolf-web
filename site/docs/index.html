@@ -34,14 +34,14 @@
 <section>
   <h2>Catalogues</h2>
   <dl class="index">
-    <dt><a href="/docs/diagnostics.md">Diagnostics</a> (136 codes, __KIB_docs/diagnostics.md__ KiB of text)</dt>
+    <dt><a href="/docs/diagnostics.md">Diagnostics</a> (__COUNT_diagnostics_digits__ codes, __KIB_docs/diagnostics.md__ KiB of text)</dt>
     <dd>Every error the compiler can emit, with the explanation
       <code>wolf --explain E0001</code> prints. Each code ships with that
       explanation and at least one reviewed snapshot fixture, and CI enforces
       both, so a code cannot exist without a documented meaning and a test that
       pins its wording.</dd>
 
-    <dt><a href="/docs/warnings.md">Warnings</a> (33 codes, __KIB_docs/warnings.md__ KiB of text)</dt>
+    <dt><a href="/docs/warnings.md">Warnings</a> (__COUNT_warnings_digits__ codes, __KIB_docs/warnings.md__ KiB of text)</dt>
     <dd>Every warning, with the severity contract in front of the catalogue: an
       error rejects meaning and cannot be configured away, and a warning marks a
       program that is legal and inadvisable. The file also covers the level

@@ -206,6 +206,11 @@ python3 scripts/collect-samples.py upstream/wolf-lang/corpus "$DIST/play/samples
   degrade "samples:ALLOW_NO_SAMPLES:the playground offers no example programs"
 }
 
+# The counts the pages state, measured now rather than written by hand. This
+# runs here and not beside stamp-sizes.py because one of its sources is the
+# sample index the step above just wrote.
+python3 scripts/stamp-counts.py "$DIST" upstream/wolf-lang
+
 step "What could not be built"
 waived=()
 blocking=()
@@ -254,7 +259,7 @@ EOF
 # reader, and did: a ww12 changelog entry quoting `__WOLF_VERSION__` reached
 # dist/ with the token intact, past a guard that had already run. Sweep the
 # finished tree, where every generated page is finally present.
-if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__\|__KIB_' "$DIST"; then
+if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__\|__KIB_\|__COUNT_' "$DIST"; then
   echo "a placeholder reached the finished dist/ (the files above)" >&2
   echo "the early sweep runs on site/ only; a generated page needs its own" >&2
   exit 1
