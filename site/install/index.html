@@ -86,11 +86,12 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   reads what is <em>published</em> — the live AUR, the live tap, the live
   release pages — and goes red when a package trails its upstream or names a
   digest the release does not carry. When this page was last read against the
-  pins, all eight packages across the two channels named their upstream's
-  latest release: v0.2.7 for the compiler on both, 0.1.27 for the interpreter
-  on both, which is this release and the interpreter beside it. If a door is
-  stale when you get there, the archives below need nothing installed
-  first.</p>
+  pins, every compiler package on both channels was still at v0.2.7, the
+  release before this one, and every interpreter package at 0.1.27: a tag and
+  its packaging do not land in the same minute, and what that gate watches is
+  whether the distance closes again. So the doors here may be a step behind the
+  version this page describes, and the archives below are the release
+  itself.</p>
 </section>
 
 <section>
@@ -161,20 +162,30 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   first line.</p>
 
   <p>Read the second line closely, because it is the one that moves. At these
-  pins the two commits are two releases apart: <code>lupin
+  pins the two commits are three releases apart: <code>lupin
   __LUPIN_VERSION__</code> was released against v0.2.5, and the compiler has
-  tagged twice since, so the interpreter is reading the revision of the
-  specification the compiler shipped two tags back. A gap opens because the
+  tagged three times since, so the interpreter is reading the revision of the
+  specification the compiler shipped three tags back. A gap opens because the
   compiler tags and the interpreter has not yet followed, which is the ordinary
   shape of a two-implementation project between tags — it was zero at the
   v0.2.4 pins, when lupin caught up to the tag itself — and it is the reason
   the <a href="/play/">playground</a> can answer a program differently from the
   compiler you just installed. When they disagree, the
-  <a href="/spec/">specification</a> is what gets read. The CI job that
-  measures this page counts the gap in releases against the compiler's own
-  changelog and requires this page and the playground's to spell the number it
-  counted, so the sentence goes red when it stops being true rather than
-  quietly rotting.</p>
+  <a href="/spec/">specification</a> is what gets read.</p>
+
+  <p>This gap has teeth that the last two did not. v0.2.6 and v0.2.7 moved no
+  language surface, so an interpreter a release or two behind still answered
+  every program the compiler did. This release adds four calls, and the
+  interpreter beside it predates all of them: a program using
+  <code>net_writev</code>, <code>net_nodelay</code> or <code>fs_fstat</code>
+  compiles here and is declined in the <a href="/play/">playground</a>, and
+  that is the pin lag rather than a disagreement about the language.
+  <code>str.to_int</code> is the exception worth knowing, because it went the
+  other way: the interpreter has served it all along and the compiler is the
+  one that just caught up. The CI job that measures this page counts the gap in
+  releases against the compiler's own changelog and requires this page and the
+  playground's to spell the number it counted, so the sentence goes red when it
+  stops being true rather than quietly rotting.</p>
 
   <h3>Your first program</h3>
 
@@ -471,7 +482,7 @@ hello, wolf</code></pre>
   that used a task or a channel, and it has not been that since v0.2.3.
   <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
-  --version</code> quotes back — two releases behind the compiler's at these
+  --version</code> quotes back — three releases behind the compiler's at these
   pins, as above.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled

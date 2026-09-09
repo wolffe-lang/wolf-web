@@ -70,61 +70,66 @@ fn main() -&gt; !int {
   it is not: <code>wolf --version</code> built anywhere but the tag answers
   with the build's commit.</p>
 
-  <p><strong>The pairing is checked where it rots.</strong> That second line is
-  the one that had gone quiet. It names the <code>lupin</code> release this
-  compiler was differentially tested against, and its only job is to be true; it
-  stopped being true when the interpreter published 0.1.27 while the compiler's
-  stamp still said 0.1.26. The gate that exists to catch exactly that did catch
-  it, on every machine in the house at once and on none of the six CI jobs,
-  because the comparison needs a lupin binary standing beside the compiler and
-  no runner had one. v__WOLF_VERSION__ re-measures the pairing against the
-  interpreter as released, and gives the linux job the pinned lupin release
-  archive, fetched by the digest the release page reports and checked against
-  the bytes that arrive, so the comparison that used to run only on a laptop now
-  runs where something is watching. A stamp naming a lupin release that does
-  not exist now fails the step, and a download that fails reds as a failed
-  download instead of arriving as a green skip. No language surface moved:
-  nothing a program observes is different at this release.</p>
+  <p><strong>The first chapter compiles.</strong> Chapter 1 of the book asks a
+  string for a number twice, <code>row.to_int()</code> in the cold open and
+  again in exercise 1-10, and until this release the compiler refused that
+  call: the first non-trivial string method a learner met was also the first
+  program that would not build. At v__WOLF_VERSION__
+  <code>str.to_int() -&gt; int ! {NotAnInt}</code> is in the builtin set on both
+  tiers, spelled the way the reference interpreter has always spelled it. Text
+  it cannot read is a value your program can branch on rather than a trap: the
+  surrounding whitespace is ignored, an optionally signed run of ASCII digits
+  that fits <code>int</code> is the number, and everything else — the empty
+  string, a word, an interior space, a fraction, a radix prefix, a lone sign —
+  is the <code>NotAnInt</code> row. When a method really is outside the set the
+  refusal names it now, <code>this `str` method, `to_int`, is outside the
+  builtin set</code>, where it used to hand back a byte span and leave you
+  counting.</p>
 
-  <p><strong>The accept is fair</strong>, and has been since v0.2.6. A server
-  in wolf is several hands on one listening socket — processes that share the
-  address, or children handed one listener by the parent that opened it. Every
-  arriving connection wakes more than one of them and exactly one takes it, so
-  the others lose a race.
-  Through v0.2.5 a loser then called a <em>blocking</em>
-  <code>accept(2)</code> with its deadline already spent, and parked in the
-  kernel until the <strong>next</strong> connection arrived: microseconds on
-  a busy server, and on a quiet one, never — alive at 0.0% CPU, answering no
-  control verb, reaped by its master as dead. At v0.2.6 a loser
-  comes back inside the budget its <code>net_deadline</code> armed when the
-  call began, never a fresh one, so the most a lost race can cost a serving
-  loop is that budget. Nothing in <code>net_accept</code>'s signature or its
-  rows moved: a program written against v0.2.5 runs unchanged.</p>
+  <p><strong>And the syscall goes first.</strong> At the other end of the
+  language, a program that reads a socket the kernel has already made ready
+  makes the read and waits for nothing. Every parking call in the net family
+  used to go to the reactor thread first — a waiter cell, a lock handshake, a
+  <code>kevent</code> to arm it, a <code>kevent</code> to wake it, a condvar,
+  two context switches — and only then make the syscall, on a socket the
+  program's own <code>net_wait</code> had just reported ready.
+  <code>lobo</code>, the web server this project is writing in wolf, paid that
+  round trip three times per request. The same lobo source, untouched, was
+  built against the v0.2.6 pin and against this release and run on one macOS
+  arm64 box in a single session six minutes apart: 53.3 µs per request before
+  and 21.2 after, 18,766 requests a second to 47,162, and the share of the
+  serving thread parked in a condvar down from 40.7% to 1.1%. The
+  <code>wolf-reactor</code> thread never started at all in the second run,
+  because the reactor is lazy and a serving loop that never parks never asks
+  for one. Read that pair as a ratio rather than a score: other lanes were
+  working on the machine, the benchmark tool refused both sets under its own
+  quiet-rig rule, and neither is an entry in lobo's ledger. What the two share
+  is the box, the hour and the load. No row a program can observe moved; the
+  cost did.</p>
 
-  <p>Under load the fix buys nothing and costs nothing. The compiler's own
-  measurement is about 30,000 requests a second before and after — three
-  hands free-for-all on one inherited listener, <code>ab -n 6000 -c 32</code>,
-  a connection per request, on macOS arm64 — because the next connection
-  unparks every loser microseconds later. What it buys is the quiet server,
-  and what it deletes is a workaround. <code>lobo</code>, the web server this
-  project is writing in wolf, had shipped a ten-millisecond accept turn to
-  keep its hands out of that park; with the fix upstream it removed the turn
-  and re-ran its table as an A/B in one session — the same source built
-  twice, once at the commit before the deletion and once after, benched back
-  to back on macOS 15 arm64 with 18 cpus. Three hands on a
-  connection-per-request load went from 12,866 to <strong>23,663</strong>
-  requests a second, and eighteen hands on a keepalive load from 9,554 to
-  <strong>38,961</strong>. The keepalive figure is the larger one because the
-  workaround had been throttling the serving path in order to keep the accept
-  path correct, which nothing could see until there was a second posture to
-  compare it against.</p>
+  <p>Three smaller changes ride along. <code>TCP_NODELAY</code> is on for every
+  TCP stream the runtime hands out, so the ordinary shape — a head, then a
+  body, two writes with a small second one — no longer stalls 40 ms behind the
+  peer's delayed ACK, and <code>net_nodelay</code> sets it either way.
+  <code>net_writev</code> sends the head and the body as one gathered write.
+  <code>fs_fstat</code> answers kind, size and modification time from a single
+  metadata read on an open handle, where a static-file server used to pay four
+  separate path stats for the same three facts. Every call that existed at
+  v0.2.7 keeps its signature and its error rows, so a program written against
+  it behaves the same way here — as one written against v0.2.5 still does,
+  since v0.2.6 made a hand that loses an accept race come back inside the
+  budget its <code>net_deadline</code> armed instead of parking in the kernel
+  until the next connection arrived, which on a quiet server was never.</p>
 
   <p>There is a second implementation. <code>lupin</code> is a reference
   interpreter written against the same specification, sharing no code with the
   compiler; the two are compared program by program through a published
   observation protocol. Neither is allowed to disagree with the other in
-  silence. The playground on this site runs that interpreter, compiled to
-  WebAssembly.</p>
+  silence. <code>wolf --version</code> names the lupin release the compiler was
+  differentially tested against, and since v0.2.7 a CI job fetches that lupin
+  by digest and runs the comparison on a runner, so the line cannot go stale
+  somewhere only a laptop would notice. The playground on this site runs that
+  interpreter, compiled to WebAssembly.</p>
 
   <p>The performance goal the project set for itself, beating naive
   <code>clang -O3</code> across a kernel suite, was declared met on

@@ -75,7 +75,7 @@
       interface. Its own register of anchor namespaces has been wrong in both
       directions, and is checked in both now. At v0.2.6 it named seven while the
       documents were publishing anchors in eleven, and the four unlisted ones
-      were appended. At v__WOLF_VERSION__ the mirror closed: 07-schedule-points.md
+      were appended. At v0.2.7 the mirror closed: 07-schedule-points.md
       had been declaring seven <code>[sched.*]</code> anchors that no register
       carried, so no extractor read the document and no gate anywhere held an
       opinion, while the runtime cited four of the seven from live scheduler
@@ -97,7 +97,7 @@
     <dd>Where a schedule can make a decision, and the numbering a replayable
       counterexample uses. Normative for shape and vocabulary, and append-only
       from here. Its <code>[sched.*]</code> anchors are published in the index
-      as of v__WOLF_VERSION__; before that they were declared here and carried
+      as of v0.2.7; before that they were declared here and carried
       by no register, so a program citing one was rejected for citing a clause
       that existed. Anchors <code>[sched.*]</code>.</dd>
 
@@ -138,7 +138,16 @@
       connection arrives (<code>[os.net.accept]</code>): a wake is not a
       connection, so the hand that loses the race carries no answer and waits
       again against the budget its deadline armed, in the runtime's wait
-      rather than the kernel's. Anchors <code>[os.*]</code>.</dd>
+      rather than the kernel's. At v__WOLF_VERSION__ it states when the
+      syscall happens (<code>[os.net.io]</code>: a parking call tries the
+      syscall before it waits, and waits only when the kernel says it would
+      block), and gains three calls that name what a serving loop was doing by
+      hand — the Nagle switch every stream is handed with (<code>[os.net.nodelay]</code>),
+      the gathered write (<code>[os.net.writev]</code>), and one metadata read
+      on an open handle (<code>[os.fs.fstat]</code>) in place of a path stat
+      per fact. The first of those moves a cost and no row; the other three are
+      new surface, and every one of them serves every tier-1 host. Anchors
+      <code>[os.*]</code>.</dd>
   </dl>
 </section>
 
