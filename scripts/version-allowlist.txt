@@ -23,6 +23,14 @@
 # this file until the regex widened. It rides the clock of the checkout that
 # records it.
 #
+# BOTH clocks moved at ww20 for the first time since ww15 — wolf 0.2.8 -> 0.2.9
+# and lupin 0.1.28 -> 0.1.29 in one bump — so every entry below reddened at
+# once and every one was re-read. Two sentences were false. /spec/'s
+# "at (the wolf stamp) it states when the syscall happens" was v0.2.8's os
+# document under v0.2.9's stamp and names v0.2.8 now; the front page's three
+# release-bound paragraphs told v0.2.8's story and were rewritten for this
+# release's three rulings.
+#
 # A version literal here need not be a claim about wolf or lupin themselves.
 # The package-manager entries below are claims about what a THIRD PARTY has
 # published — the AUR's `wolf-lang`/`lupin` and the tap's formulae — and they
@@ -30,26 +38,28 @@
 # re-render with the new number at every bump and assert, without anyone
 # looking, that a packager had already pushed. As literals they go red at the
 # bump and someone re-reads the live channel, which is the only way to know.
-index.html 1.97.1 1 audited-at-wolf=0.2.8
-index.html v0.2.5 1 audited-at-wolf=0.2.8
-index.html v0.2.6 2 audited-at-wolf=0.2.8
-index.html v0.2.7 2 audited-at-wolf=0.2.8
-docs/index.html v0.1.0 1 audited-at-wolf=0.2.8
-spec/index.html v0.1.0 1 audited-at-wolf=0.2.8
-spec/index.html v0.2.4 2 audited-at-wolf=0.2.8
-spec/index.html v0.2.5 1 audited-at-wolf=0.2.8
-spec/index.html v0.2.6 2 audited-at-wolf=0.2.8
-spec/index.html v0.2.7 2 audited-at-wolf=0.2.8
-install/index.html v0.2.1 1 audited-at-wolf=0.2.8
-install/index.html v0.2.2 3 audited-at-wolf=0.2.8
-install/index.html v0.2.3 2 audited-at-wolf=0.2.8
-install/index.html v0.2.4 2 audited-at-wolf=0.2.8
-install/index.html v0.2.5 3 audited-at-wolf=0.2.8
-install/index.html v0.2.6 1 audited-at-wolf=0.2.8
-install/index.html v0.2.8 1 audited-at-wolf=0.2.8
-install/index.html 0.1.28 1 audited-at-lupin=0.1.28
-play/index.html 0.1.22 1 audited-at-lupin=0.1.28
-play/index.html 0.1.23 1 audited-at-lupin=0.1.28
-play/index.html 0.1.24 1 audited-at-lupin=0.1.28
-play/index.html 0.1.25 1 audited-at-lupin=0.1.28
-play/index.html v0.2.4 1 audited-at-wolf=0.2.8
+index.html 1.97.1 1 audited-at-wolf=0.2.9
+index.html v0.2.7 1 audited-at-wolf=0.2.9
+docs/index.html v0.1.0 1 audited-at-wolf=0.2.9
+spec/index.html v0.1.0 1 audited-at-wolf=0.2.9
+spec/index.html v0.2.4 2 audited-at-wolf=0.2.9
+spec/index.html v0.2.5 1 audited-at-wolf=0.2.9
+spec/index.html v0.2.6 2 audited-at-wolf=0.2.9
+spec/index.html v0.2.7 2 audited-at-wolf=0.2.9
+spec/index.html v0.2.8 1 audited-at-wolf=0.2.9
+install/index.html v0.2.1 1 audited-at-wolf=0.2.9
+install/index.html v0.2.2 3 audited-at-wolf=0.2.9
+install/index.html v0.2.3 2 audited-at-wolf=0.2.9
+install/index.html v0.2.4 2 audited-at-wolf=0.2.9
+install/index.html v0.2.5 3 audited-at-wolf=0.2.9
+install/index.html v0.2.6 1 audited-at-wolf=0.2.9
+install/index.html v0.2.8 2 audited-at-wolf=0.2.9
+install/index.html v0.2.9 1 audited-at-wolf=0.2.9
+install/index.html 0.1.29 2 audited-at-lupin=0.1.29
+play/index.html 0.1.22 1 audited-at-lupin=0.1.29
+play/index.html 0.1.23 1 audited-at-lupin=0.1.29
+play/index.html 0.1.24 1 audited-at-lupin=0.1.29
+play/index.html 0.1.25 1 audited-at-lupin=0.1.29
+play/index.html 0.1.28 1 audited-at-lupin=0.1.29
+play/index.html v0.2.4 1 audited-at-wolf=0.2.9
+play/index.html v0.2.8 1 audited-at-wolf=0.2.9

@@ -47,7 +47,17 @@
       at v0.1.0 and held additive-only through the 0.1.x line; at
       v__WOLF_VERSION__ it is still <code>grammar/1</code> — a removal or
       narrowing would be a <code>grammar/2</code> act, and none has been taken.
-      Anchors
+      This release widens it, which is the additive direction: no statement
+      terminator is inserted before a line whose first token is
+      <code>else</code> (<code>[gram.lex.newline]</code> gains its second
+      lookahead exception), and <code>[gram.amb.else]</code> tells the branch
+      <code>else</code> from the defaulting one by binding rather than by
+      line. Every program that parsed before still parses, E0005 has nothing
+      left to refuse, and it is retired. One clause moved to make room:
+      <code>[gram.fmt.canon]</code> requires every corpus program to be
+      formatter-canonical, and a witness whose whole point is a leading
+      <code>else</code> cannot be, so it gains one declared exception — a
+      <code>//! fmt: relaid</code> header, on exactly two files. Anchors
       <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
@@ -138,15 +148,16 @@
       connection arrives (<code>[os.net.accept]</code>): a wake is not a
       connection, so the hand that loses the race carries no answer and waits
       again against the budget its deadline armed, in the runtime's wait
-      rather than the kernel's. At v__WOLF_VERSION__ it states when the
+      rather than the kernel's. At v0.2.8 it stated when the
       syscall happens (<code>[os.net.io]</code>: a parking call tries the
       syscall before it waits, and waits only when the kernel says it would
-      block), and gains three calls that name what a serving loop was doing by
+      block), and gained three calls that name what a serving loop was doing by
       hand — the Nagle switch every stream is handed with (<code>[os.net.nodelay]</code>),
       the gathered write (<code>[os.net.writev]</code>), and one metadata read
       on an open handle (<code>[os.fs.fstat]</code>) in place of a path stat
-      per fact. The first of those moves a cost and no row; the other three are
-      new surface, and every one of them serves every tier-1 host. Anchors
+      per fact. The first of those moved a cost and no row; the other three
+      were new surface, and every one of them serves every tier-1 host. This
+      release does not touch the document. Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>

@@ -20,6 +20,13 @@
 #   audited-at-lupin=   what the interpreter in the tab answers
 #   audited-at-book=    the book, which publishes no version, so its pin
 #
+# A count a machine CAN measure but that no source here could reach was the
+# ww20 finding: the distance in commits from the specification revision the
+# interpreter was built to, to the commit the compiler was tagged at. It is a
+# `__COUNT_speccommits_word__` stamp now, counted with git over the two pinned
+# gitlinks, and it is on both /install/ and /play/ — which is why neither
+# carries a number word for it.
+#
 # The vocabulary starts at five. One through four are ordinary English on this
 # site and enumerating them would produce a file nobody reads; the defect this
 # list exists for (wolf-web#17 — /play/ said TWELVE net programs for two
@@ -38,21 +45,26 @@
 #             filesystem tier and the module graph are declined too and are
 #             not in the seven, because the sentence counts what a terminal
 #             lupin serves and this build does not.
+#   /play/    `Five` corpus programs part — the five wolf 0.2.9 names in its
+#             own pairing entry, each re-measured through the module this
+#             build publishes: else_chain and else_default_newline fail(E0005),
+#             list_pop_empty trap(bounds), concat_mix_char unsupported, and
+#             chan_closed_row exit(0) printing `Closed` for `closed`
 #   /reading/ 32 chapter files, ch29 reserved whole and ch25 one section in,
 #             so thirty are written through; ch21 carries §21.1–§21.5 with
 #             §21.3 and §21.5 reserved; chapters 26–32 are six programs and a
 #             coda.
-docs/index.html seven 1 counted=1 audited-at-wolf=0.2.8
-index.html five 3 counted=3 audited-at-wolf=0.2.8
-index.html six 1 counted=0
+docs/index.html seven 1 counted=1 audited-at-wolf=0.2.9
+index.html five 3 counted=3 audited-at-wolf=0.2.9
 index.html twenty 1 counted=0
-install/index.html Five 1 counted=1 audited-at-wolf=0.2.8
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.9
 install/index.html eight 2 counted=0
-install/index.html five 1 counted=1 audited-at-wolf=0.2.8
+install/index.html five 1 counted=1 audited-at-wolf=0.2.9
 install/index.html sixteen 1 counted=0
-install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.8
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.9
 install/index.html twenty-one 1 counted=0
-play/index.html Seven 1 counted=1 audited-at-lupin=0.1.28
+play/index.html Five 1 counted=1 audited-at-lupin=0.1.29
+play/index.html Seven 1 counted=1 audited-at-lupin=0.1.29
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 reading/index.html Six 1 counted=1 audited-at-book=f0e2dd1

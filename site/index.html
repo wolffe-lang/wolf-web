@@ -70,56 +70,72 @@ fn main() -&gt; !int {
   it is not: <code>wolf --version</code> built anywhere but the tag answers
   with the build's commit.</p>
 
-  <p><strong>The first chapter compiles.</strong> Chapter 1 of the book asks a
-  string for a number twice, <code>row.to_int()</code> in the cold open and
-  again in exercise 1-10, and until this release the compiler refused that
-  call: the first non-trivial string method a learner met was also the first
-  program that would not build. At v__WOLF_VERSION__
-  <code>str.to_int() -&gt; int ! {NotAnInt}</code> is in the builtin set on both
-  tiers, spelled the way the reference interpreter has always spelled it. Text
-  it cannot read is a value your program can branch on rather than a trap: the
-  surrounding whitespace is ignored, an optionally signed run of ASCII digits
-  that fits <code>int</code> is the number, and everything else — the empty
-  string, a word, an interior space, a fraction, a radix prefix, a lone sign —
-  is the <code>NotAnInt</code> row. When a method really is outside the set the
-  refusal names it now, <code>this `str` method, `to_int`, is outside the
-  builtin set</code>, where it used to hand back a byte span and leave you
-  counting.</p>
+  <p><strong>The layout rule is gone.</strong> Until this release an
+  <code>if</code> chain whose <code>else</code> began its own line was an
+  error:</p>
 
-  <p><strong>And the syscall goes first.</strong> At the other end of the
-  language, a program that reads a socket the kernel has already made ready
-  makes the read and waits for nothing. Every parking call in the net family
-  used to go to the reactor thread first — a waiter cell, a lock handshake, a
-  <code>kevent</code> to arm it, a <code>kevent</code> to wake it, a condvar,
-  two context switches — and only then make the syscall, on a socket the
-  program's own <code>net_wait</code> had just reported ready.
-  <code>lobo</code>, the web server this project is writing in wolf, paid that
-  round trip three times per request. The same lobo source, untouched, was
-  built against the v0.2.6 pin and against this release and run on one macOS
-  arm64 box in a single session six minutes apart: 53.3 µs per request before
-  and 21.2 after, 18,766 requests a second to 47,162, and the share of the
-  serving thread parked in a condvar down from 40.7% to 1.1%. The
-  <code>wolf-reactor</code> thread never started at all in the second run,
-  because the reactor is lazy and a serving loop that never parks never asks
-  for one. Read that pair as a ratio rather than a score: other lanes were
-  working on the machine, the benchmark tool refused both sets under its own
-  quiet-rig rule, and neither is an entry in lobo's ledger. What the two share
-  is the box, the hour and the load. No row a program can observe moved; the
-  cost did.</p>
+<pre><code>if n &gt; 0 {
+    ...
+}
+else if n &lt; 0 {
+    ...
+}
+else {
+    ...
+}</code></pre>
 
-  <p>Three smaller changes ride along. <code>TCP_NODELAY</code> is on for every
-  TCP stream the runtime hands out, so the ordinary shape — a head, then a
-  body, two writes with a small second one — no longer stalls 40 ms behind the
-  peer's delayed ACK, and <code>net_nodelay</code> sets it either way.
-  <code>net_writev</code> sends the head and the body as one gathered write.
-  <code>fs_fstat</code> answers kind, size and modification time from a single
-  metadata read on an open handle, where a static-file server used to pay four
-  separate path stats for the same three facts. Every call that existed at
-  v0.2.7 keeps its signature and its error rows, so a program written against
-  it behaves the same way here — as one written against v0.2.5 still does,
-  since v0.2.6 made a hand that loses an accept race come back inside the
-  budget its <code>net_deadline</code> armed instead of parking in the kernel
-  until the next connection arrived, which on a quiet server was never.</p>
+  <p>The newline after the <code>}</code> ended the statement and left the
+  <code>else</code> with nothing to attach to, and the compiler said E0005.
+  The rule was Go's, and it was the one place in wolf where where a line began
+  decided whether a program built. At v__WOLF_VERSION__ <strong>a line whose
+  first token is <code>else</code> continues the previous statement</strong>.
+  The chain above compiles, and so does a defaulting <code>else</code> written
+  under the call it defaults. E0005 leaves the catalogue and its number is
+  never reused. The formatter did not move: <code>wolf fmt</code> still lays a
+  chain as <code>} else {</code> on one line, so the canonical shape is exactly
+  what it was and the aligned source above formats to it and stays there. What
+  changed is that the parser no longer refuses the reader who writes it the
+  other way before running the formatter.</p>
+
+  <p><strong>The row a string hands back when it is not a number is called
+  <code>parse</code>.</strong> <code>"12x".to_int()</code> answers an error
+  row, and until now that row was <code>NotAnInt</code> — the one CapCase
+  payload-free mark on the whole builtin surface, in a language whose own lint
+  says otherwise. W0603 has always warned that a payload-free mark is a
+  lowercase word and that CapCase names a payload's type; the operating-system
+  families spell their conditions <code>not_found</code>, <code>utf8</code>,
+  <code>closed</code>; the json builtins already answered <code>parse</code>
+  for exactly this condition. So the row is <code>parse</code>, and this is the
+  one change in v__WOLF_VERSION__ that can break a program you already wrote.
+  It breaks it out loud: a <code>match</code> arm that still names
+  <code>NotAnInt</code> is refused by name, with a note reading <code>the cases
+  are: parse</code>. The family is ruled for the first time as well —
+  <code>[mem.str.parse]</code> says which text parses and that nothing here
+  ever traps — and <code>to_float</code> and <code>to_bool</code> are ruled out
+  of existence rather than left ambiguous.</p>
+
+  <p><strong>And a <code>char</code> joins a <code>str</code>.</strong>
+  Building a string one character at a time, <code>t += cs[i]</code> in a loop
+  over <code>chars()</code>, was refused with E0409 and a note pointing at an
+  interpolation hole. A Unicode scalar appended to text is closed under UTF-8
+  and has exactly one rendering, so <code>s + c</code> and <code>c + s</code>
+  are that append in either order and <code>s += c</code> follows.
+  <code>str + int</code> still refuses, and the clause now says why instead of
+  leaving it to be inferred: <code>+</code> is not a formatter, and an
+  <code>int</code> has more than one rendering — sign, radix, width — so the
+  interpolation hole stays the place to choose one.</p>
+
+  <p>Around those three, the release is mostly the language saying out loud
+  what it had been doing. <code>{x}</code> renders every value both
+  implementations can show — a tuple, a struct, a <code>List</code>, an enum
+  variant, a caught row, an exit reason — and refuses by name what has no
+  promised rendering. <code>return</code> inside a closure returns from the
+  closure, typed against the closure's own result, which is how both lowering
+  tiers and the interpreter had always run it. <code>channel[T]</code> in a
+  signature position is a channel, so a worker taking its inbox as a parameter
+  can iterate it. And <code>pop</code> on an empty <code>List</code> answers
+  the <code>none</code> row rather than faulting, which is what the compiler
+  had always done and what the clause now says.</p>
 
   <p>There is a second implementation. <code>lupin</code> is a reference
   interpreter written against the same specification, sharing no code with the

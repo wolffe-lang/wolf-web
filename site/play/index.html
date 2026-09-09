@@ -123,27 +123,50 @@
   the source stays in the tab, and no request leaves the page after the module
   and the samples have loaded.</p>
 
-  <p>The revision of the specification it reads is the compiler's own, at these
-  pins. This interpreter, lupin __LUPIN_VERSION__, was released against
-  the same commit that the release <a href="/install/">install</a> advertises
-  was tagged at, so there is no distance between the text the two
-  implementations read, and a program that answers differently here from a
-  __WOLF_VERSION__ you
-  download today is a disagreement about that text rather than a difference of
-  vintage. The <a href="/spec/">specification</a> is what gets read. It has not
-  always been so and it will not stay so by itself: the interpreter tags on its
-  own schedule, and the CI job that measures this page counts the distance back
-  from the advertised release and requires both pages to spell what it
-  counted.</p>
+  <p>The revision of the specification it reads is the compiler's own, but not
+  the compiler's newest. This interpreter, lupin __LUPIN_VERSION__, was built
+  to <code>e9a17cb</code>, a development revision of the compiler's trunk that
+  sits __COUNT_speccommits_word__ commits behind the commit the release
+  <a href="/install/">install</a> advertises was tagged at. Counted the way the
+  compiler counts releases that is <strong>one release</strong> of distance:
+  the newest tag whose specification this interpreter has read is the one
+  before __WOLF_VERSION__. So a program that answers differently here can be a
+  disagreement about the text or a difference of vintage, and this page says
+  which. The <a href="/spec/">specification</a> is what gets read when it is
+  the first. The CI job that measures this page counts the distance by
+  ancestry — the interpreter's pin need not be a tag, and this time it is not —
+  and requires both pages to spell what it counted.</p>
 
-  <p>Closing that distance changed nothing about what this page declines, which
-  is worth a sentence because the pins before it made the refusals look
-  temporary. <code>net_writev</code> and <code>net_nodelay</code> are in this
-  interpreter now, and <code>fs_fstat</code> is declined by design in every
-  build of it, so all three still report <code>unsupported</code> here: a tab
-  has no sockets, and this interpreter opens no files anywhere. Each of those
-  refusals had two reasons at once while the pins were apart, and what is left
-  of them is the tier.</p>
+  <p><strong>Where the vintage shows.</strong> Five corpus programs answer
+  differently here than on the compiler you can download, and every one of them
+  is a ruling from this release that the interpreter has not mirrored yet.
+  Each was measured through the module this page serves:</p>
+
+  <table>
+    <tr><th>program</th><th>here</th><th>on the compiler</th></tr>
+    <tr><td><code>grammar/else_chain.lu</code></td><td><code>fail(E0005)</code></td><td><code>exit(0)</code></td></tr>
+    <tr><td><code>grammar/else_default_newline.lu</code></td><td><code>fail(E0005)</code></td><td><code>exit(0)</code></td></tr>
+    <tr><td><code>memory/list_pop_empty.lu</code></td><td><code>trap(bounds)</code></td><td><code>exit(0)</code></td></tr>
+    <tr><td><code>strings/concat_mix_char.lu</code></td><td><code>unsupported</code></td><td><code>exit(0)</code></td></tr>
+    <tr><td><code>conc/chan_closed_row.lu</code></td><td><code>exit(0)</code>, printing <code>Closed</code></td><td><code>exit(0)</code>, printing <code>closed</code></td></tr>
+  </table>
+
+  <p>The two <code>fail(E0005)</code> rows are the ones worth pausing on. Their
+  whole point is a layout the compiler now admits — a line beginning with
+  <code>else</code> — and E0005 is retired from the compiler's catalogue in the
+  same release, so the tab hands back a diagnostic code the
+  <a href="/docs/">diagnostics page</a> no longer lists. That is the pin lag
+  with a face on it. The last row is the quietest and the easiest to miss: the
+  verdicts agree and only the printed bytes differ, because the interpreter
+  still mints <code>Closed</code> where <code>[conc.chan.close]</code> now
+  spells the mark <code>closed</code>.</p>
+
+  <p>What the distance does <em>not</em> explain is what this page declines.
+  <code>net_writev</code> and <code>net_nodelay</code> are in this interpreter
+  and <code>fs_fstat</code> is declined by design in every build of it, so all
+  three report <code>unsupported</code> here whatever the pins say: a tab has
+  no sockets, and this interpreter opens no files anywhere. Those refusals are
+  the tier and nothing else, and closing the gap will not move them.</p>
 
   <p>The interpreter is not the compiler, and it reaches a different set of
   programs. It runs the memory model as a dynamic machine, so every ownership
@@ -173,22 +196,24 @@
   wasm module has no way to ask how many cores a process may be scheduled on,
   and <code>[os.cpus]</code> says a host that cannot answer takes that row
   instead of quietly saying one. So <code>corpus/os/cpus.lu</code> stopped
-  reporting <code>unsupported</code> at this pin and started exiting 0 with
-  <code>answered false</code> on the line, which is the program working as
-  written. It is not on the menu, because its own header says
+  reporting <code>unsupported</code> when the interpreter grew the call, and
+  exits 0 with <code>answered false</code> on the line at every pin since,
+  which is the program working as written. It is not on the menu, because its own header says
   <code>answered true</code> and a sample shown beside a header it contradicts
   looks broken.</p>
 
-  <p>__COUNT_netprograms_Word__ of the corpus's net programs land in that count, and the three
-  newest are this release's: <code>syscall_first.lu</code>,
-  <code>writev_gather.lu</code> and <code>nodelay.lu</code>, the witnesses for
-  a read that no longer takes a round trip through the reactor, for a head and
-  a body leaving as one write, and for Nagle being off on every stream the
-  runtime hands out. Each opens a socket, so a tab declines all three twice
-  over: the tier, and the fact that two of the calls are newer than this
-  interpreter. That count was wrong until this pass, incidentally. The page
-  said twelve from ww16, when thirteen was already the number; nothing gates a
-  count written by hand, and re-measuring the census is what caught it.</p>
+  <p>__COUNT_netprograms_Word__ of the corpus's net programs land in that
+  count, and none of them moved at this release. The three newest are v0.2.8's
+  — <code>syscall_first.lu</code>, <code>writev_gather.lu</code> and
+  <code>nodelay.lu</code>, the witnesses for a read that no longer takes a
+  round trip through the reactor, for a head and a body leaving as one write,
+  and for Nagle being off on every stream the runtime hands out. A tab declines
+  all three for one reason only, which is the socket: the calls themselves have
+  been in this interpreter since 0.1.28, and while they were not, a sentence
+  here said the refusal had two causes. That count was wrong until ww19,
+  incidentally. The page said twelve from ww16, when thirteen was already the
+  number; nothing gates a count written by hand, and re-measuring the census is
+  what caught it.</p>
 
   <h3>Every sample on the menu runs</h3>
   <p>All __COUNT_samples_word__ of them, and none carries a note. The newest is

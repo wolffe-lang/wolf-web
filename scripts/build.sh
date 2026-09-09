@@ -216,8 +216,12 @@ python3 scripts/collect-samples.py upstream/wolf-lang/corpus "$DIST/play/samples
 
 # The counts the pages state, measured now rather than written by hand. This
 # runs here and not beside stamp-sizes.py because one of its sources is the
-# sample index the step above just wrote.
-python3 scripts/stamp-counts.py "$DIST" upstream/wolf-lang
+# sample index the step above just wrote. It takes the interpreter checkout as
+# well, because one of the counts is a distance: how far the specification pin
+# lupin was built to sits behind the compiler this site advertises, in commits
+# of the compiler's own history. That needs both gitlinks and a wolf-lang
+# checkout with history behind it.
+python3 scripts/stamp-counts.py "$DIST" upstream/wolf-lang upstream/wolf-interp
 
 step "What could not be built"
 waived=()

@@ -31,7 +31,7 @@ menu entry that looks broken:
 
   corpus/conc (most), corpus/procs.lu, corpus/test/conc_schedules_test.lu
       Tasks and procs. The interpreter gives each task an OS thread, and the
-      wasm build has none to give. Three `conc` programs that never actually
+      wasm build has none to give. Four `conc` programs that never actually
       spawn do run (measured against the built module at this pin), and two
       of them are in the list below.
 
@@ -46,9 +46,10 @@ menu entry that looks broken:
       module-lint witnesses) reports `unsupported` from a stdin buffer,
       which is all the playground has to offer.
 
-That leaves 231 candidates at this pin — the programs that actually answer
-`exit` or `trap` in the browser build, the other 62 reporting `unsupported`
-(the module-graph programs above, and the tiers a tab cannot serve). Every
+That leaves 234 candidates at this pin — the programs that actually answer
+`exit` or `trap` in the browser build, 66 reporting `unsupported` (the
+module-graph programs above, and the tiers a tab cannot serve) and two
+answering `fail`, which is new and is the pin lag rather than a tier. Every
 one of those numbers is measured by feeding each candidate to the wasm
 module this build publishes and reading the verdict back — re-measure on a
 pin bump rather than trusting the line. The list below is a spread across
@@ -70,37 +71,60 @@ went red with `runs at this pin, and still carries the note that says it
 does not`, which is how the note came off. No entry carries one now, and
 none has since.
 
-Re-measured at the wolf v0.2.8 / lupin 0.1.28 pins, against the module this
-build publishes: 293 `phase: run` corpus programs, 200 `exit`, 31 `trap`, 62
-`unsupported`, and the `fail` class stays EMPTY. Candidates 231 — every number
-identical to the pins before these.
+Re-measured at the wolf v0.2.9 / lupin 0.1.29 pins, against the module this
+build publishes: 302 `phase: run` corpus programs, 202 `exit`, 32 `trap`, 66
+`unsupported`, and — for the first time at any pin this site has measured — 2
+`fail`. Candidates 234.
 
-That was the prediction, written down before the harness ran, and it was cheap
-to make: the compiler pin does not move at this bump, so the corpus is
-byte-identical and only the module in the tab changes. The one item in the
-release that could have moved a verdict is wolf-interp#69, which reparses
-`str.to_int` as the `i64` the type is, so one past either extreme is the
-`NotAnInt` row now instead of a value no `int` can hold. The corpus witness
-does not reach it. `strings/to_int.lu` shows `max` and `min` at the i64
-extremes and nothing outside them, because wolf-lang held the overflow input
-in its own crate tests while the two implementations disagreed, so the file
-pinned neither side. It answers `exit(0)` here as it did before.
+That was the prediction, written down before the harness ran, and unlike ww19's
+it was not cheap: the compiler pin moves, so the corpus moves with it. Eight
+programs are new, one is gone, and two more flip from `phase: resolve` to
+`phase: run` because the compiler now accepts what it used to refuse. Each was
+placed in its class from the release notes and the tier rules before anything
+was run, and the harness agreed on every one.
 
-The four refusals ww18 called over-determined came apart the way it said they
-would. `net_writev` and `net_nodelay` are in the interpreter at this release,
-and `fs_fstat` was never a question of age — the filesystem tier is declined
-in EVERY build of the interpreter, the terminal one included. All four still
-answer `unsupported` in the tab, on the tier alone now: no sockets in a
-browser, and no files anywhere.
+  strings/interp_values.lu           exit(0)       s143, byte-identical here
+  conc/reason_interp.lu              unsupported   s143, procs
+  conc/chan_param_for.lu             unsupported   s143, `spawn proc`
+  rows/to_int_parse.lu               exit(1)       s143, `error: parse`
+  grammar/else_chain.lu              fail(E0005)   s144, was exit(0) at v0.2.8
+  grammar/else_default_newline.lu    fail(E0005)   s144
+  conc/chan_closed_row.lu            exit(0)       s144, a channel, no spawn
+  memory/list_pop_empty.lu           trap(bounds)  s144
+  strings/concat_mix_char.lu         unsupported   s145, resolve -> run
+  typecheck/closure_return.lu        unsupported   s145, a spawned task body
+  grammar/else_default.lu            exit(0)       s143, resolve -> run
+  strings/to_int.lu                  exit(0)       unchanged class
+
+The `fail` class stops being empty, and the reason is worth writing down. Both
+of those grammar programs exist to pin a layout wolf 0.2.9 admits — a line
+whose first token is `else` — and lupin 0.1.29 has not mirrored it, so the tab
+refuses them with E0005, a code this release retires from the compiler's own
+catalogue. Neither is on the menu and neither should be: an entry that answers
+`fail` looks broken, which is the rule check-samples.mjs holds.
+
+Two more part without leaving `exit`. `memory/list_pop_empty.lu` traps where
+the compiler answers the `none` row, and `conc/chan_closed_row.lu` agrees on
+the verdict and prints `Closed` where the compiler prints `closed`. The second
+is the one no verdict count can see, which is why /play/ names it in prose.
+
+The four refusals ww18 called over-determined came apart at ww19 and have
+stayed apart: `net_writev` and `net_nodelay` are in this interpreter,
+`fs_fstat` is declined in EVERY build of it including the terminal one, and
+all four answer `unsupported` in the tab on the tier alone. Reopening the pin
+gap did not put the second reason back, because none of the four is a call
+this interpreter predates any more.
 
   net/syscall_first.lu, net/nodelay.lu, net/writev_gather.lu   unsupported
   fs/fstat.lu                                                  unsupported
   net/accept_race.lu                                           unsupported
   strings/to_int.lu                                            exit(0)
   typecheck/byte_casts.lu                                      exit(0)
+  os/cpus.lu                                                   exit(0)
 
-The last of those is what the page's oldest lupin sentence rests on: 0.1.25
-landed the byte, and it has stayed landed at every pin since.
+The last two are what the page's oldest lupin sentences rest on: 0.1.25 landed
+the byte and it has stayed landed, and `os_cpus` answers the `io` row rather
+than declining.
 
 Sixteen of the corpus's net programs answer `unsupported` here, unmoved, and
 that is every `.lu` file in `corpus/net/`. Fifteen of them decline on the net

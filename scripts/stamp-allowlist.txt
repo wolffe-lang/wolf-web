@@ -24,6 +24,13 @@
 # release would leave the sentence unread while making it false. The bound
 # __LUPIN_VERSION__ entry is what catches that one.
 #
+# ww20 is the first bump where both clocks moved at once, so all six entries
+# reddened together and all ten bound sentences were re-read. Four were false
+# and all four were the same mistake: a paragraph telling the LAST release's
+# story under this release's stamp. Three were the front page's (the first
+# chapter, the syscall-first accept, the three net calls) and one was /spec/'s
+# copy of the third. The rewrite is per release, not per stamp.
+#
 # Neither this file nor the literal allowlist beside it can see a sentence
 # that carries no version and no placeholder, and the pin-lag prose is
 # written three times across /install/ and /play/ — one of those three
@@ -31,9 +38,9 @@
 # audits were green over it while it was stale. The windows job's pin-lag
 # step counts the gap and holds the phrase on both pages, which is where
 # that third sentence is covered; it is not covered here.
-index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.8
-install/index.html __WOLF_VERSION__ 10 bound=2 audited-at-wolf=0.2.8
-install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.28
-spec/index.html __WOLF_VERSION__ 2 bound=2 audited-at-wolf=0.2.8
-play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.8
-play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.28
+index.html __WOLF_VERSION__ 6 bound=4 audited-at-wolf=0.2.9
+install/index.html __WOLF_VERSION__ 11 bound=3 audited-at-wolf=0.2.9
+install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.29
+spec/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
+play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
+play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.29
