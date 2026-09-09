@@ -3,6 +3,100 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww20 — 2026-09-09
+
+The site takes the line. Pins move to wolf v0.2.9 and lupin 0.1.29, both clocks
+in one bump for the first time since ww15, so all 25 version literals, all 11
+release-bound stamped sentences and all 14 live counts reddened at once and
+every one was re-read.
+
+The front page tells it the way the release does, as three things a reader ran
+into and none of them something wolf meant to teach. An aligned `if` chain
+whose `else` began its own line was an error, E0005, because the newline after
+the `}` ended the statement; a line whose first token is `else` continues the
+previous statement now, and E0005 leaves the catalogue. The formatter did not
+move, which is the half a reader needs: `wolf fmt` still lays a chain as
+`} else {` on one line, so the canonical shape is what it was and the aligned
+source formats to it. `to_int`'s error row is spelled `parse` rather than
+`NotAnInt` — the one CapCase payload-free mark on the builtin surface, in a
+language whose own lint says otherwise — and it is the one change here that can
+break a program you already wrote, out loud: a `match` arm naming `NotAnInt` is
+refused with a note reading `the cases are: parse`. And a `char` joins a `str`,
+because a Unicode scalar appended to text is closed under UTF-8 and has one
+rendering, while `str + int` still refuses and the clause now says why. v0.2.8's
+three paragraphs came off the page; under this stamp they were false.
+
+The census was predicted before the harness ran and held on every number and
+every witness, which mattered more than usual because this time it was not a
+cheap prediction. ww19's corpus was byte-identical to ww18's; this one moves —
+eight programs added, one deleted, two flipped from `phase: resolve` to
+`phase: run` because the compiler now accepts what it used to refuse. Each of
+the twelve was placed in its class from the release notes and the tier rules
+before the module was built. 302 `phase: run` programs, 202 `exit`, 32 `trap`,
+66 `unsupported`, 2 `fail`, candidates 234.
+
+**The `fail` class stops being empty.** It has been zero at every pin this site
+has ever measured. `grammar/else_chain.lu` and `grammar/else_default_newline.lu`
+exist to pin the layout v0.2.9 admits, lupin 0.1.29 has not mirrored it, and
+the tab answers `fail(E0005)` — a diagnostic code this same release retires
+from the compiler's own catalogue, so the playground hands back a code /docs/
+no longer lists. Neither program is on the menu and neither should be.
+
+The lag is one release, and it is not a release-shaped gap. lupin 0.1.29 was
+built to `e9a17cb`, a development revision of the compiler's trunk taken
+because the clauses it mirrors did not exist at the newest tag — twenty-four
+commits short of the commit v0.2.9 was tagged at and past the tag before it.
+So the interpreter has read the first of this release's three rulings and not
+the other two: it spells `parse`, and it has not mirrored the leading `else`,
+the `closed`/`cancelled` tags, `pop` on an empty list or `str + char`. /play/
+tabulates the five programs where that shows with the verdict the tab gives for
+each, including the one no verdict count can see: `conc/chan_closed_row.lu`
+exits 0 on both machines and prints `Closed` where the compiler prints
+`closed`.
+
+That distance is measured rather than written. It is a
+`__COUNT_speccommits_word__` stamp now, counted with git over the two pinned
+gitlinks, and it is the first count in this file's scheme whose source is
+history rather than a file — which is why the build job now deepens the pinned
+compiler checkout that actions/checkout took at depth 1.
+
+The windows job went red over the SOURCE of the number for the second bump
+running, and this time the changelog retires as a source altogether. It asked
+the pinned lupin CHANGELOG which release the interpreter's pin is, and 0.1.29
+has no answer to give, because `e9a17cb` is not one and no sentence can make it
+one. The gap is the newest release tag that is an ancestor of that pin now,
+counted over the pinned compiler's own history. Two ancestry checks come free
+and are asserted: the pin must be a commit the pinned compiler carries, and the
+compiler pin must descend from it. Whether the pin is a tag is a second fact
+about the same gap and gets the same both-directions prose check the four
+phrases have — `a development revision` is reserved vocabulary on /install/ and
+/play/ now — and each page must carry the distance stamp exactly when there is
+a distance to state.
+
+Two sentences had gone false carrying no version and no count word, which is
+the class neither audit can see and the reason the windows job holds prose at
+all. /play/ said two of the net calls were newer than this interpreter, which
+stopped being true at 0.1.28 and was still on the page a bump later. /docs/
+said its code counts were not measured, which stopped being true at ww19, when
+they became stamps. Both say what they mean now.
+
+The package freshness literals were read live, and the two channels disagreed,
+which is the ordinary state rather than a fault. The tap carries both tags this
+release describes; the AUR's two interpreter packages are at 0.1.29 and its two
+compiler packages are still building v0.2.8. That is the whole argument for
+keeping those two claims literals: a stamp would have asserted, with nobody
+looking, that a packager had already pushed.
+
+wolf-web#19 closes. Every python script here runs twice — once on a CI runner
+during the PR, once on the deploy host when trunk lands — and those were not
+the same interpreter with nothing saying so. The host's version is written down
+in one place now and two gates read it: the build job installs exactly that
+python before anything else runs, so a PR run is the deploy's rehearsal and all
+seven scripts are exercised under it; and `ci-deploy.sh` prints the host's
+version beside the one CI rehearsed on and refuses to deploy when they differ.
+An upgraded host is a red deploy that names both versions rather than a silent
+change of what a green PR means.
+
 ## ww19 — 2026-09-09
 
 The site takes the interpreter. Pins move to lupin 0.1.28, and for the first
