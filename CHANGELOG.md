@@ -3,6 +3,90 @@
 lupp.us has no release tags; an entry here is a merged sprint, in the
 shape D65 rules: user-visible changes only, the sprint id named.
 
+## ww18 — 2026-09-09
+
+The site takes the first chapter. Pins move to wolf v0.2.8; lupin holds at
+0.1.27 for the third release running, and this is the bump where that starts
+to cost something.
+
+The front page tells it the way the release does, learner first. Chapter 1 of
+the book asks a string for a number twice, and until v0.2.8 the compiler
+refused that call, so the first non-trivial string method a learner met was
+also the first program that would not build. `str.to_int() -> int !
+{NotAnInt}` is in the builtin set on both tiers now, spelled the way the
+reference interpreter has always spelled it, and text it cannot read is a row
+your program can branch on rather than a trap. At the other end of the
+language a parking call in the net family tries the syscall before it waits,
+so a read on a socket the program's own `net_wait` just reported ready touches
+no lock handshake, no condvar and no `kevent`. lobo went from 53.3 to 21.2
+microseconds a request on one box in one session, and the page says the thing
+that matters about that pair: other lanes were working on the machine, the
+benchmark tool refused both sets under its own quiet-rig rule, and neither is
+an entry in lobo's ledger. What the two share is the box, the hour and the
+load, so the ratio is the claim and the score is not.
+
+Six predictions, six holds. The class of every new corpus witness was written
+down before the harness ran, and the harness agreed: `net/syscall_first.lu`,
+`net/writev_gather.lu`, `net/nodelay.lu` and `fs/fstat.lu` answer
+`unsupported`, `strings/to_int.lu` exits 0, and `rows/to_int_not_an_int.lu`
+exits 1 carrying `NotAnInt` out of main, which is the `exit` class and not
+`trap`. The aggregate landed on the predicted numbers too: 293 `phase: run`
+programs, 200 `exit`, 31 `trap`, 62 `unsupported`, 0 `fail`, candidates 229 to
+231.
+
+Worth saying why the four refusals are over-determined, because the two
+reasons come apart at the next interpreter release. Three of them are tiers a
+tab cannot serve, and the filesystem tier is declined in every build of the
+interpreter including the terminal one. They are also calls this interpreter
+predates. When lupin catches up they stay `unsupported` on the tier alone.
+
+The menu is thirty-four. `strings/to_int.lu` joins it, and the reason runs
+backwards from the usual one: the interpreter has answered `str.to_int` all
+along, so the program the tab could always have run is the one that only just
+started compiling. Every other release has moved the compiler ahead of the
+playground.
+
+And the count that no gate held was wrong. /play/ has said twelve of the
+corpus's net programs answer `unsupported` since ww16, and thirteen was
+already the truth when it said it. Sixteen now, measured rather than
+incremented. The census exists to be re-measured and this is what re-measuring
+is for; a number written by hand beside numbers that are gated reads exactly
+as trustworthy as they do, and is not.
+
+The lag is three, and it has teeth the last two did not. v0.2.6 and v0.2.7
+moved no language surface, so an interpreter a release or two back still
+answered every program the compiler did. v0.2.8 adds four calls the pinned
+interpreter predates, so a program using `net_writev`, `net_nodelay` or
+`fs_fstat` compiles from the archive and is declined in the playground, and
+that is the pin lag rather than a disagreement about the language. Both pages
+say so now instead of leaving a reader to infer it.
+
+The windows step stopped the job before any of that, which is what it is for.
+The gap counter ww17 built has prose for a closed set of gaps, it counted
+three, it found no sentence for three on either page, and it named what was
+missing rather than guessing. The phrase went into the table after the
+paragraphs were written. One wrinkle came out of it and is recorded beside the
+table: those phrases are reserved vocabulary on /install/ and /play/, because
+the absent-phrase half of the check is page-wide, and the packaging paragraph
+below wanted to say "one release" about something else entirely.
+
+/install/ says the doors are a step behind. ww17 wrote the package freshness
+claim as counted literals rather than stamps, on the grounds that a stamped
+claim would re-render with the new number at the next bump and assert, with
+nobody looking, that a packager had already pushed. That is what a stamp would
+have done here. Both literals reddened, the live AUR and the live tap were
+read, and every compiler package is still at v0.2.7 while this page describes
+v0.2.8. The page says that, and says a tag and its packaging do not land in
+the same minute.
+
+One thing this pass nearly got wrong. The v0.2.8 release was still a DRAFT
+when the pin was taken, with two of its four archives uploaded, so for a few
+minutes the front page's "four archives" and /install/'s Windows download link
+named files that did not exist. The release finished publishing before
+anything was committed and all four are there. The site's rule is that a page
+cannot claim a version of wolf that does not exist, and a tag is not the same
+event as a release.
+
 ## ww17 — 2026-09-09
 
 The site takes the pairing. Pins move to wolf v0.2.7; lupin holds at 0.1.27,
