@@ -70,48 +70,46 @@ went red with `runs at this pin, and still carries the note that says it
 does not`, which is how the note came off. No entry carries one now, and
 none has since.
 
-Re-measured at the wolf v0.2.7 / lupin 0.1.27 pins, against the module this
-build publishes: 287 `phase: run` corpus programs, 198 `exit`, 31 `trap`, 58
-`unsupported`, and the `fail` class stays EMPTY. Candidates 229, flat.
+Re-measured at the wolf v0.2.8 / lupin 0.1.27 pins, against the module this
+build publishes: 293 `phase: run` corpus programs, 200 `exit`, 31 `trap`, 62
+`unsupported`, and the `fail` class stays EMPTY. Candidates 229 -> 231.
 
-NOTHING MOVED at the v0.2.7 bump, and that was the prediction rather than a
-shrug. v0.2.7 is a pairing re-stamp and a CI job: no corpus file was added or
-removed between the two tags, the single corpus edit is a `conforms:` tag and
-a comment on `test/conc_schedules_test.lu` (excluded above as a conc program
-either way), and the module in the tab is byte-identical because lupin did
-not tag. Every number below is the same number ww16 measured. It was measured
-again anyway, through the published module, because the rule this docstring
-keeps is that these are read and not glanced at.
+Six programs arrived and every one landed in the class predicted for it before
+the harness ran, which is the first time this file has recorded the prediction
+and the measurement as separate acts:
 
-The paragraphs below are ww16's, and they still describe the pins.
+  net/syscall_first.lu, net/nodelay.lu, net/writev_gather.lu   unsupported
+  fs/fstat.lu                                                  unsupported
+  strings/to_int.lu                                            exit(0)
+  rows/to_int_not_an_int.lu                                    exit(1)
 
-TWO things moved at the PREVIOUS bump and they cancelled in the `unsupported` column, which is
-why that number has to be read rather than glanced at. The corpus gained
-`net/accept_race.lu`, s138's witness for the fair accept: two hands on one
-inherited listener, one connection, both hands returning. It is
-`unsupported` here — `net_listen_with` is the s39 net tier and a tab has no
-sockets — which is the same answer the compiler's own lanes give it, for a
-different reason (they are handed no listener to inherit). And `os/cpus.lu`
-came OFF the unsupported rung, which is the movement worth reading twice.
-lupin 0.1.27 REGISTERS `os_cpus`, so the call no longer fails to resolve and
-the program is no longer declined by tier — but the wasm host still cannot
-answer it, and what it answers instead is the `io` row. The witness pins
-relations rather than a number and treats a host that cannot answer as a
-legal outcome, so it exits 0 here printing `answered false`. Verdict `exit`,
-not `unsupported`; the count of programs a tab declines is flat at 58 while
-one of them changed identity, and `exit` is the column that grew.
+The four refusals are over-determined and it is worth saying why, because the
+two reasons will come apart at the next interpreter release. The net trio and
+the fstat witness are tiers a tab cannot serve (no sockets, and the filesystem
+tier is declined in EVERY build of the interpreter including the terminal
+one). They are ALSO calls this interpreter predates: `net_writev`,
+`net_nodelay` and `fs_fstat` are new at wolf v0.2.8 and lupin is pinned three
+releases back. When lupin catches up, the net trio and fstat stay
+`unsupported` on the tier alone, and nothing here moves.
 
-That is also why `os/cpus.lu` is NOT on the menu. A sample is shown beside
-its own header, and this one's header says `answered true` while the tab
-prints `answered false` — a program that looks broken and is not, which is
-the thing this file's selection rule exists to keep off the list.
-`check-samples.mjs` would have passed it: the gate holds the VERDICT class,
-and this program's verdict is honest. The output is what disagrees.
+`strings/to_int.lu` went the other way and is the reason this bump reads
+oddly: the compiler is what caught up. `str.to_int` has been in the reference
+interpreter all along and joined the builtin set at v0.2.8 (#263), so the
+witness that could not compile last week runs in the tab today. It is on the
+menu because of that, which is what takes the list to 34.
 
-lupin 0.1.27 reads pin `6ade878`, wolf v0.2.5, so `net/accept_race.lu` is
-also a program written against a specification revision this interpreter has
-not been released against yet; when it is, it will still want sockets.
-"""
+`rows/to_int_not_an_int.lu` exits 1 carrying `NotAnInt` out of `main`, which
+is the `exit` class and not `trap` — the same shape as `os/exit_code.lu` at
+`exit(7)`. It is off the menu: a sample that prints `error: NotAnInt` and
+exits 1 beside a header saying so is fine on a terminal and reads as a broken
+playground.
+
+Sixteen of the corpus's net programs answer `unsupported` here, up from
+thirteen. The page said TWELVE from ww16 until this pass, and thirteen was
+already the truth when it said it — a hand count no gate holds, off by one for
+two releases. Re-measuring is what found it.
+
+TWO things moved at the v0.2.6 bump and they cancelled"""
 
 from __future__ import annotations
 
@@ -130,6 +128,7 @@ SAMPLES: list[tuple[str, ...]] = [
     ("strings/interp_value_position.lu", "interpolation"),
     ("strings/format_spec_width.lu", "format specs"),
     ("strings/builtin_methods.lu", "string methods"),
+    ("strings/to_int.lu", "text to a number, and the row when it is not"),
     ("strings/char_interp.lu", "the char scalar"),
     ("typecheck/byte_casts.lu", "the byte, and its cast ladder"),
     ("grammar/interp_nested.lu", "strings inside strings"),

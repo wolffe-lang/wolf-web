@@ -177,16 +177,26 @@
   <code>answered true</code> and a sample shown beside a header it contradicts
   looks broken.</p>
 
-  <p>Twelve of the corpus's net programs land in that count, and the newest of
-  them is the witness for what this release is about:
-  <code>corpus/net/accept_race.lu</code> puts two hands on one inherited
-  listener, sends one connection, and requires both hands to come back. It
-  wants three things a tab has none of — a listener, a spawn, and a
-  descriptor handed across it — so the page declines it rather than mocking
-  it. The <a href="/changelog/wolf/">changelog</a> has what it proves.</p>
+  <p>Sixteen of the corpus's net programs land in that count, and the three
+  newest are this release's: <code>syscall_first.lu</code>,
+  <code>writev_gather.lu</code> and <code>nodelay.lu</code>, the witnesses for
+  a read that no longer takes a round trip through the reactor, for a head and
+  a body leaving as one write, and for Nagle being off on every stream the
+  runtime hands out. Each opens a socket, so a tab declines all three twice
+  over: the tier, and the fact that two of the calls are newer than this
+  interpreter. That count was wrong until this pass, incidentally. The page
+  said twelve from ww16, when thirteen was already the number; nothing gates a
+  count written by hand, and re-measuring the census is what caught it.</p>
 
   <h3>Every sample on the menu runs</h3>
-  <p>All thirty-three of them, and none carries a note. That was not true
+  <p>All thirty-four of them, and none carries a note. The newest is
+  <strong>text to a number, and the row when it is not</strong> —
+  <code>corpus/strings/to_int.lu</code>, the call the book's chapter 1 makes
+  in its cold open. It is on the menu at this pin and could not have been at
+  the last one, and the reason runs against the usual direction: the
+  interpreter has answered <code>str.to_int</code> all along and the compiler
+  is what joined it, so the program the tab could always have run is the one
+  that only just started compiling. That was not true
   at
   the lupin 0.1.24 pin: the menu's <strong>byte, and its cast ladder</strong> —
   <code>corpus/typecheck/byte_casts.lu</code> — answered
