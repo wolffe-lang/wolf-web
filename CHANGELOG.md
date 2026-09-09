@@ -70,14 +70,18 @@ table: those phrases are reserved vocabulary on /install/ and /play/, because
 the absent-phrase half of the check is page-wide, and the packaging paragraph
 below wanted to say "one release" about something else entirely.
 
-/install/ says the doors are a step behind. ww17 wrote the package freshness
-claim as counted literals rather than stamps, on the grounds that a stamped
-claim would re-render with the new number at the next bump and assert, with
-nobody looking, that a packager had already pushed. That is what a stamp would
-have done here. Both literals reddened, the live AUR and the live tap were
-read, and every compiler package is still at v0.2.7 while this page describes
-v0.2.8. The page says that, and says a tag and its packaging do not land in
-the same minute.
+/install/ names what the doors carry, twice in one sprint. ww17 wrote the
+package freshness claim as counted literals rather than stamps, on the grounds
+that a stamped claim would re-render with the new number at the next bump and
+assert, with nobody looking, that a packager had already pushed. Both literals
+reddened at this pin. The live AUR and the live tap were read and every
+compiler package was still at v0.2.7, so the page said so. Two hours later the
+packaging landed, the channels were read again, and the page says v0.2.8. A
+stamp would have been accidentally right the second time and quietly wrong the
+first, which is the whole argument for the literal: it is a claim about
+somebody else's repository, and the only way to know is to look. What stays on
+the page is the process fact rather than the state, since a release and its
+packaging are separate acts and do not land in the same minute.
 
 One thing this pass nearly got wrong. The v0.2.8 release was still a DRAFT
 when the pin was taken, with two of its four archives uploaded, so for a few
