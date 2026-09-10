@@ -10,6 +10,49 @@ build's placeholder tokens out — the version ones, the KiB ones, the count one
 than it says here, and one of them stops the build outright. Name the source
 in words; do not quote the token.
 
+## ww22 — 2026-09-10
+
+No pin moves. This wave closes the hole ww21 wrote down and leaves the site
+saying exactly what it said before, by measurement rather than by hand.
+
+The specification revision the interpreter was built to — the seven characters
+/install/ and /play/ print three times between them — was the last fact in the
+pin-lag paragraph a person typed. It is no version, so the literal audit cannot
+see it; it is no count, so the count audit cannot either; and it was rewritten
+by hand at every interpreter bump since the paragraph was written. It is
+stamped now, off the interpreter's own gitlink — the same one the distance
+beside it is counted from — and the sha is checked against the compiler this
+site advertises before it is written, so a page cannot print a revision the
+pinned checkout does not carry.
+
+The stamp on its own would have moved the hole one step, because nothing stopped
+the next editor from typing the sha back in beside it, which is what happened
+four bumps running. So the same pass refuses a git revision written into any
+page it sweeps, and it refuses the correct one too: a literal that is right
+today is precisely the kind that goes quietly wrong at the next bump. The test
+suite plants one and watches the build red. The windows job's pin-lag step,
+which already reads that gitlink to count the distance, now requires the stamp
+on both pages and reds on a literal there as well, and version.json records the
+revision the build measured, so what the site serves can be held against the
+build's own answer without asking git anything.
+
+The wasm build script says what it does. Its header opened on a portability
+patch and called patching the staged interpreter the normal case; that patch
+landed upstream and was deleted on 2026-08-13, and every build since has
+reported that there is none. The staging is what the paragraph is about now.
+The header also states the toolchain requirement once (wolf-web#14): the staged
+version pin governs the build only when `rustc` is rustup's shim, so another
+rust ahead of it on PATH defeats the pin silently. The script warns where the
+pin is staged, and when the wasm target then turns out to be missing it names
+the rust that answered rather than sending the reader after a rustup problem
+that is not there.
+
+wolf-web#5 is declined. The alternate multi-cursor chord would take
+Ctrl+Shift+arrows from every learner who expects it to extend a selection, to
+spare some Windows learners a driver hotkey they can turn off — and /play/'s
+note already points at the two paths no driver intercepts. The bindings stand
+as ww06 wrote them.
+
 ## ww21 — 2026-09-10
 
 The site takes the mirror. The pin moves to lupin 0.1.30 and wolf stays v0.2.9,
