@@ -44,12 +44,17 @@
 #             time, the process trio, net, os_random, os_signal_listen. The
 #             filesystem tier and the module graph are declined too and are
 #             not in the seven, because the sentence counts what a terminal
-#             lupin serves and this build does not.
-#   /play/    `Five` corpus programs part — the five wolf 0.2.9 names in its
-#             own pairing entry, each re-measured through the module this
-#             build publishes: else_chain and else_default_newline fail(E0005),
-#             list_pop_empty trap(bounds), concat_mix_char unsupported, and
-#             chan_closed_row exit(0) printing `Closed` for `closed`
+#             lupin serves and this build does not. Re-read at lupin 0.1.30:
+#             all seven reasons are still in the census, and the one reason
+#             that left ("`List` has no method `first`") was a std-subset gap
+#             rather than a tier.
+#   /play/    `Five` corpus programs part — RETIRED at ww21. lupin 0.1.30
+#             mirrors three of the four rulings the table was built on, so it
+#             is one row now (concat_mix_char, wolf-interp#78) and one is
+#             ordinary English: this file's vocabulary starts at five, and a
+#             number below that line gets no entry. The row that remains is
+#             re-measured through the module the build publishes, the way the
+#             five were.
 #   /reading/ 32 chapter files, ch29 reserved whole and ch25 one section in,
 #             so thirty are written through; ch21 carries §21.1–§21.5 with
 #             §21.3 and §21.5 reserved; chapters 26–32 are six programs and a
@@ -63,8 +68,7 @@ install/index.html five 1 counted=1 audited-at-wolf=0.2.9
 install/index.html sixteen 1 counted=0
 install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.9
 install/index.html twenty-one 1 counted=0
-play/index.html Five 1 counted=1 audited-at-lupin=0.1.29
-play/index.html Seven 1 counted=1 audited-at-lupin=0.1.29
+play/index.html Seven 1 counted=1 audited-at-lupin=0.1.30
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 reading/index.html Six 1 counted=1 audited-at-book=f0e2dd1

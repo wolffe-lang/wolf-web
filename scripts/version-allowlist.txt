@@ -31,6 +31,16 @@
 # release-bound paragraphs told v0.2.8's story and were rewritten for this
 # release's three rulings.
 #
+# ww21 moves the lupin clock alone (0.1.29 -> 0.1.30) and the wolf entries hold
+# untouched, which is what a per-clock audit column is for. The six lupin
+# entries were re-read: /play/'s five historical ones all held — the
+# `stdout_inline` story through 0.1.22 and 0.1.23, the net calls landing at
+# 0.1.28, and the byte cast ladder that 0.1.25 closed and that still exits 0
+# through the module this build publishes — and /install/'s freshness pair was
+# read live and moved. Both channels had already shipped 0.1.30 by the time the
+# pin landed here, which is the opposite of ww20's reading and exactly why it
+# is a literal.
+#
 # A version literal here need not be a claim about wolf or lupin themselves.
 # The package-manager entries below are claims about what a THIRD PARTY has
 # published — the AUR's `wolf-lang`/`lupin` and the tap's formulae — and they
@@ -55,11 +65,11 @@ install/index.html v0.2.5 3 audited-at-wolf=0.2.9
 install/index.html v0.2.6 1 audited-at-wolf=0.2.9
 install/index.html v0.2.8 1 audited-at-wolf=0.2.9
 install/index.html v0.2.9 2 audited-at-wolf=0.2.9
-install/index.html 0.1.29 2 audited-at-lupin=0.1.29
-play/index.html 0.1.22 1 audited-at-lupin=0.1.29
-play/index.html 0.1.23 1 audited-at-lupin=0.1.29
-play/index.html 0.1.24 1 audited-at-lupin=0.1.29
-play/index.html 0.1.25 1 audited-at-lupin=0.1.29
-play/index.html 0.1.28 1 audited-at-lupin=0.1.29
+install/index.html 0.1.30 2 audited-at-lupin=0.1.30
+play/index.html 0.1.22 1 audited-at-lupin=0.1.30
+play/index.html 0.1.23 1 audited-at-lupin=0.1.30
+play/index.html 0.1.24 1 audited-at-lupin=0.1.30
+play/index.html 0.1.25 1 audited-at-lupin=0.1.30
+play/index.html 0.1.28 1 audited-at-lupin=0.1.30
 play/index.html v0.2.4 1 audited-at-wolf=0.2.9
 play/index.html v0.2.8 1 audited-at-wolf=0.2.9

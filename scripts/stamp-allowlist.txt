@@ -31,6 +31,13 @@
 # chapter, the syscall-first accept, the three net calls) and one was /spec/'s
 # copy of the third. The rewrite is per release, not per stamp.
 #
+# ww21 moves lupin alone, so the two __LUPIN_VERSION__ entries reddened and the
+# four __WOLF_VERSION__ ones did not. Both bound sentences are the pin-lag
+# paragraph, one per page, and both were false in the same way: they named the
+# revision the LAST interpreter release was built to. The gap they state is
+# still one release, because the new revision is still trunk past v0.2.8 — what
+# moved is the sha and the distance, and the distance is a stamp.
+#
 # Neither this file nor the literal allowlist beside it can see a sentence
 # that carries no version and no placeholder, and the pin-lag prose is
 # written three times across /install/ and /play/ — one of those three
@@ -40,7 +47,7 @@
 # that third sentence is covered; it is not covered here.
 index.html __WOLF_VERSION__ 6 bound=4 audited-at-wolf=0.2.9
 install/index.html __WOLF_VERSION__ 11 bound=3 audited-at-wolf=0.2.9
-install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.29
+install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.30
 spec/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
 play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
-play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.29
+play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.30

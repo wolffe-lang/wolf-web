@@ -125,7 +125,7 @@
 
   <p>The revision of the specification it reads is the compiler's own, but not
   the compiler's newest. This interpreter, lupin __LUPIN_VERSION__, was built
-  to <code>e9a17cb</code>, a development revision of the compiler's trunk that
+  to <code>2c03ed9</code>, a development revision of the compiler's trunk that
   sits __COUNT_speccommits_word__ commits behind the commit the release
   <a href="/install/">install</a> advertises was tagged at. Counted the way the
   compiler counts releases that is <strong>one release</strong> of distance:
@@ -137,29 +137,35 @@
   ancestry — the interpreter's pin need not be a tag, and this time it is not —
   and requires both pages to spell what it counted.</p>
 
-  <p><strong>Where the vintage shows.</strong> Five corpus programs answer
-  differently here than on the compiler you can download, and every one of them
-  is a ruling from this release that the interpreter has not mirrored yet.
-  Each was measured through the module this page serves:</p>
+  <p><strong>Where the vintage shows.</strong> One corpus program answers
+  differently here than on the compiler you can download, and it is the last
+  ruling from this release that the interpreter has not mirrored. It was
+  measured through the module this page serves:</p>
 
   <table>
     <tr><th>program</th><th>here</th><th>on the compiler</th></tr>
-    <tr><td><code>grammar/else_chain.lu</code></td><td><code>fail(E0005)</code></td><td><code>exit(0)</code></td></tr>
-    <tr><td><code>grammar/else_default_newline.lu</code></td><td><code>fail(E0005)</code></td><td><code>exit(0)</code></td></tr>
-    <tr><td><code>memory/list_pop_empty.lu</code></td><td><code>trap(bounds)</code></td><td><code>exit(0)</code></td></tr>
     <tr><td><code>strings/concat_mix_char.lu</code></td><td><code>unsupported</code></td><td><code>exit(0)</code></td></tr>
-    <tr><td><code>conc/chan_closed_row.lu</code></td><td><code>exit(0)</code>, printing <code>Closed</code></td><td><code>exit(0)</code>, printing <code>closed</code></td></tr>
   </table>
 
-  <p>The two <code>fail(E0005)</code> rows are the ones worth pausing on. Their
-  whole point is a layout the compiler now admits — a line beginning with
-  <code>else</code> — and E0005 is retired from the compiler's catalogue in the
-  same release, so the tab hands back a diagnostic code the
-  <a href="/docs/">diagnostics page</a> no longer lists. That is the pin lag
-  with a face on it. The last row is the quietest and the easiest to miss: the
-  verdicts agree and only the printed bytes differ, because the interpreter
-  still mints <code>Closed</code> where <code>[conc.chan.close]</code> now
-  spells the mark <code>closed</code>.</p>
+  <p>That table had four more rows at the interpreter's last release, and
+  losing them is what a mirror catching up looks like. Two of them answered
+  <code>fail(E0005)</code> to a layout the compiler admits — a line beginning
+  with <code>else</code> — which was the pin lag with a face on it, because the
+  same release retired E0005 from the compiler's catalogue and the tab was
+  handing back a code the <a href="/docs/">diagnostics page</a> no longer
+  lists. A third trapped <code>bounds</code> where <code>pop</code> on an empty
+  <code>List</code> now answers the <code>none</code> row. The fourth was the
+  quietest and the easiest to miss, because no verdict could see it: the two
+  machines both exited 0 and only the printed bytes parted, the interpreter
+  minting <code>Closed</code> where <code>[conc.chan.close]</code> spells the
+  mark <code>closed</code>. It prints <code>closed</code> now.</p>
+
+  <p>The row that is left is the one the interpreter has filed rather than
+  fixed. <code>[type.str.concat]</code> makes a <code>char</code> joinable to a
+  <code>str</code> in either order; this interpreter still refuses the operator
+  on that pair and says so, so the program the compiler runs is declined in the
+  tab rather than answered wrongly, which is the refusal working as designed.
+  It is open upstream as wolf-interp#78.</p>
 
   <p>What the distance does <em>not</em> explain is what this page declines.
   <code>net_writev</code> and <code>net_nodelay</code> are in this interpreter
