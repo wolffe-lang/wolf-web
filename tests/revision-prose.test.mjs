@@ -60,7 +60,8 @@ test("a stale revision planted in a page reds the build", () => {
   const out = sweep("<p>built to <code>e9a17cb</code>, a development revision</p>\n");
   assert.equal(out.status, 1, "the sweep must refuse it");
   assert.match(out.stderr, /e9a17cb/, "the message names the revision");
-  assert.match(out.stderr, /play\/index\.html/, "and the page that carries it");
+  /* the path is the platform's: play\index.html on the Windows runner. */
+  assert.match(out.stderr, /play[\\/]index\.html/, "and the page that carries it");
   assert.match(out.stderr, /__PIN_specrev_short__/, "and what to write instead");
 });
 
