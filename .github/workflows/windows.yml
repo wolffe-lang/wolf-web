@@ -129,6 +129,16 @@ jobs:
       # sentence that happens to say "one release" (the packaging lag, say)
       # reds the job. Word around them; they are short on purpose.
       #
+      # ww22 holds the revision itself. The sha the interpreter was built to is
+      # the last fact in that paragraph that was typed in by hand — it is no
+      # version and no count, so both site audits are blind to it, and it was
+      # rewritten three times across two pages at every bump. It is a
+      # __PIN_specrev_short__ stamp now, filled by scripts/stamp-revisions.py
+      # from the same gitlink this step reads. Both halves are checked below:
+      # each page must carry the stamp, and a page that writes the revision out
+      # reds even when what it writes is correct, because correct-today is
+      # exactly how that sentence went stale.
+      #
       # And the number is held against the PROSE, which is the half a version
       # literal cannot cover. The lag is stated in three places across two
       # pages, and one of them ("one release behind the compiler's at these
@@ -235,6 +245,16 @@ jobs:
             }
             # And the distance itself is stamped, not written, so the page has
             # to carry the stamp exactly when there is a distance to state.
+            # The revision is stamped from this same gitlink, so a page
+            # states it by measurement or does not state it at all.
+            if ($text -notlike '*__PIN_specrev_short__*') {
+              Write-Output "::error::$pg states no specification revision — it must carry __PIN_specrev_short__, which the build stamps from the interpreter's gitlink"
+              exit 1
+            }
+            if ($text -like "*$short*") {
+              Write-Output "::error::$pg writes the revision $short by hand — that is what __PIN_specrev_short__ is for, and a literal is stale one bump later"
+              exit 1
+            }
             $stamp = ($text -like '*__COUNT_speccommits_word__*')
             if (($commits -gt 0) -and (-not $stamp)) {
               Write-Output "::error::the interpreter's pin is $commits commits behind and $pg states no distance — it must carry __COUNT_speccommits_word__, which the build measures"
