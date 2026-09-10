@@ -10,6 +10,67 @@ build's placeholder tokens out — the version ones, the KiB ones, the count one
 than it says here, and one of them stops the build outright. Name the source
 in words; do not quote the token.
 
+## ww21 — 2026-09-10
+
+The site takes the mirror. The pin moves to lupin 0.1.30 and wolf stays v0.2.9,
+so one clock moves: the six lupin version literals, the two release-bound
+lupin-stamped sentences and the two live lupin counts reddened, and the nineteen
+wolf literals held untouched. That is the per-clock audit column doing the job
+it was added for, and it is the first bump where it has had a quiet half to
+leave alone.
+
+The census was predicted before the harness ran and held on every number and
+every witness. 302 `phase: run` programs, 206 `exit`, 31 `trap`, 65
+`unsupported`, 0 `fail`, candidates 237. The compiler pin does not move, so the
+corpus is byte-identical to ww20's and every class move is a ruling the
+interpreter mirrored. The movers were not read off the release notes and taken
+on trust: every `phase: run` file was scanned for the constructs 0.1.30 gains —
+a leading `else`, `pop` on an empty list, `get` out of range, `first`, `last`,
+the `Closed` spelling — and each hit was placed in its class before the module
+was built. Four moved and the scan says why the near misses did not: the two
+`overflow_list_pop` witnesses pop a list that is not empty, and the ruling took
+the empty case only.
+
+**The `fail` class is empty again.** It has been non-zero at exactly one pin in
+this site's history, ww20's, and the two grammar witnesses that put it there are
+the two the mirror has just taken. A tab no longer hands back E0005, which is
+the code the compiler retired in the release the interpreter was catching up to.
+
+/play/'s divergence table goes from five rows to one, which is what a mirror
+catching up looks like from here. `strings/concat_mix_char.lu` is what is left:
+`+` between a `str` and a `char`, declined in the tab and open upstream as
+wolf-interp#78. The row that came off quietest is `conc/chan_closed_row.lu`,
+the one no verdict count could ever see — both machines exited 0 at every pin
+and only the printed bytes parted — and it prints `closed` now.
+`strings/byte_view_lend.lu` came off for a reason that was never a vintage at
+all: it was declined because this machine's `List` had no `first`, and the same
+ruling that fixed `pop` gave it one.
+
+The lag is still one release and still not a release-shaped gap. lupin 0.1.30
+was built to `2c03ed9`, wolf trunk past the s144 merge, dev-stamped for the same
+reason 0.1.29's revision was: the clauses it mirrors do not exist at the newest
+tag. So the counted phrase does not move and neither does the reserved
+`a development revision`. What moves is the distance — fourteen commits behind
+the tag, where the last pin was twenty-four — and the distance is a stamp, so it
+re-rendered itself and the windows job's pin-lag step went green on the first
+run for the first bump in three. The step that has caught the SOURCE of this
+number twice running had nothing to say, because ww20 built it to count by
+ancestry and ancestry is what this pin needed.
+
+The revision sha is the one fact in that paragraph no gate holds. It is not a
+version, so the literal allowlist cannot see it; it is not a count, so neither
+can the other. It appears three times across /install/ and /play/ and all three
+were changed by hand. A sha in prose is the next hole of the shape this site
+keeps finding.
+
+The package freshness literals were read live and both channels had already
+shipped. The tap's `lupin` formula builds tag v0.1.30 and the AUR's `lupin` and
+`lupin-bin` are at 0.1.30-1, while both compiler packages sit at v0.2.9, which
+is current. That is the exact opposite of ww20's reading one wave earlier, and
+it is the whole argument for keeping those two claims literals rather than
+stamps: a stamp would have asserted the same thing on both days and been wrong
+on one of them.
+
 ## ww20 — 2026-09-09
 
 The site takes the line. Pins move to wolf v0.2.9 and lupin 0.1.29, both clocks
