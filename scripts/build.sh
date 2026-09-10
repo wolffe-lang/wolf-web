@@ -111,6 +111,17 @@ echo "  version prose stamped: wolf $WOLF_VER, lupin $LUPIN_VER"
 # from the pinned checkout now, the way the versions are.
 python3 scripts/stamp-sizes.py "$DIST" upstream/wolf-lang
 
+# And the same rule for a revision. /install/ and /play/ name the specification
+# commit the pinned interpreter was built to, and that sha was rewritten by
+# hand at every interpreter bump: it is not a version, so the prose audit is
+# blind to it, and not a count, so the count audit is too — the hole ww21
+# wrote down. It is stamped off the interpreter's own gitlink now, and the same
+# pass refuses a git revision typed into a page, including a correct one, which
+# is the kind that rots quietly. It runs here, while dist/ is the static site
+# alone: the rendered changelogs below are full of revisions and every one of
+# them is history.
+python3 scripts/stamp-revisions.py "$DIST" upstream/wolf-lang upstream/wolf-interp
+
 step "The book (web edition)"
 if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null 2>&1); then
   rsync -a upstream/wolf-book/target/render/web/ "$DIST/book/"
@@ -250,6 +261,12 @@ step "Version stamp"
 BOOK_SHA=$(git -C upstream/wolf-book rev-parse --short HEAD 2>/dev/null || echo unknown)
 INTERP_SHA=$(git -C upstream/wolf-interp rev-parse --short HEAD 2>/dev/null || echo unknown)
 LANG_SHA=$(git -C upstream/wolf-lang rev-parse --short HEAD 2>/dev/null || echo unknown)
+# The specification revision the pinned interpreter was built to. It is the
+# gitlink /install/ and /play/ now carry as a stamp, written here as well so
+# that what the pages say can be held against what the build measured without
+# asking git anything — which is what the post-deploy checks do.
+SPEC_SHA=$(git -C upstream/wolf-interp ls-tree HEAD upstream | awk '{print substr($3, 1, 7)}')
+[[ -n "$SPEC_SHA" ]] || SPEC_SHA=unknown
 # A waived build is still a build that is missing something. Say so in
 # the stamp: the site's one rule is that it does not misreport itself.
 WAIVED_JSON=""
@@ -261,6 +278,7 @@ cat > "$DIST/version.json" <<EOF
   "built": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "lupin": "$LUPIN_VER",
   "pins": { "wolf-lang": "$LANG_SHA", "wolf-interp": "$INTERP_SHA", "wolf-book": "$BOOK_SHA" },
+  "spec-pin": "$SPEC_SHA",
   "missing": [$WAIVED_JSON]
 }
 EOF
@@ -271,7 +289,7 @@ EOF
 # reader, and did: a ww12 changelog entry quoting `__WOLF_VERSION__` reached
 # dist/ with the token intact, past a guard that had already run. Sweep the
 # finished tree, where every generated page is finally present.
-if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__\|__KIB_\|__COUNT_' "$DIST"; then
+if grep -rl '__WOLF_VERSION__\|__LUPIN_VERSION__\|__KIB_\|__COUNT_\|__PIN_' "$DIST"; then
   echo "a placeholder reached the finished dist/ (the files above)" >&2
   echo "the early sweep runs on site/ only; a generated page needs its own" >&2
   exit 1

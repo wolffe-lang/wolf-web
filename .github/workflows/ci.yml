@@ -30,8 +30,8 @@ jobs:
       # was 3.11+ where that is fine and the host is 3.9 where it raises at
       # call time, so a green PR run crashed the trunk deploy. The host's
       # version is written down in one place and installed here, so the PR run
-      # IS the rehearsal: build.sh below runs six of the seven scripts and the
-      # link check runs the seventh, all under this interpreter.
+      # IS the rehearsal: build.sh below runs seven of the eight scripts and the
+      # link check runs the eighth, all under this interpreter.
       - name: the python the deploy host runs
         id: deploy-python
         run: |
