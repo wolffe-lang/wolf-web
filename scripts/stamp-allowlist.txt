@@ -38,6 +38,14 @@
 # still one release, because the new revision is still trunk past v0.2.8 — what
 # moved is the sha and the distance, and the distance is a stamp.
 #
+# ww23 moves lupin alone again, so the same two __LUPIN_VERSION__ entries
+# reddened and the four __WOLF_VERSION__ ones did not. Both bound sentences are
+# the pin-lag paragraph and both were false in the same way, but for the
+# opposite reason to ww21's: the gap they stated has CLOSED. lupin 0.1.31 was
+# built at the v0.2.9 tag itself, so both paragraphs are rewritten for a gap of
+# zero, and the distance stamp they carried is gone from both pages because
+# there is no distance to state.
+#
 # Neither this file nor the literal allowlist beside it can see a sentence
 # that carries no version and no placeholder, and the pin-lag prose is
 # written three times across /install/ and /play/ — one of those three
@@ -47,7 +55,7 @@
 # that third sentence is covered; it is not covered here.
 index.html __WOLF_VERSION__ 6 bound=4 audited-at-wolf=0.2.9
 install/index.html __WOLF_VERSION__ 11 bound=3 audited-at-wolf=0.2.9
-install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.30
+install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.31
 spec/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
 play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
-play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.30
+play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.31

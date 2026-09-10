@@ -123,56 +123,58 @@
   the source stays in the tab, and no request leaves the page after the module
   and the samples have loaded.</p>
 
-  <p>The revision of the specification it reads is the compiler's own, but not
-  the compiler's newest. This interpreter, lupin __LUPIN_VERSION__, was built
-  to <code>__PIN_specrev_short__</code>, a development revision of the compiler's trunk that
-  sits __COUNT_speccommits_word__ commits behind the commit the release
-  <a href="/install/">install</a> advertises was tagged at. Counted the way the
-  compiler counts releases that is <strong>one release</strong> of distance:
-  the newest tag whose specification this interpreter has read is the one
-  before __WOLF_VERSION__. So a program that answers differently here can be a
-  disagreement about the text or a difference of vintage, and this page says
-  which. The <a href="/spec/">specification</a> is what gets read when it is
-  the first. The CI job that measures this page counts the distance by
-  ancestry — the interpreter's pin need not be a tag, and this time it is not —
-  and requires both pages to spell what it counted.</p>
+  <p>The revision of the specification it reads is the compiler's own, and at
+  these pins it is the compiler's newest. This interpreter, lupin
+  __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
+  the same commit the release <a href="/install/">install</a> advertises was
+  tagged at — a tag, where the last two pins were revisions of the compiler's
+  trunk. So there is no distance between the text the two implementations read,
+  and a program that answers differently here from a __WOLF_VERSION__ you
+  download today is a disagreement about that text rather than a difference of
+  vintage. The <a href="/spec/">specification</a> is what gets read. It has not
+  always been so and it will not stay so by itself — the interpreter tags on
+  its own schedule — so the CI job that measures this page counts the distance
+  by ancestry, which needs no tag at either end, and requires both pages to
+  spell what it counted.</p>
 
-  <p><strong>Where the vintage shows.</strong> One corpus program answers
-  differently here than on the compiler you can download, and it is the last
-  ruling from this release that the interpreter has not mirrored. It was
-  measured through the module this page serves:</p>
+  <p><strong>Where the vintage shows: nowhere, at these pins.</strong> A table
+  stood in this place at every pin this page has had, listing the corpus
+  programs that answer differently in this tab than on the compiler you can
+  download. It has no rows now, and it never had none before. Every
+  <code>phase: run</code> program in the pinned corpus went through the module
+  this page serves to say so, and against the pins before these that census
+  moved exactly one verdict.</p>
 
-  <table>
-    <tr><th>program</th><th>here</th><th>on the compiler</th></tr>
-    <tr><td><code>strings/concat_mix_char.lu</code></td><td><code>unsupported</code></td><td><code>exit(0)</code></td></tr>
-  </table>
+  <p>The verdict was <code>strings/concat_mix_char.lu</code>, which answered
+  <code>unsupported</code> here and <code>exit(0)</code> on the compiler.
+  <code>[type.str.concat]</code> makes a <code>char</code> joinable to a
+  <code>str</code> in either order, this interpreter serves it now in both
+  orders, and wolf-interp#78 is closed by the release in the tab. The rows that
+  came off at the pin before this one were a layout the compiler admits — a
+  line beginning with <code>else</code>, answered <code>fail(E0005)</code> here
+  after the compiler had retired the code — <code>pop</code> on an empty
+  <code>List</code> trapping <code>bounds</code> where the <code>none</code>
+  row is the answer, and a drained-closed channel minting <code>Closed</code>
+  where <code>[conc.chan.close]</code> spells the mark <code>closed</code>.</p>
 
-  <p>That table had four more rows at the interpreter's last release, and
-  losing them is what a mirror catching up looks like. Two of them answered
-  <code>fail(E0005)</code> to a layout the compiler admits — a line beginning
-  with <code>else</code> — which was the pin lag with a face on it, because the
-  same release retired E0005 from the compiler's catalogue and the tab was
-  handing back a code the <a href="/docs/">diagnostics page</a> no longer
-  lists. A third trapped <code>bounds</code> where <code>pop</code> on an empty
-  <code>List</code> now answers the <code>none</code> row. The fourth was the
-  quietest and the easiest to miss, because no verdict could see it: the two
-  machines both exited 0 and only the printed bytes parted, the interpreter
-  minting <code>Closed</code> where <code>[conc.chan.close]</code> spells the
-  mark <code>closed</code>. It prints <code>closed</code> now.</p>
-
-  <p>The row that is left is the one the interpreter has filed rather than
-  fixed. <code>[type.str.concat]</code> makes a <code>char</code> joinable to a
-  <code>str</code> in either order; this interpreter still refuses the operator
-  on that pair and says so, so the program the compiler runs is declined in the
-  tab rather than answered wrongly, which is the refusal working as designed.
-  It is open upstream as wolf-interp#78.</p>
+  <p><strong>An empty table is a statement about these pins, not a
+  promise.</strong> The compiler's trunk has ruled range arms in a
+  <code>match</code> since this interpreter tagged — <code>lo..hi</code> and
+  <code>lo..=hi</code> over integer and <code>char</code> literals — and this
+  build answers <code>E0201</code> to every witness that carries one. Not one
+  of those programs is in the corpus the release
+  <a href="/install/">install</a> advertises ships, so not one of them is in
+  the census behind this page, and none of them is something you can meet with
+  the compiler that page hands you today. The mirror is filed as
+  wolf-interp#83, and the table comes back the day this site advertises a
+  compiler that carries the arms.</p>
 
   <p>What the distance does <em>not</em> explain is what this page declines.
   <code>net_writev</code> and <code>net_nodelay</code> are in this interpreter
   and <code>fs_fstat</code> is declined by design in every build of it, so all
   three report <code>unsupported</code> here whatever the pins say: a tab has
   no sockets, and this interpreter opens no files anywhere. Those refusals are
-  the tier and nothing else, and closing the gap will not move them.</p>
+  the tier and nothing else, and the gap closing has not moved them.</p>
 
   <p>The interpreter is not the compiler, and it reaches a different set of
   programs. It runs the memory model as a dynamic machine, so every ownership

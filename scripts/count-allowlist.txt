@@ -44,17 +44,21 @@
 #             time, the process trio, net, os_random, os_signal_listen. The
 #             filesystem tier and the module graph are declined too and are
 #             not in the seven, because the sentence counts what a terminal
-#             lupin serves and this build does not. Re-read at lupin 0.1.30:
-#             all seven reasons are still in the census, and the one reason
-#             that left ("`List` has no method `first`") was a std-subset gap
-#             rather than a tier.
+#             lupin serves and this build does not. Re-read at lupin 0.1.31:
+#             all seven reasons are still in the census, unchanged in number
+#             and in wording. The one verdict 0.1.31 moved left the
+#             `unsupported` class altogether (`strings/concat_mix_char.lu`),
+#             so it took no reason string with it.
 #   /play/    `Five` corpus programs part — RETIRED at ww21. lupin 0.1.30
 #             mirrors three of the four rulings the table was built on, so it
 #             is one row now (concat_mix_char, wolf-interp#78) and one is
 #             ordinary English: this file's vocabulary starts at five, and a
 #             number below that line gets no entry. The row that remains is
 #             re-measured through the module the build publishes, the way the
-#             five were.
+#             five were. At ww23 the row is gone too — the interpreter serves
+#             `str + char` now — and the table itself is retired: the census
+#             moved exactly one verdict and it was that one, so /play/ states
+#             a parting of none in prose and carries no number at all.
 #   /reading/ 32 chapter files, ch29 reserved whole and ch25 one section in,
 #             so thirty are written through; ch21 carries §21.1–§21.5 with
 #             §21.3 and §21.5 reserved; chapters 26–32 are six programs and a
@@ -68,7 +72,7 @@ install/index.html five 1 counted=1 audited-at-wolf=0.2.9
 install/index.html sixteen 1 counted=0
 install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.9
 install/index.html twenty-one 1 counted=0
-play/index.html Seven 1 counted=1 audited-at-lupin=0.1.30
+play/index.html Seven 1 counted=1 audited-at-lupin=0.1.31
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 reading/index.html Six 1 counted=1 audited-at-book=f0e2dd1

@@ -88,8 +88,8 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   digest the release does not carry. When this page was last read against the
   pins, every channel agreed. The tap was current on both counts: its
   <code>wolf</code> formula builds tag v0.2.9, the release this page
-  describes, and its <code>lupin</code> builds 0.1.30. On the AUR both
-  interpreter packages were at 0.1.30 and both compiler packages at v0.2.9.
+  describes, and its <code>lupin</code> builds 0.1.31. On the AUR both
+  interpreter packages were at 0.1.31 and both compiler packages at v0.2.9.
   Do not expect that every time: a release and its packaging are separate
   acts and do not land in the same minute, which is the distance that gate
   exists to watch. The archives below are the release itself, and need nothing installed
@@ -164,31 +164,30 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   first line.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has moved. <code>lupin __LUPIN_VERSION__</code> names
-  <code>__PIN_specrev_short__</code> as the specification it was built to, and that is not a
-  release: it is a development revision of the compiler's own trunk,
-  __COUNT_speccommits_word__ commits short of the commit
-  v__WOLF_VERSION__ was tagged at and past the tag before it. Counted the way
-  the compiler counts its own releases, the interpreter is <strong>one release
-  behind</strong> — the newest tag whose specification it has read is v0.2.8 —
-  but the revision it reads has moved forward inside that release, and of its
-  rulings the interpreter has now mirrored all but one. A gap
-  like this is the ordinary shape of a two-implementation project between tags,
+  these pins it has stopped. <code>lupin __LUPIN_VERSION__</code> names
+  <code>__PIN_specrev_short__</code> as the specification it was built to, and
+  that is the same commit v__WOLF_VERSION__ was tagged at: a tag rather than a
+  revision of the compiler's trunk, and the tag this page describes. Both
+  implementations are reading a single text, so there is no distance to allow
+  for and nothing a disagreement between them could put down to vintage. That
+  is not the resting state. A gap opens whenever the compiler tags and the
+  interpreter has not yet followed, which is the ordinary shape of a
+  two-implementation project between tags; it was open on this page a week ago,
   and while it is open the <a href="/play/">playground</a> can answer a program
   differently from the compiler you just installed. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
-  <p>What the distance costs, concretely — and it costs less than it did a
-  release ago, when this paragraph named four things. The interpreter spells
-  <code>to_int</code>'s row <code>parse</code>, the way this compiler does, so
-  the reader who follows the book's first chapter sees one answer in both
-  places; a line that begins with <code>else</code> is a legal program there
-  too; <code>pop</code> on an empty <code>List</code> answers the
-  <code>none</code> row rather than faulting; and a drained-closed channel
-  spells its mark <code>closed</code>. What is left is the last of them:
-  <code>+</code> is still undefined between a <code>str</code> and a
-  <code>char</code>. The <a href="/play/">playground page</a> names the one
-  corpus program where that shows, with the verdict the tab actually gives.</p>
+  <p>What the distance costs, concretely, is nothing, and a release ago this
+  paragraph named four things. The interpreter spells <code>to_int</code>'s row
+  <code>parse</code>, the way this compiler does, so the reader who follows the
+  book's first chapter sees one answer in both places; a line that begins with
+  <code>else</code> is a legal program there too; <code>pop</code> on an empty
+  <code>List</code> answers the <code>none</code> row rather than faulting; a
+  drained-closed channel spells its mark <code>closed</code>; and
+  <code>+</code> joins a <code>char</code> to a <code>str</code> in either
+  order, which was the last of the four. The <a href="/play/">playground
+  page</a> keeps the place where a parting would be listed, and at these pins
+  it lists none.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code> and <code>net_nodelay</code> are in
@@ -495,8 +494,8 @@ hello, wolf</code></pre>
   that used a task or a channel, and it has not been that since v0.2.3.
   <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
-  --version</code> quotes back — <code>__PIN_specrev_short__</code> at these pins, and the
-  distance from it to this compiler's tag is the one measured above.</p>
+  --version</code> quotes back — <code>__PIN_specrev_short__</code> at these pins, which is
+  the same commit this compiler was tagged at, as measured above.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
   to WebAssembly — lupin __LUPIN_VERSION__, in the tab, with the corpus

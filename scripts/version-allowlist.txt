@@ -41,6 +41,25 @@
 # pin landed here, which is the opposite of ww20's reading and exactly why it
 # is a literal.
 #
+# ww23 moves the lupin clock alone again (0.1.30 -> 0.1.31) and the wolf entries
+# hold untouched. The five historical /play/ entries were re-read against the
+# module this build publishes: 0.1.22 and 0.1.23 are a `stdout_inline` that was
+# null on every trapping program and the defer disagreement that hid behind it,
+# neither touched by this release; 0.1.24 and 0.1.25 are the byte cast ladder,
+# and `typecheck/byte_casts.lu` still exits 0 in the census, so "it has stayed
+# closed" is still true; 0.1.28 is the release that put the three net calls in
+# the interpreter, and they are still in it. /install/'s freshness pair moved
+# and was read live, not inferred: the tap's `lupin` formula builds tag v0.1.31
+# at revision e9c55b4 and the AUR has `lupin` and `lupin-bin` at 0.1.31-1, while
+# both compiler packages sit at 0.2.9-1 and the tap's `wolf` builds v0.2.9. Every
+# channel agrees, which is the second bump running that it has.
+#
+# One wolf entry LEAVES rather than being re-read. /install/'s `v0.2.8` was the
+# tag the pin-lag paragraph named as the newest release the interpreter had
+# read; at a gap of zero there is no such tag to name and the sentence is gone,
+# so the entry goes with it. An allowlist line whose sentence has been deleted
+# is a count that can only drift.
+#
 # A version literal here need not be a claim about wolf or lupin themselves.
 # The package-manager entries below are claims about what a THIRD PARTY has
 # published — the AUR's `wolf-lang`/`lupin` and the tap's formulae — and they
@@ -63,13 +82,12 @@ install/index.html v0.2.3 2 audited-at-wolf=0.2.9
 install/index.html v0.2.4 2 audited-at-wolf=0.2.9
 install/index.html v0.2.5 3 audited-at-wolf=0.2.9
 install/index.html v0.2.6 1 audited-at-wolf=0.2.9
-install/index.html v0.2.8 1 audited-at-wolf=0.2.9
 install/index.html v0.2.9 2 audited-at-wolf=0.2.9
-install/index.html 0.1.30 2 audited-at-lupin=0.1.30
-play/index.html 0.1.22 1 audited-at-lupin=0.1.30
-play/index.html 0.1.23 1 audited-at-lupin=0.1.30
-play/index.html 0.1.24 1 audited-at-lupin=0.1.30
-play/index.html 0.1.25 1 audited-at-lupin=0.1.30
-play/index.html 0.1.28 1 audited-at-lupin=0.1.30
+install/index.html 0.1.31 2 audited-at-lupin=0.1.31
+play/index.html 0.1.22 1 audited-at-lupin=0.1.31
+play/index.html 0.1.23 1 audited-at-lupin=0.1.31
+play/index.html 0.1.24 1 audited-at-lupin=0.1.31
+play/index.html 0.1.25 1 audited-at-lupin=0.1.31
+play/index.html 0.1.28 1 audited-at-lupin=0.1.31
 play/index.html v0.2.4 1 audited-at-wolf=0.2.9
 play/index.html v0.2.8 1 audited-at-wolf=0.2.9
