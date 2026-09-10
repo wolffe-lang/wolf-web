@@ -10,6 +10,74 @@ build's placeholder tokens out — the version ones, the KiB ones, the count one
 than it says here, and one of them stops the build outright. Name the source
 in words; do not quote the token.
 
+## ww23 — 2026-09-10
+
+The site takes the tail. The pin moves to lupin 0.1.31 and wolf stays v0.2.9,
+so one clock moves again — six lupin literals, the two release-bound
+lupin-stamped sentences and the one live lupin count reddened, and the wolf
+entries were held untouched.
+
+**The lag is zero, and this time the pin is a tag.** lupin 0.1.31 was built to
+`4c60946`, which is not a revision of the compiler's trunk but the commit
+v0.2.9 was cut at and the commit this site pins. The counted gap has been zero
+once before, at ww19, and that pin was a release commit too; what is new is
+that the interpreter now names the release rather than a development revision
+of the trunk past it, so the reserved sentence about a pin that is no release
+comes off both pages, the phrase for zero comes back, and the distance the
+build stamped at the last two pins is gone because there is no distance to
+state. The ancestry count the windows job has done since ww20 prints it: same
+commit, zero commits back, and both pages say so.
+
+The census was predicted before the harness ran and held on every number and
+every witness. 302 `phase: run` programs, 207 `exit`, 31 `trap`, 64
+`unsupported`, 0 `fail`, candidates 238. The compiler pin does not move, so the
+corpus is byte-identical to ww21's and ww22's, and exactly one row moved.
+`strings/concat_mix_char.lu` went from `unsupported` to `exit(0)`: `+` between
+a `str` and a `char` in either order, the last of the five witnesses v0.2.9's
+release notes named as still parting, and the row /play/'s divergence table has
+carried alone since ww21.
+
+The three other things 0.1.31 does were checked against the corpus rather than
+read off the release notes and believed. Two of them are new refusals — a
+body whose tail slot is `()` under a declared return type, and a bare fallible
+row used as an operand — and either could in principle have turned a running
+program into a refused one, or got in front of a tier refusal and turned an
+`unsupported` into a `fail`. Neither can here: both are decided from
+declarations alone, wolf 0.2.9 refuses both shapes, and every `phase: run`
+corpus program is a compiler-accepted program. The third resolves a type
+annotation's name at last, which cannot bite a program whose names are all in
+scope. `:type` at the prompt has no surface in a page with no prompt.
+
+**/play/'s divergence table is retired, not shortened.** It has listed rows at
+every pin this page has had — five at the interpreter's release before last,
+one at the last — and with `concat_mix_char` mirrored it has none. A table with
+no rows is not a thing to serve, so the page says the parting is none and says
+what it measured to know it.
+
+That is a statement about these pins and not a promise, and the page says that
+too. The compiler's trunk has ruled range arms in a `match` since this
+interpreter tagged, and this build answers E0201 to the witnesses that carry
+them. None of those programs is in the corpus v0.2.9 ships, so none of them is
+in the census behind the page and none is something a reader can meet with the
+compiler /install/ hands them today; the mirror is filed as wolf-interp#83 and
+the table comes back the day this site advertises a compiler that carries the
+arms. The site cannot pull them forward on its own, either: the zero branch of
+the pin-lag gate requires the two gitlinks to be the same commit, so a compiler
+pin moved off v0.2.9 to reach the new witnesses reds the job by name.
+
+The package freshness literals were read live and every channel had shipped.
+The tap's `lupin` formula builds tag v0.1.31 and the AUR's `lupin` and
+`lupin-bin` are at 0.1.31-1, while both compiler packages sit at 0.2.9-1 and
+the tap's `wolf` builds v0.2.9. That is the second bump running where the doors
+were current before the pin landed here, and it is still the reason those two
+claims are literals rather than stamps.
+
+One allowlist line was deleted rather than re-read. /install/'s `v0.2.8` was the
+tag the pin-lag paragraph named as the newest release the interpreter had read;
+at a gap of zero there is no such tag to name, the sentence is gone, and a
+counted literal whose sentence has been deleted is a number that can only
+drift.
+
 ## ww22 — 2026-09-10
 
 No pin moves. This wave closes the hole ww21 wrote down and leaves the site
