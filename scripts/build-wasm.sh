@@ -33,6 +33,16 @@
 # reverses cleanly stops the build rather than building something nobody
 # described.
 #
+# THE TOOLCHAIN, stated once. The staged pin only governs this build if `rustc`
+# is rustup's shim, because a rust that is not rustup's ignores
+# rust-toolchain.toml entirely — and then `rustup target add` fixes one
+# toolchain while the compile runs on another, forever (wolf-web#14, where the
+# failure read as a rustup problem and was PATH order). So: run with
+# $HOME/.cargo/bin ahead of any other rust on PATH, or point WOLF_WASM_SYSROOT
+# at a sysroot that carries the wasm32 std. The script warns when the rust it is
+# about to use is not rustup's, and names the rust that answered when the target
+# turns out to be missing.
+#
 # Run from the repo root (build.sh does):  ./scripts/build-wasm.sh
 # ------------------------------------------------------------------
 set -euo pipefail
@@ -54,6 +64,15 @@ STACK_SIZE=$((32 * 1024 * 1024))
 
 die() { printf 'build-wasm: %s\n' "$1" >&2; exit 1; }
 note() { printf '  %s\n' "$1"; }
+
+# Will the staged rust-toolchain.toml govern this build? Only if `rustc` is
+# rustup's shim; anything else reads no such file. The sysroot is the honest
+# test — a shim's lives under RUSTUP_HOME whatever PATH says about it.
+rustc_is_rustup() {
+  local sysroot
+  sysroot=$(rustc --print sysroot 2>/dev/null) || return 1
+  [[ "$sysroot" == "${RUSTUP_HOME:-$HOME/.rustup}"/* ]]
+}
 
 # -- the toolchain ---------------------------------------------------------
 
@@ -97,6 +116,14 @@ rm -rf "$STAGE/crates/lupin-wasm/target"
 if [[ -f "$STAGE/upstream/wolf-interp/rust-toolchain.toml" ]]; then
   cp "$STAGE/upstream/wolf-interp/rust-toolchain.toml" "$STAGE/rust-toolchain.toml"
   note "staged the interpreter's toolchain pin: $(grep -oE '[0-9]+\.[0-9]+\.[0-9]+' "$STAGE/rust-toolchain.toml" | head -1)"
+  # wolf-web#14. That note is false the moment it prints if the rust on PATH is
+  # not rustup's, and the build then runs at whatever version the box defaults
+  # to — which is the one thing staging the pin exists to prevent. It is a
+  # warning rather than a refusal because such a rust can still carry the wasm
+  # std and build a perfectly good module; what it cannot do is build at the pin.
+  rustc_is_rustup || note \
+    "warning: the staged pin does NOT govern this build — rustc is $(command -v rustc) ($(rustc --version)), which is not rustup's shim and ignores rust-toolchain.toml.
+    Build at the pin with:  PATH=\"\$HOME/.cargo/bin:\$PATH\" ./scripts/build.sh   (wolf-web#14)"
 fi
 
 # The probe runs from the staging root, after the pin is in place, so the
@@ -124,7 +151,12 @@ if ! have_target; then
     Neither:         point WOLF_WASM_SYSROOT at a sysroot that has it"
   note "adding the $TARGET target via rustup"
   rustup target add "$TARGET" || die "rustup could not add $TARGET"
-  have_target || die "rustup reported success but $TARGET still does not build"
+  have_target || die \
+    "rustup added $TARGET to $(rustup show active-toolchain 2>/dev/null | head -1), but the
+    rustc this build would use is $(rustc --version) at $(command -v rustc), which has no std
+    for $TARGET. A rust that is not rustup's ignores the staged rust-toolchain.toml, so the
+    target was added to one toolchain and asked of another (wolf-web#14).
+    Fix:  PATH=\"\$HOME/.cargo/bin:\$PATH\" ./scripts/build.sh"
 fi
 
 
