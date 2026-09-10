@@ -15,12 +15,23 @@
 # box; and the page needs no `eval`, no blob workers and no inline scripts, so
 # the nginx CSP stays at `'self' 'wasm-unsafe-eval'` with nothing added.
 #
-# THE PATCH. The pinned interpreter does not compile to wasm as it stands —
-# see crates/lupin-wasm/wasm-portability.patch for the three reasons and the
-# evidence. This script never touches the submodule. It stages a copy of the
-# pinned tree under target/, patches the copy, and builds that. When the fix
-# lands upstream the staged copy already carries the gates, this script says
-# so and skips the patch, and the patch file can be deleted.
+# THE STAGED COPY. This script never touches the submodule. It stages a copy of
+# the pinned tree under target/ with `git archive` — tracked files only, so the
+# staged tree gets neither the nested submodule nor a broken .git pointer —
+# puts the interpreter's own rust-toolchain.toml at the staging root so the pin
+# governs this build too, and compiles the copy.
+#
+# The staging is there because the copy used to be patched, and that is no
+# longer the normal case. The interpreter did not compile to wasm as it stood
+# when the playground was first built, and crates/lupin-wasm/wasm-portability.patch
+# was what made it; the gates landed upstream as wolf-interp c1ec02e, the pin
+# moved past them and the patch file was deleted on 2026-08-13. What this
+# script prints at every pin since, and what it prints now, is `no portability
+# patch present; building the pin as it stands`. The apply-it branch stays for
+# the next pin that needs one — drop a patch at that path and the staged copy
+# gets it — and it refuses to guess: a patch that neither applies forward nor
+# reverses cleanly stops the build rather than building something nobody
+# described.
 #
 # Run from the repo root (build.sh does):  ./scripts/build-wasm.sh
 # ------------------------------------------------------------------
