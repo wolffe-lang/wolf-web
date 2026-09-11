@@ -186,7 +186,12 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   settled — a bare row used as an operand is <code>E0409</code> in both places
   now, and a write through a <code>str</code> slice is <code>E0416</code> in
   both (wolf-interp#85, closed) — and the range arms that parted the pin before
-  that have been on both sides since (wolf-interp#83, closed).</p>
+  that have been on both sides since: <code>corpus/grammar/match_range.lu</code>
+  and <code>corpus/grammar/match_range_char.lu</code> run in the tab and with
+  the compiler above and agree, as do the empty range and the open end the same
+  ruling brought in (wolf-interp#83, closed). Both witnesses stay named here
+  after their parting closed, because a page that records a disagreement only
+  while it is open leaves a reader no way to check that it ever ended.</p>
 
   <p>What it does not buy is identical behaviour, and this is the pin that
   shows why. The interpreter in the <a href="/play/">playground</a> takes a
