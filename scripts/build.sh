@@ -188,10 +188,19 @@ step "The changelogs"
 # the pins carry). A repo without one gets a page that says so — absence
 # is a fact to report, never a build failure. Lupin's page is named for
 # the program, since that is what the playground runs.
-LANG_PIN=$(git -C upstream/wolf-lang rev-parse --short HEAD)
-INTERP_PIN=$(git -C upstream/wolf-interp rev-parse --short HEAD)
-BOOK_PIN=$(git -C upstream/wolf-book rev-parse --short HEAD)
-SELF_REV=$(git rev-parse --short HEAD 2>/dev/null || echo working-tree)
+#
+# Seven characters, asked for, not inherited (wolf-web#26). Bare `--short`
+# picks its width from the object count of the repository being asked, so the
+# four pins below came out at three different widths across three repositories
+# and would have moved again on nobody's schedule. Every other revision this
+# repository publishes is seven by construction — the gitlink `spec-pin` below,
+# `stamp-revisions.py`'s page stamps, `check-counts.py`'s book clock — and a
+# reader or a check holding one against another must not have to slice first.
+# It is wolf-lang#301's ruling for the D57 build stamp, one layer out.
+LANG_PIN=$(git -C upstream/wolf-lang rev-parse --short=7 HEAD)
+INTERP_PIN=$(git -C upstream/wolf-interp rev-parse --short=7 HEAD)
+BOOK_PIN=$(git -C upstream/wolf-book rev-parse --short=7 HEAD)
+SELF_REV=$(git rev-parse --short=7 HEAD 2>/dev/null || echo working-tree)
 python3 scripts/render-changelog.py wolf \
   "The compiler. An entry per tagged release, written at the release commit." \
   upstream/wolf-lang/CHANGELOG.md https://github.com/wolffe-lang/wolf-lang \
@@ -249,9 +258,12 @@ fi
 if [[ ${#degraded[@]} -eq 0 ]]; then echo "  everything built"; fi
 
 step "Version stamp"
-BOOK_SHA=$(git -C upstream/wolf-book rev-parse --short HEAD 2>/dev/null || echo unknown)
-INTERP_SHA=$(git -C upstream/wolf-interp rev-parse --short HEAD 2>/dev/null || echo unknown)
-LANG_SHA=$(git -C upstream/wolf-lang rev-parse --short HEAD 2>/dev/null || echo unknown)
+# Seven characters by decision here too — see the changelog renderer above.
+# These three are the served version.json, which is what every post-deploy
+# check reads, so this is the field the width mattered most in.
+BOOK_SHA=$(git -C upstream/wolf-book rev-parse --short=7 HEAD 2>/dev/null || echo unknown)
+INTERP_SHA=$(git -C upstream/wolf-interp rev-parse --short=7 HEAD 2>/dev/null || echo unknown)
+LANG_SHA=$(git -C upstream/wolf-lang rev-parse --short=7 HEAD 2>/dev/null || echo unknown)
 # The specification revision the pinned interpreter was built to. It is the
 # gitlink /install/ and /play/ now carry as a stamp, written here as well so
 # that what the pages say can be held against what the build measured without
@@ -273,6 +285,16 @@ cat > "$DIST/version.json" <<EOF
   "missing": [$WAIVED_JSON]
 }
 EOF
+# A width the site decides is a width the site checks (wolf-web#26). Every
+# revision published here is seven hex characters; a build that would serve
+# any other number stops, rather than leaving the next post-deploy check to
+# discover it by comparing a seven against an eight and going red over nothing.
+for pin in "$LANG_SHA" "$INTERP_SHA" "$BOOK_SHA" "$SPEC_SHA"; do
+  [[ "$pin" == unknown || "$pin" =~ ^[0-9a-f]{7}$ ]] || {
+    echo "version.json would publish the revision '$pin'; pins are seven hex characters" >&2
+    exit 1
+  }
+done
 
 # The placeholder sweep above ran on site/ alone, before the book, the docs
 # and the changelog pages existed. A page generated AFTER it — the rendered

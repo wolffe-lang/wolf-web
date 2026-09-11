@@ -32,5 +32,5 @@ if [[ "$HAVE" != "$WANT" ]]; then
   exit 1
 fi
 
-echo "▶ Deploy $(git rev-parse --short HEAD)"
+echo "▶ Deploy $(git rev-parse --short=7 HEAD)"
 exec ./scripts/deploy.sh
