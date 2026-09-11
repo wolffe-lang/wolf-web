@@ -18,6 +18,44 @@ records what one wave measured, and no later pin can make that false. The
 audit is not asking you to re-read them. It is making you derive a number
 before you serve it.
 
+## ww26 (item 3) — 2026-09-11
+
+The book's gitlink takes bs40, d001309 to d3536df. Chapter 5 is rewritten on
+the map alone: the opener counts words on a `Map` by itself, the list is kept
+only for the order a map does not promise, and a read of an absent key answers
+`none` rather than a sentinel. Seven places that wrote a negative one as a
+subtraction now write it as a negative one. All four counts on the book clock
+reddened and all four stood, which makes three bumps running — and no two of
+the three stood for the same reason.
+
+The first of the three stood because the diff missed everything this site
+counts. The second stood because two things in the diff could have moved a
+number and, read closely, did not. This one is the largest book change a site
+bump has taken — three hundred lines in one chapter — and it lands on the one
+chapter whose title this page quotes. So the check is not "did the table of
+contents change" but "did the chapter survive the rewrite as the thing the
+Foundations line says it is": its heading is still `Collections and generics`,
+its five sections are all still there, moved down the file rather than renamed
+or merged, and the chapter does not join the held set. The colophon is in the
+diff again, and again its change is confined to the console block that prints
+the toolchain pair — the reservation sentence under it is byte-identical.
+
+The counts were then re-derived from the checkout: thirty-three chapters in the
+table of contents, thirty-one written through, chapter 21's five sections with
+two held, and part 5's six programs and a coda.
+
+One correction to what the audit file said at the last bump. It defended the
+written-through figure with the claim that chapter 29 is the only chapter
+carrying no sections and chapter 25 the only one carrying a single section.
+Chapter 29 is; chapter 25 is not alone. Chapter 13 carries its second section
+and nothing else, chapter 23 carries two of its four, and both have been that
+way at every pin this clock has audited. Neither is subtracted from the figure,
+because the rule this page states beside the number is that a chapter holding
+something back says so on its own page — which is why chapter 21 is counted
+written through as well. The figure is the chapter total less the two chapters
+the page names. The number was right and the test under it was not, so the test
+is the thing that changed.
+
 ## ww25 (item 2, third bump) — 2026-09-11
 
 The book's gitlink takes bs38, f1eb3bb to d001309: the book pins lupin 0.1.31,
