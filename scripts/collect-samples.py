@@ -46,14 +46,14 @@ menu entry that looks broken:
       module-lint witnesses) reports `unsupported` from a stdin buffer,
       which is all the playground has to offer.
 
-That leaves 234 candidates at this pin — the programs that actually answer
+That leaves 240 candidates at this pin — the programs that actually answer
 `exit` or `trap` in the browser build, 66 reporting `unsupported` (the
 module-graph programs above, and the tiers a tab cannot serve) and two
-answering `fail`, which is new and is the pin lag rather than a tier. Every
-one of those numbers is measured by feeding each candidate to the wasm
-module this build publishes and reading the verdict back — re-measure on a
-pin bump rather than trusting the line. The list below is a spread across
-the ones that answer, kept short enough to read in one glance.
+answering `fail`, which is the pin lag rather than a tier. Every one of
+those numbers is measured by feeding each candidate to the wasm module this
+build publishes and reading the verdict back — re-measure on a pin bump
+rather than trusting the line. The list below is a spread across the ones
+that answer, kept short enough to read in one glance.
 
 A sample may also carry a NOTE, and at some pins one does. The third
 element of a `SAMPLES` entry is prose the playground prints beside the
@@ -71,42 +71,43 @@ went red with `runs at this pin, and still carries the note that says it
 does not`, which is how the note came off. No entry carries one now, and
 none has since.
 
-Re-measured at the wolf v0.2.9 / lupin 0.1.29 pins, against the module this
-build publishes: 302 `phase: run` corpus programs, 202 `exit`, 32 `trap`, 66
-`unsupported`, and — for the first time at any pin this site has measured — 2
-`fail`. Candidates 234.
+Re-measured at the wolf v0.2.10 / lupin 0.1.31 pins, against the module this
+build publishes: 308 `phase: run` corpus programs, 209 `exit`, 31 `trap`, 66
+`unsupported` and 2 `fail`. Candidates 240.
 
-That was the prediction, written down before the harness ran, and unlike ww19's
-it was not cheap: the compiler pin moves, so the corpus moves with it. Eight
-programs are new, one is gone, and two more flip from `phase: resolve` to
-`phase: run` because the compiler now accepts what it used to refuse. Each was
-placed in its class from the release notes and the tier rules before anything
-was run, and the harness agreed on every one.
+That was the prediction, written down before the harness ran, and this time
+the INTERPRETER pin stands still: the module is byte-identical to the one the
+last pin published, so every movement below is the corpus moving under it.
+Twelve programs are new and none is gone; six of the twelve are `phase: run`
+and the other six are negatives the compiler refuses, which the census does
+not walk. Nine existing programs changed body — `ch.send(v)` becoming
+`ch.send(v)?`, because `send` is `() ! {closed, cancelled}` at this release —
+and none of the nine changed header, phase or class. Each was placed from the
+release notes and the tier rules before anything ran, and the harness agreed
+on every one.
 
-  strings/interp_values.lu           exit(0)       s143, byte-identical here
-  conc/reason_interp.lu              unsupported   s143, procs
-  conc/chan_param_for.lu             unsupported   s143, `spawn proc`
-  rows/to_int_parse.lu               exit(1)       s143, `error: parse`
-  grammar/else_chain.lu              fail(E0005)   s144, was exit(0) at v0.2.8
-  grammar/else_default_newline.lu    fail(E0005)   s144
-  conc/chan_closed_row.lu            exit(0)       s144, a channel, no spawn
-  memory/list_pop_empty.lu           trap(bounds)  s144
-  strings/concat_mix_char.lu         unsupported   s145, resolve -> run
-  typecheck/closure_return.lu        unsupported   s145, a spawned task body
-  grammar/else_default.lu            exit(0)       s143, resolve -> run
-  strings/to_int.lu                  exit(0)       unchanged class
+  grammar/match_switch.lu            exit(0)       s147, the guarded arm; no range
+  conc/chan_send_closed_row.lu       exit(0)       s146, a channel, no spawn
+  typecheck/unit_context_discard.lu  unsupported   s146, `scope s { s.spawn(…) }`
+  conc/spawn_tail_send_raised_row.lu unsupported   s146, a spawned task body
+  grammar/match_range.lu             fail(E0201)   s147, the pin lag
+  grammar/match_range_char.lu        fail(E0201)   s147, the pin lag
 
-The `fail` class stops being empty, and the reason is worth writing down. Both
-of those grammar programs exist to pin a layout wolf 0.2.9 admits — a line
-whose first token is `else` — and lupin 0.1.29 has not mirrored it, so the tab
-refuses them with E0005, a code this release retires from the compiler's own
-catalogue. Neither is on the menu and neither should be: an entry that answers
-`fail` looks broken, which is the rule check-samples.mjs holds.
+The `fail` class holds at two and changes tenant. At the last pin it was empty;
+before that it was the two `else`-layout witnesses. Now it is the two range
+programs, which this compiler runs and lupin 0.1.31 refuses because `..` in a
+pattern is text it was not built to. Neither is on the menu and neither should
+be: an entry that answers `fail` looks broken, which is the rule
+check-samples.mjs holds. `grammar/match_switch.lu` IS on the menu, and the
+distinction is the point — its guarded arm is a lowering the compiler gained,
+not a pattern form, so the interpreter has run it all along.
 
-Two more part without leaving `exit`. `memory/list_pop_empty.lu` traps where
-the compiler answers the `none` row, and `conc/chan_closed_row.lu` agrees on
-the verdict and prints `Closed` where the compiler prints `closed`. The second
-is the one no verdict count can see, which is why /play/ names it in prose.
+Four more part without appearing in any verdict count at all, because no
+machine runs them: `grammar/match_range_open.lu` and `rows/match_range_empty.lu`
+are range negatives refused at a different site on each side, and
+`rows/negative/row_operand_compare.lu` (E0409 here, E0401 there) and
+`typecheck/str_slice_assign.lu` (E0416 here, a tier refusal there) part by the
+class of the refusal. /play/ names all four in prose for that reason.
 
 The four refusals ww18 called over-determined came apart at ww19 and have
 stayed apart: `net_writev` and `net_nodelay` are in this interpreter,
@@ -121,6 +122,7 @@ this interpreter predates any more.
   strings/to_int.lu                                            exit(0)
   typecheck/byte_casts.lu                                      exit(0)
   os/cpus.lu                                                   exit(0)
+  grammar/match_switch.lu                                      exit(0)
 
 The last two are what the page's oldest lupin sentences rest on: 0.1.25 landed
 the byte and it has stayed landed, and `os_cpus` answers the `io` row rather
@@ -172,6 +174,7 @@ SAMPLES: list[tuple[str, ...]] = [
     ("memory/region_cap_boundary.lu", "a region with a budget"),
     ("typecheck/receiver_modes.lu", "call-site mut and take"),
     ("typecheck/match_exhaustive.lu", "match, exhaustively"),
+    ("grammar/match_switch.lu", "match as a switch"),
     ("generics/first_of_list.lu", "a generic function"),
     ("generics/two_instances.lu", "two instantiations"),
     ("grammar/brackets_generic_call.lu", "an explicit type argument"),
