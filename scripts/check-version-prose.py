@@ -46,15 +46,66 @@ they get an entry, a count, and the clock whose checkout carries them.
      RELEASE-BOUND, and a file with a bound one carries an audited-at
      that the pin bump moves past exactly as it does for a literal.
 
-Usage: check-version-prose.py <site-dir> <pinned-wolf-lang-dir> <pinned-wolf-interp-dir>
+Roots other than site/, and the FROZEN class
+-------------------------------------------
+
+`--also <file>` adds one file to the walk, keyed by the path as written,
+exactly as it does in check-counts.py. It exists for this repository's own
+CHANGELOG.md, which render-changelog.py turns into /changelog/site/ — served
+prose, every sentence of it a page a reader can load, and outside site/ so
+this walk had never read it (wolf-web#27). ww25 closed the count half of that
+hole and left this one open, because a second root was not enough on its own:
+the entry grammar above makes the clock MANDATORY, so admitting the file would
+have put every literal in it on the wolf or lupin clock and reddened all of
+them at every release, for prose that cannot rot. `v0.2.4` in a ww12 entry is
+a fact about ww12.
+
+So the grammar admits a third column in the clock's place:
+
+    site/install/index.html v0.2.9 3 audited-at-wolf=0.2.11   re-read at a bump
+    CHANGELOG.md            v0.2.9 2 frozen                   history, no clock
+
+`frozen` is `counted=0` spelled for literals — the idea count-allowlist.txt
+has carried since ww25 — and it means the same thing: a number no pin can
+move, so it carries no clock and the audited-at branch below is skipped for
+it. Half two's re-read is not weakened by this, because `frozen` is admitted
+ONLY for a path given as an `--also` root. A site page is undated and living;
+a changelog entry is dated and closed, and the `--also` roots are exactly the
+dated ones. A `frozen` entry naming a site page is an allowlist error, not a
+quieter audit — otherwise the cheapest way to silence a re-read would be to
+write `frozen` on it.
+
+What the changelog's entries still cost is the thing the audit is for: writing
+a version into a served sentence costs one allowlist line, everywhere, which
+is the moment its author has to check it. The other three changelogs under
+/changelog/ are upstream prose rendered from the pins and are not this
+repository's to audit.
+
+Usage: check-version-prose.py [--also <file>]... <site-dir>
+                              <pinned-wolf-lang-dir> <pinned-wolf-interp-dir>
 """
 import re
 import sys
 from pathlib import Path
 
-SITE = Path(sys.argv[1] if len(sys.argv) > 1 else "site")
-LANG = Path(sys.argv[2] if len(sys.argv) > 2 else "upstream/wolf-lang")
-INTERP = Path(sys.argv[3] if len(sys.argv) > 3 else "upstream/wolf-interp")
+argv = sys.argv[1:]
+also: list = []
+while "--also" in argv:
+    i = argv.index("--also")
+    if i + 1 >= len(argv):
+        sys.exit("check-version-prose: --also needs a file")
+    extra = Path(argv[i + 1])
+    # Checked here, while the argument list is being read, rather than at the
+    # walk below: this is an argument error, and it must answer the same way
+    # whether or not the pinned checkouts the pins come from are present.
+    if not extra.is_file():
+        sys.exit(f"check-version-prose: --also {argv[i + 1]}: no such file")
+    also.append(Path(argv[i + 1]).as_posix())
+    del argv[i : i + 2]
+
+SITE = Path(argv[0] if len(argv) > 0 else "site")
+LANG = Path(argv[1] if len(argv) > 1 else "upstream/wolf-lang")
+INTERP = Path(argv[2] if len(argv) > 2 else "upstream/wolf-interp")
 
 # Each pin's own word for what is released, derived from content rather than
 # tag objects so a shallow submodule clone cannot mislead either one. Wolf
@@ -76,17 +127,23 @@ LITERAL = re.compile(
     r"\bv\d+\.\d+(?:\.\d+)?\b|\b[Vv]ersion \d+\.\d+(?:\.\d+)?\b|\b\d+\.\d+\.\d+\b"
 )
 
+pages = [(p.relative_to(SITE).as_posix(), p) for p in sorted(SITE.rglob("*.html"))]
+for extra in also:
+    pages.append((extra, Path(extra)))
+
 found: dict[tuple[str, str], int] = {}
-for page in sorted(SITE.rglob("*.html")):
-    rel = page.relative_to(SITE).as_posix()
+for rel, page in pages:
     for m in LITERAL.finditer(page.read_text()):
         key = (rel, m.group(0))
         found[key] = found.get(key, 0) + 1
 
-# <path> <literal> <count> audited-at-<project>=<version>. The literal is
-# matched loosely because one of its spellings carries a space ("version
-# 0.1.0"), which a bare split() would tear in half.
-ENTRY = re.compile(r"^(\S+)\s+(.+?)\s+(\d+)\s+audited-at-(wolf|lupin)=(\S+)$")
+# <path> <literal> <count> audited-at-<project>=<version>, or the same three
+# columns and `frozen` for a literal no pin can move. The literal is matched
+# loosely because one of its spellings carries a space ("version 0.1.0"),
+# which a bare split() would tear in half.
+ENTRY = re.compile(
+    r"^(\S+)\s+(.+?)\s+(\d+)\s+(?:audited-at-(wolf|lupin)=(\S+)|(frozen))$"
+)
 
 allowed: dict[tuple[str, str], tuple[int, str, str]] = {}
 allowfile = Path(__file__).parent / "version-allowlist.txt"
@@ -98,10 +155,21 @@ for n, line in enumerate(allowfile.read_text().splitlines(), 1):
     if not entry:
         sys.exit(
             f"check-version-prose: {allowfile.name}:{n}: cannot parse {line!r} — an entry is "
-            f"<path> <literal> <count> audited-at-wolf=<version> (or audited-at-lupin=)"
+            f"<path> <literal> <count> audited-at-wolf=<version> (or audited-at-lupin=, "
+            f"or `frozen` for a literal in a dated --also root)"
         )
-    path, literal, count, project, audited = entry.groups()
-    allowed[(path, literal)] = (int(count), project, audited)
+    path, literal, count, project, audited, frozen = entry.groups()
+    if frozen and path not in also:
+        # `frozen` is the clock's absence, so it is admitted only where the
+        # absence is justified: a dated, closed entry in a file named on the
+        # command line. Allowing it on a living site page would make the
+        # cheapest way to silence a re-read the word "frozen".
+        sys.exit(
+            f"check-version-prose: {allowfile.name}:{n}: {path} is not an --also root, so "
+            f"{literal!r} there cannot be `frozen` — a literal in a living page carries the "
+            f"clock that re-reads it"
+        )
+    allowed[(path, literal)] = (int(count), project or "", audited or "")
 
 problems: list[str] = []
 for (path, literal), count in sorted(found.items()):
@@ -114,7 +182,7 @@ for (path, literal), count in sorted(found.items()):
     want, project, audited = allowed[(path, literal)]
     if count != want:
         problems.append(f"{path}: {literal!r} appears ×{count}, the allowlist says ×{want}")
-    if audited != pins[project]:
+    if project and audited != pins[project]:
         problems.append(
             f"{path}: {literal!r} was audited at {project} {audited}, the {project} pin is now "
             f"{pins[project]} — re-read the sentence, then re-stamp its audited-at-{project}"
@@ -193,10 +261,12 @@ if problems:
     sys.exit(1)
 
 by_project = {p: sum(1 for _, pr, _ in allowed.values() if pr == p) for p in pins}
+frozen_entries = sum(1 for _, pr, _ in allowed.values() if not pr)
 print(
     f"version prose: {sum(found.values())} literal mention(s) audited against wolf "
     f"{pins['wolf']} and lupin {pins['lupin']}, {len(allowed)} allowlisted "
-    f"({by_project['wolf']} on the wolf clock, {by_project['lupin']} on lupin's)"
+    f"({by_project['wolf']} on the wolf clock, {by_project['lupin']} on lupin's, "
+    f"{frozen_entries} frozen in {len(also)} dated root(s))"
 )
 print(
     f"version prose: {sum(stamps.values())} placeholder(s) in {len(declared)} entries, "
