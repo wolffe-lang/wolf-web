@@ -1,6 +1,3 @@
 # Dead internal links the site knowingly ships, each with the issue that
 # will remove it. A line is `<page> -> <href>`. This list ratchets down;
 # adding to it needs a reason and an issue number.
-#
-# wolffe-lang/wolf-book#1 — the book's index links up out of its own tree.
-book/index.html -> ../back/colophon.html
