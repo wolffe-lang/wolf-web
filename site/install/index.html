@@ -86,13 +86,17 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   reads what is <em>published</em> — the live AUR, the live tap, the live
   release pages — and goes red when a package trails its upstream or names a
   digest the release does not carry. When this page was last read against the
-  pins, every channel agreed. The tap was current on both counts: its
-  <code>wolf</code> formula builds tag v0.2.10, the release this page
-  describes, and its <code>lupin</code> builds 0.1.32. On the AUR both
-  interpreter packages were at 0.1.32 and both compiler packages at v0.2.10.
-  Do not expect that every time: a release and its packaging are separate
-  acts and do not land in the same minute, which is the distance that gate
-  exists to watch. The archives below are the release itself, and need nothing installed
+  pins, the channels did <em>not</em> agree, and this is what that looks like.
+  The tap had moved past this page in the same commit that caught up with it:
+  its <code>lupin</code> formula builds 0.1.33, the interpreter described here,
+  while its <code>wolf</code> formula already builds tag v0.2.11 — a compiler
+  release newer than the one this page describes, cut minutes earlier. On the
+  AUR neither half had moved yet: both interpreter packages were still at
+  0.1.32 and both compiler packages at v0.2.10. So one door is ahead of this
+  page, the other behind it, and the page is honest about both rather than
+  waiting for a tidy hour. That is the ordinary case, not the alarming one: a
+  release and its packaging are separate acts and do not land in the same
+  minute, which is the distance that gate exists to watch. The archives below are the release itself, and need nothing installed
   first.</p>
 </section>
 
