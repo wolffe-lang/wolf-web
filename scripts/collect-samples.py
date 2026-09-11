@@ -93,21 +93,29 @@ on every one.
   grammar/match_range.lu             fail(E0201)   s147, the pin lag
   grammar/match_range_char.lu        fail(E0201)   s147, the pin lag
 
-The `fail` class holds at two and changes tenant. At the last pin it was empty;
-before that it was the two `else`-layout witnesses. Now it is the two range
-programs, which this compiler runs and lupin 0.1.31 refuses because `..` in a
-pattern is text it was not built to. Neither is on the menu and neither should
-be: an entry that answers `fail` looks broken, which is the rule
-check-samples.mjs holds. `grammar/match_switch.lu` IS on the menu, and the
-distinction is the point — its guarded arm is a lowering the compiler gained,
-not a pattern form, so the interpreter has run it all along.
+AT THE lupin 0.1.32 PIN the corpus does not move at all — the compiler pin
+stands still — and the interpreter moves instead. The `fail` class empties: the
+two range programs above answer `exit(0)` here now, because 0.1.32 mirrors
+`[gram.pat.range]`. Predicted before the harness and held on every number:
+308 `phase: run` programs, 211 `exit`, 31 `trap`, 66 `unsupported`, 0 `fail`,
+candidates 242.
 
-Four more part without appearing in any verdict count at all, because no
-machine runs them: `grammar/match_range_open.lu` and `rows/match_range_empty.lu`
-are range negatives refused at a different site on each side, and
-`rows/negative/row_operand_compare.lu` (E0409 here, E0401 there) and
-`typecheck/str_slice_assign.lu` (E0416 here, a tier refusal there) part by the
-class of the refusal. /play/ names all four in prose for that reason.
+`grammar/match_range.lu` JOINS THE MENU on that verdict, which makes
+thirty-six. It was kept off for exactly one pin and for exactly one reason —
+an entry that answers `fail` looks broken, which is the rule
+check-samples.mjs holds — and the reason expired the day the interpreter
+gained the pattern form. `grammar/match_range_char.lu` stays off: it teaches
+the same arm over `char`, and the menu is a tour rather than a corpus.
+
+Two programs still part without appearing in any verdict count at all, because
+no machine runs them: `rows/negative/row_operand_compare.lu` (E0409 here,
+E0401 there) and `typecheck/str_slice_assign.lu` (E0416 here, a tier refusal
+there) part by the class of the refusal, and both are wolf-interp#85. The two
+range negatives that used to sit beside them —
+`grammar/match_range_open.lu` and `rows/match_range_empty.lu` — now agree with
+the compiler on both the code and the site, so they are not partings any more.
+/play/ names the remaining pair in prose for that reason: at this pin the
+verdict table is empty and the parting count is not zero.
 
 The four refusals ww18 called over-determined came apart at ww19 and have
 stayed apart: `net_writev` and `net_nodelay` are in this interpreter,
@@ -175,6 +183,7 @@ SAMPLES: list[tuple[str, ...]] = [
     ("typecheck/receiver_modes.lu", "call-site mut and take"),
     ("typecheck/match_exhaustive.lu", "match, exhaustively"),
     ("grammar/match_switch.lu", "match as a switch"),
+    ("grammar/match_range.lu", "match on a range"),
     ("generics/first_of_list.lu", "a generic function"),
     ("generics/two_instances.lu", "two instantiations"),
     ("grammar/brackets_generic_call.lu", "an explicit type argument"),
