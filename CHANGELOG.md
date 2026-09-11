@@ -20,6 +20,41 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww28 (item 0) — 2026-09-11
+
+The book's gitlink takes bs43, a27b684 to 27a2379, and the pin it carries is a
+release pin in all three printings: wolf 0.2.11 and lupin 0.1.33 by tag rather
+than by development revision.
+
+Chapter 5's exercise 5-7 was an RPN evaluator, and the thing that makes an RPN
+evaluator worth writing is the `?` on a pop that can fail — which chapter 5 has
+not taught. It moves to chapter 6 as exercise 6-14, where that is the point, and
+a new self-contained 5-7 takes the slot it vacated: a grade book over tuples,
+the chapter's own `best` called with a comparison function, and an empty block
+guarded before the indexing trap. §5.6 is now the whole of generics in one
+section — a bound that orders, a bound that negates, and a body under two of
+them at once. The one-line `if` is taught in the chapter that teaches `if`.
+Eighty-seven bare sends across ten chapters are spelled with the operator that
+answers them.
+
+All four numbers on /reading/'s book clock reddened and all four stood, which
+makes four bumps running. The diff does not touch the table of contents, and
+does not touch any of the three chapters the held set names, so the re-read was
+short — but it was read at the checkout, not reasoned from the diff:
+thirty-three chapters in the table of contents, thirty-one written through,
+chapter 21's five sections with two held, and part 5's six programs and a
+coda.
+
+One paragraph on /reading/ is rewritten, and it is worth naming because nothing
+in the diff caused it. The page carries a caution that a stable anchor is not a
+stable subject, and it was written at the bump that rearranged chapter 5, in the
+wording "at this pin one shipped anchor changed meaning" and "if you bookmarked
+it before today". The anchor did not move again at this bump — so one bump after
+it was written, both of those clauses were false and the caution under them was
+still exactly right. It is stated without a pin now. That is the same defect as
+a lag paragraph left unrewritten, in prose nothing measures: a sentence that was
+true of the pin it was written at and is a claim about every pin after it.
+
 ## ww27 — 2026-09-11
 
 No pin moves. Three gates close, and all three are the same shape: a claim this
