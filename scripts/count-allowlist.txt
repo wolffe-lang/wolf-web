@@ -59,21 +59,29 @@
 #             `str + char` now — and the table itself is retired: the census
 #             moved exactly one verdict and it was that one, so /play/ states
 #             a parting of none in prose and carries no number at all.
-#   /reading/ 33 chapter files at book f1eb3bb. ALL FOUR STAND at this bump,
-#             and that is the answer rather than the absence of one: bs39
-#             rewrote chapter 5's second section, its exercise and the matching
-#             solutions, and touched book/SUMMARY.md not at all — so the
-#             chapter total is 33, ch29 is still the one chapter with no
-#             sections at all and ch25 still the one with a single section, so
-#             thirty-one are written through; ch21 still carries §21.1–§21.5
-#             with §21.3 and §21.5 reserved (three headings, two held), and the
-#             colophon still counts two chapters and five sections; chapters
-#             26–32 are still six programs and a coda. Predicted from the diff
-#             before the audit ran and confirmed against the checkout after.
-#             At the bump before this one (3edba7d) two of the four moved, when
-#             ch33 and Appendix E arrived. A clock that reddens when nothing
-#             moved is the clock working: the re-read is the point, not the
-#             edit.
+#   /reading/ 33 chapter files at book d001309. ALL FOUR STAND, for the second
+#             bump running, and the two bumps stood for different reasons.
+#             bs38 re-homes `Scope` and `Proc`, takes lupin 0.1.31 and replays
+#             the exercise transcripts: it touches ch01, ch11, ch12, ch14, ch15,
+#             ch16, the colophon, the solutions and the exercise corpus, and
+#             book/SUMMARY.md not at all. Two things in that diff could have
+#             moved a number here and were checked rather than assumed. The
+#             colophon IS where "two chapters and five sections are reserved"
+#             lives, and its change is confined to the toolchain pin in the
+#             `wolf --version` block — the reservation sentence is byte-identical.
+#             And /reading/'s Concurrency line quotes SUMMARY's titles for
+#             ch10-17, which a re-homing of `Scope` and `Proc` could have
+#             renamed — SUMMARY is untouched, so "Scopes as values" and
+#             "Procs: the unit of failure" both stand. The counts themselves:
+#             33 entries in the table of contents; ch29 still the only chapter
+#             with no sections and ch25 still the only one with a single
+#             section, so thirty-one are written through; ch21 still three
+#             headings with §21.3 and §21.5 held, which its own closing
+#             sentence still calls five; chapters 26-32 still six programs and
+#             a coda. At 3edba7d two of the four moved, when ch33 and Appendix
+#             E arrived; at f1eb3bb and here none did. A clock that reddens
+#             when nothing moved is the clock working — the re-read is the
+#             point, not the edit.
 #   /         `seven characters` — NEW at ww24. The commit a development
 #             build's version string carries is seven hex characters from
 #             every clone, by decision (wolf-lang#301), rather than whatever
@@ -118,13 +126,13 @@ CHANGELOG.md eighteen 2 counted=0
 CHANGELOG.md eleven 1 counted=0
 CHANGELOG.md fifty-one 2 counted=0
 CHANGELOG.md fifty-three 1 counted=0
-CHANGELOG.md five 13 counted=0
+CHANGELOG.md five 15 counted=0
 CHANGELOG.md fourteen 1 counted=0
 CHANGELOG.md hundred 1 counted=0
 CHANGELOG.md nine 5 counted=0
 CHANGELOG.md nineteen 1 counted=0
 CHANGELOG.md seven 11 counted=0
-CHANGELOG.md six 11 counted=0
+CHANGELOG.md six 12 counted=0
 CHANGELOG.md sixteen 3 counted=0
 CHANGELOG.md ten 2 counted=0
 CHANGELOG.md thirteen 2 counted=0
@@ -132,9 +140,9 @@ CHANGELOG.md thirty 2 counted=0
 CHANGELOG.md thirty-five 1 counted=0
 CHANGELOG.md thirty-four 2 counted=0
 CHANGELOG.md thirty-odd 1 counted=0
-CHANGELOG.md thirty-one 2 counted=0
+CHANGELOG.md thirty-one 3 counted=0
 CHANGELOG.md thirty-six 1 counted=0
-CHANGELOG.md thirty-three 7 counted=0
+CHANGELOG.md thirty-three 8 counted=0
 CHANGELOG.md thirty-two 2 counted=0
 CHANGELOG.md twelve 6 counted=0
 CHANGELOG.md twenty-eight 1 counted=0
@@ -156,9 +164,9 @@ install/index.html twenty-one 1 counted=0
 play/index.html Seven 1 counted=1 audited-at-lupin=0.1.32
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=f1eb3bb
-reading/index.html Thirty-one 1 counted=1 audited-at-book=f1eb3bb
-reading/index.html five 1 counted=1 audited-at-book=f1eb3bb
-reading/index.html thirty-three 1 counted=1 audited-at-book=f1eb3bb
+reading/index.html Six 1 counted=1 audited-at-book=d001309
+reading/index.html Thirty-one 1 counted=1 audited-at-book=d001309
+reading/index.html five 1 counted=1 audited-at-book=d001309
+reading/index.html thirty-three 1 counted=1 audited-at-book=d001309
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
