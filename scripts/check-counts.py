@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """No count in the site's prose may sit on the page held by nothing.
 
-    usage: check-counts.py <site-dir> <wolf-lang-dir> <wolf-interp-dir> <wolf-book-dir>
+    usage: check-counts.py [--also <file>]... <site-dir> <wolf-lang-dir>
+                           <wolf-interp-dir> <wolf-book-dir>
 
 The rule is the version rule, applied to populations instead of releases, and
 it has the same two halves:
@@ -48,16 +49,44 @@ regex makes when it requires three components for a bare literal, so that
 "0.5 seconds" is not a release claim: a boundary that admits a little silence
 in exchange for a list that stays legible. wolf-web#17's defect lived well
 above the line — twelve, thirteen, sixteen, thirty-four, thirty-six.
+
+Roots other than site/
+----------------------
+
+`--also <file>` adds one file to the walk, keyed by the path as written. It
+exists for this repository's own `CHANGELOG.md`, which `render-changelog.py`
+turns into `/changelog/site/` — served prose, every sentence of it a page a
+reader can load, and outside `site/` so this walk had never read it
+(wolf-web#27). ww24 wrote three numbers into its own entry, two of them wrong,
+in a paragraph whose subject was the discipline of counting, and the build was
+green over it from the first commit to the last.
+
+A changelog entry is a historical record of what one wave measured, so its
+numbers are frozen by construction: no pin bump can make "308 phase: run
+programs at v0.2.10" false. They are `counted=0` lines with no clock, and the
+value is not the re-read — it is that writing a number into a served sentence
+costs an allowlist line, which is the moment its author has to derive it. The
+other three changelogs under /changelog/ are upstream prose rendered from the
+pins and are not this repository's to audit.
 """
 
 import re
 import sys
 from pathlib import Path
 
-SITE = Path(sys.argv[1] if len(sys.argv) > 1 else "site")
-LANG = Path(sys.argv[2] if len(sys.argv) > 2 else "upstream/wolf-lang")
-INTERP = Path(sys.argv[3] if len(sys.argv) > 3 else "upstream/wolf-interp")
-BOOK = Path(sys.argv[4] if len(sys.argv) > 4 else "upstream/wolf-book")
+argv = sys.argv[1:]
+also: list[str] = []
+while "--also" in argv:
+    i = argv.index("--also")
+    if i + 1 >= len(argv):
+        sys.exit("check-counts: --also needs a file")
+    also.append(argv[i + 1])
+    del argv[i : i + 2]
+
+SITE = Path(argv[0] if len(argv) > 0 else "site")
+LANG = Path(argv[1] if len(argv) > 1 else "upstream/wolf-lang")
+INTERP = Path(argv[2] if len(argv) > 2 else "upstream/wolf-interp")
+BOOK = Path(argv[3] if len(argv) > 3 else "upstream/wolf-book")
 
 # The same readings check-version-prose.py takes, from content rather than tag
 # objects, plus the book's — which publishes no version, so its pin is the
@@ -96,9 +125,15 @@ WORD = re.compile(
     re.I,
 )
 
+pages = [(p.relative_to(SITE).as_posix(), p) for p in sorted(SITE.rglob("*.html"))]
+for extra in also:
+    path = Path(extra)
+    if not path.is_file():
+        sys.exit(f"check-counts: --also {extra}: no such file")
+    pages.append((path.as_posix(), path))
+
 found: dict[tuple[str, str], int] = {}
-for page in sorted(SITE.rglob("*.html")):
-    rel = page.relative_to(SITE).as_posix()
+for rel, page in pages:
     for m in WORD.finditer(page.read_text()):
         key = (rel, m.group(0))
         found[key] = found.get(key, 0) + 1

@@ -86,7 +86,16 @@ python3 scripts/check-version-prose.py site upstream/wolf-lang upstream/wolf-int
 # a machine can measure is a __COUNT_ placeholder, stamped below; every other
 # number word is a listed, counted entry in scripts/count-allowlist.txt that
 # says how many of its occurrences a pin bump can still move.
-python3 scripts/check-counts.py site upstream/wolf-lang upstream/wolf-interp upstream/wolf-book
+#
+# `--also CHANGELOG.md` because this repository's own changelog renders to
+# /changelog/site/ and is therefore served prose, while living outside site/
+# where both audits root — so its numbers were held by nothing, and ww24's
+# entry went out stating three counts of its own allowlists, two of them wrong
+# (wolf-web#27). Its entries are frozen: a wave's measurement cannot be made
+# false by a later pin, so they carry no clock. The cost of writing a number
+# into a served sentence is one allowlist line, everywhere.
+python3 scripts/check-counts.py --also CHANGELOG.md \
+  site upstream/wolf-lang upstream/wolf-interp upstream/wolf-book
 
 rsync -a site/ "$DIST"/
 

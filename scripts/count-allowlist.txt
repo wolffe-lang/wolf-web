@@ -88,6 +88,52 @@
 # `demo/doc` fixture, 2 + 5. /play/'s `Seven tiers` rides the LUPIN clock and
 # was not asked this pass; the census confirms it anyway, all seven reason
 # strings present and unchanged in wording at 308 phase:run programs.
+#
+# CHANGELOG.md is not under site/, and it is served prose all the same: it
+# renders to /changelog/site/ (wolf-web#27). Every line below is counted=0 and
+# carries no clock, because an entry records what one wave measured at one set
+# of pins and no later bump can make that false. What the lines buy is the
+# thing that was missing: a number written into a served sentence costs an
+# allowlist line, so its author derives it. ww24's entry claimed three counts
+# of its own allowlists in a paragraph about counting, two of them wrong, and
+# the build was green from its first commit to its last.
+CHANGELOG.md Eight 1 counted=0
+CHANGELOG.md Fifteen 1 counted=0
+CHANGELOG.md Five 3 counted=0
+CHANGELOG.md Nine 1 counted=0
+CHANGELOG.md Nineteen 1 counted=0
+CHANGELOG.md Seven 1 counted=0
+CHANGELOG.md Six 4 counted=0
+CHANGELOG.md Sixteen 1 counted=0
+CHANGELOG.md Thirteen 1 counted=0
+CHANGELOG.md Twenty 1 counted=0
+CHANGELOG.md eight 3 counted=0
+CHANGELOG.md eighteen 2 counted=0
+CHANGELOG.md eleven 1 counted=0
+CHANGELOG.md fifty-one 1 counted=0
+CHANGELOG.md fifty-three 1 counted=0
+CHANGELOG.md five 11 counted=0
+CHANGELOG.md fourteen 1 counted=0
+CHANGELOG.md hundred 1 counted=0
+CHANGELOG.md nine 5 counted=0
+CHANGELOG.md nineteen 1 counted=0
+CHANGELOG.md seven 10 counted=0
+CHANGELOG.md six 9 counted=0
+CHANGELOG.md sixteen 3 counted=0
+CHANGELOG.md ten 2 counted=0
+CHANGELOG.md thirteen 2 counted=0
+CHANGELOG.md thirty 2 counted=0
+CHANGELOG.md thirty-five 1 counted=0
+CHANGELOG.md thirty-four 2 counted=0
+CHANGELOG.md thirty-odd 1 counted=0
+CHANGELOG.md thirty-one 1 counted=0
+CHANGELOG.md thirty-three 6 counted=0
+CHANGELOG.md thirty-two 2 counted=0
+CHANGELOG.md twelve 6 counted=0
+CHANGELOG.md twenty-eight 1 counted=0
+CHANGELOG.md twenty-four 2 counted=0
+CHANGELOG.md twenty-odd 1 counted=0
+CHANGELOG.md twenty-one 2 counted=0
 docs/index.html seven 1 counted=1 audited-at-wolf=0.2.10
 index.html five 3 counted=3 audited-at-wolf=0.2.10
 index.html seven 1 counted=1 audited-at-wolf=0.2.10
