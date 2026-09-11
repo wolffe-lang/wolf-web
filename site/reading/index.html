@@ -71,6 +71,17 @@
   command surface, solutions to every printed exercise, a glossary, an index
   and an errata page. Section numbers are the page anchors, so
   <code>/book/ch08.html#8.4</code> is a stable link.</p>
+
+  <p>Stable means the number keeps pointing at a page, not that it keeps
+  pointing at the same subject. At this pin one shipped anchor changed meaning:
+  <code>/book/ch05.html#5.5</code> was the trait section and is the struct
+  section now, with traits moving to <code>#5.6</code>, because chapter 5 was
+  rearranged to put the struct before the trait that operates on it. Nothing
+  404s, which is exactly why it is worth saying — an old link to §5.5 still
+  resolves and still renders, and quietly shows you something else. If you
+  bookmarked the traits section of chapter 5 before today, the bookmark you
+  want is <code>#5.6</code>. Chapter 7 also gained <code>#7.8</code>, which
+  takes a free number and moves nothing.</p>
 </section>
 
 <section>
