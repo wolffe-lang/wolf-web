@@ -70,72 +70,68 @@ fn main() -&gt; !int {
   it is not: <code>wolf --version</code> built anywhere but the tag answers
   with the build's commit.</p>
 
-  <p><strong>The layout rule is gone.</strong> Until this release an
-  <code>if</code> chain whose <code>else</code> began its own line was an
-  error:</p>
+  <p><strong><code>match</code> is the switch you were reaching for.</strong>
+  In statement position it is what a reader from any C-family language expects,
+  and at v__WOLF_VERSION__ the arm that was missing is there:</p>
 
-<pre><code>if n &gt; 0 {
-    ...
-}
-else if n &lt; 0 {
-    ...
-}
-else {
-    ...
+<pre><code>match n {
+    0 =&gt; ...,
+    1 | 2 =&gt; ...,
+    3..=9 =&gt; ...,
+    n if n % 2 == 0 =&gt; ...,
+    _ =&gt; ...,
 }</code></pre>
 
-  <p>The newline after the <code>}</code> ended the statement and left the
-  <code>else</code> with nothing to attach to, and the compiler said E0005.
-  The rule was Go's, and it was the one place in wolf where where a line began
-  decided whether a program built. At v__WOLF_VERSION__ <strong>a line whose
-  first token is <code>else</code> continues the previous statement</strong>.
-  The chain above compiles, and so does a defaulting <code>else</code> written
-  under the call it defaults. E0005 leaves the catalogue and its number is
-  never reused. The formatter did not move: <code>wolf fmt</code> still lays a
-  chain as <code>} else {</code> on one line, so the canonical shape is exactly
-  what it was and the aligned source above formats to it and stays there. What
-  changed is that the parser no longer refuses the reader who writes it the
-  other way before running the formatter.</p>
+  <p><code>lo..hi</code> and <code>lo..=hi</code>, over integer and
+  <code>char</code> literals, in any pattern position, composed with
+  <code>|</code>, with guards and with <code>@</code>. Both ends are literals:
+  no identifiers, no expressions, and no open ends, because <code>..hi</code>
+  and <code>lo..</code> are how a slice is spelled — and a parser that refuses
+  one now says the word "range" instead of leaving you to work out which of the
+  two you had written. A range no value can match is <code>E0815</code> before
+  the program runs. Exhaustiveness computes no union, so a <code>_</code> or a
+  binder arm is still required after range arms, and when one is missing the
+  diagnostic names the first value nothing covers. The guarded arm in that
+  chain is new as well. Native lowering used to refuse <code>n if n % 2 ==
+  0 =&gt;</code> standing before a <code>_</code> — as conservatism, while the
+  checked machine and the interpreter both ran it — and the refusal named the
+  wrong arm. It lowers on both tiers now, and the switch above is
+  byte-identical on both.</p>
 
-  <p><strong>The row a string hands back when it is not a number is called
-  <code>parse</code>.</strong> <code>"12x".to_int()</code> answers an error
-  row, and until now that row was <code>NotAnInt</code> — the one CapCase
-  payload-free mark on the whole builtin surface, in a language whose own lint
-  says otherwise. W0603 has always warned that a payload-free mark is a
-  lowercase word and that CapCase names a payload's type; the operating-system
-  families spell their conditions <code>not_found</code>, <code>utf8</code>,
-  <code>closed</code>; the json builtins already answered <code>parse</code>
-  for exactly this condition. So the row is <code>parse</code>, and this is the
-  one change in v__WOLF_VERSION__ that can break a program you already wrote.
-  It breaks it out loud: a <code>match</code> arm that still names
-  <code>NotAnInt</code> is refused by name, with a note reading <code>the cases
-  are: parse</code>. The family is ruled for the first time as well —
-  <code>[mem.str.parse]</code> says which text parses and that nothing here
-  ever traps — and <code>to_float</code> and <code>to_bool</code> are ruled out
-  of existence rather than left ambiguous.</p>
+  <p><strong>And the compiler stopped blaming itself for your program.</strong>
+  <code>s[l-1..l] = "{t}"</code>, which is a reasonable thing to try when you
+  want to change the last character of a string, was answered <code>cannot
+  compile this yet</code> and a pointer at the ledger of things the backend has
+  not got to. That was backwards. A <code>str</code> never changes after it is
+  built and a slice of one is a view, so there is no place on the left of that
+  <code>=</code>, today or ever. <code>[mem.str.imm]</code> rules it and
+  <strong>E0416</strong> says it — <code>cannot assign through a str slice: s
+  is immutable</code> — with the three spellings that do work in the note.</p>
 
-  <p><strong>And a <code>char</code> joins a <code>str</code>.</strong>
-  Building a string one character at a time, <code>t += cs[i]</code> in a loop
-  over <code>chars()</code>, was refused with E0409 and a note pointing at an
-  interpolation hole. A Unicode scalar appended to text is closed under UTF-8
-  and has exactly one rendering, so <code>s + c</code> and <code>c + s</code>
-  are that append in either order and <code>s += c</code> follows.
-  <code>str + int</code> still refuses, and the clause now says why instead of
-  leaving it to be inferred: <code>+</code> is not a formatter, and an
-  <code>int</code> has more than one rendering — sign, radix, width — so the
-  interpolation hole stays the place to choose one.</p>
+  <p><strong>A send in a loop body is a warning, not a mismatch.</strong>
+  <code>chan.send</code> is typed <code>() ! {closed, cancelled}</code> now,
+  which is the row <code>[conc.chan.close]</code> had always described, and
+  typing it raised a question: what does a fallible <code>()</code> mean where
+  <code>()</code> is expected? <code>[type.unit]</code> answers it. The body of
+  a loop, an else-less <code>if</code> and a unit function are unit contexts,
+  and a <code>!()</code> tail in one is a warned discard — W0601 — never an
+  error. <code>ch.send(v)?</code> hands the failure to the enclosing scope and
+  <code>else</code> handles it on the spot; the corpus spells the first. A task
+  closure's tail is the one different case, and the clause says why: the scope
+  consumes it and re-raises the row when it exits.</p>
 
-  <p>Around those three, the release is mostly the language saying out loud
-  what it had been doing. <code>{x}</code> renders every value both
-  implementations can show — a tuple, a struct, a <code>List</code>, an enum
-  variant, a caught row, an exit reason — and refuses by name what has no
-  promised rendering. <code>return</code> inside a closure returns from the
-  closure, typed against the closure's own result, which is how both lowering
-  tiers and the interpreter had always run it. <code>channel[T]</code> in a
-  signature position is a channel, so a worker taking its inbox as a parameter
-  can iterate it. And <code>pop</code> on an empty <code>List</code> answers
-  the <code>none</code> row rather than faulting, which is what the compiler
-  had always done and what the clause now says.</p>
+  <p>Around those three, the release is the language reading what a signature
+  already said. A body's tail is checked against the declared result
+  (<code>[type.fn.ret]</code>, E0401 at the tail rather than somewhere
+  downstream of it), and a <code>!T</code> is two values that no operator reads
+  (<code>[type.row.operand]</code>, E0409 on either side). Nothing moved in the
+  compiler for either one: both rules were being enforced and neither was
+  written down, and <code>lupin</code> enforces both. Two more, for anyone who
+  records a number: a module's interface hash is over the interface alone, so a
+  toolchain bump no longer moves every hash in the file; and the commit in a
+  development build's version string is seven characters by decision, from
+  every clone, rather than whatever the object count makes <code>git rev-parse
+  --short</code> guess.</p>
 
   <p>There is a second implementation. <code>lupin</code> is a reference
   interpreter written against the same specification, sharing no code with the
