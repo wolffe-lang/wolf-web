@@ -59,15 +59,21 @@
 #             `str + char` now — and the table itself is retired: the census
 #             moved exactly one verdict and it was that one, so /play/ states
 #             a parting of none in prose and carries no number at all.
-#   /reading/ 33 chapter files at book 3edba7d — ch33, the serving loop, joins
-#             the end of part 4 with a number out of order because section
-#             numbers are permanent anchors. ch29 is still reserved whole and
-#             ch25 still one section in, and nothing else holds a whole
-#             chapter back, so thirty-one are written through. ch21 still
-#             carries §21.1–§21.5 with §21.3 and §21.5 reserved, and the
-#             colophon still counts two chapters and five sections. Chapters
-#             26–32 are unchanged: six programs and a coda. Two of the four
-#             moved and two stood, which is the book clock earning its keep.
+#   /reading/ 33 chapter files at book f1eb3bb. ALL FOUR STAND at this bump,
+#             and that is the answer rather than the absence of one: bs39
+#             rewrote chapter 5's second section, its exercise and the matching
+#             solutions, and touched book/SUMMARY.md not at all — so the
+#             chapter total is 33, ch29 is still the one chapter with no
+#             sections at all and ch25 still the one with a single section, so
+#             thirty-one are written through; ch21 still carries §21.1–§21.5
+#             with §21.3 and §21.5 reserved (three headings, two held), and the
+#             colophon still counts two chapters and five sections; chapters
+#             26–32 are still six programs and a coda. Predicted from the diff
+#             before the audit ran and confirmed against the checkout after.
+#             At the bump before this one (3edba7d) two of the four moved, when
+#             ch33 and Appendix E arrived. A clock that reddens when nothing
+#             moved is the clock working: the re-read is the point, not the
+#             edit.
 #   /         `seven characters` — NEW at ww24. The commit a development
 #             build's version string carries is seven hex characters from
 #             every clone, by decision (wolf-lang#301), rather than whatever
@@ -112,13 +118,13 @@ CHANGELOG.md eighteen 2 counted=0
 CHANGELOG.md eleven 1 counted=0
 CHANGELOG.md fifty-one 2 counted=0
 CHANGELOG.md fifty-three 1 counted=0
-CHANGELOG.md five 12 counted=0
+CHANGELOG.md five 13 counted=0
 CHANGELOG.md fourteen 1 counted=0
 CHANGELOG.md hundred 1 counted=0
 CHANGELOG.md nine 5 counted=0
 CHANGELOG.md nineteen 1 counted=0
 CHANGELOG.md seven 11 counted=0
-CHANGELOG.md six 10 counted=0
+CHANGELOG.md six 11 counted=0
 CHANGELOG.md sixteen 3 counted=0
 CHANGELOG.md ten 2 counted=0
 CHANGELOG.md thirteen 2 counted=0
@@ -126,9 +132,9 @@ CHANGELOG.md thirty 2 counted=0
 CHANGELOG.md thirty-five 1 counted=0
 CHANGELOG.md thirty-four 2 counted=0
 CHANGELOG.md thirty-odd 1 counted=0
-CHANGELOG.md thirty-one 1 counted=0
+CHANGELOG.md thirty-one 2 counted=0
 CHANGELOG.md thirty-six 1 counted=0
-CHANGELOG.md thirty-three 6 counted=0
+CHANGELOG.md thirty-three 7 counted=0
 CHANGELOG.md thirty-two 2 counted=0
 CHANGELOG.md twelve 6 counted=0
 CHANGELOG.md twenty-eight 1 counted=0
@@ -150,9 +156,9 @@ install/index.html twenty-one 1 counted=0
 play/index.html Seven 1 counted=1 audited-at-lupin=0.1.32
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=3edba7d
-reading/index.html Thirty-one 1 counted=1 audited-at-book=3edba7d
-reading/index.html five 1 counted=1 audited-at-book=3edba7d
-reading/index.html thirty-three 1 counted=1 audited-at-book=3edba7d
+reading/index.html Six 1 counted=1 audited-at-book=f1eb3bb
+reading/index.html Thirty-one 1 counted=1 audited-at-book=f1eb3bb
+reading/index.html five 1 counted=1 audited-at-book=f1eb3bb
+reading/index.html thirty-three 1 counted=1 audited-at-book=f1eb3bb
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
