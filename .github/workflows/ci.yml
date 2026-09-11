@@ -123,6 +123,25 @@ jobs:
       - name: the playground's menu answers what the page claims
         run: node scripts/check-samples.mjs dist upstream/wolf-lang/corpus
 
+      # The counted pin lag compares specification REVISIONS, so it is blind to
+      # a clause the interpreter mirrors AHEAD of its pin — which it does on
+      # purpose, with its own release notes saying so. At lupin 0.1.33 the gap
+      # was zero, both pages said `the same commit`, and the tab ran a one-line
+      # `if` the advertised compiler refused (wolf-web#35). Prose was all this
+      # site had for it; this is the gate. Every witness that RUNS through the
+      # module the build just published must name an anchor the pinned
+      # release's own spec/anchors.json declares.
+      - name: the tab runs nothing the advertised release does not carry
+        run: node scripts/check-ahead.mjs dist upstream/wolf-lang
+
+      # The gate above is green at this pin — its first witness closed at
+      # v0.2.11 — and a gate nobody has watched fail is a claim. This suite
+      # plants a witness that runs against a clause no release declares and
+      # holds the refusal. It needs the built module, so it stands down in the
+      # pre-build `node --test tests/*.test.mjs` above and is run again here.
+      - name: the ahead gate reds on a planted case
+        run: node --test tests/ahead-witnesses.test.mjs
+
   deploy:
     name: deploy to lupp.us
     needs: build
