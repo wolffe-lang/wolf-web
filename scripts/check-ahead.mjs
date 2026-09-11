@@ -3,9 +3,10 @@
  *     usage: node scripts/check-ahead.mjs <dist-dir> [<pinned-wolf-lang-dir>]
  *                                         [--witnesses <file>]
  *
- * scripts/lag-sim — and the `pin-lag` step the windows job runs — computes the
- * distance between two SPECIFICATION REVISIONS by ancestry, and /install/ and
- * /play/ are both written against that number. At lupin 0.1.33 it was zero:
+ * The `the specification pin lag the site records` step in
+ * .github/workflows/windows.yml computes the distance between two
+ * SPECIFICATION REVISIONS by ancestry, and holds /install/ and /play/ to the
+ * phrase for the number it gets. At lupin 0.1.33 it was zero:
  * the interpreter's pin WAS the tag this site advertised, and both pages said
  * `the same commit`. That was correct arithmetic and an incomplete claim, and
  * the difference was visible to a reader for the first time at that pin —
