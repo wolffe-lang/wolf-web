@@ -10,6 +10,96 @@ build's placeholder tokens out — the version ones, the KiB ones, the count one
 than it says here, and one of them stops the build outright. Name the source
 in words; do not quote the token.
 
+Because it is served prose, `scripts/check-counts.py` walks this file as a
+second root (`--also CHANGELOG.md`, wolf-web#27). Every number word an entry
+spells out needs its own line in `scripts/count-allowlist.txt`, keyed on
+`CHANGELOG.md`, and those lines are `counted=0` with no clock: an entry
+records what one wave measured, and no later pin can make that false. The
+audit is not asking you to re-read them. It is making you derive a number
+before you serve it.
+
+## ww25 — 2026-09-11
+
+The site takes the rest. No release moves: wolf stays v0.2.10 and lupin stays
+0.1.31, and the only clock that turns is the one this repository has never
+described in a whole sentence — the book's gitlink, which publishes no version
+and so is audited by its revision alone.
+
+**The book grows a chapter and an appendix.** The pin moves to the book's
+trunk at `3edba7d`, and with it chapter 33, the serving loop, and Appendix E,
+the driver's surface. The chapter reads last in part 4 with a number out of
+order, because section numbers are the book's permanent anchors and a late
+chapter takes the next free one rather than move everything after it; the
+reading page now says that, since a reader who sees a part labelled 18–25 and
+then 33 is owed the reason. The appendix is the whole command surface in one
+place, replayed from the driver's own help, and the back matter sentence names
+it — and names the index, which that sentence had quietly omitted since it was
+written.
+
+**All four of the book clock's counts reddened at once, and two of them were
+wrong.** Predicted before the audit ran and held: the chapter total moves
+thirty-two to thirty-three, the chapters written through move thirty to
+thirty-one, and the other two stand — chapter 21 still carries five sections
+with two reserved, and part 5 is still six programs and a coda. Nothing else
+in the book moved a number the site states: chapter 29 is still reserved
+whole, chapter 25 is still one section in, and the colophon still counts two
+chapters and five sections against the whole book.
+
+**Does the book's gitlink want a stamp of its own, like the interpreter's?**
+Half of one. The interpreter's stamp exists because two pages PRINT a
+revision, and that sha was rewritten by hand at every bump while the prose
+audit saw no version and the count audit saw no number. No page prints the
+book's revision — it reaches a reader only through the version stamp and the
+rendered changelog header, both written by the build from the gitlink — and
+the revision sweep that lane installed already refuses a git revision typed
+into any page, whatever it names. So there is nothing for a revision stamp to
+hold. The counts are the other half, and this pass is the argument: of the
+four, the chapter total is a pure measurement of the pinned checkout, with no
+judgement in it at all, and it is one of the two that moved. That one wants to
+be a stamped count off the book's table of contents, the way the corpus
+numbers already are. The remaining three stay literals on the book clock,
+because each states a reading the book does not publish about itself — which
+chapters are written THROUGH, and what counts as a program rather than a coda.
+Filed as wolf-web#28.
+
+**wolf-book#1 is closed from both ends** (wolf-web#24). This repository shipped
+the book's `css/` out of its theme and allowlisted one dead link on the
+duplicated first-chapter page, because the render emitted neither; the book's
+own render lane took both fixes, and walks and holds its own links now. Both
+workarounds are gone, and the cost of dropping them was measured at each pin
+rather than assumed: at the pin before, 46 dead links, of which 45 were pages
+asking for a print stylesheet that was not there; at this pin, none, across
+1439 internal links and 63 pages. `link-allowlist.txt` is comment-only for the
+first time since it was written.
+
+**Every revision this site publishes is seven characters, asked for rather
+than inherited** (wolf-web#26). Bare `git rev-parse --short` picks its width
+from the object count of the repository being asked, so the three pins in the
+version stamp came out at two widths, and every post-deploy check since ww20
+has carried an undocumented slice on the compiler's to compare it with a page.
+Seven is now spelled out at each of the seven places `build.sh` asks git for a
+short revision, and at the deploy's own log line, matching what the
+gitlink-derived specification pin, the page stamps and the count audit's book
+clock already did by construction; and the build refuses to serve a version
+stamp whose revisions are any other width. The post-deploy checks drop their slices. It is
+wolf-lang#301's ruling for the development build stamp, one layer out.
+
+**This file is served prose, and the count audit reads it now** (wolf-web#27,
+in part). `render-changelog.py` turns it into a page under /changelog/, and
+both audits took `site/` as their root, so every number here was held by
+nothing — which is how ww24's own entry went out claiming three counts of its
+allowlists, two of them wrong, in a paragraph about the discipline of counting.
+The count audit takes it as a second root. A changelog entry is the record of
+what one wave measured, so every number in it is frozen by construction and
+carries no clock; the value is that writing a number into a served sentence
+costs an allowlist line, everywhere, which is the moment its author has to
+derive it. The version-literal half of that issue stays open and says why: this
+file carried thirty-four distinct version literals across a hundred and
+fifty-three mentions the day this entry was written, all of them history, and
+the version allowlist's grammar requires a clock on every entry — so admitting them would redden the whole file
+at every release, and the fix is the frozen-entry idea the count allowlist
+already has, spelled for a second file.
+
 ## ww24 — 2026-09-11
 
 The site takes the tenth. The pin moves to wolf v0.2.10 and lupin stays
