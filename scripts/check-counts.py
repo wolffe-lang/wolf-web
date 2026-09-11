@@ -80,6 +80,12 @@ while "--also" in argv:
     i = argv.index("--also")
     if i + 1 >= len(argv):
         sys.exit("check-counts: --also needs a file")
+    extra = Path(argv[i + 1])
+    # Checked here, while the argument list is being read, rather than at the
+    # walk below: this is an argument error, and it must answer the same way
+    # whether or not the pinned checkouts the pins come from are present.
+    if not extra.is_file():
+        sys.exit(f"check-counts: --also {argv[i + 1]}: no such file")
     also.append(argv[i + 1])
     del argv[i : i + 2]
 
@@ -127,10 +133,7 @@ WORD = re.compile(
 
 pages = [(p.relative_to(SITE).as_posix(), p) for p in sorted(SITE.rglob("*.html"))]
 for extra in also:
-    path = Path(extra)
-    if not path.is_file():
-        sys.exit(f"check-counts: --also {extra}: no such file")
-    pages.append((path.as_posix(), path))
+    pages.append((Path(extra).as_posix(), Path(extra)))
 
 found: dict[tuple[str, str], int] = {}
 for rel, page in pages:

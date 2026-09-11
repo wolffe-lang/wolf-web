@@ -18,7 +18,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
+import { mkdtempSync, writeFileSync, rmSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -26,6 +26,18 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const script = join(root, "scripts", "check-counts.py");
 const roots = ["site", "upstream/wolf-lang", "upstream/wolf-interp", "upstream/wolf-book"];
+
+/* The audit reads its pins out of the pinned checkouts, so the tests that run
+ * it need them. The editor-suites job on the Windows runner checks this
+ * repository out WITHOUT submodules, the way tests/revision-prose.test.mjs
+ * already accounts for, so those tests say so and stand down rather than
+ * reporting the absence as a defect. The argument-error tests below need no
+ * checkout at all, by construction — check-counts.py validates --also while it
+ * is reading its arguments. */
+const pinned = existsSync(join(root, "upstream", "wolf-lang", "CHANGELOG.md"));
+function noPins() {
+  console.log("  (skipped: upstream/ is not checked out)");
+}
 
 /** The audit, run from the repo root so that every path is the spelling
  * build.sh uses — the allowlist is keyed on the path as written. */
@@ -50,12 +62,14 @@ function withPlanted(text) {
 }
 
 test("the invocation build.sh makes is green", () => {
+  if (!pinned) return noPins();
   const out = audit(["--also", "CHANGELOG.md"]);
   assert.equal(out.status, 0, `expected a pass, got:\n${out.stderr}`);
   assert.match(out.stdout, /number word\(s\) in \d+ entries/);
 });
 
 test("a number word in an --also file that the allowlist does not carry reds", () => {
+  if (!pinned) return noPins();
   const out = withPlanted("The lane re-read seventeen sentences and stood by all of them.\n");
   assert.equal(out.status, 1, `expected a refusal, got:\n${out.stderr}${out.stdout}`);
   assert.match(out.stderr, /'seventeen'/);
@@ -63,17 +77,20 @@ test("a number word in an --also file that the allowlist does not carry reds", (
 });
 
 test("an --also file that counts nothing is no trouble", () => {
+  if (!pinned) return noPins();
   const out = withPlanted("The pin moved and nothing on the page counted anything.\n");
   assert.equal(out.status, 0, `expected a pass, got:\n${out.stderr}`);
 });
 
 test("--also is what carries the CHANGELOG.md block: without it the allowlist is stale", () => {
+  if (!pinned) return noPins();
   const out = audit([]);
   assert.equal(out.status, 1, `expected a refusal, got:\n${out.stderr}${out.stdout}`);
   assert.match(out.stderr, /count-allowlist\.txt lists .* in CHANGELOG\.md/);
 });
 
 test("the key is the path as written, not the file it resolves to", () => {
+  if (!pinned) return noPins();
   const out = audit(["--also", join(root, "CHANGELOG.md")]);
   assert.equal(out.status, 1, "an absolute path is a different key than CHANGELOG.md");
 });
