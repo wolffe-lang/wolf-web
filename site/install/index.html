@@ -91,9 +91,10 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   it is what the gate is for. At the previous pin the tap had already moved
   past this page while the AUR had not moved at all: one door ahead, one
   behind, neither wrong. Both have since landed here. The tap's
-  <code>wolf</code> formula builds tag v0.2.11 and its <code>lupin</code>
-  builds 0.1.33; on the AUR both compiler packages read 0.2.11 and both
-  interpreter packages 0.1.33. Do not expect the tidy reading every time: a
+  <code>wolf</code> formula builds tag v__WOLF_VERSION__ and its
+  <code>lupin</code> builds __LUPIN_VERSION__; on the AUR both compiler
+  packages read __WOLF_VERSION__ and both interpreter packages
+  __LUPIN_VERSION__. Do not expect the tidy reading every time: a
   release and its packaging are separate acts and do not land in the same
   minute, which is the distance that gate exists to watch. The archives below are the release itself, and need nothing installed
   first.</p>
@@ -180,7 +181,7 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   compiler you just installed. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
-  <p>What the gap costs, concretely, is five programs and a message. The two
+  <p>What the gap costs, concretely, is a short list of corpus programs. The two
   <em>messages</em> that parted two pins ago are
   settled — a bare row used as an operand is <code>E0409</code> in both places
   now, and a write through a <code>str</code> slice is <code>E0416</code> in
@@ -194,8 +195,8 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
 
   <p>At the last pin this page described a parting running the other way — the
   interpreter took a one-line <code>if</code>, <code>if c then a else b</code>,
-  that the compiler refused. This release is the compiler taking it. All nine
-  of that ruling's running witnesses now agree in both places, so the reversed
+  that the compiler refused. This release is the compiler taking it. Every
+  running witness of that ruling now agrees in both places, so the reversed
   parting lasted exactly one release and is recorded here because it happened,
   not because it lasted.</p>
 
@@ -209,9 +210,9 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   <code>map_int_keys.lu</code>, <code>traits/op_money.lu</code> and
   <code>traits/op_ord_struct.lu</code>, where <code>+</code> and
   <code>&lt;</code> cannot reach their <code>impl</code> yet, and
-  <code>traits/op_total_num.lu</code>, refused outright. Three of the five new
+  <code>traits/op_total_num.lu</code>, refused outright. Most of the new
   <code>Map</code> witnesses do run there, so the mirror is partial rather than
-  absent. Nothing else in the corpus this release ships answers differently in
+  absent; the <a href="/play/">playground</a> counts them exactly. Nothing else in the corpus this release ships answers differently in
   the two places, and no program that ran in the tab before this release
   stopped.</p>
 
