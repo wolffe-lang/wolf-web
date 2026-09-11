@@ -1,5 +1,6 @@
 # Deliberate version literals in the site's own prose, one line each:
 #   <path under site/> <literal> <count> audited-at-<project>=<pinned version>
+#   <path of an --also root> <literal> <count> frozen
 #
 # Current-version claims never belong here — they are written as
 # __WOLF_VERSION__ / __LUPIN_VERSION__ and stamped by build.sh from the
@@ -113,3 +114,69 @@ play/index.html 0.1.25 1 audited-at-lupin=0.1.33
 play/index.html 0.1.28 1 audited-at-lupin=0.1.33
 play/index.html v0.2.4 1 audited-at-wolf=0.2.11
 play/index.html v0.2.8 1 audited-at-wolf=0.2.11
+
+# ------------------------------------------------------------------------
+# CHANGELOG.md — this repository's own, rendered to /changelog/site/ and
+# therefore served prose, one `--also` root outside site/ (wolf-web#27).
+#
+# ww25 gave the COUNT audit its second root and left this half open, because
+# a second root alone was not enough: the entry grammar above made the clock
+# mandatory, so admitting this file would have put every literal in it on the
+# wolf or lupin clock and reddened all of them at every release. `v0.2.4` in a
+# ww12 entry is a fact about ww12; no later tag can make it false.
+#
+# So they are `frozen`, which is `counted=0` in count-allowlist.txt spelled
+# for literals: a version no pin can move, carrying no clock, with the
+# audited-at branch skipped. check-version-prose.py admits `frozen` only for a
+# path given as an --also root — a site page is undated and living, a
+# changelog entry is dated and closed — so writing the word on a site entry is
+# an allowlist error rather than a quieter audit.
+#
+# What these lines buy is not a re-read. It is that writing a version into a
+# served sentence costs one allowlist line, everywhere, which is the moment
+# its author has to check it — the same trade ww25 made for number words after
+# ww24 published three counts of its own allowlists with two of them wrong.
+#
+# Thirty-eight distinct literals across 173 mentions at 701eb74, every one of
+# them history. The bare forms outnumber the `v`-prefixed ones because the
+# site spells a lupin release bare and a wolf release tagged, and the entries
+# below keep both spellings apart on purpose: they are different strings on
+# the page and a drift in either is a different sentence going wrong.
+CHANGELOG.md version 0.1.0 1 frozen
+CHANGELOG.md v0.1.18 1 frozen
+CHANGELOG.md v0.1.22 3 frozen
+CHANGELOG.md v0.1.23 2 frozen
+CHANGELOG.md v0.1.28 1 frozen
+CHANGELOG.md v0.1.30 1 frozen
+CHANGELOG.md v0.1.31 2 frozen
+CHANGELOG.md v0.1.32 1 frozen
+CHANGELOG.md v0.2.0 2 frozen
+CHANGELOG.md v0.2.1 2 frozen
+CHANGELOG.md v0.2.2 6 frozen
+CHANGELOG.md v0.2.3 4 frozen
+CHANGELOG.md v0.2.4 6 frozen
+CHANGELOG.md v0.2.5 8 frozen
+CHANGELOG.md v0.2.6 9 frozen
+CHANGELOG.md v0.2.7 10 frozen
+CHANGELOG.md v0.2.8 9 frozen
+CHANGELOG.md v0.2.9 14 frozen
+CHANGELOG.md v0.2.10 6 frozen
+CHANGELOG.md v0.2.11 2 frozen
+CHANGELOG.md 0.1.20 2 frozen
+CHANGELOG.md 0.1.22 7 frozen
+CHANGELOG.md 0.1.23 6 frozen
+CHANGELOG.md 0.1.24 5 frozen
+CHANGELOG.md 0.1.25 8 frozen
+CHANGELOG.md 0.1.26 5 frozen
+CHANGELOG.md 0.1.27 9 frozen
+CHANGELOG.md 0.1.28 6 frozen
+CHANGELOG.md 0.1.29 6 frozen
+CHANGELOG.md 0.1.30 4 frozen
+CHANGELOG.md 0.1.31 11 frozen
+CHANGELOG.md 0.1.32 3 frozen
+CHANGELOG.md 0.1.33 2 frozen
+CHANGELOG.md 0.2.1 1 frozen
+CHANGELOG.md 0.2.3 3 frozen
+CHANGELOG.md 0.2.9 2 frozen
+CHANGELOG.md 0.2.10 2 frozen
+CHANGELOG.md 1.97.1 1 frozen
