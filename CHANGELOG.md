@@ -18,6 +18,76 @@ records what one wave measured, and no later pin can make that false. The
 audit is not asking you to re-read them. It is making you derive a number
 before you serve it.
 
+## ww25 (item 1) — 2026-09-11
+
+The site takes the interpreter's turn. lupin moves 0.1.31 to 0.1.32 and wolf
+stays v0.2.10, so the lupin clock alone turns: six literals, the two
+release-bound lupin-stamped sentences and the one live lupin count reddened,
+and every wolf and book entry held untouched.
+
+**The pin names no release, and the phrase does not move for it.** lupin 0.1.32
+was built to `e0ce018`, which is not a tag but a development revision of the
+compiler's trunk — twenty-nine commits past v0.2.9 and twenty-two commits short
+of v0.2.10, the release this site advertises. The interpreter took the revision
+that carries the clause it was mirroring rather than whichever revision wore a
+tag, which is the ordinary thing for a mirror to do and the first time this
+site has had to say it about a pin that sits *inside* the advertised release.
+It was predicted from the two gitlinks before anything was rewritten, and the
+ancestry gate agreed on every part: the newest release the revision carries
+whole is still v0.2.9, so the counted gap is still one and the phrase for one
+stays on both pages; the reserved sentence for a pin that is no release comes
+back, off both pages since ww23; and the stamped distance moves from fifty-one
+commits to twenty-two. Nothing about that was assumed to be zero — the
+temptation was real, because the revision is an ancestor of the tag, and a page
+that read the distance instead of the ancestry would have said so and been
+wrong.
+
+**The divergence table empties, and the parting count does not go with it.**
+The census was predicted before the harness ran and held on every number and
+every witness: 308 `phase: run` programs, 211 `exit`, 31 `trap`, 66
+`unsupported`, 0 `fail`, candidates 242. The compiler pin stands still, so the
+corpus is byte-identical to ww24's and every movement is the interpreter moving
+under it — exactly two verdicts, `grammar/match_range.lu` and
+`grammar/match_range_char.lu`, from `fail(E0201)` to `exit(0)`. All four of the
+witnesses the range ruling brought in now agree with the compiler, the two that
+run and the two negatives: an empty range is E0815 on both sides and an open
+end is still the slice spelling and still E0201. wolf-interp#83 closes.
+
+What does not go away is the parting, and that is the sentence this pin is
+worth. The table has no rows and two corpus programs still answer differently,
+because neither is a program either machine runs: a bare row used as an operand
+is E0409 on the compiler and E0401 here, and a write through a `str` slice is
+E0416 there and a tier refusal here. Both are wolf-interp#85 and both are open.
+/play/ has said twice that a table of verdicts cannot show every parting; this
+is the pin where believing the table alone would have reported a parting of
+none. The page says so in those words now, and /install/'s cost paragraph says
+the matching thing from the other side — what the distance costs is no program
+you can run, and two messages in programs nobody runs.
+
+**`grammar/match_range.lu` joins the menu**, which makes thirty-six. It is the
+only menu entry ever held off for one pin and admitted at the next, and the
+rule that held it off is the one this site will not bend: an entry that answers
+`fail` looks broken whatever the page says beside it. It sat one ruling away
+from `match_switch.lu`, which was on the menu through that whole pin because
+its guarded arm is a lowering rather than a pattern form — the two on opposite
+sides of the menu were the whole of what the vintage cost, and they are on the
+same side now.
+
+**The packaging doors were closed before this lane read them.** Read live at
+the bump: the tap's `lupin` formula builds tag v0.1.32 and the AUR carries
+`lupin` and `lupin-bin` at 0.1.32-1, while both compiler packages hold at
+0.2.10-1. That is the second bump running where the doors moved with the
+release, and it is the whole reason those two claims are literals rather than
+stamps — had the doors not been closed, the sentence would have had to say so.
+
+The other five lupin literals are history and were re-read against the module
+this build publishes rather than against memory: the trap-field story at 0.1.22
+and 0.1.23 stands, the net trio has been in the interpreter since 0.1.28 and
+still declines on the socket alone, and 0.1.25's byte cast ladder is still
+closed — `typecheck/byte_casts.lu` exits 0 in the tab at this pin. /play/'s
+`Seven tiers` rides the lupin clock and was asked directly: all seven reason
+strings are in the census, unchanged in number and in wording.
+
 ## ww25 — 2026-09-11
 
 The site takes the rest. No release moves: wolf stays v0.2.10 and lupin stays
