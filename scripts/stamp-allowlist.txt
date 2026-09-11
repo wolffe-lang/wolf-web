@@ -83,8 +83,8 @@
 # rather than the prose — a stronger gate than this file's, not a weaker one.
 # The trade belongs written down where the count drops.
 index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.10
-install/index.html __WOLF_VERSION__ 10 bound=2 audited-at-wolf=0.2.10
-install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.32
+install/index.html __WOLF_VERSION__ 11 bound=2 audited-at-wolf=0.2.10
+install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.33
 spec/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.10
-play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.10
-play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.32
+play/index.html __WOLF_VERSION__ 2 bound=1 audited-at-wolf=0.2.10
+play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.33

@@ -184,7 +184,7 @@ install/index.html five 1 counted=1 audited-at-wolf=0.2.10
 install/index.html sixteen 1 counted=0
 install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.10
 install/index.html twenty-one 1 counted=0
-play/index.html Seven 1 counted=1 audited-at-lupin=0.1.32
+play/index.html Seven 1 counted=1 audited-at-lupin=0.1.33
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 reading/index.html Six 1 counted=1 audited-at-book=d3536df
