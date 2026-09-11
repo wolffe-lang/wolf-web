@@ -13,10 +13,13 @@ in words; do not quote the token.
 ## ww24 — 2026-09-11
 
 The site takes the tenth. The pin moves to wolf v0.2.10 and lupin stays
-0.1.31, which is the mirror image of the three waves before it: nineteen wolf
-literals, four release-bound wolf-stamped entries and six live wolf counts
-reddened together, and the seven lupin entries were held untouched. All of them
-were re-read; all but the freshness pair stood.
+0.1.31, which is the mirror image of the three waves before it. Every entry on
+the wolf clock reddened at once: eighteen in the version allowlist covering
+twenty-eight literal mentions, four in the stamp allowlist covering seven
+release-bound sentences, and six in the count allowlist covering nine counted
+occurrences. The nine lupin entries across the same three files held untouched,
+and so did the four on the book's clock. All of the wolf ones were re-read; all
+but the freshness pair stood.
 
 **The lag reopens at one release.** lupin 0.1.31 was built to `4c60946`, which
 is still the commit v0.2.9 was cut at — a tag, and now the tag before the one
@@ -67,12 +70,15 @@ and the difference is exactly what the vintage costs: the guarded arm the
 switch turns on is a lowering the compiler gained, not a pattern form, so this
 interpreter has always run it.
 
-The front page's three release-bound paragraphs were rewritten for r15's three
+The front page's three release paragraphs were rewritten for r15's three
 rulings — `match` in statement position as the switch a reader expects, E0416
 saying a `str` slice is no place instead of the compiler apologising for its
 own ledger, and W0601 making a fallible send in a loop body a warned discard
-rather than a mismatch. /spec/ moved with the four documents the release
-touches. One new number word is listed for the first time: the seven characters
+rather than a mismatch. Of the seven release-bound stamped sentences the wolf
+clock put up for re-reading, three were rewritten (that paragraph, /spec/'s
+01-grammar status line, and /play/'s vintage sentence) and four stood. /spec/
+moved with the four documents the release touches. One new number word is
+listed for the first time: the seven characters
 of a development build's commit stamp, a ruling rather than a measurement, and
 counted on the wolf clock because a release is the only thing that could change
 it.
