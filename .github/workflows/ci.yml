@@ -97,6 +97,15 @@ jobs:
           fi
           test -s dist/play/lupin.wasm
           test -s dist/version.json
+          # wolf-web#26. The revisions this file publishes are seven hex
+          # characters by decision, not whatever `git rev-parse --short` picks
+          # from a repository's object count, so a post-deploy check can hold
+          # them against a page's stamps by comparing bare strings. build.sh
+          # refuses to write any other width; this is the served artifact
+          # saying so where a reviewer of this workflow can see it.
+          for p in $(python3 -c 'import json; v = json.load(open("dist/version.json")); print(" ".join(list(v["pins"].values()) + [v["spec-pin"]]))'); do
+            echo "$p" | grep -Eq '^[0-9a-f]{7}$' || { echo "::error::version.json publishes '$p'; pins are seven hex characters"; exit 1; }
+          done
           test -d dist/book
           test -s dist/book/wolf-book.pdf
           head -c 5 dist/book/wolf-book.pdf | grep -q '%PDF-'
