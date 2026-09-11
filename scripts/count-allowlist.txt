@@ -40,6 +40,19 @@
 #             each one by name, and its header comment counts them
 #   /install/ `thirty-six rows` — docs/platforms.md, "the 36 rows the native
 #             lane does not execute here are the same 36 ... on macOS"
+#   /play/    `five` new `Map` witnesses and `nine` running `if_then`
+#             witnesses — NEW at ww26c, and both are census counts measured
+#             through the module this build publishes, not read off a
+#             changelog. v0.2.11 brings 24 new `phase: run` corpus files; of
+#             the five `memory/map_*` witnesses three run in the tab and two
+#             do not, and all nine running `grammar/if_then_*` witnesses run.
+#             They ride the LUPIN clock rather than the wolf one even though
+#             the corpus that defines them is the compiler's, because what
+#             makes either number move is the mirror catching up: when lupin
+#             takes s152 and s155 the five becomes five-of-five and the
+#             parting closes. Both were re-derived from the census at this
+#             bump, not copied from the sprint's prediction — the prediction
+#             said none of the five would run and three of them do.
 #   /play/    `Seven tiers` — the census's own reason strings: tasks, procs,
 #             time, the process trio, net, os_random, os_signal_listen. The
 #             filesystem tier and the module graph are declined too and are
@@ -174,22 +187,24 @@ CHANGELOG.md twenty-nine 1 counted=0
 CHANGELOG.md twenty-odd 1 counted=0
 CHANGELOG.md twenty-one 2 counted=0
 CHANGELOG.md twenty-two 2 counted=0
-docs/index.html seven 1 counted=1 audited-at-wolf=0.2.10
-index.html five 3 counted=3 audited-at-wolf=0.2.10
-index.html seven 1 counted=1 audited-at-wolf=0.2.10
+docs/index.html seven 1 counted=1 audited-at-wolf=0.2.11
+index.html five 3 counted=3 audited-at-wolf=0.2.11
+index.html seven 1 counted=1 audited-at-wolf=0.2.11
 index.html twenty 1 counted=0
-install/index.html Five 1 counted=1 audited-at-wolf=0.2.10
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.11
 install/index.html eight 2 counted=0
-install/index.html five 1 counted=1 audited-at-wolf=0.2.10
+install/index.html five 1 counted=1 audited-at-wolf=0.2.11
 install/index.html sixteen 1 counted=0
-install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.10
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.11
 install/index.html twenty-one 1 counted=0
 play/index.html Seven 1 counted=1 audited-at-lupin=0.1.33
+play/index.html five 1 counted=1 audited-at-lupin=0.1.33
+play/index.html nine 1 counted=1 audited-at-lupin=0.1.33
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=d3536df
-reading/index.html Thirty-one 1 counted=1 audited-at-book=d3536df
-reading/index.html five 1 counted=1 audited-at-book=d3536df
-reading/index.html thirty-three 1 counted=1 audited-at-book=d3536df
+reading/index.html Six 1 counted=1 audited-at-book=a27b684
+reading/index.html Thirty-one 1 counted=1 audited-at-book=a27b684
+reading/index.html five 1 counted=1 audited-at-book=a27b684
+reading/index.html thirty-three 1 counted=1 audited-at-book=a27b684
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
