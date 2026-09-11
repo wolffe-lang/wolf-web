@@ -18,6 +18,58 @@ records what one wave measured, and no later pin can make that false. The
 audit is not asking you to re-read them. It is making you derive a number
 before you serve it.
 
+## ww26 (item 1) — 2026-09-11
+
+The interpreter's gitlink takes lupin 0.1.33, and the counted gap between the
+two implementations closes to zero. The tag names `662b14c` as the
+specification it was built to, and `662b14c` is this site's own compiler
+gitlink and the v0.2.10 tag — so the pin is not merely close to the release
+this site advertises, it is that release. The zero sentence returns to both
+pages, the distance stamp comes off them, and the stamped revision is for the
+first time in three bumps the same seven characters as the compiler pin beside
+it.
+
+Two partings closed with it. A bare row used as an operand answered E0401 in
+the tab against the compiler's E0409, and a write through a `str` slice was a
+tier refusal in the tab against the compiler's E0416; both are settled and
+both now answer what the compiler answers. Those were the two messages
+`/install/` has been counting since the last bump, and the count is zero.
+
+And a new parting opened, pointing the other way, which is why neither page
+simply got its old sentence back. Every parting this site has described ran
+one direction: the compiler had a clause, the interpreter predated the text,
+and the tab refused a program the compiler ran. This one is the reverse. The
+interpreter takes a one-line `if` — `if c then a else b` — that the compiler
+this page advertises refuses, because that spelling landed on the compiler's
+trunk after the release was tagged and the interpreter mirrored it early. It
+was measured through the module this build publishes rather than inferred from
+the tag: the bare form runs and prints what the upstream witness records, a
+`let` in a bare branch is E0201, and `then` still works as an ordinary name.
+Neither the clause nor its twelve witnesses are in the pinned corpus, so no
+verdict table could have shown this and the census did not move a single row.
+
+That is worth stating as a rule and not an anecdote, because the site's own
+tripwire cannot see it. The counted gap is computed by ancestry between two
+specification revisions. It says which text each machine was built to read. It
+does not say the two read it the same way, and it is blind to a clause that is
+in neither the release nor its corpus. Both pages now say so beside the zero.
+
+The packaging doors were read live, as they always are, and this time they did
+not agree — which is the first time this page has had to say that. The tap had
+moved past this site in the same commit that caught up with it: its `lupin`
+formula builds 0.1.33, the interpreter described here, while its `wolf`
+formula already builds a compiler release newer than the one described here,
+cut minutes earlier. On the AUR neither half had moved. One door ahead, one
+behind, and the page says both rather than waiting for a tidy hour.
+
+The run census did not move: 308 `phase: run` programs, 211 exits, 31 traps,
+66 unsupported, 0 mismatches, the sample menu at thirty-six and the seven
+declined tiers unchanged in number and in wording. That was predicted before
+the module was built, and for a structural reason worth keeping: only the
+interpreter moved at this bump, so the corpus the census walks was
+byte-identical to the last one and only verdicts could move. The two that
+moved are both `phase: resolve`.
+
 ## ww26 (item 3) — 2026-09-11
 
 The book's gitlink takes bs40, d001309 to d3536df. Chapter 5 is rewritten on
