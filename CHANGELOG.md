@@ -18,6 +18,26 @@ records what one wave measured, and no later pin can make that false. The
 audit is not asking you to re-read them. It is making you derive a number
 before you serve it.
 
+## ww25 (item 2, second bump) — 2026-09-11
+
+The book's gitlink moves again, 3edba7d to f1eb3bb, and this entry exists to
+record that nothing the site says about the book changed. bs39 rewrote chapter
+5's second section, its exercise and the matching solutions; `book/SUMMARY.md`
+is not in the diff. So all four counts on the book clock reddened and all four
+stood: thirty-three chapters, thirty-one of them written through, chapter 21's
+five sections with two reserved, and part 5's six programs and a coda. Each was
+predicted from the diff before the audit ran and then re-derived from the
+checkout rather than from the prediction — the chapter total off the table of
+contents, the written-through figure off the two chapters that hold a whole
+page back, chapter 21's sections off its own headings, part 5 off its range.
+
+A clock that reddens when nothing has moved is not a false alarm, and it is
+worth writing down once that this is the expected case rather than the
+interesting one. The bump before this was the other kind: chapter 33 and
+Appendix E arrived and two of the same four numbers moved. Neither bump can be
+told from the other without the re-read, which is the whole argument for the
+clock having no way to be satisfied except by someone doing it.
+
 ## ww25 (item 1) — 2026-09-11
 
 The site takes the interpreter's turn. lupin moves 0.1.31 to 0.1.32 and wolf
