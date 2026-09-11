@@ -18,6 +18,62 @@ records what one wave measured, and no later pin can make that false. The
 audit is not asking you to re-read them. It is making you derive a number
 before you serve it.
 
+## ww26 (item 2) — 2026-09-11
+
+The compiler's gitlink takes wolf v0.2.11 and the book's takes bs42, in one
+bump. The counted gap reopens to one release, and this time the interpreter's
+pin is a release tag that is simply the tag before this one, ninety-one commits
+back — a shape neither of the last two bumps had. A pin being a tag and a pin
+being current are different claims; this is a pin where the first holds and the
+second does not.
+
+The parting that pointed the other way lasted exactly one release. Yesterday
+this site reported something it had never had to report: the interpreter took a
+one-line `if` that the compiler refused, because the spelling landed on the
+compiler's trunk after its release was tagged. v0.2.11 is the compiler taking
+it. All nine running witnesses of that ruling now agree in both places and the
+three refusals are refused on both sides. The record of it stays on the pages,
+because a disagreement recorded only while it is open leaves a reader no way to
+check that it ever ended.
+
+And the parting is back in its usual direction, on a program a reader is
+unusually likely to try. This release rules how a `Map` answers and how an
+operator reaches a trait, and the interpreter was built before either text
+existed. So counting words with a `Map` alone — the program chapter 5 of the
+book is now built around — runs under the compiler and does not run in the
+playground. Four others go with it. Three of the five new `Map` witnesses do
+run there, so the mirror is partial rather than absent, which is the useful
+thing to know and the thing a verdict count alone would hide.
+
+Four of those five refusals wear a misleading word. They report `unsupported`,
+the same verdict the tab gives a socket call, and they are not the same kind of
+thing: a tier refusal is permanent and by design, while "`+` is not defined on
+Money and Money" is this interpreter being honestly behind a clause. The first
+never changes here. The second changes at the interpreter's next release. Both
+pages now say so.
+
+The census moved for the first time in three bumps: 308 `phase: run` programs
+to 332, all twenty-four additions accounted for by name, and no program that
+ran before this release stopped. The sample menu did not move; it is curated,
+not merely every running program. The stamped counts that ride the compiler
+moved with it and the ones that do not, did not.
+
+On the book: all four counts stand, a fourth bump running. One shipped anchor
+changed meaning, which is worse than one breaking. `ch05.html#5.5` was the
+trait section and is the struct section now, with traits at `#5.6`, because
+chapter 5 was rearranged to put the struct before the trait that operates on
+it. Nothing 404s. An old bookmark to §5.5 still resolves, still renders, and
+quietly shows a different subject, so if you saved the traits section of
+chapter 5 before today, the link you want is `#5.6`. Chapter 7 also gained
+`#7.8`, which takes a free number and moves nothing. `/reading/` now says that
+stable means the number keeps pointing at a page, not that it keeps pointing at
+the same subject — the promise the page makes is narrower than it read.
+
+The packaging doors were read live and, for the first time in two bumps, all
+four agreed; the entry before this one had to report one door ahead and one
+behind. Their versions are stamps now rather than literals, because what they
+publish is the release this page advertises.
+
 ## ww26 (item 1) — 2026-09-11
 
 The interpreter's gitlink takes lupin 0.1.33, and the counted gap between the
