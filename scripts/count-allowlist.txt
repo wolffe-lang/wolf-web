@@ -59,29 +59,52 @@
 #             `str + char` now — and the table itself is retired: the census
 #             moved exactly one verdict and it was that one, so /play/ states
 #             a parting of none in prose and carries no number at all.
-#   /reading/ 33 chapter files at book d001309. ALL FOUR STAND, for the second
-#             bump running, and the two bumps stood for different reasons.
-#             bs38 re-homes `Scope` and `Proc`, takes lupin 0.1.31 and replays
-#             the exercise transcripts: it touches ch01, ch11, ch12, ch14, ch15,
-#             ch16, the colophon, the solutions and the exercise corpus, and
-#             book/SUMMARY.md not at all. Two things in that diff could have
-#             moved a number here and were checked rather than assumed. The
-#             colophon IS where "two chapters and five sections are reserved"
-#             lives, and its change is confined to the toolchain pin in the
-#             `wolf --version` block — the reservation sentence is byte-identical.
-#             And /reading/'s Concurrency line quotes SUMMARY's titles for
-#             ch10-17, which a re-homing of `Scope` and `Proc` could have
-#             renamed — SUMMARY is untouched, so "Scopes as values" and
-#             "Procs: the unit of failure" both stand. The counts themselves:
-#             33 entries in the table of contents; ch29 still the only chapter
-#             with no sections and ch25 still the only one with a single
-#             section, so thirty-one are written through; ch21 still three
-#             headings with §21.3 and §21.5 held, which its own closing
-#             sentence still calls five; chapters 26-32 still six programs and
-#             a coda. At 3edba7d two of the four moved, when ch33 and Appendix
-#             E arrived; at f1eb3bb and here none did. A clock that reddens
-#             when nothing moved is the clock working — the re-read is the
-#             point, not the edit.
+#   /reading/ 33 chapter files at book d3536df. ALL FOUR STAND, for the third
+#             bump running, and no two of the three stood for the same reason.
+#             bs40 rewrites chapter 5 on the map alone — 307 lines, the largest
+#             single hunk the book has taken at a site bump — and touches ch01,
+#             ch03, ch04, ch06, ch10-ch15, ch33, four back-matter pages, the
+#             exercise corpus, the vendored spec artifacts and two xtask files.
+#             book/SUMMARY.md is not in it, and neither is ch21, ch25, ch29 or
+#             any chapter of part 5. Three things in the diff could have moved
+#             a number here and were checked against the checkout rather than
+#             assumed. (1) The colophon IS where "Two chapters and five
+#             sections in this edition are reserved" lives — the sentence the
+#             written-through figure is the outside view of — and it IS in the
+#             diff; its change is confined to the `wolf --version` console
+#             block and the paragraph that reads the pair (the compiler's half
+#             is a +dev build now, so neither name in the pair is exact and the
+#             distance is eighty-four commits, not fifty-one). The reservation
+#             sentence and the three lines under it are byte-identical.
+#             (2) Chapter 5 is the chapter /reading/ quotes by title in the
+#             Foundations line. Its H1 is still `# 5. Collections and generics`
+#             and all five `## 5.N` headings survive the rewrite, moved down
+#             the file and not renamed or merged, so the dd needs no edit and
+#             ch05 does not join the held set. (3) ch33 is in the diff and
+#             /reading/ quotes its title twice; the change is seven `0 - 1`
+#             sites respelled `-1` (wolf-book#31) and nothing else.
+#             The counts themselves, measured at the checkout: 33 entries in
+#             SUMMARY.md; ch29 still the one chapter reserved whole and ch25
+#             still the one written to a single section, which are the two
+#             /reading/ names, so thirty-one are written through; ch21 still
+#             §21.1, §21.2 and §21.4 with §21.3 and §21.5 held, which its own
+#             closing sentence still calls five; chapters 26-32 still six
+#             programs and a coda.
+#             A CORRECTION to what this entry said at d001309: ch29 is NOT the
+#             only chapter with no `## N.M` heading of a given kind and ch25 is
+#             NOT the only one carrying a single numbered section. ch13 carries
+#             §13.2 alone (§13.1 is vacant by its own rp01 hold) and ch23
+#             carries two of four. Both have been that way at every pin this
+#             file has audited, and both are still written through by the rule
+#             /reading/ states beside the figure — a chapter that holds
+#             something back says so on its own page, and ch21 is counted
+#             written through on exactly that basis. The figure is 33 minus the
+#             two the page names; the old parenthetical defended the right
+#             number with the wrong test.
+#             At 3edba7d two of the four moved, when ch33 and Appendix E
+#             arrived; at f1eb3bb, d001309 and here none did. A clock that
+#             reddens when nothing moved is the clock working — the re-read is
+#             the point, not the edit.
 #   /         `seven characters` — NEW at ww24. The commit a development
 #             build's version string carries is seven hex characters from
 #             every clone, by decision (wolf-lang#301), rather than whatever
@@ -164,9 +187,9 @@ install/index.html twenty-one 1 counted=0
 play/index.html Seven 1 counted=1 audited-at-lupin=0.1.32
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=d001309
-reading/index.html Thirty-one 1 counted=1 audited-at-book=d001309
-reading/index.html five 1 counted=1 audited-at-book=d001309
-reading/index.html thirty-three 1 counted=1 audited-at-book=d001309
+reading/index.html Six 1 counted=1 audited-at-book=d3536df
+reading/index.html Thirty-one 1 counted=1 audited-at-book=d3536df
+reading/index.html five 1 counted=1 audited-at-book=d3536df
+reading/index.html thirty-three 1 counted=1 audited-at-book=d3536df
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
