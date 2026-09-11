@@ -1,3 +1,12 @@
 # Dead internal links the site knowingly ships, each with the issue that
 # will remove it. A line is `<page> -> <href>`. This list ratchets down;
 # adding to it needs a reason and an issue number.
+#
+# It is empty, and has been since ww25. The last two rows were
+# wolffe-lang/wolf-book#1's — every book page linking a css/print.css the
+# render did not emit, and the duplicated first-chapter page linking up out of
+# its own tree — and the book's render lane took both fixes upstream
+# (wolf-web#24). At the pin before that landed, dropping them cost 46 dead
+# links here; at this pin it costs none. `cargo xtask render web` also walks
+# its own output now and fails on the first dead link, so this checker is the
+# outside view rather than the only one looking.
