@@ -147,6 +147,22 @@
 # allowlist line, so its author derives it. ww24's entry claimed three counts
 # of its own allowlists in a paragraph about counting, two of them wrong, and
 # the build was green from its first commit to its last.
+#
+# THE BOOK CLOCK CARRIES THREE ENTRIES, NOT FOUR (wolf-web#28). /reading/
+# states four numbers on the book's pin and the chapter total was the fourth.
+# It is the only one of them with no judgement in it — `](chNN.md)` entries in
+# the pinned SUMMARY.md and nothing else — so it is a stamp now, filled in by
+# stamp-counts.py from the same checkout this file's book clock reads, and
+# this walk never sees it: on site/, where it runs, it is still
+# __COUNT_bookchapters_word__. At the book bump f0e2dd1 -> 3edba7d all four
+# reddened and two had moved, the total among them, which is what made it the
+# one a future bump could get wrong.
+#
+# The three that remain are READINGS and stay here on purpose: the
+# written-through figure is derived by this site and counted differently by
+# the book's own README and colophon, and the other two are stated inside
+# sentences about which sections and chapters are reserved, which is prose.
+# /reading/ carries the same reasoning beside the paragraph itself.
 CHANGELOG.md Eight 1 counted=0
 CHANGELOG.md Fifteen 1 counted=0
 CHANGELOG.md Five 3 counted=0
@@ -206,6 +222,5 @@ play/index.html twelve 1 counted=0
 reading/index.html Six 1 counted=1 audited-at-book=a27b684
 reading/index.html Thirty-one 1 counted=1 audited-at-book=a27b684
 reading/index.html five 1 counted=1 audited-at-book=a27b684
-reading/index.html thirty-three 1 counted=1 audited-at-book=a27b684
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
