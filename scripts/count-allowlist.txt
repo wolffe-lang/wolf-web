@@ -59,10 +59,15 @@
 #             `str + char` now — and the table itself is retired: the census
 #             moved exactly one verdict and it was that one, so /play/ states
 #             a parting of none in prose and carries no number at all.
-#   /reading/ 32 chapter files, ch29 reserved whole and ch25 one section in,
-#             so thirty are written through; ch21 carries §21.1–§21.5 with
-#             §21.3 and §21.5 reserved; chapters 26–32 are six programs and a
-#             coda.
+#   /reading/ 33 chapter files at book 3edba7d — ch33, the serving loop, joins
+#             the end of part 4 with a number out of order because section
+#             numbers are permanent anchors. ch29 is still reserved whole and
+#             ch25 still one section in, and nothing else holds a whole
+#             chapter back, so thirty-one are written through. ch21 still
+#             carries §21.1–§21.5 with §21.3 and §21.5 reserved, and the
+#             colophon still counts two chapters and five sections. Chapters
+#             26–32 are unchanged: six programs and a coda. Two of the four
+#             moved and two stood, which is the book clock earning its keep.
 #   /         `seven characters` — NEW at ww24. The commit a development
 #             build's version string carries is seven hex characters from
 #             every clone, by decision (wolf-lang#301), rather than whatever
@@ -96,9 +101,9 @@ install/index.html twenty-one 1 counted=0
 play/index.html Seven 1 counted=1 audited-at-lupin=0.1.31
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=f0e2dd1
-reading/index.html Thirty 1 counted=1 audited-at-book=f0e2dd1
-reading/index.html five 1 counted=1 audited-at-book=f0e2dd1
-reading/index.html thirty-two 1 counted=1 audited-at-book=f0e2dd1
+reading/index.html Six 1 counted=1 audited-at-book=3edba7d
+reading/index.html Thirty-one 1 counted=1 audited-at-book=3edba7d
+reading/index.html five 1 counted=1 audited-at-book=3edba7d
+reading/index.html thirty-three 1 counted=1 audited-at-book=3edba7d
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0

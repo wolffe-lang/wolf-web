@@ -33,11 +33,11 @@
        PDF, so the page never advertises a file the dist does not carry. -->
   <p><a href="/book/wolf-book.pdf" download>Download the PDF</a> · __PDF_SIZE__ — the typst-set print edition, rendered from the same pinned source as the pages here, for reading offline.</p>
 
-  <p>Thirty of the thirty-two chapters are written through, and every chapter
-  that holds something back says so on its own page. Chapter 29 is reserved
-  whole: its virtual machine needs a <code>Pool</code> constructor the compiler
-  will not lower and a field write through a handle the interpreter declines.
-  Chapter 25 is one section in — §25.3 teaches <code>wolf publish</code> and the
+  <p>Thirty-one of the thirty-three chapters are written through, and every
+  chapter that holds something back says so on its own page. Chapter 29 is
+  reserved whole: its virtual machine needs a <code>Pool</code> constructor the
+  compiler will not lower and a field write through a handle the interpreter
+  declines. Chapter 25 is one section in — §25.3 teaches <code>wolf publish</code> and the
   record it writes — while §25.1 and §25.2 wait on an edition mechanism and a
   standard library on the page. Chapter 21 is written but reserves two of its
   five sections for benchmark claims not yet legally won.</p>
@@ -56,17 +56,21 @@
     <dd>Spawning is a scope. Scopes as values. Channels and select. Procs as
       the unit of failure. Link, monitor, supervision. Region transfer. A
       failing schedule, replayed.</dd>
-    <dt><a href="/book/ch18.html">Systems</a> (18–25)</dt>
+    <dt><a href="/book/ch18.html">Systems</a> (18–25, and 33)</dt>
     <dd>Comptime, one tier and no macros. Perf contracts. Modules and the shape
-      of a project. Packages. The covenant against build scripts.</dd>
+      of a project. Packages. The covenant against build scripts. The serving
+      loop, which is the newest chapter and reads last in this part with a
+      number out of order: section numbers are the page anchors, so a late
+      chapter takes the next free one rather than move everything after it.</dd>
     <dt><a href="/book/ch26.html">Projects</a> (26–32)</dt>
     <dd>Six programs written twice, and a coda about the allocator you never
       needed.</dd>
   </dl>
   <p>The back matter carries a grammar summary, the trap vocabulary, the
-  diagnostic catalogue, a specification cross-reference, solutions to every
-  printed exercise, a glossary and an errata page. Section numbers are the page
-  anchors, so <code>/book/ch08.html#8.4</code> is a stable link.</p>
+  diagnostic catalogue, a specification cross-reference, the driver's whole
+  command surface, solutions to every printed exercise, a glossary, an index
+  and an errata page. Section numbers are the page anchors, so
+  <code>/book/ch08.html#8.4</code> is a stable link.</p>
 </section>
 
 <section>
