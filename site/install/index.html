@@ -86,15 +86,14 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   reads what is <em>published</em> — the live AUR, the live tap, the live
   release pages — and goes red when a package trails its upstream or names a
   digest the release does not carry. When this page was last read against the
-  pins, the channels did <em>not</em> agree, and this is what that looks like.
-  The tap had moved past this page in the same commit that caught up with it:
-  its <code>lupin</code> formula builds 0.1.33, the interpreter described here,
-  while its <code>wolf</code> formula already builds tag v0.2.11 — a compiler
-  release newer than the one this page describes, cut minutes earlier. On the
-  AUR neither half had moved yet: both interpreter packages were still at
-  0.1.32 and both compiler packages at v0.2.10. So one door is ahead of this
-  page, the other behind it, and the page is honest about both rather than
-  waiting for a tidy hour. That is the ordinary case, not the alarming one: a
+  pins, every channel agreed — and the page it replaces, written a few hours
+  earlier, had to report that they did not. That is worth a sentence, because
+  it is what the gate is for. At the previous pin the tap had already moved
+  past this page while the AUR had not moved at all: one door ahead, one
+  behind, neither wrong. Both have since landed here. The tap's
+  <code>wolf</code> formula builds tag v0.2.11 and its <code>lupin</code>
+  builds 0.1.33; on the AUR both compiler packages read 0.2.11 and both
+  interpreter packages 0.1.33. Do not expect the tidy reading every time: a
   release and its packaging are separate acts and do not land in the same
   minute, which is the distance that gate exists to watch. The archives below are the release itself, and need nothing installed
   first.</p>
@@ -168,21 +167,21 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   first line.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has stopped. <code>lupin __LUPIN_VERSION__</code> names
-  <code>__PIN_specrev_short__</code> as the specification it was built to, and
-  that is the same commit v__WOLF_VERSION__ was tagged at: a tag rather than a
-  revision of the compiler's trunk, and the tag this page describes. Both
-  implementations were built to a single text, so there is no distance to
-  allow for. That is not the resting state. A gap opens whenever the compiler
-  tags and the interpreter has not yet followed, which is the ordinary shape of
-  a two-implementation project between tags; it was open on this page
-  yesterday, and while it is open the <a href="/play/">playground</a> can
-  answer a program differently from the compiler you just installed. When the
-  two disagree, the <a href="/spec/">specification</a> is what gets read.</p>
+  these pins it has moved again. <code>lupin __LUPIN_VERSION__</code> names
+  <code>__PIN_specrev_short__</code> as the specification it was built to. That
+  is a release tag rather than a revision of the compiler's trunk — but it is
+  the tag <em>before</em> this one, __COUNT_speccommits_word__ commits back, so
+  the newest release whose text the interpreter carries whole is one release
+  behind the compiler you are installing. This is the resting state, and the
+  page said so yesterday when the gap was closed: a gap opens whenever the
+  compiler tags and the interpreter has not yet followed, which is the ordinary
+  shape of a two-implementation project. While it is open the
+  <a href="/play/">playground</a> can answer a program differently from the
+  compiler you just installed. When the two disagree, the
+  <a href="/spec/">specification</a> is what gets read.</p>
 
-  <p>What the closed gap buys, concretely, is every program in the corpus this
-  release ships: each one answers the same in the tab as it does under the
-  compiler above. The two <em>messages</em> that parted at the last pin are
+  <p>What the gap costs, concretely, is five programs and a message. The two
+  <em>messages</em> that parted two pins ago are
   settled — a bare row used as an operand is <code>E0409</code> in both places
   now, and a write through a <code>str</code> slice is <code>E0416</code> in
   both (wolf-interp#85, closed) — and the range arms that parted the pin before
@@ -193,16 +192,28 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   after their parting closed, because a page that records a disagreement only
   while it is open leaves a reader no way to check that it ever ended.</p>
 
-  <p>What it does not buy is identical behaviour, and this is the pin that
-  shows why. The interpreter in the <a href="/play/">playground</a> takes a
-  one-line <code>if</code> — <code>if c then a else b</code> — and the compiler
-  you just installed refuses it, because <code>then</code> landed on the
-  compiler's trunk after this release was tagged and the interpreter mirrored
-  it early. The counted gap is zero and that spelling still parts the two, in
-  the direction this page has never had to describe: something the tab runs and
-  your compiler will not. A pin says which text each machine was built to read.
-  It does not say the two read it the same way, and it cannot say anything
-  about a clause that is in neither the release nor its corpus.</p>
+  <p>At the last pin this page described a parting running the other way — the
+  interpreter took a one-line <code>if</code>, <code>if c then a else b</code>,
+  that the compiler refused. This release is the compiler taking it. All nine
+  of that ruling's running witnesses now agree in both places, so the reversed
+  parting lasted exactly one release and is recorded here because it happened,
+  not because it lasted.</p>
+
+  <p>What the new gap costs is in the other direction again, and it lands
+  somewhere a reader will actually stand. This release rules how a
+  <code>Map</code> answers and how an operator reaches a trait, and the
+  interpreter was built before either text existed. So counting words with a
+  <code>Map</code> alone — <code>corpus/memory/map_count.lu</code>, the program
+  chapter 5 of the <a href="/reading/">book</a> is now built around — runs
+  under the compiler above and does not run in the tab. Four others go with it:
+  <code>map_int_keys.lu</code>, <code>traits/op_money.lu</code> and
+  <code>traits/op_ord_struct.lu</code>, where <code>+</code> and
+  <code>&lt;</code> cannot reach their <code>impl</code> yet, and
+  <code>traits/op_total_num.lu</code>, refused outright. Three of the five new
+  <code>Map</code> witnesses do run there, so the mirror is partial rather than
+  absent. Nothing else in the corpus this release ships answers differently in
+  the two places, and no program that ran in the tab before this release
+  stopped.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code> and <code>net_nodelay</code> are in
@@ -510,7 +521,7 @@ hello, wolf</code></pre>
   <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
   --version</code> quotes back — <code>__PIN_specrev_short__</code> at these pins, which is
-  the same commit this compiler was tagged at, as measured above.</p>
+  the tag before this compiler's, as measured above.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
   to WebAssembly — lupin __LUPIN_VERSION__, in the tab, with the corpus
