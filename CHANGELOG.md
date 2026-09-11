@@ -10,13 +10,79 @@ build's placeholder tokens out — the version ones, the KiB ones, the count one
 than it says here, and one of them stops the build outright. Name the source
 in words; do not quote the token.
 
-Because it is served prose, `scripts/check-counts.py` walks this file as a
-second root (`--also CHANGELOG.md`, wolf-web#27). Every number word an entry
-spells out needs its own line in `scripts/count-allowlist.txt`, keyed on
-`CHANGELOG.md`, and those lines are `counted=0` with no clock: an entry
-records what one wave measured, and no later pin can make that false. The
-audit is not asking you to re-read them. It is making you derive a number
-before you serve it.
+Because it is served prose, BOTH of the site's prose audits walk this file as
+a second root (`--also CHANGELOG.md`, wolf-web#27). Every number word an entry
+spells out needs its own line in `scripts/count-allowlist.txt`, and every
+version literal an entry names needs one in `scripts/version-allowlist.txt`,
+both keyed on `CHANGELOG.md`. Those lines carry no clock — `counted=0` for a
+word, `frozen` for a literal — because an entry records what one wave measured
+at one set of pins, and no later pin can make that false. The audits are not
+asking you to re-read them. They are making you derive a number, and check a
+version, before you serve it.
+
+## ww27 — 2026-09-11
+
+No pin moves. Three gates close, and all three are the same shape: a claim this
+site published that nothing here could have checked.
+
+**The changelog comes under the version audit.** Since ww25 this file has been
+a second root for the count audit, so a number word in an entry costs an
+allowlist line. Version literals stayed outside it, and there are a great many
+of them — thirty-eight distinct spellings across 173 mentions, every one of
+them history. They stayed outside for a reason: the allowlist's entry grammar
+made the clock mandatory, so admitting the file would have put all of them on
+the compiler's clock or the interpreter's and reddened every one at every
+release, for prose that cannot rot. A release tag named in a dated entry is a
+fact about that entry.
+
+So the grammar admits `frozen` in the clock's place, which is the idea the
+count allowlist has carried since ww25 (`counted=0`) spelled for literals: a
+version no pin can move, carrying no clock, with the re-read branch skipped.
+It is admitted only for a path named on the command line as an extra root — a
+site page is undated and living, a changelog entry is dated and closed — so
+writing `frozen` on a site entry is an allowlist error rather than a quieter
+audit. The version audit went from 31 mentions in 22 entries to 204 in 60, and
+the number of entries a release re-reads did not change. What the new lines buy
+is not a re-read; it is that writing a version into a served sentence costs one
+allowlist line, everywhere, which is the moment its author has to check it.
+
+**The book's chapter total becomes a stamp.** `/reading/` states four numbers
+on the book's pin and exactly one of them has no judgement in it: the chapter
+total is the count of chapter entries in the book's own table of contents and
+nothing else. At the last book bump all four reddened and two had moved, that
+one among them. It is measured from the pinned checkout at build time now, by
+the same script that stamps the diagnostic and warning counts, off the same pin
+the audit's book clock reads (wolf-web#28). The page is byte-identical apart
+from the comment that explains itself.
+
+The other three stay literals, and the page now says why beside them. The
+written-through figure is not a field the book publishes — this site derives it
+as the total minus the chapters that hold a whole page back, and it decides
+what holding back means; the book's README counts it one way and its colophon
+another. Chapter 21's section figure and part 5's program figure are stated
+inside sentences about which sections and chapters are reserved, and the
+reservation is prose. Three readings of one book: stamping any of them would
+publish a number the source does not agree with.
+
+**The tab may not run what the advertised release does not carry.** The counted
+pin lag compares the specification revisions two machines were built to read.
+That is not a statement that they answer alike, and at the last pin the
+difference reached a reader for the first time: the gap was zero, both pages
+said *the same commit*, and the playground ran a one-line `if` the advertised
+compiler refused (wolf-web#35). The interpreter mirrors a clause ahead of its
+pin on purpose and says so in its own release notes; nothing here read those
+notes. A reader could copy a program out of the tab and watch their compiler
+decline it.
+
+The build now runs a small set of witnesses through the module it is about to
+publish and requires every one that runs to name an anchor the pinned release's
+own specification declares. A witness the module refuses is not a failure — it
+means the tab is not ahead on that clause, which is the ordinary state — so an
+entry is never retired for going quiet. The first witness is that one-line `if`,
+and it is green, because the compiler took the spelling at its last release:
+exactly the position in which a gate is a claim rather than a measurement. So
+the suite beside it plants a witness that runs against a clause no release has
+ever declared and holds the refusal.
 
 ## ww26 (item 2) — 2026-09-11
 
