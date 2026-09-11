@@ -55,16 +55,23 @@
 # that third sentence is covered; it is not covered here.
 #
 # ww24 moves WOLF alone, so the four __WOLF_VERSION__ entries reddened and the
-# two __LUPIN_VERSION__ ones held. Six bound sentences were re-read and four
-# were rewritten, all four the same mistake this file exists to catch: a
-# paragraph telling v0.2.9's story under v0.2.10's stamp. Three are the front
-# page's — the layout rule, the `parse` row, `char + str` — replaced by this
-# release's three: `match` as a switch with range arms, E0416 for a write
-# through a `str` slice, and W0601 for a fallible send in a unit context.
-# /spec/'s is 01-grammar's status line, which told the same layout story and
-# now tells `[gram.pat.range]`. The two that stood are /install/'s page-wide
-# "this page describes that release and no other" and its four-archives
-# sentence, both still true under the new stamp.
+# two __LUPIN_VERSION__ ones held. Those four carry SEVEN release-bound
+# sentences between them and all seven were re-read. Three were rewritten and
+# four stood.
+#
+# Rewritten, and all three the same mistake this file exists to catch — a
+# sentence telling v0.2.9's story under v0.2.10's stamp: the front page's
+# release paragraph (the layout rule, the `parse` row and `char + str` are
+# gone, and `match` as a switch with range arms, E0416 and W0601 are in their
+# place); /spec/'s 01-grammar status line, which told the same layout story and
+# now tells `[gram.pat.range]`; and /play/'s "answers differently here from a
+# <stamp> you download today", which was true of a zero gap and had to say what
+# a gap of one means instead.
+#
+# Stood: the front page's "is tagged, still under the codename wolfgang" and
+# its four-archives sentence (still four at this tag, and the windows job
+# fetches all four), and /install/'s page-wide "this page describes that
+# release and no other" and its own four-archives sentence.
 #
 # Two totals move DOWN, and one of them is a check changing hands rather than
 # a check being dropped. The front page loses one occurrence (6 -> 5, bound

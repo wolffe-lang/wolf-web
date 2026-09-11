@@ -61,9 +61,11 @@
 # is a count that can only drift.
 #
 # ww24 moves the WOLF clock alone (0.2.9 -> 0.2.10), the mirror image of the
-# three passes before it: the nineteen wolf entries reddened together and the
-# seven lupin ones held untouched. All nineteen were re-read and all nineteen
-# stood. /spec/'s six historical mentions are about 10-types' byte, 11-os's
+# three passes before it: the eighteen wolf entries here — twenty-eight literal
+# mentions between them — reddened together, and the six lupin ones held
+# untouched. All eighteen were re-read and all eighteen stood, the freshness
+# pair by moving with the release rather than behind it (see below).
+# /spec/'s six historical mentions are about 10-types' byte, 11-os's
 # socket sections and 07-schedule-points' anchors; the documents this release
 # touches are 01, 02, 03 and 10, and none of the six sentences is about what
 # moved in them. /install/'s platform history (v0.2.1 through v0.2.6) is a
