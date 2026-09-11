@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Stamp counted populations into the site's prose, measured at build time.
 
-    usage: stamp-counts.py <dist-dir> <pinned-wolf-lang-dir> <pinned-wolf-interp-dir>
+    usage: stamp-counts.py <dist-dir> <pinned-wolf-lang-dir>
+                           <pinned-wolf-interp-dir> <pinned-wolf-book-dir>
 
 The pages count things: how many diagnostic codes the compiler has, how many
 programs are on the playground's menu, how many of the corpus's net programs
@@ -43,6 +44,23 @@ machine can measure it, and it changes at every bump — so `speccommits` counts
 it with git over the two pinned gitlinks. It needs the pinned wolf-lang
 checkout to carry history; a depth-1 clone cannot answer, and the build says so
 by name rather than stamping a zero.
+
+One source is the BOOK, which /reading/ cites on the book's own pin. Four
+numbers stand in that paragraph and exactly one of them has no judgement in
+it: the chapter total is `](chNN.md)` entries in the pinned SUMMARY.md and
+nothing else (wolf-web#28). At the book bump f0e2dd1 -> 3edba7d all four
+reddened and two had moved, the total among them — so it is the one a future
+bump can get wrong, and it is the class this file exists for.
+
+The other three stay literals on purpose, and /reading/ says why beside them.
+"Thirty-one written through" is a READING: the book publishes no such field,
+this site derives it as the total minus the chapters holding a whole page
+back, and it decides what holding back means — the book's own README counts
+it differently and the colophon differently again. Three readings, one book;
+stamping one would publish a number the source does not agree with. Chapter
+21's five sections and part 5's six programs are measurable in the same thin
+sense and stated inside sentences about which of them are reserved, which is
+prose. Grouping them with the reading is the conservative call.
 
 What this file does NOT cover is the editorial count — "seven tiers report
 unsupported", "five things a program can reach" — which is a reading of a
@@ -129,10 +147,10 @@ def headings(path: Path, prefix: str) -> int:
 
 
 def main() -> int:
-    if len(sys.argv) != 4:
-        print(__doc__.strip().splitlines()[2].strip(), file=sys.stderr)
+    if len(sys.argv) != 5:
+        print(" ".join(l.strip() for l in __doc__.strip().splitlines()[2:4]), file=sys.stderr)
         return 2
-    dist, lang, interp = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
+    dist, lang, interp, book = (Path(a) for a in sys.argv[1:5])
 
     # Each source is (what it measures, how). Measured once, before any page is
     # touched, so every placeholder for a source gets the same number and a
@@ -154,6 +172,18 @@ def main() -> int:
             "commits between the interpreter's specification gitlink and this "
             "site's compiler gitlink",
             lambda: spec_commits(lang, interp),
+        ),
+        # The book's chapter entries in its own table of contents. `](chNN.md)`
+        # is how SUMMARY.md declares a chapter, and back matter is `back/`, so
+        # the pattern counts chapters and nothing else.
+        "bookchapters": (
+            "`](chNN.md)` entries in the pinned book/SUMMARY.md",
+            lambda: len(
+                re.findall(
+                    r"\]\(ch\d+\.md\)",
+                    (book / "book/SUMMARY.md").read_text(encoding="utf-8"),
+                )
+            ),
         ),
         "samples": (
             "entries in the sample index this build wrote",
