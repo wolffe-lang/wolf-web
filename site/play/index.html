@@ -124,13 +124,16 @@
   and the samples have loaded.</p>
 
   <p>The revision of the specification it reads is the compiler's own, and at
-  these pins it is not the compiler's newest. This interpreter, lupin
+  these pins it is the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
-  a development revision and no release at all: it sits on the compiler's trunk
-  between the last two tags, __COUNT_speccommits_word__ commits of the
-  compiler's own history short of the one <a href="/install/">install</a>
-  advertises. So the newest release that revision carries whole is one release
-  back, and that — not the distance — is what the pages are written against.
+  the same commit v__WOLF_VERSION__ was tagged at: a tag rather than a revision
+  of the compiler's trunk, and the tag <a href="/install/">install</a>
+  advertises. There is no distance to allow for, and that — a pin equal to the
+  release rather than short of it — is what the pages are written against.
+  Read it for exactly what it says. It means the two machines were built to one
+  text; it does not mean they answer alike, and at this pin they do not, as the
+  one-line <code>if</code> above shows. A gap in the revision is one way the
+  two can part and it is the way this page can count; it is not the only one.
   A program that answers differently here from a __WOLF_VERSION__ you download
   today may be a disagreement about the text or may only be a difference of
   vintage, and the table below is which. The <a href="/spec/">specification</a>
@@ -158,18 +161,29 @@
   <code>E0815</code> here as there, and an open end is still the slice spelling
   and still <code>E0201</code>. That closes wolf-interp#83.</p>
 
-  <p><strong>An empty table is not the same as no parting.</strong> Two corpus
-  programs still answer differently here from the compiler you can download,
-  and neither can be a row above, because neither is a program either machine
-  <em>runs</em>: both are corpus negatives, refused on both sides, parting in
-  <em>which</em> refusal. <code>rows/negative/row_operand_compare.lu</code>
-  puts a bare row beside a comparison — E0409 on the compiler, E0401 here — and
+  <p><strong>The two partings this page named last week are closed.</strong>
+  They were corpus negatives, refused on both sides and parting in
+  <em>which</em> refusal, which is why no table could hold them:
+  <code>rows/negative/row_operand_compare.lu</code> puts a bare row beside a
+  comparison and answered E0401 here against the compiler's E0409, and
   <code>typecheck/str_slice_assign.lu</code> writes through a slice of a
-  <code>str</code>, which is E0416 on the compiler and a tier refusal here.
-  Both are wolf-interp#85, both are open, and a reader meets neither by writing
-  a program that works. They are named here because this page has said twice
-  now that a table of verdicts cannot show every parting, and this is the pin
-  where believing the table alone would have reported a parting of none.</p>
+  <code>str</code>, which was a tier refusal here against the compiler's E0416.
+  This interpreter answers <code>E0409</code> and <code>E0416</code>. That
+  closes wolf-interp#85, and it is the reason the pin moved at all.</p>
+
+  <p><strong>And a new parting opened, pointing the other way.</strong> Every
+  parting this page has ever described ran the same direction: the compiler
+  had a clause, the interpreter had been built before that text existed, and
+  the tab refused a program the compiler ran. This one is the reverse. The
+  interpreter in this tab takes a one-line <code>if</code> —
+  <code>if c then a else b</code>, with <code>then</code> closing the condition
+  — and the compiler this page advertises refuses it, because that spelling
+  landed on the compiler's trunk <em>after</em> the release was tagged. So a
+  program that runs here can fail to compile for you, which is the opposite of
+  the warning this page has carried since it was written. It is also why the
+  counted gap below, which is zero, is a statement about which revision of the
+  specification each machine was built to and not a promise that the two
+  behave alike. The spelling arrives for both at the compiler's next release.</p>
 
   <p>What the distance does <em>not</em> explain is what this page declines.
   <code>net_writev</code> and <code>net_nodelay</code> are in this interpreter
