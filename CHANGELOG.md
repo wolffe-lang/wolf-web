@@ -10,6 +10,86 @@ build's placeholder tokens out — the version ones, the KiB ones, the count one
 than it says here, and one of them stops the build outright. Name the source
 in words; do not quote the token.
 
+## ww24 — 2026-09-11
+
+The site takes the tenth. The pin moves to wolf v0.2.10 and lupin stays
+0.1.31, which is the mirror image of the three waves before it: nineteen wolf
+literals, four release-bound wolf-stamped entries and six live wolf counts
+reddened together, and the seven lupin entries were held untouched. All of them
+were re-read; all but the freshness pair stood.
+
+**The lag reopens at one release.** lupin 0.1.31 was built to `4c60946`, which
+is still the commit v0.2.9 was cut at — a tag, and now the tag before the one
+this site advertises. So the phrase for zero comes off both pages, the phrase
+for one goes back on, and the distance the build stamps returns: fifty-one
+commits of the compiler's own history between the two gitlinks. The ancestry
+count the windows job has done since ww20 decides all of it, and neither page
+writes a revision or a distance by hand.
+
+The census was predicted before the harness ran and held on every number and
+every witness. 308 `phase: run` programs, 209 `exit`, 31 `trap`, 66
+`unsupported`, 2 `fail`, candidates 240. This time the interpreter pin stands
+still, so the published module is byte-identical to ww23's and every movement
+is the corpus moving under it: twelve programs are new, none is gone, and nine
+more changed body without changing class — `ch.send(v)` became `ch.send(v)?`,
+because `send` is typed `() ! {closed, cancelled}` at this release.
+
+Six of the twelve new programs are `phase: run` and each was placed from the
+release notes and the tier rules before anything ran. `grammar/match_switch.lu`
+and `conc/chan_send_closed_row.lu` exit 0; `typecheck/unit_context_discard.lu`
+and `conc/spawn_tail_send_raised_row.lu` decline on the task tier, which is the
+tab and not the pins; `grammar/match_range.lu` and
+`grammar/match_range_char.lu` answer `fail(E0201)`, which is the pin lag with a
+face on it. The other six are negatives the compiler refuses, so the census
+does not walk them.
+
+**/play/'s divergence table is back, with two rows.** It was empty at exactly
+one pin in this page's history, ww23's, and what refilled it is not the
+interpreter falling behind on something it had implemented but the compiler
+tagging a new pattern form: `match` gained range arms and lupin 0.1.31 was
+built before that text existed, so it stops at the `..` inside a pattern and
+says so rather than answering wrongly. wolf-interp#83 is the mirror and the two
+rows come off together when the interpreter tags against this release.
+
+The page also says what a table of verdicts cannot. Four more programs part at
+this pin and none is a row, because no machine runs any of them: two range
+negatives refused at a different site on each side, and two wolf-interp#85
+witnesses that part in *which* refusal — E0409 against E0401 on a bare row used
+as an operand, E0416 against a tier refusal on a write through a `str` slice. A
+page that counted only verdicts would have reported a parting of two and
+stopped. The prediction caught the same shape one layer up: the sprint named
+four range witnesses as census movers and only two of them are `phase: run`.
+
+**`grammar/match_switch.lu` joins the menu**, which makes thirty-five, and it
+is the first menu entry chosen to stand beside a table row rather than away
+from it. The two range programs are refused in the tab and the switch is not,
+and the difference is exactly what the vintage costs: the guarded arm the
+switch turns on is a lowering the compiler gained, not a pattern form, so this
+interpreter has always run it.
+
+The front page's three release-bound paragraphs were rewritten for r15's three
+rulings — `match` in statement position as the switch a reader expects, E0416
+saying a `str` slice is no place instead of the compiler apologising for its
+own ledger, and W0601 making a fallible send in a loop body a warned discard
+rather than a mismatch. /spec/ moved with the four documents the release
+touches. One new number word is listed for the first time: the seven characters
+of a development build's commit stamp, a ruling rather than a measurement, and
+counted on the wolf clock because a release is the only thing that could change
+it.
+
+The package freshness literals moved WITH the release, which has not happened
+before on this page. Read live at the bump: the tap's `wolf` builds tag v0.2.10
+at revision `662b14c` and its `lupin` builds v0.1.31, and the AUR carries
+`wolf-lang` and `wolf-lang-bin` at 0.2.10-1 beside `lupin` and `lupin-bin` at
+0.1.31-1. Had the doors not been closed, the sentence would have said so, which
+is the whole reason those two claims are literals and not stamps.
+
+One stamp entry's count drops because a check changed hands. /install/'s
+pin-lag sentence no longer names the compiler's version at all — at a gap of
+one it names the tag before it — so the stamp allowlist audits one fewer bound
+sentence there, and the windows job's page-wide phrase check, which reads the
+two gitlinks rather than the prose, is what holds it instead.
+
 ## ww23 — 2026-09-10
 
 The site takes the tail. The pin moves to lupin 0.1.31 and wolf stays v0.2.9,
