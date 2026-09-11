@@ -250,8 +250,12 @@ python3 scripts/collect-samples.py upstream/wolf-lang/corpus "$DIST/play/samples
 # well, because one of the counts is a distance: how far the specification pin
 # lupin was built to sits behind the compiler this site advertises, in commits
 # of the compiler's own history. That needs both gitlinks and a wolf-lang
-# checkout with history behind it.
-python3 scripts/stamp-counts.py "$DIST" upstream/wolf-lang upstream/wolf-interp
+# checkout with history behind it. And the book, for the one number on
+# /reading/ that is a measurement rather than a reading: the chapter total,
+# counted off the pinned SUMMARY.md (wolf-web#28). The audit above already
+# takes the book checkout, so the stamp and its clock come off one pin.
+python3 scripts/stamp-counts.py "$DIST" upstream/wolf-lang upstream/wolf-interp \
+  upstream/wolf-book
 
 step "What could not be built"
 waived=()
