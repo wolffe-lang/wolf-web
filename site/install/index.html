@@ -164,32 +164,36 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   first line.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has moved. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has stopped. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to, and
-  that is no tag at all: it is a development revision of the compiler's trunk,
-  __COUNT_speccommits_word__ commits short of the release this page describes
-  and past the one before it. So the newest release whose text that revision
-  carries whole is one release back, which is what the interpreter reads. A pin
-  that names no release is ordinary rather than alarming — the interpreter tags
-  on its own schedule, and it takes the revision that carries the clause it is
-  mirroring, not whichever revision happens to wear a tag. While the gap is
-  open the <a href="/play/">playground</a> can answer a program differently
-  from the compiler you just installed, and when the two disagree, the
-  <a href="/spec/">specification</a> is what gets read.</p>
+  that is the same commit v__WOLF_VERSION__ was tagged at: a tag rather than a
+  revision of the compiler's trunk, and the tag this page describes. Both
+  implementations were built to a single text, so there is no distance to
+  allow for. That is not the resting state. A gap opens whenever the compiler
+  tags and the interpreter has not yet followed, which is the ordinary shape of
+  a two-implementation project between tags; it was open on this page
+  yesterday, and while it is open the <a href="/play/">playground</a> can
+  answer a program differently from the compiler you just installed. When the
+  two disagree, the <a href="/spec/">specification</a> is what gets read.</p>
 
-  <p>What the distance costs, concretely, is no program you can run. The
-  interpreter's pin is short of this release's tag, but the one clause that
-  parted at the last pin is on both sides now: <code>match</code> gained range
-  arms, and <code>corpus/grammar/match_range.lu</code> and
-  <code>corpus/grammar/match_range_char.lu</code> run in the tab and with the
-  compiler above and agree, as do the empty range and the open end the same
-  ruling brought in (wolf-interp#83, closed). What the distance still costs is
-  two <em>messages</em>, in programs neither machine runs: a bare row used as
-  an operand is E0409 here and E0401 there, and a write through a
-  <code>str</code> slice is E0416 here and a tier refusal there
-  (wolf-interp#85). Nothing else in the corpus this release ships answers
-  differently in the two places, which is worth saying plainly — a distance in
-  commits is not by itself a disagreement, and at these pins it buys none.</p>
+  <p>What the closed gap buys, concretely, is every program in the corpus this
+  release ships: each one answers the same in the tab as it does under the
+  compiler above. The two <em>messages</em> that parted at the last pin are
+  settled — a bare row used as an operand is <code>E0409</code> in both places
+  now, and a write through a <code>str</code> slice is <code>E0416</code> in
+  both (wolf-interp#85, closed) — and the range arms that parted the pin before
+  that have been on both sides since (wolf-interp#83, closed).</p>
+
+  <p>What it does not buy is identical behaviour, and this is the pin that
+  shows why. The interpreter in the <a href="/play/">playground</a> takes a
+  one-line <code>if</code> — <code>if c then a else b</code> — and the compiler
+  you just installed refuses it, because <code>then</code> landed on the
+  compiler's trunk after this release was tagged and the interpreter mirrored
+  it early. The counted gap is zero and that spelling still parts the two, in
+  the direction this page has never had to describe: something the tab runs and
+  your compiler will not. A pin says which text each machine was built to read.
+  It does not say the two read it the same way, and it cannot say anything
+  about a clause that is in neither the release nor its corpus.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code> and <code>net_nodelay</code> are in
@@ -497,8 +501,7 @@ hello, wolf</code></pre>
   <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
   --version</code> quotes back — <code>__PIN_specrev_short__</code> at these pins, which is
-  a development revision carrying the release before this one, as measured
-  above.</p>
+  the same commit this compiler was tagged at, as measured above.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
   to WebAssembly — lupin __LUPIN_VERSION__, in the tab, with the corpus
