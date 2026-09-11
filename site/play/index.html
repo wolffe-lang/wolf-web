@@ -124,16 +124,19 @@
   and the samples have loaded.</p>
 
   <p>The revision of the specification it reads is the compiler's own, and at
-  these pins it is the compiler's newest. This interpreter, lupin
+  these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
-  the same commit v__WOLF_VERSION__ was tagged at: a tag rather than a revision
-  of the compiler's trunk, and the tag <a href="/install/">install</a>
-  advertises. There is no distance to allow for, and that — a pin equal to the
-  release rather than short of it — is what the pages are written against.
-  Read it for exactly what it says. It means the two machines were built to one
-  text; it does not mean they answer alike, and at this pin they do not, as the
-  one-line <code>if</code> above shows. A gap in the revision is one way the
-  two can part and it is the way this page can count; it is not the only one.
+  a release tag and not a revision of the compiler's trunk — but it is the tag
+  <em>before</em> the one <a href="/install/">install</a> advertises,
+  __COUNT_speccommits_word__ commits of the compiler's own history back. So the
+  newest release whose text that revision carries whole is one release back,
+  and that is what the pages are written against. The pin being a tag and the
+  pin being current are different claims, and this is a pin where the first is
+  true and the second is not: a week ago the pin was an untagged commit short
+  of a release, yesterday it was the release itself, and today it is a whole
+  release behind. All three are ordinary. The two implementations tag
+  on their own schedules and the interpreter follows the compiler, so the gap
+  opens at every compiler release and closes when the mirror catches up.
   A program that answers differently here from a __WOLF_VERSION__ you download
   today may be a disagreement about the text or may only be a difference of
   vintage, and the table below is which. The <a href="/spec/">specification</a>
@@ -171,19 +174,41 @@
   This interpreter answers <code>E0409</code> and <code>E0416</code>. That
   closes wolf-interp#85, and it is the reason the pin moved at all.</p>
 
-  <p><strong>And a new parting opened, pointing the other way.</strong> Every
-  parting this page has ever described ran the same direction: the compiler
-  had a clause, the interpreter had been built before that text existed, and
-  the tab refused a program the compiler ran. This one is the reverse. The
-  interpreter in this tab takes a one-line <code>if</code> —
-  <code>if c then a else b</code>, with <code>then</code> closing the condition
-  — and the compiler this page advertises refuses it, because that spelling
-  landed on the compiler's trunk <em>after</em> the release was tagged. So a
-  program that runs here can fail to compile for you, which is the opposite of
-  the warning this page has carried since it was written. It is also why the
-  counted gap below, which is zero, is a statement about which revision of the
-  specification each machine was built to and not a promise that the two
-  behave alike. The spelling arrives for both at the compiler's next release.</p>
+  <p><strong>The parting that pointed the other way is closed too, in one
+  release.</strong> At the last pin this page said something it had never had
+  to say: the interpreter took a one-line <code>if</code> —
+  <code>if c then a else b</code> — that the compiler refused, because the
+  spelling landed on the compiler's trunk after its release was tagged. The
+  compiler this page now advertises has it. All nine of the witnesses that
+  ruling brought in run here and exit 0, and the three that are refusals are
+  refused on both sides. A parting recorded while it was open, and closed by
+  the side that was behind, is the whole argument for writing them down.</p>
+
+  <p><strong>And the parting is back in its usual direction, on the program a
+  reader is most likely to try.</strong> The compiler's new release rules how a
+  <code>Map</code> answers and how an operator reaches a trait, and this
+  interpreter was built before either text existed. So
+  <code>corpus/memory/map_count.lu</code> — counting words with a
+  <code>Map</code> and nothing else, which is exactly what chapter 5 of the
+  book teaches — does not run in this tab. Nor does
+  <code>corpus/memory/map_int_keys.lu</code>, nor
+  <code>corpus/traits/op_money.lu</code> and
+  <code>corpus/traits/op_ord_struct.lu</code>, where <code>+</code> and
+  <code>&lt;</code> reach an <code>impl</code> the interpreter cannot see yet;
+  <code>corpus/traits/op_total_num.lu</code> is refused outright at
+  <code>E0201</code>. Three of the five new <code>Map</code> witnesses do run
+  — an absent key answering through <code>else</code>, and both key-protocol
+  witnesses — so this is a partial mirror and not a blank one, which is the
+  useful thing to know and the thing a verdict count alone would hide.</p>
+
+  <p>Read those four refusals carefully, because they wear a misleading word.
+  They report <code>unsupported</code>, the same verdict the tab gives
+  <code>net_listen</code>, and they are not the same kind of thing at all. A
+  tier refusal is permanent and by design: a page has no sockets. These say
+  <code>`+` is not defined on Money and Money</code>, which is this
+  interpreter being honestly behind a clause it has not mirrored yet. The
+  first will never change here. The second changes at the interpreter's next
+  release.</p>
 
   <p>What the distance does <em>not</em> explain is what this page declines.
   <code>net_writev</code> and <code>net_nodelay</code> are in this interpreter
