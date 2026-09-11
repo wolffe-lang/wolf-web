@@ -1,0 +1,39 @@
+{
+  "why": [
+    "Programs the interpreter in the tab may be able to run before the",
+    "compiler this site advertises can. scripts/check-ahead.mjs runs each one",
+    "through the module the build publishes and, for every one that RUNS,",
+    "requires the named anchor to be present in the pinned compiler's",
+    "spec/anchors.json. A witness that runs here and names a clause the",
+    "release does not declare reddens the build (wolf-web#35).",
+    "",
+    "A witness the module refuses is not a failure: it means the tab is not",
+    "ahead on that clause, which is the ordinary state. The entry stays so",
+    "that the day the interpreter mirrors it early, the gate is already",
+    "watching.",
+    "",
+    "`stdout` is asserted whenever the program runs, because 'it runs' is only",
+    "a claim about the clause if it answers the way the clause says it should."
+  ],
+  "witnesses": [
+    {
+      "name": "a one-line if",
+      "anchor": "gram.expr.if",
+      "filed": "wolf-web#35",
+      "note": [
+        "The first case, and the one this gate was written from. lupin 0.1.33",
+        "ran it while wolf v0.2.10 refused it: the clause text was read from",
+        "wolf-lang trunk f608487, which landed after the v0.2.10 tag, and the",
+        "interpreter's own release notes said so. The counted pin lag was",
+        "ZERO at that pin and the pages said `the same commit`, which was",
+        "correct arithmetic about revisions and an incomplete claim about",
+        "behaviour — a reader could copy this out of the playground and watch",
+        "their compiler refuse it. It closed at v0.2.11, so it is green now;",
+        "the planted case in tests/ahead-witnesses.test.mjs is what proves",
+        "the gate still reds."
+      ],
+      "stdout": "29\n28\n",
+      "program": "fn main() -> !int {\n    let n = 29\n    let m = if n > 10 then n - 1 else n + 1\n    print(\"{n}\")\n    print(\"{m}\")\n    0\n}\n"
+    }
+  ]
+}
