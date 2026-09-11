@@ -124,50 +124,56 @@
   and the samples have loaded.</p>
 
   <p>The revision of the specification it reads is the compiler's own, and at
-  these pins it is the compiler's newest. This interpreter, lupin
+  these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
-  the same commit the release <a href="/install/">install</a> advertises was
-  tagged at — a tag, where the last two pins were revisions of the compiler's
-  trunk. So there is no distance between the text the two implementations read,
-  and a program that answers differently here from a __WOLF_VERSION__ you
-  download today is a disagreement about that text rather than a difference of
-  vintage. The <a href="/spec/">specification</a> is what gets read. It has not
-  always been so and it will not stay so by itself — the interpreter tags on
-  its own schedule — so the CI job that measures this page counts the distance
-  by ancestry, which needs no tag at either end, and requires both pages to
-  spell what it counted.</p>
+  a tag — the one before the release <a href="/install/">install</a>
+  advertises. It reads the text of one release back,
+  __COUNT_speccommits_word__ commits of the compiler's own history behind the
+  tag this site serves, so a program that answers differently here from a
+  __WOLF_VERSION__ you download today may be a disagreement about the text or
+  may only be a difference of vintage, and the table below is which. The
+  <a href="/spec/">specification</a> is what gets read when it is the first.
+  The gap opens and closes as the two projects tag — it was shut a week ago —
+  so the CI job that measures this page counts the distance by ancestry, which
+  needs no tag at either end, and requires both pages to spell what it
+  counted.</p>
 
-  <p><strong>Where the vintage shows: nowhere, at these pins.</strong> A table
-  stood in this place at every pin this page has had, listing the corpus
-  programs that answer differently in this tab than on the compiler you can
-  download. It has no rows now, and it never had none before. Every
-  <code>phase: run</code> program in the pinned corpus went through the module
-  this page serves to say so, and against the pins before these that census
-  moved exactly one verdict.</p>
+  <p><strong>Where the vintage shows.</strong> Two corpus programs answer
+  differently in this tab than on the compiler you can download, and both are
+  the same ruling: <code>match</code> gained range arms at the release
+  <a href="/install/">install</a> advertises, and this interpreter was built
+  before that text existed. Every <code>phase: run</code> program in the pinned
+  corpus went through the module this page serves to find them.</p>
 
-  <p>The verdict was <code>strings/concat_mix_char.lu</code>, which answered
-  <code>unsupported</code> here and <code>exit(0)</code> on the compiler.
-  <code>[type.str.concat]</code> makes a <code>char</code> joinable to a
-  <code>str</code> in either order, this interpreter serves it now in both
-  orders, and wolf-interp#78 is closed by the release in the tab. The rows that
-  came off at the pin before this one were a layout the compiler admits — a
-  line beginning with <code>else</code>, answered <code>fail(E0005)</code> here
-  after the compiler had retired the code — <code>pop</code> on an empty
-  <code>List</code> trapping <code>bounds</code> where the <code>none</code>
-  row is the answer, and a drained-closed channel minting <code>Closed</code>
-  where <code>[conc.chan.close]</code> spells the mark <code>closed</code>.</p>
+  <table>
+    <tr><th>program</th><th>here</th><th>on the compiler</th></tr>
+    <tr><td><code>grammar/match_range.lu</code></td><td><code>fail(E0201)</code></td><td><code>exit(0)</code></td></tr>
+    <tr><td><code>grammar/match_range_char.lu</code></td><td><code>fail(E0201)</code></td><td><code>exit(0)</code></td></tr>
+  </table>
 
-  <p><strong>An empty table is a statement about these pins, not a
-  promise.</strong> The compiler's trunk has ruled range arms in a
-  <code>match</code> since this interpreter tagged — <code>lo..hi</code> and
-  <code>lo..=hi</code> over integer and <code>char</code> literals — and this
-  build answers <code>E0201</code> to every witness that carries one. Not one
-  of those programs is in the corpus the release
-  <a href="/install/">install</a> advertises ships, so not one of them is in
-  the census behind this page, and none of them is something you can meet with
-  the compiler that page hands you today. The mirror is filed as
-  wolf-interp#83, and the table comes back the day this site advertises a
-  compiler that carries the arms.</p>
+  <p>The table was empty at the pin before this one, for the first and so far
+  only time in this page's history, and this is what refilled it: not the
+  interpreter falling behind on something it had implemented, but the compiler
+  tagging a new pattern form. <code>lupin</code> stops at the <code>..</code>
+  inside a pattern and says <code>E0201</code> rather than running the program
+  and answering it wrongly, which is the refusal working as designed. It is
+  open upstream as wolf-interp#83 and the two rows come off together when the
+  interpreter tags against this release.</p>
+
+  <p><strong>A table of verdicts cannot show every parting.</strong> Two more
+  came in with the same release and neither is a row above, because neither is
+  a program either machine runs: both are corpus negatives, refused on both
+  sides, parting in <em>which</em> refusal.
+  <code>rows/negative/row_operand_compare.lu</code> puts a bare row beside a
+  comparison — E0409 on the compiler, E0401 here — and
+  <code>typecheck/str_slice_assign.lu</code> writes through a slice of a
+  <code>str</code>, which is E0416 on the compiler and a tier refusal here.
+  Both are wolf-interp#85. The two range negatives that go with the rows above
+  (<code>grammar/match_range_open.lu</code> and
+  <code>rows/match_range_empty.lu</code>) are refused on both sides as well, at
+  a different site on each. A reader meets none of the four by writing a
+  program that works; they are here because a page that counted only verdicts
+  would have reported a parting of two and stopped.</p>
 
   <p>What the distance does <em>not</em> explain is what this page declines.
   <code>net_writev</code> and <code>net_nodelay</code> are in this interpreter
@@ -225,7 +231,14 @@
 
   <h3>Every sample on the menu runs</h3>
   <p>All __COUNT_samples_word__ of them, and none carries a note. The newest is
-  <strong>text to a number, and the row when it is not</strong> —
+  <strong>match as a switch</strong> —
+  <code>corpus/grammar/match_switch.lu</code>, the program the range-arm
+  release was built around. It is on the menu and the two range programs in the
+  table above are not, and the difference is the whole of what the vintage
+  costs: the guarded arm it turns on is a lowering the compiler gained, not a
+  pattern form, so this interpreter has always run it. Press Run and the tab
+  agrees with the compiler byte for byte. The one before it was <strong>text to
+  a number, and the row when it is not</strong> —
   <code>corpus/strings/to_int.lu</code>, the call the book's chapter 1 makes
   in its cold open. It reached the menu when the compiler gained the call
   rather than when the interpreter did, and the reason runs against the usual
