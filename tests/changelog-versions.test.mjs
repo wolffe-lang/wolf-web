@@ -106,7 +106,13 @@ test("--also is what carries the CHANGELOG.md block", () => {
 test("frozen is refused on a living site page", () => {
   /* The guard that keeps half two's re-read from being optional. Run with the
    * real allowlist but a DIFFERENT --also root, so every CHANGELOG.md entry
-   * becomes an entry on a path nobody named. */
+   * becomes an entry on a path nobody named.
+   *
+   * This one needs the pins after all: the audit reads them BEFORE it parses
+   * the allowlist, so without upstream/ it dies on the pinned CHANGELOG rather
+   * than on the frozen entry. The argument errors below are answered while the
+   * arguments are read and stand on any checkout; this is not one of them. */
+  if (!pinned) return noPins();
   const dir = mkdtempSync(join(tmpdir(), "ww27-frozen-"));
   try {
     writeFileSync(join(dir, "OTHER.md"), "nothing to see\n", "utf-8");
