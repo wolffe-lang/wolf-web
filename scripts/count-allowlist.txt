@@ -118,6 +118,20 @@
 #             arrived; at f1eb3bb, d001309 and here none did. A clock that
 #             reddens when nothing moved is the clock working — the re-read is
 #             the point, not the edit.
+#             ww26 (-> a27b684) and ww28 (-> 27a2379) neither moved a number
+#             nor extended this note by much, and the re-reads were done at
+#             the checkout both times. At 27a2379 the diff is ch01, ch03,
+#             ch05, ch06, ch08, ch10-ch12, ch14-ch17, ch22, ch30, the colophon
+#             and solutions.md; SUMMARY.md is not in it, and neither is ch21,
+#             ch25 or ch29, which are the three chapters the held set names.
+#             Measured at the checkout anyway: 33 `](chNN.md)` entries in
+#             SUMMARY.md; ch29 carries no `## 29.N` heading and ch25 carries
+#             §25.3 alone, so thirty-one are written through; ch21 is still
+#             §21.1, §21.2 and §21.4 of five; chapters 26-31 are still six
+#             programs (`count`, `rpn`, `wordtree`, `tinyvm`, `pargrep`,
+#             `logden`) with ch32 the coda. The chapter total is a stamp and
+#             this walk never sees it; it was checked against both revisions
+#             all the same, and is 33 at each.
 #   /         `seven characters` — NEW at ww24. The commit a development
 #             build's version string carries is seven hex characters from
 #             every clone, by decision (wolf-lang#301), rather than whatever
@@ -220,8 +234,8 @@ play/index.html five 1 counted=1 audited-at-lupin=0.1.33
 play/index.html nine 1 counted=1 audited-at-lupin=0.1.33
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=a27b684
-reading/index.html Thirty-one 1 counted=1 audited-at-book=a27b684
-reading/index.html five 1 counted=1 audited-at-book=a27b684
+reading/index.html Six 1 counted=1 audited-at-book=27a2379
+reading/index.html Thirty-one 1 counted=1 audited-at-book=27a2379
+reading/index.html five 1 counted=1 audited-at-book=27a2379
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
