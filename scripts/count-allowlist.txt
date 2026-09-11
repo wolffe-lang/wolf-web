@@ -190,6 +190,7 @@ CHANGELOG.md sixteen 3 counted=0
 CHANGELOG.md ten 2 counted=0
 CHANGELOG.md thirteen 2 counted=0
 CHANGELOG.md thirty 2 counted=0
+CHANGELOG.md thirty-eight 1 counted=0
 CHANGELOG.md thirty-five 1 counted=0
 CHANGELOG.md thirty-four 2 counted=0
 CHANGELOG.md thirty-odd 1 counted=0
