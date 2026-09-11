@@ -53,9 +53,31 @@
 # audits were green over it while it was stale. The windows job's pin-lag
 # step counts the gap and holds the phrase on both pages, which is where
 # that third sentence is covered; it is not covered here.
-index.html __WOLF_VERSION__ 6 bound=4 audited-at-wolf=0.2.9
-install/index.html __WOLF_VERSION__ 11 bound=3 audited-at-wolf=0.2.9
+#
+# ww24 moves WOLF alone, so the four __WOLF_VERSION__ entries reddened and the
+# two __LUPIN_VERSION__ ones held. Six bound sentences were re-read and four
+# were rewritten, all four the same mistake this file exists to catch: a
+# paragraph telling v0.2.9's story under v0.2.10's stamp. Three are the front
+# page's — the layout rule, the `parse` row, `char + str` — replaced by this
+# release's three: `match` as a switch with range arms, E0416 for a write
+# through a `str` slice, and W0601 for a fallible send in a unit context.
+# /spec/'s is 01-grammar's status line, which told the same layout story and
+# now tells `[gram.pat.range]`. The two that stood are /install/'s page-wide
+# "this page describes that release and no other" and its four-archives
+# sentence, both still true under the new stamp.
+#
+# Two totals move DOWN, and one of them is a check changing hands rather than
+# a check being dropped. The front page loses one occurrence (6 -> 5, bound
+# 4 -> 3) because its three release paragraphs became three paragraphs and a
+# code block. /install/ loses one (11 -> 10, bound 3 -> 2) because the pin-lag
+# sentence no longer names the compiler's version at all: at a gap of one it
+# says "the tag of the release before this one". What holds it now is the
+# windows job's phrase check, which is page-wide and reads the two gitlinks
+# rather than the prose — a stronger gate than this file's, not a weaker one.
+# The trade belongs written down where the count drops.
+index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.10
+install/index.html __WOLF_VERSION__ 10 bound=2 audited-at-wolf=0.2.10
 install/index.html __LUPIN_VERSION__ 4 bound=1 audited-at-lupin=0.1.31
-spec/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
-play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.9
+spec/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.10
+play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.10
 play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.31

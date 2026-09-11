@@ -60,6 +60,28 @@
 # so the entry goes with it. An allowlist line whose sentence has been deleted
 # is a count that can only drift.
 #
+# ww24 moves the WOLF clock alone (0.2.9 -> 0.2.10), the mirror image of the
+# three passes before it: the nineteen wolf entries reddened together and the
+# seven lupin ones held untouched. All nineteen were re-read and all nineteen
+# stood. /spec/'s six historical mentions are about 10-types' byte, 11-os's
+# socket sections and 07-schedule-points' anchors; the documents this release
+# touches are 01, 02, 03 and 10, and none of the six sentences is about what
+# moved in them. /install/'s platform history (v0.2.1 through v0.2.6) is a
+# Windows story and this is not a platform release. The front page's `v0.2.7`
+# still names the release that put the differential comparison on a runner, and
+# `1.97.1` is still what the pinned `rust-toolchain.toml` says — read off the
+# checkout at the tag rather than remembered. /play/'s `v0.2.4` and `v0.2.8`
+# are the byte's release and the three net witnesses', both unmoved.
+#
+# The freshness pair moves WITH the release for the first time, which is worth
+# a line because it is the outcome this entry was written to be unable to
+# assume. It was read live at the bump: the tap's `wolf` formula builds tag
+# v0.2.10 at revision 662b14c and its `lupin` builds v0.1.31, and the AUR
+# carries `wolf-lang` and `wolf-lang-bin` at 0.2.10-1 beside `lupin` and
+# `lupin-bin` at 0.1.31-1. The packaging lane closed the doors the same day the
+# tag went up. Had it not, this entry would have said so, which is the whole
+# reason it is a literal and not a stamp.
+#
 # A version literal here need not be a claim about wolf or lupin themselves.
 # The package-manager entries below are claims about what a THIRD PARTY has
 # published — the AUR's `wolf-lang`/`lupin` and the tap's formulae — and they
@@ -67,27 +89,27 @@
 # re-render with the new number at every bump and assert, without anyone
 # looking, that a packager had already pushed. As literals they go red at the
 # bump and someone re-reads the live channel, which is the only way to know.
-index.html 1.97.1 1 audited-at-wolf=0.2.9
-index.html v0.2.7 1 audited-at-wolf=0.2.9
-docs/index.html v0.1.0 1 audited-at-wolf=0.2.9
-spec/index.html v0.1.0 1 audited-at-wolf=0.2.9
-spec/index.html v0.2.4 2 audited-at-wolf=0.2.9
-spec/index.html v0.2.5 1 audited-at-wolf=0.2.9
-spec/index.html v0.2.6 2 audited-at-wolf=0.2.9
-spec/index.html v0.2.7 2 audited-at-wolf=0.2.9
-spec/index.html v0.2.8 1 audited-at-wolf=0.2.9
-install/index.html v0.2.1 1 audited-at-wolf=0.2.9
-install/index.html v0.2.2 3 audited-at-wolf=0.2.9
-install/index.html v0.2.3 2 audited-at-wolf=0.2.9
-install/index.html v0.2.4 2 audited-at-wolf=0.2.9
-install/index.html v0.2.5 3 audited-at-wolf=0.2.9
-install/index.html v0.2.6 1 audited-at-wolf=0.2.9
-install/index.html v0.2.9 2 audited-at-wolf=0.2.9
+index.html 1.97.1 1 audited-at-wolf=0.2.10
+index.html v0.2.7 1 audited-at-wolf=0.2.10
+docs/index.html v0.1.0 1 audited-at-wolf=0.2.10
+spec/index.html v0.1.0 1 audited-at-wolf=0.2.10
+spec/index.html v0.2.4 2 audited-at-wolf=0.2.10
+spec/index.html v0.2.5 1 audited-at-wolf=0.2.10
+spec/index.html v0.2.6 2 audited-at-wolf=0.2.10
+spec/index.html v0.2.7 2 audited-at-wolf=0.2.10
+spec/index.html v0.2.8 1 audited-at-wolf=0.2.10
+install/index.html v0.2.1 1 audited-at-wolf=0.2.10
+install/index.html v0.2.2 3 audited-at-wolf=0.2.10
+install/index.html v0.2.3 2 audited-at-wolf=0.2.10
+install/index.html v0.2.4 2 audited-at-wolf=0.2.10
+install/index.html v0.2.5 3 audited-at-wolf=0.2.10
+install/index.html v0.2.6 1 audited-at-wolf=0.2.10
+install/index.html v0.2.10 2 audited-at-wolf=0.2.10
 install/index.html 0.1.31 2 audited-at-lupin=0.1.31
 play/index.html 0.1.22 1 audited-at-lupin=0.1.31
 play/index.html 0.1.23 1 audited-at-lupin=0.1.31
 play/index.html 0.1.24 1 audited-at-lupin=0.1.31
 play/index.html 0.1.25 1 audited-at-lupin=0.1.31
 play/index.html 0.1.28 1 audited-at-lupin=0.1.31
-play/index.html v0.2.4 1 audited-at-wolf=0.2.9
-play/index.html v0.2.8 1 audited-at-wolf=0.2.9
+play/index.html v0.2.4 1 audited-at-wolf=0.2.10
+play/index.html v0.2.8 1 audited-at-wolf=0.2.10

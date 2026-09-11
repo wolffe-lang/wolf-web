@@ -63,14 +63,35 @@
 #             so thirty are written through; ch21 carries §21.1–§21.5 with
 #             §21.3 and §21.5 reserved; chapters 26–32 are six programs and a
 #             coda.
-docs/index.html seven 1 counted=1 audited-at-wolf=0.2.9
-index.html five 3 counted=3 audited-at-wolf=0.2.9
+#   /         `seven characters` — NEW at ww24. The commit a development
+#             build's version string carries is seven hex characters from
+#             every clone, by decision (wolf-lang#301), rather than whatever
+#             `git rev-parse --short` picks from the object count. It is a
+#             ruling and not a measurement, so it is a literal — but it rides
+#             the wolf clock with counted=1 rather than being frozen, because
+#             the thing that would change it is exactly a release, and a
+#             sentence quoting a width the toolchain has stopped using is the
+#             class of rot this file exists for.
+#
+# The wolf clock moved at ww24 (0.2.9 -> 0.2.10) and the six wolf entries were
+# re-read. `five packages on the AUR` was read live and is still five —
+# wolf-lang, wolf-lang-bin, lupin, lupin-bin, lobo-bin. The five named Windows
+# refusals are unchanged, because v0.2.10 is a language release and touches no
+# platform surface; the windows job's header still counts the same five.
+# `thirty-six rows` holds: docs/platforms.md is byte-identical at this tag.
+# /docs/'s `seven items` holds: docs/api/index.json is still the two-module
+# `demo/doc` fixture, 2 + 5. /play/'s `Seven tiers` rides the LUPIN clock and
+# was not asked this pass; the census confirms it anyway, all seven reason
+# strings present and unchanged in wording at 308 phase:run programs.
+docs/index.html seven 1 counted=1 audited-at-wolf=0.2.10
+index.html five 3 counted=3 audited-at-wolf=0.2.10
+index.html seven 1 counted=1 audited-at-wolf=0.2.10
 index.html twenty 1 counted=0
-install/index.html Five 1 counted=1 audited-at-wolf=0.2.9
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.10
 install/index.html eight 2 counted=0
-install/index.html five 1 counted=1 audited-at-wolf=0.2.9
+install/index.html five 1 counted=1 audited-at-wolf=0.2.10
 install/index.html sixteen 1 counted=0
-install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.9
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.10
 install/index.html twenty-one 1 counted=0
 play/index.html Seven 1 counted=1 audited-at-lupin=0.1.31
 play/index.html thirteen 1 counted=0
