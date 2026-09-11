@@ -78,7 +78,17 @@ test -d site || { echo "site/ is missing — nothing to serve" >&2; exit 1; }
 # sentence built around one can be true of exactly the release it names
 # and false the moment the stamp moves, so the release-bound ones are
 # counted and re-read at a bump like any literal.
-python3 scripts/check-version-prose.py site upstream/wolf-lang upstream/wolf-interp
+#
+# `--also CHANGELOG.md` for the same reason the count audit takes it: this
+# repository's changelog renders to /changelog/site/, so it is served prose
+# living outside site/ where both audits root (wolf-web#27). ww25 closed the
+# count half; the version half needed a grammar change first, because the
+# entry grammar made the clock mandatory and a dated entry's `v0.2.4` cannot
+# rot. Those entries are `frozen` — no clock, no re-read — and what they buy
+# is that writing a version into a served sentence costs one allowlist line,
+# everywhere.
+python3 scripts/check-version-prose.py --also CHANGELOG.md \
+  site upstream/wolf-lang upstream/wolf-interp
 
 # The same rule for a count. A number written into prose as an English word
 # read exactly as trustworthy as the gated numbers beside it and was held by
