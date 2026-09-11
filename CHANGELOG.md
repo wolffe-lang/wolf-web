@@ -18,6 +18,33 @@ records what one wave measured, and no later pin can make that false. The
 audit is not asking you to re-read them. It is making you derive a number
 before you serve it.
 
+## ww25 (item 2, third bump) — 2026-09-11
+
+The book's gitlink takes bs38, f1eb3bb to d001309: the book pins lupin 0.1.31,
+re-homes `Scope` and `Proc`, and fixes a Windows transcript that byte-compared
+on unix only. All four counts on the book clock reddened and all four stood
+again, which makes two bumps running — but the two stood for different reasons,
+and that is the part worth recording.
+
+At the bump before this one the diff simply missed everything the site counts.
+This one did not. The colophon is in bs38's diff, and the colophon is where the
+book states that two chapters and five sections are reserved — the sentence
+this site's written-through figure is the outside view of. Reading the diff
+stat would have said "colophon changed, re-read the reservation"; reading the
+diff said the change is confined to the toolchain pin inside the
+`wolf --version` block, and the reservation sentence is byte-identical.
+Separately, /reading/'s concurrency line quotes the book's own titles for
+chapters 10 through 17, and a sprint that re-homes `Scope` and `Proc` is
+exactly the kind that renames "Scopes as values" — the table of contents is
+untouched, so it did not.
+
+Two near misses and no edit. The counts were then re-derived from the checkout
+rather than from either the diff or the prediction: thirty-three chapters in
+the table of contents, thirty-one written through with chapter 29 still the
+only one carrying no sections and chapter 25 still the only one carrying a
+single section, chapter 21's five with two held, and part 5's six programs and
+a coda.
+
 ## ww25 (item 2, second bump) — 2026-09-11
 
 The book's gitlink moves again, 3edba7d to f1eb3bb, and this entry exists to
