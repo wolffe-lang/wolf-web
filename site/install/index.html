@@ -169,22 +169,24 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   first line.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has closed. <code>lupin __LUPIN_VERSION__</code> names
-  <code>__PIN_specrev_short__</code> as the specification it was built to, and
-  that is the same commit the compiler you are installing was tagged at — not
-  the tag before it, and not a revision of trunk. There is no distance to
-  state. A gap opens whenever the compiler tags and the interpreter has not yet
-  followed, which is the ordinary shape of a two-implementation project, and it
-  closes when the mirror catches up; this is the caught-up end of that cycle.
-  While a gap is open the <a href="/play/">playground</a> can answer a program
-  differently from the compiler you just installed. At this pin it does not.
-  When the two disagree, the <a href="/spec/">specification</a> is what gets
-  read.</p>
+  these pins it has opened again. <code>lupin __LUPIN_VERSION__</code> names
+  <code>__PIN_specrev_short__</code> as the specification it was built to. That
+  is a release tag rather than a revision of the compiler's trunk — but it is
+  the tag <em>before</em> this one, __COUNT_speccommits_word__ commits back, so
+  the newest release whose text the interpreter carries whole is one release
+  behind the compiler you are installing. A gap opens whenever the compiler tags and
+  the interpreter has not yet followed, which is the ordinary shape of a
+  two-implementation project, and it closes when the mirror catches up. While
+  it is open the <a href="/play/">playground</a> can answer a program
+  differently from the compiler you just installed. When the two disagree, the
+  <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins that list is empty — which is worth saying with the list rather
-  than instead of it, because every entry on it closed the way the page said it
-  would. The two <em>messages</em> that parted two pins ago are
+  these pins that list is empty — with the gap open, which has not happened
+  before. The release above brings programs into the corpus that this
+  interpreter was built before, and it answers every call they make, so none of
+  them parts. The <a href="/play/">playground</a> measures that rather than
+  claiming it. The two <em>messages</em> that parted two pins ago are
   settled — a bare row used as an operand is <code>E0409</code> in both places
   now, and a write through a <code>str</code> slice is <code>E0416</code> in
   both (wolf-interp#85, closed) — and the range arms that parted the pin before
@@ -202,10 +204,10 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   parting lasted a single release and is recorded here because it happened,
   not because it lasted.</p>
 
-  <p>What the gap cost, while it was open, is the useful thing to record now
-  that it costs nothing. It landed somewhere a reader actually stands: the
-  release above rules how a <code>Map</code> answers and how an operator
-  reaches a trait, and the interpreter at the last pin had been built before
+  <p>What the previous gap cost, while it was open, is the useful thing to
+  record now that it costs nothing. It landed somewhere a reader actually
+  stands: the release before this one ruled how a <code>Map</code> answers and
+  how an operator reaches a trait, and the interpreter had been built before
   either text existed, so counting words with a <code>Map</code> alone —
   <code>corpus/memory/map_count.lu</code>, the program chapter 5 of the
   <a href="/reading/">book</a> is built around — ran under the compiler and not
@@ -525,10 +527,11 @@ hello, wolf</code></pre>
   <code>lupin --version</code> names the release and the specification
   pin it was built against, which is the pin the second line of <code>wolf
   --version</code> quotes back — <code>__PIN_specrev_short__</code> at these
-  pins, which is this compiler's own tag, as measured above. That sentence
-  carries none of the words the lag check reserves, so nothing held it while
-  it was wrong; it is here as a second statement of the same fact and is
-  re-read at every interpreter bump like any other.</p>
+  pins, which is the tag before this compiler's, as measured above. That
+  sentence carries none of the words the lag check reserves, so nothing holds
+  it: it is a second statement of the same fact, in words no gate reads, and it
+  is re-read by hand at every bump on either clock. It has been wrong before
+  for exactly that reason.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
   to WebAssembly — lupin __LUPIN_VERSION__, in the tab, with the corpus
