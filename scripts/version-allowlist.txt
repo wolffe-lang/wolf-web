@@ -107,11 +107,11 @@ install/index.html v0.2.3 2 audited-at-wolf=0.2.11
 install/index.html v0.2.4 2 audited-at-wolf=0.2.11
 install/index.html v0.2.5 3 audited-at-wolf=0.2.11
 install/index.html v0.2.6 1 audited-at-wolf=0.2.11
-play/index.html 0.1.22 1 audited-at-lupin=0.1.33
-play/index.html 0.1.23 1 audited-at-lupin=0.1.33
-play/index.html 0.1.24 1 audited-at-lupin=0.1.33
-play/index.html 0.1.25 1 audited-at-lupin=0.1.33
-play/index.html 0.1.28 1 audited-at-lupin=0.1.33
+play/index.html 0.1.22 1 audited-at-lupin=0.1.34
+play/index.html 0.1.23 1 audited-at-lupin=0.1.34
+play/index.html 0.1.24 1 audited-at-lupin=0.1.34
+play/index.html 0.1.25 1 audited-at-lupin=0.1.34
+play/index.html 0.1.28 1 audited-at-lupin=0.1.34
 play/index.html v0.2.4 1 audited-at-wolf=0.2.11
 play/index.html v0.2.8 1 audited-at-wolf=0.2.11
 
