@@ -147,133 +147,75 @@ jobs:
       # requires the phrase for the counted gap to appear on BOTH pages and
       # the phrases for the other gaps to appear on NEITHER, so a paragraph
       # that was not rewritten reds by name.
+      # THE PIN LAG. The rule this step enforces is unchanged and as old as
+      # ww13: /install/ and /play/ state how far the interpreter's
+      # specification pin sits behind the compiler this site advertises, in a
+      # closed set of four phrases, and a page must carry the one for the
+      # counted gap and none of the other three. What changed at ww28 is where
+      # it lives.
+      #
+      # It lived HERE, in PowerShell, on a runner nobody runs locally, in a job
+      # the linux `CI` workflow does not depend on — and every other prose rule
+      # this site has is a script under scripts/ that runs in build.sh and
+      # therefore reds on the author's machine at the moment the sentence is
+      # written. At ww27 that cost a full round trip: a new /play/ paragraph
+      # quoted the phrase for a gap of zero while the gap was one, the local
+      # gauntlet was green twice, linux `CI` was green, and this job was the
+      # only thing that saw it (wolf-web#38). At ww28b, with the check running
+      # locally, the SAME rule refused four passes of a gap-one-to-gap-zero
+      # rewrite before the branch was ever pushed — four round trips that would
+      # have come through this queue one at a time.
+      #
+      # So the rule is scripts/check-lag-phrases.py, and this step CALLS it
+      # rather than reimplementing it. Nothing is lost: the job still holds the
+      # pages on every push and on the weekly schedule, and the step summary
+      # below is still written — from the script's own measurements, so the
+      # table and the refusal can no longer disagree about the same gap.
+      #
+      # The ancestry walk needs history and tags, and actions/checkout takes
+      # submodules at depth 1, so the deepen stays here. It is the only network
+      # this job does that is not the archive itself.
       - name: the specification pin lag the site records
         run: |
-          $rel = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' |
-                   ForEach-Object { $_.Matches[0].Groups[1].Value }
-          if ($rel.Count -lt 2) { Write-Output "::error::the pinned wolf-lang CHANGELOG has fewer than two releases"; exit 1 }
-
-          # Both ends of the distance are gitlinks, which cannot be worded
-          # differently: the interpreter records the specification checkout it
-          # was built to, and this site records the compiler it advertises.
-          $link = git -C upstream/wolf-interp ls-tree HEAD upstream
-          $pin = [regex]::Match("$link", '^160000 commit ([0-9a-f]{40})')
-          if (-not $pin.Success) { Write-Output "::error::upstream/wolf-interp records no gitlink for its specification checkout — the pin cannot be read"; exit 1 }
-          $lupPin = $pin.Groups[1].Value
-          $own = [regex]::Match("$(git ls-tree HEAD upstream/wolf-lang)", '^160000 commit ([0-9a-f]{40})').Groups[1].Value
-          $short = $lupPin.Substring(0, 7)
-
-          # Depth 1 cannot answer a question about history.
           if ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {
             git -C upstream/wolf-lang fetch --quiet --unshallow --tags origin
           } else {
             git -C upstream/wolf-lang fetch --quiet --tags origin
           }
-          git -C upstream/wolf-lang cat-file -e "$lupPin^{commit}" 2>$null
-          if ($LASTEXITCODE -ne 0) {
-            Write-Output "::error::lupin $env:LUPIN_VER was built to $short, which is not a commit in the pinned compiler checkout — one of the two pins is wrong, or the revision was never pushed"
-            exit 1
-          }
-          git -C upstream/wolf-lang merge-base --is-ancestor $lupPin $own
-          if ($LASTEXITCODE -ne 0) {
-            Write-Output "::error::lupin $env:LUPIN_VER was built to $short, which the compiler this site pins does not descend from — the interpreter is reading a specification that is not on this line"
-            exit 1
-          }
-          $commits = [int](git -C upstream/wolf-lang rev-list --count "$lupPin..$own")
 
-          # WHICH release that revision belongs to: the newest release tag that
-          # is an ancestor of it. A pin that IS a tag answers with its own.
-          $lupSpec = ""
-          foreach ($r in $rel) {
-            git -C upstream/wolf-lang rev-parse -q --verify "v$r^{commit}" > $null 2>&1
-            if ($LASTEXITCODE -ne 0) { continue }
-            git -C upstream/wolf-lang merge-base --is-ancestor "v$r^{commit}" $lupPin
-            if ($LASTEXITCODE -eq 0) { $lupSpec = $r; break }
-          }
-          if (-not $lupSpec) {
-            Write-Output "::error::no release in the pinned wolf CHANGELOG is an ancestor of $short — the interpreter was built to a revision older than every tag this site can see"
+          # One implementation of the rule, for this runner and the author's
+          # machine alike. Its messages go to the log on stderr; --json puts
+          # the facts on stdout, and only when it is satisfied.
+          $ErrorActionPreference = 'Continue'
+          python --version
+          python scripts/check-lag-phrases.py `
+            site upstream/wolf-lang upstream/wolf-interp --json > lag.json
+          if ($LASTEXITCODE -ne 0) {
+            Write-Output "::error::scripts/check-lag-phrases.py refused the pages — the reasons are in this step's log, and the same command reds locally: python3 scripts/check-lag-phrases.py site upstream/wolf-lang upstream/wolf-interp"
             exit 1
           }
-          $tagged = ((git -C upstream/wolf-lang rev-parse "v$lupSpec^{commit}") -eq $lupPin)
-          $gap = [array]::IndexOf([string[]]$rel, $lupSpec)
+          $f = (Get-Content lag.json -Raw | ConvertFrom-Json)
+          Remove-Item lag.json
+
           "wolf $env:WOLF_VER is the release this site advertises"
-          if ($tagged) {
-            "lupin $env:LUPIN_VER was built at the v$lupSpec tag ($short)"
+          if ($f.tagged) {
+            "lupin $env:LUPIN_VER was built at the v$($f.release) tag ($($f.spec))"
           } else {
-            "lupin $env:LUPIN_VER was built at $short, a development revision past v$lupSpec — $commits commits behind the advertised tag"
+            "lupin $env:LUPIN_VER was built at $($f.spec), a development revision past v$($f.release) — $($f.commits) commits behind the advertised tag"
           }
 
-          # A counted gap of zero is the one claim this job can prove outright:
-          # the phrase the pages carry for it says THE SAME COMMIT, so the two
-          # gitlinks have to be it. A dev revision past the newest release
-          # counts as zero and is not the same commit, and lands here.
-          if ($gap -eq 0 -and $lupPin -ne $own) {
-            Write-Output "::error::the counted gap is zero but this site pins wolf-lang at $($own.Substring(0,7)) while lupin was built at $short — the two pages would say 'the same commit' about two commits"
-            exit 1
-          }
-          # The closed set of sentences the two pages are written for. A gap
-          # outside it is not a bug in this step: it is a gap nothing on the
-          # site has words for, so it stops the job until someone writes them.
-          $phrases = [ordered]@{ '0' = 'the same commit'; '1' = 'one release'; '2' = 'two releases'; '3' = 'three releases' }
-          if (-not $phrases.Contains("$gap")) {
-            Write-Output "::error::the interpreter is $gap releases behind and /install/ and /play/ have prose for 0 through 3 only — write the sentence, then add its phrase here"
-            exit 1
-          }
-          $want = $phrases["$gap"]
-          foreach ($pg in @('site/install/index.html', 'site/play/index.html')) {
-            $text = (Get-Content $pg -Raw) -replace '\s+', ' '
-            if ($text -notlike "*$want*") {
-              Write-Output "::error::the gap is $gap releases and $pg does not say so — it must carry the phrase '$want'"
-              exit 1
-            }
-            foreach ($k in $phrases.Keys) {
-              if ($k -eq "$gap") { continue }
-              if ($text -like "*$($phrases[$k])*") {
-                Write-Output "::error::$pg still carries '$($phrases[$k])' while the counted gap is $gap — a lag paragraph was left unrewritten"
-                exit 1
-              }
-            }
-            # Whether the pin is a tag is a second fact about the same gap, and
-            # the pages say it in their own reserved words.
-            if ((-not $tagged) -and ($text -notlike '*a development revision*')) {
-              Write-Output "::error::lupin was built at $short, which is no release, and $pg does not say so — it must carry the phrase 'a development revision'"
-              exit 1
-            }
-            if ($tagged -and ($text -like '*a development revision*')) {
-              Write-Output "::error::lupin was built at the v$lupSpec tag and $pg still calls it 'a development revision' — a lag paragraph was left unrewritten"
-              exit 1
-            }
-            # And the distance itself is stamped, not written, so the page has
-            # to carry the stamp exactly when there is a distance to state.
-            # The revision is stamped from this same gitlink, so a page
-            # states it by measurement or does not state it at all.
-            if ($text -notlike '*__PIN_specrev_short__*') {
-              Write-Output "::error::$pg states no specification revision — it must carry __PIN_specrev_short__, which the build stamps from the interpreter's gitlink"
-              exit 1
-            }
-            if ($text -like "*$short*") {
-              Write-Output "::error::$pg writes the revision $short by hand — that is what __PIN_specrev_short__ is for, and a literal is stale one bump later"
-              exit 1
-            }
-            $stamp = ($text -like '*__COUNT_speccommits_word__*')
-            if (($commits -gt 0) -and (-not $stamp)) {
-              Write-Output "::error::the interpreter's pin is $commits commits behind and $pg states no distance — it must carry __COUNT_speccommits_word__, which the build measures"
-              exit 1
-            }
-            if (($commits -eq 0) -and $stamp) {
-              Write-Output "::error::$pg carries __COUNT_speccommits_word__ while the two pins are one commit — there is no distance to state"
-              exit 1
-            }
-          }
-          $reads = switch ($gap) { 0 { "this release" } 1 { "the release before this one" } default { "$gap releases back" } }
-          $spec = if ($tagged) { "``$short`` — the v$lupSpec tag" } else { "``$short`` — a development revision past v$lupSpec, $commits commits back" }
+          # The summary is built from the SCRIPT's numbers, not from a second
+          # walk of the same history. Two walks could disagree; these cannot.
+          $reads = switch ($f.gap) { 0 { "this release" } 1 { "the release before this one" } default { "$($f.gap) releases back" } }
+          $spec = if ($f.tagged) { "``$($f.spec)`` — the v$($f.release) tag" } else { "``$($f.spec)`` — a development revision past v$($f.release), $($f.commits) commits back" }
           $md = @("", "### The specification pin lag", "",
                   "| | release | specification pin |", "|---|---|---|",
                   "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",
                   "| the interpreter beside it | lupin $env:LUPIN_VER | $spec |", "",
-                  "A counted gap of ${gap} — the interpreter reads $reads, and both pages say '$want'.", "")
+                  "A counted gap of $($f.gap) — the interpreter reads $reads, and both pages say '$($f.phrase)'.",
+                  "", "Measured by ``scripts/check-lag-phrases.py``, which also runs in ``build.sh``.", "")
           ($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
-          "lupin reads $reads — both pages carry '$want' and neither carries another"
+          "lupin reads $reads — both pages carry '$($f.phrase)' and neither carries another"
 
       # The page's own link, fetched the page's own way. A 404 here is the
       # finding the weekly schedule exists to catch.
