@@ -20,6 +20,51 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww28 (item 1, the second bump) — 2026-09-12
+
+The interpreter's gitlink takes lupin 0.1.34, and the distance the two pages
+have stated at every pin for a month is gone: the specification revision this
+interpreter was built to IS the commit the compiler this site advertises was
+tagged at. Not the tag before it, not a revision of trunk — the same commit.
+Both pages say so, and neither states a distance, because there is none.
+
+**The five that parted all run.** The release this site advertises ruled how a
+`Map` answers and how an operator reaches a trait; the interpreter at the last
+pin had been built before either text existed, and five corpus programs parted
+on it — counting words with a `Map` alone, integer keys, `+` and `<` reaching
+an `impl`, and the chapter-5 total under a bound, which was refused outright.
+The census measured after the bump: all five exit 0, every one of the new
+`Map` witnesses runs where three did, and across the whole pinned corpus there
+is no program whose verdict class differs from what its own header declares.
+The nine running witnesses of the one-line `if` are unmoved, and so are the
+seven tiers — a page has no sockets whatever the pins say, and that was never
+what the distance was about.
+
+The prediction and the measurement agreed on every row, which is worth
+recording because the interesting part was elsewhere.
+
+**Four reds, on prose nothing else would have caught.** Rewriting two lag
+paragraphs from a gap of one to a gap of zero took four passes, and every one
+of them was refused by the lag-phrase rule for the same reason: the four
+phrases the two pages reserve are ordinary English, and prose written about a
+closing gap reaches for them without meaning them. The new paragraph said "one
+release ago the compiler ruled"; an older paragraph said a parting "lasted
+exactly one release"; a third said it closed "in one release"; and the comment
+written to explain that third one quoted the phrase while explaining why it
+could not be there. A comment is served prose. That rule has lived in
+PowerShell on one runner since ww13, which means four separate round trips
+through a CI queue if it had not been run here — and it is exactly the case
+this lane's remaining items move under `scripts/`.
+
+Two sentences that state the same relation in words the rule does not reserve
+were wrong and held by nothing: `lupin --version`'s paragraph called the pin
+"the tag before this compiler's", and the packaging paragraph dated the one
+time the doors disagreed to "the page it replaces" rather than to the pin it
+happened at. Both are re-stated without a tense that a later bump falsifies.
+The doors themselves were read live: the tap builds the compiler's tag and the
+interpreter's, and both AUR compiler packages and both interpreter packages
+are level with the pins.
+
 ## ww28 (item 0) — 2026-09-11
 
 The book's gitlink takes bs43, a27b684 to 27a2379, and the pin it carries is a
