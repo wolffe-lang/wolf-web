@@ -20,6 +20,58 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww28 (items 1 and 2) — 2026-09-12
+
+No pin moves. One gate changes address, and it is the last prose rule on this
+site that reddened somewhere its author could not see.
+
+**The lag-phrase rule is a script now.** `/install/` and `/play/` state how far
+the interpreter's specification pin sits behind the compiler this site
+advertises, in a closed set of four phrases, and a page must carry the one for
+the counted gap and none of the other three. That rule is correct, it is
+page-wide by design — a lag paragraph left unrewritten is exactly what it
+catches, and no test can tell a quotation from a claim — and until today it
+lived in PowerShell, inside one step of the Windows workflow, on a runner
+nobody runs locally, in a job the linux workflow does not depend on.
+
+Every other prose rule here — the version literals, the number words, the
+revisions, the placeholder sweep — is a script that runs in the build and
+therefore reds on the author's machine at the moment the sentence is written.
+This one is now the same shape: `scripts/check-lag-phrases.py`, called from
+`build.sh` beside the other two audits, deriving the gap by ancestry over the
+two gitlinks exactly as the Windows step did. The Windows step remains, and
+calls the script rather than carrying a second copy of the rule; its summary
+table is built from the script's own measurements, so the table and the
+refusal can no longer disagree about the same gap.
+
+**The witness is the paragraph that made the case.** A gate nobody has watched
+fail is a claim, so the suite plants the sentence that caused all this — a
+/play/ paragraph that quoted the phrase for a gap of zero while the gap was
+one, and reads correctly to a person — and requires the check to refuse it.
+Five more cases go with it: a page that drops the phrase it owes, the
+revision written by hand where the stamp belongs even when what is written is
+correct, and the distance stamp required exactly when there is a distance,
+which is one test with two branches because the right answer inverts at a gap
+of zero. Nothing in the suite spells a phrase or a distance as a constant; it
+asks the check what it measured, because the answers move at every bump and a
+test with `one release` typed into it would be the same fossil the check
+exists to refuse.
+
+**What it has already caught.** At the two bumps before this entry, run from a
+scratch copy rather than from the tree, it refused four passes of a
+gap-one-to-gap-zero rewrite: a new paragraph that said one release ago, an
+older one that said a parting lasted exactly one release, a third that said it
+closed in one release, and the comment written to explain the third, which
+quoted the phrase while explaining why it could not be there. A comment is
+served prose. At ww27's arrangement those were four separate round trips
+through a queue on another operating system.
+
+Two sentences that state the same relation in words the rule does not reserve
+were wrong at those bumps and held by nothing. The rule is deliberately a
+short closed set — widening it to arbitrary phrasings is not something a
+machine can apply — so both sentences carry their own pin now and are re-read
+by hand, and the page says so about itself where a reader can see it.
+
 ## ww28 (item 1, the third bump) — 2026-09-12
 
 The compiler's gitlink takes wolf v0.2.12, the papercuts release. The
