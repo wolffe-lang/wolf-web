@@ -72,7 +72,7 @@ fn main() -&gt; !int {
 
   <p><strong><code>match</code> is the switch you were reaching for.</strong>
   In statement position it is what a reader from any C-family language expects,
-  and at v__WOLF_VERSION__ the arm that was missing is there:</p>
+  and the arm that was missing is there:</p>
 
 <pre><code>match n {
     0 =&gt; ...,
@@ -120,7 +120,7 @@ fn main() -&gt; !int {
   closure's tail is the one different case, and the clause says why: the scope
   consumes it and re-raises the row when it exits.</p>
 
-  <p>Around those three, the release is the language reading what a signature
+  <p>Around those three, that release was the language reading what a signature
   already said. A body's tail is checked against the declared result
   (<code>[type.fn.ret]</code>, E0401 at the tail rather than somewhere
   downstream of it), and a <code>!T</code> is two values that no operator reads
@@ -132,6 +132,28 @@ fn main() -&gt; !int {
   development build's version string is seven characters by decision, from
   every clone, rather than whatever the object count makes <code>git rev-parse
   --short</code> guess.</p>
+
+  <!-- The three showcases above are the language, not this release: they came
+       in with the one before it and they are what a reader meets first. The
+       paragraph below is what the advertised release itself moved. Keeping the two
+       apart is the point — a showcase written at one release and left under
+       the next release's stamp reads as a claim about the wrong release, and
+       the stamp cannot fossilize, so nothing else would catch it. -->
+  <p><strong>The release this page advertises is the papercuts.</strong> Most
+  of what v__WOLF_VERSION__ moved is one sentence: the compiler was right about
+  the program and wrong about the reader. A row is <code>E0409</code> on either
+  side of an operator, so <code>n + 1</code> and <code>1 + n</code> answer one
+  code. A <code>!T</code> left at a unit tail is a warning rather than a
+  diagnosis of the return type. <code>let r = Row{…}</code> followed by
+  <code>r.cents = 5</code> is <code>E0410</code> on both machines, where the
+  release before ran it. <code>==</code> on a type a library publishes works
+  one <code>use</code> away, because the operator is read from the operand's
+  own module and the file's imports rather than from the bare name.
+  <code>%</code> on a float is <code>fmod</code> and lowers on both backends,
+  the checked tier's casts convert, and <code>{m[k]:&gt;5}</code> is
+  <code>E0413</code> — a typing refusal rather than a silent
+  <code>unsupported</code>. None of it is a new language surface, which is why
+  it is a paragraph and not a section.</p>
 
   <p>There is a second implementation. <code>lupin</code> is a reference
   interpreter written against the same specification, sharing no code with the
