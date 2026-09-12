@@ -86,11 +86,12 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   reads what is <em>published</em> — the live AUR, the live tap, the live
   release pages — and goes red when a package trails its upstream or names a
   digest the release does not carry. When this page was last read against the
-  pins, every channel agreed — and the page it replaces, written a few hours
-  earlier, had to report that they did not. That is worth a sentence, because
-  it is what the gate is for. At the previous pin the tap had already moved
-  past this page while the AUR had not moved at all: one door ahead, one
-  behind, neither wrong. Both have since landed here. The tap's
+  pins — and it is read live at every bump — every channel agreed. It has not
+  always, and the time it did not is worth keeping, because it is what the
+  gate is for: at the pin two bumps before this one the tap had already moved
+  past the page while the AUR had not moved at all, one door ahead, one
+  behind, neither wrong. Both landed at the next bump and have stayed level
+  since. The tap's
   <code>wolf</code> formula builds tag v__WOLF_VERSION__ and its
   <code>lupin</code> builds __LUPIN_VERSION__; on the AUR both compiler
   packages read __WOLF_VERSION__ and both interpreter packages
