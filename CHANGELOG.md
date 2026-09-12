@@ -20,6 +20,38 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww28 (item 0, the second book bump) — 2026-09-12
+
+The book's gitlink takes bs44. The book re-pins itself at wolf 0.2.12 and
+lupin 0.1.34, both from the release archives by digest, so its `--version`
+transcripts, its two-clock pair and its own audit clocks all moved — none of
+which is a number this site counts, which is the useful thing about a clock
+that reddens anyway.
+
+The chapter-5 exercise that lupin could not run has stopped being one: the
+eight per-machine sentences in chapters 5 and 12 graduate to programs both
+machines execute, now that the interpreter mirrors how a `Map` answers and how
+an operator reaches a trait, and the compiler stopped declining §12.3's
+worklist. §6.5's wordcount tallies with §5.1's one-liner, because the absent
+key answers a row on both sides now and the first-time branch had nothing left
+to do. §15.2's supervisor builds the child's message at the spawn site, since a
+string a proc builds dies with the proc's region.
+
+All four numbers on /reading/ reddened and all four stood, which makes four
+bumps running. They were derived at the checkout rather than reasoned from the
+diff, and the reason to say so this time is chapter 5: it IS in the diff, and
+it is the chapter this page quotes by title. Its heading and all six section
+headings are unchanged and its exercise 5-7 is still the grade book, so the
+page needs no edit — but that was measured, not assumed. The table of contents,
+chapter 21, chapter 25, chapter 29 and every chapter of part 5 are absent from
+the diff entirely.
+
+What the site follows is the colophon, which is the outside view of the
+written-through figure: its printing reads the two releases now rather than a
+release and a development build, and the distance it states between the pair
+is the same thirty-one commits this site stamps between its own two gitlinks —
+two repositories measuring one gap by different routes and agreeing.
+
 ## ww28 (items 1 and 2) — 2026-09-12
 
 No pin moves. One gate changes address, and it is the last prose rule on this
