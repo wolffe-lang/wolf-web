@@ -20,6 +20,52 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww28 (item 1, the third bump) — 2026-09-12
+
+The compiler's gitlink takes wolf v0.2.12, the papercuts release. The
+interpreter does not move, so the gap that closed a few hours ago reopens:
+lupin 0.1.34 was built to the v0.2.11 tag, which is one release and
+thirty-one commits behind what this site now advertises. Both pages say so,
+and the distance stamp is back on both.
+
+**A gap that costs nothing, which has not happened before.** Every one of the
+pinned corpus's `phase: run` programs goes through the module this build
+publishes, and not one of them answers in a different class from what its own
+header declares — with the gap open. Every previous open gap this site has
+served cost something a reader could hit. This one does not, because the
+release brings programs the interpreter already answers: a lint about
+arithmetic beside an `else`, a unit-typed tail discarded rather than returned,
+the float remainder, a `Map` written through a generic, and a struct literal
+in parentheses promoted from a static witness to a running one. The one new
+running program the tab declines is a module spread across sibling files, and
+the editor here is one buffer — this page's limit, not the interpreter's
+vintage, and no release of anything will change it.
+
+One of the release's new negatives parts in *which* refusal rather than in
+whether: formatting an error union with a width is a typing refusal for the
+compiler and an `unsupported` here, because the interpreter's format-spec
+grammar speaks about strings. Both machines refuse the program. It is a
+`resolve`-phase witness, so it sits outside the running census, and it is
+written down because a parting recorded only when convenient is not a record.
+
+**The front page stopped claiming this release brought what the last one
+did.** Three showcases stand at the top of that page — the switch with its
+range arms, the assignment through a string slice that is now named rather
+than blamed on the backend, the send in a loop body as a warning — and one of
+them was introduced with the words "at v*this release*", stamped from the pin.
+They came in at the release before. A stamp cannot fossilize, which is the
+whole reason it is a stamp; a sentence built around one can be true of exactly
+the release it names and false the moment the stamp moves, with nothing to
+notice. The three are stated as the language now, and what this release
+actually moved has its own paragraph beside them.
+
+Two numbers moved and were re-measured rather than carried: the warning
+catalogue gains an entry, and the counted distance is back. The diagnostic
+catalogue, the chapter total, the net programs and the sample menu did not
+move. Every entry on the compiler's clock was re-read at the checkout —
+`docs/platforms.md` is byte-identical at the two pins, so the rows the native
+lane does not execute stand, and so do the refusals the Windows page counts.
+
 ## ww28 (item 1, the second bump) — 2026-09-12
 
 The interpreter's gitlink takes lupin 0.1.34, and the distance the two pages
