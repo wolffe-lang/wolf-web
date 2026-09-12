@@ -107,6 +107,32 @@ python3 scripts/check-version-prose.py --also CHANGELOG.md \
 python3 scripts/check-counts.py --also CHANGELOG.md \
   site upstream/wolf-lang upstream/wolf-interp upstream/wolf-book
 
+# And the third prose rule, which until ww28 was not one of these at all.
+#
+# /install/ and /play/ state how far the interpreter's specification pin sits
+# behind the compiler this site advertises, in a CLOSED SET of four phrases,
+# and the page must carry the one for the counted gap and none of the other
+# three. That rule is as old as ww13 and it lived in PowerShell, inside the
+# `the specification pin lag the site records` step of
+# .github/workflows/windows.yml — on a runner nobody runs locally, in a job the
+# linux `CI` workflow does not depend on. At ww27 a new /play/ paragraph quoted
+# the phrase for a gap of zero while the gap was one: this gauntlet was green
+# twice, linux `CI` was green, and one Windows runner was the only thing in the
+# world that saw it (wolf-web#38).
+#
+# Every other prose rule above is a script here that reds on the author's
+# machine at the moment the sentence is written. This is that rule in that
+# shape. The windows step calls this same file now, so there is ONE
+# implementation and not two that can drift apart.
+#
+# It runs here, on site/, while the placeholders are still placeholders: two of
+# the three things it checks ARE placeholders (the revision stamp and the
+# distance stamp), and after the sweep below there would be nothing left to
+# check. It needs the compiler checkout to carry history and tags, exactly as
+# stamp-counts.py's `speccommits` does further down.
+python3 scripts/check-lag-phrases.py \
+  site upstream/wolf-lang upstream/wolf-interp
+
 rsync -a site/ "$DIST"/
 
 # Stamp the placeholders. dist/ holds only the static site at this point,
