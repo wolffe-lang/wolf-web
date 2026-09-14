@@ -124,25 +124,24 @@
   and the samples have loaded.</p>
 
   <p>The revision of the specification it reads is the compiler's own, and at
-  these pins it is not the compiler's newest. This interpreter, lupin
+  these pins it is the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
-  a release tag and not a revision of the compiler's trunk — but it is the tag
-  <em>before</em> the one <a href="/install/">install</a> advertises,
-  __COUNT_speccommits_word__ commits of the compiler's own history back. So the
-  newest release whose text that revision carries whole is one release back,
-  and that is what the pages are written against.</p>
+  the release tag <a href="/install/">install</a> advertises — the same
+  commit, not the tag before it and not a revision of the compiler's trunk.
+  There is no distance to state, and the release whose text that revision
+  carries whole is the one the pages are written against.</p>
 
-  <p>That is the open end of an ordinary cycle, and the page has now stood at
-  every point of it inside a week: an untagged commit short of a release, the
+  <p>That is the closed end of an ordinary cycle, and the page has now stood at
+  every point of it more than once: an untagged commit short of a release, the
   release itself, a gap after the compiler tagged again, the mirror caught up,
-  and a gap again. The two implementations tag on their own schedules and the
+  a gap again, and the mirror caught up again. The two implementations tag on their own schedules and the
   interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
   the text or may only be a difference of vintage, and the
   <a href="/spec/">specification</a> is what gets read when it is the first.
   Counting by ancestry is what makes this sayable at a pin that names no tag,
-  which is the case this page was in a week ago: the CI job that measures it
+  which is a case this page has been in: the check that measures it
   asks the compiler's history which release the revision descends from and how
   far the tag is, so neither end has to be a tag, and it requires both pages to
   spell what it counted.</p>
@@ -151,8 +150,10 @@
   <code>phase: run</code> program in the pinned corpus goes through the module
   this page serves, and at these pins every one of them answers what the
   compiler says it should. There is no table here, because there are no rows to
-  put in one. That sentence has been true at a closed gap before. It is true
-  now with a gap <em>open</em>, which it has never been.</p>
+  put in one. That sentence has now been true with the gap closed, with it
+  open, and closed again: at this pin the interpreter reads the very text the
+  compiler was cut from, and the census behind this page counts no parting
+  either way.</p>
 
   <p>What emptied it was the range arm arriving on this side. At the pin before
   this one <code>match</code> had gained range arms in the compiler and this
@@ -184,7 +185,7 @@
        served prose and the check reads the page's bytes. Word around the
        reserved phrases; they are short on purpose. -->
   <p><strong>The parting that pointed the other way is closed too, inside a
-  single release.</strong> At the last pin this page said something it had never had
+  single release.</strong> At an earlier pin this page said something it had never had
   to say: the interpreter took a one-line <code>if</code> —
   <code>if c then a else b</code> — that the compiler refused, because the
   spelling landed on the compiler's trunk after its release was tagged. The
@@ -205,10 +206,10 @@
 
   <p><strong>And the parting that pointed the usual way is closed, at the
   interpreter's next release exactly as this page said it would be.</strong>
-  The release this site advertises ruled how a <code>Map</code> answers and how
-  an operator reaches a trait, and the interpreter at the last pin had been
-  built before either text existed, so five programs parted. Every one of them
-  runs here now and exits 0:
+  v0.2.11 ruled how a <code>Map</code> answers and how an operator reaches a
+  trait, and the interpreter of that day had been built before either text
+  existed, so five programs parted. Every one of them runs here now and
+  exits 0:
   <code>corpus/memory/map_count.lu</code> — counting words with a
   <code>Map</code> and nothing else, which is exactly what chapter 5 of the
   <a href="/reading/">book</a> teaches — and
@@ -219,7 +220,7 @@
   <code>corpus/traits/op_total_num.lu</code>, which was refused outright at
   <code>E0201</code> and is the book's chapter-5 <code>total</code> under a
   bound. All five of the new <code>Map</code> witnesses run, where three did
-  at the last pin, and the census behind this page counts no program at all
+  before it, and the census behind this page counts no program at all
   that answers differently from the compiler: the mirror that was partial is
   whole.</p>
 
@@ -235,36 +236,40 @@
   waiting on; among the programs you can run, the tab has none of the second
   kind left.</p>
 
-  <p><strong>And the gap is open again, at a release that costs nothing to
-  have.</strong> The compiler has tagged once more while this interpreter still
-  reads the release before it, so the distance above is a distance again. What
-  is new is what it buys you: nothing. The release brings six programs into the
-  corpus's running set — a lint about arithmetic beside an <code>else</code>, a
-  unit-typed tail that is discarded rather than returned, the float remainder,
-  a <code>Map</code> written through a generic, a struct literal in parentheses
+  <p><strong>And the gap that opened after that cost nothing while it was
+  open, and is closed now.</strong> The compiler tagged once more while the
+  interpreter still read the release before it, and what that distance bought
+  you was nothing: the release brought six programs into the corpus's running
+  set — a lint about arithmetic beside an <code>else</code>, a unit-typed tail
+  that is discarded rather than returned, the float remainder, a
+  <code>Map</code> written through a generic, a struct literal in parentheses
   promoted from a static witness to a running one, and a trait reached through
-  an imported module. All but one of them run in this tab and exit 0, because
-  this interpreter already answers every call they make. The one that does not,
-  <code>corpus/traits/op_eq_imported/main.lu</code>, does not — and the reason
-  is this page's rather than the interpreter's vintage: it is a module spread
-  across sibling files, and the editor here is one buffer. No release of
-  anything will change that one.</p>
+  an imported module — and all but one of them ran in this tab and exited 0
+  before the interpreter had been rebuilt to the text, because it already
+  answered every call they make. This interpreter is built to that text, and
+  they still do. The one that does not, <code>corpus/traits/op_eq_imported/main.lu</code>,
+  does not — and the reason is this page's rather than the interpreter's
+  vintage: it is a module spread across sibling files, and the editor here is
+  one buffer. No release of anything will change that one.</p>
 
-  <p>One of the release's new negatives parts in <em>which</em> refusal rather
-  than in whether, which is the shape no table can hold:
-  <code>corpus/typecheck/interp_spec_on_union.lu</code> formats an error union
-  with a width, and the compiler refuses it at <code>E0413</code> while this
-  interpreter reports <code>unsupported</code> — its format-spec grammar speaks
-  about strings. Both machines refuse the program, so a reader is not misled by
-  either, and it is a <code>resolve</code>-phase witness, which puts it outside
-  the running census above. It is written down here because a parting recorded
-  only when it is convenient is not a record.</p>
+  <p>One of that release's new negatives parted in <em>which</em> refusal
+  rather than in whether, which is the shape no table can hold, and that
+  parting is closed too: <code>corpus/typecheck/interp_spec_on_union.lu</code>
+  formats an error union with a width, the compiler refuses it at
+  <code>E0413</code>, and the interpreter of the day reported
+  <code>unsupported</code> because its format-spec grammar spoke about strings.
+  This interpreter answers <code>E0413</code>. It is a
+  <code>resolve</code>-phase witness, which puts it outside the running census
+  above, and it stays written down because a parting recorded only when it is
+  convenient is not a record — and one closed by deleting the sentence leaves
+  no record it was ever there.</p>
 
   <p>What the distance does <em>not</em> explain is what this page declines.
-  <code>net_writev</code> and <code>net_nodelay</code> are in this interpreter
-  and <code>fs_fstat</code> is declined by design in every build of it, so all
-  three report <code>unsupported</code> here whatever the pins say: a tab has
-  no sockets, and this interpreter opens no files anywhere. Those refusals are
+  <code>net_writev</code>, <code>net_nodelay</code> and <code>fs_fstat</code>
+  are all in this interpreter — the filesystem tier is the newest thing in it
+  — and all three report <code>unsupported</code> here whatever the pins say:
+  a tab has no sockets and no files to open. Run the same programs under
+  <code>lupin</code> at a terminal and all three answer. Those refusals are
   the tier and nothing else, and the gap closing has not moved them.</p>
 
   <p>The interpreter is not the compiler, and it reaches a different set of
@@ -277,18 +282,21 @@
   reason says which tier declined.</p>
 
   <h3>What this build declines</h3>
-  <p>Seven tiers report <code>unsupported</code> here that work when you run
+  <p>Eight tiers report <code>unsupported</code> here that work when you run
   <code>lupin</code> at a terminal. Tasks and procs each need an operating
   system thread, and a WebAssembly module in a page has none to spawn. The
   <code>time</code> builtins need a clock the module cannot read, the process
   trio needs processes the page cannot spawn, the net tier needs sockets the
   page cannot open, <code>os_random</code> needs an entropy source the module
-  has no way to ask for, and <code>os_signal_listen</code> needs signals
-  nothing in a tab can send. The filesystem tier is declined in every build of
-  the interpreter, including the terminal one, because it opens no files by
-  design. A program whose module graph names sibling files is likewise
-  <code>unsupported</code>: the editor is one buffer, and there is no
-  directory beside it.</p>
+  has no way to ask for, <code>os_signal_listen</code> needs signals nothing
+  in a tab can send, and the filesystem tier needs files a module in a page
+  has no way to open. That last one is the newest of them: through lupin
+  0.1.35 the interpreter declined the filesystem in every build, by design,
+  and the terminal build serves it now — real files, at the paths the program
+  names — so only this build is left declining it, for the tab's reason and
+  not the interpreter's. A program whose module graph names sibling files is
+  likewise <code>unsupported</code>: the editor is one buffer, and there is
+  no directory beside it.</p>
   <p><code>os_cpus()</code> is the near miss, and it is worth a sentence
   because the census caught it. This build answers the call now rather than
   declining it — but what it answers is the <code>io</code> row, because a
