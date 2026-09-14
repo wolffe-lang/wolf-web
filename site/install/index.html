@@ -86,21 +86,20 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   reads what is <em>published</em> — the live AUR, the live tap, the live
   release pages — and goes red when a package trails its upstream or names a
   digest the release does not carry. When this page was last read against the
-  pins — and it is read live at every bump — the interpreter's doors agreed
-  with it and the compiler's were ahead of it. The tap's <code>lupin</code>
-  formula builds __LUPIN_VERSION__ and both AUR interpreter packages read
-  __LUPIN_VERSION__, which is the interpreter this page advertises. The tap's
-  <code>wolf</code> formula and both AUR compiler packages had already moved
-  to a compiler release newer than v__WOLF_VERSION__: the compiler has tagged
-  twice since the release this page describes, this site takes the
-  interpreter's release first because that is the order its own pin
-  arithmetic accepts, and the compiler's bump is the next one. A door ahead
+  pins — and it is read live at every bump — every channel agreed: the tap's
+  <code>wolf</code> formula builds tag v__WOLF_VERSION__ and its
+  <code>lupin</code> builds __LUPIN_VERSION__; on the AUR both compiler
+  packages read __WOLF_VERSION__ and both interpreter packages
+  __LUPIN_VERSION__. It has not always. At the pin before this one the
+  compiler's doors were ahead of the page — the tap and the AUR already
+  carried this compiler release while the page still advertised an older one,
+  because this site took the interpreter's release first, in the order its own
+  pin arithmetic accepts — and at the pin four bumps before this one the tap
+  carried a new compiler tag for some minutes before the AUR did. A door ahead
   of the page is not a door behind its upstream, and telling the two apart is
-  what that gate is for. It has read the doors split before — at the pin
-  three bumps before this one the tap carried a new compiler tag for some
-  minutes before the AUR did — because a release and its packaging are
-  separate acts and do not land in the same minute. The archives below are
-  the release itself, and need nothing installed first.</p>
+  what that gate is for: a release and its packaging are separate acts and do
+  not land in the same minute. The archives below are the release itself, and
+  need nothing installed first.</p>
 </section>
 
 <section>
@@ -162,41 +161,48 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
 
 <pre><code>wolf --version
 wolf __WOLF_VERSION__ (wolfgang, pin …)
-paired with lupin 0.1.34 (reference interpreter), pin …</code></pre>
+paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre>
 
   <p>Two lines: the release and the commit it was built at, then the
   <code>lupin</code> release it was differentially tested against and the
   specification pin <em>that</em> release was built to. A binary never claims
   a release it is not — anything but a build made at the tag says so in that
   first line. The second line is the compiler's memory of the interpreter it
-  was cut beside, not a claim about the one you install today: the
-  interpreter has released since, and the release this page pairs with it is
-  <code>lupin __LUPIN_VERSION__</code>.</p>
+  was cut beside, and at these pins that is the interpreter this page
+  serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has closed again. <code>lupin __LUPIN_VERSION__</code> names
-  <code>__PIN_specrev_short__</code> as the specification it was built to, and
-  that is the same commit the compiler you are installing was tagged at — not
-  the tag before it, and not a revision of trunk. There is no distance to
-  state. It is not the pin the compiler's own second line quotes, and that is
-  not a disagreement: the compiler names the interpreter release it was tested
-  against when it was cut, and the interpreter has released twice since, both
-  times built to this compiler's own text. A gap opens whenever the compiler
+  these pins it has opened wider than it has ever been with both ends at
+  tags. <code>lupin __LUPIN_VERSION__</code> names
+  <code>__PIN_specrev_short__</code> as the specification it was built to.
+  That is a release tag rather than a revision of the compiler's trunk — but
+  the compiler has tagged twice since it, so the newest release whose text the
+  interpreter carries whole is two releases behind the compiler you are
+  installing, __COUNT_speccommits_word__ commits back. It is also exactly what
+  the compiler's own second line says: this compiler was tested against this
+  interpreter, and quotes the pin it reads. A gap opens whenever the compiler
   tags and the interpreter has not yet followed, which is the ordinary shape
-  of a two-implementation project, and it closes when the mirror catches up;
-  this is the caught-up end of that cycle. While a gap is open the
-  <a href="/play/">playground</a> can answer a program differently from the
-  compiler you just installed. At this pin it does not. When the two disagree,
-  the <a href="/spec/">specification</a> is what gets read.</p>
+  of a two-implementation project, and it closes when the mirror catches up.
+  While it is open the <a href="/play/">playground</a> can answer a program
+  differently from the compiler you just installed, and at this pin it does:
+  the list below is what that costs. When the two disagree, the
+  <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins that list is empty, with the gap closed: the interpreter was built
-  to the very text the compiler above was cut from, and the
-  <a href="/play/">playground</a> measures that rather than claiming it. While
-  the last gap was open the list was empty too, which had not happened before
-  — the release brought programs into the corpus that the interpreter of the
-  day was built before, and it answered every call they made. The two
-  <em>messages</em> that parted at an earlier pin are
+  these pins it is the longest this page has carried: fifteen programs the
+  compiler above runs and the tab refuses, every one of them a spelling rather
+  than a ruling. v0.2.13 added syntax the language could not write at all —
+  a list literal, <code>[340, 275, 100]</code>; <code>range[int]</code> and
+  <code>range[char]</code> as types; and <code>error IoErrors = {none, parse,
+  io}</code> as a name for a row — and the interpreter in the tab was built to
+  the text before them, so it stops at the first bracket, type name or
+  keyword and says so: the list-literal witnesses and the nullary-variant
+  pattern at <code>E0201</code>, the range-type witnesses at
+  <code>E0301</code>, the error-alias witnesses at <code>E0201</code>. The
+  <a href="/play/">playground</a> names each one. Nothing else moved: the
+  other running programs the two releases added answer in the tab byte for
+  byte, and the gap before this one, which cost nothing, is closed behind it.
+  The two <em>messages</em> that parted at an earlier pin are
   settled — a bare row used as an operand is <code>E0409</code> in both places
   now, and a write through a <code>str</code> slice is <code>E0416</code> in
   both (wolf-interp#85, closed) — and the range arms that parted the pin before
@@ -227,9 +233,9 @@ paired with lupin 0.1.34 (reference interpreter), pin …</code></pre>
   <code>impl</code> yet, and <code>traits/op_total_num.lu</code>, refused
   outright. This interpreter mirrors both texts, so every one of them runs in
   the tab now and answers what the compiler answers; the <a href="/play/">playground</a>
-  counts them exactly. Nothing in the corpus this release ships answers
-  differently in the two places, and no program that ran in the tab before this
-  release stopped.</p>
+  counts them exactly. No program that ran in the tab at an earlier pin has
+  stopped; what this release's corpus adds that the tab cannot answer is the
+  list above, and nothing else.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code>, <code>net_nodelay</code> and
@@ -537,14 +543,13 @@ hello, wolf</code></pre>
   that used a task or a channel, and it has not been that since v0.2.3.
   <code>lupin --version</code> names the release and the specification
   pin it was built against — <code>__PIN_specrev_short__</code> at these
-  pins, which is the tag this compiler was cut at, as measured above. It is
-  not the pin the second line of <code>wolf --version</code> quotes back at
-  these pins, because that line names the interpreter release the compiler was
-  tested against when it was cut, and the interpreter's own line is the one
-  this site measures. That sentence carries none of the words the lag check
-  reserves, so nothing holds it: it is a second statement of the same fact, in
-  words no gate reads, and it is re-read by hand at every bump on either
-  clock. It has been wrong before for exactly that reason.</p>
+  pins, which is the tag the compiler above was cut two tags after, as
+  measured above — and it is the pin the second line of <code>wolf
+  --version</code> quotes back, because this compiler was tested against this
+  interpreter. That sentence carries none of the words the lag check reserves,
+  so nothing holds it: it is a second statement of the same fact, in words no
+  gate reads, and it is re-read by hand at every bump on either clock. It has
+  been wrong before for exactly that reason.</p>
 
   <p>The <a href="/play/">playground</a> runs that same interpreter compiled
   to WebAssembly — lupin __LUPIN_VERSION__, in the tab, with the corpus
