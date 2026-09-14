@@ -20,6 +20,70 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww29 (bump 1, the interpreter) — 2026-09-14
+
+The interpreter's gitlink takes lupin 0.1.36, the filesystem tier, and the
+counted gap closes to zero for the third time: 0.1.36 was built to the v0.2.12
+tag, which is the commit this site's compiler gitlink names. Both pages say
+`the same commit` and neither states a distance. The compiler and the book do
+not move.
+
+**"0.1.36 pairs with 0.2.14" is the compiler's sentence, not the
+interpreter's.** wolf 0.2.14's changelog names 0.1.36 as its pairing; 0.1.36's
+own gitlink is v0.2.12, and so was 0.1.35's. The lag rule counts by the
+interpreter's gitlink, so this bump is accepted at a gap of zero, and the
+order interpreter → compiler → book reads 1 → 0 → 2, each a phrase the
+closed set has. Compiler first would have read 3 and been accepted too: the
+rule reds only on a pin the site's compiler does not descend from, and no
+order of these bumps produces one.
+
+**The interpreter has a filesystem, and this tab still does not.** The book
+found sixteen sentences saying the reference interpreter opens no files; this
+site had three live ones — /play/'s tier paragraph, and the twin sentence on
+/play/ and /install/ that called `fs_fstat` "declined by design in every
+build of it" — plus one frozen in this changelog, which stands as history.
+The three are rewritten: the filesystem joins the tiers the WebAssembly build
+declines, for the tab's reason and not the interpreter's, so /play/ counts
+eight tiers where it counted seven, and `fs_fstat` is named as a program that
+answers under `lupin` at a terminal and not here. The wasm arm's own words are
+the measurement. Every one of the nine `phase: run` programs that touch the
+tier — the same nine that 0.1.36's release notes name as its native movers —
+answers `unsupported` with "this wasm build has no filesystem to open" where
+it answered "this machine has no filesystem by design", or "does not resolve"
+for a name the old build did not carry.
+
+**Census: 338 `phase: run` programs through the module this build publishes,
+and no class moved.** Predicted and then measured: 237 `exit`, 31 `trap`, 0
+`fail`, 70 `unsupported`, 0 class partings against the programs' own headers
+and 0 flips against the last census. What moved is one reason string on nine
+rows, and one witness outside the census: `typecheck/interp_spec_on_union.lu`
+answered `unsupported` at the last pin and answers `E0413` now, because
+0.1.35 mirrored it. The parting /play/ recorded is closed from the
+interpreter's side, and the page says so rather than deleting the sentence.
+
+**The compiler's doors are ahead of the page, and the page says so.** Read
+live before the bump: the tap's `wolf` formula and both AUR compiler packages
+carry 0.2.14 while this page advertises 0.2.12 until the next bump; the tap's
+`lupin` and both AUR interpreter packages carry 0.1.36, level with the page.
+"Every channel agreed" is gone from /install/, and the `wolf --version`
+transcript there names lupin 0.1.34 as a literal on the compiler's clock,
+because that is what 0.2.12 prints — the compiler's memory of the interpreter
+it was cut beside, not a claim about the one this page serves — with a
+sentence under it saying which is which. The gap in that direction, the
+compiler declaring an interpreter release behind the one served, is one the
+lag rule does not measure; the literal and its clock are what hold it.
+
+**The lag-phrase suite carried a fossil of its own.** Its witness planted
+ww27's paragraph with the phrase for a gap of zero typed in. That held at
+every pin where the gap was one and went red the first time the suite ran at
+a gap of zero, because the check correctly accepted a phrase the page now
+owns. The witness quotes the phrase for a gap the measurement does not own,
+read off the script's own table, so it cannot go stale the same way twice.
+
+Two numbers moved: the tier count, and the module grew from 971 to 976 KiB
+raw. Every entry on the interpreter's clock was re-read at the checkout, and
+the five historical literals on /play/ stand.
+
 ## ww28 (item 0, the second book bump) — 2026-09-12
 
 The book's gitlink takes bs44. The book re-pins itself at wolf 0.2.12 and
