@@ -20,6 +20,43 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww29 (bump 3, the book) — 2026-09-14
+
+The book's gitlink takes 119b269 — bs45, bs46, bs47 and the one-line fix the
+maintainer asked for. The compiler and the interpreter do not move, so the lag
+stays where the bump before left it.
+
+**§5.6 renders the `Num` alias as one code span again.** The source line
+`trait Num = Add + Sub + Mul + Div + Rem + Eq + Ord` had wrapped after `Mul`,
+so its continuation began `+ Div`, which Markdown reads as a list item: on the
+served page the alias was prose followed by a bullet. The line is one line
+now, and the served check asserts the alias inside one `<code>` and no list
+item beginning with `Div` — both directions, since a check that only counted
+the bullet away would pass a page that lost the alias too.
+
+**The book's census, by `phase:` header, did not move.** The exercise
+programs under `principles/exercises` carry the same headers at both pins —
+210 `run`, 18 `typecheck`, 7 `parse`, 6 `mem`, 3 `resolve` — so what bs45's
+index, bs46's ch15 graduations and bs47's walks moved is prose, solutions and
+the index, not the population. Diffing the headers rather than the file list
+is ww28's lesson, and here it says the opposite of what a file list would:
+57 files changed and zero rows.
+
+**The book measures a different gap from this site now, and both are right.**
+The colophon re-pins at wolf 0.2.13 and lupin 0.1.36 and states forty-three
+commits between its pair; this site advertises wolf 0.2.14 and stamps
+seventy-two between its own two gitlinks. At the last book bump the two
+repositories measured one gap by two routes and agreed; at this one they
+measure two gaps, v0.2.12 to v0.2.13 and v0.2.12 to v0.2.14, and the served
+check holds each number on its own page and off the other's.
+
+All three readings on /reading/ reddened and all three stood, derived at the
+checkout: the colophon still reserves two chapters and five sections, chapter
+21 still has three of its five sections written, part 5 is still six programs
+and a coda, and the chapter total is thirty-three. The book's own count of
+sentences saying the interpreter has no filesystem came down with bs46; this
+site's three had already gone at the interpreter's bump.
+
 ## ww29 (bump 2, the compiler) — 2026-09-14
 
 The compiler's gitlink takes wolf v0.2.14, the string runtime — and, because
