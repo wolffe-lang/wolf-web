@@ -124,17 +124,22 @@
   and the samples have loaded.</p>
 
   <p>The revision of the specification it reads is the compiler's own, and at
-  these pins it is the compiler's newest. This interpreter, lupin
+  these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
-  the release tag <a href="/install/">install</a> advertises — the same
-  commit, not the tag before it and not a revision of the compiler's trunk.
-  There is no distance to state, and the release whose text that revision
-  carries whole is the one the pages are written against.</p>
+  a release tag and not a revision of the compiler's trunk — but the compiler
+  has tagged twice since it, so the text this tab reads is two releases behind
+  the one <a href="/install/">install</a> advertises,
+  __COUNT_speccommits_word__ commits of the compiler's own history back. It is
+  the first time the distance has been that wide with both ends at tags, and
+  for once the compiler's own second line says the same thing: it was tested
+  against this interpreter and quotes this pin.</p>
 
-  <p>That is the closed end of an ordinary cycle, and the page has now stood at
+  <p>That is the open end of an ordinary cycle, and the page has now stood at
   every point of it more than once: an untagged commit short of a release, the
   release itself, a gap after the compiler tagged again, the mirror caught up,
-  a gap again, and the mirror caught up again. The two implementations tag on their own schedules and the
+  a gap again, the mirror caught up again — and now the compiler has tagged
+  twice while the mirror spent its release on a filesystem rather than a pin.
+  The two implementations tag on their own schedules and the
   interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -146,14 +151,43 @@
   far the tag is, so neither end has to be a tag, and it requires both pages to
   spell what it counted.</p>
 
-  <p><strong>Where the vintage shows: in no program you can run.</strong> Every
-  <code>phase: run</code> program in the pinned corpus goes through the module
-  this page serves, and at these pins every one of them answers what the
-  compiler says it should. There is no table here, because there are no rows to
-  put in one. That sentence has now been true with the gap closed, with it
-  open, and closed again: at this pin the interpreter reads the very text the
-  compiler was cut from, and the census behind this page counts no parting
-  either way.</p>
+  <p><strong>Where the vintage shows: in fifteen programs, and all of them
+  spellings.</strong> Every <code>phase: run</code> program in the pinned
+  corpus goes through the module this page serves, and at these pins fifteen
+  of them answer a refusal where the compiler runs the program. There was no
+  table here for three pins running — the census counted no parting with the
+  gap closed, with it open, and closed again — and there is one now because
+  v0.2.13 added syntax: a list literal, <code>[1, 2, 3]</code>;
+  <code>range[int]</code> and <code>range[char]</code> as types; and
+  <code>error IoErrors = {none, parse, io}</code> as a name for a row. An
+  interpreter built to the text before them cannot parse them, so it stops at
+  the first bracket, type name or keyword and says so — the refusal working as
+  designed, rather than running the program and answering it wrongly.</p>
+  <ul>
+    <li><code>grammar/list_lit_arg.lu</code>, <code>list_lit_empty.lu</code>,
+      <code>list_lit_index.lu</code>, <code>list_lit_let.lu</code>,
+      <code>list_lit_multiline.lu</code>, <code>list_lit_nested.lu</code> —
+      the list literal, <code>[gram.expr.list]</code>: <code>fail(E0201)</code>
+      here, <code>exit 0</code> under the compiler.</li>
+    <li><code>grammar/match_nullary_variant.lu</code> — a nullary variant as a
+      pattern, <code>[gram.pat.nullary]</code>: <code>fail(E0201)</code> here.</li>
+    <li><code>grammar/range_type_char.lu</code>, <code>range_type_inclusive.lu</code>,
+      <code>range_type_param.lu</code>, <code>range_type_return.lu</code>,
+      <code>range_type_overflow.lu</code> — <code>range[int]</code> and
+      <code>range[char]</code> as types, <code>[type.range]</code>:
+      <code>fail(E0301)</code> here, the name unknown; the last of them traps
+      on overflow under the compiler, as its header says.</li>
+    <li><code>rows/error_alias_row.lu</code>, <code>error_alias_transparent.lu</code>,
+      <code>error_alias_union.lu</code> — the <code>error</code> alias,
+      <code>[gram.item.error]</code>: <code>fail(E0201)</code> here.</li>
+  </ul>
+  <p>Nothing else in the two releases parts. The other running programs they
+  added exit 0 here and print what the compiler prints, byte for byte — the
+  alias used as a plain name among them, and a <code>str</code> charged to its
+  region — and no program that ran here at the last pin has stopped. These
+  close the way every parting on this page has closed, at the interpreter's
+  next pin; until then the tab is the wrong place to try a list literal, and
+  the right place to see the refusal.</p>
 
   <p>What emptied it was the range arm arriving on this side. At the pin before
   this one <code>match</code> had gained range arms in the compiler and this
@@ -310,14 +344,17 @@
   looks broken.</p>
 
   <p>__COUNT_netprograms_Word__ of the corpus's net programs land in that
-  count, and none of them moved at this release. The three newest are v0.2.8's
-  — <code>syscall_first.lu</code>, <code>writev_gather.lu</code> and
+  count, and one of them is this release's: <code>writev_head_gather.lu</code>,
+  the witness for a response head leaving as a <code>str</code> beside the
+  gathered body, <code>[os.net.writev.head]</code>. The three before it are
+  v0.2.8's — <code>syscall_first.lu</code>, <code>writev_gather.lu</code> and
   <code>nodelay.lu</code>, the witnesses for a read that no longer takes a
   round trip through the reactor, for a head and a body leaving as one write,
   and for Nagle being off on every stream the runtime hands out. A tab declines
-  all three for one reason only, which is the socket: the calls themselves have
-  been in this interpreter since 0.1.28, and while they were not, a sentence
-  here said the refusal had two causes. That count was wrong until ww19,
+  all four for one reason only, which is the socket: the three older calls have
+  been in this interpreter since 0.1.28, the newest is not in it yet and would
+  be declined at the listener before it was reached, and while the three were
+  not in it, a sentence here said the refusal had two causes. That count was wrong until ww19,
   incidentally. The page said twelve from ww16, when thirteen was already the
   number; nothing gates a count written by hand, and re-measuring the census is
   what caught it.</p>
