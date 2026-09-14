@@ -259,8 +259,8 @@ play/index.html five 3 counted=3 audited-at-lupin=0.1.36
 play/index.html nine 1 counted=1 audited-at-lupin=0.1.36
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=4650a68
-reading/index.html Thirty-one 1 counted=1 audited-at-book=4650a68
-reading/index.html five 1 counted=1 audited-at-book=4650a68
+reading/index.html Six 1 counted=1 audited-at-book=119b269
+reading/index.html Thirty-one 1 counted=1 audited-at-book=119b269
+reading/index.html five 1 counted=1 audited-at-book=119b269
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
