@@ -26,8 +26,11 @@ browser reports `unsupported` for them and a menu entry that cannot run is a
 menu entry that looks broken:
 
   corpus/fs, corpus/net, corpus/os/args_cwd, corpus/projects/count
-      The filesystem tier (declined by design on every platform) and the s39
-      net tier, which the wasm build declines: no sockets in a browser tab.
+      The filesystem tier and the s39 net tier, both of which the wasm build
+      declines: no files to open and no sockets in a browser tab. (Through
+      lupin 0.1.35 the interpreter declined the filesystem in every build, by
+      design; since 0.1.36 the terminal build serves it and only this one
+      does not.)
 
   corpus/conc (most), corpus/procs.lu, corpus/test/conc_schedules_test.lu
       Tasks and procs. The interpreter gives each task an OS thread, and the
