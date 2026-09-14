@@ -47,37 +47,44 @@
       at v0.1.0 and held additive-only through the 0.1.x line; at
       v__WOLF_VERSION__ it is still <code>grammar/1</code> — a removal or
       narrowing would be a <code>grammar/2</code> act, and none has been taken.
-      This release widens it, which is the additive direction: the pattern
-      grammar gains a range form, <code>[gram.pat.range]</code>, so
-      <code>lo..hi</code> and <code>lo..=hi</code> over integer and
-      <code>char</code> literals are patterns wherever a pattern goes, composed
-      with or-patterns, with guards and with <code>@</code>-bindings. Both ends
-      must be literals and neither may be left off, because an open end is how
-      a slice is spelled — and the refusal is required to say the word "range",
-      which is the papercut the clause was written for. It rules the rest of
-      the shape too: overlap is legal and the first arm wins, an arm nothing
-      can reach is E0802, a range no value can match is E0815, and
-      exhaustiveness computes no union, so an integer or <code>char</code>
-      column stays infinite and still wants a <code>_</code>. Every program
-      that parsed before still parses. Anchors <code>[gram.*]</code>.</dd>
+      Every release since has widened it, which is the additive direction.
+      v0.2.11 gave the pattern grammar a range form,
+      <code>[gram.pat.range]</code>: <code>lo..hi</code> and
+      <code>lo..=hi</code> over integer and <code>char</code> literals are
+      patterns wherever a pattern goes, both ends literal because an open end
+      is how a slice is spelled, overlap legal with the first arm winning, an
+      arm nothing can reach E0802 and a range no value can match E0815.
+      v0.2.13 added three forms at once — the list literal,
+      <code>[gram.expr.list]</code>, with position settling the clash against
+      indexing so <code>[10, 20, 30][1]</code> needs no lookahead; the
+      <code>error</code> alias item, <code>[gram.item.error]</code>, with
+      <code>error</code> staying contextual so <code>let error = 1</code>
+      still parses; and the nullary variant pattern,
+      <code>[gram.pat.nullary]</code> — and <code>then</code> joined the
+      contextual table. Every program that parsed before still parses.
+      Anchors <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
     <dd>Regions, ownership tiers, moves, freezing, the shared and handle edges,
       provenance, and the closed list of rows that are undefined behavior with
       the optimization each one licenses. The interpreter implements this
       document as a dynamic machine; the compiler implements a static
-      approximation of it. This release adds <code>[mem.str.imm]</code>: a
+      approximation of it. v0.2.11 added <code>[mem.str.imm]</code>: a
       <code>str</code> never changes after it is built and a slice of one is a
       view, so there is no place on the left of <code>s[i..j] = …</code> — a
       rule rather than a thing the backend has not got to, and E0416 says so.
+      v__WOLF_VERSION__ adds <code>[mem.region.proc]</code>: a spawned proc
+      owns its ambient region, so bytes built inside it cannot be handed out of
+      it — E1010 — and the fix the diagnostic prescribes is to build them in
+      the spawner and pass them in.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
     <dd>Structured tasks, supervised procs, channels with region transfer,
       select, the memory model's happens-before rules, and the deterministic
       schedule a seed selects. Written in the shape of the Go memory model
-      document, with the advice in front of the formalism. At this release
-      <code>[conc.chan.close]</code> finally types what it had described for
+      document, with the advice in front of the formalism. At v0.2.11
+      <code>[conc.chan.close]</code> finally typed what it had described for
       two: <code>send</code> is <code>() ! {closed, cancelled}</code>, the same
       two tags the receive side carries, because a send blocked on a full
       buffer is a cancellation point too. Anchors <code>[conc.*]</code>.</dd>
@@ -139,7 +146,13 @@
       is declared — the 8-bit unsigned octet the toolchain gained at
       v0.2.4, with the clauses for its cast in both directions, the
       widening its operators do before they compute, and what an interpolation
-      hole prints. It is the document this release grows most.
+      hole prints. It is the document v0.2.13 grew most:
+      <code>[type.list.lit]</code> types a list literal from its elements or
+      from the type expected of it, <code>[type.range]</code> makes
+      <code>range[int]</code> and <code>range[char]</code> types in every
+      position with <code>end</code> always exclusive, and
+      <code>[type.err.alias]</code> makes an alias the same type as the row it
+      names, both ways, a cycle being E0610. v0.2.11's clauses are still here:
       <code>[type.unit]</code> writes down what a unit context is — a loop
       body, an else-less <code>if</code>, a unit function — and rules that a
       <code>!()</code> tail in one is a warned discard rather than a mismatch,
@@ -172,8 +185,10 @@
       the gathered write (<code>[os.net.writev]</code>), and one metadata read
       on an open handle (<code>[os.fs.fstat]</code>) in place of a path stat
       per fact. The first of those moved a cost and no row; the other three
-      were new surface, and every one of them serves every tier-1 host. This
-      release does not touch the document. Anchors
+      were new surface, and every one of them serves every tier-1 host.
+      v__WOLF_VERSION__ adds one call beside the gathered write,
+      <code>[os.net.writev.head]</code>: a <code>str</code> head handed to
+      <code>writev</code> with no <code>List[byte]</code> built for it. Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>
