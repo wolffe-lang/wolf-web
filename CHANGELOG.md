@@ -20,6 +20,61 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww29 (bump 2, the compiler) — 2026-09-14
+
+The compiler's gitlink takes wolf v0.2.14, the string runtime — and, because
+this site skipped a release, v0.2.13, the literals, with it. The interpreter
+does not move, so the gap that closed at the bump before reopens, to the
+widest it has been with both ends at tags: lupin 0.1.36 was built to the
+v0.2.12 tag, two releases and seventy-two commits behind what this site now
+advertises. Both pages say so, the distance stamp is back on both, and for
+once the compiler's own `--version` agrees: 0.2.14 declares 0.1.36, so the
+pairing is level while the pin is not.
+
+**The gap costs fifteen programs, and every one of them is a spelling.** 363
+`phase: run` programs at v0.2.14 go through the module this build publishes
+— 25 more than at v0.2.12, none of them promoted, by `phase:` header diff —
+and fifteen answer a refusal where the compiler runs the program: the six
+list-literal witnesses and the nullary-variant pattern at E0201, the range-type
+witnesses at E0301, three error-alias witnesses at E0201. Every parting this
+site recorded before was a ruling the interpreter had not mirrored yet; these
+are syntax its parser predates, and it stops at the first bracket, type name
+or keyword. Nothing else moves: the other running programs the two releases
+added exit 0 in the tab and print what the compiler prints, byte for byte,
+and no program that ran at the last pin has stopped. Census: 244 `exit`, 31
+`trap`, 15 `fail`, 73 `unsupported`, 15 class partings, 0 wrong answers.
+
+**Predicted 18 partings, measured 15.** Three programs read as new spellings
+were not: `rows/error_alias_ident.lu` uses the alias as a plain name,
+`strings/end_relative_get.lu`'s `^` was already in the interpreter, and
+`memory/list_elem_copy_loop.lu`'s bracket is an index. A grep for a construct
+is not a parse, and every miss was in the direction of predicting a refusal
+the tab did not make.
+
+**Five sentences on /spec/ told v0.2.11's story with no stamp and no
+literal** — "this release widens it", "this release adds `[mem.str.imm]`",
+"at this release `[conc.chan.close]`", "the document this release grows
+most", and "this release does not touch the document", the last one false at
+this pin because 11-os.md gains `[os.net.writev.head]`. The stamp allowlist's
+own header says it cannot see a bound sentence that carries no placeholder;
+these carried none. They name their releases now, as literals on the
+compiler's clock or as stamps counted as bound, so the next bump re-reads
+them.
+
+**The front page tells two releases' stories under one stamp, and says so:**
+the literals are v0.2.13's by name and the string runtime is the stamped
+release's. The doors, read live: the tap at v0.2.14 and 0.1.36, the AUR at
+0.2.14-1 and 0.1.36-1 — level with the page on both clocks, so "every channel
+agreed" is back on /install/, with the record that at the pin before this one
+the compiler's doors were ahead of the page.
+
+Stamps that moved: the diagnostic catalogue 140 → 142, the net programs
+seventeen → eighteen (`writev_head_gather.lu`, which the tab declines at the
+listener), and the distance. Warnings, the chapter total and the menu did
+not. The anchor register the ahead gate reads grew 475 → 498.
+`docs/platforms.md` is byte-identical at the two pins, so the thirty-six rows
+stand, and the toolchain pin is still 1.97.1.
+
 ## ww29 (bump 1, the interpreter) — 2026-09-14
 
 The interpreter's gitlink takes lupin 0.1.36, the filesystem tier, and the
