@@ -139,21 +139,32 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises is the papercuts.</strong> Most
-  of what v__WOLF_VERSION__ moved is one sentence: the compiler was right about
-  the program and wrong about the reader. A row is <code>E0409</code> on either
-  side of an operator, so <code>n + 1</code> and <code>1 + n</code> answer one
-  code. A <code>!T</code> left at a unit tail is a warning rather than a
-  diagnosis of the return type. <code>let r = Row{…}</code> followed by
-  <code>r.cents = 5</code> is <code>E0410</code> on both machines, where the
-  release before ran it. <code>==</code> on a type a library publishes works
-  one <code>use</code> away, because the operator is read from the operand's
-  own module and the file's imports rather than from the bare name.
-  <code>%</code> on a float is <code>fmod</code> and lowers on both backends,
-  the checked tier's casts convert, and <code>{m[k]:&gt;5}</code> is
-  <code>E0413</code> — a typing refusal rather than a silent
-  <code>unsupported</code>. None of it is a new language surface, which is why
-  it is a paragraph and not a section.</p>
+  <p><strong>The release this page advertises is the string runtime, and the
+  one before it is the literals.</strong> This page skipped a release, so two
+  arrive at once. v0.2.13 is three spellings the language could not write at
+  all: <code>[340, 275, 100]</code> is a list literal, with position settling
+  the clash against indexing so <code>[10, 20, 30][1]</code> needs no
+  lookahead; <code>range[int]</code> and <code>range[char]</code> are types in
+  every position, <code>start</code> and <code>end</code> properties and
+  <code>end</code> always exclusive, so <code>r.end - r.start</code> is the
+  count; and <code>error IoErrors = {none, parse, io}</code> names a row and
+  is the same type as its expansion both ways, a cycle being
+  <code>E0610</code>. v__WOLF_VERSION__ is where a built <code>str</code>'s
+  bytes live and who may outlive them. A string built by interpolation charges
+  its region now — 481.8 MB to 2.5 MB of peak memory over twenty thousand
+  turns of the same loop — and two rules arrive with it because freeing the
+  bytes is what makes them load-bearing: a spawned proc owns its ambient
+  region (<code>[mem.region.proc]</code>, <code>E1010</code> — build the bytes
+  in the spawner and hand them in), and <code>upper</code>, <code>lower</code>,
+  <code>repeat</code>, <code>replace</code> and a <code>str</code> read through
+  a field are escape sites like any other. <code>net_writev_head</code> hands
+  a response head to <code>writev</code> as a <code>str</code> with no
+  <code>List[byte]</code> built between. Beside those, papercuts: an editor
+  colours <code>then</code> and <code>error</code>, a type declaration with no
+  <code>=</code> reports once rather than three times, and a function value's
+  stray <code>-&gt; int</code> gets the rule and three spellings that work.
+  What the tab can and cannot do with the literals is measured on the
+  <a href="/play/">playground</a>.</p>
 
   <p>There is a second implementation. <code>lupin</code> is a reference
   interpreter written against the same specification, sharing no code with the
