@@ -78,18 +78,43 @@ test("the site as it stands passes, and says what it measured", () => {
   assert.match(out.stdout, /both pages carry/, "and it reports the reading");
 });
 
+/* The closed set, read off the script's own table rather than typed here:
+ * the one source of truth for which four phrases exist. */
+function phrases() {
+  const src = readFileSync(script, "utf-8");
+  const block = /PHRASES = \{([\s\S]*?)\}/.exec(src);
+  assert.ok(block, "check-lag-phrases.py declares PHRASES");
+  const set = {};
+  for (const m of block[1].matchAll(/(\d+): "([^"]+)"/g)) set[Number(m[1])] = m[2];
+  return set;
+}
+
 test("ww27's own paragraph reds — the phrase for another gap, quoted", () => {
   if (!pinned) return noPins();
+  const f = measured();
+  if (!f) return noPins();
   /* Verbatim in shape: a sentence that is HISTORY about the previous pin,
    * reads correctly to a person, and is still refused. The rule is page-wide
    * by design — it cannot tell a quotation from a claim, and a lag paragraph
    * left unrewritten is indistinguishable from one by any test a machine can
-   * apply. */
+   * apply.
+   *
+   * ww27 quoted the phrase for a gap of ZERO while the gap was one. This test
+   * was first written with that phrase typed in, and it held at every pin
+   * where the gap was one — then lupin 0.1.36 caught the compiler's tag, the
+   * gap became zero, `the same commit` became the phrase the page OWNS, the
+   * check correctly accepted the planted sentence, and the test went red
+   * (ww29a). The fossil the check exists to refuse, inside its own witness.
+   * So the quoted phrase is now the one for a gap the measurement does NOT
+   * own: ww27's own when the gap is not zero, and the next one up when it is. */
+  const set = phrases();
+  const other = f.gap === 0 ? set[1] : set[0];
+  assert.ok(other && other !== f.phrase, "a phrase for another gap exists");
   const out = withSite((html, rel) =>
     rel === "play/index.html"
       ? html.replace(
           "</body>",
-          "<p>it said <em>the same commit</em> at the pin where the tab ran\nsomething your compiler refused</p>\n</body>",
+          `<p>it said <em>${other}</em> at the pin where the tab ran\nsomething your compiler refused</p>\n</body>`,
         )
       : null,
   );
