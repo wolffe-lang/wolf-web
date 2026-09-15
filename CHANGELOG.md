@@ -20,6 +20,32 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww30 (the book at 0.2.14) — 2026-09-15
+
+The book's gitlink takes b3cb0db, bs49's trunk: the book pinned to wolf 0.2.14.
+The compiler and the interpreter do not move, so the lag stays two releases and
+seventy-two commits, and the served check holds it as a regression.
+
+**§3.2 names the range type and §6.1 names a row once.** `range[int]` and
+`range[char]` are written down in §3.2 with their `start` and `end`, and §6.1
+teaches error-set aliases beside the row they name, as a program only the
+compiler runs; lupin 0.1.36 does not parse the item yet, and the chapter says
+so. Chapters 26 and 30 run their bare fences on both machines now, chapter 5
+takes list literals where the lesson is construction, and §8.6 and §15.3 fix
+their strings.
+
+**The two gaps agree again.** At ww29 the colophon measured forty-three commits
+between its pair and this site measured seventy-two between its own. The book
+re-pins at wolf 0.2.14 and lupin 0.1.36 now, the pair this site advertises, and
+the colophon says seventy-two: one gap, two routes, one number.
+
+**The book's census, by `phase:` header, did not move** — 210 `run`, 18
+`typecheck`, 7 `parse`, 6 `mem`, 3 `resolve` at both pins. No book file was
+added or removed and SUMMARY.md is not in the diff, so the web edition is still
+48 pages and the PDF still 5.5 MB. All three readings on /reading/ reddened and
+all three stood, derived at the checkout: thirty-one of the chapters written
+through, chapter 21 three of its five sections, part 5 six programs and a coda.
+
 ## ww29 (bump 3, the book) — 2026-09-14
 
 The book's gitlink takes 119b269 — bs45, bs46, bs47 and the one-line fix the
