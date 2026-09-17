@@ -260,8 +260,10 @@ CHANGELOG.md twenty-one 2 counted=0
 CHANGELOG.md twenty-two 2 counted=0
 docs/index.html seven 1 counted=1 audited-at-wolf=0.2.15
 index.html five 3 counted=3 audited-at-wolf=0.2.15
+index.html ten 1 counted=1 audited-at-wolf=0.2.15
+index.html eighteen 1 counted=1 audited-at-book=bcad859
 index.html seven 1 counted=1 audited-at-wolf=0.2.15
-index.html twenty 2 counted=0
+index.html twenty 1 counted=0
 install/index.html Five 1 counted=1 audited-at-wolf=0.2.15
 install/index.html eight 2 counted=0
 install/index.html fifteen 1 counted=0
