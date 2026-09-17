@@ -127,12 +127,22 @@
   these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk — but the compiler
-  has tagged twice since it, so the text this tab reads is two releases behind
-  the one <a href="/install/">install</a> advertises,
-  __COUNT_speccommits_word__ commits of the compiler's own history back. It is
-  the first time the distance has been that wide with both ends at tags, and
-  for once the compiler's own second line says the same thing: it was tested
-  against this interpreter and quotes this pin.</p>
+  has tagged three times since it, so the text this tab reads is three releases
+  behind the one <a href="/install/">install</a> advertises,
+  __COUNT_speccommits_word__ commits of the compiler's own history back. That
+  is the widest this distance has been, and this is the first bump at which the
+  compiler's own second line does <em>not</em> name the interpreter in this
+  tab: the release <a href="/install/">install</a> advertises was tested
+  against lupin 0.1.37, and this site does not serve it. The reason is a fact
+  about the two repositories rather than a judgement made here. 0.1.37 records,
+  as the specification checkout it was built to, a compiler revision that the
+  released compiler's history does not contain — a branch head that the
+  rebase-merge landing it rewrote under other shas, preserved by a tag so it
+  can still be fetched, but not on the line. A distance along one line is
+  exactly what this paragraph states, so there is none to state, and the check
+  that holds these sentences refuses rather than printing a number with no
+  referent. The tab takes the interpreter's next pin on the compiler's
+  line.</p>
 
   <p>That is the open end of an ordinary cycle, and the page has now stood at
   every point of it more than once: an untagged commit short of a release, the
@@ -151,18 +161,21 @@
   far the tag is, so neither end has to be a tag, and it requires both pages to
   spell what it counted.</p>
 
-  <p><strong>Where the vintage shows: in fifteen programs, and all of them
+  <p><strong>Where the vintage shows: in twenty-two programs, and all of them
   spellings.</strong> Every <code>phase: run</code> program in the pinned
-  corpus goes through the module this page serves, and at these pins fifteen
-  of them answer a refusal where the compiler runs the program. There was no
-  table here for three pins running — the census counted no parting with the
-  gap closed, with it open, and closed again — and there is one now because
-  v0.2.13 added syntax: a list literal, <code>[1, 2, 3]</code>;
+  corpus goes through the module this page serves, and at these pins twenty-two
+  of them answer a refusal where the compiler runs the program. It was fifteen
+  at the pin before this one and the module has not changed since: every
+  program that answered here then answers the same way now, and the seven that
+  joined are the corpus moving under a module standing still. Two of the three
+  releases put them there. v0.2.13 added syntax — a list literal, <code>[1, 2, 3]</code>;
   <code>range[int]</code> and <code>range[char]</code> as types; and
-  <code>error IoErrors = {none, parse, io}</code> as a name for a row. An
-  interpreter built to the text before them cannot parse them, so it stops at
-  the first bracket, type name or keyword and says so — the refusal working as
-  designed, rather than running the program and answering it wrongly.</p>
+  <code>error IoErrors = {none, parse, io}</code> as a name for a row — and
+  v__WOLF_VERSION__ added a surface, the method call and the combinators that
+  reach their home module, <code>par</code> among them. An interpreter built to
+  the text before either cannot parse them, so it stops at the first bracket,
+  type name, keyword or dot and says so — the refusal working as designed,
+  rather than running the program and answering it wrongly.</p>
   <ul>
     <li><code>grammar/list_lit_arg.lu</code>, <code>list_lit_empty.lu</code>,
       <code>list_lit_index.lu</code>, <code>list_lit_let.lu</code>,
@@ -180,14 +193,43 @@
     <li><code>rows/error_alias_row.lu</code>, <code>error_alias_transparent.lu</code>,
       <code>error_alias_union.lu</code> — the <code>error</code> alias,
       <code>[gram.item.error]</code>: <code>fail(E0201)</code> here.</li>
+    <li><code>grammar/range_value_wide_iter.lu</code> — a range type again,
+      <code>[type.range]</code>: <code>fail(E0301)</code> here. It joins the
+      range-type witnesses above at this pin because the compiler taught its checked machine to
+      walk a wide range rather than build it, and the witness that says so is
+      new.</li>
+    <li><code>methods/comb_map_filter_fold.lu</code>,
+      <code>comb_sort_enumerate_zip.lu</code>, <code>comb_sorted_ord.lu</code>,
+      <code>method_is_free_call.lu</code>, <code>wordcount_serial.lu</code>,
+      <code>wordcount_par.lu</code> — the method surface,
+      <code>[type.method]</code> and <code>[type.comb.set]</code>:
+      <code>fail(E0201)</code> here, the dot unparsed. The last two are the
+      book's word counter, serial and parallel, which is where
+      <code>par</code> reaches this census: the interpreter runs
+      <code>xs.par(f)</code> sequentially by design and prints the same bytes,
+      so this refusal is vintage and nothing else.</li>
   </ul>
-  <p>Nothing else in the two releases parts. The other running programs they
-  added exit 0 here and print what the compiler prints, byte for byte — the
-  alias used as a plain name among them, and a <code>str</code> charged to its
-  region — and no program that ran here at the last pin has stopped. These
-  close the way every parting on this page has closed, at the interpreter's
-  next pin; until then the tab is the wrong place to try a list literal, and
-  the right place to see the refusal.</p>
+  <p>Nothing else in the three releases parts by a refusal. The other running
+  programs they added exit 0 here and print what the compiler prints, byte for
+  byte — the alias used as a plain name among them, and a <code>str</code>
+  charged to its region — and no program that ran here at the last pin has
+  stopped. These close the way every parting on this page has closed, at the
+  interpreter's next pin; until then the tab is the wrong place to try a list
+  literal or a method call, and the right place to see the refusal.</p>
+
+  <p><strong>One program is worse than a refusal, and this is the page that
+  has to say so.</strong> <code>corpus/grammar/range_header_inclusive_max.lu</code>
+  does not answer this module at all: it reaches the module's own
+  <code>unreachable</code> and the instance is gone, so the tab stops rather
+  than printing a verdict, and the page has to be reloaded. It is not on the
+  menu below and the census is the only thing that has ever fed it here. The
+  compiler's release notes describe the same file the same way against a later
+  interpreter build — a range materialized instead of walked, one allocation
+  large enough that a machine with memory to spare ran out of it — so this is
+  that defect arriving in a sandbox that has no memory to spare, and it is
+  filed against the interpreter rather than the page. Until it is fixed,
+  the honest thing is the sentence you are reading: do not paste that
+  program in.</p>
 
   <p>What emptied it was the range arm arriving on this side. At the pin before
   this one <code>match</code> had gained range arms in the compiler and this

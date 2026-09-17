@@ -176,11 +176,16 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   tags. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk — but
-  the compiler has tagged twice since it, so the newest release whose text the
-  interpreter carries whole is two releases behind the compiler you are
-  installing, __COUNT_speccommits_word__ commits back. It is also exactly what
-  the compiler's own second line says: this compiler was tested against this
-  interpreter, and quotes the pin it reads. A gap opens whenever the compiler
+  the compiler has tagged three times since it, so the newest release whose
+  text the interpreter carries whole is three releases behind the compiler you
+  are installing, __COUNT_speccommits_word__ commits back. For the first time
+  it is <em>not</em> what the compiler's own second line says: the compiler
+  above was tested against lupin 0.1.37, and the playground does not serve it.
+  0.1.37 names a compiler revision that this compiler's history does not
+  contain — a branch head the rebase-merge that landed it rewrote under other
+  shas — so there is no distance along one line to state for it, and this page
+  will not state one it cannot count. The <a href="/play/">playground</a>
+  carries the same paragraph from the other end. A gap opens whenever the compiler
   tags and the interpreter has not yet followed, which is the ordinary shape
   of a two-implementation project, and it closes when the mirror catches up.
   While it is open the <a href="/play/">playground</a> can answer a program
@@ -189,9 +194,14 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins it is the longest this page has carried: fifteen programs the
+  these pins it is the longest this page has carried: twenty-two programs the
   compiler above runs and the tab refuses, every one of them a spelling rather
-  than a ruling. v0.2.13 added syntax the language could not write at all —
+  than a ruling. It was fifteen at the pin before this one, against the same
+  interpreter build: the seven that joined are the corpus moving while the
+  module stood still. v__WOLF_VERSION__ added a surface — the method call, the
+  ten combinators that resolve in their receiver's home module, and
+  <code>par</code> — and the interpreter in the tab stops at the dot. Before
+  it, v0.2.13 added syntax the language could not write at all —
   a list literal, <code>[340, 275, 100]</code>; <code>range[int]</code> and
   <code>range[char]</code> as types; and <code>error IoErrors = {none, parse,
   io}</code> as a name for a row — and the interpreter in the tab was built to
@@ -200,7 +210,7 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   pattern at <code>E0201</code>, the range-type witnesses at
   <code>E0301</code>, the error-alias witnesses at <code>E0201</code>. The
   <a href="/play/">playground</a> names each one. Nothing else moved: the
-  other running programs the two releases added answer in the tab byte for
+  other running programs the three releases added answer in the tab byte for
   byte, and the gap before this one, which cost nothing, is closed behind it.
   The two <em>messages</em> that parted at an earlier pin are
   settled — a bare row used as an operand is <code>E0409</code> in both places
