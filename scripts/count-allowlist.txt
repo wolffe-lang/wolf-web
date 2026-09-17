@@ -150,6 +150,22 @@
 #             so the chapter /reading/ quotes by title was checked rather than
 #             skipped: its H1 and all six `## 5.N` headings are unchanged, and
 #             exercise 5-7 is still the grade book.
+#             ww29 (-> 119b269) and ww30 (-> b3cb0db) moved nothing here and
+#             left no note; ww31 (-> bcad859) moves nothing either, and it
+#             RETIRES a false clause in the correction above. bs50 writes
+#             §13.1, so "ch13 carries §13.2 alone (§13.1 is vacant by its own
+#             rp01 hold)" is no longer true of any pin this file audits: ch13
+#             carries §13.1 and §13.2 now, and the TOC row drops its `(held)`
+#             prefix. The correction's POINT survives — the figure is 33 minus
+#             the two /reading/ names, not "the chapters with one heading" —
+#             and it now has one fewer counterexample rather than a different
+#             one. Derived at bcad859, not from the diff: 33 `](chNN.md)`
+#             entries in SUMMARY.md; ch29 carries no `## 29.N` heading and
+#             ch25 carries §25.3 alone, so thirty-one are written through;
+#             ch21 is still §21.1, §21.2 and §21.4 of five; chapters 26-31 are
+#             still six programs (`count`, `rpn`, `wordtree`, `tinyvm`,
+#             `pargrep`, `logden`) with ch32 the coda. SUMMARY.md is not in
+#             the b3cb0db..bcad859 diff and no book file is added or removed.
 #   /         `seven characters` — NEW at ww24. The commit a development
 #             build's version string carries is seven hex characters from
 #             every clone, by decision (wolf-lang#301), rather than whatever
@@ -260,8 +276,8 @@ play/index.html five 3 counted=3 audited-at-lupin=0.1.36
 play/index.html nine 1 counted=1 audited-at-lupin=0.1.36
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-reading/index.html Six 1 counted=1 audited-at-book=b3cb0db
-reading/index.html Thirty-one 1 counted=1 audited-at-book=b3cb0db
-reading/index.html five 1 counted=1 audited-at-book=b3cb0db
+reading/index.html Six 1 counted=1 audited-at-book=bcad859
+reading/index.html Thirty-one 1 counted=1 audited-at-book=bcad859
+reading/index.html five 1 counted=1 audited-at-book=bcad859
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
