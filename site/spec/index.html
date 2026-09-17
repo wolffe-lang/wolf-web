@@ -62,6 +62,14 @@
       still parses; and the nullary variant pattern,
       <code>[gram.pat.nullary]</code> — and <code>then</code> joined the
       contextual table. Every program that parsed before still parses.
+      This release widened it once more and wrote two refusals down without
+      moving the line: <code>FORMAT_SPEC</code> is a production now — fill,
+      align, sign, width, precision and type — where the grammar had carried
+      a colon and a pointer to the types document, while
+      <code>[gram.expr.variant]</code> and <code>[gram.type.start]</code>
+      give anchors, and one of them a machine-applicable fix, to two inputs
+      that were already refused. The accepted language is the same; the
+      diagnostics moved.
       Anchors <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
@@ -73,10 +81,22 @@
       <code>str</code> never changes after it is built and a slice of one is a
       view, so there is no place on the left of <code>s[i..j] = …</code> — a
       rule rather than a thing the backend has not got to, and E0416 says so.
-      v__WOLF_VERSION__ adds <code>[mem.region.proc]</code>: a spawned proc
+      v0.2.14 added <code>[mem.region.proc]</code>: a spawned proc
       owns its ambient region, so bytes built inside it cannot be handed out of
       it — E1010 — and the fix the diagnostic prescribes is to build them in
-      the spawner and pass them in.
+      the spawner and pass them in. v__WOLF_VERSION__ is the first release
+      that changes what a program you already wrote means, and this is the
+      document that says why. A builtin container store <em>copies</em> its
+      element now, at <code>[mem.tier0.move.3]</code>'s cost: keeping the
+      caller's handle alive inside the container was
+      <code>[mem.tier0.excl.1]</code> violated with a builtin as the callee —
+      two writable paths to one value, nothing spelled, nothing reported.
+      <code>push(take x)</code> is the spelling that hands the value over
+      instead, and a store is the one <code>read</code> position where a call
+      site may name a mode at all; the same clause
+      (<code>[mem.tier0.mode.read]</code>) rules that a move out of a
+      <code>read</code> parameter is lent and may not outlive the call.
+      Nothing warns, because there is nothing wrong with the new answer.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -87,7 +107,22 @@
       <code>[conc.chan.close]</code> finally typed what it had described for
       two: <code>send</code> is <code>() ! {closed, cancelled}</code>, the same
       two tags the receive side carries, because a send blocked on a full
-      buffer is a cancellation point too. Anchors <code>[conc.*]</code>.</dd>
+      buffer is a cancellation point too. v__WOLF_VERSION__ adds the first
+      combinator that is a scope: <code>[conc.task.par]</code> defines
+      <code>xs.par(f)</code> by desugaring to a <code>scope</code> of
+      <code>spawn</code>s, so it adds shape and no semantics. Results come
+      back in input order whatever the schedule
+      (<code>[conc.task.par.order]</code>), the tasks join inside the call, a
+      write to captured enclosing state is E1101 at the write with the
+      <code>par</code> named as the spawn site
+      (<code>[conc.task.par.capture]</code>), and the index range is cut into
+      contiguous chunks — never a task per element
+      (<code>[conc.task.par.chunk]</code>). The cost clause,
+      <code>[conc.task.par.cost]</code>, promises no speedup and says so in
+      the document: a list shorter than the worker count, or an
+      <code>f</code> cheaper than a spawn, can make it slower than
+      <code>map</code>, and both are conforming.
+      Anchors <code>[conc.*]</code>.</dd>
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
     <dd>Layout, calling convention, and the foreign boundary, differentially
@@ -159,7 +194,19 @@
       with the counter-case for a task closure whose scope consumes the row.
       <code>[type.fn.ret]</code> checks a body's tail against the declared
       result and <code>[type.row.operand]</code> refuses a bare row as an
-      operand; both were already enforced and neither was written.
+      operand; both were already enforced and neither was written. It is the
+      document this release grew most, as it was v0.2.13's: a method call is
+      defined as the function it is (<code>[type.method]</code> —
+      <code>xs.map(f)</code> IS <code>list.map(xs, f)</code>, resolved in the
+      receiver's home module), the combinator set is closed at ten functions
+      plus one builtin (<code>[type.comb.set]</code>,
+      <code>[type.comb.builtin]</code>) with what each one copies written
+      down (<code>[type.comb]</code>, <code>[type.comb.eager]</code>),
+      <code>take</code> is the ownership verb and never a method name
+      (<code>[type.method.take]</code>), a type parameter binds once
+      (<code>[type.generic.bind]</code>), and the interpolation format
+      specifier gets the clause the grammar's new production points at
+      (<code>[type.interp.spec]</code>).
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
@@ -186,9 +233,19 @@
       on an open handle (<code>[os.fs.fstat]</code>) in place of a path stat
       per fact. The first of those moved a cost and no row; the other three
       were new surface, and every one of them serves every tier-1 host.
-      v__WOLF_VERSION__ adds one call beside the gathered write,
+      v0.2.14 added one call beside the gathered write,
       <code>[os.net.writev.head]</code>: a <code>str</code> head handed to
-      <code>writev</code> with no <code>List[byte]</code> built for it. Anchors
+      <code>writev</code> with no <code>List[byte]</code> built for it. At
+      v__WOLF_VERSION__ the document stops being about sockets alone: it
+      gains the host a program is running on and the signals that host can
+      deliver (<code>[os.host]</code>, <code>[os.host.sigs]</code>), the path
+      of the running executable (<code>[os.proc.exe]</code>), what a spawn
+      does with the streams it is not handed
+      (<code>[os.proc.spawn]</code>, beside
+      <code>[os.proc.inherit]</code>'s existing rule), and the two filesystem
+      calls a program writing files needs before it needs anything else —
+      path composition and removal (<code>[os.fs.path]</code>,
+      <code>[os.fs.remove]</code>). Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>
