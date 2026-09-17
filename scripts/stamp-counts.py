@@ -86,13 +86,30 @@ TENS = "_ _ twenty thirty forty fifty sixty seventy eighty ninety".split()
 
 
 def word(n: int) -> str:
-    """A count as the pages spell it in prose. Beyond 99 they use digits."""
-    if n < 0 or n > 99:
+    """A count as the pages spell it in prose.
+
+    Through ww30 this stopped at 99 and its docstring said the pages used
+    digits beyond it. Nothing anywhere did: check-lag-phrases.py requires the
+    distance on /install/ and /play/ to be the `__COUNT_speccommits_word__`
+    stamp and refuses any other spelling, so the first count to cross a
+    hundred was a build failure and not a page in digits. ww31 is that count.
+    The compiler tagged 0.2.15 while the interpreter's pin stood still and the
+    specification distance reached 234, which is the first three-digit number
+    this site has had to say out loud. The style is the one the changelog
+    already uses — "a hundred and thirty" — with the leading article spelled
+    as the digit's own word.
+    """
+    if n < 0 or n > 999:
         raise ValueError(f"no prose spelling for {n}")
     if n < 20:
         return ONES[n]
-    tens, ones = divmod(n, 10)
-    return TENS[tens] if not ones else f"{TENS[tens]}-{ONES[ones]}"
+    if n < 100:
+        tens, ones = divmod(n, 10)
+        return TENS[tens] if not ones else f"{TENS[tens]}-{ONES[ones]}"
+    hundreds, rest = divmod(n, 100)
+    if not rest:
+        return f"{ONES[hundreds]} hundred"
+    return f"{ONES[hundreds]} hundred and {word(rest)}"
 
 
 def odd(n: int) -> str:
