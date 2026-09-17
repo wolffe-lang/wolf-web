@@ -20,6 +20,86 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww31 (the site at 0.2.15, and the pin it could not take) — 2026-09-17
+
+Two of the three gitlinks move. The book takes bcad859 (bs50) and the compiler
+takes 2e4ca76, which is wolf 0.2.15. **The interpreter does not move, and that
+is this entry's subject.**
+
+**lupin 0.1.37 cannot be pinned here, and the check that says so is right.**
+The interpreter records the specification checkout it was built to as a
+gitlink, and 0.1.37's is a compiler revision the released compiler's history
+does not contain: a branch head that the rebase-merge landing it rewrote under
+other shas. wolf-lang preserves it as a tag so a clone can still fetch it, and
+that is exactly why the failure is the one worth having —
+`scripts/check-lag-phrases.py` gets past its "is this a commit here" guard and
+stops on the next one, "the compiler this site pins does not descend from it".
+The lag this site publishes is a distance along one line, and there is no such
+distance to publish for that pin. Had the gate not been there,
+`scripts/stamp-counts.py` would have stamped the distance anyway: `rev-list`
+answers a number for two commits on divergent lines, and the number is two
+hundred and thirty-four commits of rewritten history. It would have reached
+both pages and looked like every other measurement on them. The site serves
+0.1.36 until the interpreter re-pins on the compiler's line.
+
+**So the gap is three releases, and the widest it has been.** 0.1.36 was built
+at the v0.2.12 tag, and 0.2.15 is three releases past it. Both pages carry
+`three releases` and neither carries another phrase, and both now say the
+thing this site has never had to say before: the compiler's second line names
+an interpreter the playground does not run.
+
+**The parting goes from fifteen programs to twenty-two, and the module is the
+control.** Every `phase: run` program in the pinned corpus went through the
+wasm module this build publishes, first against the corpus at the DEPLOYED
+compiler pin — 361 programs, 242 exit, 31 trap, 73 unsupported, fifteen fail,
+which is the fifteen the served pages state, file for file — and then against
+0.2.15's: 385 programs, 250 exit, 31 trap, 81 unsupported, twenty-two fail.
+The module is byte-identical between the two runs and no file present at both
+pins changed verdict, which is what makes the seven that joined the corpus
+moving rather than the harness. Six are s166's method surface, including the
+book's own word counter in both its forms, and the seventh is one more range
+type. All of them stop at a dot or a type name; none is a ruling.
+
+**One program does not part, it kills the tab.**
+`corpus/grammar/range_header_inclusive_max.lu` reaches the module's own
+`unreachable` and takes the instance with it, so a visitor who pastes it gets
+a dead page rather than a refusal. It is not on the menu, `check-samples.mjs`
+only feeds the menu, and nothing on this site had ever fed it. The compiler's
+own release notes describe the same file exhausting a much larger machine
+against a later interpreter build, so this is that defect in a sandbox with no
+memory to spare. /play/ says so in prose and names the file; the fix is the
+interpreter's.
+
+**The specification distance crossed a hundred and had no word for itself.**
+`stamp-counts.py` spelled counts to 99 and its docstring said the pages used
+digits beyond that. Nothing did: `check-lag-phrases.py` requires the distance
+to be the `__COUNT_speccommits_word__` stamp and refuses any other spelling,
+so the first count over a hundred was a build failure, not a page in digits.
+It is two hundred and thirty-four now. The speller reaches 999 and still
+refuses what it cannot say, which was checked in both directions before it was
+trusted.
+
+**What the pages had to re-read.** Forty clocked allowlist lines reddened —
+twenty-four version literals, four stamp entries and twelve counts — which is
+what a wolf-and-book bump with the lupin clock standing still costs, and it
+was the number predicted before the pins moved. The front page's release
+paragraph was rewritten: the advertised release is the one that changes what
+an already-written program means, `push` copying its element where it used to
+keep the caller's handle alive, and the string runtime becomes a literal
+behind it. /spec/ moved two release-bound sentences onto v0.2.14 and wrote the
+five documents 0.2.15 grew. Three readings on /reading/ reddened on the book
+clock and all three stood, derived at the checkout: thirty-one of the chapters
+written through, chapter 21 three of its five sections, part 5 six programs
+and a coda. §13.1 retires a clause of this file's own ch13 correction, which
+said §13.1 was vacant.
+
+**The build, measured.** 63 pages dry, 63 live, and every one of the 63 the
+dry build writes already answers 200 on the served site, so the bump adds no
+URL and removes none. The book is 48 pages and the PDF 5.5 MB at both pins —
+SUMMARY.md is not in the book diff and no book file is added or removed. The
+menu is 36 programs. The stamps: 33 book chapters, 142 diagnostics, 34
+warnings, 18 net programs, 36 samples, 234 spec commits.
+
 ## ww30 (the book at 0.2.14) — 2026-09-15
 
 The book's gitlink takes b3cb0db, bs49's trunk: the book pinned to wolf 0.2.14.
