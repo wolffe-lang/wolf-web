@@ -259,32 +259,32 @@ CHANGELOG.md twenty-odd 1 counted=0
 CHANGELOG.md twenty-one 2 counted=0
 CHANGELOG.md twenty-two 4 counted=0
 CHANGELOG.md Forty 1 counted=0
-docs/index.html seven 1 counted=1 audited-at-wolf=0.2.15
-index.html five 3 counted=3 audited-at-wolf=0.2.15
-index.html ten 1 counted=1 audited-at-wolf=0.2.15
+docs/index.html seven 1 counted=1 audited-at-wolf=0.2.16
+index.html five 3 counted=3 audited-at-wolf=0.2.16
+index.html ten 1 counted=1 audited-at-wolf=0.2.16
 index.html eighteen 1 counted=1 audited-at-book=e0a44a3
-index.html seven 1 counted=1 audited-at-wolf=0.2.15
+index.html seven 1 counted=1 audited-at-wolf=0.2.16
 index.html twenty 1 counted=0
-install/index.html Five 1 counted=1 audited-at-wolf=0.2.15
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.16
 install/index.html eight 2 counted=0
 install/index.html fifteen 1 counted=0
-install/index.html twenty-two 1 counted=1 audited-at-wolf=0.2.15
-install/index.html seven 1 counted=1 audited-at-wolf=0.2.15
-install/index.html ten 1 counted=1 audited-at-wolf=0.2.15
-install/index.html five 1 counted=1 audited-at-wolf=0.2.15
+install/index.html twenty-two 1 counted=1 audited-at-wolf=0.2.16
+install/index.html seven 1 counted=1 audited-at-wolf=0.2.16
+install/index.html ten 1 counted=1 audited-at-wolf=0.2.16
+install/index.html five 1 counted=1 audited-at-wolf=0.2.16
 install/index.html sixteen 1 counted=0
-install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.15
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.16
 install/index.html twenty-one 1 counted=0
 play/index.html Eight 1 counted=1 audited-at-lupin=0.1.36
-play/index.html six 1 counted=1 audited-at-wolf=0.2.15
+play/index.html six 1 counted=1 audited-at-wolf=0.2.16
 play/index.html fifteen 1 counted=0
-play/index.html twenty-two 2 counted=2 audited-at-wolf=0.2.15
-play/index.html seven 1 counted=1 audited-at-wolf=0.2.15
+play/index.html twenty-two 2 counted=2 audited-at-wolf=0.2.16
+play/index.html seven 1 counted=1 audited-at-wolf=0.2.16
 play/index.html five 3 counted=3 audited-at-lupin=0.1.36
 play/index.html nine 1 counted=1 audited-at-lupin=0.1.36
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-spec/index.html ten 1 counted=1 audited-at-wolf=0.2.15
+spec/index.html ten 1 counted=1 audited-at-wolf=0.2.16
 reading/index.html Six 1 counted=1 audited-at-book=e0a44a3
 reading/index.html Thirty-one 1 counted=1 audited-at-book=e0a44a3
 reading/index.html five 1 counted=1 audited-at-book=e0a44a3
