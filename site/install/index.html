@@ -85,21 +85,21 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   you they are current. What can is a gate in the tap's own repository that
   reads what is <em>published</em> — the live AUR, the live tap, the live
   release pages — and goes red when a package trails its upstream or names a
-  digest the release does not carry. When this page was last read against the
-  pins — and it is read live at every bump — every channel agreed: the tap's
-  <code>wolf</code> formula builds tag v__WOLF_VERSION__ and its
-  <code>lupin</code> builds __LUPIN_VERSION__; on the AUR both compiler
-  packages read __WOLF_VERSION__ and both interpreter packages
-  __LUPIN_VERSION__. It has not always. At the pin before this one the
-  compiler's doors were ahead of the page — the tap and the AUR already
-  carried this compiler release while the page still advertised an older one,
-  because this site took the interpreter's release first, in the order its own
-  pin arithmetic accepts — and at the pin four bumps before this one the tap
-  carried a new compiler tag for some minutes before the AUR did. A door ahead
-  of the page is not a door behind its upstream, and telling the two apart is
-  what that gate is for: a release and its packaging are separate acts and do
-  not land in the same minute. The archives below are the release itself, and
-  need nothing installed first.</p>
+  digest the release does not carry. Read live at this bump, the two channels
+  do <em>not</em> agree, and this is the first bump at which they have not.
+  The tap is current: its <code>wolf</code> formula builds tag
+  v__WOLF_VERSION__ and its <code>lupin</code> builds __LUPIN_VERSION__. The
+  AUR is not: all four of its packages trail their upstream by two tags, the
+  compiler's pair at 0.2.14-1 and the interpreter's at 0.1.36-1. That is a door behind
+  its upstream rather than a door ahead of the page, which is the direction
+  worth telling you about — <code>yay -S wolf-lang-bin</code> installs a
+  compiler two tags older than this page describes, and the four archives
+  below are the release itself and need nothing installed first. At the pin
+  before this one the direction was the other way and cost nothing: the tap
+  and the AUR carried the compiler release before the page advertised it,
+  because this site takes the interpreter's release first, in the order its
+  own pin arithmetic accepts. A release and its packaging are separate acts
+  and do not land in the same minute.</p>
 </section>
 
 <section>
