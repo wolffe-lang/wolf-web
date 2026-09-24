@@ -20,6 +20,105 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww32 (the site at 0.2.16, and the pin it could take) — 2026-09-24
+
+All three gitlinks move: the book to bs51's head, the compiler to wolf 0.2.16,
+and the interpreter to lupin 0.1.38 — the pin ww31 measured, refused and said
+would come. It is the first bump at which all three clocks move at once.
+
+**The lag is one release, and the number is the one the book's colophon
+prints.** lupin 0.1.38 re-pins on the released line: the specification
+checkout it records is the v0.2.15 tag commit itself, so the ancestry guard
+that stopped ww31 answers yes reflexively, and the distance along one line
+exists again. The build counts it at 148 commits, one release, and the
+pinned book — written from the other end, against the same two repositories —
+says 148 commits, one release, in its colophon. One gap, two routes, one
+number, for the second time this file has been able to say so.
+
+**The parting goes from twenty-two programs to one, and the one is a type
+name.** `corpus/conc/proc_join_param.lu` writes `Proc` as the type of a
+parameter, which 0.2.16 is the first release to accept — `Scope` and `Proc[T]`
+elaborate in a signature now, where the capitalised names were unknown and the
+lowercase keywords refused — and the interpreter answers E0301, nothing named
+`Proc` in scope. Both machines agree about what a proc is and part over
+whether the word may stand there yet.
+
+**The census was measured four ways, because two things moved at once and a
+single walk cannot say which did what.** Both corpora went through both
+modules. At the deployed pins — the corpus the site serves today and the
+module it publishes today — 387 `phase: run` programs, 252 exit, 31 trap, 81
+unsupported, 22 fail, and one that killed the wasm instance outright. Holding
+the corpus still and moving only the module: 271 exit, 32 trap, 84
+unsupported, **zero** fail, zero dead. Holding the module still and moving
+only the corpus: 27 fail. At both new pins: 411 programs, 287 exit, 33 trap,
+90 unsupported, one fail, candidates 320. The row-level reading is the point
+of doing it four ways — **no program present at both corpus pins changed its
+class when only the corpus moved**, so every class change at this bump is the
+interpreter catching up, and the twenty-four programs that arrive are the
+corpus's alone: sixteen exit, six unsupported, one trap, one fail.
+
+Twenty-two of the twenty-six rows the module's move touched are the closing
+list, and four are not: three programs that had been declining for want of a
+builtin now run, and the dead one answers. The prediction committed before the
+first pin moved called the program count, the distance, the allowlist cost and
+the dead program right, and got the parting wrong in both directions: it said
+two programs would part and named the two pool witnesses, and the pool
+witnesses report a std-subset decline rather than a refusal, while the row
+that does part is one the prediction had reasoned about under the other
+handle's name and then written off.
+
+**Six programs stopped being refused and started being declined, which is a
+distinction this site had never had to draw.** The method-surface witnesses
+were `fail(E0201)` with the dot unparsed; this interpreter parses the dot, and
+what it then has to do is reach the receiver's home module, because a method
+call is the function it is. A browser tab has no standard library on disk to
+reach, so they answer `unsupported` with a reason naming the std root. It is a
+decline of this build rather than a refusal of this interpreter, and to a
+reader the two words look alike. /play/ spells it out.
+
+**The program that was worse than a refusal is fixed.**
+`corpus/grammar/range_header_inclusive_max.lu` reached the old module's own
+`unreachable` and took the instance with it, so a visitor who pasted it got a
+dead page. The interpreter walks the range now instead of materializing it.
+Fed to the new module on purpose — nothing on this site had ever fed it, and
+the menu check only feeds the menu — it exits 0 and prints its two lines, and
+the wide-range witness beside it does the same. The paragraph that warned
+about it is gone, and the one that records the fix is in its place.
+
+**What the pages had to re-read: sixty-one clocked allowlist lines,** which is
+what all three clocks moving costs — thirty-four version literals, six stamp
+entries and twenty-one counts. Nine entries left with the sentences they
+counted and four arrived. Four sentences were false under the new stamps and
+all four were the same mistake this file has caught before, a paragraph
+telling the last release's story under this release's number: /spec/'s memory,
+concurrency and operating-system status lines, and the front page's release
+paragraph. They are rewritten, and the release they described is a literal now
+rather than a stamp.
+
+**And the doors part for the first time.** The freshness claim is read live at
+every bump and both channels have agreed at every bump until this one. The tap
+builds both new tags. The AUR's four packages trail their upstream by two,
+the compiler's pair and the interpreter's pair alike. That is a door behind
+its upstream rather than a door ahead of the page, which is the direction a
+reader needs told, so the sentence says which channel is which and what
+installing from the trailing one gets you.
+
+**The book.** All four readings /reading/ makes were derived at the checkout
+and none moved: thirty-three chapters in the table of contents, the same two
+chapters holding a whole page back, chapter 21 still three of its five
+sections written, and part 5 still six programs and a coda. The web edition is
+48 pages at both pins and the print edition grew to 5.6 MB. The paragraph ww31
+added — that the book's pair was not this site's — comes off, because the
+colophon now names exactly the pair this site serves.
+
+**The build, measured.** 63 pages dry, 63 live, and every one of the 63 the
+dry build writes already answers 200 on the served site, so the bump adds no
+URL and removes none. The menu is 36 programs, each in the class the page
+claims for it and none carrying a note. The stamps: 33 book chapters, 142
+diagnostics, 34 warnings, 18 net programs, 36 samples, 148 spec commits. The
+grammar is byte-identical across the compiler bump and the anchor set is
+diffed both ways: fifteen in, none out.
+
 ## ww31 (the site at 0.2.15, and the pin it could not take) — 2026-09-17
 
 Two of the three gitlinks move. The book takes bcad859 (bs50) and the compiler
