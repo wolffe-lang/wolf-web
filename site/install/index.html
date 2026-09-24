@@ -369,7 +369,7 @@ is s47's (the s60 campaign).</code></pre>
 
   <p>Five things a program can reach, and every one of them is named to your
   face rather than quietly becoming something else. One is the compiler's own
-  refusal, exit 4. One is a gap in what the Windows console gives a program.
+  refusal, exit 2. One is a gap in what the Windows console gives a program.
   Three are the <code>unsupported</code> row — a value your program can read
   and branch on, which is the difference between code that can serve this
   host differently and code that cannot. Two of those three arrived at
@@ -379,7 +379,7 @@ is s47's (the s60 campaign).</code></pre>
   meets.)</p>
 
   <p><strong><code>wolf build --release</code></strong>, the LLVM optimizing
-  tier, refuses this host with exit code 4:</p>
+  tier, refuses this host with exit code 2:</p>
 
 <pre><code>wolf build: this host cannot run the release tier: the release
 tier targets linux/x86-64 and macOS/aarch64 (s41 + s127; c13 owns the
@@ -525,7 +525,10 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
   <p>Wrapped here; the build commit and the output digest are elided. Your
   program's output is the <code>stdout_inline</code> field. Drop
   <code>--checked</code> and it stops before code generation and answers
-  <code>"verdict":"unsupported"</code>. Through v0.2.1 this was the only way
+  <code>"verdict":"pass"</code> with <code>"phase_reached":"wir"</code> — a
+  shape this release gave the record, because a run that got as far as it was
+  asked to and found nothing wrong had no way to say so and had been borrowing
+  the word for a gap in the implementation. Through v0.2.1 this was the only way
   to run a program on Windows, and this page led with it; it is now the
   specialist's tool it was always meant to be.</p>
 
@@ -540,7 +543,7 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
     <tr><td><code>wolf --version</code>, <code>wolf --explain E0001</code></td><td>works — the whole diagnostic catalogue is in the binary</td></tr>
     <tr><td><code>wolf conform-run <em>file</em> --checked</code></td><td>works — runs your program on the checked machine and prints a record</td></tr>
     <tr><td>tasks, procs, channels, <code>select</code>, region transfer, <code>os.signal</code>, network deadlines</td><td>works — the whole concurrency and OS surface, at macOS parity on the corpus</td></tr>
-    <tr><td><code>wolf build --release</code></td><td>refuses, exit 4 — the LLVM tier serves linux and macOS</td></tr>
+    <tr><td><code>wolf build --release</code></td><td>refuses, exit 2 — the LLVM tier serves linux and macOS</td></tr>
     <tr><td>an external <code>reload</code>/<code>upgrade</code> signal</td><td>no Windows analog — your own program can raise and receive both; another process cannot send them</td></tr>
     <tr><td><code>net_listen_unix</code>, <code>net_connect_unix</code></td><td>the <code>unsupported</code> row, by name — a local control endpoint stays on loopback TCP here</td></tr>
     <tr><td><code>net_wait</code>, <code>os_cpus</code></td><td>works — readiness over a whole set of handles, and the core count to size a server by</td></tr>

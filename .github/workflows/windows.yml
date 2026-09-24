@@ -319,7 +319,7 @@ jobs:
 
           # The three parity probes, one directory each for the same D32
           # reason. These are the corpus programs the page's table used to
-          # call "refuses by name, exit 4"; at this pin the step below
+          # call "refuses by name, exit 2"; at this pin the step below
           # ASSERTS that each one runs and prints what its header says.
           New-Item -ItemType Directory -Force -Path probe-spawn, probe-chan, probe-signal | Out-Null
           Copy-Item upstream/wolf-lang/corpus/conc/spawn_fanout_loop.lu probe-spawn/prog.lu
@@ -380,7 +380,7 @@ jobs:
       # THE PARITY PROBES — spawn, channels, signals. ASSERTED (ww12).
       #
       # These three corpus programs are the region the page's table USED to
-      # call "refuses by name, exit 4": the task layer, channel transfer, and
+      # call "refuses by name, exit 2": the task layer, channel transfer, and
       # signal reception. ww11 landed this step with $assert = $false, so the
       # runner recorded the "before" every week while the answer was still
       # trunk's; v0.2.3 tags s60b and the archive serves all three, so the
@@ -860,7 +860,7 @@ jobs:
           # s60c's." The page quotes this sentence, so the transcript goes to
           # the run summary as well as through the regex.
           $rel = Cap "hello" @("build", "--release", "hello.lu")
-          Claim "wolf build --release refuses with exit 4" ($rel.code -eq 4) "exit $($rel.code)"
+          Claim "wolf build --release refuses with exit 2" ($rel.code -eq 2) "exit $($rel.code)"
           Claim "wolf build --release names the release tier" ($rel.err -match "cannot run the release tier") $rel.err
           Claim "the refusal names the two hosts the tier serves" ($rel.err -match "linux/x86-64" -and $rel.err -match "macOS/aarch64") $rel.err
           $md = @("", "### ``wolf build --release`` — the sentence the page quotes", "",
@@ -907,7 +907,7 @@ jobs:
           $u = Cap "hello" @("conform-run", "hello.lu")
           $urec = $null
           try { $urec = $u.out | ConvertFrom-Json } catch { }
-          Claim "conform-run without --checked does not run it" ($urec -and $urec.verdict -eq "unsupported") $u.out
+          Claim "conform-run without --checked does not run it" ($urec -and $urec.verdict -eq "pass" -and $urec.phase_reached -eq "wir") $u.out
 
           # "A file saved by Notepad is not canonically formatted; `wolf fmt`
           # fixes it." Both halves, because the page teaches both — and the
