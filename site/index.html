@@ -140,39 +140,64 @@ fn main() -&gt; !int {
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
   <p><strong>The release this page advertises changes what a program you
-  already wrote means, and it is the first one in this project's history that
-  ever has.</strong> Up to v0.2.14, handing a non-<code>Copy</code> value to a
-  builtin container kept the caller's handle alive inside it:
-  <code>(mut outs).push(xs)</code> followed by <code>(mut xs).push(4)</code>
-  left two writable paths to one value, with nothing spelled at the call and
-  no diagnostic anywhere. At v__WOLF_VERSION__ the element is
-  <strong>copied</strong> in, and the program prints what the interpreter had
-  been printing all along. Nothing warns, because the new answer is the right
-  one and the old one was the defect — so a program that compiled before and
-  compiles now can print different bytes, which is why the release notes lead
-  with it. The cost lands only on a plain push of a value that reaches the
-  heap, about a microsecond and a quarter each, and
-  <code>push(take x)</code> is the spelling that hands the value over instead
-  and gives the old cost back.</p>
+  already wrote means, and it is the second one in this project's history that
+  ever has.</strong> The first changed what a program printed. This one
+  changes what the toolchain exits with: a program the compiler
+  <em>rejects</em> exits 2 now, and one it refuses as outside what it
+  implements exits 4, where both used to be 1 — and 1 is what a program that
+  <em>ran</em> and returned an error out of <code>main</code> exits with. Three
+  outcomes had been collapsed onto one number, so a harness that read
+  <code>exit 1</code> as "did not compile" was reading a running program's own
+  answer as a build failure, and one that read it as "the program failed" was
+  reading a compile error the same way. <code>[conf.exit]</code> separates
+  them. A program's own <code>return 1</code> still exits 1, which is the
+  point; the interpreter already answered 2 and 4 and does not move.</p>
 
-  <p>Beside it, the release grows a surface. A method call is defined as the
-  function it is — <code>xs.map(f)</code> is <code>list.map(xs, f)</code>,
-  resolved in the receiver's own module — and the set of combinators is
-  closed: ten functions, plus one builtin that is not a function at all.
-  <code>xs.par(f)</code> maps over a list in parallel by opening a scope full
-  of spawned tasks between its own parentheses, hands results back in input
-  order, and its cost clause refuses to promise a speedup: a list shorter than
-  the worker count, or an <code>f</code> cheaper than a spawn, makes it slower
-  than the serial version, and both are conforming. <a href="/reading/">The
-  book</a>'s new section on it measures its own word counter on eighteen cores
-  and prints the row where parallelizing made the program slower first, which
-  is the honest order. The release before this one, v0.2.14, was the string
-  runtime — where a built <code>str</code>'s bytes live and who may outlive
-  them — and v0.2.13 before that was three spellings the language could not
-  write at all: the list literal, <code>range[int]</code> and
-  <code>range[char]</code> as types, and <code>error IoErrors = {none, parse,
-  io}</code> as a name for a row. What the tab can and cannot do with any of
-  them is measured on the <a href="/play/">playground</a>.</p>
+  <p><strong>Four programs the release before this one got wrong.</strong>
+  Each was silent — it compiled, it ran, it printed the wrong thing, and no
+  diagnostic anywhere said so — and each is fixed here with the witness
+  published so a reader can test their own build. A call through a
+  function-typed parameter went to a top-level function of the same name, so a
+  library that named a parameter the way a caller had named a function
+  answered with the wrong one. The checked machine's string producers charged
+  nothing to the region they ran in, so a region with a budget did not enforce
+  it. Two machines that are supposed to agree disagreed on a program neither
+  should have accepted. And <code>move</code> out of a place whose type is
+  copyable recorded no move at all, so reading the place afterwards printed
+  the value that had just been moved away — on every tier, including the one
+  people ship. That last one was found by a reader working through the
+  <a href="/reading/">book</a>'s chapter on ownership, which is the best
+  argument this project has for writing the book at all.</p>
+
+  <p>One defect goes out with this release, named rather than quietly
+  shipped: a function that takes a scope handle as a parameter and spawns
+  into it never returns on the native tier, and the release notes say so,
+  say which tiers it affects, and give the two spellings that avoid it. The
+  reason it survived every gate is worth a reader's attention — the debug
+  build of the compiler does not show it, and everything that runs on a
+  developer's machine is a debug build.</p>
+
+  <p>The release before this one grew a surface, and it is the one the
+  <a href="/play/">playground</a> has the most to say about. A method call is
+  defined as the function it is — <code>xs.map(f)</code> is
+  <code>list.map(xs, f)</code>, resolved in the receiver's own module — and
+  the set of combinators is closed: ten functions, plus one builtin that is
+  not a function at all. <code>xs.par(f)</code> maps over a list in parallel
+  by opening a scope full of spawned tasks between its own parentheses, hands
+  results back in input order, and its cost clause refuses to promise a
+  speedup: a list shorter than the worker count, or an <code>f</code> cheaper
+  than a spawn, makes it slower than the serial version, and both are
+  conforming. <a href="/reading/">The book</a>'s section on it measures its
+  own word counter on eighteen cores and prints the row where parallelizing
+  made the program slower first, which is the honest order. That release also
+  made handing a non-<code>Copy</code> value to a builtin container
+  <strong>copy</strong> the element in, where it used to leave the caller's
+  handle alive inside the container with nothing spelled at the call; before
+  it, v0.2.13 was three spellings the language could not write at all: the
+  list literal, <code>range[int]</code> and <code>range[char]</code> as types,
+  and <code>error IoErrors = {none, parse, io}</code> as a name for a row.
+  What the tab can and cannot do with any of them is measured on the
+  <a href="/play/">playground</a>.</p>
 
   <p>There is a second implementation. <code>lupin</code> is a reference
   interpreter written against the same specification, sharing no code with the
