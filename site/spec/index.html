@@ -84,10 +84,10 @@
       v0.2.14 added <code>[mem.region.proc]</code>: a spawned proc
       owns its ambient region, so bytes built inside it cannot be handed out of
       it — E1010 — and the fix the diagnostic prescribes is to build them in
-      the spawner and pass them in. v__WOLF_VERSION__ is the first release
-      that changes what a program you already wrote means, and this is the
+      the spawner and pass them in. v0.2.15 was the first release
+      that changed what a program you already wrote means, and this is the
       document that says why. A builtin container store <em>copies</em> its
-      element now, at <code>[mem.tier0.move.3]</code>'s cost: keeping the
+      element, at <code>[mem.tier0.move.3]</code>'s cost: keeping the
       caller's handle alive inside the container was
       <code>[mem.tier0.excl.1]</code> violated with a builtin as the callee —
       two writable paths to one value, nothing spelled, nothing reported.
@@ -97,6 +97,16 @@
       (<code>[mem.tier0.mode.read]</code>) rules that a move out of a
       <code>read</code> parameter is lent and may not outlive the call.
       Nothing warns, because there is nothing wrong with the new answer.
+      v__WOLF_VERSION__ is the largest change this document has taken since,
+      and the part of it a reader meets is a correction rather than an
+      addition: <code>move</code> out of a place whose type is copyable had
+      recorded no move at all, so the place stayed readable and printed the
+      value that had been moved away, on every tier. The document is explicit
+      now that the operator empties the place whatever the type, and E1001
+      answers a read of it afterwards. Two clauses arrive beside it — a
+      region's root (<code>[mem.region.root]</code>) and what an immutable
+      value returned out of a region means
+      (<code>[mem.region.imm.ret]</code>).
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -107,7 +117,7 @@
       <code>[conc.chan.close]</code> finally typed what it had described for
       two: <code>send</code> is <code>() ! {closed, cancelled}</code>, the same
       two tags the receive side carries, because a send blocked on a full
-      buffer is a cancellation point too. v__WOLF_VERSION__ adds the first
+      buffer is a cancellation point too. v0.2.15 added the first
       combinator that is a scope: <code>[conc.task.par]</code> defines
       <code>xs.par(f)</code> by desugaring to a <code>scope</code> of
       <code>spawn</code>s, so it adds shape and no semantics. Results come
@@ -122,6 +132,22 @@
       the document: a list shorter than the worker count, or an
       <code>f</code> cheaper than a spawn, can make it slower than
       <code>map</code>, and both are conforming.
+      v__WOLF_VERSION__ gives the two handles names a signature can write.
+      <code>[conc.task.scope]</code> has said since the first edition that a
+      function which spawns into its caller's scope takes the handle as a
+      parameter, and until this release there was no way to spell that
+      parameter at all — the capitalised names were unknown and the lowercase
+      keywords were refused in type position. <code>Scope</code> and
+      <code>Proc[T]</code> elaborate in a signature now, the way a channel
+      does, and the handle carries the completion type rather than standing
+      bare. Beside it a proc talks back: <code>[conc.proc.join]</code> blocks
+      until the proc exits and answers the value it produced, or the tag for
+      the class it failed in, where before a supervisor could read only the
+      class and the output. <code>[conc.proc.handle]</code> and
+      <code>[conc.proc.arg]</code> are the clauses under it. The
+      <a href="/play/">playground</a> has the other half of that story: the
+      one corpus program the tab refuses at these pins is the one that writes
+      <code>Proc</code> in a signature.
       Anchors <code>[conc.*]</code>.</dd>
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
@@ -142,6 +168,19 @@
       code. <code>sched</code> is registered now and its anchors are published,
       424 to 431. Neither change renumbered anything, because a published anchor
       is never moved and the citations that would have had to move number in the
+      At v__WOLF_VERSION__ it rules the exit status, which had been left to
+      habit for every class but the trap: <code>[conf.exit]</code> makes a
+      rejection 2 and a refusal 4 on every implementation, where the compiler
+      had spelled both 1 — and 1 is what a program that ran and returned an
+      error out of <code>main</code> exits with, so three outcomes had been
+      collapsed onto one number. The trap keeps its per-implementation
+      numbers, because those are forced by a platform convention and these are
+      forced by nothing. The status is not injective and the clause says so:
+      the guarantee is that a rejection or a refusal never exits 0 or 1, and a
+      harness that needs the exact answer reads the record.
+      <code>[conf.exit.class]</code>, <code>[conf.exit.refused]</code>,
+      <code>[conf.exit.static]</code>, <code>[conf.exit.collide]</code> and
+      <code>[conf.exit.test]</code> are the clauses under it.
       thousands. Anchors <code>[conf.*]</code>.</dd>
 
     <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (__KIB_spec/06-differential-protocol.md__ KiB)</dt>
@@ -151,6 +190,12 @@
       digest. Diagnostic wording is deliberately excluded, because wording is a
       per-implementation concern and comparing it would manufacture
       disagreements. The playground can show you a record for any program you
+      At v__WOLF_VERSION__ the record may carry a trap's own words and where
+      it happened (<code>[proto.record.trap]</code>), and a passing comparison
+      gets a shape of its own (<code>[proto.record.pass]</code>,
+      <code>[proto.cmp.pass]</code>). The message is still never compared,
+      because wording is a per-implementation concern; it is carried so a
+      reader of the record can see what the machine said.
       run. Anchors <code>[proto.*]</code>.</dd>
 
     <dt><a href="/spec/07-schedule-points.md">07. Schedule Points</a> (__KIB_spec/07-schedule-points.md__ KiB)</dt>
@@ -195,7 +240,7 @@
       <code>[type.fn.ret]</code> checks a body's tail against the declared
       result and <code>[type.row.operand]</code> refuses a bare row as an
       operand; both were already enforced and neither was written. It is the
-      document this release grew most, as it was v0.2.13's: a method call is
+      document v0.2.15 grew most, as it was v0.2.13's: a method call is
       defined as the function it is (<code>[type.method]</code> —
       <code>xs.map(f)</code> IS <code>list.map(xs, f)</code>, resolved in the
       receiver's home module), the combinator set is closed at ten functions
@@ -207,6 +252,10 @@
       (<code>[type.generic.bind]</code>), and the interpolation format
       specifier gets the clause the grammar's new production points at
       (<code>[type.interp.spec]</code>).
+      At v__WOLF_VERSION__ it gains one clause,
+      <code>[type.err.alias.qualified]</code>: an error alias named through
+      the module that declares it is the same type as the row it names,
+      exactly as the unqualified spelling is.
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
@@ -236,7 +285,7 @@
       v0.2.14 added one call beside the gathered write,
       <code>[os.net.writev.head]</code>: a <code>str</code> head handed to
       <code>writev</code> with no <code>List[byte]</code> built for it. At
-      v__WOLF_VERSION__ the document stops being about sockets alone: it
+      v0.2.15 the document stopped being about sockets alone: it
       gains the host a program is running on and the signals that host can
       deliver (<code>[os.host]</code>, <code>[os.host.sigs]</code>), the path
       of the running executable (<code>[os.proc.exe]</code>), what a spawn
