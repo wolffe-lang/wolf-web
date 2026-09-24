@@ -172,19 +172,23 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has opened wider than it has ever been with both ends at
-  tags. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has narrowed to the smallest gap it can have without being
+  none. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
-  That is a release tag rather than a revision of the compiler's trunk — but
-  the compiler has tagged three times since it, so the newest release whose
-  text the interpreter carries whole is three releases behind the compiler you
-  are installing, __COUNT_speccommits_word__ commits back. For the first time
-  it is <em>not</em> what the compiler's own second line says: the compiler
-  above was tested against lupin 0.1.37, and the playground does not serve it.
-  0.1.37 names a compiler revision that this compiler's history does not
-  contain — a branch head the rebase-merge that landed it rewrote under other
-  shas — so there is no distance along one line to state for it, and this page
-  will not state one it cannot count. The <a href="/play/">playground</a>
+  That is a release tag rather than a revision of the compiler's trunk, and
+  the compiler has tagged once since it, so the newest release whose text the
+  interpreter carries whole is one release behind the compiler you are
+  installing, __COUNT_speccommits_word__ commits back. It agrees with the
+  compiler's own second line again: the release above was tested against the
+  interpreter version this page names, and the playground serves that
+  interpreter. That agreement was broken at the pin before this one, and the
+  reason is worth keeping: the interpreter release the compiler had been
+  tested against declared, as the specification checkout it was built to, a
+  compiler revision the released compiler's history does not contain — a
+  branch head the rebase-merge that landed it rewrote under other shas — so
+  there was no distance along one line to state for it, and this page refused
+  to state one it could not count. The interpreter re-pinned on the released
+  line and the distance exists again. The <a href="/play/">playground</a>
   carries the same paragraph from the other end. A gap opens whenever the compiler
   tags and the interpreter has not yet followed, which is the ordinary shape
   of a two-implementation project, and it closes when the mirror catches up.
@@ -194,25 +198,33 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins it is the longest this page has carried: twenty-two programs the
-  compiler above runs and the tab refuses, every one of them a spelling rather
-  than a ruling. It was fifteen at the pin before this one, against the same
-  interpreter build: the seven that joined are the corpus moving while the
-  module stood still. v__WOLF_VERSION__ added a surface — the method call, the
-  ten combinators that resolve in their receiver's home module, and
-  <code>par</code> — and the interpreter in the tab stops at the dot. Before
-  it, v0.2.13 added syntax the language could not write at all —
-  a list literal, <code>[340, 275, 100]</code>; <code>range[int]</code> and
-  <code>range[char]</code> as types; and <code>error IoErrors = {none, parse,
-  io}</code> as a name for a row — and the interpreter in the tab was built to
-  the text before them, so it stops at the first bracket, type name or
-  keyword and says so: the list-literal witnesses and the nullary-variant
-  pattern at <code>E0201</code>, the range-type witnesses at
-  <code>E0301</code>, the error-alias witnesses at <code>E0201</code>. The
-  <a href="/play/">playground</a> names each one. Nothing else moved: the
-  other running programs the three releases added answer in the tab byte for
-  byte, and the gap before this one, which cost nothing, is closed behind it.
-  The two <em>messages</em> that parted at an earlier pin are
+  these pins it is the shortest this page has ever carried without being
+  empty: <strong>one</strong> program the compiler above runs and the tab
+  refuses. <code>corpus/conc/proc_join_param.lu</code> writes
+  <code>Proc</code> as the type of a parameter, which is a spelling this
+  release of the compiler is the first to accept, and the interpreter answers
+  <code>E0301</code> — nothing named <code>Proc</code> is in scope. It is a
+  name, not a ruling: the two machines agree about what a proc is and part
+  over whether the word may stand in a signature yet.</p>
+
+  <p>The list this page carried at the pin before this one is closed, whole.
+  It ran to a length this page called the longest it had carried, and every
+  entry on it was a construct the interpreter had been built before — the list
+  literal, a nullary variant as a pattern, the range types, the
+  <code>error</code> alias for a row, and the method surface with its
+  combinators. The interpreter re-pinned on the compiler's released line and
+  reads all of them now. Six of those programs did not simply start running:
+  they moved from a refusal to a decline, because the interpreter parses the
+  method call and then has to reach the receiver's home module for it, and a
+  browser tab has no standard library on disk to reach. The
+  <a href="/play/">playground</a> spells that difference out, since to a
+  reader "refused" and "this build cannot serve it" look alike and are not.
+  Nothing else moved: every program that ran in the tab at the last pin runs
+  in it now, and no program present at both pins changed its answer under the
+  corpus alone — measured by walking both corpora through both modules, not
+  by comparing totals.</p>
+
+  <p>The two <em>messages</em> that parted at an earlier pin are
   settled — a bare row used as an operand is <code>E0409</code> in both places
   now, and a write through a <code>str</code> slice is <code>E0416</code> in
   both (wolf-interp#85, closed) — and the range arms that parted the pin before
