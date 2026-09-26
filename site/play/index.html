@@ -130,11 +130,11 @@
   tagged once since it, so the text this tab reads is one release behind the
   one <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. That
-  is the narrowest this distance has been since the two last stood on one
-  commit, and the compiler's own second line names the interpreter in this
-  tab again: the release <a href="/install/">install</a> advertises was tested
-  against the interpreter version above, and this site serves it. It did not
-  at the pin before this one, and the reason was a fact about the two
+  is the narrowest a distance can be without being none, and it is the second
+  bump running at which it stands there. The compiler's own second line names
+  the interpreter in this tab: the release <a href="/install/">install</a>
+  advertises was tested against the interpreter version above, and this site
+  serves it. Two pins back it did not, and the reason was a fact about the two
   repositories rather than a judgement made here. The interpreter release of
   that day recorded, as the specification checkout it was built to, a compiler
   revision that the released compiler's history does not contain — a branch
@@ -142,16 +142,17 @@
   a tag so it can still be fetched, but not on the line. A distance along one
   line is exactly what this paragraph states, so there was none to state, and
   the check that holds these sentences refused rather than printing a number
-  with no referent. The interpreter re-pinned on the released line, which is
-  what this bump takes.</p>
+  with no referent. The interpreter re-pinned on the released line at the pin
+  before this one and has stayed on it since.</p>
 
   <p>That is the open end of an ordinary cycle, and the page has now stood at
   every point of it more than once: an untagged commit short of a release, the
   release itself, a gap after the compiler tagged again, the mirror caught up,
   a gap again, the mirror caught up again, a gap the mirror could not take
-  because the pin it offered was off the line — and now the mirror caught up
-  again. The two implementations tag on their own schedules and the
-  interpreter follows the compiler, so a gap opens at every compiler release
+  because the pin it offered was off the line, the mirror back on the line
+  one step behind — and now the compiler tagged again and the mirror followed
+  it one step, so the gap is the same width at a later pair. The two
+  implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
   the text or may only be a difference of vintage, and the
@@ -162,32 +163,47 @@
   far the tag is, so neither end has to be a tag, and it requires both pages to
   spell what it counted.</p>
 
-  <p><strong>Where the vintage shows: in one program, and it is a type
-  name.</strong> Every <code>phase: run</code> program in the pinned corpus
-  goes through the module this page serves, and at these pins exactly one of
-  them answers a refusal where the compiler runs the program:
-  <code>corpus/conc/proc_join_param.lu</code>, which writes <code>Proc</code>
-  as the type of a parameter. The interpreter answers
-  <code>fail(E0301)</code> — nothing named <code>Proc</code> is in scope,
-  <code>[mod]</code> being the rung that decides whether a name exists — and
-  the release <a href="/install/">install</a> advertises is the first that can
-  write that word in a signature at all. Both machines agree about what a proc
-  is; they part over whether the name may stand there yet, which is the
-  narrowest kind of parting this page has ever had to describe.</p>
+  <p><strong>Where the vintage shows: nowhere in the running census.</strong>
+  Every <code>phase: run</code> program in the pinned corpus goes through the
+  module this page serves, and at these pins none of them answers a refusal
+  where the compiler runs the program. It is the first time this page can say
+  that across a gap that is not none. The one program named here at the pin
+  before this one, <code>corpus/conc/proc_join_param.lu</code>, wrote
+  <code>Proc</code> as the type of a parameter before the interpreter knew the
+  name. This interpreter knows it, so the program gets as far as spawning its
+  proc, and the proc tier is one this build declines (below): it answers
+  <code>unsupported</code> with a reason naming the thread it cannot spawn.
+  That is a decline of the tab rather than a parting — the interpreter's own
+  release notes record the program as a match at a terminal.</p>
 
-  <p><strong>The list this page carried at the last pin is closed, all of
+  <p><strong>The compiler's newest programs all answer here, and two of them
+  would not have a bump ago.</strong> The release
+  <a href="/install/">install</a> advertises brought its own programs into the
+  corpus's running set — index stores that copy their element in, the
+  <code>mut</code> claims that end with the arm that made them, and stores
+  that evaluate their right-hand side before they mint their place — and each
+  one that runs here prints what its header says it prints.
+  <code>corpus/memory/index_store_copies_list.lu</code> and
+  <code>index_store_copies_map.lu</code> are the two that would have parted:
+  the interpreter this site served until this bump trapped a use after move
+  on both, because it still moved the stored value where the ruling now
+  copies it, and this interpreter is the first to answer them as ruled. The
+  one addition that does not run here is
+  <code>memory/store_rhs_first_pool.lu</code>, and it does not run at a
+  terminal either — the interpreter declines a store through a
+  <code>Pool</code> handle by name, which the corpus header records as a
+  conservatism rather than a disagreement. The measurement is four walks:
+  both corpora through both modules, and no program present at both corpus
+  pins changed its answer when only the corpus moved.</p>
+
+  <p><strong>The list this page carried two pins back is closed, all of
   it.</strong> Twenty-two programs stood on it — the list literal, a nullary
   variant as a pattern, the range types, the <code>error</code> alias for a
   row, and the method surface with its combinators — and every one of them
   came from a release the interpreter had been built before. The interpreter
-  re-pinned on the compiler's released line and reads every one of them now. The
-  measurement behind that sentence is four walks, not one: both corpora
-  through both modules, so what the module's move did and what the corpus's
-  move did are separate numbers. The module's move closed all twenty-two and
-  woke three programs that had been declining for want of a builtin. The
-  corpus's move changed the class of <strong>no</strong> program present at
-  both pins — every class change at this bump is the interpreter catching
-  up.</p>
+  re-pinned on the compiler's released line and has read every one of them
+  since. The module's move closed all twenty-two at once and woke three
+  programs that had been declining for want of a builtin.</p>
 
   <p><strong>Six of those twenty-two did not start running; they changed
   which word they are refused with, and the difference matters.</strong> The
@@ -209,7 +225,7 @@
   verdict alone, which is why the sentence is here.</p>
 
   <p><strong>And the one program that was worse than a refusal is
-  fixed.</strong> At the pin before this one
+  fixed.</strong> Two pins back
   <code>corpus/grammar/range_header_inclusive_max.lu</code> did not answer the
   module at all: it reached the module's own <code>unreachable</code> and took
   the instance with it, so the tab stopped rather than printing a verdict and
@@ -222,8 +238,8 @@
   feeds it here, which is the reason it was fed on purpose rather than waited
   for.</p>
 
-  <p>What emptied it was the range arm arriving on this side. At the pin before
-  this one <code>match</code> had gained range arms in the compiler and this
+  <p>What emptied an earlier list was the range arm arriving on this side. At
+  that pin <code>match</code> had gained range arms in the compiler and this
   interpreter had been built before that text existed, so it stopped at the
   <code>..</code> inside a pattern and said <code>E0201</code> — the refusal
   working as designed, rather than running the program and answering it
@@ -234,7 +250,8 @@
   <code>E0815</code> here as there, and an open end is still the slice spelling
   and still <code>E0201</code>. That closes wolf-interp#83.</p>
 
-  <p><strong>The two partings this page named last week are closed.</strong>
+  <p><strong>The two partings this page named at an earlier pin are
+  closed.</strong>
   They were corpus negatives, refused on both sides and parting in
   <em>which</em> refusal, which is why no table could hold them:
   <code>rows/negative/row_operand_compare.lu</code> puts a bare row beside a
@@ -242,7 +259,7 @@
   <code>typecheck/str_slice_assign.lu</code> writes through a slice of a
   <code>str</code>, which was a tier refusal here against the compiler's E0416.
   This interpreter answers <code>E0409</code> and <code>E0416</code>. That
-  closes wolf-interp#85, and it is the reason the pin moved at all.</p>
+  closed wolf-interp#85, and it was the reason the pin moved at that bump.</p>
 
   <!-- This sentence used to name a distance of one, in the two words the two
        pages reserve for a counted gap of that size. The rule is page-wide and
@@ -377,7 +394,7 @@
   looks broken.</p>
 
   <p>__COUNT_netprograms_Word__ of the corpus's net programs land in that
-  count, and one of them is this release's: <code>writev_head_gather.lu</code>,
+  count, and the newest of them is v0.2.14's: <code>writev_head_gather.lu</code>,
   the witness for a response head leaving as a <code>str</code> beside the
   gathered body, <code>[os.net.writev.head]</code>. The three before it are
   v0.2.8's — <code>syscall_first.lu</code>, <code>writev_gather.lu</code> and
@@ -385,9 +402,8 @@
   round trip through the reactor, for a head and a body leaving as one write,
   and for Nagle being off on every stream the runtime hands out. A tab declines
   all four for one reason only, which is the socket: the three older calls have
-  been in this interpreter since 0.1.28, the newest is not in it yet and would
-  be declined at the listener before it was reached, and while the three were
-  not in it, a sentence here said the refusal had two causes. That count was wrong until ww19,
+  been in this interpreter since 0.1.28 and the newest since 0.1.37, and
+  while the three were not in it, a sentence here said the refusal had two causes. That count was wrong until ww19,
   incidentally. The page said twelve from ww16, when thirteen was already the
   number; nothing gates a count written by hand, and re-measuring the census is
   what caught it.</p>
