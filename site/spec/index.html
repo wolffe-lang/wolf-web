@@ -62,14 +62,20 @@
       still parses; and the nullary variant pattern,
       <code>[gram.pat.nullary]</code> — and <code>then</code> joined the
       contextual table. Every program that parsed before still parses.
-      This release widened it once more and wrote two refusals down without
+      v0.2.15 widened it once more and wrote two refusals down without
       moving the line: <code>FORMAT_SPEC</code> is a production now — fill,
       align, sign, width, precision and type — where the grammar had carried
       a colon and a pointer to the types document, while
       <code>[gram.expr.variant]</code> and <code>[gram.type.start]</code>
       give anchors, and one of them a machine-applicable fix, to two inputs
       that were already refused. The accepted language is the same; the
-      diagnostics moved.
+      diagnostics moved. v__WOLF_VERSION__ widens it by one production: the
+      right-hand side of a plain <code>=</code> whose place is a container
+      element may be spelled <code>take</code> — <code>xs[i] = take v</code>,
+      <code>m[k] = take v</code> — and nowhere else in an assignment may a mode
+      appear (<code>[gram.expr.assign]</code>). It is
+      <code>push(take x)</code>'s twin and means what that spelling means: the
+      stored value moves, where the plain store now copies.
       Anchors <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
@@ -97,7 +103,7 @@
       (<code>[mem.tier0.mode.read]</code>) rules that a move out of a
       <code>read</code> parameter is lent and may not outlive the call.
       Nothing warns, because there is nothing wrong with the new answer.
-      v__WOLF_VERSION__ is the largest change this document has taken since,
+      v0.2.16 was the largest change this document had taken since,
       and the part of it a reader meets is a correction rather than an
       addition: <code>move</code> out of a place whose type is copyable had
       recorded no move at all, so the place stayed readable and printed the
@@ -107,6 +113,17 @@
       region's root (<code>[mem.region.root]</code>) and what an immutable
       value returned out of a region means
       (<code>[mem.region.imm.ret]</code>).
+      v__WOLF_VERSION__ carries the store's half of v0.2.15's rule to the
+      index: <code>xs[i] = v</code> and <code>m[k] = v</code> copy a
+      non-<code>Copy</code> value in and leave <code>v</code> live, exactly as
+      <code>push</code> does, and <code>take</code> is the spelling that hands
+      it over (<code>[mem.region.edge.elem]</code>). Beside it,
+      <code>[mem.model.place.rhs]</code> writes down the order every machine
+      already kept: a store evaluates its right-hand side first and mints its
+      place afterwards, so a right-hand side that grows the list it stores into
+      cannot leave the store aimed at the old buffer. The order of the place's
+      own operands against the right-hand side is not ruled by it, and the
+      machines are not yet agreed there.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -132,10 +149,10 @@
       the document: a list shorter than the worker count, or an
       <code>f</code> cheaper than a spawn, can make it slower than
       <code>map</code>, and both are conforming.
-      v__WOLF_VERSION__ gives the two handles names a signature can write.
+      v0.2.16 gave the two handles names a signature can write.
       <code>[conc.task.scope]</code> has said since the first edition that a
       function which spawns into its caller's scope takes the handle as a
-      parameter, and until this release there was no way to spell that
+      parameter, and until v0.2.16 there was no way to spell that
       parameter at all — the capitalised names were unknown and the lowercase
       keywords were refused in type position. <code>Scope</code> and
       <code>Proc[T]</code> elaborate in a signature now, the way a channel
@@ -146,8 +163,9 @@
       class and the output. <code>[conc.proc.handle]</code> and
       <code>[conc.proc.arg]</code> are the clauses under it. The
       <a href="/play/">playground</a> has the other half of that story: the
-      one corpus program the tab refuses at these pins is the one that writes
-      <code>Proc</code> in a signature.
+      corpus program that writes <code>Proc</code> in a signature was the one
+      the tab refused at the pin before this one, and the interpreter it runs
+      now knows the name.
       Anchors <code>[conc.*]</code>.</dd>
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
@@ -168,7 +186,7 @@
       code. <code>sched</code> is registered now and its anchors are published,
       424 to 431. Neither change renumbered anything, because a published anchor
       is never moved and the citations that would have had to move number in the
-      At v__WOLF_VERSION__ it rules the exit status, which had been left to
+      thousands. At v0.2.16 it ruled the exit status, which had been left to
       habit for every class but the trap: <code>[conf.exit]</code> makes a
       rejection 2 and a refusal 4 on every implementation, where the compiler
       had spelled both 1 — and 1 is what a program that ran and returned an
@@ -181,7 +199,7 @@
       <code>[conf.exit.class]</code>, <code>[conf.exit.refused]</code>,
       <code>[conf.exit.static]</code>, <code>[conf.exit.collide]</code> and
       <code>[conf.exit.test]</code> are the clauses under it.
-      thousands. Anchors <code>[conf.*]</code>.</dd>
+      Anchors <code>[conf.*]</code>.</dd>
 
     <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (__KIB_spec/06-differential-protocol.md__ KiB)</dt>
     <dd>The two-implementation contract, and the only shared artifact between
@@ -190,13 +208,20 @@
       digest. Diagnostic wording is deliberately excluded, because wording is a
       per-implementation concern and comparing it would manufacture
       disagreements. The playground can show you a record for any program you
-      At v__WOLF_VERSION__ the record may carry a trap's own words and where
+      run. At v0.2.16 the record gained a trap's own words and where
       it happened (<code>[proto.record.trap]</code>), and a passing comparison
       gets a shape of its own (<code>[proto.record.pass]</code>,
       <code>[proto.cmp.pass]</code>). The message is still never compared,
       because wording is a per-implementation concern; it is carried so a
       reader of the record can see what the machine said.
-      run. Anchors <code>[proto.*]</code>.</dd>
+      v__WOLF_VERSION__ lets a diagnostic say which file it is in
+      (<code>[proto.record.diag]</code>): a span from a sibling module used to
+      read as an offset into the entry file, a wrong place given silently, and
+      the record now carries a <code>files</code> table and a
+      <code>file</code> index on each diagnostic — only when some diagnostic
+      lies outside the entry file, so every other record is byte-identical to
+      what it was.
+      Anchors <code>[proto.*]</code>.</dd>
 
     <dt><a href="/spec/07-schedule-points.md">07. Schedule Points</a> (__KIB_spec/07-schedule-points.md__ KiB)</dt>
     <dd>Where a schedule can make a decision, and the numbering a replayable
@@ -252,7 +277,7 @@
       (<code>[type.generic.bind]</code>), and the interpolation format
       specifier gets the clause the grammar's new production points at
       (<code>[type.interp.spec]</code>).
-      At v__WOLF_VERSION__ it gains one clause,
+      v0.2.16 gave it one clause,
       <code>[type.err.alias.qualified]</code>: an error alias named through
       the module that declares it is the same type as the row it names,
       exactly as the unqualified spelling is.
@@ -294,7 +319,15 @@
       <code>[os.proc.inherit]</code>'s existing rule), and the two filesystem
       calls a program writing files needs before it needs anything else —
       path composition and removal (<code>[os.fs.path]</code>,
-      <code>[os.fs.remove]</code>). Anchors
+      <code>[os.fs.remove]</code>). v__WOLF_VERSION__ rules which paths
+      those calls take (<code>[os.fs.path.domain]</code>): every path the host
+      lets the process reach — absolute, relative, climbing, built at run time
+      — with what the host refuses coming back as the host's own row. An
+      implementation that serves the tier over a narrower set declines the
+      rest by name, never by a row, and judges the boundary on the resolved
+      path, not its spelling. The compiler already served the whole domain;
+      the interpreter this site pins is the first release of it to serve, at
+      a terminal, a path that climbs out and back in. Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>
