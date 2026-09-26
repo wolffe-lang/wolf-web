@@ -20,6 +20,69 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww33 (the site at 0.2.17, and a gap that costs nothing) — 2026-09-26
+
+All three gitlinks move again: the book to bs53's head, the compiler to wolf
+0.2.17, and the interpreter to lupin 0.1.40.
+
+**The lag is one release for the second bump running, and the distance is 72
+commits.** lupin 0.1.40 is built to the v0.2.16 tag commit, so the ancestry
+guard answers `gap 1`, `tagged true`, and the distance shrinks from 148 to 72.
+The pinned book's changelog, written from the other end, says the same: 72
+commits and one release. The planning row that launched this bump said the lag
+would be zero; the guard said one, and the pages say what the guard counted.
+
+**The parting is none, across a gap that is not none, for the first time.**
+Every `phase: run` program in the pinned corpus went through the module this
+build publishes, four ways, as at ww32. At both new pins: 422 programs, 297
+exit, 33 trap, 92 unsupported, 0 fail, 330 candidates, and no instance killed.
+The corpus's move changed the class of no program present at both pins, under
+either module. The module's move changed three: the one parting ww32 named,
+`corpus/conc/proc_join_param.lu`, now knows the name `Proc` and reaches the
+proc tier, which a browser build declines, so it went from a refusal to a
+decline; and the list and `Map` index stores that 0.2.17 brought in, which the
+module this site served until this bump trapped as a use after move, exit 0
+under this one with the output their headers state. Of the 11 programs the
+release added to the running set, 10 run here and print their headers'
+output, and the eleventh is a store through a `Pool` handle that the
+interpreter declines by name at a terminal too. The prediction committed
+before the first pin moved called every count in that table exactly.
+
+**Sentences that named the wrong release, found while re-reading the clocks.**
+The front page's release paragraphs told 0.2.16's story and warned about a
+defect 0.2.17 fixes; they tell this release's now, with the two before it
+named by their literals. /spec/'s six release-bound lines move to v0.2.16, and
+four new ones say what 0.2.17 moved in the grammar, the memory model, the
+protocol and the operating-system document. Four sentences carried no stamp
+and had gone stale with nothing to catch them: /spec/'s "this release" over
+the format-spec production, which is v0.2.15's; /install/'s pass-verdict
+shape, which is v0.2.16's; /install/'s specification pin "two tags" behind the
+compiler, false since the gap closed to one; and /play/'s net paragraph, which
+called v0.2.14's writev witness "this release's" and said the interpreter did
+not have the call, which it has since 0.1.37. Two /spec/ sentences that an
+earlier insert had split mid-clause are whole again.
+
+**The doors agree again.** Read live at this bump, the tap and all four AUR
+packages carry the pair this site serves, so the paragraph that said the AUR
+trailed by two tags is gone, and the two literals it named left the version
+allowlist with it.
+
+**What the pages had to re-read: 56 clocked allowlist lines** — 32 version
+literals, 6 stamp entries and 18 counts, the number predicted. Two entries left
+and six arrived for the literals the rewrites name.
+
+**The book.** All four readings /reading/ makes were derived at the checkout
+and none moved; the table of contents is byte-identical across the bump. The
+web edition is 48 pages at both pins and the print edition is 5.6 MB.
+
+**The build, measured.** 63 pages dry, and every one of the 63 already
+answers 200 on the served site, so the bump adds no URL and removes none. The
+menu is 36 programs, each in the class the page claims and none carrying a
+note. The stamps: 33 book chapters, 142 diagnostics, 34 warnings, 18 net
+programs, 36 samples, 72 spec commits. The grammar is not byte-identical this
+time — the moded index store is a new production — and the anchor set is
+diffed both ways: two in, none out.
+
 ## ww32 (the site at 0.2.16, and the pin it could take) — 2026-09-24
 
 All three gitlinks move: the book to bs51's head, the compiler to wolf 0.2.16,
