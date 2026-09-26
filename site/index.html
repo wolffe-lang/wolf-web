@@ -139,45 +139,60 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises changes what a program you
-  already wrote means, and it is the second one in this project's history that
-  ever has.</strong> The first changed what a program printed. This one
-  changes what the toolchain exits with: a program the compiler
-  <em>rejects</em> exits 2 now, and one it refuses as outside what it
-  implements exits 4, where both used to be 1 — and 1 is what a program that
-  <em>ran</em> and returned an error out of <code>main</code> exits with. Three
-  outcomes had been collapsed onto one number, so a harness that read
-  <code>exit 1</code> as "did not compile" was reading a running program's own
-  answer as a build failure, and one that read it as "the program failed" was
-  reading a compile error the same way. <code>[conf.exit]</code> separates
-  them. A program's own <code>return 1</code> still exits 1, which is the
-  point; the interpreter already answered 2 and 4 and does not move.</p>
+  <p><strong>The release this page advertises gives back what the one before
+  it took away.</strong> v0.2.16 taught the compiler that a container element
+  is a place a <code>mut</code> argument can claim, and the check that came
+  with it refused programs every earlier release and the interpreter ran: call
+  a function with <code>mut lg</code> in both arms of an
+  <code>if</code>/<code>else</code>, call it again after the join, and the
+  second call was refused, naming an arm that had already finished as though
+  it were inside the call. It was the shape the exit convention prescribes,
+  so it was everywhere — the web server and the coreutils this project is
+  writing in wolf both carried workarounds for it rather than stay off that
+  release. The rule was
+  right and the walk was wrong: the check read block numbers as if they were
+  program order, and a branch mints its join before its arms. It reads the
+  call's own arguments now, the workarounds can come out, and the refusals the
+  rule was written for are all still refused.</p>
 
-  <p><strong>Four programs the release before this one got wrong.</strong>
-  Each was silent — it compiled, it ran, it printed the wrong thing, and no
-  diagnostic anywhere said so — and each is fixed here with the witness
-  published so a reader can test their own build. A call through a
-  function-typed parameter went to a top-level function of the same name, so a
-  library that named a parameter the way a caller had named a function
-  answered with the wrong one. The checked machine's string producers charged
-  nothing to the region they ran in, so a region with a budget did not enforce
-  it. Two machines that are supposed to agree disagreed on a program neither
-  should have accepted. And <code>move</code> out of a place whose type is
-  copyable recorded no move at all, so reading the place afterwards printed
-  the value that had just been moved away — on every tier, including the one
-  people ship. That last one was found by a reader working through the
-  <a href="/reading/">book</a>'s chapter on ownership, which is the best
-  argument this project has for writing the book at all.</p>
+  <p><strong>And the defect v0.2.16 named on its way out is fixed.</strong> A
+  function that takes a scope handle as a parameter and spawns into it never
+  returned on the native tier: the task's captured state lived in the frame of
+  a function that returns before the scope it spawned into joins. The runtime
+  copies that state into the scope at the spawn now, and the program answers
+  in under a second where it used to hang; a task spawned in a loop through
+  such a handle is still refused by name rather than compiled. It survived
+  every gate for a reason worth a reader's attention — the debug build of the
+  compiler does not show it, and everything that runs on a developer's machine
+  is a debug build.</p>
 
-  <p>One defect goes out with this release, named rather than quietly
-  shipped: a function that takes a scope handle as a parameter and spawns
-  into it never returns on the native tier, and the release notes say so,
-  say which tiers it affects, and give the two spellings that avoid it. The
-  reason it survived every gate is worth a reader's attention — the debug
-  build of the compiler does not show it, and everything that runs on a
-  developer's machine is a debug build.</p>
+  <p>Beside those two, the rulings taken the week this release was cut
+  land. An
+  index store follows <code>push</code>: <code>xs[i] = v</code> and
+  <code>m[k] = v</code> copy the value in and leave <code>v</code> yours, and
+  <code>xs[i] = take v</code> is how you hand it over instead. A store works
+  out its right-hand side before it decides where the value goes, so a
+  right-hand side that grows the list it is storing into cannot leave the
+  store aimed at memory the list has already left. And a diagnostic that
+  points into a sibling module now says which file it is in, where the
+  record used to give an offset into the wrong one without a word.</p>
 
-  <p>The release before this one grew a surface, and it is the one the
+  <p><strong>v0.2.16 was the second release in this project's history to
+  change what a program you already wrote means.</strong> The first changed
+  what a program printed; that one changed what the toolchain exits with. A
+  program the compiler <em>rejects</em> exits 2, and one it refuses as outside
+  what it implements exits 4, where both used to be 1 — and 1 is what a
+  program that <em>ran</em> and returned an error out of <code>main</code>
+  exits with, so a harness reading <code>exit 1</code> could not tell a build
+  failure from a program's own answer. <code>[conf.exit]</code> separates
+  them. The same release fixed four programs v0.2.15 got wrong without a word
+  — among them a <code>move</code> out of a copyable place that recorded no
+  move at all, so reading the place afterwards printed the value that had just
+  been moved away, on every tier. That one was found by a reader working
+  through the <a href="/reading/">book</a>'s chapter on ownership, which is
+  the best argument this project has for writing the book at all.</p>
+
+  <p>v0.2.15 grew a surface, and it is the one the
   <a href="/play/">playground</a> has the most to say about. A method call is
   defined as the function it is — <code>xs.map(f)</code> is
   <code>list.map(xs, f)</code>, resolved in the receiver's own module — and
