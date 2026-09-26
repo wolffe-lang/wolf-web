@@ -157,9 +157,12 @@ play/index.html v0.2.8 1 audited-at-wolf=0.2.17
 # below keep both spellings apart on purpose: they are different strings on
 # the page and a drift in either is a different sentence going wrong.
 CHANGELOG.md version 0.1.0 1 frozen
+CHANGELOG.md 0.2.17 5 frozen
+CHANGELOG.md 0.1.40 2 frozen
+CHANGELOG.md v0.2.16 3 frozen
 CHANGELOG.md 0.1.38 2 frozen
-CHANGELOG.md 0.2.16 3 frozen
-CHANGELOG.md v0.2.15 1 frozen
+CHANGELOG.md 0.2.16 4 frozen
+CHANGELOG.md v0.2.15 2 frozen
 CHANGELOG.md v0.1.18 1 frozen
 CHANGELOG.md v0.1.22 3 frozen
 CHANGELOG.md v0.1.23 2 frozen
@@ -181,7 +184,7 @@ CHANGELOG.md v0.2.10 6 frozen
 CHANGELOG.md v0.2.11 4 frozen
 CHANGELOG.md v0.2.12 8 frozen
 CHANGELOG.md v0.2.13 3 frozen
-CHANGELOG.md v0.2.14 5 frozen
+CHANGELOG.md v0.2.14 6 frozen
 CHANGELOG.md 0.2.12 3 frozen
 CHANGELOG.md 0.2.13 1 frozen
 CHANGELOG.md 0.2.14 9 frozen
@@ -207,5 +210,5 @@ CHANGELOG.md 0.2.9 2 frozen
 CHANGELOG.md 0.2.10 2 frozen
 CHANGELOG.md 0.2.11 1 frozen
 CHANGELOG.md 1.97.1 2 frozen
-CHANGELOG.md 0.1.37 2 frozen
+CHANGELOG.md 0.1.37 3 frozen
 CHANGELOG.md 0.2.15 5 frozen
