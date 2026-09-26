@@ -1,0 +1,16 @@
+MATCH memory/index_store_copies_list.lu verdict=exit(0) stdout="outs0=1 xs=2\n" want="outs0=1 xs=2\n"
+MATCH memory/index_store_copies_map.lu verdict=exit(0) stdout="m0=1 xs=2\n" want="m0=1 xs=2\n"
+MATCH memory/index_store_copy_elem.lu verdict=exit(0) stdout="7 9 wolf wolf 3 4\n" want="7 9 wolf wolf 3 4\n"
+MATCH memory/index_store_read_param.lu verdict=exit(0) stdout="m0=1 xs=2\n" want="m0=1 xs=2\n"
+MATCH memory/mut_claim_cond_write.lu verdict=exit(0) stdout="2\n" want="2\n"
+MATCH memory/mut_claim_if_else.lu verdict=exit(0) stdout="2\n" want="2\n"
+MATCH memory/mut_claim_if_no_else.lu verdict=exit(0) stdout="2\n" want="2\n"
+MATCH memory/mut_claim_match_arms.lu verdict=exit(0) stdout="4\n" want="4\n"
+MATCH memory/store_rhs_first_list.lu verdict=exit(0) stdout="7 65\n5 65\n" want="7 65\n5 65\n"
+MATCH memory/store_rhs_first_map.lu verdict=exit(0) stdout="7 65\n" want="7 65\n"
+DIFF  memory/store_rhs_first_pool.lu verdict=unsupported stdout="" want="7 65\n"
+DIFF  conc/proc_join_param.lu verdict=unsupported stdout="" want="9"
+   record keys: detail,diagnostics,exit,forest,leaks,phase,stderr,stdout,trap,ub,unsupported,verdict,warnings {"detail":null,"diagnostics":[],"exit":4,"forest":null,"leaks":0,"phase":"resolve","stderr":"<stdin>: unsupported: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs\n","stdout":"","trap":null,"ub":null,"unsupported":"the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the progr
+MATCH grammar/range_header_inclusive_max.lu verdict=exit(0) stdout="first 0\ntail 3\n" want="first 0\ntail 3\n"
+MATCH grammar/range_value_wide_iter.lu verdict=exit(0) stdout="first 0\nfirst -9223372036854775808\n" want="first 0\nfirst -9223372036854775808\n"
+stdout mismatches: 2

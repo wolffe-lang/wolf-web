@@ -1,0 +1,25 @@
+== module move on 0.2.16 corpus (0.1.38 -> 0.1.40): 1 rows differ
+   conc/proc_join_param.lu: fail(E0301) -> unsupported
+== corpus move under 0.1.38 (common rows): 0 rows differ
+== corpus move under 0.1.40 (common rows): 0 rows differ
+== module move on 0.2.17 corpus: 3 rows differ
+   conc/proc_join_param.lu: fail(E0301) -> unsupported
+   memory/index_store_copies_list.lu: trap(use-after-move) -> exit(0)
+   memory/index_store_copies_map.lu: trap(use-after-move) -> exit(0)
+== arrivals at 0.2.17 under 0.1.40:
+   exit         memory/index_store_copies_list.lu  exit(0)  (0.1.38: trap(use-after-move))
+   exit         memory/index_store_copies_map.lu  exit(0)  (0.1.38: trap(use-after-move))
+   exit         memory/index_store_copy_elem.lu  exit(0)  (0.1.38: exit(0))
+   exit         memory/index_store_read_param.lu  exit(0)  (0.1.38: exit(0))
+   exit         memory/mut_claim_cond_write.lu  exit(0)  (0.1.38: exit(0))
+   exit         memory/mut_claim_if_else.lu  exit(0)  (0.1.38: exit(0))
+   exit         memory/mut_claim_if_no_else.lu  exit(0)  (0.1.38: exit(0))
+   exit         memory/mut_claim_match_arms.lu  exit(0)  (0.1.38: exit(0))
+   exit         memory/store_rhs_first_list.lu  exit(0)  (0.1.38: exit(0))
+   exit         memory/store_rhs_first_map.lu  exit(0)  (0.1.38: exit(0))
+   unsupported  memory/store_rhs_first_pool.lu  unsupported  (0.1.38: unsupported)
+== departures: []
+probe grammar/range_header_inclusive_max.lu exit(0)
+probe grammar/range_value_wide_iter.lu exit(0)
+probe conc/proc_join_param.lu unsupported
+died rows: []

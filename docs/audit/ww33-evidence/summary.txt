@@ -1,0 +1,50 @@
+census-0216-0138 {"wasm": "/home/mfwolffe/lanes/ww33/lupin-0.1.38.wasm", "programs": 411, "classes": {"unsupported": 90, "exit": 287, "fail": 1, "trap": 33}, "candidates": 320}
+census-0216-0140 {"wasm": "/home/mfwolffe/lanes/ww33/lupin-0.1.40.wasm", "programs": 411, "classes": {"unsupported": 91, "exit": 287, "trap": 33}, "candidates": 320}
+census-0217-0138 {"wasm": "/home/mfwolffe/lanes/ww33/lupin-0.1.38.wasm", "programs": 422, "classes": {"unsupported": 91, "exit": 295, "fail": 1, "trap": 35}, "candidates": 330}
+census-0217-0140 {"wasm": "/home/mfwolffe/lanes/ww33/lupin-0.1.40.wasm", "programs": 422, "classes": {"unsupported": 92, "exit": 297, "trap": 33}, "candidates": 330}
+7bcb9e1ee94aac84058adf22521e355abccab2e095489325bae06527a000f9ca  lupin-0.1.38.wasm
+df4cecc358e8654b06c585fea9dd8cb5d975256d1b28183636dbcfe34d51d595  lupin-0.1.40.wasm
+HEAD ebd69f0
+version prose: 320 literal mention(s) audited against wolf 0.2.17 and lupin 0.1.40, 92 allowlisted (29 on the wolf clock, 7 on lupin's, 56 frozen in 1 dated root(s))
+version prose: 27 placeholder(s) in 6 entries, 12 of them release-bound and re-read at this bump
+counts: 249 number word(s) in 79 entries, 23 of them live and re-read at this bump (wolf 0.2.17, lupin 0.1.40, book f2f4280)
+lag phrases: wolf 0.2.17 is advertised; lupin was built at the v0.2.16 tag (93a5fe5) — it reads the release before this one, and both pages carry 'one release' and neither carries another
+  version prose stamped: wolf 0.2.17, lupin 0.1.40
+  book: 48 pages
+  pdf: 5.6 MB at dist/book/wolf-book.pdf
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1040 KiB raw, 385 KiB gzipped
+  wasm: 1.1M at dist/play/lupin.wasm
+  counts: 10 stamped across 7 page(s) — bookchapters 33, diagnostics 142, netprograms 18, samples 36, speccommits 72, warnings 34
+  "built": "2026-09-26T23:10:38Z",
+  "lupin": "0.1.40",
+  "pins": { "wolf-lang": "02afce8", "wolf-interp": "54f85e6", "wolf-book": "f2f4280" },
+  "spec-pin": "93a5fe5",
+  "missing": []
+63
+link check: allowlist carries 0 known-dead link(s)
+link check: 1457 internal links across 63 pages, 0 dead
+links-exit=0
+ℹ pass 104
+ℹ fail 0
+tests-exit=0
+===== check-samples
+check-samples: 36 menu entries, each in the class the page claims for it (0 noted as not running here)
+check-samples: all 18 programs in upstream/wolf-lang/corpus/net answer unsupported, which is what /play/ counts
+samples-exit=0
+===== check-ahead
+check-ahead: 1 witness(es) against the built module and 541 anchors the pinned release declares — 1 run on both sides, 0 not yet mirrored here, 0 ahead of the release
+ahead-exit=0
+===== pdf
+-rw-r--r-- 1 mfwolffe mfwolffe 5611925 Sep 26 19:10 dist/book/wolf-book.pdf
+live check 2026-09-26T23:11:58Z: 63 of the 63 dry pages answer 200 at https://lupp.us (served build 2026-09-24T06:29:52Z)
+release assets (digest from the release API; the site build consumes none of them — the windows CI job downloads the windows archive):
+  wolf-0.2.17-aarch64-apple-darwin.tar.gz  13939354  sha256:525c91431bf91ed0db5caa5b19819513b16168ca0811ba75e4a28f5bac7ebc53
+  wolf-0.2.17-aarch64-unknown-linux-gnu.tar.gz  59418560  sha256:d3d2262352fc1d0bd343428c518c3ead69d7cb8bcd2c728d090096c220991420
+  wolf-0.2.17-x86_64-pc-windows-msvc.tar.gz  12005119  sha256:a1708837115be74761d93ba2cb99e35edc4f341cbe22fcffd5d14c0c4d605b59
+  wolf-0.2.17-x86_64-unknown-linux-gnu.tar.gz  70559701  sha256:a95d0f0f8fe384fdb70047bb893c857573cc62dd10b2967ab7788fc9a8ce24ce
+  lupin-0.1.40-aarch64-apple-darwin.tar.gz  2301848  sha256:197f19573bb19a8e21f06431451279959784c70a7195d9d98244dcd4b721c034
+  lupin-0.1.40-aarch64-unknown-linux-gnu.tar.gz  2442742  sha256:c6a9b30f53cbff0883cf5afb1b09d87ebc9dabd7ec5a531ccb9b18e1064c2996
+  lupin-0.1.40-x86_64-pc-windows-msvc.zip  2235551  sha256:10466658b0709e68d43986eaff5a10729d581837c727b494f3a8e75e4e788252
+  lupin-0.1.40-x86_64-unknown-linux-gnu.tar.gz  2573514  sha256:509929e67b7ae97463973d6bb7c61b9f93dc47a523957055def816c56fb23384
+  lupin.exe  5859328  sha256:1daf174cf55d83157d9c3187e47be15fafd0c55357c5a72999fd868ac78d01f5

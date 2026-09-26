@@ -197,6 +197,54 @@ their history.
 *Filled in after the measurement; nothing above this line is edited after the
 prediction commit except to append.*
 
+Measured on kasumi at branch head `ebd69f0` (the last site change; later
+commits touch only this file and `docs/audit/ww33-evidence/`). Files below are
+under `docs/audit/ww33-evidence/`.
+
+| claim | artifact |
+|---|---|
+| prediction precedes the first pin | prediction commit `f7ca63c`; first pin commit `dff4642`; `git merge-base --is-ancestor f7ca63c dff4642` exits 0 |
+| three gitlink commits | book `dff4642` (→ `f2f4280`), wolf `44cfb27` (→ `02afce84`), lupin `ecaca09` (→ `54f85e6`) |
+| inputs, lag, corpus sets, anchors, grammar | `derive.log` |
+| ancestry guard, verbatim | `summary.txt`: `lag phrases: wolf 0.2.17 is advertised; lupin was built at the v0.2.16 tag (93a5fe5) — it reads the release before this one, and both pages carry 'one release' and neither carries another`; `--json`: `{"gap": 1, "phrase": "one release", "tagged": true, "commits": 72, "spec": "93a5fe5", "release": "0.2.16", "advertised": "0.2.17"}` |
+| stamped lag | `speccommits 72` in `summary.txt`; `seventy-two commits` on both built pages |
+| census, four legs | `summary.txt` (per-leg class counts), `census-0217-0140.json` (the served census, 422 rows), `rows.txt` (row-level diffs), harness `census.mjs` (ww32's, unmodified), `rows.py` |
+| arrivals print their headers' stdout | `stdout-probe.txt` (10 MATCH; the two non-matches are the `Pool` and proc declines), `stdout-probe.mjs` |
+| #128 / B57 probe | `stdout-probe.txt`: `range_header_inclusive_max.lu` `exit(0)` `first 0\ntail 3\n` MATCH; `range_value_wide_iter.lu` MATCH; `rows.txt`: `died rows: []` |
+| modules | 0.1.40 wasm sha256 `df4cecc3…` (built twice from the gitlink, identical); 0.1.38 wasm `7bcb9e1e…` = ww32's (`summary.txt`) |
+| audits, links, tests, menu, ahead gate | `summary.txt`: version prose / counts / lag exit 0; 1457 internal links across 63 pages, 0 dead; node tests 104 pass 0 fail; check-samples 36 in class; check-ahead 0 ahead, 541 anchors |
+| allowlist cost | commit `1bf710c` (the 56 clocked lines plus leaves/arrivals) and `ebd69f0` (8 CHANGELOG lines); book/wolf-clock count lines in `dff4642`, `44cfb27` |
+| dry vs live pages | 63 dry (`summary.txt`); 63 of 63 answer 200 on the served site today (`summary.txt`, live check line) |
+| release asset digests | `summary.txt` (from the release API; the site build consumes no archive) |
+| windows claims at 0.2.17 | windows learner path run 36278485139 at `1bf710c`, green, log shows `wolf 0.2.17 (wolfgang, pin 02afce8)`; the lag step reddened at `b778d9b` (run 36278449146) on a reserved phrase the doors sentence spelled, fixed by the next commit |
+| CI at head | recorded in the PR body |
+
+**Prediction vs measurement**
+
+| item | predicted | measured |
+|---|---|---|
+| pages dry / live / book | 63 / 63 / 48 | 63 / 63 / 48 |
+| versions, `version.json` | 0.2.17, 0.1.40; `02afce8` `54f85e6` `f2f4280`, spec-pin `93a5fe5`, missing [] | identical |
+| guard | gap 1, tagged, 72 commits | identical |
+| census programs / exit / trap / unsupported / fail / candidates / died | 422 / 297 / 33 / 92 / 0 / 330 / 0 | 422 / 297 / 33 / 92 / 0 / 330 / 0 |
+| rows that change class besides `proc_join_param` | none pre-existing | none pre-existing (on the old corpus); on the new corpus the old module traps the two `index_store_copies_*` arrivals, which the prediction did not state and does not contradict |
+| clocked allowlist lines | 56 | 56 (32 version, 6 stamp, 18 count) |
+| leaves / arrivals | 2 leave; `v0.2.16` on index and spec, `v0.2.15` on index | 2 leave; 6 arrive: those 3 plus `v0.2.16` on install, `v0.2.14` and `0.1.37` on play — the three stale sentences the prediction did not know about |
+| stamps | 33 / 142 / 34 / 18 / 36 | identical |
+| #128 probe | exit 0, no death | exit 0, stdout matches, no death |
+| menu | 36, none moves | 36, all in class |
+| PDF | 5.6 MB ± 0.1 | 5.6 MB (5,611,925 B on kasumi) |
+
+**Found, not predicted.** Four unstamped sentences named the wrong release
+and no gate could see them: /spec/ 01 "this release" (FORMAT_SPEC is
+v0.2.15's, false since 0.2.16), /install/ "a shape this release gave the
+record" (v0.2.16's), /install/ "the tag the compiler above was cut two tags
+after" (false since ww32, when the gap became one), /play/ "one of them is
+this release's" plus "the newest is not in it yet" about `writev_head` (the
+witness is v0.2.14's; `net_writev_head` has been in lupin since 0.1.37). And
+ww32's insertions on /spec/ 05 and 06 split two sentences mid-clause
+("…number in the / At v… / thousands."). All fixed at this bump.
+
 ## 5. Done-when
 
 - [ ] Branch `ww33` on origin; PR open, **unmerged**, body carries these five

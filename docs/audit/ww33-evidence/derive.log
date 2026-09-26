@@ -1,0 +1,46 @@
+have N
+is-ancestor O N exit=0
+rev-list O..N = 72
+tag v0.2.17 -> 02afce84f05c7841856a10671b6d7924f79193cc ; v0.2.16 -> 93a5fe504593ca7642b78ba83b4986e7a03cfe71
+CHANGELOG first headings at N:
+## 0.2.17 — 2026-09-26
+## 0.2.16 — 2026-09-22
+## 0.2.15 — 2026-09-16
+== 93a5fe5: E=142 W=34 net=18 grammar=2b6269d7ce926d89 anchors=539
+== 02afce8: E=142 W=34 net=18 grammar=910ff9d5f6e6747e anchors=541
+anchors added 2 ['mem.model.place.rhs', 'os.fs.path.domain']
+anchors dropped 0 []
+== spec/ docs/ diff stat
+ docs/diagnostics.md              | 10 ++---
+ spec/01-grammar.md               | 18 +++++++++
+ spec/02-memory-model.md          | 83 ++++++++++++++++++++++++++++++++--------
+ spec/06-differential-protocol.md | 19 +++++++++
+ spec/11-os.md                    | 55 ++++++++++++++++++--------
+ spec/anchors.json                |  2 +
+ spec/grammar.ebnf                |  2 +
+ 7 files changed, 154 insertions(+), 35 deletions(-)
+== corpus diff by status
+     18 A
+      1 M
+  422 /home/mfwolffe/lanes/ww33/run-02afce8.txt
+  411 /home/mfwolffe/lanes/ww33/run-93a5fe5.txt
+  833 total
+== run only at N:
+corpus/memory/index_store_copies_list.lu
+corpus/memory/index_store_copies_map.lu
+corpus/memory/index_store_copy_elem.lu
+corpus/memory/index_store_read_param.lu
+corpus/memory/mut_claim_cond_write.lu
+corpus/memory/mut_claim_if_else.lu
+corpus/memory/mut_claim_if_no_else.lu
+corpus/memory/mut_claim_match_arms.lu
+corpus/memory/store_rhs_first_list.lu
+corpus/memory/store_rhs_first_map.lu
+corpus/memory/store_rhs_first_pool.lu
+== run only at O:
+== run files modified O..N:
+have lupin 54f85e6
+lupin Cargo version at 54f85e6: version = "0.1.40"
+lupin gitlink at 54f85e6: 160000 commit 93a5fe504593ca7642b78ba83b4986e7a03cfe71	upstream
+lupin commits ba357aa..54f85e6: 61
+ba357aa ancestor of 54f85e6 exit=0
