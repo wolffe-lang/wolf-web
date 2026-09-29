@@ -1,0 +1,461 @@
+derive run 2026-09-29T01:25:28Z on kasumi
+=== tags
+v0.2.16 93a5fe504593ca7642b78ba83b4986e7a03cfe71
+v0.2.17 02afce84f05c7841856a10671b6d7924f79193cc
+v0.2.18 ec56a08f04ff318ea659fd58683f7ae4f22dc7a5
+=== ancestry
+is-ancestor 93a5fe504593ca7642b78ba83b4986e7a03cfe71 ec56a08f04ff318ea659fd58683f7ae4f22dc7a5 exit=0
+is-ancestor 02afce84f05c7841856a10671b6d7924f79193cc ec56a08f04ff318ea659fd58683f7ae4f22dc7a5 exit=0
+rev-list --count SPEC..NEW = 152
+rev-list --count OLD..NEW = 80
+rev-list --count SPEC..OLD = 72
+=== CHANGELOG headings at NEW
+## 0.2.18 — 2026-09-27
+## 0.2.17 — 2026-09-26
+## 0.2.16 — 2026-09-22
+## 0.2.15 — 2026-09-16
+## 0.2.14 — 2026-09-13
+=== interp gitlinks
+IOLD upstream: 160000 commit 93a5fe504593ca7642b78ba83b4986e7a03cfe71	upstream
+INEW upstream: 160000 commit 93a5fe504593ca7642b78ba83b4986e7a03cfe71	upstream
+version = "0.1.41"
+interp commits IOLD..INEW = 20
+0cfc0cf release: lupin 0.1.41
+cf0df50 changelog: 0.1.41 — is56's moved-element reads, from its eighteen commits
+456ee2d docs: is56 §3a — the manual's census was the unpredicted third place the row moved
+c8527bc docs: the manual's corpus census counts DIV-2026-026 — 502 match, 2 mismatch
+02433a0 docs: is56 §3a — the prediction scored; the default tier added no entry and exposed the waiver rule
+f4c5f00 changelog: Unreleased — the moved element traps (#141), DIV-2026-026, the waiver evidence rule
+ebc65ae diff-run: retire a waiver only on a clean full-depth compare (the default tier sees no run)
+6c22d42 differ: a comparison that stopped short of our rung is no evidence a waiver retired
+b444fd0 tests: list_session_struct's run ledger row is the trap, filed as DIV-2026-026
+057c99e differ: file DIV-2026-026 — list_session_struct reads the element it moved
+023bf01 fmt: rustfmt the moved-element edits
+3ce773b eval: a for over a list or map traps when it reaches a moved element (#141)
+bda3ed7 eval: the slice and par trap lines name no 0-based position (D61)
+08105f4 eval: a slice over a moved element traps instead of copying the mark (#141)
+39782fe eval: get, first, last, pop, par, remove and pairs trap on a moved element (#141)
+9bc2f89 eval: an index read of a moved element traps use-after-move (#141)
+4870cad tests: every element read path against a moved slot — red at trunk where the mark is ignored
+5970d95 tests: run eg00's witnesses against their ruled lupin cell — five red at trunk
+cea0179 tests: eg00's fourteen element witnesses, verbatim, with the ruled lupin cells
+441d90a docs: is56 §2 re-derived and §3 predicted — the element read paths, one corpus row filed
+=== interp files changed
+ tests/rulings_eg00/elem_offset_mut_pair/main.lu    |  27 ++
+ tests/run_corpus.rs                                |   5 +-
+ 42 files changed, 1643 insertions(+), 34 deletions(-)
+=== counts OLD vs NEW
+02afce84 E=142 W=34 net=18 anchors=541
+ec56a08f E=142 W=34 net=18 anchors=542
+anchors added 1 ['mem.model.place.elem']
+anchors dropped 0 []
+grammar.ebnf 910ff9d5f6e6747e -> 910ff9d5f6e6747e
+BYTE-IDENTICAL
+=== phase:run sets
+  422 /home/mfwolffe/lanes/ww34/run-02afce8.txt
+  445 /home/mfwolffe/lanes/ww34/run-ec56a08.txt
+  867 total
+--- in:
+corpus/memory/ctl_store_order_captured.lu
+corpus/memory/ctl_store_order_compound.lu
+corpus/memory/ctl_store_order.lu
+corpus/memory/ctl_store_order_map.lu
+corpus/memory/ctl_store_order_nested_index.lu
+corpus/memory/ctl_store_order_nested.lu
+corpus/memory/ctl_store_order_raw.lu
+corpus/memory/elem_char_bool_key_revive.lu
+corpus/memory/elem_const_field_of_elem.lu
+corpus/memory/elem_const_move_heap.lu
+corpus/memory/elem_const_store_revives.lu
+corpus/memory/elem_key_move_map.lu
+corpus/memory/elem_len_after_move.lu
+corpus/memory/elem_move_one_place.lu
+corpus/memory/elem_pool_handle_revive.lu
+corpus/memory/elem_same_index_revive.lu
+corpus/memory/elem_str_key_revive.lu
+corpus/memory/elem_tuple_pos_move.lu
+corpus/memory/elem_tuple_pos_mut.lu
+corpus/memory/mut_param_restore_elem.lu
+corpus/memory/mut_param_restore_field.lu
+corpus/memory/mut_param_restore_map.lu
+corpus/memory/mut_param_restore_whole.lu
+--- out:
+=== corpus diff name-status
+A	corpus/memory/ctl_store_order.lu
+A	corpus/memory/ctl_store_order_captured.lu
+A	corpus/memory/ctl_store_order_compound.lu
+A	corpus/memory/ctl_store_order_map.lu
+A	corpus/memory/ctl_store_order_nested.lu
+A	corpus/memory/ctl_store_order_nested_index.lu
+A	corpus/memory/ctl_store_order_raw.lu
+A	corpus/memory/elem_char_bool_key_revive.lu
+A	corpus/memory/elem_const_field_of_elem.lu
+A	corpus/memory/elem_const_move_heap.lu
+A	corpus/memory/elem_const_store_no_revive_heap.lu
+A	corpus/memory/elem_const_store_no_revive_int.lu
+A	corpus/memory/elem_const_store_revives.lu
+A	corpus/memory/elem_dyn_move_const_read.lu
+A	corpus/memory/elem_dyn_mut_pair.lu
+A	corpus/memory/elem_dyn_store_no_revive_heap.lu
+A	corpus/memory/elem_dyn_store_no_revive_int.lu
+A	corpus/memory/elem_key_move_map.lu
+A	corpus/memory/elem_key_reassigned_no_revive.lu
+A	corpus/memory/elem_len_after_move.lu
+A	corpus/memory/elem_loop_covers_const.lu
+M	corpus/memory/elem_move_one_place.lu
+A	corpus/memory/elem_move_same_const_read.lu
+A	corpus/memory/elem_offset_other_local.lu
+A	corpus/memory/elem_pool_handle_revive.lu
+A	corpus/memory/elem_pool_handles_one_place.lu
+A	corpus/memory/elem_same_const_mut.lu
+A	corpus/memory/elem_same_index_revive.lu
+A	corpus/memory/elem_str_key_revive.lu
+A	corpus/memory/elem_sym_reassigned_no_revive.lu
+A	corpus/memory/elem_tuple_pos_move.lu
+A	corpus/memory/elem_tuple_pos_mut.lu
+M	corpus/memory/list_session_struct.lu
+A	corpus/memory/mut_param_moveout_elem.lu
+A	corpus/memory/mut_param_moveout_field.lu
+A	corpus/memory/mut_param_moveout_map.lu
+A	corpus/memory/mut_param_moveout_one_path.lu
+A	corpus/memory/mut_param_moveout_whole.lu
+A	corpus/memory/mut_param_restore_elem.lu
+A	corpus/memory/mut_param_restore_field.lu
+A	corpus/memory/mut_param_restore_map.lu
+A	corpus/memory/mut_param_restore_whole.lu
+--- pre-existing run programs modified:
+corpus/memory/list_session_struct.lu
+=== spec/ docs/ stat
+ docs/diagnostics.md     |  12 ++++-
+ spec/02-memory-model.md | 131 +++++++++++++++++++++++++++++++++++++++++++++---
+ spec/anchors.json       |   1 +
+ 3 files changed, 134 insertions(+), 10 deletions(-)
+=== new run program headers
+## corpus/memory/ctl_store_order_captured.lu
+//! check: run(exit=0, stdout="5 0 1\n")
+//! phase: run
+//! conforms: mem.model.place.rhs, mem.model.order
+//!
+//! s183 (wolf-lang#452, ruled index first, then value) — the index's
+//! VALUE, not only its side effects, is taken before the right-hand
+//! side. In `ys[i] = bump(mut i)` the index reads `i` (0), then
+//! `bump` sets `i` to 1 and returns 5, and the store lands at index
+//! 0: `5 0 1`. Value first would store at index 1 (`0 5 1`), which is
+//! what the checked lane answered before s183.
+## corpus/memory/ctl_store_order_compound.lu
+//! check: run(exit=0, stdout="idx\nval\n8\n")
+//! phase: run
+//! conforms: mem.model.place.rhs, mem.model.order
+//!
+//! s183 (wolf-lang#452, ruled index first, then value) — a compound
+//! store: `xs[idx()] += val()` evaluates the index, then the
+//! right-hand side, then reads, combines and writes the element.
+//! Before s183 the checked lane ran `val` first.
+## corpus/memory/ctl_store_order.lu
+//! check: run(exit=0, stdout="idx\nval\n7\n")
+//! phase: run
+//! conforms: mem.model.place.rhs, mem.model.order
+//!
+//! s183 (wolf-lang#452, ruled 2026-09-26: index first, then value) —
+//! s182's control, verbatim. In `xs[idx()] = val()` the place's index
+//! operand is evaluated before the right-hand side, left to right as
+//! `[mem.model.order]` reads; the element's address is minted after
+//! the right-hand side (`[mem.model.place.rhs]`). `idx val 7` on the
+//! checked, native and release lanes and on lupin. Before s183 the
+//! checked lane printed `val idx 7` (trunk a201c518 and every release
+//! through 0.2.17); native, release and lupin already printed this.
+## corpus/memory/ctl_store_order_map.lu
+//! check: run(exit=0, stdout="key\nval\n7 1\nkey\ngrow\n7 65\n")
+//! phase: run
+//! conforms: mem.model.place.rhs, mem.model.order, type.map
+//!
+//! s183 (wolf-lang#452, ruled 2026-09-26: index first, then value) —
+//! the `Map` twin of `ctl_store_order.lu`. `m[key()] = val()`
+//! evaluates the key before the right-hand side (`key val`). The
+//! second store is both sentences of `[mem.model.place.rhs]` at once:
+//! `m[key()] = grow(mut m)` evaluates the key, then the right-hand
+//! side (which inserts 64 keys and rehashes the map), and only then
+//! inserts — into the grown map: `7 65`. Before s183 the checked lane
+//! ran the right-hand side first in both stores (`val key`, `grow
+//! key`); native, release and lupin 0.1.40 already printed this.
+## corpus/memory/ctl_store_order_nested_index.lu
+//! check: run(exit=0, stdout="i\nj\nval\n7\na\nb\nc\nval\n9\n")
+//! phase: run
+//! conforms: mem.model.place.rhs, mem.model.order
+//!
+//! s183 (wolf-lang#452, ruled 2026-09-26: index first, then value) —
+//! a place with several index operands evaluates them left to right,
+//! outermost first, each exactly once, and then the right-hand side:
+//! `g[i][j] = val()` prints `i j val`, `h[a][b][c] = val()` prints
+//! `a b c val`. Before s183 the checked lane printed `val` first;
+//! native and release already printed this. lupin 0.1.40 evaluates
+//! every operand but the last TWICE in a store (`i i j val`, `a b a b
+//! c val`; reads are once) — wolf-interp#145.
+## corpus/memory/ctl_store_order_nested.lu
+//! check: run(exit=0, stdout="c\nval\n7\np\nval\n7\nx\ngrow\n7 65\n")
+//! phase: run
+//! conforms: mem.model.place.rhs, mem.model.order
+//!
+//! s183 (wolf-lang#452, ruled 2026-09-26: index first, then value) —
+//! the index under a longer place. `cs[at("c", 0)].n = val()` runs
+//! the index before the right-hand side (`c val`), and so does a store
+//! through a `mut` parameter (`p val`). The last store is both
+//! sentences of `[mem.model.place.rhs]` at once: `xs[at("x", 0)] =
+//! grow(mut xs)` runs the index (`x`), then the right-hand side
+//! (`grow`, which pushes 64 elements and moves the buffer), and only
+//! then locates the element — so the store lands at index 0 of the
+//! grown list: `7 65`. Before s183 the checked lane ran every
+//! right-hand side first; native, release and lupin 0.1.40 already
+//! printed this. Two index levels are `ctl_store_order_nested_index.lu`.
+## corpus/memory/ctl_store_order_raw.lu
+//! check: run(exit=0, stdout="idx\nval\n9\n")
+//! phase: run
+//! conforms: mem.model.place.rhs, mem.model.order, mem.unsafe.scope
+//!
+//! s183 (wolf-lang#452, ruled 2026-09-26: index first, then value) —
+//! a raw-pointer element store orders its operands the same way:
+//! `p[idx()] = val()` evaluates the pointer, then the index, then the
+//! right-hand side, then writes. Before s183 the checked lane ran
+//! `val` first; native, release and lupin 0.1.40 already printed this.
+## corpus/memory/elem_char_bool_key_revive.lu
+//! check: run(exit=0, stdout="2 2 2 4\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.4
+//!
+//! eg01b — R3 over `char` and `bool` key locals, the twin of
+//! `elem_str_key_revive.lu`: out through `bc[c]` / `bb[f]`, back through
+//! the same local, read. Any `Copy` local qualifies, not only an integer
+//! one. 0.2.17 accepted it through any-store revival (wolf-lang#460);
+//! eg01 refused it (E1001). `2 2 2 4` on every machine.
+## corpus/memory/elem_const_field_of_elem.lu
+//! check: run(exit=0, stdout="1 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2
+//!
+//! eg01 (EGC's EG1) — `[mem.model.place.elem]` item 1(a), the path rule:
+//! `move xs[0].tags`, then a read of `xs[1].tags.len`. The two paths
+//! first differ at the index step and the literals differ, so every
+//! path through them is distinct. `1 2` on checked, native, release
+//! and lupin 0.1.40; E1001 on both wolfgang lanes through 0.2.17.
+## corpus/memory/elem_const_move_heap.lu
+//! check: run(exit=0, stdout="1 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2
+//!
+//! eg01 (EGC's EG1) — `[mem.model.place.elem]` item 1(a): `move xs[0]`
+//! on a `List[List[int]]`, then a read of `xs[1].len`. The non-`Copy`
+//! twin of `elem_move_one_place.lu` (the shape 0.2.14 already refused).
+//! Distinct literals are distinct places: `1 2` on checked, native,
+//! release and lupin 0.1.40. Through 0.2.17 it was E1001 on both
+//! wolfgang lanes.
+## corpus/memory/elem_const_store_revives.lu
+//! check: run(exit=0, stdout="2 1 7\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.4
+//!
+//! eg01 — `[mem.model.place.elem]` item 3, the positive half: a store
+//! through the same literal index surely denotes the moved element and
+//! revives it — `move xs[0]`, work on the value, `xs[0] = take a`, read
+//! `xs[0]`. The twin of `elem_const_store_no_revive_heap.lu`, where the
+//! store names `xs[1]` and revives nothing. `2 1 7` on every machine.
+## corpus/memory/elem_key_move_map.lu
+//! check: run(exit=0, stdout="1 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2
+//!
+//! eg01 (EGC's EG1) — `[mem.model.place.elem]` item 1(b): on a
+//! `Map[str, List[int]]` the value at `m["a"]` is read out (a move: the
+//! value is not `Copy`, s152), then `m["b"]` is read. Two literal keys
+//! whose values differ are distinct places. `1 2` on checked, native,
+//! release and lupin 0.1.40 (whose map read clones); E1001 on both
+//! wolfgang lanes through 0.2.17, when the read of `m["a"]` moved the
+//! collapsed `m[_]`.
+## corpus/memory/elem_len_after_move.lu
+//! check: run(exit=0, stdout="1 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2
+//!
+//! eg01 (EGC's EG1) — `[mem.model.place.elem]` item 1(c): `move xs[0]`,
+//! then a read of `xs.len`. An element and a member of its container
+//! are distinct steps — the header is not an element (a `List` carries
+//! one field-shaped member, `len`). `1 2` on checked, native, release
+//! and lupin 0.1.40; E1001 on both wolfgang lanes through 0.2.17.
+## corpus/memory/elem_move_one_place.lu
+//! check: run(exit=0, stdout="1 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2, mem.model.place
+//!
+//! s182 (wolf-lang#446) — `move xs[0]` on a `List[int]` and then a read
+//! of `xs[1]`. Through 0.2.17 every element of a container was ONE
+//! place on the compiler (`Proj::Opaque`), so the move of `xs[0]`
+//! emptied `xs[_]` and the read of `xs[1]` was E1001 on both wolfgang
+//! lanes while lupin, which models elements one by one, ran it: the
+//! documented conservatism row this file pinned.
+//!
+//! eg01 (EGC's EG1) closes it: `[mem.model.place.elem]` item 1(a) — two
+//! integer-literal indices whose values differ are distinct places, so
+//! the move leaves `xs[1]` readable. `1 2` on checked, native, release
+//! and lupin 0.1.40. The driver test `element_move_conservatism_lanes.rs`
+//! asserts every lane; `elem_move_same_const_read.lu` keeps the moved
+//! element itself unreadable.
+## corpus/memory/elem_pool_handle_revive.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.4
+//!
+//! eg01b — R3 through a `Pool` handle local: a handle is a `Copy`
+//! value, so `move p[h]` … `p[h] = take t` with `h` unwritten between
+//! revives the element. Two handles stay one place for every other rule
+//! (item 2; `elem_pool_handles_one_place.lu`). 0.2.17 accepted this
+//! through any-store revival (wolf-lang#460); eg01 refused it (E1001).
+//! `2` on checked, native and release; lupin declines `Pool` by name.
+## corpus/memory/elem_same_index_revive.lu
+//! check: run(exit=0, stdout="1 3\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.4, mem.region.edge.elem
+//!
+//! eg00 — `[mem.model.place.elem]` item 4's R3: take an element out
+//! through a run-time index, work on it, store it back through the
+//! SAME index (`i` unassigned between). The store provably denotes the
+//! moved element, so it revives it and the read is legal. `1 3` on
+//! checked, native, release and lupin 0.1.40.
+//!
+//! Today this compiles for a worse reason: any index store revives the
+//! collapsed element place (wolf-lang#460). When that revival narrows
+//! to item 3's must-rule, this row is what must keep compiling — R3 is
+//! the rule that keeps it.
+## corpus/memory/elem_str_key_revive.lu
+//! check: run(exit=0, stdout="3 7 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.4
+//!
+//! eg01b — `[mem.model.place.elem]` item 4's R3 over a `Copy` local
+//! that is not an integer (the maintainer's ruling, 2026-09-26): read a
+//! value out of a `Map[str, List[int]]` through a `str` key, work on it,
+//! store it back through the SAME key. `k` is unwritten between, so the
+//! store provably denotes the element the read emptied and revives it.
+//! Both spellings: a key parameter (`bump`) and a key local (`main`).
+//!
+//! 0.2.17 accepted this through any-store revival (wolf-lang#460);
+//! eg01 narrowed revival to R3 over integer locals and refused it
+//! (E1001 at `main`'s read after the store). `3 7 2` on checked,
+//! native, release and lupin 0.1.40.
+## corpus/memory/elem_tuple_pos_move.lu
+//! check: run(exit=0, stdout="1 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.model.place, mem.tier0.move.2
+//!
+//! eg00 (wolf-lang#446's campaign) — `[mem.model.place.elem]` item
+//! 1(d): tuple positions are FIELD steps (`t.0`, `t.1`), distinct
+//! places before the element clause existed. Moving `t.0` leaves
+//! `t.1` readable on every machine: checked, native, release and
+//! lupin 0.1.40 all print `1 2` (measured on kasumi, 0.2.17 archive).
+//! The contrast the clause draws is with a `List`, whose elements are
+//! one place until EG1 (`elem_move_one_place.lu`).
+## corpus/memory/elem_tuple_pos_mut.lu
+//! check: run(exit=0, stdout="2 12\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.2, mem.model.path.disjoint
+//!
+//! eg00 — `[mem.model.place.elem]` item 1(d), the exclusivity half:
+//! two `mut` claims on two tuple positions in one call are disjoint
+//! (`[mem.tier0.excl.2]`'s `f(mut a.x, mut a.y)`, spelled with
+//! positions). `2 12` on checked, native, release and lupin 0.1.40.
+//! The `List` twin, `add2(mut xs[0], mut xs[1])`, is E1002 until EG2
+//! (`mut_elem_excl.lu`).
+## corpus/memory/mut_param_restore_elem.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.tier0.mode.mut, mem.tier0.move.4, mem.model.place.elem
+//!
+//! s184 (wolf-lang#464) — the legal twin of
+//! `mut_param_moveout_elem.lu`: `xs[0]` moves out and is stored back
+//! through the same literal before the return (`[mem.model.place.elem]`
+//! item 3 revives it). `2` on checked, native, release and lupin 0.1.40.
+## corpus/memory/mut_param_restore_field.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.tier0.mode.mut, mem.tier0.move.4, mem.model.path.disjoint
+//!
+//! s184 (wolf-lang#464) — the legal twin of
+//! `mut_param_moveout_field.lu`: `s.tags` moves out and is stored back
+//! before the return. `2` on checked, native, release and lupin 0.1.40.
+## corpus/memory/mut_param_restore_map.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.tier0.mode.mut, mem.tier0.move.4, mem.model.place.elem
+//!
+//! s184 (wolf-lang#464) — the legal twin of
+//! `mut_param_moveout_map.lu`: the value at `m[k]` is read out and
+//! stored back through the same `str` key before the return (R3 over a
+//! `Copy` local, `[mem.model.place.elem]` item 4). `2` on checked,
+//! native, release and lupin 0.1.40.
+## corpus/memory/mut_param_restore_whole.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.tier0.mode.mut, mem.tier0.move.4
+//!
+//! s184 (wolf-lang#464) — the legal twin of
+//! `mut_param_moveout_whole.lu`: the whole `mut` parameter moves out,
+//! is worked on, and is stored back before the return
+//! (`[mem.tier0.move.4]` revives it), so it is initialized at every
+//! return. `2` on checked, native, release and lupin 0.1.40.
+=== book
+count BOLD..BNEW = 19
+book ancestry exit=0
+ 33 files changed, 1829 insertions(+), 56 deletions(-)
+CHANGELOG.md
+audit/version-literals.txt
+book/back/colophon.md
+book/back/solutions.md
+book/ch01.md
+book/ch05.md
+book/ch07.md
+book/ch08.md
+book/ch22.md
+book/ch28.md
+book/ch31.md
+docs/audit/bs54-contract.md
+docs/audit/bs54-evidence/anchors-diff.txt
+docs/audit/bs54-evidence/archive-digests.txt
+docs/audit/bs54-evidence/detect-book.txt
+docs/audit/bs54-evidence/detect-plant.txt
+docs/audit/bs54-evidence/detect.py
+docs/audit/bs54-evidence/extract.py
+docs/audit/bs54-evidence/gate-summary.txt
+docs/audit/bs54-evidence/members.txt
+docs/audit/bs54-evidence/probes-rows.txt
+docs/audit/bs54-evidence/probes.txt
+docs/audit/bs54-evidence/versions.txt
+docs/audit/bs54-prediction.md
+docs/audit/bs54-results.md
+principles/EXERCISES-PENDING.md
+principles/exercises/appx/EXERCISES.md
+principles/exercises/ch07/EXERCISES.md
+principles/exercises/ch22/EXERCISES.md
+samples-declined.toml
+samples-pending.toml
+vendor/spec/anchors.json
+wolf-toolchain.toml
+SUMMARY sha c58196034d4fc6c4c2796437dbb9bedb4a4b5506 -> c58196034d4fc6c4c2796437dbb9bedb4a4b5506
+chapters in SUMMARY: 33
+dadc38b audit: bs54 results — the prediction scored, two small misses named
+315fc80 audit: bs54 evidence — digests, members, stamps, probes on both pairs, anchor sets, gate summary
+21c7cc3 declined: 7-12's REPL session row follows its block to line 550 — 7-10's transcript grew by eight
+7692829 CHANGELOG: bs54 — the book takes 0.2.18 / 0.1.41
+a37f938 backmatter: regenerate solutions.md — 7-10's explain paragraph, 22-13's stamp
+8542e14 doc-truth: the version-literal ledger re-read at 0.2.18 / 0.1.41 — every history sentence still true
+8dcdd3b exercises pending: 7-5 and 8-7 read 0.2.18 / 0.1.41
+2e182d2 pending: the three rows re-measured at 0.2.18 / 0.1.41 — all hold, same words, same spans
+4d433ad ledgers: ex8-7 re-measured at 0.2.18 / 0.1.41 — both halves in the same words
+08ef5c3 ledgers: 7-23 and ch28's six re-measured at 0.2.18 / 0.1.41 — nothing moved, as predicted
+5177c6b ledger: ch31's shard papercut re-measured at 0.2.18 — one E1001, shards.len no longer part of it
+eb6680e ch05: §5.3's uncopied best is refused at xs[i], not xs.len — EG1 keeps a list's len readable
+7122969 appx exercises: C-1's --explain E1001 re-recorded — the mut-parameter paragraph (#464)
+78074c4 ch07 exercises: 7-10's --explain E1001 re-recorded — the mut-parameter paragraph (#464)
+ce94078 ch22: the interface line reads toolchain 0.2.18 — both export hashes hold
+9c16f71 ch01, colophon: the pair reads 0.2.18 / 0.1.41 — 152 commits, two releases
+fffd149 pin: wolf v0.2.18 (ec56a08) and lupin 0.1.41 (0cfc0cf), both from the release archives by digest; anchors 541 -> 542
+64a8e35 predict: the book at 0.2.18 / 0.1.41 — no flip, six transcripts, the two element-len claims
+974bf4f contract: bs54 — the book at 0.2.18 / 0.1.41, five sections, inputs re-derived
+DERIVE-DONE

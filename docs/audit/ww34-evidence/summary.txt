@@ -1,0 +1,89 @@
+ww34 summary — measured on kasumi, branch head e13fb0c (the last site change; later commits touch only docs/audit/)
+
+== census legs (harness docs/audit/ww33-evidence/census.mjs, byte-identical copy)
+census-0217-0140 {"programs": 422, "classes": {"unsupported": 92, "exit": 297, "trap": 33}, "candidates": 330}
+census-0217-0141 {"programs": 422, "classes": {"unsupported": 92, "exit": 296, "trap": 34}, "candidates": 330}
+census-0218-0140 {"programs": 445, "classes": {"unsupported": 93, "exit": 319, "trap": 33}, "candidates": 352}
+census-0218-0141 {"programs": 445, "classes": {"unsupported": 93, "exit": 319, "trap": 33}, "candidates": 352}
+
+== modules
+170d11367df6d11b9444d88a3597dbcaa2e25f3deacf2a57a1fb7c1294c53dd6  lupin-0.1.40.wasm
+d4e2872413a973478bfd3fc969c3d6c7bd4e35bd9be9b4dfffb4510e0002b503  lupin-0.1.41.wasm
+d4e2872413a973478bfd3fc969c3d6c7bd4e35bd9be9b4dfffb4510e0002b503  web/dist/play/lupin.wasm
+fwolffe 1065096 Sep 28 21:31 lupin-0.1.40.wasm
+fwolffe 1066820 Sep 28 21:31 lupin-0.1.41.wasm
+(0.1.40 control row-identical to ww33's census-0217-0140.json: 422 rows, 0 verdict diffs; digest differs from ww33's df4cecc3 — see path-control.txt)
+
+== ancestry guard, verbatim
+lag phrases: wolf 0.2.18 is advertised; lupin was built at the v0.2.16 tag (93a5fe5) — it reads 2 releases back, and both pages carry 'two releases' and neither carries another
+{"gap": 2, "phrase": "two releases", "tagged": true, "commits": 152, "spec": "93a5fe5", "release": "0.2.16", "advertised": "0.2.18"}
+
+== build (build2.log excerpt)
+  wolf-book dadc38b
+  wolf-interp 0cfc0cf
+  wolf-lang ec56a08
+version prose: 357 literal mention(s) audited against wolf 0.2.18 and lupin 0.1.41, 106 allowlisted (36 on the wolf clock, 10 on lupin's, 60 frozen in 1 dated root(s))
+version prose: 25 placeholder(s) in 6 entries, 10 of them release-bound and re-read at this bump
+counts: 249 number word(s) in 79 entries, 23 of them live and re-read at this bump (wolf 0.2.18, lupin 0.1.41, book dadc38b)
+lag phrases: wolf 0.2.18 is advertised; lupin was built at the v0.2.16 tag (93a5fe5) — it reads 2 releases back, and both pages carry 'two releases' and neither carries another
+  version prose stamped: wolf 0.2.18, lupin 0.1.41
+  file sizes: 15 stamped from the pin across 2 page(s)
+  revisions: 3 stamped across 2 page(s) — specrev 93a5fe5
+  book: 48 pages
+  pdf: 5.6 MB at dist/book/wolf-book.pdf
+  staged the interpreter's toolchain pin: 1.97.1
+  no portability patch present; building the pin as it stands
+  stamping the interpreter commit as 0cfc0cf
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1041 KiB raw, 386 KiB gzipped
+  wasm: 1.1M at dist/play/lupin.wasm
+  changelog/wolf: rendered
+  changelog/lupin: rendered
+  changelog/book: rendered
+  changelog/site: rendered
+  samples: 36 programs from the pinned corpus
+  counts: 10 stamped across 7 page(s) — bookchapters 33, diagnostics 142, netprograms 18, samples 36, speccommits 152, warnings 34
+  everything built
+  "built": "2026-09-29T01:54:16Z",
+  "lupin": "0.1.41",
+  "pins": { "wolf-lang": "ec56a08", "wolf-interp": "0cfc0cf", "wolf-book": "dadc38b" },
+  "spec-pin": "93a5fe5",
+  "missing": []
+}
+===== page count (dry)
+
+== gates (gates2.log)
+HEAD e13fb0c
+63
+48
+link check: allowlist carries 0 known-dead link(s)
+link check: 1457 internal links across 63 pages, 0 dead
+links-exit=0
+ℹ pass 104
+ℹ fail 0
+tests-exit=0
+===== check-samples
+check-samples: 36 menu entries, each in the class the page claims for it (0 noted as not running here)
+check-samples: all 18 programs in upstream/wolf-lang/corpus/net answer unsupported, which is what /play/ counts
+samples-exit=0
+===== check-ahead
+check-ahead: 1 witness(es) against the built module and 542 anchors the pinned release declares — 1 run on both sides, 0 not yet mirrored here, 0 ahead of the release
+ahead-exit=0
+ℹ pass 8
+ℹ fail 0
+planted-exit=0
+-rw-r--r-- 1 mfwolffe mfwolffe 5616882 Sep 28 21:53 dist/book/wolf-book.pdf
+      2 one hundred and fifty-two commits
+
+live check 2026-09-29T01:53:13Z: 63 of 63 dry pages answer 200 at https://lupp.us (served build 2026-09-26T23:21:34Z)
+
+release assets (digest from the release API; the site build consumes none of them):
+  wolf-0.2.18-aarch64-apple-darwin.tar.gz  13949722  sha256:b8f360456490826726301df3f25ef7d2610ab262e5938702add0baa0920ec3f9
+  wolf-0.2.18-aarch64-unknown-linux-gnu.tar.gz  59543634  sha256:fe6adec8711a037783cf51757d558bf963b063f92c9125e6a93f015009e4ea16
+  wolf-0.2.18-x86_64-pc-windows-msvc.tar.gz  12019776  sha256:6a133a4219b687c237e0a931f94169474f6ff481325bd3879d4c618d1d6a66b2
+  wolf-0.2.18-x86_64-unknown-linux-gnu.tar.gz  70662335  sha256:da027bf9da4c5a9dfa42c4ac6c7da3072ffce84922916650f024af83701e6bd4
+  lupin-0.1.41-aarch64-apple-darwin.tar.gz  2302895  sha256:2b8c14b00a80e50ac0b8d619f9cb66b386eaffc75b779d1b9ccd225ba5c1fe84
+  lupin-0.1.41-aarch64-unknown-linux-gnu.tar.gz  2447935  sha256:58028bc9db0ccf837f627e6bde7418d715a69bc87eaa6b8c69b2f39c242f4561
+  lupin-0.1.41-x86_64-pc-windows-msvc.zip  2238601  sha256:40b3ee2d082d3d9a3e9b95a82d8e23b7e1d056fefd62ccafa80689e2814d3f5c
+  lupin-0.1.41-x86_64-unknown-linux-gnu.tar.gz  2573463  sha256:18848901a5202162c9d0c3001a62fa3ac57276d8c0fce9c2d4f43d8d50b4e8d4
+  lupin.exe  5861376  sha256:0c00b1a13877cb48ea4970db0bc1c02bd0937db096d4b4af68c4ec3ff009ab5f

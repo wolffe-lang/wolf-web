@@ -1,0 +1,35 @@
+== module move on 0.2.17 corpus (0.1.40 -> 0.1.41): 1 rows differ
+   memory/list_session_struct.lu: exit(0) -> trap(use-after-move)
+== corpus move under 0.1.40 (common rows): 0 rows differ
+== corpus move under 0.1.41 (common rows): 1 rows differ
+   memory/list_session_struct.lu: trap(use-after-move) -> exit(0)
+== module move on 0.2.18 corpus (0.1.40 -> 0.1.41): 0 rows differ
+== arrivals at 0.2.18 under 0.1.41:
+   exit         memory/ctl_store_order.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/ctl_store_order_captured.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/ctl_store_order_compound.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/ctl_store_order_map.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/ctl_store_order_nested.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/ctl_store_order_nested_index.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/ctl_store_order_raw.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_char_bool_key_revive.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_const_field_of_elem.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_const_move_heap.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_const_store_revives.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_key_move_map.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_len_after_move.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_move_one_place.lu  exit(0)  (0.1.40: exit(0))
+   unsupported  memory/elem_pool_handle_revive.lu  unsupported  (0.1.40: unsupported)
+   exit         memory/elem_same_index_revive.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_str_key_revive.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_tuple_pos_move.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/elem_tuple_pos_mut.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/mut_param_restore_elem.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/mut_param_restore_field.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/mut_param_restore_map.lu  exit(0)  (0.1.40: exit(0))
+   exit         memory/mut_param_restore_whole.lu  exit(0)  (0.1.40: exit(0))
+== departures: []
+probe grammar/range_header_inclusive_max.lu exit(0)
+probe grammar/range_value_wide_iter.lu exit(0)
+probe memory/list_session_struct.lu exit(0)
+died rows: []

@@ -1,0 +1,83 @@
+book readings at dadc38b (2026-09-29T01:29:17Z)
+SUMMARY entries: 33
+ch13 blob a767766 -> a767766
+ch21 blob 34999f8 -> 34999f8
+ch25 blob 1f6dcb8 -> 1f6dcb8
+ch29 blob 21dec08 -> 21dec08
+ch21 ##: ## 21.1 Aliasing|## 21.2 Arenas|## 21.4 Checked arithmetic's bill|
+ch25 ##: 1
+ch29 ##N.M: 0
+ch13 eighteen: 3
+ch26: # 26. `count`, twice
+ch27: # 27. `rpn`, twice
+ch28: # 28. `wordtree`, twice
+ch29: # 29. `tinyvm`
+ch30: # 30. `pargrep`
+ch31: # 31. `logden`, alone
+ch32: # 32. Coda: the allocator you never needed
+=== colophon diff
+diff --git a/book/back/colophon.md b/book/back/colophon.md
+index 3431457..9c4016b 100644
+--- a/book/back/colophon.md
++++ b/book/back/colophon.md
+@@ -6,20 +6,21 @@ against:
+ 
+ ```console
+ $ wolf --version
+-wolf 0.2.17 (wolfgang, pin 02afce8)
+-paired with lupin 0.1.40 (reference interpreter), pin 93a5fe5
++wolf 0.2.18 (wolfgang, pin ec56a08)
++paired with lupin 0.1.41 (reference interpreter), pin 93a5fe5
+ $ lupin --version
+-lupin 0.1.40 (wolf-interp, reference interpreter at pin 93a5fe5)
++lupin 0.1.41 (wolf-interp, reference interpreter at pin 93a5fe5)
+ ```
+ 
+ The two lines name each other, and this printing both names are
+ readable. Each tool reports the revision of the other it was
+ differentially tested against, and the two projects are cut on their
+-own schedules. The compiler names `lupin 0.1.40`, the interpreter
++own schedules. The compiler names `lupin 0.1.41`, the interpreter
+ under it and not a release older. The interpreter names `93a5fe5`,
+-which is the compiler's previous release tag — reachable, on the
+-branch, and an ancestor of the compiler's own revision, so the two
+-clauses are a distance this printing: 72 commits, one release. An
++which is the compiler's release tag from two releases back —
++reachable, on the branch, and an ancestor of the compiler's own
++revision, so the two clauses are a distance this printing: 152
++commits, two releases. An
+ earlier printing was the other case, where the interpreter's
+ clause named a rebased-away development head and no count between the
+ two meant anything. §1.2 teaches the reader to check which case a pair
+=== ch31 diff stat
+ book/ch01.md | 26 +++++++++++++-------------
+ book/ch28.md |  9 +++++++++
+ book/ch31.md | 16 ++++++++++++++++
+ 3 files changed, 38 insertions(+), 13 deletions(-)
+diff --git a/book/ch31.md b/book/ch31.md
+index db4bae9..37f7359 100644
+--- a/book/ch31.md
++++ b/book/ch31.md
+@@ -286,6 +286,22 @@ out.
+            still RUNS the loop and prints both names, exit 0. The
+            divergence stands; the new `copy` help at least names a
+            spelling that would close it in source.
++           bs54 re-verify (wolf 0.2.18 / lupin 0.1.41, kasumi, release
++           archives; a two-shard witness of the binding loop in
++           docs/audit/bs54-evidence/probes.txt): THE ROW NARROWS AND
++           STANDS. wolf 0.2.17 still gave both E1001s (`shards.len` at
++           7:15 and `shards[_]` at 8:17). wolf 0.2.18 gives ONE:
++           `shards[i]` used after its value moved away, at 8:17, the
++           move site now named `shards[i]` — the loop's next pass
++           reads the element the last pass moved, and a run-time index
++           is one place ([mem.model.place.elem]). The `shards.len`
++           half is gone: EG1 keeps a container's `len` readable after
++           an element moves. The `copy shards[i]` help is unchanged.
++           lupin 0.1.40 and 0.1.41 both RUN it and print both names,
++           exit 0: each pass moves a different element and reads none
++           a previous pass moved, so 0.1.41's moved-element trap
++           (wolf-interp#141) is never reached. The accept/reject
++           divergence is unchanged in kind.
+      - [ ] Recorded as good news — the claim this chapter is built on
+            held under measurement. Every construct in the reference
+            implementation appears in a shipped chapter: `fs_read_text` and
