@@ -127,31 +127,37 @@
   these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk; the compiler has
-  tagged once since it, so the text this tab reads is one release behind the
+  tagged twice since it, so the text this tab reads is two releases behind the
   one <a href="/install/">install</a> advertises,
-  __COUNT_speccommits_word__ commits of the compiler's own history back. That
-  is the narrowest a distance can be without being none, and it is the second
-  bump running at which it stands there. The compiler's own second line names
-  the interpreter in this tab: the release <a href="/install/">install</a>
-  advertises was tested against the interpreter version above, and this site
-  serves it. Two pins back it did not, and the reason was a fact about the two
-  repositories rather than a judgement made here. The interpreter release of
-  that day recorded, as the specification checkout it was built to, a compiler
-  revision that the released compiler's history does not contain — a branch
-  head that the rebase-merge landing it rewrote under other shas, preserved by
-  a tag so it can still be fetched, but not on the line. A distance along one
-  line is exactly what this paragraph states, so there was none to state, and
-  the check that holds these sentences refused rather than printing a number
-  with no referent. The interpreter re-pinned on the released line at the pin
-  before this one and has stayed on it since.</p>
+  __COUNT_speccommits_word__ commits of the compiler's own history back. The
+  gap is a step wider than it was at v0.2.17's pin, and not because the
+  interpreter stood still: it released beside the compiler, taking the part
+  of the compiler's new element clause a program can see from outside — a
+  read of an element that was moved away traps here now, on every path that
+  picks one out — without re-pinning on the text that carries it. The
+  compiler's own second line names the interpreter in this tab: the release
+  <a href="/install/">install</a> advertises was tested against the
+  interpreter version above, and this site serves it. At v0.2.15's pin it did
+  not, and the reason was a fact about the two repositories rather than a
+  judgement made here. The interpreter release of that day recorded, as the
+  specification checkout it was built to, a compiler revision that the
+  released compiler's history does not contain — a branch head that the
+  rebase-merge landing it rewrote under other shas, preserved by a tag so it
+  can still be fetched, but not on the line. A distance along one line is
+  exactly what this paragraph states, so there was none to state, and the
+  check that holds these sentences refused rather than printing a number with
+  no referent. The interpreter re-pinned on the released line at v0.2.16's
+  pin and has stayed on it since.</p>
 
   <p>That is the open end of an ordinary cycle, and the page has now stood at
   every point of it more than once: an untagged commit short of a release, the
   release itself, a gap after the compiler tagged again, the mirror caught up,
   a gap again, the mirror caught up again, a gap the mirror could not take
   because the pin it offered was off the line, the mirror back on the line
-  one step behind — and now the compiler tagged again and the mirror followed
-  it one step, so the gap is the same width at a later pair. The two
+  one step behind, the compiler tagging again and the mirror following it one
+  step so the gap held its width at a later pair — and now the compiler has
+  tagged once more while the mirror released without re-pinning, so the gap
+  is a step wider than it has been since the mirror came back on the line. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -163,40 +169,56 @@
   far the tag is, so neither end has to be a tag, and it requires both pages to
   spell what it counted.</p>
 
-  <p><strong>Where the vintage shows: nowhere in the running census.</strong>
-  Every <code>phase: run</code> program in the pinned corpus goes through the
-  module this page serves, and at these pins none of them answers a refusal
-  where the compiler runs the program. It is the first time this page can say
-  that across a gap that is not none. The one program named here at the pin
-  before this one, <code>corpus/conc/proc_join_param.lu</code>, wrote
-  <code>Proc</code> as the type of a parameter before the interpreter knew the
-  name. This interpreter knows it, so the program gets as far as spawning its
-  proc, and the proc tier is one this build declines (below): it answers
-  <code>unsupported</code> with a reason naming the thread it cannot spawn.
-  That is a decline of the tab rather than a parting — the interpreter's own
-  release notes record the program as a match at a terminal.</p>
+  <p><strong>Where the vintage shows: in one program's output, and in no
+  verdict.</strong> Every <code>phase: run</code> program in the pinned corpus
+  goes through the module this page serves, and at these pins none of them
+  answers a refusal where the compiler runs the program. One of them prints
+  something else. <code>corpus/memory/ctl_store_order_nested_index.lu</code>
+  stores through two and then three index levels with a call in every index,
+  and the order those calls run in is what it checks: the compiler calls each
+  once, outermost first, then the right-hand side. This interpreter calls
+  every index but the last twice, so the program prints its first index line
+  twice and exits 0 (wolf-interp#145, open at lupin __LUPIN_VERSION__ and
+  named in the compiler's own release notes). A verdict census cannot see a
+  disagreement that exits 0 on both sides, so the compiler's additions were
+  walked a second time and each one's output compared with its header; that
+  walk is where it shows, and it is the only program that parts there.</p>
 
-  <p><strong>The compiler's newest programs all answer here, and two of them
-  would not have a bump ago.</strong> The release
+  <p><strong>The compiler's newest programs answer here, and one of its
+  older ones changed its text under this interpreter.</strong> The release
   <a href="/install/">install</a> advertises brought its own programs into the
-  corpus's running set — index stores that copy their element in, the
-  <code>mut</code> claims that end with the arm that made them, and stores
-  that evaluate their right-hand side before they mint their place — and each
-  one that runs here prints what its header says it prints.
-  <code>corpus/memory/index_store_copies_list.lu</code> and
-  <code>index_store_copies_map.lu</code> are the two that would have parted:
-  the interpreter this site served until this bump trapped a use after move
-  on both, because it still moved the stored value where the ruling now
-  copies it, and this interpreter is the first to answer them as ruled. The
-  one addition that does not run here is
-  <code>memory/store_rhs_first_pool.lu</code>, and it does not run at a
-  terminal either — the interpreter declines a store through a
-  <code>Pool</code> handle by name, which the corpus header records as a
-  conservatism rather than a disagreement. The measurement is four walks:
-  both corpora through both modules, and no program present at both corpus
-  pins changed its answer when only the corpus moved.</p>
+  corpus's running set — element moves the new clause keeps apart, stores that
+  bring a moved element back through the index that names it,
+  <code>mut</code> parameters that put a value back before they return, and
+  the store orders — and apart from the one above, each one that runs here
+  prints what its header says it prints. The one that does not run here is
+  <code>memory/elem_pool_handle_revive.lu</code>, and it does not run at a
+  terminal either: the interpreter declines a <code>Pool</code> handle by
+  name, which the corpus header records. And
+  <code>memory/list_session_struct.lu</code>, which ran here at v0.2.17's
+  pin, read an element it had moved; it compiled only through the hole the
+  compiler's release closed, and this interpreter is the first to trap on it.
+  The corpus now copies the element instead, and the program exits 0 here as
+  it does under the compiler. The measurement is four walks: both corpora
+  through both modules. That program is the only one whose answer moved in
+  any of them — to the trap when only the module moved, and back when the
+  corpus moved under it.</p>
 
-  <p><strong>The list this page carried two pins back is closed, all of
+  <p><strong>The one program named here at v0.2.16's pin is a decline, not a
+  parting.</strong> <code>corpus/conc/proc_join_param.lu</code> wrote
+  <code>Proc</code> as the type of a parameter before the interpreter knew
+  the name. The interpreter has known it since lupin 0.1.39, so the program
+  gets as far as spawning its proc, and the proc tier is one this build
+  declines (below): it answers <code>unsupported</code> with a reason naming
+  the thread it cannot spawn. The interpreter's own release notes record the
+  program as a match at a terminal. At v0.2.17's pin two of that release's
+  programs, <code>memory/index_store_copies_list.lu</code> and
+  <code>index_store_copies_map.lu</code>, would have parted with the
+  interpreter this site had served until then — it trapped a use after move
+  where the ruling copies — and lupin 0.1.40 was the first to answer them as
+  ruled.</p>
+
+  <p><strong>The list this page carried at v0.2.15's pin is closed, all of
   it.</strong> Twenty-two programs stood on it — the list literal, a nullary
   variant as a pattern, the range types, the <code>error</code> alias for a
   row, and the method surface with its combinators — and every one of them
@@ -225,7 +247,7 @@
   verdict alone, which is why the sentence is here.</p>
 
   <p><strong>And the one program that was worse than a refusal is
-  fixed.</strong> Two pins back
+  fixed.</strong> At v0.2.15's pin
   <code>corpus/grammar/range_header_inclusive_max.lu</code> did not answer the
   module at all: it reached the module's own <code>unreachable</code> and took
   the instance with it, so the tab stopped rather than printing a verdict and
@@ -350,7 +372,7 @@
 
   <p>What the distance does <em>not</em> explain is what this page declines.
   <code>net_writev</code>, <code>net_nodelay</code> and <code>fs_fstat</code>
-  are all in this interpreter — the filesystem tier is the newest thing in it
+  are all in this interpreter — the filesystem tier is the newest tier in it
   — and all three report <code>unsupported</code> here whatever the pins say:
   a tab has no sockets and no files to open. Run the same programs under
   <code>lupin</code> at a terminal and all three answer. Those refusals are
@@ -415,7 +437,7 @@
   answered <code>E0201</code> in this tab, and an entry that answers
   <code>fail</code> looks broken whatever the page says beside it. The reason
   expired when the interpreter gained the pattern form, so the program a
-  reader could not run here a week ago is the one the menu now opens with.
+  reader once could not run here is the one the menu now opens with.
   Press Run and the tab agrees with the compiler byte for byte. Beside it is
   <strong>match as a switch</strong> —
   <code>corpus/grammar/match_switch.lu</code>, which was on the menu through
