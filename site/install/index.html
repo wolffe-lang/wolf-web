@@ -86,16 +86,16 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
   reads what is <em>published</em> — the live AUR, the live tap, the live
   release pages — and goes red when a package trails its upstream or names a
   digest the release does not carry. Read live at this bump, the two channels
-  agree again. The tap's <code>wolf</code> formula builds tag
+  agree. The tap's <code>wolf</code> formula builds tag
   v__WOLF_VERSION__ and its <code>lupin</code> builds __LUPIN_VERSION__, and
   the AUR's four packages carry the same pair, the compiler's packages and
   the interpreter's alike — both channels shipped them before this page
-  advertised them. At the pin before this one they had parted for the first
+  advertised them. At v0.2.16's bump they had parted for the first
   time: the tap was current and the AUR trailed by two tags, so
   <code>yay -S wolf-lang-bin</code> installed a compiler two tags older than
-  the one described here. The AUR's packages are built from sources that now
+  the one this page then described. The AUR's packages are built from sources that now
   live in the tap's own repository, each push behind an install proof, and
-  this time both channels were bumped in one pass. A release and its packaging are still separate
+  at every release since both channels have been bumped in one pass. A release and its packaging are still separate
   acts and do not land in the same minute, so whenever this page and a
   package disagree, the four archives below are the release itself and need
   nothing installed first.</p>
@@ -171,54 +171,69 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it stands, for the second bump running, at the smallest gap it
-  can have without being none. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has moved a step wider. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
-  the compiler has tagged once since it, so the newest release whose text the
-  interpreter carries whole is one release behind the compiler you are
-  installing, __COUNT_speccommits_word__ commits back. It agrees with the
-  compiler's own second line: the release above was tested against the
-  interpreter version this page names, and the playground serves that
-  interpreter, as it did at the pin before this one. Two pins back it
-  was not, and the reason is worth keeping: the interpreter release the
-  compiler had been tested against declared, as the specification checkout it
-  was built to, a compiler revision the released compiler's history does not
-  contain — a branch head the rebase-merge that landed it rewrote under other
-  shas — so there was no distance along one line to state for it, and this
-  page refused to state one it could not count. The
-  <a href="/play/">playground</a> carries the same paragraph from the other
-  end. A gap opens whenever the compiler tags and the interpreter has not yet
-  followed, which is the ordinary shape of a two-implementation project, and
-  it closes when the mirror catches up. While it is open the
-  <a href="/play/">playground</a> can answer a program differently from the
-  compiler you just installed. At these pins it does not, and the list below
-  says how that was measured. When the two disagree, the
+  the compiler has tagged twice since it, so the newest release whose text the
+  interpreter carries whole is two releases behind the compiler you are
+  installing, __COUNT_speccommits_word__ commits back. The interpreter did
+  release in between, and what it took was the part of the compiler's new
+  element clause a program can see from outside: every read of an element
+  that was moved away traps in it now, where before some of them handed the
+  moved bytes on. It did not re-pin to take the rest of the text, which is
+  why the gap widened instead of holding. It agrees with the compiler's own
+  second line: the release above was tested against the interpreter version
+  this page names, and the playground serves that interpreter, as it did at
+  v0.2.17's pin. At v0.2.15's pin it was not, and the reason is worth
+  keeping: the interpreter release the compiler had been tested against
+  declared, as the specification checkout it was built to, a compiler
+  revision the released compiler's history does not contain — a branch head
+  the rebase-merge that landed it rewrote under other shas — so there was no
+  distance along one line to state for it, and this page refused to state
+  one it could not count. The <a href="/play/">playground</a> carries the
+  same paragraph from the other end. A gap opens whenever the compiler tags
+  and the interpreter has not yet followed, which is the ordinary shape of a
+  two-implementation project, and it closes when the mirror catches up.
+  While it is open the <a href="/play/">playground</a> can answer a program
+  differently from the compiler you just installed. At these pins it does,
+  in the output of a single program, and the list below says which and how
+  that was measured. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins the list is <strong>empty</strong>: no program the compiler
-  above runs is refused in the tab. That is new for a gap that is not none.
-  The one program on the list at the pin before this one,
-  <code>corpus/conc/proc_join_param.lu</code>, wrote <code>Proc</code> as the
-  type of a parameter before the interpreter knew the name; this interpreter
-  knows it, and the program now reaches the proc tier, which a browser tab
-  declines for want of a thread — a decline of this build, not a parting. The
-  compiler above brought its own additions to the corpus's running set, and
-  every one of them answers in the tab: the index stores that copy their
-  element in, the <code>mut</code> claims that end with the arm that made
-  them, and the stores that evaluate their right-hand side first, each with
-  the output its header states. Two of those, the index stores of a list and
-  of a <code>Map</code>, would have parted with the interpreter this site
-  served until this bump — it trapped a use after move where the compiler
-  now copies — and this interpreter is the first to answer them as ruled.
-  The one addition the tab does not run, a store through a <code>Pool</code>
-  handle, it declines by name, as the interpreter at a terminal does. The
-  measurement is four walks, not one: both corpora through both modules, and
-  no program present at both corpus pins changed its answer when only the
-  corpus moved.</p>
+  these pins no program the compiler above runs is refused in the tab. What
+  the wider gap costs instead is one program's output:
+  <code>corpus/memory/ctl_store_order_nested_index.lu</code> stores through
+  two and then three index levels with a call in every index, and the
+  interpreter calls each index but the last twice, so it prints its index
+  lines out of the order the header states, where the compiler prints each
+  once (wolf-interp#145, open at this interpreter and named in the compiler's
+  own release notes). It exits 0 in both places. The census counts verdicts
+  and cannot see it; a second walk, which feeds every program the compiler
+  above added to the tab and compares what it prints with its header, can.
+  Every other addition — element moves the new clause keeps apart, stores
+  that bring a moved element back through the index that names it,
+  <code>mut</code> parameters that put a value back before they return, and
+  the other store orders — prints in the tab what its header states. The
+  one addition the tab does not run, a revival through a <code>Pool</code>
+  handle, it declines by name, as the interpreter at a terminal does. One
+  program already in the corpus was rewritten by the release above:
+  <code>corpus/memory/list_session_struct.lu</code> read an element it had
+  moved, and compiled only through the hole that release closed. Its old
+  text traps in this interpreter, which is the right answer; its new text
+  copies the element and exits 0 in both places. The measurement is
+  four walks, not one — both corpora through both modules — and that program
+  is the only one whose answer moved in any of them: to the trap when only
+  the module moved, and back when the corpus moved under it.</p>
 
-  <p>The pin before that carried a longer list, and every entry on it was a
+  <p>The one program on the list at v0.2.16's pin,
+  <code>corpus/conc/proc_join_param.lu</code>, wrote <code>Proc</code> as the
+  type of a parameter before the interpreter knew the name; the interpreter
+  has known it since, and the program reaches the proc tier, which a browser
+  tab declines for want of a thread — a decline of this build, not a
+  parting.</p>
+
+  <p>v0.2.15's pin carried a longer list, and every entry on it was a
   construct the interpreter had been built before — the list literal, a
   nullary variant as a pattern, the range types, the <code>error</code> alias
   for a row, and the method surface with its combinators. All of them are
@@ -248,7 +263,7 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   parting lasted a single release and is recorded here because it happened,
   not because it lasted.</p>
 
-  <p>What the previous gap cost, while it was open, is the useful thing to
+  <p>What an earlier gap cost, while it was open, is the useful thing to
   record now that it costs nothing. It landed somewhere a reader actually
   stands: v0.2.11 ruled how a <code>Map</code> answers and how an operator
   reaches a trait, and the interpreter had been built before either text
@@ -262,13 +277,13 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   outright. This interpreter mirrors both texts, so every one of them runs in
   the tab now and answers what the compiler answers; the <a href="/play/">playground</a>
   counts them exactly. No program that ran in the tab at an earlier pin has
-  stopped, and nothing this release's corpus adds parts from the
-  compiler.</p>
+  stopped, and of what the release above adds to the corpus, only the
+  program named above parts from the compiler, and only in its output.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code>, <code>net_nodelay</code> and
   <code>fs_fstat</code> are all in this interpreter — the filesystem tier is
-  the newest thing in it — and all three are refused in the tab whatever the
+  the newest tier in it — and all three are refused in the tab whatever the
   pins say: a browser has no sockets and no files to open. Run the same
   programs under <code>lupin</code> at a terminal and all three answer. The
   check that measures this page counts the gap against the compiler's own
@@ -578,8 +593,7 @@ hello, wolf</code></pre>
   that used a task or a channel, and it has not been that since v0.2.3.
   <code>lupin --version</code> names the release and the specification
   pin it was built against — <code>__PIN_specrev_short__</code> at these
-  pins, which is the tag of the release before the compiler above, as
-  measured above — and it is the pin the second line of <code>wolf
+  pins, a release tag on the compiler's own line, as measured above — and it is the pin the second line of <code>wolf
   --version</code> quotes back, because this compiler was tested against this
   interpreter. That sentence carries none of the words the lag check reserves,
   so nothing holds it: it is a second statement of the same fact, in words no
