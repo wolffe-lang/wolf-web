@@ -20,6 +20,45 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww34 (the site at 0.2.18, and a gap a step wider) — 2026-09-28
+
+All three gitlinks move: the book to bs54's head, the compiler to wolf 0.2.18,
+and the interpreter to lupin 0.1.41.
+
+**The lag is two releases and the distance is 152 commits.** lupin 0.1.41 is
+still built to the v0.2.16 tag commit, and the compiler has tagged twice since,
+so the ancestry guard answers `gap 2`, `tagged true`, 152 commits. The
+interpreter did release beside the compiler, but it took the read half of the
+new element clause without re-pinning, which is why the gap widened. The
+pinned book's changelog says the same pair from the other end. /install/ and
+/play/ carry "two releases" and neither carries another phrase.
+
+**One program parts, in its output and not in its verdict.** Every
+`phase: run` program in the pinned corpus went through the module this build
+publishes, four ways, as at ww33. At both new pins: 445 programs, 319 exit, 33
+trap, 93 unsupported, 0 fail, 352 candidates, and no instance killed. Of the 23
+programs the release added to the running set, 22 exit 0 here and 1 (a revival
+through a `Pool` handle) is declined by name, as at a terminal. Their output
+was compared with their headers too, and one differs:
+`memory/ctl_store_order_nested_index.lu`, where this interpreter calls every
+index but the last twice (wolf-interp#145, open). The only answer any walk
+moved was `memory/list_session_struct.lu`: its old text reads an element it
+moved, and this interpreter is the first to trap on it; the release's new
+text copies the element and exits 0 in both places.
+
+**Sentences that named the wrong release.** The front page leads with the two
+silent wrong answers 0.2.18 refuses (#460, #464), then element places and the
+store order, and names 0.2.17's paragraphs by their literal. /spec/'s four
+0.2.17 lines move to v0.2.17, and the memory-model entry says what this
+release rules. Relative references that had moved under the pages — "the pin
+before this one", "two pins back", "until this bump" — name their release now.
+Three unstamped sentences had gone stale with nothing to catch them: /spec/'s
+"every release since has widened" the grammar (v0.2.16 and v0.2.18 left it
+byte-identical), /spec/'s "the interpreter this site pins is the first" to
+serve a climbing path (that was lupin 0.1.40), and /play/'s "a week ago" about
+the menu's range program, which has run here since wolf-interp#83
+closed.
+
 ## ww33 (the site at 0.2.17, and a gap that costs nothing) — 2026-09-26
 
 All three gitlinks move again: the book to bs53's head, the compiler to wolf
