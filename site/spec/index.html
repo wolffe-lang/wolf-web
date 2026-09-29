@@ -47,7 +47,7 @@
       at v0.1.0 and held additive-only through the 0.1.x line; at
       v__WOLF_VERSION__ it is still <code>grammar/1</code> — a removal or
       narrowing would be a <code>grammar/2</code> act, and none has been taken.
-      Every release since has widened it, which is the additive direction.
+      Every change to it since has widened it, which is the additive direction.
       v0.2.11 gave the pattern grammar a range form,
       <code>[gram.pat.range]</code>: <code>lo..hi</code> and
       <code>lo..=hi</code> over integer and <code>char</code> literals are
@@ -69,7 +69,7 @@
       <code>[gram.expr.variant]</code> and <code>[gram.type.start]</code>
       give anchors, and one of them a machine-applicable fix, to two inputs
       that were already refused. The accepted language is the same; the
-      diagnostics moved. v__WOLF_VERSION__ widens it by one production: the
+      diagnostics moved. v0.2.17 widened it by one production: the
       right-hand side of a plain <code>=</code> whose place is a container
       element may be spelled <code>take</code> — <code>xs[i] = take v</code>,
       <code>m[k] = take v</code> — and nowhere else in an assignment may a mode
@@ -113,17 +113,33 @@
       region's root (<code>[mem.region.root]</code>) and what an immutable
       value returned out of a region means
       (<code>[mem.region.imm.ret]</code>).
-      v__WOLF_VERSION__ carries the store's half of v0.2.15's rule to the
+      v0.2.17 carried the store's half of v0.2.15's rule to the
       index: <code>xs[i] = v</code> and <code>m[k] = v</code> copy a
       non-<code>Copy</code> value in and leave <code>v</code> live, exactly as
       <code>push</code> does, and <code>take</code> is the spelling that hands
       it over (<code>[mem.region.edge.elem]</code>). Beside it,
-      <code>[mem.model.place.rhs]</code> writes down the order every machine
+      <code>[mem.model.place.rhs]</code> wrote down the order every machine
       already kept: a store evaluates its right-hand side first and mints its
       place afterwards, so a right-hand side that grows the list it stores into
       cannot leave the store aimed at the old buffer. The order of the place's
-      own operands against the right-hand side is not ruled by it, and the
-      machines are not yet agreed there.
+      own operands against the right-hand side was not ruled by it, and the
+      machines were not agreed there.
+      v__WOLF_VERSION__ rules it and answers two questions the element had
+      left open. The place's operands come first, left to right and
+      outermost first, then the right-hand side, then the address, then the
+      store — so <code>xs[idx()] = val()</code> calls <code>idx</code> first
+      on every machine, the checked one included, which had called
+      <code>val</code> first. <code>[mem.model.place.elem]</code> says which
+      elements of a container are distinct places: two integer-literal
+      indices with different values, two literal <code>Map</code> keys, an
+      element against its container's <code>len</code>; everything else is
+      one place, and a store revives a moved element only through an index
+      that surely denotes it, a key local of any copyable type unwritten
+      since the move included. And <code>[mem.tier0.mode.mut]</code> gains
+      the sentence two silent wrong answers were missing: a <code>mut</code>
+      parameter is initialized at every return of the function, so moving
+      out of one and returning without storing a value back is
+      <code>E1001</code>.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -214,10 +230,10 @@
       <code>[proto.cmp.pass]</code>). The message is still never compared,
       because wording is a per-implementation concern; it is carried so a
       reader of the record can see what the machine said.
-      v__WOLF_VERSION__ lets a diagnostic say which file it is in
+      v0.2.17 let a diagnostic say which file it is in
       (<code>[proto.record.diag]</code>): a span from a sibling module used to
       read as an offset into the entry file, a wrong place given silently, and
-      the record now carries a <code>files</code> table and a
+      the record carries a <code>files</code> table and a
       <code>file</code> index on each diagnostic — only when some diagnostic
       lies outside the entry file, so every other record is byte-identical to
       what it was.
@@ -319,14 +335,14 @@
       <code>[os.proc.inherit]</code>'s existing rule), and the two filesystem
       calls a program writing files needs before it needs anything else —
       path composition and removal (<code>[os.fs.path]</code>,
-      <code>[os.fs.remove]</code>). v__WOLF_VERSION__ rules which paths
+      <code>[os.fs.remove]</code>). v0.2.17 ruled which paths
       those calls take (<code>[os.fs.path.domain]</code>): every path the host
       lets the process reach — absolute, relative, climbing, built at run time
       — with what the host refuses coming back as the host's own row. An
       implementation that serves the tier over a narrower set declines the
       rest by name, never by a row, and judges the boundary on the resolved
       path, not its spelling. The compiler already served the whole domain;
-      the interpreter this site pins is the first release of it to serve, at
+      lupin 0.1.40 was the first release of the interpreter to serve, at
       a terminal, a path that climbs out and back in. Anchors
       <code>[os.*]</code>.</dd>
   </dl>
