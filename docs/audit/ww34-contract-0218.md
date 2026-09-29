@@ -207,6 +207,59 @@ spell their history.
 *Filled in after the measurement; nothing above this line is edited after the
 prediction commit except to append.*
 
+Measured on kasumi at branch head `e13fb0c` (the last change the build reads;
+later commits touch only this file and `docs/audit/ww34-evidence/`). Files
+below are under `docs/audit/ww34-evidence/`.
+
+| claim | artifact |
+|---|---|
+| prediction precedes the first pin | prediction commit `f0b56e2`; first pin commit `fc877f0`; `git merge-base --is-ancestor f0b56e2 fc877f0` exits 0 |
+| three gitlink commits | book `fc877f0` (→ `dadc38b`), wolf `cdb7fd8` (→ `ec56a08f`), lupin `c86c5d5` (→ `0cfc0cf`) |
+| inputs, lag, corpus sets, anchors, grammar, arrivals' headers | `derive.log` (script `ww34-derive.sh`) |
+| book readings at `dadc38b` | `book.log` |
+| ancestry guard, verbatim | `summary.txt`: `lag phrases: wolf 0.2.18 is advertised; lupin was built at the v0.2.16 tag (93a5fe5) — it reads 2 releases back, and both pages carry 'two releases' and neither carries another`; `--json`: `{"gap": 2, "phrase": "two releases", "tagged": true, "commits": 152, "spec": "93a5fe5", "release": "0.2.16", "advertised": "0.2.18"}` |
+| stamped lag | `speccommits 152` in `summary.txt`; `one hundred and fifty-two commits` on both built pages (`summary.txt`, gates) |
+| census, four legs | `summary.txt` (per-leg class counts), `census-0218-0141.json` (the served census, 445 rows), `census-0217-0140.json` (the control leg), `rows.txt` (row-level diffs, script `ww34-rows.py`); harness `docs/audit/ww33-evidence/census.mjs`, byte-identical (`cmp`), driver `ww34-measure.sh` |
+| arrivals print their headers' stdout | `stdout-probe-0141.txt`: 21 MATCH of 22 `exit` arrivals; DIFF `ctl_store_order_nested_index.lu` (`i\ni\nj\nval…` vs `i\nj\nval…`, #145); the `Pool` row DIFFs as a decline; `list_session_struct.lu` DIFFs only on the header's missing trailing `\n` (probe artifact, verdict `exit(0)`); `stdout-probe-0140.txt` the same three under 0.1.40 |
+| #128 / B57 probe | `stdout-probe-0141.txt`: `range_header_inclusive_max.lu` and `range_value_wide_iter.lu` `exit(0)` MATCH; `rows.txt`: `died rows: []` |
+| modules | 0.1.41 wasm sha256 `d4e28724…` = the served `dist/play/lupin.wasm`; 0.1.40 control `170d1136…` (`summary.txt`) |
+| 0.1.40 control reproduces ww33 | row-identical to ww33's `census-0217-0140.json` (422 rows, 0 verdict diffs); digest differs from ww33's `df4cecc3…`: the module embeds the absolute build path (16 × `lanes/ww34/`), and swapping the path back does not recover it (`path-control.txt`) — the census, not the digest, is what reproduces |
+| audits, links, tests, menu, ahead gate | `summary.txt`: version prose / counts / lag exit 0; 1457 internal links across 63 pages, 0 dead; node tests 104 pass 0 fail; planted ahead 8 pass; check-samples 36 in class; check-ahead 0 ahead, 542 anchors |
+| allowlist cost | `8cda8c2` (the 60 clocked lines plus the rewrites' literals), `e13fb0c` (7 CHANGELOG lines); book/wolf-clock count lines in `fc877f0`, `cdb7fd8` |
+| dry vs live pages | 63 dry (`summary.txt`); 63 of 63 answer 200 on the served site today (`summary.txt`, live check line) |
+| release asset digests | `summary.txt` (from the release API; the site build consumes no archive) |
+| CI at head | recorded in the PR body |
+
+**Prediction vs measurement**
+
+| item | predicted | measured |
+|---|---|---|
+| pages dry / live / book | 63 / 63 / 48 | 63 / 63 / 48 |
+| versions, `version.json` | 0.2.18, 0.1.41; `ec56a08` `0cfc0cf` `dadc38b`, spec-pin `93a5fe5`, missing [] | identical |
+| guard | gap 2, "two releases", tagged, 152 commits | identical |
+| census programs / exit / trap / unsupported / fail / candidates / died | 445 / 319 / 33 / 93 / 0 / 352 / 0 | 445 / 319 / 33 / 93 / 0 / 352 / 0 |
+| module leg on the 0.2.17 corpus | `list_session_struct` exit → trap, nothing else | identical |
+| corpus legs | under 0.1.41 that row back; under 0.1.40 none | identical |
+| stdout of the 22 `exit` arrivals | 21 match, `ctl_store_order_nested_index` does not | identical |
+| clocked allowlist lines | 60 (36 / 6 / 18) | 60 (36 / 6 / 18) |
+| leaves / arrivals | 0 leave; `v0.2.17` on index, spec, install; `0.1.40` on play | 0 leave; 10 arrive: those 4 plus `0.1.40` on spec, `0.1.39`, `v0.2.15`, `v0.2.16`, `v0.2.17` on play and `v0.2.15` on install — the relative pins ("two pins back", "the pin before this one") each named by release |
+| stamp totals | spec `__WOLF_VERSION__` 5 → 1 | 5 → 2 (one new bound 0.2.18 sentence on 02); play `__LUPIN_VERSION__` 1 → 2 (the #145 sentence), not predicted |
+| stamps | 33 / 142 / 34 / 18 / 36 | identical |
+| #128 probe | exit 0, no death | exit 0, stdout matches, no death |
+| menu | 36, none moves | 36, all in class |
+| PDF | 5.6 MB ± 0.1 | 5.6 MB (5,616,882 B on kasumi) |
+
+**Found, not predicted.** Four unstamped sentences were false and no gate
+could see them: /spec/ 01 "Every release since has widened it" (0.2.16 and
+0.2.18 left `grammar.ebnf` byte-identical); /spec/ 11 "the interpreter this
+site pins is the first release of it to serve … a path that climbs out" (that
+was lupin 0.1.40, false the moment the pin moved); /play/ "the program a reader
+could not run here a week ago" (the range program has run here since
+wolf-interp#83); /install/ "nothing this release's corpus adds parts from the
+compiler" (true at 0.2.17, false at 0.2.18 by #145). The wasm module is not
+byte-reproducible across lane directories (above), so ww33's "built twice,
+identical" held only within one directory.
+
 ## 5. Done-when
 
 - [ ] Branch `ww34` on origin; PR open, **unmerged**, body carries these five
