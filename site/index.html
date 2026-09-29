@@ -139,8 +139,41 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises gives back what the one before
-  it took away.</strong> v0.2.16 taught the compiler that a container element
+  <p><strong>The release this page advertises is a point release, and it
+  exists to refuse two programs v0.2.17 compiled and answered wrongly without
+  a word.</strong> Both read a value that had already been moved away. In the
+  first, an element is moved out of a list, a <em>different</em> element is
+  stored into, and the moved one is read: v0.2.17 let the store to the
+  sibling bring the moved element back, so the checked machine trapped at the
+  read while the native tiers printed the moved list through the container —
+  one buffer under two names. A store brings back only the element it names
+  now. In the second, a function moves out of a <code>mut</code> parameter and
+  returns without putting a value back, and the caller went on reading the
+  buffer the callee had moved away and grown. A <code>mut</code> parameter is
+  initialized at every return of the function now
+  (<code>[mem.tier0.mode.mut]</code>), so storing a value back before each
+  return keeps it legal, and both shapes are <code>E1001</code> on every tier
+  of the compiler. They were reading a moved value on every machine that ran
+  them, so nothing that was right stops compiling.</p>
+
+  <p>The rule the first refusal stands on is new text,
+  <code>[mem.model.place.elem]</code>: which elements of a container are
+  distinct places. Two integer-literal indices with different values are, and
+  so are two literal <code>Map</code> keys and an element against its
+  container's <code>len</code> — so <code>move xs[0]</code> leaves
+  <code>xs[1]</code> readable, where every earlier release refused the read,
+  and a diagnostic names <code>xs[0]</code> where it used to print
+  <code>xs[_]</code>. A run-time index is still one place with every other
+  index, with one exception, the shape a reader writes most: take a value out
+  through <code>m[k]</code>, work on it, store it back through the same
+  <code>k</code> with <code>k</code> unwritten between, and it is yours again,
+  for a key of any copyable type, a <code>str</code> included. And a store
+  evaluates its place's own operands before its right-hand side —
+  <code>xs[idx()] = val()</code> calls <code>idx</code> first — which the
+  native tiers and the interpreter already did and the checked machine does
+  now.</p>
+
+  <p><strong>v0.2.17 gave back what v0.2.16 took away.</strong> v0.2.16 taught the compiler that a container element
   is a place a <code>mut</code> argument can claim, and the check that came
   with it refused programs every earlier release and the interpreter ran: call
   a function with <code>mut lg</code> in both arms of an
@@ -151,11 +184,12 @@ fn main() -&gt; !int {
   writing in wolf both carried workarounds for it rather than stay off that
   release. The rule was
   right and the walk was wrong: the check read block numbers as if they were
-  program order, and a branch mints its join before its arms. It reads the
-  call's own arguments now, the workarounds can come out, and the refusals the
+  program order, and a branch mints its join before its arms. It has read the
+  call's own arguments since, the workarounds have come out, and the refusals the
   rule was written for are all still refused.</p>
 
-  <p><strong>And the defect v0.2.16 named on its way out is fixed.</strong> A
+  <p><strong>That release also fixed the defect v0.2.16 named on its way
+  out.</strong> A
   function that takes a scope handle as a parameter and spawns into it never
   returned on the native tier: the task's captured state lived in the frame of
   a function that returns before the scope it spawned into joins. The runtime
@@ -166,8 +200,8 @@ fn main() -&gt; !int {
   compiler does not show it, and everything that runs on a developer's machine
   is a debug build.</p>
 
-  <p>Beside those two, the rulings taken the week this release was cut
-  land. An
+  <p>Beside those two, v0.2.17 landed the rulings taken the week it was
+  cut. An
   index store follows <code>push</code>: <code>xs[i] = v</code> and
   <code>m[k] = v</code> copy the value in and leave <code>v</code> yours, and
   <code>xs[i] = take v</code> is how you hand it over instead. A store works
