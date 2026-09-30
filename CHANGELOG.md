@@ -20,6 +20,53 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww35 (the site at 0.2.19, the book's contents on lupp.us, and a gap a step narrower) — 2026-09-30
+
+All three gitlinks move: the book to bs55's merge, the compiler to wolf 0.2.19,
+and the interpreter to lupin 0.1.42.
+
+**The book's Contents work here.** A click on a sidebar entry from a page one
+folder down — the front matter, the back matter — landed on a 404: this site's
+Content-Security-Policy refuses inline scripts, the book's theme set the
+sidebar's root in one, and the links resolved a folder too deep. The book now
+loads that script from a file of its own (bs55), and this site serves that
+book. The policy is unchanged. With this change's nginx config installed, a
+missing page under /book/ answers the book's own 404 page, sidebar included,
+instead of the site's, and the book is revalidated on every visit rather than
+cached for a week. The book's pages also ask for their scripts and styles
+under the book's pin, so a browser that kept last week's sidebar fetches the
+new one on the first page it loads.
+
+**The security headers reach every file.** An `add_header` inside an nginx
+location replaces the server's set instead of adding to it, so the site's
+scripts, stylesheets and the playground's module had been served without any
+of the four security headers. Every location that sets a header repeats all
+four now, and a test holds every copy of the policy to the server's, byte for
+byte.
+
+**The lag is one release and the distance is 105 commits.** lupin 0.1.42
+re-pinned on the v0.2.18 tag and took every mirror that release's gates had
+pinned by version, so the ancestry guard answers `gap 1`, `tagged true`, 105
+commits. /install/ and /play/ carry "one release" and neither carries another
+phrase.
+
+**Nothing parts, in verdict or in output.** Every `phase: run` program in the
+pinned corpus went through the module this build publishes, four ways, as at
+ww34. At both new pins: 464 programs, 337 exit, 33 trap, 94 unsupported, 0
+fail, 370 candidates, and no instance killed. Of the 19 programs the release
+added to the running set, 18 exit 0 here and print what their headers state,
+and 1 (a `Pool`'s header read) is declined by name, as at a terminal; three
+of the 18 trap under lupin 0.1.41, which read a member beside a claim as the
+whole container. `memory/ctl_store_order_nested_index.lu`, the one program
+that parted at ww34, prints what the compiler prints now (wolf-interp#145).
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.19 changed — two `mut` claims on two elements of one list, the header
+reads, and the release-tier crash it fixed in 0.2.18 — and names 0.2.18's
+paragraphs by their literal. /spec/'s memory-model entry says what this
+release carries from moves to claims. The parting paragraphs on /install/ and
+/play/ became v0.2.18's history, naming lupin 0.1.41.
+
 ## ww34 (the site at 0.2.18, and a gap a step wider) — 2026-09-28
 
 All three gitlinks move: the book to bs54's head, the compiler to wolf 0.2.18,
