@@ -171,6 +171,12 @@ step "The book (web edition)"
 if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null 2>&1); then
   rsync -a upstream/wolf-book/target/render/web/ "$DIST/book/"
   echo "  book: $(find "$DIST/book" -name '*.html' | wc -l) pages"
+  # mdBook names its scripts and styles the same at every render, so a
+  # returning reader's cached toc.js outlived the book it came from (ww35).
+  # Each reference in the book's pages carries the book's pin from here on;
+  # the script refuses a zero and refuses a bare reference left behind.
+  python3 scripts/version-book-assets.py "$DIST/book" \
+    "$(git -C upstream/wolf-book rev-parse --short=7 HEAD)"
 else
   echo "  book: render failed — see upstream/wolf-book; leaving a placeholder"
   mkdir -p "$DIST/book"
