@@ -1,0 +1,616 @@
+derive run 2026-09-30T18:32:37Z on kasumi
+=== tags
+v0.2.16 93a5fe504593ca7642b78ba83b4986e7a03cfe71
+v0.2.17 02afce84f05c7841856a10671b6d7924f79193cc
+v0.2.18 ec56a08f04ff318ea659fd58683f7ae4f22dc7a5
+v0.2.19 c2401f05f37794a078d2acf62f837dad98e5950d
+=== interp gitlinks
+IOLD upstream: 160000 commit 93a5fe504593ca7642b78ba83b4986e7a03cfe71	upstream
+INEW upstream: 160000 commit ec56a08f04ff318ea659fd58683f7ae4f22dc7a5	upstream
+version = "0.1.42"
+tag v0.1.42 -> 8e2516dc47bf808512388cc687e070981d331d98
+interp commits IOLD..INEW = 59
+8e2516d release: lupin 0.1.42
+e10cea4 changelog: 0.1.42 — the re-pin at v0.2.18, is57–is60 from the commits
+bc19fa8 tests: s181's sibling member carries its entry's E0302 and is refused read alone
+06ab434 fmt: rustfmt the re-pin's ledger rows and the one-entry waiver table
+7b9c125 docs: the manual carries the ec56a08f census and bundle — 747/702, 556 at run, 1 mismatch, 268/542
+a5bf4ba docs: DIV-2026-026 retired, measured against wolf 0.2.18 on three tiers
+9c3c98a differ: DIV-2026-026 retires at ec56a08f — the row copies the element
+f3801c8 tests: s180's index-store takes are dynamic counterparts here, not resolve refusals
+bc0ea33 tests: waive W1002 on s184's four moveout rows by name, retiring loudly (wolf-interp#155)
+88416d3 tests: 52 new entries join the run ledger at ec56a08f; list_session_struct runs to exit(0)
+4617c65 tests: the fixture set gains with-file-index at ec56a08f; accepted, round-trips
+7a7ac64 tests: the bundle at ec56a08f — 542 anchors, 785/740 programs and records, ratchet 264 -> 268
+611b579 tests: the pin holds 747 files / 702 entries / 45 members at ec56a08f
+d9d71fe tests: the corpus walk counts 747 files at the ec56a08f pin
+c4143cf pin: re-vendor spec and corpus at wolf-lang v0.2.18 (ec56a08f) — two releases forward, an ancestor of the released line
+68dd455 docs: is60 §3a and §4 — every probe held, three pre-ruling tests moved, the differential clean, the gates' pinned cases
+bf10a67 changelog: Unreleased — header reads, whole reads, element reads, one evaluation (is60)
+4a8c506 eval: a read of an evaluated place runs its operands once (#151)
+bd287d1 tests: a member read's base operand, an index out of range and a slice run their operands once (#151) — red at trunk
+f941e5d docs: is60 §3 addendum — part C widens to the read-side family, before its first edit
+9043eeb tests: the slice test reads the slice whole — a member of it meets #151's double evaluation
+ea7e403 tests: is56's and is58's slice and receiver rows follow #149's ruling; the slice test reads its endpoint in an operand
+e78c40a eval: a method or slice on a container holding a moved part reads it whole (#149)
+e082d09 tests: drop the home-module receiver test — red for the wrong reason (a one-file program has no home module)
+80434ba tests: #149's receiver and slice paths; is56's untouched-reads test follows the ruling
+f7cfa61 tests: whole-read methods and slices on a partly-moved container (#149) — red at trunk
+e675c2f eval: an element read under a sibling claim checks the element's path (#152)
+3533b0e tests: an element read inside an expression under a sibling claim (#152) — red at trunk
+4708106 eval: count, is_empty and len() under an element claim read the header (wolf-lang#474)
+ecda713 tests: header methods under an element claim (wolf-lang#474) — red at trunk
+1659ae2 docs: is60 contract — §2 re-derived, §3 predicted before any edit
+c68c4d3 docs: re-point is58's shas after the rebase onto is57 and is59
+c6a4859 docs: is58 §3a — every prediction held; the receivers filed as #149
+b8e4e60 changelog: Unreleased — the four mirrors (#143, #144, #145, #146)
+e965adb eval: else and ? read a Map value out, moving a non-Copy one (#144)
+c3af852 eval: a mut parameter left moved-out is moved-out in the caller (#146)
+be3d4b5 eval: a whole read of a place holding a moved part traps use-after-move (#143)
+f44b975 eval: a nested index store evaluates each place operand once (#145)
+9c44904 fmt: rustfmt the four mirrors' path tests
+aa2b673 tests: every read and store path the four mirrors reach — red at trunk where each names
+f5206dd tests: run the gate rows against their ruled lupin cell — five red at trunk
+6ecc3b1 tests: the nineteen gate rows wolf 0.2.18 pins lupin on, verbatim, with ruled cells
+117128d docs: is58 contract — §2 re-derived, §3 predicted before any edit
+a3407f0 docs: is59 §3a and §4 — 20 of 21 probes held, the differential clean
+9a9e443 changelog: the wolf-lang gate reddens against a lupin carrying the change, not on it
+b53dcfb changelog: Unreleased — the member read under an element claim (wolf-lang#472)
+5a19e12 fmt: rustfmt the is59 runner
+a2b076e eval: a member read under an element claim reads the member, not the container (wolf-lang#472)
+607dde4 tests: wolf-lang#472's witness and every member read route under an element claim — red at trunk
+7afbefc docs: is59 §3 addendum — the sibling-claim member route and the expression read
+66a5a80 docs: is59 contract — §2 re-derived, §3 predicted before any edit
+1c5baab ci/is57.md: §4 evidence — run 36504583782, shard margins, per-test diff empty, §3 scored
+38a0a7a ci/is57: the sharded per-test lists from run 36504583782, after — identical to before
+f54c791 ci/assert-shard-coverage.sh: defuse ::error:: in the self-test's planted output — green run 36504583782 carried three failure annotations
+229d7b4 ci: shard linux and macOS like windows — three test shards and a ladder each (#123)
+eefff0e ci/assert-shard-coverage.sh: hold every OS's shards to the declared targets, per test too, with a planted-red self-test (#123)
+19849e3 ci/is57: the unsharded jobs' per-test lists at 0cfc0cf, before
+22617d6 ci/test-shards.sh: a doc target, per-test lists, and their reconciliation (#123)
+aee8665 ci: is57 contract — §1 forbidden, §2 re-derived, §3 predicted (#123)
+=== interp files changed
+ vendor/upstream/spec/anchors.json                  |    3 +
+ vendor/upstream/spec/grammar.ebnf                  |    2 +
+ 336 files changed, 15424 insertions(+), 399 deletions(-)
+=== ancestry
+is-ancestor SPEC_NEW(ec56a08f) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC_NEW..NEW = 105
+rev-list --count OLD..NEW = 105
+rev-list --count SPEC_OLD..OLD = 152
+=== CHANGELOG headings at NEW
+## 0.2.19 — 2026-09-30
+## 0.2.18 — 2026-09-27
+## 0.2.17 — 2026-09-26
+## 0.2.16 — 2026-09-22
+## 0.2.15 — 2026-09-16
+=== counts OLD vs NEW
+ec56a08f E=142 W=34 net=18 anchors=542
+c2401f05 E=142 W=34 net=18 anchors=542
+anchors added 0 []
+anchors dropped 0 []
+grammar.ebnf 910ff9d5f6e6747e -> 910ff9d5f6e6747e
+BYTE-IDENTICAL
+=== phase:run sets
+  464 /home/mfwolffe/lanes/ww35/run-c2401f0.txt
+  445 /home/mfwolffe/lanes/ww35/run-ec56a08.txt
+  909 total
+--- in:
+corpus/memory/elem_const_dyn_loan.lu
+corpus/memory/elem_const_field_mut_pair.lu
+corpus/memory/elem_const_iter_mut.lu
+corpus/memory/elem_const_mut_pair.lu
+corpus/memory/elem_const_nested_call.lu
+corpus/memory/elem_const_nested_mut.lu
+corpus/memory/elem_const_read_after_mut.lu
+corpus/memory/elem_const_read_while_take.lu
+corpus/memory/elem_const_swap_heap.lu
+corpus/memory/elem_const_swap.lu
+corpus/memory/elem_const_take_while_mut.lu
+corpus/memory/elem_header_methods_after_move.lu
+corpus/memory/elem_header_methods_after_move_map.lu
+corpus/memory/elem_header_methods_after_move_pool.lu
+corpus/memory/elem_header_methods_under_claim.lu
+corpus/memory/elem_member_read_after_mut.lu
+corpus/memory/elem_member_read_under_claims.lu
+corpus/memory/mut_elem_excl.lu
+corpus/memory/mut_two_fields_one_region.lu
+--- out:
+=== corpus diff name-status
+A	corpus/memory/elem_claim_whole_read.lu
+A	corpus/memory/elem_const_dyn_loan.lu
+A	corpus/memory/elem_const_field_mut_pair.lu
+A	corpus/memory/elem_const_iter_mut.lu
+A	corpus/memory/elem_const_mut_pair.lu
+A	corpus/memory/elem_const_nested_call.lu
+A	corpus/memory/elem_const_nested_mut.lu
+A	corpus/memory/elem_const_read_after_mut.lu
+A	corpus/memory/elem_const_read_while_take.lu
+A	corpus/memory/elem_const_swap.lu
+A	corpus/memory/elem_const_swap_heap.lu
+A	corpus/memory/elem_const_take_while_mut.lu
+A	corpus/memory/elem_dyn_dyn_loan.lu
+A	corpus/memory/elem_dyn_iter_mut.lu
+A	corpus/memory/elem_dyn_nested_call.lu
+A	corpus/memory/elem_dyn_read_after_mut.lu
+A	corpus/memory/elem_dyn_take_while_mut.lu
+A	corpus/memory/elem_header_methods_after_move.lu
+A	corpus/memory/elem_header_methods_after_move_map.lu
+A	corpus/memory/elem_header_methods_after_move_pool.lu
+A	corpus/memory/elem_header_methods_under_claim.lu
+A	corpus/memory/elem_member_read_after_mut.lu
+A	corpus/memory/elem_member_read_under_claims.lu
+A	corpus/memory/elem_prefix_mut_pair.lu
+A	corpus/memory/elem_whole_read_get_after_move.lu
+A	corpus/memory/elem_whole_read_named_count_after_move.lu
+A	corpus/memory/elem_whole_read_pop_after_move.lu
+A	corpus/memory/elem_whole_read_push_after_move.lu
+A	corpus/memory/elem_whole_read_self_after_move.lu
+A	corpus/memory/elem_whole_read_slice_after_move.lu
+M	corpus/memory/mut_elem_excl.lu
+A	corpus/memory/mut_two_fields_one_region.lu
+--- pre-existing run programs modified:
+=== spec/ docs/ stat
+ docs/diagnostics.md     |  6 +++---
+ spec/02-memory-model.md | 35 +++++++++++++++++++++++++----------
+ 2 files changed, 28 insertions(+), 13 deletions(-)
+=== new run program headers
+## corpus/memory/elem_const_dyn_loan.lu
+//! check: run(exit=0, stdout="7 9\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.borrow, mem.dyn.unsize
+//!
+//! eg02 (EGC's EG2) — `[mem.tier0.borrow]` per element: `let o = xs[0] as
+//! dyn Draw` is a shared loan of `xs[0]` (D47), live until `o.draw()`; the
+//! store `xs[1] = Dot { x: 9 }` lands inside it at a distinct literal, and
+//! a list store never moves the buffer. `7 9` on checked, native, release
+//! and lupin 0.1.41; E1002 on every wolfgang lane through 0.2.18. Its
+//! one-place twin is `elem_dyn_dyn_loan.lu`.
+## corpus/memory/elem_const_field_mut_pair.lu
+//! check: run(exit=0, stdout="2 12\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.model.path.disjoint
+//!
+//! eg02 (EGC's EG2) — the path rule through a field: `add2(mut cs[0].n,
+//! mut cs[1].n)`. `cs[0].n` and `cs[1].n` first differ at the index step,
+//! and the literals differ, so the claims are disjoint although the field
+//! is the same. `2 12` on checked, native, release and lupin 0.1.41; E1002
+//! on every wolfgang lane through 0.2.18.
+## corpus/memory/elem_const_iter_mut.lu
+//! check: run(exit=0, stdout="2 3 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.iter.excl
+//!
+//! eg02 (EGC's EG2) — `[mem.iter.excl]` per element: `for x in xs[0] {
+//! (mut xs[1]).push(x) }`. The loop holds a read claim on `xs[0]` for its
+//! extent; the push mutates `xs[1]`, a distinct literal, and reallocates
+//! only `xs[1]`'s buffer. `2 3 2` on checked, native, release and lupin
+//! 0.1.41; E1013 on every wolfgang lane through 0.2.18. Its one-place twin
+//! is `elem_dyn_iter_mut.lu`; `list_mutate_while_iter.lu` keeps a push on
+//! the iterated container itself refused.
+## corpus/memory/elem_const_mut_pair.lu
+//! check: run(exit=0, stdout="2 12\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.tier0.excl.2
+//!
+//! eg02 (EGC's EG2) — `[mem.model.place.elem]` item 1(a), exclusivity:
+//! `add2(mut xs[0], mut xs[1])`. Two integer literals whose values differ
+//! are distinct places, so the two `mut` claims in one call are disjoint
+//! (`[mem.tier0.excl.2]`). Ruled by eg00 and parked until EG2; through
+//! 0.2.18 it was E1002 on every wolfgang lane while lupin ran it. Now
+//! `2 12` on checked, native, release and lupin 0.1.41.
+//! `elem_same_const_mut.lu` keeps the same literal twice refused.
+## corpus/memory/elem_const_nested_call.lu
+//! check: run(exit=0, stdout="2 5 65\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.model.order
+//!
+//! eg02 (EGC's EG2) — s168's second leg per element: `put(mut xs[0],
+//! grow(mut xs[1]))`. The nested call is evaluated inside the claim on
+//! `xs[0]` and claims `xs[1]`, a distinct literal. `grow` pushes 64 times,
+//! so `xs[1]`'s own buffer is reallocated while the callee holds the
+//! address of `xs[0]` — which lives in the container's buffer, untouched.
+//! `2 5 65` on checked, native, release and lupin 0.1.41; E1002 on every
+//! wolfgang lane through 0.2.18. `mut_elem_nested_call.lu` keeps a claim
+//! on the whole container refused; `elem_dyn_nested_call.lu` a run-time
+//! index.
+## corpus/memory/elem_const_nested_mut.lu
+//! check: run(exit=0, stdout="3 13\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1
+//!
+//! eg02 (EGC's EG2) — `[mem.model.place.elem]` item 1(a), the path rule:
+//! `add2(mut g[0][1], mut g[1][0])` on a `List[List[int]]`. The paths
+//! first differ at the outer index step (`0` against `1`), so they are
+//! distinct whatever follows. Ruled by eg00 and parked until EG2; through
+//! 0.2.18 it was E1002 on every wolfgang lane. Now `3 13` on checked,
+//! native, release and lupin 0.1.41. `elem_prefix_mut_pair.lu` keeps a
+//! path and its prefix refused.
+## corpus/memory/elem_const_read_after_mut.lu
+//! check: run(exit=0, stdout="3 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.model.order
+//!
+//! eg02 (EGC's EG2) — D39's order rule per element: `bump(mut xs[0],
+//! xs[1])`. The `Copy` read of `xs[1]` is evaluated inside the claim on
+//! `xs[0]`, and the two are distinct literals, so the read does not
+//! conflict. `3 2` on checked, native, release and lupin 0.1.41; E1002 on
+//! every wolfgang lane through 0.2.18. Its one-place twin is
+//! `elem_dyn_read_after_mut.lu`.
+## corpus/memory/elem_const_read_while_take.lu
+//! check: run(exit=0, stdout="3 1\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.tier0.mode.take
+//!
+//! eg02 (EGC's EG2) — `read` against `take` per element: `keep(xs[0], take
+//! xs[1])` lends `xs[0]` to the call while `xs[1]` moves into it.
+//! Distinct literals: `3 1` on checked, native, release and lupin 0.1.41;
+//! E1002 on every wolfgang lane through 0.2.18.
+## corpus/memory/elem_const_swap_heap.lu
+//! check: run(exit=0, stdout="2 1 1 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.tier0.excl.2
+//!
+//! eg02 (EGC's EG2) — `elem_const_swap.lu` over whole struct elements that
+//! own a heap list: the callee swaps a field and pushes into BOTH lists
+//! through the two claims. Each push may reallocate its own element's
+//! buffer; neither can reach the container's, so the two element
+//! addresses the callee holds stay valid. `2 1 1 2` on checked, native,
+//! release and lupin 0.1.41; E1002 on every wolfgang lane through 0.2.18.
+## corpus/memory/elem_const_swap.lu
+//! check: run(exit=0, stdout="2 1 3\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.tier0.excl.2
+//!
+//! eg02 (EGC's EG2) — the campaign's headline shape: `swap(mut xs[0], mut
+//! xs[1])`. `swap` is an ordinary function here (the prelude has none).
+//! Two different literals, two disjoint claims: `2 1 3` on checked,
+//! native, release and lupin 0.1.41. Through 0.2.18 it was E1002 on every
+//! wolfgang lane.
+## corpus/memory/elem_const_take_while_mut.lu
+//! check: run(exit=0, stdout="2 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.tier0.mode.take
+//!
+//! eg02 (EGC's EG2) — `mut` against `take` per element: `put(mut xs[0],
+//! take xs[1])` moves `xs[1]` into the call while `xs[0]` goes `mut` in
+//! it. Distinct literals: `2 2` on checked, native, release and lupin
+//! 0.1.41; E1002 on every wolfgang lane through 0.2.18.
+## corpus/memory/elem_header_methods_after_move.lu
+//! check: run(exit=0, stdout="1 2 false 20 1 2 2 false false\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2
+//!
+//! s185 (wolf-lang#474 and wolffe-lang/wolf-interp#149, ruled
+//! 2026-09-30) — item 1(c)'s header reads beside a moved element:
+//! `count()` and `is_empty()` read only the container's header, as
+//! `xs.len` does, so after `move xs[0]` (and `move g[0][1]`, one level
+//! down) both run on the container and on every container above the
+//! moved element, in an interpolation hole and in an operand. E1001 on
+//! every wolfgang lane through 0.2.18; lupin 0.1.40 and 0.1.41 run it.
+## corpus/memory/elem_header_methods_after_move_map.lu
+//! check: run(exit=0, stdout="1 2 false 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2
+//!
+//! s185 (wolf-lang#474, wolffe-lang/wolf-interp#149, ruled 2026-09-30)
+//! — item 1(c)'s header reads on a `Map` whose value at `"a"` was read
+//! out (moved): `count()`, `is_empty()` and `len()` read the header,
+//! never a value. E1001 on every wolfgang lane through 0.2.18; lupin
+//! 0.1.40 and 0.1.41 run it (their map read copies, wolf-interp#144,
+//! which changes no byte here).
+## corpus/memory/elem_header_methods_after_move_pool.lu
+//! check: run(exit=0, stdout="1 1 false\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.move.2
+//!
+//! s185 (wolf-lang#474, wolffe-lang/wolf-interp#149, ruled 2026-09-30)
+//! — item 1(c)'s header reads on a `Pool` whose element at `h` moved
+//! out: `len()` and `is_empty()` count live slots from the header and
+//! touch no element; the element is stored back before the region
+//! closes. E1001 on every wolfgang lane through 0.2.18; lupin declines
+//! `Pool` by name (`unsupported`).
+## corpus/memory/elem_header_methods_under_claim.lu
+//! check: run(exit=0, stdout="4 3\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.model.order
+//!
+//! s185 (wolf-lang#474, ruled 2026-09-30) — item 1(c) under a claim, for
+//! the header METHODS: `bump(mut xs[0], xs.count())` and
+//! `flag(mut xs[1], xs.is_empty())`. `count` and `is_empty` read the
+//! header as `xs.len` does (eg02b's `elem_member_read_under_claims.lu`),
+//! never the claimed element. Every wolfgang lane already ran this at
+//! 0.2.18 (the ruling keeps that); lupin 0.1.40 and 0.1.41 trap
+//! `exclusivity` (is60 mirrors).
+## corpus/memory/elem_member_read_after_mut.lu
+//! check: run(exit=0, stdout="4 3\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.model.order
+//!
+//! eg02b (EGC, wolf-lang#472 ruled A) — item 1(c) under a claim:
+//! `bump(mut xs[0], xs.len)`. An element and a member of its container
+//! are distinct places whatever the index is, for claims as for moves
+//! (`elem_len_after_move.lu`): `xs.len` reads the header, which the claim
+//! on `xs[0]` does not reach. `4 3` on checked, native and release. eg02
+//! kept it E1002 because lupin 0.1.41 traps `exclusivity` here — it reads
+//! `.len` as a read of the whole container; the maintainer ruled the
+//! clause stands, and lupin mirrors it (is59). Its one-place twin, the
+//! whole container read, is `elem_claim_whole_read.lu`.
+## corpus/memory/elem_member_read_under_claims.lu
+//! check: run(exit=0, stdout="4 8 6 4 5\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.model.order
+//!
+//! eg02b (EGC, wolf-lang#472 ruled A) — item 1(c) under a claim, every
+//! leg: a member read before the claim (`pre(xs.len, mut xs[1])`), a
+//! run-time index (`bump(mut xs[i], xs.len)` — "whatever `i` is"), a
+//! member one level down (`g[0].len` beside `mut g[0][1]`), the outer
+//! container's member beside an inner element (`g.len` beside
+//! `mut g[1][0]`), and a member read inside a nested call's argument.
+//! No member read reaches an element's storage, so none conflicts.
+//! `4 8 6 4 5` on checked, native and release; lupin 0.1.41 traps the
+//! first leg (it reads a member as the whole container; is59 mirrors).
+## corpus/memory/mut_elem_excl.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.tier0.excl.1, mem.model.place.elem, mem.model.path.disjoint
+//!
+//! s168 — the first leg of the exclusivity story an element lend
+//! rests on. Through 0.2.18 `[mem.model.place]` collapsed EVERY element
+//! of a container to one opaque projection under a claim, so `xs[0]`
+//! and `xs[1]` were the same place and the second claim was E1002 on
+//! both lanes.
+//!
+//! eg02 (EGC's EG2) lifts it: `[mem.model.place.elem]` item 1(a) — two
+//! integer-literal indices whose values differ are distinct places, for
+//! claims as for moves. The callee holds two addresses into one buffer
+//! that can never be the same element, and neither parameter can reach
+//! the buffer's header. `2` on checked, native, release and lupin
+//! 0.1.41. `elem_same_const_mut.lu` keeps the same literal twice
+//! refused; `elem_dyn_mut_pair.lu` two run-time indices.
+## corpus/memory/mut_two_fields_one_region.lu
+//! check: run(exit=0, stdout="2 12\n")
+//! phase: run
+//! conforms: mem.tier0.excl.1, mem.tier0.excl.2, mem.model.path.disjoint
+//!
+//! eg02 — wolf-lang#470's witness: two `mut` field claims off one `mut`
+//! parameter, `add2(mut r.a, mut r.b)`. Disjoint fields, so the mem
+//! tier accepts it and has since s18; checked, native and lupin print
+//! `2 12`. But both fields live in the parameter's one caller region,
+//! and through 0.2.18 the release tier's inliner bound the callee's
+//! two token chains to that one token: `ICE: mid-end broke the module`
+//! (`token-linearity`, "effect token consumed twice on one path"). EG2's
+//! element claims (`add2(mut xs[0], mut xs[1])`, two addresses in one
+//! list buffer) reach the same shape. `2 12` on every lane now.
+=== modified run program diffs
+=== CHANGELOG 0.2.19 entry
+## 0.2.19 — 2026-09-30
+
+THE NINETEENTH. `mut` claims become element-granular (EGC's EG2):
+`swap(mut xs[0], mut xs[1])` and its nested, field and loan shapes
+compile and run, and every one-place shape is still refused. Item 1(c)
+of `[mem.model.place.elem]` holds under a claim as it does for moves
+(wolf-lang#472, ruled A), and `len`, `count` and `is_empty` are header
+reads beside a moved or claimed element (wolf-lang#474 and
+wolffe-lang/wolf-interp#149, ruled 2026-09-30). Fixed first: a
+release-tier ICE in the published 0.2.18 (#470). Also fixed:
+`--deny-warnings` hid #464's refusal behind a W1002 (#469), and 37 gate
+files read an ICE as an environment skip (#471). The pairing moves to
+lupin 0.1.42, whose spec pin moves to v0.2.18 (it was two releases
+behind) and which carries every mirror 0.2.18's gates pinned by
+version. Three lanes and 100 commits: eg02, eg02b, s185.
+
+### Read this before you bump the pin
+
+**#470 — the release tier stopped with an internal compiler error.** On
+0.2.18 this runs on the checked and native tiers (`2 12`), and the
+release tier stops with `ICE: mid-end broke the module`
+(`token-linearity`, "effect token consumed twice on one path"): the
+inliner bound `add2`'s two token chains to the caller's one region.
+Here the call stays out of line and it prints `2 12` on every lane:
+
+```wolf
+struct R {
+    a: int,
+    b: int,
+}
+
+fn add2(mut a: int, mut b: int) {
+    a = a + 1
+    b = b + 10
+}
+
+fn g(mut r: R) {
+    add2(mut r.a, mut r.b)   // 0.2.18, release tier: ICE (token-linearity)
+}
+// main: var r = R { a: 1, b: 2 }; g(mut r); print("{r.a} {r.b}")
+```
+
+(`corpus/memory/mut_two_fields_one_region.lu`.) EG2's element pairs,
+`add2(mut xs[0], mut xs[1])`, reach the same shape, which is how eg02
+found it.
+
+**Programs that were refused now compile.** Two `mut` claims on two
+literal elements (E1002 or E1013 through 0.2.18), a member read
+(`xs.len`) beside an element claim (E1002), and `count()`,
+`is_empty()` or a `Map`/`Pool`'s header beside a moved element (E1001).
+
+### Element-granular claims (eg02, EGC's EG2)
+
+- **`mut` claims are element-granular (EGC's EG2, eg02).**
+  `[mem.model.place.elem]`'s items 1(a)/(b) and the path rule now hold
+  for every rule that asks whether two paths conflict under a claim —
+  call exclusivity (`[mem.tier0.excl]`, E1002, with D39's read and
+  s168's nested call inside a `mut` argument), borrows
+  (`[mem.tier0.borrow]`) and iteration (`[mem.iter.excl]`, E1013) — not
+  only moves. `swap(mut xs[0], mut xs[1])`, `add2(mut g[0][1], mut
+  g[1][0])`, `f(mut cs[0].n, mut cs[1].n)`, `bump(mut xs[0], xs[1])`,
+  `put(mut xs[0], grow(mut xs[1]))`, `for x in xs[0] { (mut
+  xs[1]).push(x) }` and a store to `xs[1]` under a `dyn` loan of
+  `xs[0]` compile and run on checked, native and release with lupin
+  0.1.41's bytes; each was E1002 or E1013 through 0.2.18.
+  `corpus/memory/mut_elem_excl.lu` now runs. Every item 2 shape stays
+  refused — a run-time index against any index, the same literal
+  twice, `Pool` handles, a path and its prefix — each with a corpus
+  twin.
+- **wolf-lang#470 fixed: a release-tier ICE.** Two `mut` arguments in
+  one caller region — two fields off a `mut` parameter, `add2(mut r.a,
+  mut r.b)` inside `fn g(mut r: R)` — made 0.2.18's release build stop
+  with `ICE: mid-end broke the module` (`token-linearity`) once the
+  callee inlined: the inliner bound the callee's two token chains to
+  the caller's one. Such a call now stays out of line. EG2's element
+  pairs reach the same shape. Witness
+  `corpus/memory/mut_two_fields_one_region.lu`, `2 12` on every lane.
+
+### Item 1(c) under a claim (eg02b, #472) and ICEs fail the gates (#471)
+
+- **Item 1(c) holds under a claim too (eg02b, wolf-lang#472 ruled
+  A).** An element and a member of its container are distinct places
+  for claims as for moves, whatever the index: `bump(mut xs[0],
+  xs.len)`, `bump(mut xs[i], xs.len)`, `bump(mut g[0][1], g[0].len)`
+  and a member read before the claim compile and run on checked, native
+  and release; eg02 had kept them E1002 because lupin 0.1.41 reads
+  `.len` as the whole container and traps. `elem_member_read_after_mut.lu`
+  now runs. The whole container under an element claim
+  (`both(mut xs[0], xs)`) stays E1002. lupin through 0.1.41 still
+  traps these rows; the gate names those versions and expects the ruled
+  answer from any later one.
+- **An internal compiler error fails the driver gates (wolf-lang#471).**
+  `wolf` exits 2 both when a host cannot run a lane and on an ICE; 37
+  gate files under `crates/wolf_driver/tests/` read every exit 2 as an
+  environment skip, so an ICE on the native or release lane passed. They
+  now ask one helper, `lane_exit::environment_refusal`, which fails the
+  test when stderr carries the driver's `ICE:` line.
+
+### Header reads (s185, #474, wolffe-lang/wolf-interp#149) and `--deny-warnings` (#469)
+
+- **`len`, `count` and `is_empty` are header reads (s185, wolf-lang#474
+  and wolffe-lang/wolf-interp#149, ruled 2026-09-30).** They read only a
+  container's header, so they are allowed beside a moved element:
+  `xs.count()` and `xs.is_empty()` after `move xs[0]`, a `Map`'s
+  `count()`, `is_empty()` and `len()` after a value is read out, a
+  `Pool`'s `len()` and `is_empty()` after `move p[h]` compile and run on
+  checked, native and release (lupin 0.1.41's bytes where lupin runs
+  them); each was E1001 through 0.2.18. Beside an element claim they
+  already ran (`bump(mut xs[0], xs.count())`), and the ruling keeps
+  that. Every other method still reads the whole container and stays
+  E1001 beside a moved part — `push`, `get`, `pop`, a slice, an impl
+  method's `self`, a user type's method named `count` — and a whole move
+  still refuses `count()`. `[mem.model.place.elem]` 1(c) names the
+  header reads. lupin through 0.1.41 traps the header methods under a
+  claim and runs the whole-read methods beside a moved part; the gate
+  names those versions and expects the ruled answer from any later one.
+- **`--deny-warnings` no longer hides #464's refusal (wolf-lang#469).**
+  A `mut` parameter moved out and never stored back is E1001, and
+  W1002's "never written" stands down beside it — but under
+  `--deny-warnings` the promoted W1002 stopped `wolf build`, `wolf test`
+  and `conform-run` at the resolve rung, before the E1001 existed, and
+  its help said to drop the `mut`. A promoted W1002 now waits for the
+  mem rung; the E1001 (or #325's E0804) retires it and is the one
+  error reported, `fail(E1001)` at `mem` in the record. A W1002 nothing
+  retires still rejects the program, at `resolve`.
+
+### The pairing: lupin 0.1.42
+
+`PAIRING` names **lupin 0.1.42 at pin `ec56a08`** (wolf-interp release
+400022505; the linux x86-64 archive's sha256 `9856335a…`), whose spec
+pin is this compiler's v0.2.18 tag and which carries
+wolffe-lang/wolf-interp#143–#146, #149, #151, #152 and the lupin halves
+of #472 and #474. The ritual (#87, with #281's control against the 0.1.41
+archive, same corpus, same release `wolf`) **moved 13 ledger counts on
+each tier, together**, all to agreement: `elem_header_methods_under_claim`,
+`elem_member_read_after_mut` and `elem_member_read_under_claims`
+(soundness → agreement: 0.2.19 runs them and lupin now does too);
+`elem_key_reassigned_no_revive`, the six `elem_whole_read_*_after_move`
+rows and `mut_param_moveout_{map,one_path,whole}` (completeness →
+agreement: the compiler's E1001 now meets lupin's `trap(use-after-move)`).
+Checked: 444 → 457 agreements, completeness 200 → 190, soundness 3 → 0;
+native: 485 → 498, 200 → 190, 4 → 1. One file moved below the ledger:
+`ctl_store_order_nested_index.lu`, whose lupin stdout is now the
+compiler's (#145, each index operand once). Native's one soundness
+finding is still `memory/unsafe_ub_uaf.lu` (`exit` vs `ub(mem.ub)`), the
+program's own use-after-free read on the compiled lane.
+
+The gates that pinned lupin by version drop every 0.1.40 and 0.1.41
+entry: nine lists in `element_places_lanes.rs`, `mut_param_return_lanes.rs`
+and `store_order_lanes.rs` are empty, and the fourteen cases pinned at
+0.1.41 (#144, #145, #146, #149, #472, #474) take the ruled arm against
+the published 0.1.42. None is widened and none stays pinned.
+
+=== book
+count BOLD..BNEW = 26
+book ancestry exit=0
+ 43 files changed, 4823 insertions(+), 151 deletions(-)
+.github/workflows/book-pages.yml
+.github/workflows/book.yml
+CHANGELOG.md
+audit/version-literals.txt
+book.toml
+book/back/colophon.md
+book/back/solutions.md
+book/ch01.md
+book/ch05.md
+book/ch07.md
+book/ch08.md
+book/ch22.md
+book/ch28.md
+book/ch31.md
+book/wolf-boot.js
+docs/audit/bs55-contract.md
+docs/audit/bs55-evidence/archive-digests.txt
+docs/audit/bs55-evidence/contents-after.txt
+docs/audit/bs55-evidence/contents-before.txt
+docs/audit/bs55-evidence/gate-summary.txt
+docs/audit/bs55-evidence/ids-diff.txt
+docs/audit/bs55-evidence/members.txt
+docs/audit/bs55-evidence/pages-probe.txt
+docs/audit/bs55-evidence/probes.txt
+docs/audit/bs55-evidence/retry-fixed.txt
+docs/audit/bs55-evidence/retry-live.txt
+docs/audit/bs55-evidence/versions.txt
+docs/audit/bs55-prediction.md
+docs/audit/bs55-results.md
+docs/errata-policy.md
+principles/EXERCISES-PENDING.md
+principles/exercises/ch22/EXERCISES.md
+samples-pending.toml
+tests/contents/.gitignore
+tests/contents/contents.mjs
+tests/contents/contents.test.mjs
+tests/contents/package.json
+tests/contents/serve.mjs
+theme/book.js
+theme/index.hbs
+wolf-toolchain.toml
+xtask/src/preprocess.rs
+xtask/src/render.rs
+SUMMARY sha c58196034d4fc6c4c2796437dbb9bedb4a4b5506 -> c58196034d4fc6c4c2796437dbb9bedb4a4b5506
+chapters in SUMMARY: 33
+bd3484e audit: bs55 results — the pin as predicted; the maintainer's 404 reproduced, caused by the site's CSP, fixed
+1c3ffef audit: bs55 evidence — digests, members, stamps, probes on both pairs, gate summary, the contents gate red and green, the live retry, ids, Pages probe
+d2c23cc gate: search is typed, not filled — mdBook's searcher answers key events
+786a515 gate: bounded waits, one page per worker — Firefox never ticked a background tab's transition and hung the first run
+d83a937 CHANGELOG: bs55 — the contents work on lupp.us; the book takes 0.2.19 / 0.1.42
+49d23bb docs: the web edition's home is lupp.us/book/; Pages carries redirects
+abdd193 render: rustfmt, and the Pages path named in the 404's doc rather than an unused constant
+48fb406 preprocess: read the chapter's own number before borrowing its content
+3f40bb4 pages: GitHub Pages serves redirects to lupp.us/book/<same path>, not a second copy of the book
+2186000 render: the 404 page's links under /book/, a guard against inline scripts, and `render pages` for the redirects
+f6f70aa theme: no inline scripts — path_to_root and the sidebar's first paint move to wolf-boot.js, the ARIA sync to book.js
+f226c34 preprocess: a chapter's sidebar number is its own heading's, not its place in SUMMARY — ch33 reads 33
+7b544cd backmatter: regenerate solutions.md — 22-13's interface line reads toolchain 0.2.19
+890f60e doc-truth: the version-literal ledger re-read at 0.2.19 / 0.1.42 — every history sentence still true
+420ee01 ledgers: §5.3's best and ch31's shard papercut re-measured at 0.2.19 — identical, a run-time index is still one place
+8f6c67b ledgers: 7-23 and ex8-7 re-measured at 0.2.19 / 0.1.42 — identical on both pairs
+faeabd6 ledger: ch28's six re-measured at 0.2.19 — EG2 is in, and push's plain copy still holds them
+6546040 exercises pending: 7-5 and 8-7 read 0.2.19 / 0.1.42
+b8fd806 pending: the three rows re-measured at 0.2.19 / 0.1.42 — identical on both pairs, same spans
+00b1a54 ch22: the interface line reads toolchain 0.2.19 — both export hashes hold
+3013b28 ch01, colophon: the pair reads 0.2.19 / 0.1.42 — 105 commits, one release; the Windows archive and the +dev line follow
+d1b2a94 pin: wolf v0.2.19 (c2401f0) and lupin 0.1.42 (8e2516d), both from the release archives by digest; anchors hold at 542
+f446763 ci: the contents gate runs on the render, one job per engine
+c873be3 gate: the contents — every sidebar entry from every page, three engines, served with lupp.us's headers
+51725fe predict: bs55 — 0.2.19 / 0.1.42 moves four stamps and no verdict; the contents gate reds on 8 numbers, 540 404s, 47 sidebars
+50ab661 contract: bs55 — the book at 0.2.19 / 0.1.42 and the contents, five sections, inputs re-derived
+DERIVE-DONE
