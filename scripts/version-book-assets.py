@@ -18,9 +18,18 @@ CSP (`script-src 'self'`) is indifferent to it. What this cannot reach is a
 script the book loads by name at run time (`searchindex.js`); the nginx config
 makes the whole book revalidate for that (`Cache-Control: no-cache`).
 
+ONE FILE IS LEFT BARE, ON PURPOSE: `wolf-boot.js`. It is the script bs55 moved
+the theme's inline code into, and it learns the book's root by reading its OWN
+`src` attribute and cutting `wolf-boot.js` off the end — so `wolf-boot.js?v=…`
+leaves it with no root at all, and every sidebar link from `front/` and `back/`
+lands a folder too deep: the maintainer's 404, reintroduced. The first staged
+gate run of this script found exactly that (585 404s on chromium phone). It is
+a new file at this pin, so no browser holds an old copy, and the book's
+`no-cache` covers it after that.
+
 It refuses two outcomes rather than report them: rewriting nothing (a zero is
 believed only when the search is shown to fire), and a bare local `.js` or
-`.css` reference left anywhere after the pass.
+`.css` reference left anywhere after the pass, `wolf-boot.js` excepted.
 """
 
 import re
@@ -31,9 +40,22 @@ from pathlib import Path
 # scheme, not protocol-relative, no query or fragment already.
 REF = re.compile(r'\b(src|href)="((?!//)[^":?#]*\.(?:js|css))"')
 
+# Reads its own src to find the book's root (see above); a query breaks it.
+BARE = ("wolf-boot.js",)
+
+
+def keep(path: str) -> bool:
+    return path.rsplit("/", 1)[-1] in BARE
+
 
 def version(html: str, pin: str) -> tuple[str, int]:
-    return REF.subn(lambda m: f'{m.group(1)}="{m.group(2)}?v={pin}"', html)
+    return REF.subn(
+        lambda m: m.group(0) if keep(m.group(2)) else f'{m.group(1)}="{m.group(2)}?v={pin}"', html
+    )
+
+
+def bare(html: str) -> bool:
+    return any(not keep(m.group(2)) for m in REF.finditer(html))
 
 
 def main(argv: list) -> int:
@@ -49,7 +71,8 @@ def main(argv: list) -> int:
     touched = 0
     for page in pages:
         text = page.read_text(encoding="utf-8")
-        new, n = version(text, pin)
+        new, _ = version(text, pin)
+        n = sum(1 for m in REF.finditer(text) if not keep(m.group(2)))
         if n:
             page.write_text(new, encoding="utf-8")
             total += n
@@ -57,11 +80,14 @@ def main(argv: list) -> int:
     if total == 0:
         print(f"book assets: no script or stylesheet reference found in {len(pages)} page(s) under {book} — refusing a zero", file=sys.stderr)
         return 1
-    bare = [str(p.relative_to(book)) for p in pages if REF.search(p.read_text(encoding="utf-8"))]
-    if bare:
-        print(f"book assets: bare references remain in {', '.join(bare)}", file=sys.stderr)
+    left = [str(p.relative_to(book)) for p in pages if bare(p.read_text(encoding="utf-8"))]
+    if left:
+        print(f"book assets: bare references remain in {', '.join(left)}", file=sys.stderr)
         return 1
-    print(f"  book assets: {total} script and stylesheet reference(s) across {touched} of {len(pages)} page(s) versioned ?v={pin}")
+    print(
+        f"  book assets: {total} script and stylesheet reference(s) across {touched} of {len(pages)} page(s) "
+        f"versioned ?v={pin}; {', '.join(BARE)} left bare (it reads its own src)"
+    )
     return 0
 
 

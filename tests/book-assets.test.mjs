@@ -54,7 +54,9 @@ test("every local script and stylesheet reference gains ?v=<pin>, nothing else m
   const ch = r.out["ch07.html"];
   assert.match(ch, /href="css\/chrome\.css\?v=bd3484e"/);
   assert.match(ch, /src="toc\.js\?v=bd3484e"/);
-  assert.match(ch, /src="wolf-boot\.js\?v=bd3484e"/);
+  /* wolf-boot.js reads its own src to find the book's root: a query would
+   * put every sidebar link from front/ and back/ a folder too deep. */
+  assert.match(ch, /src="wolf-boot\.js"/, "wolf-boot.js stays bare");
   assert.match(ch, /src="https:\/\/example\.com\/x\.js"/, "a foreign URL is not this build's to version");
   assert.match(ch, /src="\/\/cdn\.example\/y\.js"/, "nor a protocol-relative one");
   assert.match(ch, /href="ch08\.html"/, "a page link is navigation, not an asset");
@@ -62,7 +64,19 @@ test("every local script and stylesheet reference gains ?v=<pin>, nothing else m
   assert.match(r.out["front/how-to-read.html"], /src="\.\.\/toc\.js\?v=bd3484e"/);
   assert.match(r.out["front/how-to-read.html"], /href="\.\.\/css\/general\.css\?v=bd3484e"/);
   assert.match(r.out["404.html"], /src="\/book\/toc\.js\?v=bd3484e"/);
-  assert.match(r.stdout, /7 script and stylesheet reference\(s\) across 3 of 3 page\(s\)/);
+  assert.match(r.stdout, /6 script and stylesheet reference\(s\) across 3 of 3 page\(s\)/);
+});
+
+test("wolf-boot.js one directory down and under /book/ stays bare too", () => {
+  const r = run({
+    "back/colophon.html": '<script src="../wolf-boot.js"></script><script src="../book.js"></script>',
+    "404.html": '<script src="/book/wolf-boot.js"></script><script src="/book/toc.js"></script>',
+  });
+  assert.equal(r.status, 0, r.stderr);
+  assert.match(r.out["back/colophon.html"], /src="\.\.\/wolf-boot\.js"/);
+  assert.match(r.out["back/colophon.html"], /src="\.\.\/book\.js\?v=bd3484e"/);
+  assert.match(r.out["404.html"], /src="\/book\/wolf-boot\.js"/);
+  assert.match(r.out["404.html"], /src="\/book\/toc\.js\?v=bd3484e"/);
 });
 
 test("a second pass versions nothing twice, and so refuses the zero", () => {

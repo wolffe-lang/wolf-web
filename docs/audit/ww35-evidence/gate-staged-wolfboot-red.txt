@@ -1,0 +1,20 @@
+contents: gate against http://127.0.0.1:18035/book/ (live)
+contents: chromium phone: 49 pages, 45 entries, 2205 clicks, 1620 at 200 — FAIL {"status":585,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 446s
+  status: front/how-to-read.html -> "How to read this book": HTTP 404 http://127.0.0.1:18035/book/front/front/how-to-read.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "Notation": HTTP 404 http://127.0.0.1:18035/book/front/front/notation.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "1. Hello, Wolf": HTTP 404 http://127.0.0.1:18035/book/front/ch01.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "2. Strings, honestly": HTTP 404 http://127.0.0.1:18035/book/front/ch02.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "3. Values and expressions": HTTP 404 http://127.0.0.1:18035/book/front/ch03.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "4. Functions": HTTP 404 http://127.0.0.1:18035/book/front/ch04.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "5. Collections and generics": HTTP 404 http://127.0.0.1:18035/book/front/ch05.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "6. Errors are values": HTTP 404 http://127.0.0.1:18035/book/front/ch06.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "7. Who owns this?": HTTP 404 http://127.0.0.1:18035/book/front/ch07.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "8. Regions: memory in the shape you meant": HTTP 404 http://127.0.0.1:18035/book/front/ch08.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "9. The escape hatch is a door, not a cliff": HTTP 404 http://127.0.0.1:18035/book/front/ch09.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: front/how-to-read.html -> "10. Spawning is a scope": HTTP 404 http://127.0.0.1:18035/book/front/ch10.html title="Page not found - The Wolf Book" h1="Document not found (404)"
+  status: … 573 more
+browser.newContext: Target page, context or browser has been closed
+    at async gateOne (/private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww35-gate/contents.mjs:282:22)
+    at async main (/private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww35-gate/contents.mjs:401:23) {
+  log: []
+}

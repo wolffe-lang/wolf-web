@@ -1,0 +1,9 @@
+# tests/book-assets.test.mjs (with the wolf-boot.js cases) against the script as committed at fb51e6a, which versioned wolf-boot.js too; run 2026-09-30T18:59:55Z on nomad-1
+✖ every local script and stylesheet reference gains ?v=<pin>, nothing else moves (17.023791ms)
+✖ wolf-boot.js one directory down and under /book/ stays bare too (15.922334ms)
+✔ a second pass versions nothing twice, and so refuses the zero (14.70575ms)
+✔ a book with no assets to version is refused, not reported as done (13.375917ms)
+✔ the pin is seven hex characters (13.560959ms)
+ℹ tests 5
+ℹ pass 3
+ℹ fail 2
