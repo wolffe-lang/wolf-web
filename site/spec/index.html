@@ -124,7 +124,7 @@
       cannot leave the store aimed at the old buffer. The order of the place's
       own operands against the right-hand side was not ruled by it, and the
       machines were not agreed there.
-      v__WOLF_VERSION__ rules it and answers two questions the element had
+      v0.2.18 ruled it and answered two questions the element had
       left open. The place's operands come first, left to right and
       outermost first, then the right-hand side, then the address, then the
       store — so <code>xs[idx()] = val()</code> calls <code>idx</code> first
@@ -140,6 +140,18 @@
       parameter is initialized at every return of the function, so moving
       out of one and returning without storing a value back is
       <code>E1001</code>.
+      v__WOLF_VERSION__ carries the distinct places from moves to claims.
+      Exclusivity, borrows and iteration read
+      <code>[mem.model.place.elem]</code> per element now, so
+      <code>add2(mut xs[0], mut xs[1])</code>,
+      <code>add2(mut g[0][1], mut g[1][0])</code> and
+      <code>bump(mut xs[0], xs.len)</code> hold two claims that cannot meet,
+      and every shape the clause calls one place — a run-time index, the same
+      literal twice, a path and its prefix — is still refused. And the clause
+      names what reads a container's header: <code>len</code>,
+      <code>count</code> and <code>is_empty</code>, and nothing else, so each
+      is allowed beside a moved or claimed element, while every other method
+      and a slice read the whole container.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
