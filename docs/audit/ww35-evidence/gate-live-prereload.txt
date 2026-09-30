@@ -1,0 +1,84 @@
+# contents gate (full), LIVE https://lupp.us/book/, after the ww35 deploy (release 2026-09-30-191146, a494fe8), BEFORE the maintainer installs the nginx config (the installed config is trunk's); gate files wolf-book bd3484e tests/contents/, playwright-core 1.63.0, nomad-1, started 2026-09-30T19:16Z
+contents: gate against https://lupp.us/book/ (live)
+contents: chromium phone: 49 pages, 45 entries, 2115 clicks, 2115 at 200 — FAIL {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":2,"state":6,"search":0} in 171s
+  entries: no-such-page.html: 0 sidebar entries, want 45
+  entries: front/no-such-page.html: 0 sidebar entries, want 45
+  state: no-such-page.html stored=null want open=false got null
+  state: front/no-such-page.html stored=null want open=false got null
+  state: no-such-page.html stored=visible want open=false got null
+  state: front/no-such-page.html stored=visible want open=false got null
+  state: no-such-page.html stored=hidden want open=false got null
+  state: front/no-such-page.html stored=hidden want open=false got null
+contents: chromium desktop: 49 pages, 45 entries, 2115 clicks, 2115 at 200 — FAIL {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":2,"state":6,"search":0} in 71s
+  entries: no-such-page.html: 0 sidebar entries, want 45
+  entries: front/no-such-page.html: 0 sidebar entries, want 45
+  state: no-such-page.html stored=null want open=true got null
+  state: front/no-such-page.html stored=null want open=true got null
+  state: no-such-page.html stored=visible want open=true got null
+  state: front/no-such-page.html stored=visible want open=true got null
+  state: no-such-page.html stored=hidden want open=false got null
+  state: front/no-such-page.html stored=hidden want open=false got null
+contents: firefox phone: 49 pages, 45 entries, 2115 clicks, 1976 at 200 — FAIL {"status":139,"title":0,"number":0,"click":0,"load":0,"entries":2,"state":6,"search":0} in 193s
+  status: back/appendix-b.html -> "How to read this book": HTTP 304 https://lupp.us/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: back/appendix-b.html -> "1. Hello, Wolf": HTTP 304 https://lupp.us/book/ch01.html title="Hello, Wolf - The Wolf Book" h1="1. Hello, Wolf"
+  status: back/appendix-b.html -> "4. Functions": HTTP 304 https://lupp.us/book/ch04.html title="Functions - The Wolf Book" h1="4. Functions"
+  status: back/appendix-b.html -> "5. Collections and generics": HTTP 304 https://lupp.us/book/ch05.html title="Collections and generics - The Wolf Book" h1="5. Collections and generics"
+  status: back/appendix-b.html -> "6. Errors are values": HTTP 304 https://lupp.us/book/ch06.html title="Errors are values - The Wolf Book" h1="6. Errors are values"
+  status: back/appendix-b.html -> "14. Procs: the unit of failure": HTTP 304 https://lupp.us/book/ch14.html title="Procs: the unit of failure - The Wolf Book" h1="14. Procs: the unit of failure"
+  status: back/appendix-b.html -> "16. Region transfer: fearless messaging": HTTP 304 https://lupp.us/book/ch16.html title="Region transfer: fearless messaging - The Wolf Book" h1="16. Region transfer: fearless messaging"
+  status: back/appendix-b.html -> "17. The failing schedule, replayed": HTTP 304 https://lupp.us/book/ch17.html title="The failing schedule, replayed - The Wolf Book" h1="17. The failing schedule, replayed"
+  status: back/appendix-b.html -> "18. Comptime: one tier, no macros": HTTP 304 https://lupp.us/book/ch18.html title="Comptime: one tier, no macros - The Wolf Book" h1="18. Comptime: one tier, no macros"
+  status: back/appendix-b.html -> "2. Strings, honestly": HTTP 304 https://lupp.us/book/ch02.html title="Strings, honestly - The Wolf Book" h1="2. Strings, honestly"
+  status: back/appendix-b.html -> "21. Beating C honestly": HTTP 304 https://lupp.us/book/ch21.html title="Beating C honestly - The Wolf Book" h1="21. Beating C honestly"
+  status: back/appendix-b.html -> "23. Packages and dependencies": HTTP 304 https://lupp.us/book/ch23.html title="Packages and dependencies - The Wolf Book" h1="23. Packages and dependencies"
+  status: … 127 more
+  entries: no-such-page.html: 0 sidebar entries, want 45
+  entries: front/no-such-page.html: 0 sidebar entries, want 45
+  state: no-such-page.html stored=null want open=false got null
+  state: front/no-such-page.html stored=null want open=false got null
+  state: no-such-page.html stored=visible want open=false got null
+  state: front/no-such-page.html stored=visible want open=false got null
+  state: no-such-page.html stored=hidden want open=false got null
+  state: front/no-such-page.html stored=hidden want open=false got null
+contents: firefox desktop: 49 pages, 45 entries, 2115 clicks, 2115 at 200 — FAIL {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":2,"state":6,"search":0} in 134s
+  entries: no-such-page.html: 0 sidebar entries, want 45
+  entries: front/no-such-page.html: 0 sidebar entries, want 45
+  state: no-such-page.html stored=null want open=true got null
+  state: front/no-such-page.html stored=null want open=true got null
+  state: no-such-page.html stored=visible want open=true got null
+  state: front/no-such-page.html stored=visible want open=true got null
+  state: no-such-page.html stored=hidden want open=false got null
+  state: front/no-such-page.html stored=hidden want open=false got null
+contents: webkit phone: 49 pages, 45 entries, 2114 clicks, 2111 at 200 — FAIL {"status":3,"title":0,"number":0,"click":1,"load":0,"entries":2,"state":6,"search":0} in 212s
+  status: back/errata.html -> "Colophon": HTTP 304 https://lupp.us/book/back/colophon.html title="Colophon - The Wolf Book" h1="Colophon"
+  status: back/colophon.html -> "How to read this book": HTTP 304 https://lupp.us/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: back/colophon.html -> "Notation": HTTP 304 https://lupp.us/book/front/notation.html title="Notation - The Wolf Book" h1="Notation"
+  click: 404.html entry 40: page.waitForNavigation: Timeout 15000ms exceeded.
+  entries: no-such-page.html: 0 sidebar entries, want 45
+  entries: front/no-such-page.html: 0 sidebar entries, want 45
+  state: no-such-page.html stored=null want open=false got null
+  state: front/no-such-page.html stored=null want open=false got null
+  state: no-such-page.html stored=visible want open=false got null
+  state: front/no-such-page.html stored=visible want open=false got null
+  state: no-such-page.html stored=hidden want open=false got null
+  state: front/no-such-page.html stored=hidden want open=false got null
+contents: webkit desktop: 49 pages, 45 entries, 2113 clicks, 2113 at 200 — FAIL {"status":0,"title":0,"number":0,"click":2,"load":0,"entries":2,"state":6,"search":0} in 147s
+  click: back/solutions.html entry 2: page.goto: Timeout 30000ms exceeded.
+  click: back/solutions.html entry 16: page.goto: Timeout 30000ms exceeded.
+  entries: no-such-page.html: 0 sidebar entries, want 45
+  entries: front/no-such-page.html: 0 sidebar entries, want 45
+  state: no-such-page.html stored=null want open=true got null
+  state: front/no-such-page.html stored=null want open=true got null
+  state: no-such-page.html stored=visible want open=true got null
+  state: front/no-such-page.html stored=visible want open=true got null
+  state: no-such-page.html stored=hidden want open=false got null
+  state: front/no-such-page.html stored=hidden want open=false got null
+contents: FAILED
+
+# status faults by HTTP code (ww35-faults.py over gate-live-prereload.json)
+chromium phone   clicks 2115  at200 2115  status-by-code {}  304-landed-right 0  304-wrong 0  other {'entries': 2, 'state': 6}
+chromium desktop clicks 2115  at200 2115  status-by-code {}  304-landed-right 0  304-wrong 0  other {'entries': 2, 'state': 6}
+firefox  phone   clicks 2115  at200 1976  status-by-code {'304': 139}  304-landed-right 139  304-wrong 0  other {'entries': 2, 'state': 6}
+firefox  desktop clicks 2115  at200 2115  status-by-code {}  304-landed-right 0  304-wrong 0  other {'entries': 2, 'state': 6}
+webkit   phone   clicks 2114  at200 2111  status-by-code {'304': 3}  304-landed-right 3  304-wrong 0  other {'click': 1, 'entries': 2, 'state': 6}
+webkit   desktop clicks 2113  at200 2113  status-by-code {}  304-landed-right 0  304-wrong 0  other {'click': 2, 'entries': 2, 'state': 6}

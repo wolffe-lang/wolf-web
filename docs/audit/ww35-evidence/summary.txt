@@ -1,0 +1,54 @@
+ww35 summary — the figures §4 cites, each with the file that carries it
+
+== build at the branch head a494fe8 (kasumi; build-summary.txt, ww35-build.sh)
+BUILD-EXIT=0; node tests 114 pass 0 fail; ahead planted 8 pass
+version prose: 389 literal mention(s), 115 allowlisted (41 wolf clock, 12 lupin, 62 frozen)
+counts: 249 number word(s) in 79 entries, 23 live, re-read at wolf 0.2.19, lupin 0.1.42, book bd3484e
+book: 48 pages; book assets: 522 references across 48 of 48 pages versioned ?v=bd3484e, wolf-boot.js left bare (47 refs)
+pdf: 5.6 MB (5,616,740 B on kasumi); wasm 1058 KiB raw, sha256 d921d279… (= lupin-0.1.42.wasm of the census)
+stamps: bookchapters 33, diagnostics 142, netprograms 18, samples 36, speccommits 105, warnings 34
+links: 1504 internal links across 63 pages, 0 dead; check-samples 36 in class, 18 net unsupported; check-ahead 0 ahead, 542 anchors
+version.json: lupin 0.1.42, pins c2401f0 / 8e2516d / bd3484e, spec-pin ec56a08, missing []
+
+== ancestry guard, verbatim (build-summary.txt)
+lag phrases: wolf 0.2.19 is advertised; lupin was built at the v0.2.18 tag (ec56a08) — it reads the release before this one, and both pages carry 'one release' and neither carries another
+{"gap": 1, "phrase": "one release", "tagged": true, "commits": 105, "spec": "ec56a08", "release": "0.2.18", "advertised": "0.2.19"}
+
+== census legs (census-*.json, rows.txt; harness docs/audit/ww33-evidence/census.mjs, driver ww35-measure.sh)
+census-0218-0141 445 programs: exit 319, trap 33, unsupported 93; candidates 352   (row-identical to ww34's census-0218-0141.json: 445 rows, 0 diffs)
+census-0218-0142 445 programs: exit 319, trap 33, unsupported 93; candidates 352
+census-0219-0141 464 programs: exit 334, trap 36, unsupported 94; candidates 370
+census-0219-0142 464 programs: exit 337, trap 33, unsupported 94; candidates 370   (the served census)
+module leg on the 0.2.18 corpus: 0 rows; corpus legs under either module: 0 common rows
+module leg on the 0.2.19 corpus: 3 rows, trap(exclusivity) -> exit(0): elem_header_methods_under_claim, elem_member_read_after_mut, elem_member_read_under_claims
+died rows: []
+modules: lupin-0.1.42.wasm d921d279…, lupin-0.1.41.wasm 64d3ed51… (ww34's 0.1.41 was d4e28724…: the module embeds its build path, as ww34's path-control.txt found; the census, not the digest, reproduces)
+
+== stdout probe (stdout-probe-0142.txt / -0141.txt)
+0.1.42: 21 MATCH of 22 probed (19 arrivals + 2 range probes + ctl_store_order_nested_index); the 1 DIFF is the Pool row's decline (unsupported)
+0.1.41: 5 DIFF: the Pool decline, the three claim traps, and ctl_store_order_nested_index (i\ni\nj… — #145)
+
+== nginx (nginx-test-red.txt, nginx.diff, staged-headers.txt)
+tests/nginx.test.mjs on trunk's config: 2 pass, 3 fail; on the branch: 5 pass
+staged (almanta nginx 1.20.1, loopback): /book/ misses -> 404 with the book's 404.html (5,667 B), /no-such-page -> the site's /404.html (1,121 B), /book -> 301; book files Cache-Control: no-cache; the CSP line identical on all 12 probed responses
+staged config sha256 2c6f09d1… (= branch nginx/lupp.us.conf); installed b087dba7… (= trunk's)
+
+== deploy (deploy.log, live-after-deploy.txt)
+release 2026-09-30-191146 from branch head a494fe8 (SKIP_BUILD=1 on the kasumi dist); oldest release 2026-09-15-223322 pruned by the script
+live version.json = the built one; 63 of 63 html files 200
+
+== the maintainer's path, live (retry-live-before.txt / retry-live-after.txt)
+before: every engine × viewport hop1 90/90 (16 number mismatches), hop2 66/90 — 144 'HTTP 404' lines
+after:  every engine × viewport hop1 90/90 (0 number mismatches), hop2 90/90 — 0 'HTTP 404' lines, 0 ERROR lines
+
+== full gate, live, before the config is installed (gate-live-prereload.txt/.json)
+chromium phone 2115/2115, chromium desktop 2115/2115, firefox desktop 2115/2115 at 200
+firefox phone 2115 clicks, 1976 at 200, 139 at 304 (all 139 on the right title and number)
+webkit phone 2114 clicks, 2111 at 200, 3 at 304 (right), 1 click timeout (404.html entry 40)
+webkit desktop 2113 clicks, 2113 at 200, 2 page.goto timeouts (back/solutions.html)
+every engine × viewport: entries 2, state 6 (the two misses get the site's 404 page, no sidebar); search 0; 0 HTTP 404 on a real page
+
+== full gate, staged config (gate-staged.txt/.json.gz)
+chromium phone and desktop: 2205/2205 at 200, 0 faults
+firefox phone 2205 clicks, 163 at 200 + 2042 at 304; firefox desktop 167 + 2038; webkit phone 387 + 1818; webkit desktop 388 + 1817
+every 304 on the right title and number; entries 0, state 0, search 0, click 0 on all six

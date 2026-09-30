@@ -1,0 +1,13 @@
+a494fe8848f967ad4f83fb3e904ac6686704577c
+▶ Skipping build (SKIP_BUILD=1); using dist/ as it stands
+▶ Stage release 2026-09-30-191146
+▶ Flip 'current'
+▶ Prune old releases (keeping 5)
+▶ Verify what is being served
+✓ Deployed 2026-09-30-191146 to https://lupp.us
+/var/www/lupp.us/releases/2026-09-30-191146
+2026-09-17-205043
+2026-09-24-062917
+2026-09-26-232105
+2026-09-29-020406
+2026-09-30-191146

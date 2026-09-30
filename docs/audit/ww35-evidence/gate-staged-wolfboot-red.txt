@@ -1,3 +1,4 @@
+# contents gate (full) against the FIRST staged build (6f7d976: every book .js reference versioned, wolf-boot.js included), almanta nginx 1.20.1 on 127.0.0.1:18035 via ssh tunnel, started 2026-09-30T18:49Z; stopped by pid after the first engine × viewport (chromium phone) — 585 clicks from front/ and back/ pages landed a folder too deep, because wolf-boot.js reads its own src (wolf-book#66). Fixed at d5c9a9b; the dist was rebuilt at a494fe8 before any deploy.
 contents: gate against http://127.0.0.1:18035/book/ (live)
 contents: chromium phone: 49 pages, 45 entries, 2205 clicks, 1620 at 200 — FAIL {"status":585,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 446s
   status: front/how-to-read.html -> "How to read this book": HTTP 404 http://127.0.0.1:18035/book/front/front/how-to-read.html title="Page not found - The Wolf Book" h1="Document not found (404)"

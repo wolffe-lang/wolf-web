@@ -1,0 +1,85 @@
++ L=/home/mfwolffe/lanes/ww35
++ export PATH=/home/mfwolffe/lanes/ww35/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/opt/cuda/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin CARGO_BUILD_JOBS=4
++ PATH=/home/mfwolffe/lanes/ww35/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/opt/cuda/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
++ CARGO_BUILD_JOBS=4
++ cd /home/mfwolffe/lanes/ww35/web
++ git fetch -q origin ww35
++ git checkout -q -B ww35 origin/ww35
++ git rev-parse HEAD
+48afadfd83328d6e25067dcd96f7872c4744ab44
++ git submodule update --init --recursive
+Submodule path 'upstream/wolf-book': checked out 'bd3484edd6c3ee38d468167fe04d3f1d7572740f'
+Submodule path 'upstream/wolf-interp': checked out '8e2516dc47bf808512388cc687e070981d331d98'
+Submodule 'upstream' (https://github.com/wolffe-lang/wolf-lang.git) registered for path 'upstream/wolf-interp/upstream'
+Cloning into '/home/mfwolffe/lanes/ww35/web/upstream/wolf-interp/upstream'...
+Submodule path 'upstream/wolf-interp/upstream': checked out 'ec56a08f04ff318ea659fd58683f7ae4f22dc7a5'
+Submodule path 'upstream/wolf-lang': checked out 'c2401f05f37794a078d2acf62f837dad98e5950d'
++ git -C upstream/wolf-lang fetch -q --tags origin
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-book rev-parse HEAD
++ echo 'wolf-book bd3484edd6c3ee38d468167fe04d3f1d7572740f'
+wolf-book bd3484edd6c3ee38d468167fe04d3f1d7572740f
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-interp rev-parse HEAD
++ echo 'wolf-interp 8e2516dc47bf808512388cc687e070981d331d98'
+wolf-interp 8e2516dc47bf808512388cc687e070981d331d98
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-lang rev-parse HEAD
++ echo 'wolf-lang c2401f05f37794a078d2acf62f837dad98e5950d'
+wolf-lang c2401f05f37794a078d2acf62f837dad98e5950d
++ cp docs/audit/ww33-evidence/census.mjs docs/audit/ww33-evidence/stdout-probe.mjs /home/mfwolffe/lanes/ww35/
++ mkdir -p dist/play
++ ./scripts/build-wasm.sh
++ echo WASM42-EXIT=0
+WASM42-EXIT=0
++ cp dist/play/lupin.wasm /home/mfwolffe/lanes/ww35/lupin-0.1.42.wasm
++ git -C upstream/wolf-interp checkout -q 0cfc0cfc89af5fd2aeb71d46c86742745b902869
++ git -C upstream/wolf-interp submodule update --init --recursive
+Submodule path 'upstream': checked out '93a5fe504593ca7642b78ba83b4986e7a03cfe71'
++ ./scripts/build-wasm.sh
++ echo WASM41-EXIT=0
+WASM41-EXIT=0
++ cp dist/play/lupin.wasm /home/mfwolffe/lanes/ww35/lupin-0.1.41.wasm
++ git -C upstream/wolf-interp checkout -q 8e2516dc47bf808512388cc687e070981d331d98
++ git -C upstream/wolf-interp submodule update --init --recursive
+Submodule path 'upstream': checked out 'ec56a08f04ff318ea659fd58683f7ae4f22dc7a5'
++ cp /home/mfwolffe/lanes/ww35/lupin-0.1.42.wasm dist/play/lupin.wasm
++ sha256sum /home/mfwolffe/lanes/ww35/lupin-0.1.41.wasm /home/mfwolffe/lanes/ww35/lupin-0.1.42.wasm
+64d3ed51f90b6bfb59d955dff2830f8505c42b5a5c4cfbebb2c3efd833ae87f4  /home/mfwolffe/lanes/ww35/lupin-0.1.41.wasm
+d921d279b75a81836c003f646a44c85801639eded84cec991a22359f8a04e35d  /home/mfwolffe/lanes/ww35/lupin-0.1.42.wasm
++ git -C upstream/wolf-lang checkout -q ec56a08f04ff318ea659fd58683f7ae4f22dc7a5
++ for v in 0141 0142
++ node /home/mfwolffe/lanes/ww35/census.mjs /home/mfwolffe/lanes/ww35/lupin-0.1.41.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww35/census-0218-0141.json
++ echo 'LEG 0218-0141 exit=0'
+LEG 0218-0141 exit=0
++ for v in 0141 0142
++ node /home/mfwolffe/lanes/ww35/census.mjs /home/mfwolffe/lanes/ww35/lupin-0.1.42.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww35/census-0218-0142.json
++ echo 'LEG 0218-0142 exit=0'
+LEG 0218-0142 exit=0
++ git -C upstream/wolf-lang checkout -q c2401f05f37794a078d2acf62f837dad98e5950d
++ for v in 0141 0142
++ node /home/mfwolffe/lanes/ww35/census.mjs /home/mfwolffe/lanes/ww35/lupin-0.1.41.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww35/census-0219-0141.json
++ echo 'LEG 0219-0141 exit=0'
+LEG 0219-0141 exit=0
++ for v in 0141 0142
++ node /home/mfwolffe/lanes/ww35/census.mjs /home/mfwolffe/lanes/ww35/lupin-0.1.42.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww35/census-0219-0142.json
++ echo 'LEG 0219-0142 exit=0'
+LEG 0219-0142 exit=0
++ git -C upstream/wolf-lang rev-parse HEAD
+c2401f05f37794a078d2acf62f837dad98e5950d
++ git -C upstream/wolf-interp rev-parse HEAD
+8e2516dc47bf808512388cc687e070981d331d98
++ python3 /home/mfwolffe/lanes/ww35/ww35-rows.py
+++ comm -13 /home/mfwolffe/lanes/ww35/run-ec56a08.txt /home/mfwolffe/lanes/ww35/run-c2401f0.txt
+++ sed 's|^corpus/||'
++ ARR=$'memory/elem_const_dyn_loan.lu\nmemory/elem_const_field_mut_pair.lu\nmemory/elem_const_iter_mut.lu\nmemory/elem_const_mut_pair.lu\nmemory/elem_const_nested_call.lu\nmemory/elem_const_nested_mut.lu\nmemory/elem_const_read_after_mut.lu\nmemory/elem_const_read_while_take.lu\nmemory/elem_const_swap_heap.lu\nmemory/elem_const_swap.lu\nmemory/elem_const_take_while_mut.lu\nmemory/elem_header_methods_after_move.lu\nmemory/elem_header_methods_after_move_map.lu\nmemory/elem_header_methods_after_move_pool.lu\nmemory/elem_header_methods_under_claim.lu\nmemory/elem_member_read_after_mut.lu\nmemory/elem_member_read_under_claims.lu\nmemory/mut_elem_excl.lu\nmemory/mut_two_fields_one_region.lu'
++ for v in 42 41
++ node /home/mfwolffe/lanes/ww35/stdout-probe.mjs /home/mfwolffe/lanes/ww35/lupin-0.1.42.wasm upstream/wolf-lang/corpus memory/elem_const_dyn_loan.lu memory/elem_const_field_mut_pair.lu memory/elem_const_iter_mut.lu memory/elem_const_mut_pair.lu memory/elem_const_nested_call.lu memory/elem_const_nested_mut.lu memory/elem_const_read_after_mut.lu memory/elem_const_read_while_take.lu memory/elem_const_swap_heap.lu memory/elem_const_swap.lu memory/elem_const_take_while_mut.lu memory/elem_header_methods_after_move.lu memory/elem_header_methods_after_move_map.lu memory/elem_header_methods_after_move_pool.lu memory/elem_header_methods_under_claim.lu memory/elem_member_read_after_mut.lu memory/elem_member_read_under_claims.lu memory/mut_elem_excl.lu memory/mut_two_fields_one_region.lu grammar/range_header_inclusive_max.lu grammar/range_value_wide_iter.lu memory/ctl_store_order_nested_index.lu
++ echo 'PROBE 0142 exit=0'
+PROBE 0142 exit=0
++ for v in 42 41
++ node /home/mfwolffe/lanes/ww35/stdout-probe.mjs /home/mfwolffe/lanes/ww35/lupin-0.1.41.wasm upstream/wolf-lang/corpus memory/elem_const_dyn_loan.lu memory/elem_const_field_mut_pair.lu memory/elem_const_iter_mut.lu memory/elem_const_mut_pair.lu memory/elem_const_nested_call.lu memory/elem_const_nested_mut.lu memory/elem_const_read_after_mut.lu memory/elem_const_read_while_take.lu memory/elem_const_swap_heap.lu memory/elem_const_swap.lu memory/elem_const_take_while_mut.lu memory/elem_header_methods_after_move.lu memory/elem_header_methods_after_move_map.lu memory/elem_header_methods_after_move_pool.lu memory/elem_header_methods_under_claim.lu memory/elem_member_read_after_mut.lu memory/elem_member_read_under_claims.lu memory/mut_elem_excl.lu memory/mut_two_fields_one_region.lu grammar/range_header_inclusive_max.lu grammar/range_value_wide_iter.lu memory/ctl_store_order_nested_index.lu
++ echo 'PROBE 0141 exit=0'
+PROBE 0141 exit=0
++ echo MEASURE-DONE
+MEASURE-DONE

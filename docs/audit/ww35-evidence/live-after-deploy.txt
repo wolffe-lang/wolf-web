@@ -1,0 +1,27 @@
+# live checks after the deploy of release 2026-09-30-191146 (branch head a494fe8), 2026-09-30T19:11:56Z, from nomad-1
+== version.json
+{
+  "built": "2026-09-30T19:00:50Z",
+  "lupin": "0.1.42",
+  "pins": { "wolf-lang": "c2401f0", "wolf-interp": "8e2516d", "wolf-book": "bd3484e" },
+  "spec-pin": "ec56a08",
+  "missing": []
+}
+== pages (every .html file in the deployed dist/)
+  63 html files requested, 63 at 200
+== headers (installed config, not yet reloaded)
+-- /book/toc.js
+HTTP/2 200 
+content-length: 9098
+cache-control: max-age=604800
+cache-control: public
+-- /book/no-such-page.html
+HTTP/2 404 
+content-length: 1121
+x-content-type-options: nosniff
+-- /book/ch07.html
+HTTP/2 200 
+content-length: 95507
+x-content-type-options: nosniff
+== toc.js is the new one
+src="../toc.js?v=bd3484e" src="../wolf-boot.js" src="../elasticlunr.min.js?v=bd3484e" src="../mark.min.js?v=bd3484e" src="../searcher.js?v=bd3484e" src="../book.js?v=bd3484e" 

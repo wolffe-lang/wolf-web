@@ -1,0 +1,68 @@
+diff --git a/nginx/lupp.us.conf b/nginx/lupp.us.conf
+index 6789076..2ddb0aa 100644
+--- a/nginx/lupp.us.conf
++++ b/nginx/lupp.us.conf
+@@ -68,11 +68,20 @@ server {
+     # REPLACES the whole MIME map instead of extending it, which served
+     # every page as application/octet-stream and made browsers download
+     # the site rather than render it.
++    #
++    # An add_header in a location REPLACES the server's set above instead of
++    # adding to it, so every location here that sets a header repeats all four
++    # security headers, byte for byte (tests/nginx.test.mjs holds it). Until
++    # ww35 this one and the script location below sent none of them.
+     location ~* \.wasm$ {
+         types { }
+         default_type application/wasm;
+         expires 7d;
+         add_header Cache-Control "public";
++        add_header X-Content-Type-Options nosniff always;
++        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
++        add_header X-Frame-Options SAMEORIGIN always;
++        add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'" always;
+     }
+ 
+     # Immutable build products: the deploy is a fresh directory each time,
+@@ -80,10 +89,40 @@ server {
+     location ~* \.(js|css|woff2?)$ {
+         expires 7d;
+         add_header Cache-Control "public";
++        add_header X-Content-Type-Options nosniff always;
++        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
++        add_header X-Frame-Options SAMEORIGIN always;
++        add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'" always;
+     }
+ 
+-    # The book and the API docs are generated; they change per deploy.
+-    location /book/  { try_files $uri $uri/ $uri.html =404; }
++    # The book is generated and changes per deploy, and its scripts and
++    # styles are NOT fingerprinted: mdBook names them toc.js, book.js and so
++    # on at every render. Cached for 7 days by the location above, a
++    # returning reader kept the old toc.js (the old sidebar) for up to a week
++    # after the book moved (wolf-book PR #65's note for ww35). So the book
++    # revalidates everything instead: no-cache still caches, and asks first,
++    # and an unchanged file answers 304. build.sh also versions the book's
++    # script and stylesheet references by the book's pin (all but
++    # wolf-boot.js, which reads its own src), which is what reaches a copy
++    # already cached under the old header.
++    #
++    # `^~` because a regex location outranks a plain prefix: without it the
++    # script location above would still take /book/*.js, and a miss there
++    # would never see the error_page below.
++    #
++    # A miss under /book/ answers the book's own 404 page, which draws the
++    # book's sidebar at any depth (bs55), rather than the site's /404.html.
++    location ^~ /book/ {
++        try_files $uri $uri/ $uri.html =404;
++        error_page 404 /book/404.html;
++        add_header Cache-Control "no-cache" always;
++        add_header X-Content-Type-Options nosniff always;
++        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
++        add_header X-Frame-Options SAMEORIGIN always;
++        add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'" always;
++    }
++
++    # The API docs are generated; they change per deploy.
+     location /docs/  { try_files $uri $uri/ $uri.html =404; }
+ 
+     # Spec and catalogue files are markdown; serve them as text rather

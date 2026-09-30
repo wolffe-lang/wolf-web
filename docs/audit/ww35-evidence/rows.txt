@@ -1,0 +1,32 @@
+== module move on 0.2.18 corpus (0.1.41 -> 0.1.42): 0 rows differ
+== corpus move under 0.1.41 (common rows): 0 rows differ
+== corpus move under 0.1.42 (common rows): 0 rows differ
+== module move on 0.2.19 corpus (0.1.41 -> 0.1.42): 3 rows differ
+   memory/elem_header_methods_under_claim.lu: trap(exclusivity) -> exit(0)
+   memory/elem_member_read_after_mut.lu: trap(exclusivity) -> exit(0)
+   memory/elem_member_read_under_claims.lu: trap(exclusivity) -> exit(0)
+== arrivals at 0.2.19 under 0.1.42:
+   exit         memory/elem_const_dyn_loan.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_field_mut_pair.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_iter_mut.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_mut_pair.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_nested_call.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_nested_mut.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_read_after_mut.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_read_while_take.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_swap.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_swap_heap.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_const_take_while_mut.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_header_methods_after_move.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/elem_header_methods_after_move_map.lu  exit(0)  (0.1.41: exit(0))
+   unsupported  memory/elem_header_methods_after_move_pool.lu  unsupported  (0.1.41: unsupported)
+   exit         memory/elem_header_methods_under_claim.lu  exit(0)  (0.1.41: trap(exclusivity))
+   exit         memory/elem_member_read_after_mut.lu  exit(0)  (0.1.41: trap(exclusivity))
+   exit         memory/elem_member_read_under_claims.lu  exit(0)  (0.1.41: trap(exclusivity))
+   exit         memory/mut_elem_excl.lu  exit(0)  (0.1.41: exit(0))
+   exit         memory/mut_two_fields_one_region.lu  exit(0)  (0.1.41: exit(0))
+== departures: []
+probe grammar/range_header_inclusive_max.lu exit(0)
+probe grammar/range_value_wide_iter.lu exit(0)
+probe memory/ctl_store_order_nested_index.lu exit(0)
+died rows: []

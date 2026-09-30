@@ -1,0 +1,69 @@
+# contents gate (full) against the branch's nginx config served by almanta's nginx 1.20.1 on 127.0.0.1:18035 (ssh tunnel from nomad-1) over the a494fe8 dist — the posture lupp.us takes once the config is installed; started 2026-09-30T19:01Z
+contents: gate against http://127.0.0.1:18035/book/ (live)
+contents: chromium phone: 49 pages, 45 entries, 2205 clicks, 2205 at 200 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 498s
+contents: chromium desktop: 49 pages, 45 entries, 2205 clicks, 2205 at 200 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 399s
+contents: firefox phone: 49 pages, 45 entries, 2205 clicks, 163 at 200 — FAIL {"status":2042,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 767s
+  status: front/how-to-read.html -> "How to read this book": HTTP 304 http://127.0.0.1:18035/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: front/notation.html -> "Notation": HTTP 304 http://127.0.0.1:18035/book/front/notation.html title="Notation - The Wolf Book" h1="Notation"
+  status: front/notation.html -> "How to read this book": HTTP 304 http://127.0.0.1:18035/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: front/notation.html -> "Appendix B — Traps": HTTP 304 http://127.0.0.1:18035/book/back/appendix-b.html title="Appendix B — Traps - The Wolf Book" h1="Appendix B — Traps"
+  status: front/notation.html -> "Solutions": HTTP 304 http://127.0.0.1:18035/book/back/solutions.html title="Solutions - The Wolf Book" h1="Solutions"
+  status: front/notation.html -> "Glossary": HTTP 304 http://127.0.0.1:18035/book/back/glossary.html title="Glossary - The Wolf Book" h1="Glossary"
+  status: front/notation.html -> "Colophon": HTTP 304 http://127.0.0.1:18035/book/back/colophon.html title="Colophon - The Wolf Book" h1="Colophon"
+  status: ch01.html -> "How to read this book": HTTP 304 http://127.0.0.1:18035/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: ch01.html -> "Notation": HTTP 304 http://127.0.0.1:18035/book/front/notation.html title="Notation - The Wolf Book" h1="Notation"
+  status: ch01.html -> "1. Hello, Wolf": HTTP 304 http://127.0.0.1:18035/book/ch01.html title="Hello, Wolf - The Wolf Book" h1="1. Hello, Wolf"
+  status: ch01.html -> "2. Strings, honestly": HTTP 304 http://127.0.0.1:18035/book/ch02.html title="Strings, honestly - The Wolf Book" h1="2. Strings, honestly"
+  status: ch01.html -> "4. Functions": HTTP 304 http://127.0.0.1:18035/book/ch04.html title="Functions - The Wolf Book" h1="4. Functions"
+  status: … 2030 more
+contents: firefox desktop: 49 pages, 45 entries, 2205 clicks, 167 at 200 — FAIL {"status":2038,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 664s
+  status: front/how-to-read.html -> "How to read this book": HTTP 304 http://127.0.0.1:18035/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: front/notation.html -> "How to read this book": HTTP 304 http://127.0.0.1:18035/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: front/notation.html -> "Notation": HTTP 304 http://127.0.0.1:18035/book/front/notation.html title="Notation - The Wolf Book" h1="Notation"
+  status: front/notation.html -> "6. Errors are values": HTTP 304 http://127.0.0.1:18035/book/ch06.html title="Errors are values - The Wolf Book" h1="6. Errors are values"
+  status: front/notation.html -> "10. Spawning is a scope": HTTP 304 http://127.0.0.1:18035/book/ch10.html title="Spawning is a scope - The Wolf Book" h1="10. Spawning is a scope"
+  status: front/notation.html -> "9. The escape hatch is a door, not a cliff": HTTP 304 http://127.0.0.1:18035/book/ch09.html title="The escape hatch is a door, not a cliff - The Wolf Book" h1="9. The escape hatch is a door, not a cliff"
+  status: front/notation.html -> "11. Scopes as values": HTTP 304 http://127.0.0.1:18035/book/ch11.html title="Scopes as values - The Wolf Book" h1="11. Scopes as values"
+  status: front/notation.html -> "12. Channels and select": HTTP 304 http://127.0.0.1:18035/book/ch12.html title="Channels and select - The Wolf Book" h1="12. Channels and select"
+  status: front/notation.html -> "32. Coda: the allocator you never needed": HTTP 304 http://127.0.0.1:18035/book/ch32.html title="Coda: the allocator you never needed - The Wolf Book" h1="32. Coda: the allocator you never needed"
+  status: ch01.html -> "How to read this book": HTTP 304 http://127.0.0.1:18035/book/front/how-to-read.html title="How to read this book - The Wolf Book" h1="How to read this book"
+  status: ch01.html -> "Notation": HTTP 304 http://127.0.0.1:18035/book/front/notation.html title="Notation - The Wolf Book" h1="Notation"
+  status: ch01.html -> "1. Hello, Wolf": HTTP 304 http://127.0.0.1:18035/book/ch01.html title="Hello, Wolf - The Wolf Book" h1="1. Hello, Wolf"
+  status: … 2026 more
+contents: webkit phone: 49 pages, 45 entries, 2205 clicks, 387 at 200 — FAIL {"status":1818,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 1071s
+  status: front/notation.html -> "5. Collections and generics": HTTP 304 http://127.0.0.1:18035/book/ch05.html title="Collections and generics - The Wolf Book" h1="5. Collections and generics"
+  status: front/notation.html -> "8. Regions: memory in the shape you meant": HTTP 304 http://127.0.0.1:18035/book/ch08.html title="Regions: memory in the shape you meant - The Wolf Book" h1="8. Regions: memory in the shape you meant"
+  status: front/notation.html -> "9. The escape hatch is a door, not a cliff": HTTP 304 http://127.0.0.1:18035/book/ch09.html title="The escape hatch is a door, not a cliff - The Wolf Book" h1="9. The escape hatch is a door, not a cliff"
+  status: ch01.html -> "10. Spawning is a scope": HTTP 304 http://127.0.0.1:18035/book/ch10.html title="Spawning is a scope - The Wolf Book" h1="10. Spawning is a scope"
+  status: ch02.html -> "3. Values and expressions": HTTP 304 http://127.0.0.1:18035/book/ch03.html title="Values and expressions - The Wolf Book" h1="3. Values and expressions"
+  status: ch02.html -> "7. Who owns this?": HTTP 304 http://127.0.0.1:18035/book/ch07.html title="Who owns this? - The Wolf Book" h1="7. Who owns this?"
+  status: ch02.html -> "11. Scopes as values": HTTP 304 http://127.0.0.1:18035/book/ch11.html title="Scopes as values - The Wolf Book" h1="11. Scopes as values"
+  status: ch02.html -> "15. Link, monitor, supervision": HTTP 304 http://127.0.0.1:18035/book/ch15.html title="Link, monitor, supervision - The Wolf Book" h1="15. Link, monitor, supervision"
+  status: ch02.html -> "14. Procs: the unit of failure": HTTP 304 http://127.0.0.1:18035/book/ch14.html title="Procs: the unit of failure - The Wolf Book" h1="14. Procs: the unit of failure"
+  status: ch02.html -> "31. logden, alone": HTTP 304 http://127.0.0.1:18035/book/ch31.html title="logden, alone - The Wolf Book" h1="31. logden, alone"
+  status: ch02.html -> "32. Coda: the allocator you never needed": HTTP 304 http://127.0.0.1:18035/book/ch32.html title="Coda: the allocator you never needed - The Wolf Book" h1="32. Coda: the allocator you never needed"
+  status: ch02.html -> "Appendix C — Diagnostics": HTTP 304 http://127.0.0.1:18035/book/back/appendix-c.html title="Appendix C — Diagnostics - The Wolf Book" h1="Appendix C — Diagnostics"
+  status: … 1806 more
+contents: webkit desktop: 49 pages, 45 entries, 2205 clicks, 388 at 200 — FAIL {"status":1817,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 1095s
+  status: front/notation.html -> "19. Reading the release tier": HTTP 304 http://127.0.0.1:18035/book/ch19.html title="Reading the release tier - The Wolf Book" h1="19. Reading the release tier"
+  status: front/notation.html -> "20. Perf contracts": HTTP 304 http://127.0.0.1:18035/book/ch20.html title="Perf contracts - The Wolf Book" h1="20. Perf contracts"
+  status: front/notation.html -> "23. Packages and dependencies": HTTP 304 http://127.0.0.1:18035/book/ch23.html title="Packages and dependencies - The Wolf Book" h1="23. Packages and dependencies"
+  status: front/notation.html -> "31. logden, alone": HTTP 304 http://127.0.0.1:18035/book/ch31.html title="logden, alone - The Wolf Book" h1="31. logden, alone"
+  status: front/notation.html -> "Appendix C — Diagnostics": HTTP 304 http://127.0.0.1:18035/book/back/appendix-c.html title="Appendix C — Diagnostics - The Wolf Book" h1="Appendix C — Diagnostics"
+  status: ch01.html -> "3. Values and expressions": HTTP 304 http://127.0.0.1:18035/book/ch03.html title="Values and expressions - The Wolf Book" h1="3. Values and expressions"
+  status: ch01.html -> "5. Collections and generics": HTTP 304 http://127.0.0.1:18035/book/ch05.html title="Collections and generics - The Wolf Book" h1="5. Collections and generics"
+  status: ch01.html -> "7. Who owns this?": HTTP 304 http://127.0.0.1:18035/book/ch07.html title="Who owns this? - The Wolf Book" h1="7. Who owns this?"
+  status: ch01.html -> "10. Spawning is a scope": HTTP 304 http://127.0.0.1:18035/book/ch10.html title="Spawning is a scope - The Wolf Book" h1="10. Spawning is a scope"
+  status: ch01.html -> "11. Scopes as values": HTTP 304 http://127.0.0.1:18035/book/ch11.html title="Scopes as values - The Wolf Book" h1="11. Scopes as values"
+  status: ch01.html -> "14. Procs: the unit of failure": HTTP 304 http://127.0.0.1:18035/book/ch14.html title="Procs: the unit of failure - The Wolf Book" h1="14. Procs: the unit of failure"
+  status: ch01.html -> "15. Link, monitor, supervision": HTTP 304 http://127.0.0.1:18035/book/ch15.html title="Link, monitor, supervision - The Wolf Book" h1="15. Link, monitor, supervision"
+  status: … 1805 more
+contents: FAILED
+
+# status faults by HTTP code (ww35-faults.py over gate-staged.json.gz, un-gzipped)
+chromium phone   clicks 2205  at200 2205  status-by-code {}  304-landed-right 0  304-wrong 0  other {}
+chromium desktop clicks 2205  at200 2205  status-by-code {}  304-landed-right 0  304-wrong 0  other {}
+firefox  phone   clicks 2205  at200  163  status-by-code {'304': 2042}  304-landed-right 2042  304-wrong 0  other {}
+firefox  desktop clicks 2205  at200  167  status-by-code {'304': 2038}  304-landed-right 2038  304-wrong 0  other {}
+webkit   phone   clicks 2205  at200  387  status-by-code {'304': 1818}  304-landed-right 1818  304-wrong 0  other {}
+webkit   desktop clicks 2205  at200  388  status-by-code {'304': 1817}  304-landed-right 1817  304-wrong 0  other {}
