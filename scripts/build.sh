@@ -173,8 +173,9 @@ if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null
   echo "  book: $(find "$DIST/book" -name '*.html' | wc -l) pages"
   # mdBook names its scripts and styles the same at every render, so a
   # returning reader's cached toc.js outlived the book it came from (ww35).
-  # Each reference in the book's pages carries the book's pin from here on;
-  # the script refuses a zero and refuses a bare reference left behind.
+  # Each reference in the book's pages carries the book's pin from here on,
+  # but wolf-boot.js's, which reads its own src to find the book's root; the
+  # script refuses a zero and refuses any other bare reference left behind.
   python3 scripts/version-book-assets.py "$DIST/book" \
     "$(git -C upstream/wolf-book rev-parse --short=7 HEAD)"
 else
