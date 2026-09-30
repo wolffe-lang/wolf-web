@@ -33,9 +33,9 @@ loads that script from a file of its own (bs55), and this site serves that
 book. The policy is unchanged. With this change's nginx config installed, a
 missing page under /book/ answers the book's own 404 page, sidebar included,
 instead of the site's, and the book is revalidated on every visit rather than
-cached for a week. The book's pages also ask for their scripts and styles
-under the book's pin, so a browser that kept last week's sidebar fetches the
-new one on the first page it loads.
+cached for a week. The book's pages also ask for the sidebar's script and
+the book's styles under the book's pin, so a browser that kept last week's
+sidebar fetches the new one on the first page it loads.
 
 **The security headers reach every file.** An `add_header` inside an nginx
 location replaces the server's set instead of adding to it, so the site's
