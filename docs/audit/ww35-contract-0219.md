@@ -281,6 +281,95 @@ reported as one, not rerun away).
 *Filled in after the measurement; nothing above this line is edited after the
 prediction commit except to append.*
 
+Measured on kasumi at branch head `a494fe8` (the last change the build reads;
+later commits touch only this file and `docs/audit/ww35-evidence/`); deployed
+from that head; the gate run on nomad-1. Files below are under
+`docs/audit/ww35-evidence/`; `summary.txt` gathers every figure with its file.
+
+| claim | artifact |
+|---|---|
+| prediction precedes the first pin | prediction commit `4c9b225`; first pin commit `3841f19`; `git merge-base --is-ancestor 4c9b225 3841f19` exits 0 |
+| three gitlink commits | book `3841f19` (→ `bd3484e`), wolf `3cb9c6a` (→ `c2401f05`), lupin `48afadf` (→ `8e2516d`) |
+| inputs, lag, corpus sets, anchors, grammar, arrivals' headers | `derive.log` (script `ww35-derive.sh`) |
+| book readings at `bd3484e` | `book.log` |
+| the guard reddens on the pins, then holds | windows run 36760054806 at `48afadf`: step "the specification pin lag the site records" FAILED, `the gap is 1 and the page does not say so` on both pages; green from `6f7d976` on |
+| ancestry guard, verbatim | `build-summary.txt`: `lag phrases: wolf 0.2.19 is advertised; lupin was built at the v0.2.18 tag (ec56a08) — it reads the release before this one, and both pages carry 'one release' and neither carries another`; `--json`: `{"gap": 1, "phrase": "one release", "tagged": true, "commits": 105, "spec": "ec56a08", "release": "0.2.18", "advertised": "0.2.19"}` |
+| stamped lag | `speccommits 105`; `one hundred and five commits` once on each built page (`build-summary.txt`) |
+| census, four legs | `census-02{18,19}-014{1,2}.json`, `rows.txt` (script `ww35-rows.py`), driver `ww35-measure.sh`, harness `docs/audit/ww33-evidence/census.mjs` unmodified; the 0.2.18/0.1.41 control is row-identical to ww34's `census-0218-0141.json` (445 rows, 0 diffs) |
+| arrivals print their headers' stdout; #145 closed | `stdout-probe-0142.txt`: 21 MATCH of 22 (19 arrivals, 2 range probes, `ctl_store_order_nested_index.lu`), the 1 DIFF the `Pool` row's decline; `stdout-probe-0141.txt`: 5 DIFF (the decline, the three claim traps, #145's doubled `i`) |
+| #128 / B57 probe | `stdout-probe-0142.txt`: both range programs `exit(0)` MATCH; `rows.txt`: `died rows: []` |
+| modules | 0.1.42 sha256 `d921d279…` = the served `dist/play/lupin.wasm`; 0.1.41 control `64d3ed51…` (ww34's `d4e28724…`; the module embeds its build path — ww34's `path-control.txt`) |
+| audits, links, tests, menu, ahead gate | `build-summary.txt`: version prose / counts / lag exit 0; 1504 internal links across 63 pages, 0 dead; node tests 114 pass 0 fail; ahead planted 8 pass; check-samples 36 in class; check-ahead 0 ahead, 542 anchors |
+| allowlist cost | `3cb9c6a` (9 wolf count lines), `3841f19` (4 book), `e200cc9` (46 version + 6 stamp + 5 lupin count = 57, 8 literals in, 1 out), `6f7d976` (5 CHANGELOG literals) |
+| nginx gate seen red | `nginx-test-red.txt`: `tests/nginx.test.mjs` on trunk's config (= almanta's installed file) 2 pass 3 fail; test commit `c5c3432` precedes the config commit `0044e5a` |
+| asset-versioning gates seen red | `book-assets-planted.txt` (planted regex, 1 of 4 fail); `book-assets-wolfboot-red.txt` (the `fb51e6a` script against the wolf-boot cases, 2 of 5 fail) |
+| the staged gate caught a regression before any deploy | `gate-staged-wolfboot-red.txt`: the `6f7d976` build, `wolf-boot.js?v=…`, chromium phone `2205 clicks, 1620 at 200 — FAIL {"status":585…}` (`front/how-to-read.html -> "1. Hello, Wolf": HTTP 404 /book/front/ch01.html`); fixed `d5c9a9b`; filed wolf-book#66 |
+| staged config behaves | `staged-headers.txt` (script `ww35-stage-nginx.sh`; almanta nginx 1.20.1, loopback): three `/book/` misses 404 with the book's page (5,667 B), `/no-such-page` the site's (1,121 B), `/book` 301, book files `no-cache`, site scripts 7 days, the same CSP line on 12 of 12 responses; `nginx.diff`; staged file sha256 `2c6f09d1…`, installed `b087dba7…` (trunk's) |
+| deploy | `deploy.log`: `✓ Deployed 2026-09-30-191146`, `current -> …/2026-09-30-191146`, from `a494fe8` with `SKIP_BUILD=1`; `live-after-deploy.txt`: live `version.json` = the built one, 63 of 63 `.html` at 200, the book's pages load `toc.js?v=bd3484e` |
+| the maintainer's path, live | `retry-live-before.txt` (144 `HTTP 404` lines; hop 2 66/90 ×6) and `retry-live-after.txt` (0 `HTTP 404`; hop 1 90/90, 0 mismatches, hop 2 90/90 ×6) |
+| full gate, live | `gate-live-prereload.txt` / `.json`; classified by `ww35-faults.py` |
+| full gate, staged config | `gate-staged.txt` / `.json.gz`; classified by `ww35-faults.py` |
+| the 304 class | wolf-book#67 filed; every 304 in both records on the right title and number (`ww35-faults.py`) |
+| CI at head | recorded in the PR body |
+
+**Prediction vs measurement**
+
+| item | predicted | measured |
+|---|---|---|
+| pages dry / live / book | 63 / 63 / 48 | 63 / 63 / 48 |
+| versions, `version.json` | 0.2.19, 0.1.42; `c2401f0` `8e2516d` `bd3484e`, spec-pin `ec56a08`, missing [] | identical (built and live) |
+| guard | gap 1, "one release", tagged, 105, `ec56a08`, 0.2.18, 0.2.19 | identical |
+| where the guard reddens | on the commit that moves wolf-interp | **already on the wolf pin** (`3cb9c6a`: gap 3, "three releases") and on the lupin pin (gap 1, pages "two releases"); CI saw only `48afadf`, the pushed head |
+| census programs / exit / trap / unsupported / fail / candidates / died | 464 / 337 / 33 / 94 / 0 / 370 / 0 | 464 / 337 / 33 / 94 / 0 / 370 / 0 |
+| module leg on the 0.2.18 corpus | 0 rows | 0 rows |
+| arrivals under 0.1.41 | 15 exit, 3 trap, 1 unsupported | 15 / 3 / 1 (census-0219-0141: 334 / 36 / 94) |
+| stdout | 18 arrivals + #145's program match | identical |
+| clocked allowlist lines | 70 (46 / 6 / 18) | 70 (46 / 6 / 18) |
+| arrivals / leaves | `v0.2.18` on 4 pages, `0.1.41` on play and install; 0 leave | 8 arrive: `v0.2.18` on index (4), spec (1), install (5), play (4); `0.2.18` on install and play; `0.1.41` on install (2), play (3); **1 leaves**: install's `v0.2.17` |
+| stamps | 33 / 142 / 34 / 18 / 36 | identical |
+| #128 probe | exit 0 | exit 0, stdout matches, no death |
+| menu | 36 in class | 36 in class |
+| PDF | 5.6 MB ± 0.1 | 5.6 MB (5,616,740 B) |
+| book assets | every local ref versioned, 0 bare | **wrong at first**: versioning `wolf-boot.js` broke the root it reads from its own src (585 404s staged); now 522 versioned, `wolf-boot.js` bare by design (47), 0 other bare |
+| staged nginx statuses | as §3.12 | as §3.12 |
+| staged gate | 2,205 / 2,205 at 200, 0 faults ×6 | **chromium** exact; **firefox and webkit** land every click on the right page but report **HTTP 304** for most (firefox 2042 / 2038, webkit 1818 / 1817): under `no-cache` they revalidate and surface the 304 as the navigation's status; 0 404, 0 title, 0 number, 0 entries, 0 state, 0 search, 0 click on all six |
+| deploy | `✓ Deployed`, live `version.json` §3.2, 63/63 | identical |
+| maintainer's path before | hop 1 90/90, 16 mismatches, hop 2 66/90 | identical ×6 |
+| maintainer's path after | 90/90, 0, 90/90, 0 404s | identical ×6, 0 404s |
+| live gate before the reload | 2,115 / 2,115 at 200; entries 2, state 6, nothing else | entries 2 / state 6 exact ×6; chromium ×2 and firefox desktop exact; **firefox phone** 139 at 304 (right page); **webkit phone** 3 at 304 (right page) and 1 click timeout; **webkit desktop** 2 `page.goto` timeouts on `back/solutions.html` — reported, not rerun; 0 404s on any real page |
+
+**Found, not predicted.**
+1. **`wolf-boot.js` reads its own `src`** to set `path_to_root`, so any query
+   string on it empties the root — the maintainer's 404, reintroduced by a
+   cache-busting change. The staged gate saw it before the deploy; filed
+   wolf-book#66 (the book could strip a query).
+2. **A revalidated landing is a gate fault.** The contents gate demands 200;
+   Firefox and WebKit report 304 when they revalidate, which `no-cache` makes
+   routine and heuristic caching makes occasional (live today: 139 and 3).
+   Every 304 in both records lands on the right title and number. Filed
+   wolf-book#67; until it lands, a Firefox or WebKit run against lupp.us
+   with the new config reads red on correct landings.
+3. **The script, style and wasm locations sent no security headers** (drift 2),
+   now repeated in every header-setting location and held by
+   `tests/nginx.test.mjs`.
+4. The book ships one `.md` file (`fonts/LICENSE-SourceCodePro.md`, linked
+   from nowhere); under `^~ /book/` it is typed by the http default rather
+   than the site's `text/plain` rule.
+
+**The one command the maintainer runs** (almanta; `espadon` has no
+passwordless sudo). The staged file is this branch's `nginx/lupp.us.conf`,
+sha256 `2c6f09d1…`:
+
+```
+sudo cp /home/espadon/lanes/ww35/web/nginx/lupp.us.conf /etc/nginx/conf.d/lupp.us.conf && sudo restorecon -v /etc/nginx/conf.d/lupp.us.conf && sudo nginx -t && sudo systemctl reload nginx
+```
+
+Until it runs, lupp.us serves the new book and site (the Contents links and
+the maintainer's path are fixed now, by the book's own files) under the old
+config: a `/book/` miss gets the site's 404 page, and the book's HTML is
+cached heuristically. The versioned references already reach readers holding
+the old `toc.js`.
+
 ## 5. Done-when
 
 - [ ] Branch `ww35` on origin; PR open, **unmerged**, body carries these five
