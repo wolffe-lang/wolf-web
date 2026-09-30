@@ -139,9 +139,38 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises is a point release, and it
-  exists to refuse two programs v0.2.17 compiled and answered wrongly without
-  a word.</strong> Both read a value that had already been moved away. In the
+  <p><strong>The release this page advertises lets two <code>mut</code>
+  claims reach two elements of one list.</strong>
+  <code>swap(mut xs[0], mut xs[1])</code> is the shape a reader writes first,
+  and through v0.2.18 every tier of the compiler refused it while the
+  interpreter ran it: a claim on an element was a claim on the whole
+  container. <code>[mem.model.place.elem]</code> already said which elements
+  are distinct places for a move, and the rules that ask whether two claims
+  meet — exclusivity, borrows and iteration — read it now too. Two
+  integer-literal indices with different values hold two claims that cannot
+  meet, whether the call is <code>add2(mut xs[0], mut xs[1])</code>, a grid's
+  <code>add2(mut g[0][1], mut g[1][0])</code>, a field below each element, a
+  loan of one element beside a store to the other, or a loop over one element
+  that pushes into the other. A run-time index, the same literal twice and a
+  path beside its own prefix are still one place, and still refused.</p>
+
+  <p>The same clause answers two questions a claim raised. An element and its
+  container's length are different places under a claim as under a move, so
+  <code>bump(mut xs[0], xs.len)</code> runs; and a container's header is read
+  by <code>len</code>, <code>count</code> and <code>is_empty</code> and by
+  nothing else, so each is allowed beside a moved or claimed element, while
+  <code>push</code>, <code>get</code>, <code>pop</code>, a slice and a
+  method's <code>self</code> read the whole container and stay refused beside
+  a moved part. And the release fixes a defect v0.2.18 shipped: two
+  <code>mut</code> fields off one <code>mut</code> parameter,
+  <code>add2(mut r.a, mut r.b)</code>, stopped its release tier with an
+  internal compiler error once the call was inlined. The element pairs above
+  reach the same shape, which is how it was found; such a call stays out of
+  line now and prints the same bytes on every tier.</p>
+
+  <p><strong>v0.2.18 was a point release, and it existed to refuse two
+  programs v0.2.17 compiled and answered wrongly without a word.</strong>
+  Both read a value that had already been moved away. In the
   first, an element is moved out of a list, a <em>different</em> element is
   stored into, and the moved one is read: v0.2.17 let the store to the
   sibling bring the moved element back, so the checked machine trapped at the
@@ -156,7 +185,7 @@ fn main() -&gt; !int {
   of the compiler. They were reading a moved value on every machine that ran
   them, so nothing that was right stops compiling.</p>
 
-  <p>The rule the first refusal stands on is new text,
+  <p>The rule the first refusal stands on was new text at v0.2.18,
   <code>[mem.model.place.elem]</code>: which elements of a container are
   distinct places. Two integer-literal indices with different values are, and
   so are two literal <code>Map</code> keys and an element against its
