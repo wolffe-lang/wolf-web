@@ -171,20 +171,24 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has moved a step wider. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has moved a step narrower. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
-  the compiler has tagged twice since it, so the newest release whose text the
-  interpreter carries whole is two releases behind the compiler you are
-  installing, __COUNT_speccommits_word__ commits back. The interpreter did
-  release in between, and what it took was the part of the compiler's new
-  element clause a program can see from outside: every read of an element
-  that was moved away traps in it now, where before some of them handed the
-  moved bytes on. It did not re-pin to take the rest of the text, which is
-  why the gap widened instead of holding. It agrees with the compiler's own
+  the compiler has tagged once since it, so the newest release whose text the
+  interpreter carries whole is one release behind the compiler you are
+  installing, __COUNT_speccommits_word__ commits back. At v0.2.18's pin the
+  interpreter still read v0.2.16's text, two tags back: it had released
+  without re-pinning, taking only the part of the element clause a program
+  can see from outside. This time it re-pinned on the v0.2.18 tag and took,
+  besides the text, every mirror that release's gates had pinned by version —
+  a whole read of a container holding a moved part traps, each index of a
+  nested store runs once, and a member or header read (<code>xs.len</code>,
+  <code>count()</code>, <code>is_empty()</code>) beside a claimed or moved
+  element reads the header rather than the container — which is why the gap
+  narrowed instead of widening again. It agrees with the compiler's own
   second line: the release above was tested against the interpreter version
   this page names, and the playground serves that interpreter, as it did at
-  v0.2.17's pin. At v0.2.15's pin it was not, and the reason is worth
+  v0.2.18's pin. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
   revision the released compiler's history does not contain — a branch head
@@ -195,36 +199,40 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   and the interpreter has not yet followed, which is the ordinary shape of a
   two-implementation project, and it closes when the mirror catches up.
   While it is open the <a href="/play/">playground</a> can answer a program
-  differently from the compiler you just installed. At these pins it does,
-  in the output of a single program, and the list below says which and how
-  that was measured. When the two disagree, the
+  differently from the compiler you just installed. At these pins it does
+  not, in any verdict or in any output, and the list below says how that was
+  measured. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins no program the compiler above runs is refused in the tab. What
-  the wider gap costs instead is one program's output:
+  these pins no program the compiler above runs is refused in the tab, and
+  none prints anything its header does not state. The census counts
+  verdicts; a second walk feeds every program the compiler above added to
+  the tab, and one program that parted at the last pin, and compares what
+  each prints with its header. Every addition — two <code>mut</code> claims
+  on two different elements of one list, a nested call or a loan inside
+  such a claim, a length or <code>count()</code> read beside a claimed or
+  moved element, and the two field claims that stopped the 0.2.18 release
+  tier with an internal compiler error — prints in the tab what its header
+  states. Three of them trap in lupin 0.1.41, which read a member beside a
+  claim as the whole container; the interpreter above reads the header, as
+  the compiler does. The one addition the tab does not run, a
+  <code>Pool</code>'s length read after one of its elements moved out, it
+  declines by name, as the interpreter at a terminal does. The measurement is
+  four walks, not one — both corpora through both modules — and no program
+  that both corpora carry changed its answer in any of them.</p>
+
+  <p>At v0.2.18's pin the gap cost one program's output:
   <code>corpus/memory/ctl_store_order_nested_index.lu</code> stores through
-  two and then three index levels with a call in every index, and the
-  interpreter calls each index but the last twice, so it prints its index
-  lines out of the order the header states, where the compiler prints each
-  once (wolf-interp#145, open at this interpreter and named in the compiler's
-  own release notes). It exits 0 in both places. The census counts verdicts
-  and cannot see it; a second walk, which feeds every program the compiler
-  above added to the tab and compares what it prints with its header, can.
-  Every other addition — element moves the new clause keeps apart, stores
-  that bring a moved element back through the index that names it,
-  <code>mut</code> parameters that put a value back before they return, and
-  the other store orders — prints in the tab what its header states. The
-  one addition the tab does not run, a revival through a <code>Pool</code>
-  handle, it declines by name, as the interpreter at a terminal does. One
-  program already in the corpus was rewritten by the release above:
+  two and then three index levels with a call in every index, and lupin
+  0.1.41 called each index but the last twice, so it printed its index lines
+  out of the order the header states (wolf-interp#145). It exited 0 in both
+  places, so only the second walk could see it. The interpreter above calls
+  each index once and prints what the compiler prints. At that pin one
+  program already in the corpus had been rewritten by the release:
   <code>corpus/memory/list_session_struct.lu</code> read an element it had
-  moved, and compiled only through the hole that release closed. Its old
-  text traps in this interpreter, which is the right answer; its new text
-  copies the element and exits 0 in both places. The measurement is
-  four walks, not one — both corpora through both modules — and that program
-  is the only one whose answer moved in any of them: to the trap when only
-  the module moved, and back when the corpus moved under it.</p>
+  moved, and compiled only through the hole v0.2.18 closed; its new text
+  copies the element and exits 0 in both places.</p>
 
   <p>The one program on the list at v0.2.16's pin,
   <code>corpus/conc/proc_join_param.lu</code>, wrote <code>Proc</code> as the
@@ -277,8 +285,8 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   outright. This interpreter mirrors both texts, so every one of them runs in
   the tab now and answers what the compiler answers; the <a href="/play/">playground</a>
   counts them exactly. No program that ran in the tab at an earlier pin has
-  stopped, and of what the release above adds to the corpus, only the
-  program named above parts from the compiler, and only in its output.</p>
+  stopped, and nothing the release above adds to the corpus parts from the
+  compiler, in its verdict or in its output.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code>, <code>net_nodelay</code> and
