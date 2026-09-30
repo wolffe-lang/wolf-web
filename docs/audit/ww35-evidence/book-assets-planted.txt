@@ -1,0 +1,11 @@
+# planted break: REF refuses any '/' in the path (so ../toc.js, css/*.css and /book/* stay bare); tests/book-assets.test.mjs run 2026-09-30T18:45:30Z on nomad-1
+✖ every local script and stylesheet reference gains ?v=<pin>, nothing else moves (18.2815ms)
+✔ a second pass versions nothing twice, and so refuses the zero (13.508791ms)
+✔ a book with no assets to version is refused, not reported as done (13.980625ms)
+✔ the pin is seven hex characters (13.354917ms)
+ℹ tests 4
+ℹ pass 3
+ℹ fail 1
+✖ failing tests:
+✖ every local script and stylesheet reference gains ?v=<pin>, nothing else moves (18.2815ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /href="css\/chrome\.css\?v=bd3484e"/. Input:
