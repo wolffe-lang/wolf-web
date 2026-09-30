@@ -1,0 +1,70 @@
+# tests/nginx.test.mjs against trunk's nginx/lupp.us.conf (19e8b06, byte-identical to almanta's installed config), run 2026-09-30T18:44:18Z on nomad-1, before the config edit
+✔ the site's server block is found (0.612375ms)
+✔ CSP: every Content-Security-Policy line is the server's, byte for byte, and strict (0.118ms)
+✖ every location that sets a header repeats all four security headers (0.279625ms)
+✖ a miss under /book/ answers the book's 404 page (0.069041ms)
+✖ the book revalidates: its unfingerprinted files are never cached blind (0.057042ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 2
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 36.282125
+
+✖ failing tests:
+
+test at tests/nginx.test.mjs:87:1
+✖ every location that sets a header repeats all four security headers (0.279625ms)
+  AssertionError [ERR_ASSERTION]: location ~* \.wasm$: sets headers of its own, so it must repeat `add_header X-Content-Type-Options nosniff always`
+      at TestContext.<anonymous> (file:///private/tmp/ww35/tests/nginx.test.mjs:97:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/nginx.test.mjs:102:1
+✖ a miss under /book/ answers the book's 404 page (0.069041ms)
+  AssertionError [ERR_ASSERTION]: the book's location is `^~ /book/`, so no regex location outranks it
+      at TestContext.<anonymous> (file:///private/tmp/ww35/tests/nginx.test.mjs:104:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/nginx.test.mjs:110:1
+✖ the book revalidates: its unfingerprinted files are never cached blind (0.057042ms)
+  AssertionError [ERR_ASSERTION]: the book's location exists
+      at TestContext.<anonymous> (file:///private/tmp/ww35/tests/nginx.test.mjs:112:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
