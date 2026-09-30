@@ -1,0 +1,22 @@
+book readings at bd3484e (2026-09-30T18:37:30Z), against dadc38b
+SUMMARY entries: 33
+SUMMARY blob c581960 -> c581960
+ch13 blob a767766 -> a767766
+ch21 blob 34999f8 -> 34999f8
+ch25 blob 1f6dcb8 -> 1f6dcb8
+ch29 blob 21dec08 -> 21dec08
+ch13 eighteen: 2
+ch26: # 26. `count`, twice
+ch27: # 27. `rpn`, twice
+ch28: # 28. `wordtree`, twice
+ch29: # 29. `tinyvm`
+ch30: # 30. `pargrep`
+ch31: # 31. `logden`, alone
+ch32: # 32. Coda: the allocator you never needed
+chapters touched: book/back/colophon.md book/back/solutions.md book/ch01.md book/ch05.md book/ch07.md book/ch08.md book/ch22.md book/ch28.md book/ch31.md book/wolf-boot.js 
+=== status markers (draft/stub) at bd3484e
+=== ch31 diff stat
+ book/ch28.md | 11 +++++++++++
+ book/ch31.md |  7 +++++++
+ 2 files changed, 18 insertions(+)
+(ch13's 'eighteen' line count differs from ww34's book.log reading of 3 only by the counting command; the blob is identical, a767766, so the sentence reads the same text)
