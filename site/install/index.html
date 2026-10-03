@@ -140,7 +140,7 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
 
   <p>Download
   <a href="https://github.com/wolffe-lang/wolf-lang/releases/download/v__WOLF_VERSION__/wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz"><code>wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></a>
-  — about 11 MB — then unpack it in PowerShell. <code>tar</code> has shipped
+  and unpack it in PowerShell. <code>tar</code> has shipped
   with Windows since Windows 10 build 1803, so nothing needs installing to
   open this:</p>
 
@@ -171,24 +171,24 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has moved a step narrower. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has moved forward a release without widening. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
   the compiler has tagged once since it, so the newest release whose text the
   interpreter carries whole is one release behind the compiler you are
-  installing, __COUNT_speccommits_word__ commits back. At v0.2.18's pin the
-  interpreter still read v0.2.16's text, two tags back: it had released
-  without re-pinning, taking only the part of the element clause a program
-  can see from outside. This time it re-pinned on the v0.2.18 tag and took,
-  besides the text, every mirror that release's gates had pinned by version —
-  a whole read of a container holding a moved part traps, each index of a
-  nested store runs once, and a member or header read (<code>xs.len</code>,
-  <code>count()</code>, <code>is_empty()</code>) beside a claimed or moved
-  element reads the header rather than the container — which is why the gap
-  narrowed instead of widening again. It agrees with the compiler's own
-  second line: the release above was tested against the interpreter version
-  this page names, and the playground serves that interpreter, as it did at
-  v0.2.18's pin. At v0.2.15's pin it was not, and the reason is worth
+  installing, __COUNT_speccommits_word__ commits back. At v0.2.19's pin it
+  was one tag back too, reading v0.2.18's text. The compiler has tagged twice
+  since, and the interpreter has followed it twice, each time re-pinning on
+  the compiler's last tag but one: this release re-pinned on the v0.2.20 tag
+  and took, besides the text, every mirror the release above had pinned
+  lupin 0.1.43's answers on by version — a <code>match</code> over a
+  fallible value split into its two halves, and a <code>?</code> under a
+  <code>defer</code> refused — which is why the gap held its width instead of
+  widening. It agrees with the compiler's own second line: the release above
+  was tested against the interpreter version this page names, and the
+  playground serves that interpreter, as it did at v0.2.19's pin, and at
+  v0.2.18's, when the interpreter had just narrowed the gap from the two
+  tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
   revision the released compiler's history does not contain — a branch head
@@ -199,28 +199,52 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   and the interpreter has not yet followed, which is the ordinary shape of a
   two-implementation project, and it closes when the mirror catches up.
   While it is open the <a href="/play/">playground</a> can answer a program
-  differently from the compiler you just installed. At these pins it does
-  not, in any verdict or in any output, and the list below says how that was
-  measured. When the two disagree, the
+  differently from the compiler you just installed. At these pins it does so
+  for one program, a refusal the interpreter makes at a terminal too, and the
+  list below names it and says how that was measured. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins no program the compiler above runs is refused in the tab, and
-  none prints anything its header does not state. The census counts
-  verdicts; a second walk feeds every program the compiler above added to
-  the tab, and one program that parted at the last pin, and compares what
-  each prints with its header. Every addition — two <code>mut</code> claims
-  on two different elements of one list, a nested call or a loan inside
-  such a claim, a length or <code>count()</code> read beside a claimed or
-  moved element, and the two field claims that stopped the 0.2.18 release
-  tier with an internal compiler error — prints in the tab what its header
-  states. Three of them trap in lupin 0.1.41, which read a member beside a
-  claim as the whole container; the interpreter above reads the header, as
-  the compiler does. The one addition the tab does not run, a
-  <code>Pool</code>'s length read after one of its elements moved out, it
-  declines by name, as the interpreter at a terminal does. The measurement is
-  four walks, not one — both corpora through both modules — and no program
-  that both corpora carry changed its answer in any of them.</p>
+  these pins it is one program long.
+  <code>corpus/rows/eu_bind_empty_row_handled.lu</code> binds a function's
+  result whose row the compiler infers to be empty, then reads it in a
+  <code>match</code>, an <code>else</code> and a return; every tier of the
+  compiler prints <code>43 42 42</code>. <code>lupin __LUPIN_VERSION__</code>
+  reads the inferred row as open and refuses the program,
+  <code>fail(E0801)</code>, in the tab and at a terminal alike
+  (wolf-interp#176). The specification makes the row empty, so the compiler
+  is right; the release above names this parting in its own notes and pins
+  the interpreter's answer on it by version, and the fix is on the
+  interpreter's trunk, in no release yet. It is a refusal of this
+  interpreter, not a decline of this build, and the census counts it as the
+  one <code>fail</code> among the programs the compiler runs.</p>
+
+  <p>Every other program the release above brought into the corpus's running
+  set answers here as its header says. The census counts verdicts; a second
+  walk feeds every addition to the tab and compares what each prints with
+  its header. A <code>match</code> over a fallible value, an
+  <code>errdefer</code> run by its block's own error value, an
+  <code>else</code> that handles only its scrutinee's row, the two-phase
+  arguments of the release before it and the index and slice operands that
+  must run once all print in the tab what their headers state. The
+  two-phase reads trap <code>exclusivity</code> under lupin 0.1.42, the
+  interpreter this site served until now, which took a later argument's read
+  of a claimed place for a conflict; the interpreter above runs them. Two
+  additions are declines of this build and answer at a terminal: a nested
+  function that declares a parameter mode, which the interpreter declines by
+  name, and a program whose modules sit in sibling files, which a single
+  editor buffer cannot hold. The measurement is four walks, not one — both
+  corpora through both modules — and no program that both corpora carry
+  changed its answer in any of them.</p>
+
+  <p>At v0.2.19's pin the gap cost nothing: every addition of that release —
+  two <code>mut</code> claims on two different elements of one list, a
+  length or <code>count()</code> read beside a claimed or moved element, and
+  the two field claims that stopped the 0.2.18 release tier with an internal
+  compiler error — printed what its header states. Three of them trapped in
+  lupin 0.1.41, which read a member beside a claim as the whole container,
+  and a <code>Pool</code>'s length read after one of its elements moved out
+  was declined by name, as it still is.</p>
 
   <p>At v0.2.18's pin the gap cost one program's output:
   <code>corpus/memory/ctl_store_order_nested_index.lu</code> stores through
@@ -285,8 +309,9 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   outright. This interpreter mirrors both texts, so every one of them runs in
   the tab now and answers what the compiler answers; the <a href="/play/">playground</a>
   counts them exactly. No program that ran in the tab at an earlier pin has
-  stopped, and nothing the release above adds to the corpus parts from the
-  compiler, in its verdict or in its output.</p>
+  stopped, and of what the release above adds to the corpus one program parts
+  from the compiler, the refusal named above; nothing else does, in its
+  verdict or in its output.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code>, <code>net_nodelay</code> and
@@ -588,7 +613,7 @@ wolf fmt --check: ./hello.lu is not canonically formatted</code></pre>
   interpreter written against the same specification, sharing no code with the
   compiler. It is now published for Windows as a single file —
   <a href="https://github.com/wolffe-lang/wolf-interp/releases/download/v__LUPIN_VERSION__/lupin.exe"><code>lupin.exe</code></a>,
-  about 5 MB, no installer and nothing beside it. Running a file takes no
+  no installer and nothing beside it. Running a file takes no
   subcommand:</p>
 
 <pre><code>lupin hello.lu
