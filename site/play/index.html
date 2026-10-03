@@ -130,12 +130,11 @@
   tagged once since it, so the text this tab reads is one release behind the
   one <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap is a step narrower than it was at v0.2.18's pin, when this tab still
-  read v0.2.16's text: the interpreter re-pinned on the v0.2.18 tag, and took
-  with it every mirror that release's gates had pinned by version — a whole
-  read of a container holding a moved part traps, each index of a nested
-  store runs once, and a length or <code>count()</code> read beside a claimed
-  or moved element reads the header, never the element. The
+  gap holds the width it had at v0.2.19's pin, when this tab read v0.2.18's
+  text: the interpreter re-pinned on the v0.2.20 tag, and took with it every
+  mirror the release <a href="/install/">install</a> advertises had pinned by
+  version — a <code>match</code> over a fallible value taken apart in its two
+  halves, and a <code>?</code> under a <code>defer</code> refused. The
   compiler's own second line names the interpreter in this tab: the release
   <a href="/install/">install</a> advertises was tested against the
   interpreter version above, and this site serves it. At v0.2.15's pin it did
@@ -158,8 +157,10 @@
   one step behind, the compiler tagging again and the mirror following it one
   step so the gap held its width at a later pair, the compiler tagging once
   more while the mirror released without re-pinning so the gap widened a
-  step — and now the mirror has re-pinned on the compiler's last tag but one,
-  so the gap is back to a single step. The two
+  step, the mirror re-pinning on the compiler's last tag but one so the gap
+  was back to a single step — and now the compiler has tagged twice more and
+  the mirror has followed each time onto its last tag but one, so the gap
+  held that single step across both. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -171,41 +172,48 @@
   far the tag is, so neither end has to be a tag, and it requires both pages to
   spell what it counted.</p>
 
-  <p><strong>Where the vintage shows: nowhere, in no verdict and in no
-  output.</strong> Every <code>phase: run</code> program in the pinned corpus
-  goes through the module this page serves, and at these pins none of them
-  answers a refusal where the compiler runs the program. At v0.2.18's pin one
-  of them printed something else:
-  <code>corpus/memory/ctl_store_order_nested_index.lu</code> stores through
-  two and then three index levels with a call in every index, and the order
-  those calls run in is what it checks — the compiler calls each once,
-  outermost first, then the right-hand side. lupin 0.1.41 called every index
-  but the last twice, so the program printed its first index line twice and
-  exited 0 (wolf-interp#145). This interpreter calls each once. A verdict
-  census cannot see a disagreement that exits 0 on both sides, so the
-  compiler's additions, and that program, were walked a second time and each
-  one's output compared with its header; that walk is where it showed, and
-  at these pins it shows nothing.</p>
+  <p><strong>Where the vintage shows: in one program, and it is a
+  refusal.</strong> Every <code>phase: run</code> program in the pinned corpus
+  goes through the module this page serves, and at these pins one of them
+  answers a refusal where the compiler runs the program:
+  <code>corpus/rows/eu_bind_empty_row_handled.lu</code>. It binds a
+  function's result whose row the compiler infers to be empty and reads it in
+  a <code>match</code>, an <code>else</code> and a return; every tier of the
+  compiler prints <code>43 42 42</code>, and this interpreter reads the
+  inferred row as open and answers <code>fail(E0801)</code>, here and at a
+  terminal alike (wolf-interp#176). The specification makes the row empty, so
+  the compiler is right. The release <a href="/install/">install</a>
+  advertises names the parting in its own notes and pins this interpreter's
+  answer on it by version; the fix is on the interpreter's trunk and in no
+  release yet. Nothing else parts, in verdict or in output. A verdict census
+  cannot see a disagreement that exits 0 on both sides, so the compiler's
+  additions were walked a second time and each one's output compared with
+  its header; at v0.2.18's pin that walk is where
+  <code>corpus/memory/ctl_store_order_nested_index.lu</code> showed, whose
+  index calls lupin 0.1.41 ran twice (wolf-interp#145), and at these pins it
+  shows nothing beyond the refusal above.</p>
 
   <p><strong>The compiler's newest programs answer here.</strong> The
-  release <a href="/install/">install</a> advertises brought its own programs
-  into the corpus's running set — two <code>mut</code> claims on two
-  different elements of one list, with a nested call, a loan or a loop inside
-  one of them, a length or <code>count()</code> read beside a claimed or
-  moved element, and the two field claims that stopped the 0.2.18 release
-  tier with an internal compiler error — and each one that runs here prints
-  what its header says it prints. Three of them trap in lupin 0.1.41, which
-  read a member beside a claim as a read of the whole container; this
-  interpreter reads the header, as the compiler does. The one that does not
-  run here is <code>memory/elem_header_methods_after_move_pool.lu</code>, and
-  it does not run at a terminal either: the interpreter declines a
-  <code>Pool</code> by name, which the corpus header records. The
-  measurement is four walks: both corpora through both modules, and no
-  program both corpora carry changed its answer in any of them. At v0.2.18's
-  pin one had: <code>memory/list_session_struct.lu</code>, which ran here at
-  v0.2.17's pin, read an element it had moved, compiled only through the hole
-  that release closed, and trapped under lupin 0.1.41 until the corpus copied
-  the element instead.</p>
+  release <a href="/install/">install</a> advertises, and the one before it,
+  brought their own programs into the corpus's running set — a
+  <code>match</code> over a fallible value, an <code>errdefer</code> run by
+  its block's own error value, an <code>else</code> that handles only its
+  scrutinee's row, two-phase arguments, and index and slice operands that
+  must run once — and each one that runs here prints what its header says it
+  prints. The two-phase reads trap <code>exclusivity</code> in lupin 0.1.42,
+  which took a later argument's read of a claimed place for a conflict; this
+  interpreter runs them, as the compiler does. Besides the refusal above,
+  two do not run here, and both run at a terminal: a nested function that
+  declares a parameter mode, which the interpreter declines by name, and
+  <code>memory/versioned_loop_cross_module/main.lu</code>, whose modules sit
+  in sibling files the editor's one buffer cannot hold. The measurement is
+  four walks: both corpora through both modules, and no program both corpora
+  carry changed its answer in any of them. At v0.2.19's pin the additions
+  were element claims, and three of them trapped in lupin 0.1.41; at
+  v0.2.18's pin <code>memory/list_session_struct.lu</code>, which ran here
+  at v0.2.17's pin, read an element it had moved, compiled only through the
+  hole that release closed, and trapped under lupin 0.1.41 until the corpus
+  copied the element instead.</p>
 
   <p><strong>The one program named here at v0.2.16's pin is a decline, not a
   parting.</strong> <code>corpus/conc/proc_join_param.lu</code> wrote
@@ -329,9 +337,9 @@
   <code>corpus/traits/op_total_num.lu</code>, which was refused outright at
   <code>E0201</code> and is the book's chapter-5 <code>total</code> under a
   bound. All five of the new <code>Map</code> witnesses run, where three did
-  before it, and the census behind this page counts no program at all
-  that answers differently from the compiler: the mirror that was partial is
-  whole.</p>
+  before it, and the census behind this page has counted none of them
+  answering differently from the compiler since: the mirror that was partial
+  is whole.</p>
 
   <p>Those five were worth naming while they were open and are worth keeping
   named now they are closed, because of what they were <em>not</em>. They
@@ -342,8 +350,9 @@
   Money</code> — an interpreter honestly behind a clause it had not mirrored
   yet, which is a thing that ends. It ended here. The distinction is the
   reason a reader can tell, from the same word, which refusals are worth
-  waiting on; among the programs you can run, the tab has none of the second
-  kind left.</p>
+  waiting on. Among the programs you can run, the tab has one of the second
+  kind at these pins, the refusal named above, and its fix waits on the
+  interpreter's next release.</p>
 
   <p><strong>And the gap that opened after that cost nothing while it was
   open, and is closed now.</strong> The compiler tagged once more while the
