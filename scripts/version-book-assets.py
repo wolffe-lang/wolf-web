@@ -18,18 +18,18 @@ CSP (`script-src 'self'`) is indifferent to it. What this cannot reach is a
 script the book loads by name at run time (`searchindex.js`); the nginx config
 makes the whole book revalidate for that (`Cache-Control: no-cache`).
 
-ONE FILE IS LEFT BARE, ON PURPOSE: `wolf-boot.js`. It is the script bs55 moved
-the theme's inline code into, and it learns the book's root by reading its OWN
-`src` attribute and cutting `wolf-boot.js` off the end — so `wolf-boot.js?v=…`
-leaves it with no root at all, and every sidebar link from `front/` and `back/`
-lands a folder too deep: the maintainer's 404, reintroduced. The first staged
-gate run of this script found exactly that (585 404s on chromium phone). It is
-a new file at this pin, so no browser holds an old copy, and the book's
-`no-cache` covers it after that.
+NO FILE IS LEFT BARE. Through ww35 one was: `wolf-boot.js`, the script bs55
+moved the theme's inline code into, which learns the book's root by reading
+its OWN `src` attribute and cutting `wolf-boot.js` off the end — so
+`wolf-boot.js?v=…` left it with no root at all and every sidebar link from
+`front/` and `back/` landed a folder too deep (585 404s on chromium phone in
+ww35's first staged gate). bs56 made it cut a query or fragment off its src
+before comparing the name (wolf-book `2dec44a`, #66), and from ww36 the book
+is pinned past that, so it is versioned like everything else.
 
 It refuses two outcomes rather than report them: rewriting nothing (a zero is
 believed only when the search is shown to fire), and a bare local `.js` or
-`.css` reference left anywhere after the pass, `wolf-boot.js` excepted.
+`.css` reference left anywhere after the pass.
 """
 
 import re
@@ -40,8 +40,9 @@ from pathlib import Path
 # scheme, not protocol-relative, no query or fragment already.
 REF = re.compile(r'\b(src|href)="((?!//)[^":?#]*\.(?:js|css))"')
 
-# Reads its own src to find the book's root (see above); a query breaks it.
-BARE = ("wolf-boot.js",)
+# Files left unversioned. Empty since ww36 (see above); kept so an exemption
+# is one named line, never a regex edit.
+BARE: tuple = ()
 
 
 def keep(path: str) -> bool:
@@ -86,7 +87,8 @@ def main(argv: list) -> int:
         return 1
     print(
         f"  book assets: {total} script and stylesheet reference(s) across {touched} of {len(pages)} page(s) "
-        f"versioned ?v={pin}; {', '.join(BARE)} left bare (it reads its own src)"
+        f"versioned ?v={pin}"
+        + (f"; {', '.join(BARE)} left bare" if BARE else "; nothing exempt")
     )
     return 0
 
