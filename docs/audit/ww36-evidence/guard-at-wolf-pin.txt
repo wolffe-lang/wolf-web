@@ -1,0 +1,11 @@
+guard at 7269b44 (wolf dfcc2f13, lupin 8e2516d):
+lag phrases: install/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: install/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: play/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: play/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+EXIT=1
+lag phrases: install/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: install/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: play/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: play/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+ba47627
