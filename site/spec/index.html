@@ -140,7 +140,7 @@
       parameter is initialized at every return of the function, so moving
       out of one and returning without storing a value back is
       <code>E1001</code>.
-      v__WOLF_VERSION__ carries the distinct places from moves to claims.
+      v0.2.19 carried the distinct places from moves to claims.
       Exclusivity, borrows and iteration read
       <code>[mem.model.place.elem]</code> per element now, so
       <code>add2(mut xs[0], mut xs[1])</code>,
@@ -152,6 +152,16 @@
       <code>count</code> and <code>is_empty</code>, and nothing else, so each
       is allowed beside a moved or claimed element, while every other method
       and a slice read the whole container.
+      v0.2.20 made arguments two-phase, <code>[mem.tier0.excl.4]</code>:
+      within one call a later argument may read what an earlier
+      <code>mut</code> argument claims and may not write, move, re-claim or
+      lend it, so <code>grow(mut xs, xs.len)</code> runs and a write to the
+      claimed place inside a later argument is <code>E1002</code>. The same
+      release let one call's two claims reach two elements through an offset
+      or a loop index the clause proves distinct. At v__WOLF_VERSION__ the
+      document says when an <code>errdefer</code> runs: when its scope is
+      left on the error path, and a block whose own value is an error has
+      left that way, exactly as a function has.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -309,6 +319,18 @@
       <code>[type.err.alias.qualified]</code>: an error alias named through
       the module that declares it is the same type as the row it names,
       exactly as the unqualified spelling is.
+      v0.2.20 wrote <code>[type.row.else]</code>: an <code>else</code>
+      handles its scrutinee's own row and nothing a nested call raised. At
+      v__WOLF_VERSION__ the row gained its two remaining clauses.
+      <code>[type.row.match]</code> splits a <code>match</code> over a
+      fallible value into two halves — an arm naming a tag of the row handles
+      the error, any other pattern handles the value, both must be covered,
+      and a tag that is also a variant of the value's type is
+      <code>E0816</code> — and <code>[type.row.defer]</code> refuses a
+      <code>?</code> inside a deferred expression, <code>E0611</code>. And
+      <code>[type.numlit.value]</code> settles a literal written at a binding
+      with no annotation: it takes <code>i32</code> there, and a later use no
+      longer widens it.
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
