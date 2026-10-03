@@ -20,6 +20,46 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww36 (the site at 0.2.21, and one program the tab refuses) — 2026-10-03
+
+All three gitlinks move: the book to bs58's merge, the compiler to wolf 0.2.21,
+and the interpreter to lupin 0.1.44.
+
+**The lag is still one release; the distance is 91 commits.** lupin 0.1.44
+re-pinned on the v0.2.20 tag and took every mirror the compiler's newest
+release had pinned by version, so the ancestry guard answers `gap 1`,
+`tagged true`, 91 commits. /install/ and /play/ carry "one release" and
+neither carries another phrase.
+
+**One program parts, and the pages name it.** Every `phase: run` program in
+the pinned corpus went through the module this build publishes, four ways,
+as at ww35: 533 programs, 401 exit, 35 trap, 96 unsupported, 1 fail, 436
+candidates, and no instance killed. The fail is
+`rows/eu_bind_empty_row_handled.lu`: the interpreter reads a binding's
+inferred empty row as open and refuses the program where every compiler tier
+prints `43 42 42` (wolf-interp#176). The compiler's release pins that answer
+by version and the fix is on the interpreter's trunk, unreleased; the pages
+say so rather than work around it. Of the other 68 programs the two releases
+added to the running set, 65 exit 0 and print what their headers state, 2
+trap as their headers state, and 2 are declines of this build that answer at
+a terminal (a nested function with a moded parameter; a program in sibling
+files). Nine of the 65 trap under lupin 0.1.42, the interpreter served until
+now.
+
+**The book's boot script is versioned like every other book script.** ww35
+left it unversioned because it read the book's root from its own address and
+a query string emptied it; the book cuts the query off now (bs56), so the
+whole book asks for its scripts and styles under the book's pin.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.21 changed — a `match` over a fallible value, a `?` under a `defer`
+refused, a block's `errdefer` on its own error, and the literal at a bare
+binding — with 0.2.20's two-phase arguments beside it and 0.2.19's element
+claims as history. /spec/'s memory-model and types entries gain the
+clauses those two releases wrote. /install/ dropped two download sizes typed
+by hand that had gone stale (the Windows archive and the interpreter's
+executable have both grown since they were written).
+
 ## ww35 (the site at 0.2.19, the book's contents on lupp.us, and a gap a step narrower) — 2026-09-30
 
 All three gitlinks move: the book to bs55's merge, the compiler to wolf 0.2.19,
