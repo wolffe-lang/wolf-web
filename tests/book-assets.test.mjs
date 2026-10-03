@@ -6,6 +6,11 @@
  * time a new page names it. The fixture below is the shapes the rendered book
  * carries — a page at the root, one a directory down, and the 404 page whose
  * links are absolute under /book/ — beside the shapes it must leave alone.
+ *
+ * ww36: `wolf-boot.js` is versioned like the rest. ww35 left it bare because
+ * it read the book's root from its own `src` and a query emptied the root
+ * (wolf-book#66); bs56 (`2dec44a`) cuts a query or fragment off the src first,
+ * and the book is pinned past that, so the exemption has no reason left.
  */
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -54,9 +59,9 @@ test("every local script and stylesheet reference gains ?v=<pin>, nothing else m
   const ch = r.out["ch07.html"];
   assert.match(ch, /href="css\/chrome\.css\?v=bd3484e"/);
   assert.match(ch, /src="toc\.js\?v=bd3484e"/);
-  /* wolf-boot.js reads its own src to find the book's root: a query would
-   * put every sidebar link from front/ and back/ a folder too deep. */
-  assert.match(ch, /src="wolf-boot\.js"/, "wolf-boot.js stays bare");
+  /* wolf-boot.js reads its own src to find the book's root, and since
+   * wolf-book 2dec44a (#66) it cuts the query first: versioned like the rest. */
+  assert.match(ch, /src="wolf-boot\.js\?v=bd3484e"/, "wolf-boot.js is versioned too");
   assert.match(ch, /src="https:\/\/example\.com\/x\.js"/, "a foreign URL is not this build's to version");
   assert.match(ch, /src="\/\/cdn\.example\/y\.js"/, "nor a protocol-relative one");
   assert.match(ch, /href="ch08\.html"/, "a page link is navigation, not an asset");
@@ -64,18 +69,19 @@ test("every local script and stylesheet reference gains ?v=<pin>, nothing else m
   assert.match(r.out["front/how-to-read.html"], /src="\.\.\/toc\.js\?v=bd3484e"/);
   assert.match(r.out["front/how-to-read.html"], /href="\.\.\/css\/general\.css\?v=bd3484e"/);
   assert.match(r.out["404.html"], /src="\/book\/toc\.js\?v=bd3484e"/);
-  assert.match(r.stdout, /6 script and stylesheet reference\(s\) across 3 of 3 page\(s\)/);
+  assert.match(r.stdout, /7 script and stylesheet reference\(s\) across 3 of 3 page\(s\)/);
 });
 
-test("wolf-boot.js one directory down and under /book/ stays bare too", () => {
+test("wolf-boot.js one directory down and under /book/ is versioned too", () => {
   const r = run({
     "back/colophon.html": '<script src="../wolf-boot.js"></script><script src="../book.js"></script>',
     "404.html": '<script src="/book/wolf-boot.js"></script><script src="/book/toc.js"></script>',
   });
   assert.equal(r.status, 0, r.stderr);
-  assert.match(r.out["back/colophon.html"], /src="\.\.\/wolf-boot\.js"/);
+  assert.match(r.out["back/colophon.html"], /src="\.\.\/wolf-boot\.js\?v=bd3484e"/);
   assert.match(r.out["back/colophon.html"], /src="\.\.\/book\.js\?v=bd3484e"/);
-  assert.match(r.out["404.html"], /src="\/book\/wolf-boot\.js"/);
+  assert.match(r.out["404.html"], /src="\/book\/wolf-boot\.js\?v=bd3484e"/);
+  assert.doesNotMatch(r.stdout, /left bare/, "no script is exempt any more");
   assert.match(r.out["404.html"], /src="\/book\/toc\.js\?v=bd3484e"/);
 });
 
