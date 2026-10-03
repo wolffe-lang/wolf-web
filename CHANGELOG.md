@@ -40,11 +40,11 @@ inferred empty row as open and refuses the program where every compiler tier
 prints `43 42 42` (wolf-interp#176). The compiler's release pins that answer
 by version and the fix is on the interpreter's trunk, unreleased; the pages
 say so rather than work around it. Of the other 68 programs the two releases
-added to the running set, 65 exit 0 and print what their headers state, 2
-trap as their headers state, and 2 are declines of this build that answer at
-a terminal (a nested function with a moded parameter; a program in sibling
-files). Nine of the 65 trap under lupin 0.1.42, the interpreter served until
-now.
+added to the running set, 64 exit 0 and each that names its output prints
+it, 2 trap as their headers state, and 2 are declines of this build that
+answer at a terminal (a nested function with a moded parameter; a program in
+sibling files). Nine of the 64 trap under lupin 0.1.42, the interpreter served
+until now.
 
 **The book's boot script is versioned like every other book script.** ww35
 left it unversioned because it read the book's root from its own address and
