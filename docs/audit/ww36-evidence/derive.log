@@ -1,0 +1,1914 @@
+derive run 2026-10-03T10:51:42Z on kasumi
+=== tags
+v0.2.18 ec56a08f04ff318ea659fd58683f7ae4f22dc7a5
+v0.2.19 c2401f05f37794a078d2acf62f837dad98e5950d
+v0.2.20 cdde128a30999652c9d70189664226b766a206f0
+v0.2.21 dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
+=== interp gitlinks
+IOLD upstream: 160000 commit ec56a08f04ff318ea659fd58683f7ae4f22dc7a5	upstream
+INEW upstream: 160000 commit cdde128a30999652c9d70189664226b766a206f0	upstream
+version = "0.1.44"
+tag v0.1.44 -> ba4762714d75c37bb14b300610e2d52630665a05
+interp commits IOLD..INEW = 90
+ba47627 style: rustfmt over nine run-ledger rows
+91774fa release: lupin 0.1.44
+78eb884 changelog: 0.1.44 — the re-pin at v0.2.20, is65 and is67 from the commits
+6b7ac41 tests: conformance waives nested_fn_mut_omitted.lu by name — lupin declines a nested fn with a moded parameter (#169)
+754026d docs: the manual's walk and export blocks at the cdde128a pin
+69b3e18 tests: the run ledger gains eighty of the pin's eighty-three entries; two old rows become matches
+189f141 tests: export at cdde128a — 899 programs, 854 records, anchors 544, ratchet 271 -> 273
+bfb517d tests: the harness pins 861 files, 816 entries, 45 members at cdde128a
+76469fa tests: the corpus walk counts 861 files at the cdde128a pin
+eb00a30 pin: re-vendor spec and corpus at wolf-lang v0.2.20 (cdde128a) — one release forward, an ancestor of the released line
+6ce7bc8 is67: §3a scores the missed prediction (q10_map_match); §4/§5 point at the gauntlet at f7049fc
+f7049fc lint_is61: q10_map_match is refused by name under [type.row.match] (the one existing test the ruling moves)
+08d6cbd is67: the rebase onto 9d9c023 — shas re-pointed, evidence re-measured at 99788ca, §3a/§4/§5 updated
+db4b13c is67: §4 evidence index and §5 done-when (gauntlet and CI lines open)
+aa32fc8 is67: §3 addendum (s197's E0816) and §3a scored
+99788ca is67: chapter 6's three shapes from bs57 as witnesses (the value bound to a tag arm, the tag bound to a value arm, an open row's rest)
+39c6390 rowmatch: the collision is E0816 (s197, wolf-lang#510), whether or not an arm spells it; the mixed shapes refused by name
+d19ccb6 style: rustfmt; clippy's manual_contains in arm_half
+683990c changelog: is67 — a match over a fallible value has two halves; ? under a defer is E0611
+e9fa018 is67: m21_result_consumed's ruled stdout carries the two look lines (a prediction slip, §3a)
+79af9df lint: a row arm is not a binder; E0802 says nothing about a row match
+54b453e eval: a match over a T ! {row} dispatches a row value to the row arms and a value to the value arms
+233dbb7 rowmatch: the static reader of a T ! {row} scrutinee; E0801, E0611 and the collision refusal at the resolve rung
+c08285f is67: 26 witnesses for match over a fallible value and ? under a defer (21 red)
+3d23732 is67 contract: §1–§3 for rulings #21 and #19 (wolf-lang#497, #498)
+9d9c023 docs: is65 §3a, §4, §5 — the prediction scored, the evidence indexed
+a4378d0 style: rustfmt over the unit test's stdout assertion
+710db1c style: rustfmt over two assertions
+9f62d3a changelog: Unreleased — is65, a flow out of an argument list (#163)
+7264f7d tests: a ? out of an argument list leaves no claim and no protector
+dfebf6b eval: a flow out of an argument list withdraws the call's claims and protectors (#163)
+3e7f230 tests: is65 witnesses — a flow out of an argument list, each exit kind, nested, receivers (#163)
+02e1c31 docs: is65 contract — §2 re-derived, §3 predicted before any edit
+6d6cde5 release: lupin 0.1.43
+7433a49 changelog: 0.1.43 — the re-pin at v0.2.19, is61, is63 and is62 from the commits
+214b776 docs: the manual's walk and export blocks at the c2401f05 pin
+7da5709 tests: the run ledger gains thirty of the pin's thirty-one entries; mut_elem_excl becomes a match
+41be529 tests: export at c2401f05 — 816 programs, 771 records, ratchet 268 -> 271
+28fdb36 tests: the harness pins 778 files, 733 entries, 45 members at c2401f05
+75c05e4 tests: the corpus walk counts 778 files at the c2401f05 pin
+21413a5 pin: re-vendor spec and corpus at wolf-lang v0.2.19 (c2401f05) — one release forward, an ancestor of the released line
+188e832 docs: is62 §3a addendum scored; §4, §5 at the view-set head
+b6ef5ae changelog: #164's receiver rows and wolf-lang#494's view set
+7d1fc36 tests: the view-set trap pins its clause and span, at p.y = 100
+da9aa91 eval: a view-set receiver claims and writes back its view set only (wolf-lang#494)
+ecd6864 tests: is62 witnesses — #164's fourteen receiver rows and #494's view set (#494 red)
+08404fb docs: is62 §3 addendum — #164 and wolf-lang#494 join; the view set is the receiver's claim
+ef9fa67 docs: is62 §3a, §4, §5 — the prediction scored, the evidence indexed
+74313a1 style: rustfmt over the struct-literal walk and the witness runner
+b26ed5d changelog: Unreleased — is62's four mirrors
+3c9c645 tests: a receiver's pending claim is withdrawn at its call's entry
+9cf486e tests: the shorthand parses with its longhand's value node
+87e2ae7 tests: the receiver traps pin their clause and span, at the offending access
+ee0cbfc eval: a (mut …) receiver is claimed, pending, while its own arguments run (wolf-lang#487)
+301fdef parse: the field shorthand is its longhand — W { xs } is W { xs: xs } (#159)
+d6a1cb0 eval: a flow out of a receiver's or member base's operand leaves once (#162)
+9fb80c8 eval: a bracket that is no place is refused before its base runs (#157)
+1498db2 tests: is62 witnesses — #157/#162 once, #159 shorthand twins, #487 receiver claims (red)
+c535eca docs: is62 contract — §2 re-derived, §3 predicted before any edit
+1e96e1f docs: is63 §3a, §4, §5 at the rebased shas; the sweep re-points every cited sha
+3d913f8 docs: is63 addenda 2 and 3 move into the is63 section (they landed inside is55's)
+0abfa3f changelog: the closure lend (#160) and the witness count
+a6d7791 eval: a closure lent into a call holds its claimed captures mut for the body — the read traps (replaces the name walk)
+5b15ef9 docs: is63 §3 addendum 3 — the closure arm moves from a name walk to the closure's own reads
+3f4e423 eval: a closure written as an argument lends its captures into the call; one that meets the call's pending claim traps ([mem.tier0.excl.4])
+dbd030e tests: is63 witnesses — a capturing closure lends into the call (red); s186's thirteen rows verbatim
+178ded5 docs: is63 §3 addendum 2 — the clause merged; a capturing closure is a lend into the call
+8989431 style: rustfmt over the Copy-read check and the witness runner
+ac29d8e docs: is63 §3a scored, §4 evidence index, §5 done-when
+ded7ecc changelog: Unreleased — two-phase arguments (ruling #17)
+6759869 docs: the manual's census — 45 counterparts, 56 conservatism (mut_read_overlap.lu)
+5466196 tests: mut_read_overlap.lu runs under ruling #17 — RUN_LEDGER exit(0)
+a39b4c8 docs: approximation contract §6.12 — the caller-side Copy read retires under ruling #17
+31b8354 tests: D39's caller-side Copy read is two-phase; the non-Copy lend keeps the trap
+dee7167 tests: is59's twin_same_elem_read runs — a bare Copy argument is a read
+9046a66 eval: a bare Copy argument beside its own call's pending claim is a read, not a lend ([mem.tier0.excl.4])
+fda9e4d tests: is63 witnesses — a bare Copy argument is a read, a non-Copy one a lend (red)
+7da5d6d docs: is63 §3 addendum — [mem.tier0.excl.4] makes a bare Copy argument a read
+1484f11 tests: stay_elem_write traps at the store, not its target's read
+15cfade tests: is59's three member-read twins and is60's nine read twins run under ruling #17
+=== interp files changed
+ vendor/upstream/spec/11-os.md                      |   13 +-
+ vendor/upstream/spec/anchors.json                  |    2 +
+ 616 files changed, 18897 insertions(+), 237 deletions(-)
+=== ancestry
+is-ancestor SPEC_NEW(cdde128a) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC_NEW..NEW = 91
+rev-list --count OLD..NEW = 246
+rev-list --count SPEC_OLD..OLD = 105
+=== CHANGELOG headings at NEW
+## 0.2.21 — 2026-10-02
+## 0.2.20 — 2026-10-01
+## 0.2.19 — 2026-09-30
+## 0.2.18 — 2026-09-27
+## 0.2.17 — 2026-09-26
+=== counts OLD vs NEW
+c2401f05 E=142 W=34 net=18 anchors=542
+dfcc2f13 E=144 W=34 net=18 anchors=546
+anchors added 4 ['mem.tier0.excl.4', 'type.row.defer', 'type.row.else', 'type.row.match']
+anchors dropped 0 []
+grammar.ebnf 910ff9d5f6e6747e -> 910ff9d5f6e6747e
+BYTE-IDENTICAL
+=== phase:run sets
+  464 /home/mfwolffe/lanes/ww36/run-c2401f0.txt
+  533 /home/mfwolffe/lanes/ww36/run-dfcc2f1.txt
+  997 total
+--- in:
+corpus/faults/assert_msg_effect_fails.lu
+corpus/faults/assert_msg_name_fails.lu
+corpus/faults/assert_msg_name.lu
+corpus/faults/assert_msg_try.lu
+corpus/memory/ctl_index_else_once.lu
+corpus/memory/ctl_index_return_break_once.lu
+corpus/memory/ctl_index_try_once.lu
+corpus/memory/ctl_index_try_once_receivers.lu
+corpus/memory/ctl_nested_index_try_once.lu
+corpus/memory/ctl_slice_endpoints_call.lu
+corpus/memory/ctl_slice_endpoints_indexed_base.lu
+corpus/memory/ctl_slice_endpoints.lu
+corpus/memory/ctl_slice_endpoints_nested.lu
+corpus/memory/ctl_slice_endpoints_str.lu
+corpus/memory/ctl_slice_try_once.lu
+corpus/memory/ctl_store_index_try_once.lu
+corpus/memory/elem_dyn_proofs_legs.lu
+corpus/memory/elem_dyn_read_after_mut.lu
+corpus/memory/elem_loop_induction_mut.lu
+corpus/memory/elem_offset_mut_pair.lu
+corpus/memory/field_shorthand_copy.lu
+corpus/memory/field_shorthand_mixed_runs.lu
+corpus/memory/field_shorthand_nested_runs.lu
+corpus/memory/field_shorthand_return_take.lu
+corpus/memory/mut_claim_nested_copy_read.lu
+corpus/memory/mut_claim_nested_disjoint_reads.lu
+corpus/memory/mut_claim_nested_get.lu
+corpus/memory/mut_claim_nested_header.lu
+corpus/memory/mut_claim_nested_map.lu
+corpus/memory/mut_claim_nested_read_elem.lu
+corpus/memory/mut_claim_nested_read_whole.lu
+corpus/memory/mut_claim_operand_read.lu
+corpus/memory/mut_claim_two_phase_reads.lu
+corpus/memory/mut_read_overlap.lu
+corpus/memory/nested_fn_mut_param.lu
+corpus/memory/recv_claim_arg_reads.lu
+corpus/memory/recv_view_arg_callee_view_write.lu
+corpus/memory/recv_view_arg_elem.lu
+corpus/memory/recv_view_arg_field_recv.lu
+corpus/memory/recv_view_arg_list_field.lu
+corpus/memory/recv_view_arg_nested_field.lu
+corpus/memory/recv_view_arg_outside_write.lu
+corpus/memory/recv_view_arg_relend.lu
+corpus/memory/recv_view_arg_two_fields.lu
+corpus/memory/recv_view_arg_two_view_third.lu
+corpus/memory/versioned_loop_cross_module/main.lu
+corpus/memory/versioned_loop_inlined_root.lu
+corpus/rows/defer_else_handles.lu
+corpus/rows/else_own_failure.lu
+corpus/rows/else_return_tag.lu
+corpus/rows/else_try_block.lu
+corpus/rows/else_try_call_arg.lu
+corpus/rows/else_try_handler.lu
+corpus/rows/else_try_index.lu
+corpus/rows/else_try_nested_else.lu
+corpus/rows/errdefer_block_loop_break.lu
+corpus/rows/errdefer_block_nested.lu
+corpus/rows/errdefer_block_row.lu
+corpus/rows/errdefer_fn_tail_control.lu
+corpus/rows/eu_bind_empty_row_handled.lu
+corpus/rows/eu_bind_empty_row.lu
+corpus/rows/eu_bind_empty_row_unit.lu
+corpus/rows/match_row_bare_tag.lu
+corpus/rows/match_row_else_control.lu
+corpus/rows/match_row_nested.lu
+corpus/rows/match_row_payload_tag.lu
+corpus/rows/match_row_try_scrutinee.lu
+corpus/rows/match_row_wild_each_half.lu
+corpus/typecheck/numlit_binding_value_later_use.lu
+--- out:
+=== corpus diff name-status
+A	corpus/faults/assert_msg_effect_fails.lu
+A	corpus/faults/assert_msg_name.lu
+A	corpus/faults/assert_msg_name_fails.lu
+A	corpus/faults/assert_msg_try.lu
+M	corpus/faults/index_origin_min_overflow.lu
+A	corpus/memory/ctl_index_else_once.lu
+A	corpus/memory/ctl_index_return_break_once.lu
+A	corpus/memory/ctl_index_try_once.lu
+A	corpus/memory/ctl_index_try_once_receivers.lu
+A	corpus/memory/ctl_nested_index_try_once.lu
+A	corpus/memory/ctl_slice_endpoints.lu
+A	corpus/memory/ctl_slice_endpoints_call.lu
+A	corpus/memory/ctl_slice_endpoints_indexed_base.lu
+A	corpus/memory/ctl_slice_endpoints_nested.lu
+A	corpus/memory/ctl_slice_endpoints_str.lu
+A	corpus/memory/ctl_slice_try_once.lu
+A	corpus/memory/ctl_store_index_try_once.lu
+A	corpus/memory/elem_dyn_proofs_legs.lu
+M	corpus/memory/elem_dyn_read_after_mut.lu
+A	corpus/memory/elem_loop_inclusive_covers_const.lu
+A	corpus/memory/elem_loop_induction_mut.lu
+A	corpus/memory/elem_loop_induction_written_mut.lu
+A	corpus/memory/elem_loop_nonliteral_range_mut.lu
+A	corpus/memory/elem_offset_mut_pair.lu
+A	corpus/memory/elem_offset_negative_mut.lu
+A	corpus/memory/elem_offset_nonliteral_mut.lu
+A	corpus/memory/elem_offset_rebound_call_mut.lu
+A	corpus/memory/elem_offset_rebound_mut.lu
+A	corpus/memory/elem_offset_vs_literal_mut.lu
+A	corpus/memory/elem_offset_zero_mut.lu
+A	corpus/memory/field_shorthand_closure.lu
+A	corpus/memory/field_shorthand_closure_borrow.lu
+A	corpus/memory/field_shorthand_copy.lu
+A	corpus/memory/field_shorthand_mixed.lu
+A	corpus/memory/field_shorthand_mixed_runs.lu
+A	corpus/memory/field_shorthand_moves.lu
+A	corpus/memory/field_shorthand_nested.lu
+A	corpus/memory/field_shorthand_nested_bound.lu
+A	corpus/memory/field_shorthand_nested_runs.lu
+A	corpus/memory/field_shorthand_return_mut.lu
+A	corpus/memory/field_shorthand_return_take.lu
+A	corpus/memory/field_shorthand_task.lu
+A	corpus/memory/mut_claim_arg_block_move.lu
+A	corpus/memory/mut_claim_arg_block_write.lu
+A	corpus/memory/mut_claim_nested_copy_read.lu
+A	corpus/memory/mut_claim_nested_disjoint_reads.lu
+A	corpus/memory/mut_claim_nested_get.lu
+A	corpus/memory/mut_claim_nested_header.lu
+A	corpus/memory/mut_claim_nested_map.lu
+A	corpus/memory/mut_claim_nested_read_elem.lu
+A	corpus/memory/mut_claim_nested_read_whole.lu
+A	corpus/memory/mut_claim_operand_read.lu
+A	corpus/memory/mut_claim_two_phase_reads.lu
+M	corpus/memory/mut_read_overlap.lu
+A	corpus/memory/nested_fn_mut_moveout.lu
+A	corpus/memory/nested_fn_mut_omitted.lu
+A	corpus/memory/nested_fn_mut_param.lu
+A	corpus/memory/nested_fn_read_param_return.lu
+A	corpus/memory/nested_fn_read_param_write.lu
+A	corpus/memory/recv_claim_arg_closure.lu
+A	corpus/memory/recv_claim_arg_elem_move.lu
+A	corpus/memory/recv_claim_arg_elem_whole_write.lu
+A	corpus/memory/recv_claim_arg_elem_write.lu
+A	corpus/memory/recv_claim_arg_field_move.lu
+A	corpus/memory/recv_claim_arg_field_prefix_write.lu
+A	corpus/memory/recv_claim_arg_field_write.lu
+A	corpus/memory/recv_claim_arg_lend.lu
+A	corpus/memory/recv_claim_arg_move.lu
+A	corpus/memory/recv_claim_arg_reads.lu
+A	corpus/memory/recv_claim_arg_reclaim.lu
+A	corpus/memory/recv_claim_arg_reclaim_call.lu
+A	corpus/memory/recv_claim_arg_reclaim_nested.lu
+A	corpus/memory/recv_claim_arg_view_write.lu
+A	corpus/memory/recv_claim_arg_write.lu
+A	corpus/memory/recv_view_arg_callee_view_write.lu
+A	corpus/memory/recv_view_arg_elem.lu
+A	corpus/memory/recv_view_arg_field_recv.lu
+A	corpus/memory/recv_view_arg_list_field.lu
+A	corpus/memory/recv_view_arg_nested_field.lu
+A	corpus/memory/recv_view_arg_outside_write.lu
+A	corpus/memory/recv_view_arg_relend.lu
+A	corpus/memory/recv_view_arg_two_fields.lu
+A	corpus/memory/recv_view_arg_two_view_third.lu
+A	corpus/memory/versioned_loop_cross_module/main.lu
+A	corpus/memory/versioned_loop_cross_module/ring/ring.lu
+A	corpus/memory/versioned_loop_inlined_root.lu
+A	corpus/rows/defer_else_handles.lu
+A	corpus/rows/else_own_failure.lu
+A	corpus/rows/else_return_tag.lu
+A	corpus/rows/else_try_block.lu
+A	corpus/rows/else_try_call_arg.lu
+A	corpus/rows/else_try_handler.lu
+A	corpus/rows/else_try_index.lu
+A	corpus/rows/else_try_nested_else.lu
+A	corpus/rows/errdefer_block_loop_break.lu
+A	corpus/rows/errdefer_block_nested.lu
+A	corpus/rows/errdefer_block_row.lu
+A	corpus/rows/errdefer_fn_tail_control.lu
+A	corpus/rows/eu_bind_empty_row.lu
+A	corpus/rows/eu_bind_empty_row_handled.lu
+A	corpus/rows/eu_bind_empty_row_unit.lu
+A	corpus/rows/match_row_bare_tag.lu
+A	corpus/rows/match_row_else_control.lu
+A	corpus/rows/match_row_nested.lu
+A	corpus/rows/match_row_payload_tag.lu
+A	corpus/rows/match_row_try_scrutinee.lu
+A	corpus/rows/match_row_wild_each_half.lu
+A	corpus/rows/negative/match_row_missing_tag.lu
+A	corpus/rows/negative/match_row_missing_value.lu
+A	corpus/rows/negative/match_row_tag_variant_collision.lu
+A	corpus/rows/negative/try_in_defer.lu
+A	corpus/rows/negative/try_in_defer_block.lu
+A	corpus/rows/negative/try_in_errdefer.lu
+A	corpus/typecheck/numlit_binding_literal.lu
+A	corpus/typecheck/numlit_binding_literal_call.lu
+A	corpus/typecheck/numlit_binding_literal_term.lu
+A	corpus/typecheck/numlit_binding_value_later_use.lu
+--- pre-existing run programs modified:
+corpus/faults/index_origin_min_overflow.lu
+=== spec/ docs/ stat
+ docs/diagnostics.md     |  47 +++++++++++++++---
+ spec/01-grammar.md      |   5 +-
+ spec/02-memory-model.md |  82 +++++++++++++++++++++++++------
+ spec/10-types.md        | 125 +++++++++++++++++++++++++++++++++++++++++++++++-
+ spec/11-os.md           |  13 ++++-
+ spec/anchors.json       |   4 ++
+ 6 files changed, 251 insertions(+), 25 deletions(-)
+=== new run program headers
+## corpus/faults/assert_msg_effect_fails.lu
+//! check: run(exit=trap(assert), stdout="effect\n")
+//! phase: run
+//! conforms: conf.trap.assert
+//!
+//! s202 (wolf-lang#398), the other direction: an interpolation whose
+//! hole CALLS was accepted by native and release and dropped
+//! unevaluated, so on the failing path `effect` never printed, while
+//! checked and lupin print it. The message is evaluated on the
+//! failing path, before the trap, on every lane.
+## corpus/faults/assert_msg_name_fails.lu
+//! check: run(exit=trap(assert), stdout="before\n")
+//! phase: run
+//! conforms: conf.trap.assert
+//!
+//! s202 (wolf-lang#398): the failing twin of `assert_msg_name.lu`.
+//! The message is a bare parameter and the condition is the constant
+//! `false`, so the trap is unconditional and the message is read on
+//! the way to it. Native and release refused the program at trunk
+//! 12a56b22. lupin renders the message as a line before the trap,
+//! which `[conf.trap.assert]` allows and does not require; the
+//! compiler drops the rendering, never the evaluation.
+## corpus/faults/assert_msg_name.lu
+//! check: run(exit=0, stdout="ok\nafter\n")
+//! phase: run
+//! conforms: conf.trap.assert
+//!
+//! s202 (wolf-lang#398): any `str` is an assert message
+//! (`[conf.trap.assert]`), and it is evaluated ONLY on the failing
+//! path. The issue's helper passes its message as a bare parameter;
+//! a field read is the same kind of message. Native and release
+//! refused both as "assert messages with effects" because the check
+//! was by syntax kind (a name is not a literal), while checked and
+//! lupin ran them. The holding asserts below run nothing: `noisy()`
+//! never prints, whether the message is the call itself or an
+//! interpolation of it.
+## corpus/faults/assert_msg_try.lu
+//! check: run(exit=0, stdout="7\n-1\n")
+//! phase: run
+//! conforms: conf.trap.assert, err.propagate
+//!
+//! s202 (wolf-lang#398): a message that can leave the function. On the
+//! failing path `why(n)?` propagates `nope` before any trap, so
+//! `check(1)` returns the row and the caller's `else` answers `-1`; on
+//! the holding path the message is never evaluated. Native and
+//! release refused this at trunk 12a56b22; checked and lupin ran it.
+## corpus/memory/ctl_index_else_once.lu
+//! check: run(exit=0, stdout="value\nidx\n20\nidx\n10\nreturn\nidx\n20\nidx\n9\n")
+//! phase: run
+//! conforms: mem.model.order, mem.model.place
+//!
+//! s189 (wolf-lang#481) — `else` in an index operand. `xs[idx() else 0]`
+//! handles the row inside the operand, so the operand yields a value
+//! and runs once on every machine (a control). `xs[idx() else { return
+//! 9 }]` leaves the function from inside the operand: it runs once and
+//! the `return` wins. The checked machine ran it twice.
+## corpus/memory/ctl_index_return_break_once.lu
+//! check: run(exit=0, stdout="return\nidx\n20\nidx\n9\nbreak\nidx\n10\nidx\ndone\ncontinue\nidx\n10\nidx\nidx\n30\ndone\n")
+//! phase: run
+//! conforms: mem.model.order, mem.model.place
+//!
+//! s189 (wolf-lang#481) — `return`, `break` and `continue` inside an
+//! index operand: the operand runs once and the flow leaves as it would
+//! from any other operand. The checked machine dropped the flow as "not
+//! a place" and ran the operand again.
+## corpus/memory/ctl_index_try_once.lu
+//! check: run(exit=0, stdout="let\nidx\n20\nidx\n9\nhole\nidx\n20\n0\nidx\n9\narg\nidx\n20\n0\nidx\n9\nmember\nidx\n2\nidx\n9\n")
+//! phase: run
+//! conforms: mem.model.order, mem.model.place
+//!
+//! s189 (wolf-lang#481) — an index operand whose `?` propagates runs
+//! once, wherever the indexed place stands: bound by `let`, inside an
+//! interpolation hole, as a `read` argument, and as a member base. The
+//! checked machine evaluated the operand, dropped its flow as "not a
+//! place", and evaluated the whole expression again: `idx` ran two or
+//! three times. Native, release and lupin run it once.
+## corpus/memory/ctl_index_try_once_receivers.lu
+//! check: run(exit=0, stdout="copy\nidx\n9\ncount\nidx\n9\nfor\nidx\n9\nelemcopy\nidx\n5\nidx\n9\npush\nidx\n3\nidx\n9\nbytes\nidx\n9\nbytesfor\nidx\n9\nstrlen\nidx\n9\nprint\nidx\ncde\n0\nidx\n9\n")
+//! phase: run
+//! conforms: mem.model.order, mem.model.place
+//!
+//! s189 (wolf-lang#481) — an index operand whose `?` propagates, under
+//! the other readers of a place: `copy`, a method receiver (`count`,
+//! `(mut …).push`), a `for` iterable, the right-hand side of an element
+//! store, a `str` element's byte view (`.bytes().len`, `for b in
+//! ….bytes()`), a `str` element's `.len`, and a `print` argument. The
+//! operand runs once in each. The checked machine ran it three times,
+//! six under a byte view. lupin 0.1.42 runs it twice as a method
+//! receiver, under a byte view and under a `str` member (the driver
+//! gate pins that answer by version).
+## corpus/memory/ctl_nested_index_try_once.lu
+//! check: run(exit=0, stdout="both\na\nb\n6\nouter\na\n9\ninner\na\nb\n9\n")
+//! phase: run
+//! conforms: mem.model.order, mem.model.place
+//!
+//! s189 (wolf-lang#481) — a nested index `g[a()?][b()?]`: the outer
+//! operand, then the inner, once each; when either `?` propagates, no
+//! operand runs again and nothing after it runs at all. The checked
+//! machine re-ran the operands that had run (`a` two or three times,
+//! `b` twice).
+## corpus/memory/ctl_slice_endpoints_call.lu
+//! check: run(exit=0, stdout="arg\nlo\nhi\n50\ncount\nlo\nhi\n2\nis_empty\nlo\nhi\nfalse\nfor\nlo\nhi\n50\n")
+//! phase: run
+//! conforms: mem.list.slice, mem.model.order
+//!
+//! s187 (wolf-lang#479's neighbours) — a slice passed as a `read`
+//! argument, a slice as a method receiver (`count`, `is_empty`) and a
+//! slice as a `for` iterable each run its endpoints once. The checked
+//! machine ran them twice in all four positions, for the same reason
+//! as `ctl_slice_endpoints.lu`: each position asks for a place first
+//! and evaluates the expression when there is none. Native, release
+//! and lupin 0.1.42 ran them once.
+## corpus/memory/ctl_slice_endpoints_indexed_base.lu
+//! check: run(exit=0, stdout="let\ngi\nlo\nhi\n2\nlen\ngi\nlo\nhi\n2\nhole\ngi\nlo\nhi\n2\n")
+//! phase: run
+//! conforms: mem.list.slice, mem.model.order
+//!
+//! s187 (wolf-lang#479's neighbours) — a slice of an indexed element
+//! (`g[gi()][lo()..hi()]`) runs the index and both endpoints once, left
+//! to right. As a member base the checked machine ran all three twice
+//! (`.len`) and three times (in an interpolation hole); native and
+//! release ran them once. lupin 0.1.42 runs `gi` twice even in the
+//! plain `let` and three times as a member base (wolffe-lang/wolf-interp#157;
+//! the driver gate pins that answer by version).
+## corpus/memory/ctl_slice_endpoints.lu
+//! check: run(exit=0, stdout="let\nlo\nhi\n2\nlen\nlo\nhi\n2\nhole\nlo\nhi\n2\n")
+//! phase: run
+//! conforms: mem.list.slice, mem.model.order
+//!
+//! s187 (wolf-lang#479) — a slice's endpoints run once, however the
+//! slice is used. `[mem.model.order]` evaluates every operand exactly
+//! once, left to right. The checked machine ran `lo` and `hi` twice
+//! when the slice was the base of a member read (`xs[lo()..hi()].len`)
+//! and three times inside an interpolation hole; native, release and
+//! lupin 0.1.42 ran them once. The cause was the checked machine's
+//! place lookup: it evaluated the bracket operands before learning the
+//! index was a range (a slice is never a place), answered "not a
+//! place", and every caller then evaluated the slice again. The first
+//! shape (`let s = xs[lo()..hi()]`) never took that path and is the
+//! control. is60's probes c14, c18 and c19.
+## corpus/memory/ctl_slice_endpoints_nested.lu
+//! check: run(exit=0, stdout="index\nlo\nhi\n20\nslice\nlo\nhi\n1\n")
+//! phase: run
+//! conforms: mem.list.slice, mem.model.order
+//!
+//! s187 (wolf-lang#479's neighbours) — a slice nested as the base of an
+//! index (`xs[lo()..hi()][0]`) and of another slice's member read
+//! (`xs[lo()..hi()][0..1].len`) runs the inner endpoints once. The
+//! checked machine ran them twice and three times: the outer place
+//! lookup asked the inner one first, and each "not a place" answer was
+//! followed by another evaluation. Native, release and lupin 0.1.42
+//! ran them once.
+## corpus/memory/ctl_slice_endpoints_str.lu
+//! check: run(exit=0, stdout="let\nlo\nhi\n2\nlen\nlo\nhi\n2\nhole\nlo\nhi\n2\n")
+//! phase: run
+//! conforms: str.slice, mem.model.order
+//!
+//! s187 (wolf-lang#479's neighbours) — a `str` slice as a member base
+//! runs its endpoints once. The checked machine's place lookup is the
+//! same for a `str` receiver as for a `List`, so it ran `lo` and `hi`
+//! twice for `s[lo()..hi()].len` and three times in a hole; native,
+//! release and lupin 0.1.42 ran them once. The `let` is the control.
+## corpus/memory/ctl_slice_try_once.lu
+//! check: run(exit=0, stdout="endpoint\nlo\nhi\n2\nlo\n9\nbase\ngi\nlo\nhi\n2\ngi\n9\n")
+//! phase: run
+//! conforms: mem.model.order, mem.list.slice
+//!
+//! s189 (wolf-lang#481) — a `?` in a slice: in an endpoint
+//! (`xs[lo()?..hi()].len`) and in the index of the slice's base
+//! (`g[gi()?][lo()..hi()]`). Each operand runs once, and the
+//! propagating one stops the rest. The endpoint case is a control:
+//! s187 already keeps a slice out of the checked machine's place
+//! lookup. The base-index case ran `gi` three times on checked. lupin
+//! 0.1.42 runs `gi` twice when it does not propagate
+//! (wolffe-lang/wolf-interp#157; the driver gate pins that answer by
+//! version).
+## corpus/memory/ctl_store_index_try_once.lu
+//! check: run(exit=0, stdout="store\nidx\nv\n[10, 7, 30]\nidx\n9\n[10, 7, 30]\ncompound\nidx\n[10, 8, 30]\nidx\n9\n[10, 8, 30]\nnested\na\nv\n[[1, 2], [7, 6]]\na\n9\n[[1, 2], [7, 6]]\nmut\nidx\n[10, 9, 30]\nidx\n9\n[10, 9, 30]\n")
+//! phase: run
+//! conforms: mem.model.order, mem.model.place.rhs, mem.model.place
+//!
+//! s189 (wolf-lang#481) — a store whose target index propagates
+//! (`xs[idx()?] = v()`, `xs[idx()?] += 1`, `g[a()?][0] = v()`) and a
+//! `mut` argument over one (`bump(mut xs[idx()?])`). The index runs
+//! first and once ([mem.model.place.rhs]); when its `?` propagates,
+//! the right-hand side never runs and nothing is stored. The checked
+//! machine dropped the flow and refused the store as "assignment
+//! through this place shape" (and the `mut` argument as "a non-place").
+## corpus/memory/elem_dyn_proofs_legs.lu
+//! check: run(exit=0, stdout="4 14 | 11 3 | 4 15 | 2 2 | 3 12 13 | 2 3 23 | 2 12 | 2 13 13\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1, mem.tier0.excl.4
+//!
+//! eg03 (EGC's EG3) — R1 and R2 in every leg the claim relation reads:
+//! two nonzero offsets (`xs[i + 1]`, `xs[i + 2]`); the offset first
+//! (`xs[i + 1]`, `xs[i]`); one step down the path (`g[i][0]`,
+//! `g[i + 1][0]`); a lent `read` beside the claim (`grow(mut ys[i],
+//! ys[i + 1])`); an inclusive range whose end is below the literal's
+//! other side (`1..=2` against `0`); a literal above the range (`0..2`
+//! against `2`); a `Copy` read of the index between the claims (a read
+//! is not a write, `[mem.tier0.excl.4]`); and a `while` loop that
+//! writes `i` between calls, never inside one. lupin 0.1.42 prints the
+//! same bytes.
+## corpus/memory/elem_dyn_read_after_mut.lu
+//! check: run(exit=0, stdout="3 2\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.4, mem.model.order
+//!
+//! eg02 (EGC's EG2) — `[mem.model.place.elem]` item 2, ONE PLACE: the twin
+//! of `elem_const_read_after_mut.lu` through a run-time index,
+//! `bump(mut xs[0], xs[i])`. No rule proves `i != 0`, so `xs[i]` may be
+//! the claimed element — but since s186 (`[mem.tier0.excl.4]`, ruled
+//! 2026-09-30) a later argument may READ a claimed place: the claim
+//! takes effect at call entry, after the read. E1002 through 0.2.19;
+//! now `3 2` on every wolfgang lane, lupin's bytes (it sees `i = 1`).
+## corpus/memory/elem_loop_induction_mut.lu
+//! check: run(exit=0, stdout="3 12 13\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1
+//!
+//! eg03 (EGC's EG3) — `[mem.model.place.elem]` item 4, R2: `for i in
+//! 1..3 { add2(mut xs[0], mut xs[i]) }`. A loop index over the literal
+//! bounds `1..3`, never written in the body, takes only the values 1
+//! and 2, so it never equals the literal `0`. Ruled by eg00 and parked
+//! until EG3 (K14); through 0.2.19 it was E1002 on every wolfgang lane
+//! while lupin ran it. Now `3 12 13` on checked, native, release and
+//! lupin 0.1.42. The twins that stay refused:
+//! `elem_loop_covers_const.lu` (`0..3` holds `0`),
+//! `elem_loop_inclusive_covers_const.lu` (`..=` holds its end),
+//! `elem_loop_induction_written_mut.lu` (the index assigned in the
+//! body), `elem_loop_nonliteral_range_mut.lu` (`1..n`).
+## corpus/memory/elem_offset_mut_pair.lu
+//! check: run(exit=0, stdout="2 12\n")
+//! phase: run
+//! conforms: mem.model.place.elem, mem.tier0.excl.1
+//!
+//! eg03 (EGC's EG3) — `[mem.model.place.elem]` item 4, R1: `add2(mut
+//! xs[i], mut xs[i + 1])`. Two offsets from one integer local with
+//! different literal offsets (`0` and `1`) never denote the same
+//! element while the local keeps its value, and nothing in the call
+//! writes `i`, so the two `mut` claims are disjoint. Ruled by eg00 and
+//! parked until EG3 (K13); through 0.2.19 it was E1002 on every
+//! wolfgang lane while lupin ran it. Now `2 12` on checked, native,
+//! release and lupin 0.1.42. The twins that stay refused:
+//! `elem_offset_other_local.lu` (another local), `elem_offset_rebound_*`
+//! (the local written between the claims), `elem_offset_{negative,
+//! nonliteral,zero,vs_literal}_mut.lu`.
+## corpus/memory/field_shorthand_copy.lu
+//! check: run(exit=0, stdout="3 hi 3 hi\n")
+//! phase: run
+//! conforms: gram.expr.primary, mem.tier0.move.3
+//!
+//! s190 (wolf-lang#486) — a `Copy` field through the shorthand stays a
+//! copy: `P { n, s }` copies `n` (an `int`) and `s` (a `str` view), and
+//! both locals stay usable. Every lane prints the same line. Before
+//! s190 the checked machine dropped shorthand fields from the struct
+//! and answered `unsupported` at the first field read.
+## corpus/memory/field_shorthand_mixed_runs.lu
+//! check: run(exit=0, stdout="2 2 3 2\n")
+//! phase: run
+//! conforms: gram.expr.primary, mem.tier0.move.1
+//!
+//! s190 (wolf-lang#486) — the accepted twin of
+//! `field_shorthand_mixed.lu`: the same mixed literal with no later use
+//! of a moved local. The `Copy` local `n` stays readable. Every lane
+//! prints the same line; the checked machine answered `unsupported`
+//! before s190.
+## corpus/memory/field_shorthand_nested_runs.lu
+//! check: run(exit=0, stdout="3 5\n")
+//! phase: run
+//! conforms: gram.expr.primary, mem.tier0.move.1
+//!
+//! s190 (wolf-lang#486) — the accepted twin of
+//! `field_shorthand_nested.lu`: the nested shorthand with no later use
+//! of `xs`. Every lane prints the same line; the checked machine
+//! answered `unsupported` before s190.
+## corpus/memory/field_shorthand_return_take.lu
+//! check: run(exit=0, stdout="3\n")
+//! phase: run
+//! conforms: gram.expr.primary, mem.tier0.move.1
+//!
+//! s190 (wolf-lang#486) — the accepted twin of
+//! `field_shorthand_return_mut.lu`: a `take` parameter is the callee's
+//! to move, so `return W { xs }` is legal. Every lane prints the same
+//! line; the checked machine answered `unsupported` before s190.
+## corpus/memory/mut_claim_nested_copy_read.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.model.order, mem.model.place.elem
+//!
+//! s186 (wolf-lang#476's rule; ruled two-phase, `[mem.tier0.excl.4]`)
+//! — a `Copy` read of the claimed element itself, one call down:
+//! `id(xs[0])` is 1 before the call, and `xs[0]` becomes 2. lupin
+//! 0.1.42 traps `exclusivity` (pre-mirror).
+## corpus/memory/mut_claim_nested_disjoint_reads.lu
+//! check: run(exit=0, stdout="11 3\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.model.order, mem.model.place.elem, mem.model.path.disjoint
+//!
+//! s186 (wolf-lang#476) — the shapes the nested-access check must
+//! keep running: a nested read of a DIFFERENT element (`id(xs[1])`,
+//! item 1(a)), of the header beside an element claim (`id(xs.count())`,
+//! 1(c) and #474), a read evaluated BEFORE the claim began (`bump2`'s
+//! first argument), a disjoint field (`r.xs` beside `mut r.k`), and a
+//! header method in a branch. Each ran on every wolfgang lane before
+//! s186 with lupin's bytes, and still does.
+## corpus/memory/mut_claim_nested_get.lu
+//! check: run(exit=0, stdout="3\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.model.order, mem.model.place.elem
+//!
+//! s186 (wolf-lang#476, the first of s185's two shapes; ruled
+//! two-phase, `[mem.tier0.excl.4]`) — a whole-reading RECEIVER in a
+//! later argument: `get` reads all of `xs` (1(c): only `len`, `count`
+//! and `is_empty` are header reads), and the read ends before the claim
+//! on `xs[0]` takes effect. `get(1)` is 2, `xs[0]` becomes 3. lupin
+//! 0.1.42 traps `exclusivity` (pre-mirror).
+## corpus/memory/mut_claim_nested_header.lu
+//! check: run(exit=0, stdout="4\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.model.order, mem.model.place.elem
+//!
+//! s186 (wolf-lang#476, the second of s185's two shapes; ruled
+//! two-phase, `[mem.tier0.excl.4]`) — the header of a container whose
+//! WHOLE is claimed, read in a later argument: `count()` is 3 before
+//! the call, `grow` pushes it, the length is 4. lupin 0.1.42 traps
+//! `exclusivity` (pre-mirror).
+## corpus/memory/mut_claim_nested_map.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.tier0.mode.mut, mem.model.order
+//!
+//! s186 (wolf-lang#476's rule; ruled two-phase, `[mem.tier0.excl.4]`)
+//! — the `Map` twin of `mut_claim_nested_read_whole.lu`:
+//! `msize(m)` is 1 before the call, and `mput` stores it under a new
+//! key, so the map holds 2. lupin 0.1.42 traps `exclusivity`
+//! (pre-mirror).
+## corpus/memory/mut_claim_nested_read_elem.lu
+//! check: run(exit=0, stdout="4 3\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.tier0.mode.mut, mem.model.order, mem.model.place.elem
+//!
+//! s186 (wolf-lang#476, eg02b's find; ruled 2026-09-30 two-phase,
+//! `[mem.tier0.excl.4]`) — a read lend of the WHOLE container one
+//! call down, inside a later argument, beside `mut xs[0]`. The claim
+//! takes effect at call entry; `total(xs)` has ended by then and its
+//! result lends nothing from `xs`, so the call runs with the read's
+//! value from before it: `total` is 3, `xs[0]` becomes 4. Every
+//! wolfgang lane printed this through 0.2.19 too; lupin 0.1.42 traps
+//! `exclusivity` (pinned pre-mirror in the gate; is63 moves lupin).
+## corpus/memory/mut_claim_nested_read_whole.lu
+//! check: run(exit=0, stdout="1 4\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.tier0.mode.mut, mem.model.order
+//!
+//! s186 (wolf-lang#476; ruled two-phase, `[mem.tier0.excl.4]`) — the
+//! whole-claim twin of `mut_claim_nested_read_elem.lu`:
+//! `grow(mut xs, total(xs))` reads `xs` one call down before the claim
+//! takes effect, then `grow` pushes that length (3). lupin 0.1.42 traps
+//! `exclusivity` (pre-mirror).
+## corpus/memory/mut_claim_operand_read.lu
+//! check: run(exit=0, stdout="3\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.1, mem.tier0.mode.mut, mem.model.order
+//!
+//! s186 (wolf-lang#476's rule; ruled two-phase, `[mem.tier0.excl.4]`)
+//! — an OPERAND of a later argument reads the claimed place:
+//! `a + 1` is 2 before the call, and `a` becomes 3. lupin 0.1.42 traps
+//! `exclusivity` (pre-mirror).
+## corpus/memory/mut_claim_two_phase_reads.lu
+//! check: run(exit=0, stdout="2 4 23 1 3 5 2 3\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.model.order, mem.model.place.elem
+//!
+//! s186 (ruled 2026-09-30, `[mem.tier0.excl.4]`: arguments are
+//! two-phase) — the reads a later argument may make of a place an
+//! earlier `mut` argument claims, each seeing the value from before the
+//! call: a direct `Copy` read of the claimed place (`bump(mut a, a)`,
+//! E1002 under D39 through 0.2.19), a direct member read of a claimed
+//! container (`grow(mut xs, xs.len)`, E1002 through 0.2.19), and the
+//! downstream shapes s186 measured in boreutils and lobo — a field read
+//! by string interpolation (`fail(mut fl, "…{fl.store}")`), a header
+//! read in an operand (`ensure(mut f, f.len + 3)`) and a nested call
+//! over the claimed struct (`ring_drop(mut r, ring_len(r))`). Last, a
+//! receiver claim beside a sibling field's header (bu12's `tr.lu:528`
+//! shape): disjoint paths, and a read either way. lupin 0.1.42 traps
+//! the claimed-place reads `exclusivity` (pinned pre-mirror in the
+//! gate; is63 moves lupin).
+## corpus/memory/mut_read_overlap.lu
+//! check: run(exit=0)
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.path.disjoint
+//! Arguments are two-phase (`[mem.tier0.excl.4]`, s186, ruled
+//! 2026-09-30): a `mut` argument's claim takes effect at call entry, so
+//! the `Copy` read of `p.x` in the later argument ends before it and
+//! sees the value from before the call (1); `bump` makes `p.x` 2. This
+//! row was D39's refusal (#27, E1002 through 0.2.19) — the receiver
+//! shape (`xs.push(xs.len)`) was always two-phase, and now an argument
+//! is too. lupin 0.1.42 traps `exclusivity` (is63 moves lupin).
+## corpus/memory/nested_fn_mut_param.lu
+//! check: run(exit=0, stdout="4 42 2 9 7 5\n4\n")
+//! phase: run
+//! conforms: mem.tier0.mode.mut, mem.tier0.mode.take, gram.item.fn
+//!
+//! s186 (wolf-lang#466) — a nested named fn's `mut` and `take`
+//! parameters are the module fn's: the call site spells the mode (X1),
+//! and the callee's writes reach the caller's place — a list grown in
+//! place, an `int` incremented, an element lent `mut`, a parameter
+//! moved out and stored back before the return, a `mut` parameter
+//! re-lent to a module fn, and a `take` that consumes. Through 0.2.19
+//! every spelled `mut`/`take` here was E1007 ("takes this parameter as
+//! plain `read`"): the call went through the fn VALUE's type, which
+//! carries no modes. The native tiers lower the nested fn as a direct
+//! call with the module fn's convention; the checked executor still
+//! refuses a nested fn by name (the #12 family, as
+//! `typecheck/nested_fn_value.lu` says), and lupin 0.1.42 declines a
+//! nested fn with a moded parameter.
+## corpus/memory/recv_claim_arg_reads.lu
+//! check: run(exit=0, stdout="5 2 5 5 2 3 3 5 3 3 2 10 5\n")
+//! phase: run
+//! conforms: mem.tier0.excl.4, mem.tier0.excl.3, mem.model.order, mem.model.place.elem
+//!
+//! s192 (wolf-lang#487) — what a `mut` receiver's own arguments may
+//! still do, each seeing the value from before the call (a receiver's
+//! claim was always two-phase, `[mem.tier0.excl.4]`): a header read
+//! (`(mut xs).push(xs.len)`), a whole read one call down, a block that
+//! writes only its own local, bu12's sibling-field read
+//! (`(mut out.class_off).push(out.bytes.len)`, boreutils `tr.lu:528`),
+//! a write to a sibling field, reads around an element receiver, a
+//! write to a different literal element, a receiver written AFTER the
+//! call, and a read of a view-set receiver's own field. Each ran before
+//! s192 with these bytes on every machine, lupin 0.1.42 included, and
+//! still does.
+## corpus/memory/recv_view_arg_callee_view_write.lu
+//! check: run(exit=0, stdout="10 20 9\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — the callee writes BOTH of its view fields
+//! while the argument wrote the field outside the view. Every view
+//! field the callee wrote comes back (`x` and `y`), and the argument's
+//! `z` stands: the write-back is the whole view set, not only the
+//! fields the caller can name. Through s192 native and release printed
+//! `10 20 3`; lupin 0.1.42 prints `10 20 3`.
+## corpus/memory/recv_view_arg_elem.lu
+//! check: run(exit=0, stdout="10 9 6\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — an ELEMENT receiver with a view set
+//! (`(mut ps[0]).set_x(..)`), the argument writing that element's
+//! field outside the view. native and release lend the element's
+//! address (no spill, no write-back), so this already printed
+//! `10 9 6` on every wolfgang lane before s193; it pins that the
+//! element form keeps doing so. lupin 0.1.42 prints `10 3 6`.
+## corpus/memory/recv_view_arg_field_recv.lu
+//! check: run(exit=0, stdout="10 9 8\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — the view-set receiver is itself a FIELD
+//! (`(mut o.v).set_x(..)`), and the argument writes a field of `o.v`
+//! outside the view and a sibling of `o.v`. Both stand. Through s192
+//! native and release printed `10 3 8` (the sibling survived, the
+//! field inside the receiver did not); lupin 0.1.42 prints `10 3 8`.
+## corpus/memory/recv_view_arg_list_field.lu
+//! check: run(exit=0, stdout="4 3 7\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — a `List` field outside the view set replaced
+//! in the argument. The new buffer stands. Through s192 native and
+//! release wrote the stale spill back over it and printed `4 1 5`:
+//! the replaced buffer came back and the new one was lost. lupin
+//! 0.1.42 prints `4 1 5`.
+## corpus/memory/recv_view_arg_nested_field.lu
+//! check: run(exit=0, stdout="10 9 3\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — a NESTED struct field outside the view set
+//! (`p.w.a`) written in the argument. It stands, and its sibling
+//! `p.w.b` is untouched. Through s192 native and release printed
+//! `10 2 3`; lupin 0.1.42 prints `10 2 3`.
+## corpus/memory/recv_view_arg_outside_write.lu
+//! check: run(exit=0, stdout="10 9\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494, found by s192) — a view-set receiver
+//! (`mut self.{x}`) whose call's argument writes a field OUTSIDE the
+//! view set. `[mem.tier0.excl.3]` leaves `p.z` the caller's while the
+//! callee holds `p.x`, and `[mem.tier0.excl.4]` runs the argument
+//! before the claim, so `p.z = 9` stands. Through s192 native and
+//! release wrote the receiver back whole from its pre-argument spill
+//! and printed `10 3`; checked printed `10 9`; lupin 0.1.42 prints
+//! `10 3`.
+## corpus/memory/recv_view_arg_relend.lu
+//! check: run(exit=0, stdout="10 9\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — a view-set call on a `mut self` parameter,
+//! re-lent from inside a method, the argument writing `self.z`. The
+//! parameter is an address (no spill, no write-back), so this already
+//! printed `10 9` on every wolfgang lane before s193. lupin 0.1.42
+//! prints `10 3`.
+## corpus/memory/recv_view_arg_two_fields.lu
+//! check: run(exit=0, stdout="10 7 9\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — two fields outside a one-field view set,
+//! both written in the argument. Both stand. Through s192 native and
+//! release printed `10 2 3`; lupin 0.1.42 prints `10 2 3`.
+## corpus/memory/recv_view_arg_two_view_third.lu
+//! check: run(exit=0, stdout="10 2 9\n")
+//! phase: run
+//! conforms: mem.tier0.excl.3, mem.tier0.excl.4, mem.tier0.mode.mut, mem.model.order
+//!
+//! s193 (wolf-lang#494) — a view set of two fields (`mut self.{x, y}`)
+//! with the third field written in the argument. The callee touches
+//! only `x`; `y` comes back as it was and `z` keeps the argument's
+//! write. Through s192 native and release printed `10 2 3`; lupin
+//! 0.1.42 prints `10 2 3`.
+## corpus/memory/versioned_loop_cross_module/main.lu
+//! check: run(exit=0, stdout="4\n")
+//! phase: run
+//! conforms: arith.checked
+//!
+//! s202 (wolf-lang#425): `versioned_loop_inlined_root.lu` with the ring
+//! in its own module, the shape the issue filed (`bore.ring_at` is
+//! cross-module from `src/cut.lu`). The mid-end inlines the imported
+//! `ring_at` into the walk, its `region.foreign` roots land inside the
+//! loop, and the versioner cloned them: `--release` was an ICE
+//! (`[region-root] ... two token roots`) at trunk 12a56b22.
+## corpus/memory/versioned_loop_inlined_root.lu
+//! check: run(exit=0, stdout="4\n")
+//! phase: run
+//! conforms: arith.checked
+//!
+//! s202 (wolf-lang#425): boreutils `cut -n`'s walk, reduced. `ring_at`
+//! reads a `List[byte]` it was lent, so it mints its own foreign-region
+//! roots, and inlining puts those `region.foreign` instructions INSIDE
+//! the caller's `while j <= len` loop. The loop is innermost, call-free
+//! and carries a check the range analysis can version away, so the
+//! versioner cloned it, roots and all: two token roots for one region,
+//! and `--release` stopped on `wir verify error [region-root] ... has
+//! two token roots` (an ICE). `WOLF_MIDEND=0`, the default backend and
+//! the checked machine always ran it. A loop holding a root is no
+//! longer versioned; it keeps its checks. The issue's 40-line
+//! extractions missed the trigger: the walk must sit inside an outer
+//! loop of a fn that does not itself inline.
+## corpus/rows/defer_else_handles.lu
+//! check: run(exit=0, stdout="body\nkey\na\nkey\ndeferred a\n1\nbody\nkey\nkey\nerrdefer -\nkey\ndeferred -\n9\n")
+//! phase: run
+//! conforms: type.row.defer, err.else, err.errdefer, mem.model.order
+//!
+//! s196 (wolf-lang#498, ruling #19) — the control, and E0611's fix:
+//! the fallible call under a `defer` or `errdefer` handles its own row
+//! with `else` inside the deferred expression, so nothing tries to
+//! leave the function while it is leaving. Green on every machine
+//! before and after the ruling. On the error path the `errdefer` runs
+//! before the `defer` (declared after it; LIFO), and each runs `key`
+//! again.
+## corpus/rows/else_own_failure.lu
+//! check: run(exit=0, stdout="plain\nlook a\n5\nlook zz\n0\ntry\nkey\nlook a\n0\ncallee\nlook zz\n0\nblock\nblk\nlook zz\n0\nhandler\nlook zz\ncaught none\n-1\n")
+//! phase: run
+//! conforms: type.row.else, err.else, err.propagate
+//!
+//! s191 (wolf-lang#492) — the control: an `else` whose scrutinee fails
+//! on its OWN row handles it, on every machine. A plain fallible call;
+//! the same call with a `?` in its argument that does not fire (the
+//! call itself then misses); a callee whose own body propagated with
+//! `?` (a call's failure is the call's own row at its call site); a
+//! block whose tail fails; and a binding handler. Green at trunk.
+## corpus/rows/else_return_tag.lu
+//! check: run(exit=0, stdout="tag\nblk\nlook a\nafter 5\n5\nblk\n9\nvalue\nblk\nlook a\nafter 5\n5\nblk\n3\n")
+//! phase: run
+//! conforms: type.row.else, err.else
+//!
+//! s191 (wolf-lang#492) — a `return` inside a block within the
+//! scrutinee. `return parse` returns the row from the function: it is
+//! not the block's own failure, so the `else` does not handle it and
+//! the caller's `else 9` answers. `return 3` is its value twin (a
+//! control: a returned value already passed every `else`). The checked
+//! machine's `else` caught the returned row and answered 0.
+## corpus/rows/else_try_block.lu
+//! check: run(exit=0, stdout="key\nlook a\ndefer\nafter 5\n5\nkey\nerrdefer\ndefer\n9\n")
+//! phase: run
+//! conforms: type.row.else, err.else, err.propagate, err.errdefer
+//!
+//! s191 (wolf-lang#492) — a `?` inside a block within the scrutinee.
+//! The block's `let k = key(ok)?` propagates: the block's scope closes
+//! on the error path (its `errdefer`, then its `defer`, LIFO) and the
+//! row leaves the function past the `else`, which handles the block's
+//! own row only. The checked machine's `else` caught it, so `after 0`
+//! printed and the function answered 0.
+## corpus/rows/else_try_call_arg.lu
+//! check: run(exit=0, stdout="key\nlook a\nafter 5\n5\nkey\n9\n")
+//! phase: run
+//! conforms: type.row.else, err.else, err.propagate
+//!
+//! s191 (wolf-lang#492) — a `?` in a call argument under `else`. In
+//! `look(m, key(ok)?) else 0` the `else` handles `look`'s own row,
+//! `{none}`; `key`'s `parse` reaches the `?` first and leaves
+//! `via_call`, so `after` never prints and the caller's `else 9`
+//! answers. The checked machine's `else` caught the propagating `?`,
+//! printed `after 0` and answered 0.
+## corpus/rows/else_try_handler.lu
+//! check: run(exit=0, stdout="bind\nkey\nlook a\nafter 5\n5\nkey\n9\nkey\nlook a\ncaught none\nafter -1\n-1\npath\nkey\n9\nkey\nlook a\nafter -2\n-2\n")
+//! phase: run
+//! conforms: type.row.else, err.else, err.propagate
+//!
+//! s191 (wolf-lang#492) — an `else |e|` handler that inspects the
+//! error. The handler is typed over `look`'s row, `{none}`
+//! (`[type.row.else]`), and runs for that row only: `key`'s `parse`
+//! leaves the function through the `?` and never reaches it. A
+//! binding handler that matches on the tag, then the path form
+//! `else |none|`, each with the `?` firing and with the handler's own
+//! row arriving (an empty map). The checked machine handed `parse` to
+//! a handler typed over `{none}`.
+## corpus/rows/else_try_index.lu
+//! check: run(exit=0, stdout="let\nkey\nafter 5\n5\nkey\n9\ntail\nkey\n5\nkey\n9\n")
+//! phase: run
+//! conforms: type.row.else, err.else, err.propagate
+//!
+//! s191 (wolf-lang#492) — a `?` in a `Map` index under `else`. In
+//! `m[key(ok)?] else 0` the `else` handles the index's own row
+//! (`{none}`, an absent key); `key`'s `parse` leaves the function
+//! through the `?`. Bound by `let` and as the function's tail. The
+//! checked machine's `else` caught the propagating `?` and answered 0.
+## corpus/rows/else_try_nested_else.lu
+//! check: run(exit=0, stdout="key\nlook a\nname 5\nlook a\nafter 5\n5\nkey\n9\nkey\nlook a\nname 0\nlook z\nafter 7\n7\n")
+//! phase: run
+//! conforms: type.row.else, err.else, err.propagate
+//!
+//! s191 (wolf-lang#492) — a `?` under three nested `else`s. Each
+//! `else` handles its own scrutinee's row only, so `key`'s `parse`
+//! passes through all three and leaves `nested`; the caller's `else 9`
+//! answers. The second call is the control: with an empty map every
+//! `else` handles its own scrutinee's `none` in turn (0, then "z",
+//! then 7), on every machine. The checked machine's innermost `else`
+//! caught the propagating `?` and the chain ran on to `after 7`.
+## corpus/rows/errdefer_block_loop_break.lu
+//! check: run(exit=0, stdout="look a\ndefer blk a\ntotal 5\nlook b\ndefer blk b\ntotal 12\nlook zz\ndefer blk zz\nerrdefer blk zz\ndone 12\n")
+//! phase: run
+//! conforms: mem.model.order, err.errdefer, type.row.else
+//!
+//! s196 (wolf-lang#499, ruling #20) — a block inside a loop, its row
+//! handled by an `else` that breaks. The block's `errdefer` runs on
+//! the turn whose lookup fails, before the `else` runs and before the
+//! `break` leaves the loop (the block's scope closes first, the
+//! handler sees a closed scope). The keys that hit run the `defer`
+//! only. Native and release skipped `errdefer blk zz` before the
+//! ruling.
+## corpus/rows/errdefer_block_nested.lu
+//! check: run(exit=0, stdout="look a\ndefer inner\ndefer outer\n5\nlook zz\ndefer inner\nerrdefer inner\ndefer outer\nerrdefer outer\n-1\nlook a\ndefer blk\ndefer fn\n5\nlook zz\ndefer blk\nerrdefer blk\ndefer fn\nerrdefer fn\n9\n")
+//! phase: run
+//! conforms: mem.model.order, err.errdefer, type.row.else
+//!
+//! s196 (wolf-lang#499, ruling #20) — nested blocks. The inner block's
+//! value is a row, so the inner scope leaves on the error path and runs
+//! its `errdefer`; that row is then the outer block's value, so the
+//! outer scope leaves the same way: inner cleanup first, each scope
+//! LIFO. `tail_nested` is the same shape as a function's tail: the
+//! block's `errdefer` runs, then the function's. Native and release
+//! skipped every block-level `errdefer` here before the ruling.
+## corpus/rows/errdefer_block_row.lu
+//! check: run(exit=0, stdout="look zz\ndefer blk\nerrdefer blk\n0\nlook a\ndefer fn\n5\nlook zz\ndefer fn\nerrdefer fn\n9\n")
+//! phase: run
+//! conforms: mem.model.order, err.errdefer, type.row.else
+//!
+//! s196 (wolf-lang#499, ruling #20) — the issue's shape. A block whose
+//! value is an error has left on the error path, so its `errdefer`
+//! runs, exactly as a function's does at its tail (`tail_row` is the
+//! in-file control). Before the ruling native and release ran the
+//! block's `defer` and skipped its `errdefer`; the checked machine and
+//! lupin 0.1.43 ran both.
+## corpus/rows/errdefer_fn_tail_control.lu
+//! check: run(exit=0, stdout="look a\ndefer fn\n5\nlook zz\ndefer fn\nerrdefer fn\n9\nearly\ndefer fn\nerrdefer fn\n9\n")
+//! phase: run
+//! conforms: mem.model.order, err.errdefer
+//!
+//! s196 (wolf-lang#499, ruling #20) — the function-tail control. A
+//! function whose tail value is a row, and one that returns a tag
+//! early: the `errdefer` runs on both error exits and never on the
+//! ok one, on every machine, before and after the ruling. The block
+//! rows (`errdefer_block_*.lu`) are this behaviour at a block.
+## corpus/rows/eu_bind_empty_row_handled.lu
+//! check: run(exit=0, stdout="43 42 42\n")
+//! phase: run
+//! conforms: type.row.match, type.row.else, err.union, err.rows
+//!
+//! s202 (wolf-lang#393): the other readings of a bound `!int` whose
+//! inferred row is empty. A `match` over it has no tag to name, so its
+//! arms are value arms over the `int` (`43`); `else` passes the value
+//! through (`42`); returning it from a fn with a wider row wraps the ok
+//! half (`42`). At trunk 12a56b22 the `match` answered `unsupported`
+//! on native and release; checked and lupin ran it.
+## corpus/rows/eu_bind_empty_row.lu
+//! check: run(exit=0, stdout="42\n42\n42\n")
+//! phase: run
+//! conforms: type.interp.union, err.union
+//!
+//! s202 (wolf-lang#393): a `!int` call bound WITHOUT `?`, when the
+//! callee's inferred row is empty. `[type.interp.union]` renders a
+//! `!T` hole as its ok payload when it holds one, so every line here
+//! is `42`. A statically-empty row lowers as its plain ok value
+//! (`else` and `?` already knew that); the hole did not, reached
+//! `eu.ok` on a plain i64, and native and release PANICKED
+//! (`build.rs:1210`, every release since 0.2.14). The checked machine
+//! and lupin always ran it. The issue's program, its `{ f() }` twin,
+//! and the same binding in a `-> int` main.
+## corpus/rows/eu_bind_empty_row_unit.lu
+//! check: run(exit=0, stdout="g\n()\n")
+//! phase: run
+//! conforms: type.interp.union, err.union
+//!
+//! s202 (wolf-lang#393): the unit twin. `g` returns `!()` with an
+//! empty inferred row, so the bound value is valueless on native and
+//! release, and the hole renders the ok half, `()`. At trunk 12a56b22
+//! native and release refused it as "a valueless union in
+//! interpolation"; checked and lupin printed `()`.
+## corpus/rows/match_row_bare_tag.lu
+//! check: run(exit=0, stdout="look zz\n-1\nlook a\n6\nlook zz\n-2\nlook a\n1\n")
+//! phase: run
+//! conforms: type.row.match, type.row.operand, err.union, err.rows
+//!
+//! s197 (wolf-lang#497, ruling #21) — `match` straight over a fallible
+//! value, the two-arm shape: a row arm (`none`, a tag of the row by
+//! name) and a value arm (`v`, a binding over the `int` half). The
+//! first pair matches the call itself; the second matches a bound
+//! `!int` (`let x = look(m, "zz")`), with `_` covering the value half.
+//! Red at trunk cdde128a on every wolfgang lane (`unsupported`);
+//! lupin runs it.
+## corpus/rows/match_row_else_control.lu
+//! check: run(exit=0, stdout="look zz\n-1\nlook zz\nseven\nlook a\n5\n")
+//! phase: run
+//! conforms: type.row.match, type.row.else, err.union, err.rows
+//!
+//! s197 (wolf-lang#497, ruling #21) — the control: `else |e| match e {
+//! … }` binds the row and matches it, and `match (… else 7)` matches
+//! the defaulted value. Both keep working beside the direct form;
+//! both ran on every machine before this lane (s191's m3 probe).
+//! Green at trunk.
+## corpus/rows/match_row_nested.lu
+//! check: run(exit=0, stdout="none dot line 3\nlook a\nlook b\n12\nlook a\nlook zz\n5\nlook zz\n-1\n")
+//! phase: run
+//! conforms: type.row.match, gram.pat.nullary, err.union, err.rows
+//!
+//! s197 (wolf-lang#497, ruling #21) — two nestings. `shape_name`: the
+//! value half is an enum, so `Dot` and `Line(k)` are value patterns
+//! over `Shape` while `none` is the row arm; no name is shared, so
+//! nothing is guessed. `both`: a value arm whose body is another
+//! `match` over a fallible value, the outer binding `v` read inside
+//! the inner arms.
+## corpus/rows/match_row_payload_tag.lu
+//! check: run(exit=0, stdout="eof\nbad x\ntwo\nlong 4\nlen 1\n")
+//! phase: run
+//! conforms: type.row.match, gram.pat, err.union, err.rows
+//!
+//! s197 (wolf-lang#497, ruling #21) — every arm kind in one `match`
+//! over `int ! {Bad(str), eof}`: a row arm with a payload (`Bad(what)`
+//! binds the `str`), a bare row arm (`eof`), a literal value arm
+//! (`2`), a guarded binding (`n if n > 2`) and the closing binding
+//! (`n`). The row arms are tried by tag, the value arms by the value;
+//! neither half sees the other.
+## corpus/rows/match_row_try_scrutinee.lu
+//! check: run(exit=0, stdout="key\nlook a\nafter 5\n5\nkey\nlook a\nafter -1\n-1\nkey\n9\n")
+//! phase: run
+//! conforms: type.row.match, type.row.else, err.union, err.propagate
+//!
+//! s197 (wolf-lang#497, ruling #21) — the #492 shape on a `match`: a
+//! `?` that fires INSIDE the scrutinee (`look(m, key(ok)?)`) leaves
+//! the function past the arms, exactly as it leaves past an `else`
+//! (`[type.row.else]`); the arms handle `look`'s own row only. The
+//! caller's `else 9` sees `key`'s `parse`. On the checked machine a
+//! propagating row (`Flow::Err(_, true)`) must never reach the row
+//! arms.
+## corpus/rows/match_row_wild_each_half.lu
+//! check: run(exit=0, stdout="0: closed | closed | some error\n1: other | io | some error\n2: other | bad 2 | some error\n3: other | value | value 30\n")
+//! phase: run
+//! conforms: type.row.match, err.union, err.rows
+//!
+//! s197 (wolf-lang#497, ruling #21) — `_` covers what is left on BOTH
+//! halves. `rest_both`: one tag named, `_` takes the other two tags
+//! and every value. `rest_value`: every tag named, `_` takes only the
+//! value half. `rest_row`: the binding `v` takes the value half (a
+//! name that is not a tag is a value pattern), so `_` takes only the
+//! row — and is reachable, not a dead arm.
+## corpus/typecheck/numlit_binding_value_later_use.lu
+//! check: run(exit=0, stdout="1 60 3 922337203685477580 5000000001 12\n")
+//! phase: run
+//! conforms: type.numlit.default, type.numlit.value
+//!
+//! s202 (wolf-lang#458), the controls. What a later use still decides
+//! is the binding's type: `let n = 0` then `take_int(n)` is an `int`,
+//! and `var i = 0` compared with `xs.len` is an `int`, exactly as
+//! `[type.numlit.value]` says; their literals fit `i32`, so nothing is
+//! refused. The annotated spellings of #458's literals run everywhere.
+//! A literal in a call argument has the parameter's type, and a
+//! literal beside a value in a term has the value's: lobo's
+//! `packed / 10000000000` (`src/acme/acme.lu`) is an `int` division,
+//! which s202's first cut of the rule refused by mistake.
+=== modified run program diffs
+diff --git a/corpus/faults/index_origin_min_overflow.lu b/corpus/faults/index_origin_min_overflow.lu
+index cadb9003..a0b87925 100644
+--- a/corpus/faults/index_origin_min_overflow.lu
++++ b/corpus/faults/index_origin_min_overflow.lu
+@@ -6,13 +6,21 @@
+ //! index value with no representable predecessor — int.min — traps
+ //! `overflow` before the bounds question is asked. Priced and
+ //! accepted in D61; every other out-of-range index traps `bounds`.
++//!
++//! s202 (wolf-lang#458): `i` is annotated. Unannotated, the literal
++//! `9223372036854775807` is an `i32` literal at the binding (E0415);
++//! this row ran only because the later index use typed the literal as
++//! well as the binding, the defect #458 removes. lupin 0.1.43 trapped
++//! the unannotated row at the literal, not at the shift: the same
++//! verdict for another reason. Annotated, all four machines trap at
++//! `xs[i]`, the shift this row is about.
+ 
+ #![index(1)]
+ 
+ fn main() -> !int {
+     var xs = List[int]()
+     (mut xs).push(10)
+-    let i = 0 - 9223372036854775807 - 1
++    let i: int = 0 - 9223372036854775807 - 1
+     let v = xs[i]                  // TRAP overflow: i - 1 has no home
+     v
+ }
+=== CHANGELOG 0.2.21 entry
+## 0.2.21 — 2026-10-02
+
+THE TWENTY-FIRST. A `match` over a fallible value compiles and runs on
+every lane (the maintainer's ruling #21, `[type.row.match]`): an arm
+naming a tag of the scrutinee's row handles the error half, any other
+pattern handles the value half, and the match must cover both. A `?`
+inside a `defer` or `errdefer` is refused (ruling #19,
+`[type.row.defer]`, new E0611) where native and release overflowed the
+compiler's stack, and a block's `errdefer` runs when the block's value
+is an error (ruling #20). An unannotated binding's literal takes
+`i32` at the binding, as lupin always answered, and three native and
+release compiler crashes are fixed. Release builds are reproducible
+again. The pairing moves to lupin 0.1.44, whose spec pin moves to
+v0.2.20 and which carries every mirror this release's gates pinned
+lupin 0.1.43's answers on by version. Four lanes and 80 commits: s195, s196, s197,
+s202.
+
+### Read this before you bump the pin
+
+**Three programs gave a wrong answer with no diagnostic on 0.2.20.**
+Each is now refused or answers the ruled bytes on every lane:
+
+- `let b = { errdefer print("errdefer blk"); defer print("defer blk");
+  look(m, "zz") } else 0` printed `defer blk` alone on native and
+  release: a block's `errdefer` did not run when the block's value was
+  an error (#499). Both run on every lane now, as the checked machine
+  and lupin already ran them.
+- `defer print("deferred {key(ok)?}")` ran on the checked machine and
+  dropped the `?`'s error, so the function answered `1` (#498); native
+  and release overflowed the compiler's stack on the same program.
+  E0611 on every lane now.
+- `let big = 5000000000` then `take_int(big)` printed `5000000001` on
+  checked, native and release: a later `int` use typed the literal
+  (#458). The literal takes `i32` at the binding now, so it is E0415,
+  which is lupin's answer.
+
+**Programs that compiled are now refused.** A `?` anywhere inside a
+deferred expression (E0611). s196 found no `?` under a defer in any
+downstream. An unannotated binding whose literal (or term of
+literals) does not fit `i32` (E0415); s202 found no boreutils or lobo
+build that moved, and one corpus row now spells `let i: int`.
+
+**Programs that were refused now compile.** A `!T` bound without `?`
+whose row is empty, read in a hole or a `match` (a compiler panic on
+native and release since 0.2.14, #393); any `str` as an assert
+message (#398); a loop holding an inlined region root on release
+(#425). A `match` whose scrutinee has type `T ! {row}`: `match
+look(m, k) { none => -1, v => v }` (`unsupported` on every wolfgang
+lane through 0.2.20); a tag that is also a variant of the value type
+is E0816, never guessed.
+
+**Release builds are reproducible.** With the mid-end on, three
+release builds of one program by one compiler gave three different
+binaries on 0.2.20 (#503). They are byte-identical now.
+
+### The pairing: lupin 0.1.44
+
+`PAIRING` names **lupin 0.1.44 at pin `cdde128`** (wolf-interp release
+402215729; the linux x86-64 archive's sha256 `e44aae06…`), whose spec
+pin is this compiler's v0.2.20 tag and which carries
+wolffe-lang/wolf-interp#163 and the lupin halves of rulings #21
+(`[type.row.match]`, E0801, E0816) and #19 (`[type.row.defer]`,
+E0611). The ritual (#87, with #281's control against the 0.1.43
+archive, same corpus, same release `wolf`) **moved one ledger count on
+each tier** — the parting named below — and moved **eleven files below
+the ledger on each tier, the same eleven**, each to the compiler's
+answer: the five
+`rows/match_row_*` rows (lupin's stdout now the ruled bytes: 0.1.43
+took the first bare-tag arm for a value too), the three
+`rows/negative/match_row_*` refusals (`exit` → `fail(E0801)` or
+`fail(E0816)`) and the three `rows/negative/try_in_*` rows (`exit(0)`
+→ `fail(E0611)`). Checked: 552 → 551 agreements, hard divergences
+7 → 8, completeness 207, soundness 0; native: 593 → 592, 10 → 11,
+207, 1. Native's one soundness finding
+is still `memory/unsafe_ub_uaf.lu` (`exit` vs `ub(mem.ub)`), the
+program's own use-after-free read on the compiled lane.
+
+The gates that pinned lupin by version drop every 0.1.43 entry: the
+eight `match_fallible_lanes.rs` pins and the three
+`try_under_defer_refused_lanes.rs` pins are gone. The eleven cases they
+held take the ruled arm against the published 0.1.44. None is widened
+and none stays pinned.
+
+One new pin, on one case: lupin 0.1.44 refuses s202's
+`rows/eu_bind_empty_row_handled.lu` with E0801, reading `f`'s inferred
+`-> !int` row as open where the row is empty and every other machine
+(lupin 0.1.43 included) prints `43 42 42`. That is lupin's defect
+(wolffe-lang/wolf-interp#176, which a lupin lane is fixing);
+`fallible_bind_empty_row_lanes.rs` pins 0.1.44's `fail(E0801)` by
+version until the next pairing, and it is the one ledger count the
+ritual moves, on each tier.
+
+### A literal written at an unannotated binding takes `i32` (s202, #458)
+
+- **A later use typed the literal, not only the binding.** `let c =
+  922337203685477580` followed by `if s > c` with `s: int` ran as
+  64-bit on checked, native and release, and `let big = 5000000000`
+  then `take_int(big)` printed `5000000001`; lupin 0.1.43 traps both
+  as outside `i32`. The literal has no context of its own
+  (`[type.numlit.propagate]`), so it takes `i32` and is **E0415** when
+  it does not fit; a later use still decides the binding's type
+  (`let n = 0; take_int(n)` is unchanged). The same holds when the
+  initializer is a `+ - * / %` term made only of literals; a term with
+  a value operand keeps that operand's type. `[type.numlit.value]`
+  carries the rule and corrects its 2026-09-15 measurement.
+- **One corpus row depended on the old reading and moved:**
+  `faults/index_origin_min_overflow.lu` (`let i = 0 -
+  9223372036854775807 - 1`, used as an index) is E0415 unannotated; it
+  now spells `let i: int`, and all four machines trap at the index
+  shift it is about (lupin used to trap it at the literal). No
+  boreutils or lobo build moved (lobo's `packed / 10000000000` is a
+  value term and keeps `int`).
+- Witnesses `corpus/typecheck/numlit_binding_literal*.lu` and the
+  control `numlit_binding_value_later_use.lu`; gate
+  `numlit_binding_literal_lanes.rs`.
+
+### Three native and release crashes and one refusal by syntax kind (s202, #393, #398, #425)
+
+- **A `!T` bound without `?` panicked native and release when its row
+  was empty (#393).** `let x = f()` with `f() -> !int` and nothing
+  for `f` to raise, then `print("{x}")`, stopped the compiler at
+  `build.rs:1210` ("eu.ok on a non-eu or unit-ok value") in every
+  release since 0.2.14; checked and lupin printed `42`. A
+  statically-empty row lowers as the plain ok value, which `else` and
+  `?` already handled; the interpolation hole and `match` now do too
+  (the `match` answered `unsupported`, the unit case refused as "a
+  valueless union"). Witnesses `corpus/rows/eu_bind_empty_row*.lu`,
+  gate `fallible_bind_empty_row_lanes.rs`.
+- **An assert message is any `str`, evaluated only on the failing path
+  (#398, `[conf.trap.assert]`).** Native and release decided by syntax
+  kind: a bare parameter or a field read was refused as "assert
+  messages with effects", while an interpolation that calls was
+  accepted and dropped without running its call. The message now
+  lowers into the trap block, before the trap; a literal still emits
+  nothing. Witnesses `corpus/faults/assert_msg_*.lu`, gate
+  `assert_message_lanes.rs`.
+- **The mid-end's loop versioner no longer clones a loop that holds a
+  region token root (#425).** An inlined callee that reads a lent
+  `List` mints its `region.foreign` roots at the call site, inside the
+  caller's loop; versioning copied them and `--release` stopped on
+  `[region-root] ... two token roots` (boreutils `cut -n`'s walk).
+  Such a loop keeps its checks; it did not compile before. Witnesses
+  `corpus/memory/versioned_loop_inlined_root.lu` and
+  `versioned_loop_cross_module/`, gate `versioned_loop_root_lanes.rs`.
+
+### Release IR is reproducible across builds (s195, #503)
+
+- **Release IR is reproducible across builds (s195, #503).** The mid-end walked a natural loop's block set in `HashSet` order, so the versioner's guard chain came out in a per-process order and three release builds of lobo were three binaries; the set is ordered now, `release_determinism.rs` builds a fixed corpus set three times and asserts byte identity (IR and binary), and the macOS native gauntlet runs as three shards (`cargo xtask ci --shard`).
+
+### A `?` inside a `defer` or `errdefer` is refused (s196, #498, ruling #19)
+
+- **Native and release overflowed the compiler's stack** on
+  `defer print("deferred {key(ok)?}")` and on the same `?` under an
+  `errdefer` (`wolf build` and `conform-run` both aborted, rc=134, no
+  record): the `?`'s error edge re-lowered the defer that contains it,
+  without end. The checked machine ran the deferred `?` and dropped
+  its row; lupin 0.1.42 and 0.1.43 made it the function's result.
+- Ruled by the maintainer (#19 = refused) and written as
+  `[type.row.defer]` beside `[type.row.else]`: a deferred expression
+  runs while the function is already leaving, so a second error has
+  nowhere to go. **New E0611** on every machine, at the `?`, naming the
+  `defer`/`errdefer` and the fix (an `else` inside the deferred
+  expression, or the fallible call moved out of it). The refusal reads
+  the whole deferred expression; a `?` in a closure defined under the
+  defer is the closure's own and is not refused.
+- Witnesses: `corpus/rows/negative/try_in_defer.lu`,
+  `try_in_errdefer.lu`, `try_in_defer_block.lu` and the control
+  `corpus/rows/defer_else_handles.lu`; `try_under_defer_refused_lanes.rs`
+  asserts E0611 on checked, native and release, that `wolf build`
+  answers with the diagnostic and never a signal, and pinned lupin
+  0.1.43's measured bytes by version until this release's pairing
+  (below), where 0.1.44 refuses with the same code.
+
+### A block's `errdefer` runs when the block's value is an error (s196, #499, ruling #20)
+
+- **Native and release skipped a block's `errdefer`** when the block's
+  trailing value was a failing call handled by an `else` outside it:
+  `let b = { errdefer print("errdefer blk"); defer print("defer blk");
+  look(m, "zz") } else 0` printed `defer blk` only. The checked machine
+  and lupin ran both, and at a function's tail all four agreed.
+- Ruled by the maintainer (#20 = it runs) and written into
+  `[mem.model.order]`: a scope has left on the error path when its own
+  value is an error, so a block whose value is a row carrying an error
+  runs its `errdefer` as a function whose tail is an error does. The
+  WIR lowering now forks a block's fall-through on the value's err bit
+  — only when the block holds an `errdefer` and its value is a `!T`;
+  every other block's exit is unchanged. The checked machine already
+  did this.
+- Witnesses: `corpus/rows/errdefer_block_row.lu` (the issue's shape),
+  `errdefer_block_nested.lu` (nested blocks, and a block as a
+  function's tail), `errdefer_block_loop_break.lu` (a block in a loop
+  whose `else` breaks) and the control `errdefer_fn_tail_control.lu`;
+  `errdefer_block_row_lanes.rs` runs each on checked, native, release
+  and lupin and asserts they agree on the ruled bytes.
+
+### `match` over a fallible value (s197, #497, ruling #21)
+
+- **`match look(m, k) { none => -1, v => v }` compiles and runs on
+  every lane.** Before this, every wolfgang lane refused a `match`
+  whose scrutinee has type `T ! {row}` as `unsupported`, and lupin ran
+  it with no clause to say what the arms mean. Ruled by the maintainer
+  (#21, "yes, as proposed") and written as `[type.row.match]` beside
+  `[type.row.else]`: an arm naming a tag of the row is a **row arm**
+  (`none`, `Io(e)` with its payload bound); any other pattern is a
+  **value arm** over `T`, exactly as a `match` over `T`; `_` covers
+  what is left on both halves. The match must cover every tag and the
+  whole of `T` — E0801 names the missing tag or the uncovered value
+  half. The row is consumed as `else` consumes it: a `?` that fires
+  inside the scrutinee leaves the function past the arms.
+- **New: E0816** — a tag of the row that is also a variant of `T`
+  (`Shape ! {Line(int)}`) is refused by name, never guessed; `else |e|
+  match e { … }` keeps the halves apart and keeps working.
+- The checked machine dispatches a raw or `let`-bound row to the row
+  arms and a value to the value arms; native and release split the
+  union once (`eu.is_err`) and run one arm chain per half. The sema
+  arm sorter (`fallible_arm_half`) is the one rule all three replay.
+- Witnesses: six `corpus/rows/match_row_*.lu` rows (every arm kind,
+  payload tags, `_` on each half, an enum value half with a nested
+  match, the #492 shape, the `else |e| match e` control) and three
+  refusals under `rows/negative/`. `match_fallible_lanes.rs` runs each
+  on checked, native, release and lupin. lupin 0.1.43 took the first
+  bare-tag arm for a value too; its answers were pinned by version as
+  pre-mirror until this release's pairing (below).
+
+=== CHANGELOG 0.2.20 entry
+## 0.2.20 — 2026-10-01
+
+THE TWENTIETH. Arguments are two-phase (the maintainer's ruling #17,
+`[mem.tier0.excl.4]`): a later argument may read what an earlier `mut`
+argument claims, and may not write, move, re-claim or lend it — for a
+`mut` receiver too. Seven silent wrong answers in the published 0.2.19
+are fixed, and the checked machine no longer runs a slice's endpoints
+or a propagating index operand twice. EG3 lands for one call's
+claims: `add2(mut xs[i], mut xs[i + 1])` and a loop index against a
+literal run. An `else` handles its scrutinee's own row only (ruling
+#18, `[type.row.else]`). A program that inherited a signal blocked
+now hears the signals it arms. The pairing moves to lupin 0.1.43, whose
+spec pin moves to v0.2.19 and which carries every mirror this release's
+gates pinned lupin 0.1.42's answers on by version. Ten lanes and 144 commits: s187, s186,
+eg03, s190, s189, s188, s192, s194, s191, s193.
+
+### Read this before you bump the pin
+
+**Seven programs gave a wrong answer with no diagnostic on 0.2.19.**
+Each is now refused or answers the ruled bytes on every lane:
+
+- `var w = W { xs }; (mut w.xs).push(9); print("{xs.len} {w.xs.len}")`
+  printed `2 2` on native and release: the field shorthand did not move
+  `xs` (#486). It is the longhand now, so the later read is E1001.
+- `(mut xs).push({ xs = [9]; 5 })` printed `1 9` on every lane and lost
+  the push (#487). E1002 now.
+- `(mut p).set_x({ p.z = 9; p.z })` under `fn set_x(mut self.{x}, ..)`
+  printed `10 3` on native and release (#494). `10 9` on every lane now.
+- `bump(mut a, { a = 5; 1 })` printed `6` on checked and `2` on native
+  and release (#476). E1002 now.
+- `var g = f; g(xs)` against `fn f(mut xs: List[int])` printed `2` on
+  checked and `1` on native and release (#484). Refused by name now.
+- A nested fn's `read` parameter written, or `f(xs)` against a nested
+  `fn f(mut xs: …)`, let the callee's write reach the caller on native
+  and release (#466). E1014 / E1007 now.
+- `look(m, key()?) else 0` answered `0` on the checked machine when
+  `key` failed (#492). It propagates `key`'s row on every lane now.
+
+**Programs that compiled are now refused.** A write, move, re-claim or
+lend of a `mut`-claimed place (or a `mut` receiver) inside a later
+argument of the same call (E1002); a moded fn used as a value; a call
+to a nested fn that omits the mode its parameter declares (E1007); a
+read of a local after `W { local }` moved it (E1001). s186 and s192
+built boreutils and lobo with no diagnostic; s190 found no shorthand
+initializer in either.
+
+**Programs that were refused now compile.** A direct read of a
+claimed place in a later argument (`f(mut a, a.x)`, `grow(mut xs,
+xs.len)`; E1002 through 0.2.19), and two claims in one call through an
+offset or a loop index that `[mem.model.place.elem]` item 4 proves
+distinct.
+
+### The pairing: lupin 0.1.43
+
+`PAIRING` names **lupin 0.1.43 at pin `c2401f0`** (wolf-interp release
+401010971; the linux x86-64 archive's sha256 `e957c8de…`), whose spec
+pin is this compiler's v0.2.19 tag and which carries
+wolffe-lang/wolf-interp#155, #157, #159, #160, #162, #164, ruling #17's
+two-phase arguments and the lupin halves of #487 and #494. The ritual
+(#87, with #281's control against the 0.1.42 archive, same corpus, same
+release `wolf`) **moved 29 ledger counts on each tier, together**, all
+to agreement: the six `field_shorthand_*` rows and the fourteen refused
+`recv_claim_arg_*` rows (completeness → agreement: the compiler's E1001
+or E1002 now meets lupin's trap), and the eight `mut_claim_*` read rows
+with `mut_read_overlap.lu` (soundness → agreement: both run them now).
+Checked: 502 → 531 agreements, completeness 218 → 198, soundness 9 → 0;
+native: 543 → 572, 218 → 198, 10 → 1. Twelve files moved below the
+ledger, lupin's stdout now the compiler's: `ctl_index_try_once_receivers`,
+`ctl_slice_try_once`, `ctl_slice_endpoints_indexed_base` (#157, #162:
+each operand once) and the nine `recv_view_arg_*` rows (#494). Native's
+one soundness finding is still `memory/unsafe_ub_uaf.lu` (`exit` vs
+`ub(mem.ub)`), the program's own use-after-free read on the compiled
+lane.
+
+The gates that pinned lupin by version drop every 0.1.42 entry:
+`PRE_TWO_PHASE_LUPIN` (with its 0.1.40 and 0.1.41), `PRE_RECEIVER_LUPIN`
+and `PRE_VIEW_LUPIN` are empty, and the six `field_shorthand_lanes.rs`
+pins and the three measured `LUPIN_0_1_42_*` answers are gone. The 40
+cases they held take the ruled arm against the published 0.1.43. None
+is widened and none stays pinned.
+
+### A view-set receiver keeps its arguments' writes (s193, #494)
+
+- **`(mut p).set_x({ p.z = 9; p.z })` under `fn set_x(mut self.{x}, ..)`
+  lost the write to `p.z` on native and release.** They printed `10 3`
+  where checked printed `10 9`, with no diagnostic; trunk and the 0.2.19
+  archive alike. `[mem.tier0.excl.3]` leaves the fields outside a view
+  set to the caller, and `[mem.tier0.excl.4]` runs the arguments before
+  the claim, so the write stands. The two native tiers spilled a
+  by-value receiver whole before the arguments ran and reloaded the
+  whole slot after the call. The reload now carries the view set's
+  fields only, each rebuilt into the variable's current value; a
+  receiver without a view set is unchanged.
+- Shapes that answered wrong before and agree with checked now: two
+  fields written outside the view, a nested struct field outside it, a
+  two-field view set with the third field written, the callee writing
+  both view fields beside an argument's write, a field receiver with a
+  view set (`(mut o.v).set_x(..)`), and a `List` field replaced in the
+  argument (`4 1 5`: the replaced buffer came back). An element receiver
+  and a re-lent `mut self` lend an address and were already right.
+- boreutils and lobo declare no view-set receiver; their emitted code is
+  unchanged.
+- Witnesses: the nine `corpus/memory/recv_view_arg_*.lu` rows.
+  `view_set_writeback_lanes.rs` runs each on checked, native, release
+  and lupin. lupin 0.1.42 writes the receiver back whole on all nine
+  (the element and re-lent forms too); it is pinned pre-mirror by
+  version, and any later lupin must give checked's bytes.
+
+### An `else` handles its scrutinee's own row only (s191, #492)
+
+- **The checked machine's `else` caught a `?` that was propagating
+  from inside its scrutinee.** `look(m, key()?) else 0` and
+  `m[key()?] else 0` answered 0 when `key` failed, and the function
+  ran on past the `else`. Native, release and lupin 0.1.42 leave the
+  function with `key`'s row. The checked machine's `else` matched
+  every error flow, whether it was the scrutinee's own raw row or one
+  a `?` was already propagating. A row `return`ed from a block inside
+  the scrutinee was caught the same way. An `else |e|` handler typed
+  over `{none}` was handed `parse`.
+- Ruled by the maintainer (#18 = A) and written as `[type.row.else]`
+  beside `[type.row.operand]`: the handler runs for the scrutinee's
+  own row only. The checked machine now passes a propagating row past
+  the `else`. Native and release are unchanged.
+- Witnesses: seven `corpus/rows/else_*.lu` rows (a `?` in a call
+  argument, in a `Map` index, under three nested `else`s, under an
+  `else |e|` and an `else |none|` handler, in a block with `defer`
+  and `errdefer`, a `return` of a row from a block, and the
+  own-failure control). `else_scrutinee_own_row_lanes.rs` runs each
+  row on checked, native, release and lupin, and asserts that they
+  agree on the right answer.
+- Found beside it and filed: #497 (`match` straight over a `!T` is
+  refused on every wolfgang lane and runs on lupin), #498 (`?` inside
+  a `defer` or `errdefer` overflows the compiler's stack on native and
+  release), #499 (`errdefer` in a block whose value is a raw row runs
+  on checked and lupin, not on native and release).
+
+### A scaled deref of element size 0 round-trips through the WIR text (s194, #496)
+
+- **The fuzz target `wir_parse` found a verified module that did not
+  re-parse.** `fact deref %q 00x%n` parses as element size 0 times
+  `%n`, verifies, and printed as `0x%2`; the lexer took `0x` as a hex
+  prefix with no digits and refused it (`bad unsigned integer \`0x\``).
+  It turned CI's fuzz smoke red on any run that reached that input.
+- `0x` now starts a hex integer only when a hex digit follows. A `0x`
+  with no digit was refused by every number reader before, so no input
+  that parsed changes meaning. The printer, the verifier and every
+  lowered dump are unchanged; lowering never emits a scaled deref.
+- A search of every printer format that writes a number beside another
+  token found one other such format, `{lo}..={hi}`, which was already
+  safe. `crates/wolf_wir/tests/fact_text_edges.rs` covers both at their
+  edges: 448 facts (every kind and justification) and 29 instruction
+  immediates each re-parse to themselves. The artifact joins the seed
+  corpus as `fuzz/corpus/wir_parse/deref-elem0-c255f8ab.wir`.
+
+### A `mut` receiver's own arguments (s192, #487)
+
+- **`(mut xs).push({ xs = [9]; 5 })` ran and lost the push.** Every
+  wolfgang lane printed `1 9`, the 0.2.19 archive included, with no
+  diagnostic; lupin 0.1.42 answers `ub(mem.ub)`. `[mem.tier0.excl.4]`
+  makes a `mut` receiver the call's first argument: its own arguments
+  may read it, but a write, a move, a re-claim (`mut`) or a lend of it
+  is E1002. s186's scan of a later argument's writes, moves and nested
+  claims never saw the receiver's claim. It does now, on checked,
+  native and release. The receiver's claims (a view set's named fields,
+  when it has one) are the first entries the scan checks against.
+- Shapes that ran before and are refused now: the receiver written or
+  moved out and stored back; a nested call that claims it again
+  (`(mut xs).push({ (mut xs).push(7); 5 })` printed `4 7`;
+  `(mut xs).push(drain(mut xs))` ran to `trap(bounds)`); an element
+  receiver (`(mut xs[0]).push({ xs[0] = …; 5 })`) written, moved, or its
+  container replaced; a field receiver written, moved, or its struct
+  replaced; and a view-set receiver's own field written
+  (`mut self.{x}`: checked printed `51`, native and release `2`). The
+  direct re-claim `(mut a).absorb(mut a)`, the `read` lend
+  `(mut a).absorb(a)` and a closure argument capturing the receiver were
+  already refused by the call surface's pairwise check.
+- Reads still run with the value from before the call:
+  `(mut xs).push(xs.len)`, a whole read one call down, bu12's
+  `(mut out.class_off).push(out.bytes.len)`, a sibling field written, a
+  different literal element written, a view set's own field read.
+- The report names the receiver ("`xs` is the call's `mut` receiver
+  here"). A nested claim of the same place now says "the same place
+  twice is never disjoint", where it said "a path and its prefix".
+- boreutils `0b273a03` and lobo `35f93a35` build with no diagnostic (46
+  of 46 builds, before and after), so no downstream site used a
+  refused shape.
+- Witnesses: the fifteen `corpus/memory/recv_claim_arg_*.lu` rows.
+  `receiver_claim_args_lanes.rs` runs each on checked, native, release
+  and lupin. lupin 0.1.42 holds no receiver claim while the arguments
+  run (`ub(mem.ub)` on eight rows, and it runs the other six). The gate
+  pins those answers for 0.1.42 by version; any later lupin must trap
+  `exclusivity`.
+- Not changed: a view-set receiver whose argument writes a field
+  OUTSIDE the view set is legal, and still answers `10 9` on checked
+  and `10 3` on native, release and lupin (wolf-lang#494, found here).
+
+### The struct field shorthand is the longhand (s190, #486)
+
+- **`W { xs }` did not move `xs`.** The longhand `W { xs: xs }` moves a
+  non-`Copy` value (`[mem.tier0.move.1]`) and a later read of `xs` is
+  E1001. The shorthand was accepted, and wolf 0.2.19's native and
+  release builds left two names on one buffer:
+  `var w = W { xs }; (mut w.xs).push(9); print("{xs.len} {w.xs.len}")`
+  printed `2 2`. The same hole let `return W { xs }` move a `mut`
+  parameter out with only W1002, and handed the caller the moved
+  buffer. The checked machine dropped a shorthand field from the struct
+  and answered `unsupported` at the first field read. A shorthand
+  inside a closure or a task was never seen as a capture: `unsupported`
+  at lowering, and no E1002 for the borrow it takes.
+- The cause was the parse: a shorthand field carried a bare identifier
+  and no value, so every pass that reads a field's value read nothing.
+  The shorthand now carries a `PathExpr` naming the local, the
+  longhand's shape, as a shorthand struct pattern already carried an
+  `IdentPat`. Every pass reads it as `x: x`. `wolf fmt` output is
+  unchanged. The shorthand-only branches in the type checker, the
+  lowering and comptime are gone. A shorthand naming a module-level
+  `let` now resolves and lowers as the longhand does.
+- No shorthand field initializer existed in the corpus, wolf-std,
+  boreutils or lobo before this change, so no existing program changes
+  answer.
+- Witnesses: the twelve `corpus/memory/field_shorthand_*.lu` rows (the
+  issue's shape, `Copy` fields, a mixed literal, nested literals, a
+  `return`, a closure, a task, a closure's borrow).
+  `field_shorthand_lanes.rs` runs each row and its longhand twin on
+  checked, native, release and lupin. It asserts that the twins agree
+  and that the wolfgang lanes give the ruled answer. lupin 0.1.42
+  copies through the shorthand (wolffe-lang/wolf-interp#159), and the
+  gate pins its answers for 0.1.42 by version.
+
+### Offsets and loop indices in one call (eg03, EGC's EG3)
+
+- **Two claims in one call through a run-time index are distinct where
+  `[mem.model.place.elem]` item 4 proves it.** R1: `add2(mut xs[i],
+  mut xs[i + 1])` runs, and so do `xs[i + 1]` beside `xs[i + 2]` and
+  `g[i][0]` beside `g[i + 1][0]`. R2: `for i in 1..3 { add2(mut xs[0],
+  mut xs[i]) }` runs, and so do `1..=2` against `0` and `0..2` against
+  `2`. Through 0.2.19 each was E1002 on every wolfgang lane while lupin
+  ran it. Both rules need the index local unchanged: nothing the call
+  evaluates may write it, no loan may be taken on it, and the body may
+  have no raw-tier statement. R2 also needs the loop's body never to
+  assign the index (a `for` binding is assignable).
+- Still refused, each with a row: `i` written between the claims (a
+  block argument, or a nested `back(mut i)`), the loop index assigned
+  in the body, a range that holds the literal (`1..=2` against `2`),
+  `i + 0`, an offset against a literal, `i - 1`, `i + j` and `1..n`.
+  lupin 0.1.42 traps the first six and runs the last three.
+- Left out, and stated in the clause: moves, local borrows, iteration
+  and s186's writes inside a later argument do not read R1 or R2.
+- Witnesses: `corpus/memory/elem_offset_mut_pair.lu`,
+  `elem_loop_induction_mut.lu` (eg00's parked K13 and K14),
+  `elem_dyn_proofs_legs.lu`, and nine twins
+  (`elem_offset_*_mut.lu`, `elem_loop_*`). `element_places_lanes.rs`
+  asserts them on checked, native, release and lupin.
+
+### An index operand that leaves early runs once (s189, #481)
+
+- **The checked machine ran an index operand again when it left
+  early.** Under `conform-run --checked`, `let v = xs[idx()?]` ran
+  `idx` twice when its `?` propagated, and three times in a hole, as a
+  `read` argument, as a member base, under `copy`, as a method receiver,
+  as a `for` iterable and as an element store's right-hand side. Under
+  a byte view (`ss[idx()?].bytes().len`) it ran six times. A `return`,
+  `break` or `continue` inside an index operand, and `xs[idx() else {
+  return 9 }]`, ran it twice. After a `continue`, the next iteration
+  trapped use-after-move on a list the re-run had moved. In `g[a()?][b()?]`
+  the operands that had already run ran again. Native, release and lupin
+  0.1.42 run each operand once, and now every lane does.
+- **A store target or `mut` argument whose index propagates** (`xs[idx()?]
+  = v()`, `xs[idx()?] += 1`, `g[a()?][0] = v()`, `bump(mut xs[idx()?])`)
+  was refused on the checked machine as "not a place". It now runs the
+  index once. The right-hand side never runs and nothing is stored, as
+  on the other lanes.
+- The place lookup now hands the operand's flow back to its caller,
+  which returns it. Before, it answered "not a place" and the caller
+  evaluated the expression again.
+- Witnesses: `corpus/memory/ctl_index_try_once.lu`,
+  `ctl_index_try_once_receivers.lu`, `ctl_slice_try_once.lu`,
+  `ctl_nested_index_try_once.lu`, `ctl_index_return_break_once.lu`,
+  `ctl_index_else_once.lu`, `ctl_store_index_try_once.lu`.
+  `index_flow_once_lanes.rs` asserts them on checked, native, release
+  and lupin. It pins lupin 0.1.42 by version where lupin runs a
+  receiver's operand twice (wolffe-lang/wolf-interp#157, #162).
+
+### A slice's endpoints run once (s187, #479)
+
+- **The checked machine ran a slice's endpoints two or three times**
+  when the slice was not simply bound: `xs[lo()..hi()].len` ran `lo`
+  and `hi` twice under `conform-run --checked`, and
+  `"{xs[lo()..hi()].len}"` ran them three times. Native, release and
+  lupin 0.1.42 ran them once, and now every lane does. The same fix
+  covers a slice passed as a `read` argument, a slice as the receiver
+  of `count` or `is_empty`, a slice as a `for` iterable (all ran
+  twice), a slice nested under an index or another slice
+  (`xs[lo()..hi()][0]`, `xs[lo()..hi()][0..1].len`), a slice of an
+  indexed element (`g[gi()][lo()..hi()]`, which ran `gi` as often as
+  the endpoints), and a `str` slice (`s[lo()..hi()].len`). The cause
+  was the place lookup: it evaluated the bracket's operands before
+  learning the index was a range. It now decides that a slice is not a
+  place from the syntax, before any operand runs.
+- Witnesses: `corpus/memory/ctl_slice_endpoints.lu` (is60's c14, c18
+  and c19) and `ctl_slice_endpoints_{call,nested,indexed_base,str}.lu`.
+  `slice_endpoint_once_lanes.rs` asserts them on checked, native,
+  release and lupin. lupin 0.1.42 runs an indexed base's outer index
+  twice or three times (wolffe-lang/wolf-interp#157), and the gate
+  pins that answer for 0.1.42 by version.
+- Not fixed here: when the `?` in an index operand propagates
+  (`xs[idx()?]`), the checked machine still runs the operand twice
+  (#481).
+
+### The #146 gate measures again (s187, #477)
+
+- `release_overlap_guard.rs` had compared `fail(E1014)` with
+  `fail(E1014)` since the memory checker began refusing its witness.
+  The witness is respelled so that it runs (`var x = copy x0`). The
+  gate now asserts that native prints the known sum before it compares
+  release with native.
+- Safe source can no longer hand the versioned loop two overlapping
+  lists (#384 fixed `copy`, and #93 keeps two live Lists off one
+  buffer). So a stale overlap guard gives the same answer as a correct
+  one, and the behavioural half cannot see #146. A second test reads
+  the release mid-end's module (`WOLF_MIDEND_DUMP=1`) and asserts that
+  every overlap guard in the witness takes its extent from a len load
+  laid out after the last in-place `push`. With #146 planted back, the
+  behavioural test stays green and the structural test goes red.
+
+### An armed signal is heard under an inherited blocked mask (s188, #483)
+
+- **A program that inherited a signal blocked never answered it.** A
+  process inherits its signal mask across `exec`. lobo, started from
+  fish with `ssh -f … &`, inherited SIGINT and SIGQUIT blocked on every
+  thread, so the handler `os_signal_listen(QUIT)` installed never ran:
+  `kill -QUIT` stayed pending (`ShdPnd 0x4`) and the graceful quit
+  never came (found by ws44). nginx sets its own mask; wolf now does
+  the equivalent. `os_signal_listen` has the runtime's drain thread
+  (`wolf-signal`, the one thread it keeps for the program's life)
+  unblock exactly the signals of the meanings the program arms, and
+  returns once it has. Every other signal keeps the inherited mask, on
+  every thread: an unarmed SIGHUP or SIGINT stays blocked and pending.
+  A signal sent while it was still blocked arrives when the listen
+  unblocks it. Written into `[os.signal.listen]`.
+- Witness: `signal_blocked_mask.rs` launches the program with the set
+  blocked (`sigprocmask` in the forked child), sends the signal, and
+  reads every thread's mask on linux. It was red at trunk on linux and
+  macOS (native and release) and is green here.
+- Windows has no signal mask. Its inheritable analog, the console's
+  CTRL+C-ignore flag, is not cleared yet (#490).
+
+### A moded module fn is refused as a value (s188, #484)
+
+- **A module fn with a `mut` or `take` parameter read as a value ran
+  with its mode erased.** A fn type carries no modes, so a call through
+  the value passed the argument as a plain `read`. `var g = f; g(xs)`
+  against `fn f(mut xs: List[int])` printed `2` on checked (the callee
+  grew the caller's list through a `read` argument) and `1` on native
+  and release, with no diagnostic. Through a value a `take` parameter
+  never moved (`2 2`). A `mut int` parameter's fn returned as a value
+  lost its write on checked and was an ICE on native and release. It is
+  now refused by name on every lane (`unsupported`, "a fn with `mut` or
+  `take` parameters used as a value"): bound, passed, returned, or
+  qualified from another module. Call it by name. This is s186's rule
+  for a nested fn, and lupin 0.1.42 already refuses each of these. The
+  spec clauses are `[gram.type]` (a fn type has no mode slot),
+  `[type.fn.value]`, and `[mem.tier0.mode.mut]` (a call site must
+  spell `mut`).
+- Witnesses: `fn_value_modes_lanes.rs` on checked, native, release and
+  lupin, with both polarities: five refused shapes, and a modeless fn
+  value and the by-name calls, which run. Also a `wolf_sema`
+  typecheck test.
+
+### Fixed
+
+- **Arguments are two-phase (s186, wolf-lang#476, ruled 2026-09-30;
+  `[mem.tier0.excl.4]`).** Within one call the arguments evaluate left
+  to right and a `mut` argument's claim takes effect at call entry. A
+  later argument may READ the claimed place and sees the value from
+  before the call: a `Copy` value (`f(mut a, a.x)`), an operand
+  (`bump(mut a, a + 1)`), a header or member (`grow(mut xs, xs.len)`,
+  `xs.count()`), string interpolation (`fail(mut fl, "{fl.store}")`),
+  or a nested call whose result lends nothing from the place
+  (`bump(mut xs[0], total(xs))`, `ring_drop(mut r, ring_len(r))`). A
+  direct read (D39's rule) was E1002 through 0.2.19, and it runs now. A
+  read one call down ran already, while lupin traps it; the compiler's
+  answer is the ruled one, and is63 moves lupin. A later argument may
+  not WRITE or MOVE the claimed place, and that is E1002 now:
+  `bump(mut a, { a = 5; 1 })` printed `6` on checked and `2` on native
+  and release through 0.2.19. A second claim, or a lend into the same
+  call (`both(mut xs[0], xs)`, a capturing closure), stays E1002, and
+  so do `take` arguments.
+- **A nested fn's `mut` and `take` parameters are real (s186,
+  wolf-lang#466).** `f(mut xs)` against a nested `fn f(mut xs: …)` was
+  E1007 ("takes this parameter as plain `read`"), and `f(xs)` compiled —
+  and on native and release the callee grew the caller's list through
+  it. The call site now spells the mode the nested fn declares (E1007
+  when omitted), the call runs on native and release with the callee's
+  writes reaching the caller (an `int`, an element, a list grown or
+  replaced, a `mut` parameter re-lent), and the memory checker holds the
+  nested body to its modes: a `mut` parameter left moved-out at the
+  nested fn's return is E1001 (#464's rule), a write through a `read`
+  parameter is E1014, and a `read` parameter returned is E1002
+  (wolf-lang#366's rule) — the last two ran through 0.2.19 with the write
+  reaching the caller where lupin 0.1.42 does not. A nested fn with a
+  moded parameter is called by name only: used as a value (`var g = f`,
+  passed to a higher-order fn) it is refused by name, since a fn type
+  carries no modes. The checked executor still declines every nested
+  fn (the #12 family), and lupin 0.1.42 declines one with a moded
+  parameter.
+
+=== 0.2.21 pairing pins naming #176
+=== lupin CHANGELOG heads
+## 0.1.44 — 2026-10-02
+## 0.1.43 — 2026-10-01
+## 0.1.42 — 2026-09-30
+## 0.1.41 — 2026-09-27
+=== book
+count BOLD..BNEW = 41
+book ancestry exit=0
+ 75 files changed, 5397 insertions(+), 118 deletions(-)
+.github/workflows/book.yml
+CHANGELOG.md
+audit/version-literals.txt
+book/back/appendix-c.md
+book/back/colophon.md
+book/back/solutions.md
+book/ch01.md
+book/ch05.md
+book/ch06.md
+book/ch22.md
+book/wolf-boot.js
+docs/audit/bs56-contract.md
+docs/audit/bs56-evidence/bs56-classify.js
+docs/audit/bs56-evidence/ci-green-judge.txt
+docs/audit/bs56-evidence/ci-red-66.txt
+docs/audit/bs56-evidence/ci-red-67.txt
+docs/audit/bs56-evidence/gate-304-red.txt
+docs/audit/bs56-evidence/gate-versioned-red.txt
+docs/audit/bs56-evidence/judge-unit-red.txt
+docs/audit/bs56-evidence/live-before.txt
+docs/audit/bs56-evidence/live-gate.json
+docs/audit/bs56-evidence/live-gate.txt
+docs/audit/bs56-evidence/live-headers.txt
+docs/audit/bs56-evidence/live-retry.json
+docs/audit/bs56-evidence/live-retry.log
+docs/audit/bs56-evidence/live-retry.txt
+docs/audit/bs56-evidence/wolfboot-unit-red.txt
+docs/audit/bs56-prediction.md
+docs/audit/bs56-results.md
+docs/audit/bs57-contract.md
+docs/audit/bs57-evidence/archive-digests.txt
+docs/audit/bs57-evidence/gate-summary.txt
+docs/audit/bs57-evidence/members.txt
+docs/audit/bs57-evidence/probes-pin.txt
+docs/audit/bs57-evidence/probes-s197-extracted.txt
+docs/audit/bs57-evidence/probes-s197.txt
+docs/audit/bs57-evidence/s197-gate-summary.txt
+docs/audit/bs57-evidence/versions.txt
+docs/audit/bs57-results.md
+docs/audit/bs58-evidence/anchors-diff.txt
+docs/audit/bs58-evidence/archive-digests.txt
+docs/audit/bs58-evidence/control-summary.txt
+docs/audit/bs58-evidence/gate-summary.txt
+docs/audit/bs58-evidence/members.txt
+docs/audit/bs58-evidence/oneprog.py
+docs/audit/bs58-evidence/probe.sh
+docs/audit/bs58-evidence/probes-347.txt
+docs/audit/bs58-evidence/probes-control.txt
+docs/audit/bs58-evidence/probes-subject.txt
+docs/audit/bs58-evidence/scan-output.txt
+docs/audit/bs58-evidence/scan.py
+docs/audit/bs58-evidence/subject-summary.txt
+docs/audit/bs58-evidence/versions.txt
+docs/audit/bs58-prediction.md
+docs/audit/bs58-results.md
+principles/EXERCISES-INDEX.md
+principles/EXERCISES-PENDING.md
+principles/EXERCISES.md
+principles/TOC.md
+principles/exercises/ch06/EXERCISES.md
+principles/exercises/ch06/ex6-15.lu
+principles/exercises/ch22/EXERCISES.md
+samples-pending.toml
+snapshots/diagnostics/book__ch06__s7.txt
+tests/contents/contents.mjs
+tests/contents/contents.test.mjs
+tests/contents/package.json
+tests/contents/serve.mjs
+tests/contents/wolf-boot.test.mjs
+vendor/spec/anchors.json
+vendor/spec/diagnostic-codes.txt
+wolf-toolchain.toml
+xtask/src/console.rs
+xtask/src/samples.rs
+xtask/src/verify.rs
+SUMMARY sha c58196034d4fc6c4c2796437dbb9bedb4a4b5506 -> c58196034d4fc6c4c2796437dbb9bedb4a4b5506
+chapters in SUMMARY: 33
+fba6210 audit: bs58 results — 3 flips as predicted, stamps exact; two misses named (the ch05 row was already false at 0.2.19, the export count)
+082b35f audit: bs58 evidence — digests, members by name, stamps and glibc, anchor sets both ways, probes on both pairs, subject and head gate summaries
+960a292 backmatter: regenerate solutions.md — 22-13's interface line reads toolchain 0.2.21
+db80a65 CHANGELOG: bs58 — the book takes 0.2.21 / 0.1.44; §6.6 runs on both machines
+be6375d doc-truth: the version-literal ledger re-read at 0.2.21 / 0.1.44 — every history sentence still true
+12c2581 ch05: §5.6's bare integer list runs — a bound is context ([type.numlit.default], wolf-lang#347); the stale E0502 sentence and its ledger row close, measured on both pairs
+796e962 ch06 ledger: §6.6's blocker closes — the three rows flipped on 0.2.21 / 0.1.44
+da75425 exercises pending: 6-15 leaves; 7-5 and 8-7 read 0.2.21 / 0.1.44
+d5b5bf6 exercise 6-15 graduates: run on both machines at 0.2.21 / 0.1.44; index tier run (wolf + lupin), totals 27 and 8 pending
+37c0478 pending: §6.6's three rows leave as reported flips on 0.2.21 / 0.1.44; the standing three re-measured, identical on both pairs
+23d8001 ch22: the interface line reads toolchain 0.2.21 — both export hashes hold
+effc3ed ch01, colophon: the pair reads 0.2.21 / 0.1.44 — 91 commits, one release; the Windows archive and the +dev line follow
+c499cfa appendix C: the catalog holds 178 codes (E0611, E0816); E0801 is shown in 6.6 too
+a86405f pin: wolf v0.2.21 (dfcc2f1) and lupin 0.1.44 (ba47627), both from the release archives by digest; anchors 542 -> 546, catalogue 176 -> 178
+68563a8 predict: bs58 — 3 flips (§6.6's rows), 4 stamp failures, anchors +4, catalogue +2, no #176 parting; before either new archive
+307a932 contract: bs58 — the book at 0.2.21 / 0.1.44, carrying bs57's §6.6; five sections, inputs re-derived
+280ff37 audit: bs57 evidence and results — the pin by digest, both probe sets, the gate at head, the branch-build gate
+02f513d pending: the three rows carry s197's commit and its bytes
+fffc843 ch06: the E0801 text from s197's build fills §6.6's block; snapshot blessed from the branch build
+999f5e0 backmatter: solutions page regenerated after 6-15's rewording
+ae514c0 tense: 6-15's stem and solution carry no pending apparatus on the page; index prints 296 of 345
+42cf0e5 backmatter: solutions page regenerated — 6-15 published under §6.6
+49beac8 rig: a pending row may name an in-chapter sample; its diagnostic and console blocks are named PENDING, not compared; two plants
+2ca8de9 CHANGELOG: bs57, chapter 6's third form
+9654aca exercise 6-15: one match over probe(n), pending; index, pending doc and counts
+508872a pending: book/ch06/part-rowmatch, book/ch06/s7, ch06/ex6-15 — measured on the pin, held for s197
+d488103 TOC: 6.6 match over the value, placed after 6.2 by how-to-read's rule
+7092624 ch06: §6.6 match over the value; §6.2 names all three forms; ledger row for the pending samples
+6981413 bs57 contract: chapter 6 gains match over the value (ruling #21)
+3337745 audit: bs56 evidence and results — both reds in CI by run id, the local reds, the live gate and retry on six cells, headers
+fe2c97a gate: npm test runs wolf-boot.test.mjs too — it was dark in CI (run 36953386790 went red at the gate, not the test)
+f1bb329 CHANGELOG: bs56 — the contents, twice more
+c1541ed ci: the contents comment names the landing rule and the serving posture (#66, #67)
+d7f0cd5 gate: a 304 is a landing — judged by its title and number; the record and the retry count 200 and 304 apart (#67)
+e1190f2 test: a 304 landing is judged by its title and number — red at bd3484e, 3 of 4 cases (#67); the local #66 gate red
+e484b28 gate: the server revalidates like nginx under /book/ — no-cache, ETag, Last-Modified, 304 on a hit (#67)
+2dec44a wolf-boot: cut a query string or a fragment off the src before reading the root (#66)
+2cc0f7a test: wolf-boot.js keeps its root under a query string or a fragment — red at bd3484e, 3 of 6 cases (#66)
+477cada gate: serve the render with every script versioned, wolf-boot.js included — the cache-busting that broke the root one level down (#66)
+5df61ef predict: bs56 — 585 404s per cell under a versioned wolf-boot.js; Firefox and WebKit red on 304s that land right; live reads red today
+61189e6 audit: bs56 contract — wolf-boot.js under a query string (#66), a 304 is a landing (#67)
+DERIVE-DONE

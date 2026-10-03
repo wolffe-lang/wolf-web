@@ -1,0 +1,54 @@
+ww36
+08b4745
+✖ every local script and stylesheet reference gains ?v=<pin>, nothing else moves (21.197177ms)
+✖ wolf-boot.js one directory down and under /book/ is versioned too (17.180947ms)
+✔ a second pass versions nothing twice, and so refuses the zero (19.157853ms)
+✔ a book with no assets to version is refused, not reported as done (17.564416ms)
+✔ the pin is seven hex characters (16.442401ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 3
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.579037
+
+✖ failing tests:
+
+test at tests/book-assets.test.mjs:52:1
+✖ every local script and stylesheet reference gains ?v=<pin>, nothing else moves (21.197177ms)
+  AssertionError [ERR_ASSERTION]: wolf-boot.js is versioned too
+      at TestContext.<anonymous> (file:///home/mfwolffe/lanes/ww36/web/tests/book-assets.test.mjs:64:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '<link rel="stylesheet" href="css/chrome.css?v=bd3484e">\n<script src="toc.js?v=bd3484e"></script>\n<script src="wolf-boot.js"></script>\n<script src="https://example.com/x.js"></script>\n<script src="//cdn.example/y.js"></script>\n<a href="ch08.html">next</a>\n<link rel="icon" href="favicon.svg">',
+    expected: /src="wolf-boot\.js\?v=bd3484e"/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/book-assets.test.mjs:75:1
+✖ wolf-boot.js one directory down and under /book/ is versioned too (17.180947ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /src="\.\.\/wolf-boot\.js\?v=bd3484e"/. Input:
+  
+  '<script src="../wolf-boot.js"></script><script src="../book.js?v=bd3484e"></script>'
+  
+      at TestContext.<anonymous> (file:///home/mfwolffe/lanes/ww36/web/tests/book-assets.test.mjs:81:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<script src="../wolf-boot.js"></script><script src="../book.js?v=bd3484e"></script>',
+    expected: /src="\.\.\/wolf-boot\.js\?v=bd3484e"/,
+    operator: 'match',
+    diff: 'simple'
+  }

@@ -1,0 +1,91 @@
+HEAD 8873a34bc1fe487de9ae7ae9d9a4544c4a7a462a
+wolf-book fba6210a1af2b4f081272e735d080bd854fe1dd4
+wolf-interp ba4762714d75c37bb14b300610e2d52630665a05
+wolf-lang dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
+Python 3.14.7
+v26.10.0
+typst 0.15.1 (9dfd3a08)
+=== node tests (pre-build)
+ℹ tests 114
+ℹ pass 114
+ℹ fail 0
+=== build
+BUILD-EXIT=0
+version prose: 409 literal mention(s) audited against wolf 0.2.21 and lupin 0.1.44, 129 allowlisted (48 on the wolf clock, 15 on lupin's, 66 frozen in 1 dated root(s))
+version prose: 26 placeholder(s) in 6 entries, 11 of them release-bound and re-read at this bump
+counts: 250 number word(s) in 79 entries, 23 of them live and re-read at this bump (wolf 0.2.21, lupin 0.1.44, book fba6210)
+lag phrases: wolf 0.2.21 is advertised; lupin was built at the v0.2.20 tag (cdde128) — it reads the release before this one, and both pages carry 'one release' and neither carries another
+  version prose stamped: wolf 0.2.21, lupin 0.1.44
+  file sizes: 15 stamped from the pin across 2 page(s)
+  revisions: 3 stamped across 2 page(s) — specrev cdde128
+  book: 48 pages
+  book assets: 569 script and stylesheet reference(s) across 48 of 48 page(s) versioned ?v=fba6210; nothing exempt
+  pdf: 5.7 MB at dist/book/wolf-book.pdf
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1125 KiB raw, 416 KiB gzipped
+  wasm: 1.2M at dist/play/lupin.wasm
+  changelog/book: rendered
+  samples: 36 programs from the pinned corpus
+  counts: 10 stamped across 7 page(s) — bookchapters 33, diagnostics 144, netprograms 18, samples 36, speccommits 91, warnings 34
+  everything built
+✓ dist/ built (16M)
+=== guard json
+{"gap": 1, "phrase": "one release", "tagged": true, "commits": 91, "spec": "cdde128", "release": "0.2.20", "advertised": "0.2.21"}
+=== version.json
+{
+  "built": "2026-10-03T11:04:34Z",
+  "lupin": "0.1.44",
+  "pins": { "wolf-lang": "dfcc2f1", "wolf-interp": "ba47627", "wolf-book": "fba6210" },
+  "spec-pin": "cdde128",
+  "missing": []
+}
+=== links
+link check: allowlist carries 0 known-dead link(s)
+link check: 1507 internal links across 63 pages, 0 dead
+LINKS-EXIT=0
+=== samples
+  ok   corpus/projects/wordtree.lu                     exit(0)
+
+check-samples: 36 menu entries, each in the class the page claims for it (0 noted as not running here)
+check-samples: all 18 programs in upstream/wolf-lang/corpus/net answer unsupported, which is what /play/ counts
+SAMPLES-EXIT=0
+=== ahead
+  a one-line if  exit(0)      both sides carry it
+check-ahead: 1 witness(es) against the built module and 546 anchors the pinned release declares — 1 run on both sides, 0 not yet mirrored here, 0 ahead of the release
+AHEAD-EXIT=0
+=== ahead planted
+ℹ tests 8
+ℹ pass 8
+ℹ fail 0
+=== pages
+12
+48
+=== all html (site pages as ww34 counted)
+63
+=== book asset refs
+    287 css ?v=fba6210
+    282 js ?v=fba6210
+=== bare local js/css refs in dist/book
+0
+=== wolf-boot refs
+     47 wolf-boot.js?v=fba6210"
+=== md under dist/book
+1
+=== wasm
+68a400b5e8b52be2fbde1ca43ecd7b23cbe8bb29cb2fa82efa0c606b57e368d6  dist/play/lupin.wasm
+-rw-r--r-- 1 mfwolffe mfwolffe 5657062 Oct  3 07:04 dist/book/wolf-book.pdf
+=== stamps
+      1 dist/install/index.html:ninety-one commits
+      1 dist/play/index.html:ninety-one commits
+=== phrases
+dist/install/index.html the same commit 0
+dist/install/index.html one release 1
+dist/install/index.html two releases 0
+dist/install/index.html three releases 0
+dist/install/index.html a development revision 0
+dist/play/index.html the same commit 0
+dist/play/index.html one release 1
+dist/play/index.html two releases 0
+dist/play/index.html three releases 0
+dist/play/index.html a development revision 0
+BUILD-DONE

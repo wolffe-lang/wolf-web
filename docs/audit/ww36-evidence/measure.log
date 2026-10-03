@@ -1,0 +1,81 @@
++ L=/home/mfwolffe/lanes/ww36
++ export PATH=/home/mfwolffe/lanes/ww36/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin CARGO_BUILD_JOBS=4
++ PATH=/home/mfwolffe/lanes/ww36/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin
++ CARGO_BUILD_JOBS=4
++ cd /home/mfwolffe/lanes/ww36/web
++ git fetch -q origin ww36
++ git checkout -q -B ww36 origin/ww36
+++ git branch --show-current
++ test ww36 = ww36
++ git rev-parse HEAD
+2a9c1efd253daf1ada17de085b1c7f6a8eb20059
++ git submodule update --init --recursive
++ git -C upstream/wolf-lang fetch -q --tags origin
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-book rev-parse HEAD
++ echo 'wolf-book fba6210a1af2b4f081272e735d080bd854fe1dd4'
+wolf-book fba6210a1af2b4f081272e735d080bd854fe1dd4
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-interp rev-parse HEAD
++ echo 'wolf-interp ba4762714d75c37bb14b300610e2d52630665a05'
+wolf-interp ba4762714d75c37bb14b300610e2d52630665a05
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-lang rev-parse HEAD
++ echo 'wolf-lang dfcc2f13e7c73182bdd41fc9bec2802c7da3b024'
+wolf-lang dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
++ cp docs/audit/ww33-evidence/census.mjs docs/audit/ww33-evidence/stdout-probe.mjs /home/mfwolffe/lanes/ww36/
++ mkdir -p dist/play
++ ./scripts/build-wasm.sh
++ echo WASM44-EXIT=0
+WASM44-EXIT=0
++ cp dist/play/lupin.wasm /home/mfwolffe/lanes/ww36/lupin-0.1.44.wasm
++ git -C upstream/wolf-interp checkout -q 8e2516dc47bf808512388cc687e070981d331d98
++ git -C upstream/wolf-interp submodule update --init --recursive
+Submodule path 'upstream': checked out 'ec56a08f04ff318ea659fd58683f7ae4f22dc7a5'
++ ./scripts/build-wasm.sh
++ echo WASM42-EXIT=0
+WASM42-EXIT=0
++ cp dist/play/lupin.wasm /home/mfwolffe/lanes/ww36/lupin-0.1.42.wasm
++ git -C upstream/wolf-interp checkout -q ba4762714d75c37bb14b300610e2d52630665a05
++ git -C upstream/wolf-interp submodule update --init --recursive
+Submodule path 'upstream': checked out 'cdde128a30999652c9d70189664226b766a206f0'
++ cp /home/mfwolffe/lanes/ww36/lupin-0.1.44.wasm dist/play/lupin.wasm
++ sha256sum /home/mfwolffe/lanes/ww36/lupin-0.1.42.wasm /home/mfwolffe/lanes/ww36/lupin-0.1.44.wasm
+b92af77f9e8f5f376b004e35145271ba46f3d5f22e794ed2a8fc82e0d343636d  /home/mfwolffe/lanes/ww36/lupin-0.1.42.wasm
+68a400b5e8b52be2fbde1ca43ecd7b23cbe8bb29cb2fa82efa0c606b57e368d6  /home/mfwolffe/lanes/ww36/lupin-0.1.44.wasm
++ git -C upstream/wolf-lang checkout -q c2401f05f37794a078d2acf62f837dad98e5950d
++ for v in 42 44
++ node /home/mfwolffe/lanes/ww36/census.mjs /home/mfwolffe/lanes/ww36/lupin-0.1.42.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww36/census-0219-0142.json
++ echo 'LEG 0219-0142 exit=0'
+LEG 0219-0142 exit=0
++ for v in 42 44
++ node /home/mfwolffe/lanes/ww36/census.mjs /home/mfwolffe/lanes/ww36/lupin-0.1.44.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww36/census-0219-0144.json
++ echo 'LEG 0219-0144 exit=0'
+LEG 0219-0144 exit=0
++ git -C upstream/wolf-lang checkout -q dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
++ for v in 42 44
++ node /home/mfwolffe/lanes/ww36/census.mjs /home/mfwolffe/lanes/ww36/lupin-0.1.42.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww36/census-0221-0142.json
++ echo 'LEG 0221-0142 exit=0'
+LEG 0221-0142 exit=0
++ for v in 42 44
++ node /home/mfwolffe/lanes/ww36/census.mjs /home/mfwolffe/lanes/ww36/lupin-0.1.44.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww36/census-0221-0144.json
++ echo 'LEG 0221-0144 exit=0'
+LEG 0221-0144 exit=0
++ git -C upstream/wolf-lang rev-parse HEAD
+dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
++ git -C upstream/wolf-interp rev-parse HEAD
+ba4762714d75c37bb14b300610e2d52630665a05
++ python3 /home/mfwolffe/lanes/ww36/ww36-rows.py
+++ comm -13 /home/mfwolffe/lanes/ww36/run-c2401f0.txt /home/mfwolffe/lanes/ww36/run-dfcc2f1.txt
+++ sed 's|^corpus/||'
++ ARR=$'faults/assert_msg_effect_fails.lu\nfaults/assert_msg_name_fails.lu\nfaults/assert_msg_name.lu\nfaults/assert_msg_try.lu\nmemory/ctl_index_else_once.lu\nmemory/ctl_index_return_break_once.lu\nmemory/ctl_index_try_once.lu\nmemory/ctl_index_try_once_receivers.lu\nmemory/ctl_nested_index_try_once.lu\nmemory/ctl_slice_endpoints_call.lu\nmemory/ctl_slice_endpoints_indexed_base.lu\nmemory/ctl_slice_endpoints.lu\nmemory/ctl_slice_endpoints_nested.lu\nmemory/ctl_slice_endpoints_str.lu\nmemory/ctl_slice_try_once.lu\nmemory/ctl_store_index_try_once.lu\nmemory/elem_dyn_proofs_legs.lu\nmemory/elem_dyn_read_after_mut.lu\nmemory/elem_loop_induction_mut.lu\nmemory/elem_offset_mut_pair.lu\nmemory/field_shorthand_copy.lu\nmemory/field_shorthand_mixed_runs.lu\nmemory/field_shorthand_nested_runs.lu\nmemory/field_shorthand_return_take.lu\nmemory/mut_claim_nested_copy_read.lu\nmemory/mut_claim_nested_disjoint_reads.lu\nmemory/mut_claim_nested_get.lu\nmemory/mut_claim_nested_header.lu\nmemory/mut_claim_nested_map.lu\nmemory/mut_claim_nested_read_elem.lu\nmemory/mut_claim_nested_read_whole.lu\nmemory/mut_claim_operand_read.lu\nmemory/mut_claim_two_phase_reads.lu\nmemory/mut_read_overlap.lu\nmemory/nested_fn_mut_param.lu\nmemory/recv_claim_arg_reads.lu\nmemory/recv_view_arg_callee_view_write.lu\nmemory/recv_view_arg_elem.lu\nmemory/recv_view_arg_field_recv.lu\nmemory/recv_view_arg_list_field.lu\nmemory/recv_view_arg_nested_field.lu\nmemory/recv_view_arg_outside_write.lu\nmemory/recv_view_arg_relend.lu\nmemory/recv_view_arg_two_fields.lu\nmemory/recv_view_arg_two_view_third.lu\nmemory/versioned_loop_cross_module/main.lu\nmemory/versioned_loop_inlined_root.lu\nrows/defer_else_handles.lu\nrows/else_own_failure.lu\nrows/else_return_tag.lu\nrows/else_try_block.lu\nrows/else_try_call_arg.lu\nrows/else_try_handler.lu\nrows/else_try_index.lu\nrows/else_try_nested_else.lu\nrows/errdefer_block_loop_break.lu\nrows/errdefer_block_nested.lu\nrows/errdefer_block_row.lu\nrows/errdefer_fn_tail_control.lu\nrows/eu_bind_empty_row_handled.lu\nrows/eu_bind_empty_row.lu\nrows/eu_bind_empty_row_unit.lu\nrows/match_row_bare_tag.lu\nrows/match_row_else_control.lu\nrows/match_row_nested.lu\nrows/match_row_payload_tag.lu\nrows/match_row_try_scrutinee.lu\nrows/match_row_wild_each_half.lu\ntypecheck/numlit_binding_value_later_use.lu'
++ for v in 44 42
++ node /home/mfwolffe/lanes/ww36/stdout-probe.mjs /home/mfwolffe/lanes/ww36/lupin-0.1.44.wasm upstream/wolf-lang/corpus faults/assert_msg_effect_fails.lu faults/assert_msg_name_fails.lu faults/assert_msg_name.lu faults/assert_msg_try.lu memory/ctl_index_else_once.lu memory/ctl_index_return_break_once.lu memory/ctl_index_try_once.lu memory/ctl_index_try_once_receivers.lu memory/ctl_nested_index_try_once.lu memory/ctl_slice_endpoints_call.lu memory/ctl_slice_endpoints_indexed_base.lu memory/ctl_slice_endpoints.lu memory/ctl_slice_endpoints_nested.lu memory/ctl_slice_endpoints_str.lu memory/ctl_slice_try_once.lu memory/ctl_store_index_try_once.lu memory/elem_dyn_proofs_legs.lu memory/elem_dyn_read_after_mut.lu memory/elem_loop_induction_mut.lu memory/elem_offset_mut_pair.lu memory/field_shorthand_copy.lu memory/field_shorthand_mixed_runs.lu memory/field_shorthand_nested_runs.lu memory/field_shorthand_return_take.lu memory/mut_claim_nested_copy_read.lu memory/mut_claim_nested_disjoint_reads.lu memory/mut_claim_nested_get.lu memory/mut_claim_nested_header.lu memory/mut_claim_nested_map.lu memory/mut_claim_nested_read_elem.lu memory/mut_claim_nested_read_whole.lu memory/mut_claim_operand_read.lu memory/mut_claim_two_phase_reads.lu memory/mut_read_overlap.lu memory/nested_fn_mut_param.lu memory/recv_claim_arg_reads.lu memory/recv_view_arg_callee_view_write.lu memory/recv_view_arg_elem.lu memory/recv_view_arg_field_recv.lu memory/recv_view_arg_list_field.lu memory/recv_view_arg_nested_field.lu memory/recv_view_arg_outside_write.lu memory/recv_view_arg_relend.lu memory/recv_view_arg_two_fields.lu memory/recv_view_arg_two_view_third.lu memory/versioned_loop_cross_module/main.lu memory/versioned_loop_inlined_root.lu rows/defer_else_handles.lu rows/else_own_failure.lu rows/else_return_tag.lu rows/else_try_block.lu rows/else_try_call_arg.lu rows/else_try_handler.lu rows/else_try_index.lu rows/else_try_nested_else.lu rows/errdefer_block_loop_break.lu rows/errdefer_block_nested.lu rows/errdefer_block_row.lu rows/errdefer_fn_tail_control.lu rows/eu_bind_empty_row_handled.lu rows/eu_bind_empty_row.lu rows/eu_bind_empty_row_unit.lu rows/match_row_bare_tag.lu rows/match_row_else_control.lu rows/match_row_nested.lu rows/match_row_payload_tag.lu rows/match_row_try_scrutinee.lu rows/match_row_wild_each_half.lu typecheck/numlit_binding_value_later_use.lu grammar/range_header_inclusive_max.lu grammar/range_value_wide_iter.lu
++ echo 'PROBE 0144 exit=0'
+PROBE 0144 exit=0
++ for v in 44 42
++ node /home/mfwolffe/lanes/ww36/stdout-probe.mjs /home/mfwolffe/lanes/ww36/lupin-0.1.42.wasm upstream/wolf-lang/corpus faults/assert_msg_effect_fails.lu faults/assert_msg_name_fails.lu faults/assert_msg_name.lu faults/assert_msg_try.lu memory/ctl_index_else_once.lu memory/ctl_index_return_break_once.lu memory/ctl_index_try_once.lu memory/ctl_index_try_once_receivers.lu memory/ctl_nested_index_try_once.lu memory/ctl_slice_endpoints_call.lu memory/ctl_slice_endpoints_indexed_base.lu memory/ctl_slice_endpoints.lu memory/ctl_slice_endpoints_nested.lu memory/ctl_slice_endpoints_str.lu memory/ctl_slice_try_once.lu memory/ctl_store_index_try_once.lu memory/elem_dyn_proofs_legs.lu memory/elem_dyn_read_after_mut.lu memory/elem_loop_induction_mut.lu memory/elem_offset_mut_pair.lu memory/field_shorthand_copy.lu memory/field_shorthand_mixed_runs.lu memory/field_shorthand_nested_runs.lu memory/field_shorthand_return_take.lu memory/mut_claim_nested_copy_read.lu memory/mut_claim_nested_disjoint_reads.lu memory/mut_claim_nested_get.lu memory/mut_claim_nested_header.lu memory/mut_claim_nested_map.lu memory/mut_claim_nested_read_elem.lu memory/mut_claim_nested_read_whole.lu memory/mut_claim_operand_read.lu memory/mut_claim_two_phase_reads.lu memory/mut_read_overlap.lu memory/nested_fn_mut_param.lu memory/recv_claim_arg_reads.lu memory/recv_view_arg_callee_view_write.lu memory/recv_view_arg_elem.lu memory/recv_view_arg_field_recv.lu memory/recv_view_arg_list_field.lu memory/recv_view_arg_nested_field.lu memory/recv_view_arg_outside_write.lu memory/recv_view_arg_relend.lu memory/recv_view_arg_two_fields.lu memory/recv_view_arg_two_view_third.lu memory/versioned_loop_cross_module/main.lu memory/versioned_loop_inlined_root.lu rows/defer_else_handles.lu rows/else_own_failure.lu rows/else_return_tag.lu rows/else_try_block.lu rows/else_try_call_arg.lu rows/else_try_handler.lu rows/else_try_index.lu rows/else_try_nested_else.lu rows/errdefer_block_loop_break.lu rows/errdefer_block_nested.lu rows/errdefer_block_row.lu rows/errdefer_fn_tail_control.lu rows/eu_bind_empty_row_handled.lu rows/eu_bind_empty_row.lu rows/eu_bind_empty_row_unit.lu rows/match_row_bare_tag.lu rows/match_row_else_control.lu rows/match_row_nested.lu rows/match_row_payload_tag.lu rows/match_row_try_scrutinee.lu rows/match_row_wild_each_half.lu typecheck/numlit_binding_value_later_use.lu grammar/range_header_inclusive_max.lu grammar/range_value_wide_iter.lu
++ echo 'PROBE 0142 exit=0'
+PROBE 0142 exit=0
++ echo MEASURE-DONE
+MEASURE-DONE
