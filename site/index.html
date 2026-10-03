@@ -139,8 +139,44 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises lets two <code>mut</code>
-  claims reach two elements of one list.</strong>
+  <p><strong>The release this page advertises lets a <code>match</code> take
+  a fallible value apart.</strong> <code>match look(m, k) { none =&gt; -1,
+  v =&gt; v }</code> is the shape a reader reaches for when a function answers
+  <code>int ! {none}</code>, and through v0.2.20 every tier of the compiler
+  answered it <code>unsupported</code> while the interpreter ran it.
+  <code>[type.row.match]</code> rules it now: an arm naming a tag of the
+  scrutinee's row handles the error half, any other pattern handles the value
+  half, the match must cover both, and a tag that is also a variant of the
+  value's own type is <code>E0816</code> rather than a guess. The same release
+  closes three places where a program compiled and answered wrongly without a
+  word. A <code>?</code> inside a <code>defer</code> or an
+  <code>errdefer</code> is refused, <code>E0611</code>
+  (<code>[type.row.defer]</code>): the checked machine dropped the error it
+  raised and the native tiers overflowed the compiler's stack on it. A
+  block's <code>errdefer</code> runs when the block's own value is an error,
+  as a function's does, where the native tiers ran its <code>defer</code>
+  alone. And a literal written at a binding with no annotation takes
+  <code>i32</code> there, so <code>let big = 5000000000</code> is
+  <code>E0415</code> on every tier — a later <code>int</code> use used to
+  widen it after the fact, which <code>lupin</code> never did. Release builds of one program by one compiler are
+  byte-identical again.</p>
+
+  <p><strong>v0.2.20, the release before it, made arguments
+  two-phase.</strong> Within one call a later argument may read what an
+  earlier <code>mut</code> argument claims — <code>grow(mut xs, xs.len)</code>
+  runs — and may not write, move, re-claim or lend it, a <code>mut</code>
+  receiver included (<code>[mem.tier0.excl.4]</code>). Programs that wrote a
+  claimed place inside a later argument had answered wrongly, some of them
+  differently on different tiers, and are <code>E1002</code> now. Two claims in one call reach two
+  elements through an offset or a loop index the compiler can prove distinct,
+  <code>add2(mut xs[i], mut xs[i + 1])</code>; a struct field's shorthand
+  <code>W { xs }</code> is exactly its longhand and moves <code>xs</code>; an
+  <code>else</code> handles its scrutinee's own row and nothing outside it
+  (<code>[type.row.else]</code>); and a program that inherited a signal
+  blocked hears the signals it arms.</p>
+
+  <p><strong>v0.2.19 let two <code>mut</code> claims reach two elements of
+  one list.</strong>
   <code>swap(mut xs[0], mut xs[1])</code> is the shape a reader writes first,
   and through v0.2.18 every tier of the compiler refused it while the
   interpreter ran it: a claim on an element was a claim on the whole
@@ -161,7 +197,7 @@ fn main() -&gt; !int {
   nothing else, so each is allowed beside a moved or claimed element, while
   <code>push</code>, <code>get</code>, <code>pop</code>, a slice and a
   method's <code>self</code> read the whole container and stay refused beside
-  a moved part. And the release fixes a defect v0.2.18 shipped: two
+  a moved part. And that release fixed a defect v0.2.18 shipped: two
   <code>mut</code> fields off one <code>mut</code> parameter,
   <code>add2(mut r.a, mut r.b)</code>, stopped its release tier with an
   internal compiler error once the call was inlined. The element pairs above
