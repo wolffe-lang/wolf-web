@@ -1,4 +1,4 @@
-HEAD 52b08bbf0614677eaed654022c15a02f12e1f00a
+HEAD 8873a34bc1fe487de9ae7ae9d9a4544c4a7a462a
 wolf-book fba6210a1af2b4f081272e735d080bd854fe1dd4
 wolf-interp ba4762714d75c37bb14b300610e2d52630665a05
 wolf-lang dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
@@ -33,7 +33,7 @@ lag phrases: wolf 0.2.21 is advertised; lupin was built at the v0.2.20 tag (cdde
 {"gap": 1, "phrase": "one release", "tagged": true, "commits": 91, "spec": "cdde128", "release": "0.2.20", "advertised": "0.2.21"}
 === version.json
 {
-  "built": "2026-10-03T11:23:42Z",
+  "built": "2026-10-03T11:04:34Z",
   "lupin": "0.1.44",
   "pins": { "wolf-lang": "dfcc2f1", "wolf-interp": "ba47627", "wolf-book": "fba6210" },
   "spec-pin": "cdde128",
@@ -73,7 +73,7 @@ AHEAD-EXIT=0
 1
 === wasm
 68a400b5e8b52be2fbde1ca43ecd7b23cbe8bb29cb2fa82efa0c606b57e368d6  dist/play/lupin.wasm
--rw-r--r-- 1 mfwolffe mfwolffe 5657062 Oct  3 07:23 dist/book/wolf-book.pdf
+-rw-r--r-- 1 mfwolffe mfwolffe 5657062 Oct  3 07:04 dist/book/wolf-book.pdf
 === stamps
       1 dist/install/index.html:ninety-one commits
       1 dist/play/index.html:ninety-one commits

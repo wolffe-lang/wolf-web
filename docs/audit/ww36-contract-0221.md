@@ -251,9 +251,12 @@ the common rows); and WebKit's click timeouts on the live gate.
 ## 4. Evidence index
 
 *Filled in after the measurement; sections 1 to 3 above are the text of the
-prediction commit `755194c` (an empty commit), unedited.* Measured on kasumi
-at branch head `8873a34` (the last commit the build reads; later commits touch
-only `docs/audit/`); the gates' browsers ran on nomad-1. Files are under
+prediction commit `755194c` (an empty commit), unedited.* Built on kasumi
+at `8873a34` (`build-summary-8873a34.txt`, which the staged gate served) and
+again at `52b08bb` (`build-summary.txt`; the CHANGELOG's arrival count
+corrected, nothing else the build reads moved; every figure identical, the
+`built` time aside); later commits touch only `docs/audit/`. The gates'
+browsers ran on nomad-1. Files are under
 `docs/audit/ww36-evidence/`.
 
 | claim | artifact |
