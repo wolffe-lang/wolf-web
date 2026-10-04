@@ -199,15 +199,15 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   While it is open the <a href="/play/">playground</a> can answer a program
   differently from the compiler you just installed. At these pins it does so
   for the programs the list below names, and each answers the same way at a
-  terminal; none of them is the distance, and the list says how that was
-  measured. When the two disagree, the
+  terminal; the list says which of them the distance explains and how that
+  was measured. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins nothing on it is the gap's distance. Each is a clause the
-  release above wrote that the interpreter has not mirrored yet; the release
-  pins the interpreter's answer on it by version and names the issue, and the
-  fix is in no interpreter release yet.
+  these pins most of it is the distance itself: clauses the release above
+  wrote after the text this interpreter was built to. The release pins the
+  interpreter's answer on each by version and names the issue, and no
+  interpreter release mirrors them yet.
   <code>corpus/grammar/cfg_target_arch.lu</code> defines one function twice,
   gated to two architectures, and
   <code>corpus/grammar/cfg_target_freestanding.lu</code> gates code to the
@@ -224,7 +224,9 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   allows; the interpreter still refuses a raw pointer in every signature,
   <code>fail(E1302)</code> (wolf-interp#181). Those are refusals, and the
   census counts them as its <code>fail</code> rows among the programs the
-  compiler runs. The last one runs on both sides and parts in what it prints:
+  compiler runs. The last one is not the distance — its clause,
+  <code>[type.unit.context]</code>, is in the text this interpreter was built
+  to — and it runs on both sides and parts in what it prints:
   <code>corpus/rows/unit_discard_if_value.lu</code> binds an else-less
   <code>if</code>, whose value is <code>()</code> whatever its branch does,
   and the compiler prints <code>() ()</code>; where the branch raises, the
