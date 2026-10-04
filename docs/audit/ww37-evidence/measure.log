@@ -1,0 +1,76 @@
++ L=/home/mfwolffe/lanes/ww37
++ export PATH=/home/mfwolffe/lanes/ww37/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin CARGO_BUILD_JOBS=4
++ PATH=/home/mfwolffe/lanes/ww37/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin
++ CARGO_BUILD_JOBS=4
++ cd /home/mfwolffe/lanes/ww37/web
++ git fetch -q origin ww37
++ git checkout -q -B ww37 origin/ww37
+++ git branch --show-current
++ test ww37 = ww37
++ git rev-parse HEAD
+9c4e836ddb123e99c49edad8eb7c5d00af04145c
++ git submodule update --init --recursive
++ git -C upstream/wolf-interp fetch -q --tags origin
++ git -C upstream/wolf-interp checkout -q 9f4e4a175da109bc4dc0acec3e8a4bc54358b941
++ git -C upstream/wolf-interp submodule update --init --recursive
+Submodule path 'upstream': checked out 'dfcc2f13e7c73182bdd41fc9bec2802c7da3b024'
++ git -C upstream/wolf-lang fetch -q --tags origin
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-book rev-parse HEAD
++ echo 'wolf-book f1d894ec0fe8a2d861d292657f2c0963417df975'
+wolf-book f1d894ec0fe8a2d861d292657f2c0963417df975
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-interp rev-parse HEAD
++ echo 'wolf-interp 9f4e4a175da109bc4dc0acec3e8a4bc54358b941'
+wolf-interp 9f4e4a175da109bc4dc0acec3e8a4bc54358b941
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-lang rev-parse HEAD
++ echo 'wolf-lang 8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a'
+wolf-lang 8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a
++ cp docs/audit/ww33-evidence/census.mjs docs/audit/ww33-evidence/stdout-probe.mjs /home/mfwolffe/lanes/ww37/
++ mkdir -p dist/play
++ ./scripts/build-wasm.sh
++ echo WASM45-EXIT=0
+WASM45-EXIT=0
++ cp dist/play/lupin.wasm /home/mfwolffe/lanes/ww37/lupin-0.1.45.wasm
++ curl -sfo /home/mfwolffe/lanes/ww37/lupin-0.1.44.wasm https://lupp.us/play/lupin.wasm
++ sha256sum /home/mfwolffe/lanes/ww37/lupin-0.1.44.wasm /home/mfwolffe/lanes/ww37/lupin-0.1.45.wasm
+db934cd7a02cbe973813b2b4b2dc1c66cbe922bb02af1da0ed13c89df0a3d4f4  /home/mfwolffe/lanes/ww37/lupin-0.1.44.wasm
+f03b1d922d39c0d2f39a258b10aca57db6b9357c063590aabe89c112e14f1708  /home/mfwolffe/lanes/ww37/lupin-0.1.45.wasm
++ git -C upstream/wolf-lang checkout -q dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
++ for v in 44 45
++ node /home/mfwolffe/lanes/ww37/census.mjs /home/mfwolffe/lanes/ww37/lupin-0.1.44.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww37/census-0221-0144.json
++ echo 'LEG 0221-0144 exit=0'
+LEG 0221-0144 exit=0
++ for v in 44 45
++ node /home/mfwolffe/lanes/ww37/census.mjs /home/mfwolffe/lanes/ww37/lupin-0.1.45.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww37/census-0221-0145.json
++ echo 'LEG 0221-0145 exit=0'
+LEG 0221-0145 exit=0
++ git -C upstream/wolf-lang checkout -q 8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a
++ for v in 44 45
++ node /home/mfwolffe/lanes/ww37/census.mjs /home/mfwolffe/lanes/ww37/lupin-0.1.44.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww37/census-0222-0144.json
++ echo 'LEG 0222-0144 exit=0'
+LEG 0222-0144 exit=0
++ for v in 44 45
++ node /home/mfwolffe/lanes/ww37/census.mjs /home/mfwolffe/lanes/ww37/lupin-0.1.45.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww37/census-0222-0145.json
++ echo 'LEG 0222-0145 exit=0'
+LEG 0222-0145 exit=0
++ git -C upstream/wolf-lang rev-parse HEAD
+8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a
++ git -C upstream/wolf-interp rev-parse HEAD
+9f4e4a175da109bc4dc0acec3e8a4bc54358b941
++ python3 /home/mfwolffe/lanes/ww37/ww37-rows.py
+++ comm -13 /home/mfwolffe/lanes/ww37/run-dfcc2f1.txt /home/mfwolffe/lanes/ww37/run-8e36bc1.txt
+++ sed 's|^corpus/||'
++ ARR=$'faults/cast_narrow_sign_trap.lu\nfaults/cast_narrow_unsigned_to_signed_trap.lu\nfaults/cast_narrow_width_trap.lu\nfs/read_at.lu\nfs/seek_tell.lu\ngrammar/attr_implemented_set.lu\ngrammar/cfg_target_arch.lu\ngrammar/cfg_target_freestanding.lu\nmembrane/export_called.lu\nmembrane/export_child.lu\nmembrane/extern_libc.lu\nmemory/raw_compound_assign.lu\nmemory/raw_ptr_mut_param.lu\nmemory/raw_ptr_private_sig.lu\nmemory/raw_repr_c_layout.lu\nmemory/region_str_view_for_inside.lu\nrows/first_list_literal_sum.lu\nrows/unit_discard_fallible_body_stmt.lu\nrows/unit_discard_if_value.lu\nrows/unit_discard_raise_stmts.lu\nrows/unit_discard_raise_unit_fn.lu\nrows/unit_discard_return_operand.lu\nrows/unit_discard_try_leaves.lu\nrows/unit_discard_unit_main.lu\ntypecheck/cast_narrow_in_range.lu\ntypecheck/cast_narrow_wrapping_truncates.lu'
++ for v in 45 44
++ node /home/mfwolffe/lanes/ww37/stdout-probe.mjs /home/mfwolffe/lanes/ww37/lupin-0.1.45.wasm upstream/wolf-lang/corpus faults/cast_narrow_sign_trap.lu faults/cast_narrow_unsigned_to_signed_trap.lu faults/cast_narrow_width_trap.lu fs/read_at.lu fs/seek_tell.lu grammar/attr_implemented_set.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu membrane/export_called.lu membrane/export_child.lu membrane/extern_libc.lu memory/raw_compound_assign.lu memory/raw_ptr_mut_param.lu memory/raw_ptr_private_sig.lu memory/raw_repr_c_layout.lu memory/region_str_view_for_inside.lu rows/first_list_literal_sum.lu rows/unit_discard_fallible_body_stmt.lu rows/unit_discard_if_value.lu rows/unit_discard_raise_stmts.lu rows/unit_discard_raise_unit_fn.lu rows/unit_discard_return_operand.lu rows/unit_discard_try_leaves.lu rows/unit_discard_unit_main.lu typecheck/cast_narrow_in_range.lu typecheck/cast_narrow_wrapping_truncates.lu rows/eu_bind_empty_row_handled.lu typecheck/numlit_binding_value_later_use.lu
++ echo 'PROBE 0145 exit=0'
+PROBE 0145 exit=0
++ for v in 45 44
++ node /home/mfwolffe/lanes/ww37/stdout-probe.mjs /home/mfwolffe/lanes/ww37/lupin-0.1.44.wasm upstream/wolf-lang/corpus faults/cast_narrow_sign_trap.lu faults/cast_narrow_unsigned_to_signed_trap.lu faults/cast_narrow_width_trap.lu fs/read_at.lu fs/seek_tell.lu grammar/attr_implemented_set.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu membrane/export_called.lu membrane/export_child.lu membrane/extern_libc.lu memory/raw_compound_assign.lu memory/raw_ptr_mut_param.lu memory/raw_ptr_private_sig.lu memory/raw_repr_c_layout.lu memory/region_str_view_for_inside.lu rows/first_list_literal_sum.lu rows/unit_discard_fallible_body_stmt.lu rows/unit_discard_if_value.lu rows/unit_discard_raise_stmts.lu rows/unit_discard_raise_unit_fn.lu rows/unit_discard_return_operand.lu rows/unit_discard_try_leaves.lu rows/unit_discard_unit_main.lu typecheck/cast_narrow_in_range.lu typecheck/cast_narrow_wrapping_truncates.lu rows/eu_bind_empty_row_handled.lu typecheck/numlit_binding_value_later_use.lu
++ echo 'PROBE 0144 exit=0'
+PROBE 0144 exit=0
++ echo MEASURE-DONE
+MEASURE-DONE
++ touch /home/mfwolffe/lanes/ww37/measure.done

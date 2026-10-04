@@ -1,0 +1,78 @@
+# the prose audits at the lupin pin commit ba51a13, before any prose edit (kasumi): 63 version lines (48 wolf, 15 lupin) and 6 stamp entries ask to be re-read, VP-EXIT=1; counts and lag exit 0 (the 18 clocked count lines were re-read in the three pin commits)
+wolf-book f1d894ec
+wolf-interp 9f4e4a17
+wolf-lang 8e36bc1a
+version prose: docs/index.html: 'v0.1.0' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: '1.97.1' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.13' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.15' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.16' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.17' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.18' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.19' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.20' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.7' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: '0.1.41' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.42' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.43' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.2.18' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.1' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.11' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.15' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.16' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.18' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.19' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.2' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.20' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.3' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.4' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.5' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.6' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: '0.1.22' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.23' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.24' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.25' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.28' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.35' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.37' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.39' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.40' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.41' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.42' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: 'v0.2.11' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.14' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.15' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.16' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.17' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.18' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.19' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.20' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.4' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.8' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: '0.1.40' was audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: spec/index.html: 'v0.1.0' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.11' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.13' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.14' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.15' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.16' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.17' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.18' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.19' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.20' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.4' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.5' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.6' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.7' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.8' was audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 2 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read them, then re-stamp its audited-at-wolf
+version prose: install/index.html: 2 release-bound __LUPIN_VERSION__ sentence(s) were audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read them, then re-stamp its audited-at-lupin
+version prose: install/index.html: 2 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read them, then re-stamp its audited-at-wolf
+version prose: play/index.html: 1 release-bound __LUPIN_VERSION__ sentence(s) were audited at lupin 0.1.44, the lupin pin is now 0.1.45 — re-read them, then re-stamp its audited-at-lupin
+version prose: play/index.html: 1 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read them, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 3 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.21, the wolf pin is now 0.2.22 — re-read them, then re-stamp its audited-at-wolf
+VP-EXIT=1
+counts: 250 number word(s) in 79 entries, 23 of them live and re-read at this bump (wolf 0.2.22, lupin 0.1.45, book f1d894e)
+CC-EXIT=0
+{"gap": 1, "phrase": "one release", "tagged": true, "commits": 222, "spec": "dfcc2f1", "release": "0.2.21", "advertised": "0.2.22"}
+LAG-EXIT=0

@@ -1,0 +1,1284 @@
+derive run 2026-10-04T03:16:55Z on kasumi
+=== tags
+v0.2.20 cdde128a30999652c9d70189664226b766a206f0
+v0.2.21 dfcc2f13e7c73182bdd41fc9bec2802c7da3b024
+v0.2.22 8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a
+=== interp gitlinks
+IOLD upstream: 160000 commit cdde128a30999652c9d70189664226b766a206f0	upstream
+INEW upstream: 160000 commit dfcc2f13e7c73182bdd41fc9bec2802c7da3b024	upstream
+version = "0.1.45"
+tag v0.1.45 -> 9f4e4a175da109bc4dc0acec3e8a4bc54358b941
+interp commits IOLD..INEW = 58
+9f4e4a1 version: 0.1.45 — Cargo.toml, Cargo.lock, the README's --version line, the manual's record example
+27ecfcc changelog: 0.1.45 — the re-pin on v0.2.21, DIV-2026-027, is69 (#176), is68 (#126, #103, #125, #138, #169), s199's fs mirror
+e0d1b96 tests: fault snapshot — index_origin_min_overflow traps at the 1-origin shift now its binding is annotated (dfcc2f13, s202)
+f79a7fb tests: fault snapshots — the two failing assert_msg rows trap assert at their assert (dfcc2f13, r27)
+0b034d5 docs: the manual's corpus walk and bundle at the dfcc2f13 pin — 892 files, 691 run, 3 mismatch (DIV-2026-019, -027)
+c2bba7c differ, divergence log: file DIV-2026-027 — the failing assert_msg rows pin one of two permitted renderings
+79c0d45 tests: the run ledger gains twenty-four of the pin's thirty entries; two are filed (DIV-2026-027)
+fd414b2 tests: conformance — E0611 under [type.row.defer] is a resolve-rung refusal
+2c2cba3 tests: conformance — E0801 and E0816 under [type.row.match] are resolve-rung refusals
+3dc6dfa tests: export — pin dfcc2f13, 546 anchors, 930/884 programs and records, ratchet 276 (r27)
+fd90571 tests: corpus_harness — 892 files, 846 entries, 46 members at dfcc2f13 (r27)
+b8fa2a9 tests: cli — the walk is 892 files at the dfcc2f13 pin (r27)
+31d8dfa pin: re-vendor spec and corpus at wolf-lang v0.2.21 (dfcc2f13) — one release forward, an ancestor of the released line
+480faa8 tests: the pipe variant is unix's — windows clippy saw it unconstructed
+6d5b0b3 fmt: the standard-stream arm
+a7304a5 fs: windows declines the standard streams by name — GetFileType is the only honest classifier and this crate admits no unsafe
+f9c757d fmt: fs_offset's EPIPE assertion
+9281c4a tests: fs_offset — EPIPE on the stdin pipe is the race, not a failure
+c68d8c3 fmt: the fs dispatch arms
+6968577 fs tests: 0..2 are the standard streams — close and read stay io there; the first handle is 3
+99c35ca builtin: fs_seek, fs_tell, fs_read_at resolve, dispatch and declare their rows
+ff53642 fs: seek, tell and read_at on a handle; 0..2 are the standard streams, the first handle is 3 ([os.fs.std])
+e33acc1 tests: fs_offset — seek, tell, read_at and the standard streams through the surface (wolf-lang#426, #424)
+ab59c56 notes: s199 contract (lupin half) — five sections; mirror fs_seek, fs_tell, fs_read_at and fs_fstat on 0..2
+6135d4d is69: §3a scored, §4 evidence index, §5 done-when (gauntlet and CI lines open)
+590e4b9 changelog: is69 — a -> !T function's row is what its body can raise (#176)
+ac1a17b rowmatch: callee_row and an annotated !T binding read the inferred row; an unreadable body keeps {..} (#176)
+0b502bb rowinfer: a -> !T fn's private row, inferred from its body as the compiler seals it (#176)
+98d4f11 is69: 20 witnesses for the inferred row (19 red on trunk's code, one control)
+eef5f09 is69 contract: §1–§3 for the inferred row (wolf-interp#176)
+5e7c944 docs: is68 §3a, §4, §5 — the prediction scored, the evidence indexed
+7e7c51c tests: the no-stdout record rule needs a new decline — a unit main's str tail is E0401 now (#103)
+22fc514 docs: the manual's bundle replay at is68's head — ledger 130, unsupported 65 and 65
+c1ad684 tests: lint_is61's t01 parting heals — E0401 at the annotation on both machines (#138)
+f897e62 docs: the manual's corpus census at is68's head — 667 run, 604 match, 83 dynamic, 63 conservatism, 65 out of scope
+70dcdf5 tests: run ledger — nested_fn_mut_param.lu runs, nested_fn_mut_moveout.lu traps (#169)
+b6ea927 tests: conformance retires NESTED_MODED_FN_DECLINED by name — r26's #169 waiver
+849e8e4 tests: a nested fn's mode leaves the scoped-out set; a moded nested fn writes back (#169)
+e7cf848 style: rustfmt over the nested-fn row's exit
+7dc33ba eval: a moded nested fn runs with the module fn's convention (#169)
+3ffdfd7 sema: a call to a nested fn is held to its declared modes, E1007 (#169)
+c416f9e style: rustfmt over the wide scalar pass
+a75adcc sema: str and bool join the declared-scalar lattice, a late wide pass (#138)
+6bebaac tests: run ledger — trim_cutset_refused.lu leaves, a match at resolve (#125)
+9def8e3 tests: conformance — E0402 by mem.str.ws is a resolve-rung refusal
+a77c4a4 eval: the [mem.str.ws] family declines an argument by name, never a cutset (#125)
+a4862f7 sema: E0402 at a [mem.str.ws] call that passes an argument (#125)
+52df1e8 style: rustfmt over the unit-context arms
+6fd7454 sema: the late walk reuses TierWalk::is_local
+db9ac2a sema: E0401 at a typed tail in a unit context, a late tier pass (#103)
+5314dfb eval: a unit context's value is () — an else-less if, a unit fn body (#103)
+2f33757 style: rustfmt over the lines arm
+d11cafe tests: run ledger — region_str_view_return.lu is a region-fault now (#126)
+7d6f6ee tests: a view of a built str dies with its region; the needle's sites never flow
+1a1c14f eval: a [mem.str.view] product carries its receiver's home (#126)
+e8de8d4 style: rustfmt over the is68 runner
+c8e8535 tests: is68 witnesses — 108 rows for #126, #103, #125, #138, #169 (81 red at trunk)
+a5f923d docs: is68 contract — §2 re-derived, §3 predicted before any edit
+=== interp files changed
+ vendor/upstream/spec/10-types.md                   |   97 +-
+ vendor/upstream/spec/anchors.json                  |    2 +
+ 328 files changed, 9593 insertions(+), 178 deletions(-)
+=== ancestry
+is-ancestor SPEC_NEW(dfcc2f13) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC_NEW..NEW = 222
+rev-list --count OLD..NEW = 222
+rev-list --count SPEC_OLD..OLD = 91
+=== CHANGELOG headings at NEW
+## 0.2.22 — 2026-10-03
+## 0.2.21 — 2026-10-02
+## 0.2.20 — 2026-10-01
+## 0.2.19 — 2026-09-30
+## 0.2.18 — 2026-09-27
+=== counts OLD vs NEW
+dfcc2f13 E=144 W=34 net=18 anchors=546
+8e36bc1a E=147 W=34 net=18 anchors=569
+anchors added 23 ['abi.asm', 'abi.asm.inline', 'abi.asm.link', 'abi.asm.machines', 'abi.asm.roster', 'abi.c.export', 'abi.c.import', 'abi.layout.c', 'abi.target', 'abi.target.entry', 'abi.target.none', 'abi.target.none.alloc', 'abi.target.none.codegen', 'abi.target.none.hooks', 'gram.item.attr.cfg', 'gram.item.attr.set', 'mem.unsafe.sig', 'os.fs.read_at', 'os.fs.seek', 'os.fs.std', 'os.fs.tell', 'proto.record.first', 'type.numlit.cast.narrow']
+anchors dropped 0 []
+grammar.ebnf 910ff9d5f6e6747e -> 910ff9d5f6e6747e
+BYTE-IDENTICAL
+=== phase:run sets
+  559 /home/mfwolffe/lanes/ww37/run-8e36bc1.txt
+  533 /home/mfwolffe/lanes/ww37/run-dfcc2f1.txt
+ 1092 total
+--- in:
+corpus/faults/cast_narrow_sign_trap.lu
+corpus/faults/cast_narrow_unsigned_to_signed_trap.lu
+corpus/faults/cast_narrow_width_trap.lu
+corpus/fs/read_at.lu
+corpus/fs/seek_tell.lu
+corpus/grammar/attr_implemented_set.lu
+corpus/grammar/cfg_target_arch.lu
+corpus/grammar/cfg_target_freestanding.lu
+corpus/membrane/export_called.lu
+corpus/membrane/export_child.lu
+corpus/membrane/extern_libc.lu
+corpus/memory/raw_compound_assign.lu
+corpus/memory/raw_ptr_mut_param.lu
+corpus/memory/raw_ptr_private_sig.lu
+corpus/memory/raw_repr_c_layout.lu
+corpus/memory/region_str_view_for_inside.lu
+corpus/rows/first_list_literal_sum.lu
+corpus/rows/unit_discard_fallible_body_stmt.lu
+corpus/rows/unit_discard_if_value.lu
+corpus/rows/unit_discard_raise_stmts.lu
+corpus/rows/unit_discard_raise_unit_fn.lu
+corpus/rows/unit_discard_return_operand.lu
+corpus/rows/unit_discard_try_leaves.lu
+corpus/rows/unit_discard_unit_main.lu
+corpus/typecheck/cast_narrow_in_range.lu
+corpus/typecheck/cast_narrow_wrapping_truncates.lu
+--- out:
+=== corpus diff name-status
+M	corpus/comptime.lu
+A	corpus/faults/cast_narrow_sign_trap.lu
+A	corpus/faults/cast_narrow_unsigned_to_signed_trap.lu
+A	corpus/faults/cast_narrow_width_trap.lu
+M	corpus/ffi.lu
+A	corpus/fs/read_at.lu
+A	corpus/fs/seek_tell.lu
+A	corpus/grammar/attr_contract_unimplemented.lu
+A	corpus/grammar/attr_implemented_set.lu
+A	corpus/grammar/attr_misplaced.lu
+A	corpus/grammar/attr_repr_bogus.lu
+A	corpus/grammar/attr_repr_unimplemented.lu
+A	corpus/grammar/attr_section.lu
+A	corpus/grammar/attr_thread_local.lu
+A	corpus/grammar/attr_unknown.lu
+A	corpus/grammar/cfg_predicate_unknown.lu
+A	corpus/grammar/cfg_target_arch.lu
+A	corpus/grammar/cfg_target_freestanding.lu
+A	corpus/grammar/cfg_target_unknown.lu
+A	corpus/grammar/extern_abi_interrupt.lu
+A	corpus/membrane/export_called.lu
+A	corpus/membrane/export_child.lu
+A	corpus/membrane/extern_libc.lu
+A	corpus/membrane/geo/geo.lu
+A	corpus/memory/extern_c_outside_unsafe.lu
+A	corpus/memory/raw_compound_assign.lu
+A	corpus/memory/raw_ptr_mut_param.lu
+A	corpus/memory/raw_ptr_private_sig.lu
+A	corpus/memory/raw_repr_c_layout.lu
+A	corpus/memory/region_str_copy_return.lu
+A	corpus/memory/region_str_list_for_held.lu
+A	corpus/memory/region_str_view_for_copy.lu
+A	corpus/memory/region_str_view_for_held.lu
+A	corpus/memory/region_str_view_for_inside.lu
+A	corpus/memory/region_str_view_for_lines.lu
+A	corpus/memory/region_str_view_for_nested.lu
+A	corpus/memory/region_str_view_for_place.lu
+A	corpus/memory/region_str_view_for_return.lu
+A	corpus/memory/region_str_view_for_split.lu
+A	corpus/memory/region_str_view_for_value.lu
+A	corpus/memory/region_str_view_for_words.lu
+M	corpus/memory/unsafe_sig.lu
+A	corpus/rows/first_list_literal_sum.lu
+A	corpus/rows/negative/first_boundary_before_lex.lu
+A	corpus/rows/negative/first_keyword_pattern.lu
+A	corpus/rows/negative/first_parse_before_lex.lu
+A	corpus/rows/negative/first_parse_before_resolve.lu
+A	corpus/rows/negative/first_same_offset_lex.lu
+A	corpus/rows/negative/first_stray_backtick.lu
+A	corpus/rows/unit_discard_fallible_body_stmt.lu
+A	corpus/rows/unit_discard_if_value.lu
+A	corpus/rows/unit_discard_raise_stmts.lu
+A	corpus/rows/unit_discard_raise_unit_fn.lu
+A	corpus/rows/unit_discard_return_operand.lu
+A	corpus/rows/unit_discard_try_leaves.lu
+A	corpus/rows/unit_discard_unit_main.lu
+A	corpus/typecheck/cast_narrow_in_range.lu
+A	corpus/typecheck/cast_narrow_wrapping_truncates.lu
+M	corpus/typecheck/wrap_narrow_cast.lu
+--- pre-existing run programs modified:
+corpus/comptime.lu
+corpus/typecheck/wrap_narrow_cast.lu
+=== spec/ docs/ stat
+ docs/diagnostics.md              |  96 ++++++++++++++----
+ spec/01-grammar.md               |  59 +++++++++--
+ spec/02-memory-model.md          |  64 +++++++++++-
+ spec/04-abi.md                   | 206 ++++++++++++++++++++++++++++++++++++++-
+ spec/06-differential-protocol.md |  20 +++-
+ spec/08-package.md               |   6 +-
+ spec/10-types.md                 |  56 +++++++++++
+ spec/11-os.md                    | 126 ++++++++++++++++++++++++
+ spec/anchors.json                |  23 +++++
+ 9 files changed, 618 insertions(+), 38 deletions(-)
+=== new run program headers
+## corpus/faults/cast_narrow_sign_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.numlit.cast.narrow, arith.checked
+//!
+//! A change of sign is a narrowing cast at any width
+//! (`[type.numlit.cast.narrow]`): `-1` is not a `u64`, so `v as u64`
+//! traps. Until kw03 native and release reinterpreted the bits and
+//! printed `-1` (a silent wrong answer: the checked machine and lupin
+//! trapped). The bit reinterpretation is spelled `v as wrapping[u64]`.
+## corpus/faults/cast_narrow_unsigned_to_signed_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.numlit.cast.narrow, arith.checked
+//!
+//! An unsigned value above the signed target's maximum does not fit it
+//! (`[type.numlit.cast.narrow]`): `128 as u8 as i8` traps. Until kw03
+//! native and release printed `-128`, the bits read as signed, where
+//! the checked machine and lupin trapped. The same rail is D56's
+//! `wrapping[u64] as int` (`[type.numlit.cast.wrap]`).
+## corpus/faults/cast_narrow_width_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.numlit.cast.narrow, arith.checked
+//!
+//! A narrowing integer cast keeps an in-range value and TRAPS when the
+//! target cannot hold it (`[type.numlit.cast.narrow]`, K12,
+//! wolf-lang#533). kw00's `f9_narrow.lu`: `n + 64` fits `u8` and is
+//! kept; `n + 299` does not and traps. The value comes from the run
+//! (`env_args().len`) so no tier can decide it at compile time. Until
+//! kw03 native and release refused the program ("narrowing numeric
+//! casts (range-check semantics)"); the checked machine and lupin
+//! trapped, as now every machine does.
+## corpus/fs/read_at.lu
+//! check: run(exit=0, stdout="head=01 at5=567 tell=2 next=23\nat_end=eof empty_len=0 negative=invalid\ntell_unmoved=4 closed=io forged=io\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.read_at, os.fs.tell, err.union, err.propagate
+//!
+//! s199 (wolf-lang#426, `[os.fs.read_at]`) — a positional read: the
+//! bytes at an offset, and the handle's own cursor left exactly where
+//! it was (`pread`). The relations this file pins, on every tier and
+//! host:
+//!
+//!   head / at5 / tell / next   two bytes read forward, then three at
+//!                              offset 5; the cursor still says 2 and
+//!                              the next forward read is bytes 2..4.
+//!   at_end                     a positional read at the size is `eof`.
+//!   empty_len                  a `max` of zero is the empty list.
+//!   negative                   a negative offset is `invalid`.
+//!   tell_unmoved               none of the three moved the cursor.
+//!   closed / forged            the family's rule: `io`.
+## corpus/fs/seek_tell.lu
+//! check: run(exit=0, stdout="first_handle_above_2=true\ntell_after_reads=7 read=0123456\nend=10 size=10 at_end_is_eof=true\nback=7 last=789\nstart=2 cur=5 next=56\npast_end=14 past_end_is_eof=true\nbad_whence=invalid before_start=invalid closed=io forged=io\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.seek, os.fs.tell, os.fs.std, err.union, err.propagate
+//!
+//! s199 (wolf-lang#426, `[os.fs.seek]`, `[os.fs.tell]`) — a handle's
+//! offset can be read and moved. Before this file a program could only
+//! read forward from byte zero, so `tail -n 10` of a file read the
+//! whole file. The relations this file pins, on every tier and host:
+//!
+//!   first_handle_above_2   the first open answers a number above 2:
+//!                          0, 1 and 2 are the standard streams
+//!                          (`[os.fs.std]`), never a file's handle.
+//!   tell_after_reads       reads of 3 and 4 bytes leave the cursor at 7.
+//!   end / size             a seek to the end (whence 2) answers the
+//!                          offset from the start, the file's size, and
+//!                          the next read is `eof`.
+//!   back / last            a seek of -3 from the end, then a read, is
+//!                          the last three bytes.
+//!   start / cur / next     whence 0 is from the start, whence 1 from
+//!                          the cursor.
+## corpus/grammar/attr_implemented_set.lu
+//! check: run(exit=0, stdout="3\n7\n")
+//! phase: run
+//! conforms: gram.item.attr, gram.attr.index, abi.layout.c
+//!
+//! kw01 (K13 — wolf-lang#519): the control. The closed set refuses
+//! what nothing reads and keeps what is implemented: `#[repr(c)]` on a
+//! struct, an `#[index(1)]` statement marker, a `#[budget]` on a
+//! comptime evaluation, and a `cfg` that holds on every host compile
+//! and run unchanged on every lane.
+## corpus/grammar/cfg_target_arch.lu
+//! check: run(exit=0, stdout="64\n")
+//! phase: run
+//! conforms: gram.item.attr.cfg
+//!
+//! kw01 (K13 — wolf-lang#519): `#[cfg(target = "S")]` is evaluated
+//! against the build's target; S names the triple or its architecture.
+//! Exactly one `arch_bits` survives on an x86-64 host and on an
+//! aarch64 host, so the program is one truth on every tier-1 host.
+//! Before kw01 nothing read `cfg`, both definitions stayed, and the
+//! module defined `arch_bits` twice (E0302).
+## corpus/grammar/cfg_target_freestanding.lu
+//! check: run(exit=0, stdout="hosted\n1\n")
+//! phase: run
+//! conforms: gram.item.attr.cfg
+//!
+//! kw01 (K13; K1 — wolf-lang#519): no hosted build is the freestanding
+//! target `x86_64-unknown-none`, so what it gates is dropped before
+//! resolution on every host — never resolved, typed or lowered. The
+//! gated function does not type-check (it returns a string as an
+//! `int`) and the gated statement names a function that does not
+//! exist; before kw01 both were compiled and the program was refused.
+## corpus/membrane/export_called.lu
+//! check: run(exit=0)
+//! phase: run
+//! conforms: abi.c.export, abi.c.seams
+//! kw00's probe (`f1_export.lu`): both spellings of a C-callable wolf
+//! function, called from wolf too. Each is one global symbol under its
+//! own name with the C convention, on both compiling tiers (wolf-lang#513:
+//! before kw02 native mangled both and release dropped both).
+## corpus/membrane/export_child.lu
+//! check: run(exit=0)
+//! phase: run
+//! conforms: abi.c.export
+//! An `export fn` in a child module is one C symbol under its own name
+//! (`kx_area`, no module path), and wolf code calls it like any `pub`
+//! function.
+## corpus/membrane/extern_libc.lu
+//! check: run(exit=0, stdout="8 34\n")
+//! phase: run
+//! conforms: abi.c.import, mem.unsafe.sig, abi.c.types
+//! wolf calls C by the C ABI through hand-declared externs (wolf-lang#521):
+//! the platform C library's own `strlen` and `llabs`, a raw pointer
+//! crossing the membrane (wolf-lang#514). The checked machine and lupin
+//! have no C membrane and refuse the calls by name.
+## corpus/memory/raw_compound_assign.lu
+//! check: run(exit=0, stdout="8\n248\n12\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.1, gram.expr.assign
+//!
+//! kw01 (wolf-lang#542, a silent wrong answer on three lanes): `p[i]
+//! op= v` through a raw pointer is a read-modify-write at the pointee's
+//! type, exactly the List form (#55). At trunk 12a56b22 native and
+//! release dropped the operator and stored `v` (`5`, `31`, `3`); the
+//! checked machine always ADDED and sized a `*i64` element by the wrong
+//! type (`8`, `39`, `0`). lupin 0.1.43 printed these lines.
+## corpus/memory/raw_ptr_mut_param.lu
+//! check: run(exit=0, stdout="42\n")
+//! phase: run
+//! conforms: mem.unsafe.sig, mem.unsafe.raw.1
+//! A module-private function takes a raw pointer by `mut`: the caller's
+//! pointer VARIABLE is lent (call-by-reference-result), and the mode
+//! says nothing about the pointee. `retarget` points `p` at `b`, so the
+//! caller reads 41 through it. Before kw02 the checked machine passed a
+//! retagged copy, never wrote it back, and printed 2.
+## corpus/memory/raw_ptr_private_sig.lu
+//! check: run(exit=0, stdout="42\n")
+//! phase: run
+//! conforms: mem.unsafe.sig
+//! K9(b) = B (STATUS #31; wolf-lang#514): a raw pointer may stand in
+//! the signature of a module-private function — every caller is in the
+//! same module, the audit granule. Passed by value it is a copy of the
+//! pointer and says nothing about the pointee (`[mem.unsafe.raw.1]`):
+//! `poke` writes through it. Before kw02 this was E1302 on every
+//! machine; the checked machine also froze the pointee at the call, so
+//! the write was UB row P2 there while the compiled tiers ran it.
+## corpus/memory/raw_repr_c_layout.lu
+//! check: run(exit=0, stdout="1 0 0 0 2 0 0 0 3 0 0 0 4 0 0 0 5 0 0 0 6 0 0 0\n17 3735928559 34\n")
+//! phase: run
+//! conforms: abi.layout.c, mem.unsafe.raw.1
+//!
+//! kw01 (K4, STATUS #31 — wolf-lang#523, a silent wrong answer at the C
+//! membrane): a `#[repr(c)]` struct stored or loaded through a raw
+//! pointer has the C layout, `{u8, u32, u8}` at offsets 0 4 8, size 12,
+//! so `p[1]` starts at byte 12. At trunk 12a56b22 native and release
+//! wrote it packed (`1 2 0 0 0 3`, stride 6) and read `b` from offset 1.
+//! The second line reads the struct back from bytes laid down at C's
+//! offsets, as a C program would leave them. The checked machine and
+//! lupin refuse the aggregate store by name (a raw write of a
+//! non-scalar); `repr_c_raw_layout.rs` holds a real C compiler to both
+//! directions on both compiling tiers.
+## corpus/memory/region_str_view_for_inside.lu
+//! check: run(exit=0, stdout="regions\nhere\n2\n[here] [here] [gions] [here] [11] [7]\n")
+//! phase: run
+//! conforms: mem.region.escape, mem.str.view
+//!
+//! s207 (wolf-lang#540), the legal side: a `for` piece names its
+//! receiver's bytes and nothing else. Used inside the region it is
+//! free; taken of a parameter, of a literal, of a literal local, or of a
+//! `str` built OUTSIDE the region, it may outlive the region, because
+//! its bytes do. The `List` a `split`/`words`/`lines` call allocates is
+//! not where a piece's bytes live, so it pins nothing. An `int` drawn
+//! from a piece, or an element of a `List[int]`, carries no site. If
+//! this file ever starts refusing, the rule has become "a for binding
+//! is radioactive" rather than "a piece lives where its receiver's
+//! bytes live". lupin agrees on every line.
+## corpus/rows/first_list_literal_sum.lu
+//! check: run(exit=0, stdout="285\n")
+//! phase: run
+//! conforms: proto.record.first, gram.expr.list
+//!
+//! s203 (wolf-lang#377 class 5) — the two programs the compiler ran and
+//! lupin refused at parse (`exit(0)` against `fail(E0201)`, wl21's
+//! book-ex13-2 s3 and s4), reconstructed: a list literal, squared and
+//! summed. wolf 0.2.13 was the first release with list literals
+//! (`[gram.expr.list]`); lupin 0.1.36 refused them by E0201 at the `[`
+//! until is49 (0.1.37). Not a refusal-code question and not unsound: a
+//! grammar addition one release behind. Every lane runs it now.
+## corpus/rows/unit_discard_fallible_body_stmt.lu
+//! check: run(exit=0, stdout="after if\n7\n")
+//! phase: run
+//! conforms: type.unit.context, type.unit.discard, diag.sev.warn
+//! warns: W0601
+//!
+//! s207 (wolf-lang#541) — an else-less `if` as a STATEMENT in a
+//! fallible function is still a unit context: its raising then-block is
+//! discarded, warned, and the function goes on to its own tail. Native,
+//! release and lupin print `after if` and `7`; the checked machine let
+//! the row leave `g` and the caller's `else` printed `0` until s207.
+//! (The same `if` as `g`'s TAIL raises on all four machines and draws
+//! no W0601 — a ruling question, filed with #541, not decided here.)
+## corpus/rows/unit_discard_if_value.lu
+//! check: run(exit=0, stdout="() ()\n")
+//! phase: run
+//! conforms: type.unit.context, type.unit.discard, diag.sev.warn
+//! warns: W0601
+//!
+//! s207 (wolf-lang#541) — an `if` with no `else` is a unit context for
+//! its then-block, and "the block's value is `()` whatever the tail's
+//! type" (`[type.unit.context]`). So `v` is `()` whether `maybe` answers
+//! a value or raises. Native and release print `() ()`; the checked
+//! machine bound the value and then the row (`3 none`) until s207.
+//! lupin 0.1.44 prints `3 none` and is68's lupin `() none`
+//! (wolf-interp, filed by s207).
+## corpus/rows/unit_discard_raise_stmts.lu
+//! check: run(exit=0, stdout="a\nb\nc\nd\ne 3\nf 3\ng 3\nother\nh\n")
+//! phase: run
+//! conforms: type.unit.context, type.unit.discard, diag.sev.warn
+//! warns: W0601
+//!
+//! s207 (wolf-lang#541) — a discarded row is discarded on every
+//! machine. `[type.unit.discard]`: "A `!T` tail in a unit context is a
+//! discard, warned (W0601), never a mismatch. The value's row is lost";
+//! W0601 has said the same of a non-trailing `!T` statement since s67.
+//! Every `boom()` below raises and nobody consumes it: a statement, an
+//! `int ! {none}` statement, an else-less `if`'s then-block, the last
+//! block of an `if … else if` chain with no `else`, a `for`, `while` and
+//! `loop` body's tail, and a `match` arm in a loop body. Native,
+//! release and lupin always printed every line; the checked machine
+//! propagated the first row out of `main` (`exit(1)`, `error: bad`)
+//! until s207.
+## corpus/rows/unit_discard_raise_unit_fn.lu
+//! check: run(exit=0, stdout="in f\nafter f\nafter g\nafter go\ndefer ran\nafter h\n")
+//! phase: run
+//! conforms: type.unit.context, type.unit.discard, diag.sev.warn
+//! warns: W0601
+//!
+//! s207 (wolf-lang#541) — the body of a unit function is a unit context
+//! (`[type.unit.context]`), so a raising `!()` tail there is the warned
+//! discard, and so is a raising statement before it. Native, release and
+//! lupin returned `()` to the caller every time; the checked machine
+//! handed the caller the row, and `main` left with `error: bad`, until
+//! s207. A unit method and a unit fn with a `defer` are the same
+//! context; the `defer` runs on the way out either way.
+## corpus/rows/unit_discard_return_operand.lu
+//! check: run(exit=0, stdout="after\n")
+//! phase: run
+//! conforms: type.unit.context, type.unit.discard, diag.sev.warn
+//! warns: W0601
+//!
+//! s207 (wolf-lang#541) — "the operand of a `return`" in a unit
+//! function is on `[type.unit.context]`'s list, so `return boom()` is
+//! the warned discard and `f` returns `()`. Native and release stopped
+//! with an internal error (`ret carries 1 value(s), signature returns
+//! 0`) and the checked machine propagated the row until s207; lupin
+//! prints `after`.
+## corpus/rows/unit_discard_try_leaves.lu
+//! check: run(exit=0, stdout="raised\n")
+//! phase: run
+//! conforms: type.unit.context, type.unit.discard, err.rows
+//!
+//! s207 (wolf-lang#541), the control: a discard is a row NOBODY
+//! consumes. `?` consumes it — it propagates the row out of the loop
+//! body and out of `g` — so the discard rule never touches it, on any
+//! machine.
+## corpus/rows/unit_discard_unit_main.lu
+//! check: run(exit=0, stdout="hi\n")
+//! phase: run
+//! conforms: type.unit.context, type.unit.discard, diag.sev.warn
+//! warns: W0601
+//!
+//! s207 (wolf-lang#541) — `main` with no declared result is a unit
+//! function, so its raising tail is the warned discard and the process
+//! exits 0. Native and release always did; the checked machine reported
+//! the row as `main`'s error value (`exit(1)`, `error: bad`) until
+//! s207; lupin did too until wolf-interp#172 (is68).
+## corpus/typecheck/cast_narrow_in_range.lu
+//! check: run(exit=0, stdout="200 -1 -128 65535 4294967295 127 0 32767")
+//! phase: run
+//! conforms: type.numlit.cast.narrow
+//!
+//! A narrowing integer cast keeps an in-range value unchanged
+//! (`[type.numlit.cast.narrow]`, K12, wolf-lang#533): a narrower width
+//! at each end of the target's range, and a change of sign where the
+//! value has none to lose. M-KW's port write `b as int as u8` is the
+//! first shape. Until kw03 native and release refused every one of
+//! these but the sign changes.
+## corpus/typecheck/cast_narrow_wrapping_truncates.lu
+//! check: run(exit=0, stdout="44 255 4294967295 -56 127 255 0")
+//! phase: run
+//! conforms: type.numlit.cast.narrow, type.numlit.cast.wrap
+//!
+//! Truncation is spelled through the wrapping family
+//! (`[type.numlit.cast.narrow]`): the cast INTO `wrapping[T]` masks to
+//! the width and never traps (#131), and the cast back OUT keeps the
+//! held value, which by then fits. Signed wrapping widths read their
+//! bits as signed: `200 as wrapping[i8] as i8` is `-56`. Until kw03 the
+//! checked machine range-checked the mask instead of the value, so the
+//! signed rows trapped there while native, release and lupin kept them.
+=== modified run program diffs
+diff --git a/corpus/comptime.lu b/corpus/comptime.lu
+index 2cc6c491..e511d461 100644
+--- a/corpus/comptime.lu
++++ b/corpus/comptime.lu
+@@ -1,11 +1,13 @@
+ //! check: run(exit=0)
+ //! phase: run
+-//! conforms: comptime.fn, comptime.types_as_values, perf.contract
++//! conforms: comptime.fn, comptime.types_as_values
+ //!
+ //! The single metaprogramming tier (D29): full CTFE, types as comptime
+-//! values, reflection — no macros at v1. Plus a checked perf contract
+-//! (I15): `#[noalloc]` is compiler-VERIFIED against WIR facts, not a
+-//! comment that rots.
++//! values, reflection — no macros at v1. (Until kw01 `dot` carried
++//! `#[noalloc]` under a comment claiming the compiler verified it; no
++//! checker exists (wolf-lang#180), so the attribute is now refused by
++//! name, E0817, and `grammar/attr_contract_unimplemented.lu` is its
++//! row.)
+ 
+ // runs entirely at compile time when arguments are comptime-known
+ comptime fn fib(n: int) -> int {
+@@ -19,8 +21,6 @@ comptime fn field_count(T: type) -> int {
+ 
+ struct Vec3 { x: f64, y: f64, z: f64 }
+ 
+-// the compiler PROVES this allocates nothing, or rejects it (I15)
+-#[noalloc]
+ fn dot(a: Vec3, b: Vec3) -> f64 {
+     a.x * b.x + a.y * b.y + a.z * b.z
+ }
+diff --git a/corpus/typecheck/wrap_narrow_cast.lu b/corpus/typecheck/wrap_narrow_cast.lu
+index e123c6b3..fae1ce11 100644
+--- a/corpus/typecheck/wrap_narrow_cast.lu
++++ b/corpus/typecheck/wrap_narrow_cast.lu
+@@ -5,8 +5,9 @@
+ //! `int as wrapping[u32]` — the narrowing WRAPPING cast (#131, s111):
+ //! mask-to-width is the family's meaning (bit truncation, `itrunc` on
+ //! the native rung), the committed dual of the widening direction's
+-//! extension. The general narrowing cast keeps its s27 range-check
+-//! question; a wrapping target does not raise it. Witnessed in both
++//! extension. The general narrowing cast keeps the value or traps
++//! (`[type.numlit.cast.narrow]`, kw03); a wrapping target never traps,
++//! which makes it the spelling of truncation. Witnessed in both
+ //! directions: a value in range (300 survives), a value needing the
+ //! mask (0x1_0000_002c wraps to 44), and the sign bit-pattern (-1 is
+ //! 0xffffffff — reading back through the unsigned zero-extension).
+=== CHANGELOG 0.2.22 entry
+## 0.2.22 — 2026-10-03
+
+THE TWENTY-SECOND. wolf builds for a freestanding target:
+`--target x86_64-unknown-none` emits a kernel object with no `main`
+shim and no runtime, one trap hook, and everything that needs the
+hosted runtime or an allocator refused by name; assembly sources
+listed in `wolf.pkg` (`asm: [...]`) are assembled and linked, and on
+that target a call into assembly must name the roster (E1306). The
+attribute set is
+closed and `cfg(target)` is evaluated against the build's target
+(E0817, E0818), a `#[repr(c)]` struct through a raw pointer has the C
+layout, `export fn` is a C function and a hand-declared `extern "c" fn`
+is callable, `*T` crosses the C membrane, and an integer cast keeps its
+value or traps (`[type.numlit.cast.narrow]`). A `for` piece cannot
+outlive its region, and the checked machine discards a row nobody
+consumes, as the other lanes do. Programs can seek, tell and read at an
+offset, and descriptors 0, 1 and 2 are the standard streams: **the first
+handle an open answers is 3**. A refusal carries one code on every lane
+(`[proto.record.first]`), and the blast-radius property counts wreck
+sites. The pairing moves to lupin 0.1.45, whose spec pin moves to
+v0.2.21 and which heals the one parting 0.2.21 shipped pinned. Eight
+lanes and 209 commits: s203, kw01, kw02, s207, kw03, s199, kw04, kw05.
+
+### Read this before you bump the pin
+
+**Eight programs gave a wrong answer with no diagnostic on 0.2.21.**
+Each is now refused or answers the ruled bytes on its lane:
+
+- `for w in s.words() { last = w }` inside `region scratch { }` handed
+  `last` out of the region and printed from freed bytes on checked,
+  native and release (#540). E1010 now; lupin trapped it.
+- A `#[repr(c)]` struct stored or loaded through `*T` used a packed
+  layout on native and release, `{u8, u32, u8}` at offsets 0 1 5 where
+  C has 0 4 8 (#523). The C layout now.
+- `p[0] += 5` through a raw pointer stored 5 on native and release; the
+  checked machine sized a `*i64` element by the wrong type (#542).
+- `-1 as u64` printed `-1` and `128 as u8 as i8` printed `-128` on
+  native and release (#533). Both trap `overflow` now, as the checked
+  machine and lupin did. Spell the bits `v as wrapping[u64]`.
+- `let v = if c { maybe(n) }` bound `3` or `none` on the checked machine,
+  where the value is `()`, and a discarded raising statement left
+  `main` with `error: bad` there (#541).
+- A `mut p: *u8` reassigned in a private callee never reached the
+  caller on the checked machine (`2` where native printed `42`), and a
+  write through a pointer argument was UB row P2 there (kw02).
+- `#[repr(packed)]` was laid out unpacked, `#[section(…)]` landed in
+  `.text`, `#[noalloc]` verified nothing, and `#[cfg(target = "…")]` was
+  ignored, so target-gated code compiled for every target (#519).
+- `extern "x86-interrupt" fn` compiled as an ordinary function
+  returning with `ret` (#524).
+
+**Programs that compiled are now refused.** An attribute wolf does not
+know or does not implement yet (E0817, naming the lane that owns it);
+any ABI string but `"c"` (E0818); a `cfg` predicate other than `target`;
+a `for` piece, a `List[str]` element or `copy s` of a region-built
+`str` held past its region (E1010). A sign-changing or narrowing cast
+that does not fit now traps at run time where native and release
+reinterpreted the bits. In the downstreams, `corpus/comptime.lu` drops
+its `#[noalloc]`, and the book's `#[noalloc]` exercises become E0817 at
+its next pin. wolf-std, boreutils and lobo use only implemented
+attributes.
+
+**Programs that were refused now compile.** `wolf build --target
+x86_64-unknown-none --emit=obj` (it was an unknown flag); `asm:` in
+the root `wolf.pkg` (it was E1502, an unknown key). Every narrowing integer
+cast on native and release; `export fn` (a C symbol under the target's
+C plan); a call to a hand-declared `extern "c" fn` inside `unsafe`; a
+raw pointer in a module-private signature or across the C membrane
+(`pub` signatures still E1302); `return boom()` in a unit fn, which
+stopped native and release with an internal error.
+
+**Handles moved.** The first handle `fs_open` answers is 3 on every
+machine (it was 0 on the compiler and 1 on lupin). `fs_fstat(0)`,
+`(1)` and `(2)` describe the standard streams instead of answering
+`io`.
+
+### The pairing: lupin 0.1.45
+
+`PAIRING` names **lupin 0.1.45 at pin `dfcc2f1`** (wolf-interp release
+402670966; the linux x86-64 archive's sha256 `907cfb1a…`), whose spec pin is
+this compiler's v0.2.21 tag. It carries is69 (wolffe-lang/wolf-interp#176),
+is68 (#126, #103 row 1, #125, #138, #169) and the mirror of s199's
+`fs_seek`/`fs_tell`/`fs_read_at` and standard streams. The ritual (#87,
+with #281's control against the 0.1.44 archive, same corpus, same
+release `wolf`) **moved 16 ledger counts on the checked tier and 17 on
+native**, each toward agreement but one:
+
+- **Healed.** `rows/eu_bind_empty_row_handled.lu` (Verdict → agreement):
+  0.2.21's one pinned parting, #176. The two s199 rows `fs/seek_tell.lu`
+  and `fs/read_at.lu` (unsupported → agreement). is68's
+  `memory/region_str_view_return.lu` and the nine
+  `region_str_view_for_*.lu` rows (completeness → agreement: lupin traps
+  `region-fault` where the compiler refuses E1010). The #169 rows
+  `nested_fn_mut_moveout.lu` (→ agreement) and `nested_fn_mut_omitted.lu`
+  (→ completeness), and `rows/unit_discard_unit_main.lu` (Verdict → a
+  warning-only Diag).
+- **One move into a hard divergence**: `grammar/cfg_target_freestanding.lu`
+  (unsupported → Verdict). lupin still reads no `cfg` (#174) and keeps
+  the code the freestanding target gates; is68's wider scalar pass now
+  types that code and refuses it, `fail(E0401)`, where 0.1.44 declined.
+- `memory/nested_fn_mut_param.lu` moves to agreement on native only: the
+  checked machine declines the row, so the move sits below its ledger.
+
+Below the ledger on both tiers: `rows/unit_discard_if_value.lu` (lupin's
+stdout `3 none` → `() none`, #179) and `strings/trim_cutset_refused.lu`
+(`exit(0)` → `fail(E0402)`, #125). Checked: 564 → 577 agreements, completeness 233 → 223, hard
+divergences 17, soundness 0; native: 605 → 619, 233 → 223, 21, soundness 1 (still
+`memory/unsafe_ub_uaf.lu`, the program's own use-after-free read on the
+compiled lane).
+
+The gates that pinned lupin's answer: **dropped, 17 cases** — the #176
+pin (`fallible_bind_empty_row_lanes.rs`), `fs_std_lanes.rs`'s
+`PRE_MIRROR_LUPIN` (six cases), `region_view_for_lanes.rs`'s
+`PRE_VIEW_TRAP_LUPIN` (six, is68's #126),
+`unit_discard_lanes.rs`'s unit-`main` pin (#103), and
+`nested_fn_modes_lanes.rs`'s three moded nested-fn rows, whose oracle
+said `unsupported` for every version and now asks for the ruled answers
+(is68's #169). Against the published 0.1.44 exactly those seventeen go
+red. **Kept, 26 cases, each carried to
+0.1.45 with 0.1.44's answer**, each naming its open lupin issue:
+`attr_closed_set_lanes.rs` 13 (wolf-interp#174), `c_membrane_lanes.rs` 4
+(#181), `first_diagnostic_lanes.rs` 7 (#175), `region_view_for_lanes.rs`'s
+`PRE_RETURN_TRAP_LUPIN` 1 (#178) and `unit_discard_lanes.rs`'s else-less
+`if` 1 (#179; is68's `() none` only). **Kept, verdict changed, one case**:
+`cfg_target_freestanding.lu` is pinned at 0.1.45's `fail(E0401)` (#174,
+above). None is widened.
+
+### Linked assembly: `asm` in `wolf.pkg` (kw05, ruling #31 K2 = C)
+
+- **Assembly sources in the manifest.** `asm: ["boot/io.S"]` in the
+  root `wolf.pkg` was an unknown key (E1502). Now each listed source is
+  assembled for the build's target — on `x86_64-unknown-none` by the
+  release tier's clang with `--target=x86_64-unknown-none-elf`, from
+  any host, checked ELF x86-64; hosted, by the link's `cc` — and handed
+  to the link, or written beside `--emit=obj -o K.o` as
+  `K.asm-<stem>.o` for the boot code's link (`[abi.asm.link]`). A
+  routine is called through a bodyless `extern "c" fn` inside `unsafe`.
+  A dependency's manifest that lists `asm` is refused: an assembly
+  source is not part of a package's content address.
+- **The assembly roster, E1306.** The roster is the `.globl` names of
+  the listed sources. On the freestanding target a package that lists
+  assembly calls through `extern "c"` only into its roster or the hooks;
+  any other call is E1306 naming the routine (`[abi.asm.roster]`).
+- **The machines.** The checked machine refuses a call into a listed
+  routine as `` a call into assembly `NAME` `` (`[abi.asm.machines]`);
+  lupin already refuses a call to a bodyless declaration by name. The
+  inline `asm` block stays `unsupported` (`[abi.asm.inline]`, kw13).
+- A build that lists no `asm` links byte-for-byte as before (boreutils,
+  lobo: every binary identical, dev and release). The manifest schema
+  note now names `target` and `asm`. Anchors 564 → 569.
+
+### The freestanding target: `--target x86_64-unknown-none` (kw04, ruling #31 K1, K8(a), K10)
+
+- **A kernel object, with no `main` shim and no runtime.** `--target`
+  was an unknown flag, and every object carried the C-entry `main` shim
+  and imported the runtime's trap reporters. Now `wolf build --target
+  x86_64-unknown-none --emit=obj` (or `target: "x86_64-unknown-none"`
+  in the root `wolf.pkg`) builds an object for a boot stub to link, on
+  both tiers and from any host: the entry is an `export fn`, `main` is
+  an ordinary function, and the object imports only the hook list —
+  `wolf_trap` and `memcpy`/`memmove`/`memset`/`memcmp` — plus the
+  program's own `extern "c"` declarations (`[abi.target]`,
+  `[abi.target.none]`, `[abi.target.entry]`, `[abi.target.none.hooks]`).
+- **One trap hook, with the site, on both tiers.** On the target every
+  trap calls `wolf_trap(kind, file, file_len, line, col)`, which the
+  program supplies and which must not return (`ud2` follows the call);
+  the native tier had called `__wolf_rt_trap_at` and the release tier
+  `__wolf_rt_trap` or `__wolf_rt_trap_at`. On a hosted target
+  `wolf_trap` is the runtime's own report-and-exit: a program that
+  imports it links it as a link-time alias of `__wolf_rt_trap_at`.
+  Compiled into `libwolf_rt.a` it moved every hosted binary (debug info
+  and LLVM's `.llvm.<hash>` names), so hosted binaries that do not
+  import it are byte-identical to 0.2.21's.
+- **Kernel code generation.** The release tier emits
+  `x86_64-unknown-none-elf` with `noredzone`, `"frame-pointer"="all"`
+  and no MMX/SSE/AVX (`+soft-float`) on every function; the native
+  tier emits ELF under the SysV plan with frame pointers, and both are
+  small PIC (`[abi.target.none.codegen]`). The gate disassembles every
+  object (no `xmm`/`ymm`, no store below `%rsp`, `ud2` after every hook
+  call) and links both tiers with an assembly boot stub — no libc, no
+  runtime — and runs them.
+- **Refused by name, before any backend:** everything that needs the
+  hosted runtime (`` `print` needs the hosted runtime (target
+  x86_64-unknown-none) ``, `env_args`, a `str` comparison, `spawn`, …),
+  every allocating construct (`List`, `Map`, `Pool`, string
+  interpolation, a capturing closure, `region`; `[abi.target.none.alloc]`)
+  and every float. `--emit=bin`, `wolf run`, `--checked` and
+  `--profile-gen` refuse the target by name; `conform-run --target
+  x86_64-unknown-none` is `unsupported` on every rung, never run.
+- `cfg(target = "…")` reads the build's target; anchors 558 → 564.
+
+### The narrowing cast: keep the value or trap (kw03, #533, ruling #31 K12)
+
+- **An integer cast keeps the value, and traps `overflow` when the
+  target cannot hold it**, on every machine (`[type.numlit.cast.narrow]`).
+  Native and release refused every cast to a narrower integer
+  ("narrowing numeric casts (range-check semantics)"); `b as int as u8`
+  now compiles, with one compare and a branch to the trap.
+- **A change of sign is a narrowing cast.** Native and release ran
+  `-1 as u64`, `u32 as i32` and `i8 as u16` by reinterpreting the bits
+  (`-1 as u64` printed `-1`, `128 as u8 as i8` printed `-128`), a
+  silent wrong answer where the checked machine and lupin trap. They
+  trap now. A program that wanted the bits spells it
+  `v as wrapping[u64]`.
+- **Truncation is `v as wrapping[T] as T`.** The checked machine
+  range-checked a signed wrapping value's stored mask instead of its
+  value, so `200 as wrapping[i8] as i8` trapped there and printed `-56`
+  everywhere else; it keeps `-56` now. It also refuses by name a cast
+  that would hold a `u64` above `i64::MAX`, which it cannot represent
+  (#551), instead of trapping it.
+
+### The export seam: C calls wolf, wolf calls C, `*T` crosses (kw02, #513, #521, #514, rulings #31 K9(b) and #32 R1)
+
+- **`export fn` is a C function.** It was lowered as a wolf function:
+  a mangled symbol (`_Wkw_x$9716…`), the wolf convention (lc00 measured
+  a segfault passing a `#[repr(c)]` struct by value from C), and
+  dropped by `--release`. Nothing above WIR set the flag the backends
+  already honoured. Now `export fn f` (and `extern "c" fn f` with a
+  body) is the global symbol `f` under the target's C plan on both
+  tiers, kept whether or not wolf calls it, also from a child module
+  (`[abi.c.export]`); a narrow or `bool` result is widened by its
+  signedness for the C caller (WIR `export sext fn` / `export zext fn`).
+  A wolf call into an export crosses under the same plan, in or out of
+  its object.
+- **A hand-declared `extern "c" fn` is callable.** A call was refused
+  at codegen ("hand-declared externs beyond the modelled c.* set").
+  It now lowers to the plain symbol with the declared prototype, inside
+  `unsafe` (E1301, as `c.malloc`); a narrow integer or `bool` argument
+  is widened to 32 bits by its signedness (WIR `sext`/`zext`, cranelift
+  extension, LLVM `signext`/`zeroext`): before that, clang-compiled
+  callees read `i8 -5` and `i16 -300` zero-extended (`[abi.c.import]`).
+  `import c` beyond the modelled five is still the header importer's
+  (#521's other half).
+- **`*T` crosses the membrane, and a module-private signature.** E1302
+  refused a raw pointer in every signature. Ruled K9(b) = B: a
+  module-private fn and either side of the C membrane may carry `*T`;
+  `pub` fns, methods and exported types may not (`[mem.unsafe.sig]`).
+  `corpus/memory/unsafe_sig.lu`'s `peek` became `pub` to keep its E1302.
+- **The checked machine** refuses a call into hand-declared C by name,
+  and passes a raw pointer argument as a copy (by value) or as the
+  caller's variable (`mut`). It had frozen the pointee at the call, so
+  a private `poke(p)` writing through `p` was UB row P2 there and ran
+  natively; a `mut p: *u8` reassigned in the callee never reached the
+  caller (it printed `2` where native printed `42`).
+- **What does not cross is refused by name**, not guessed: `str`,
+  containers, a struct without `#[repr(c)]`, an error union, a
+  `mut`/`take` parameter, a generic or `comptime` export, an export as
+  a fn value, two functions under one C symbol (E1201 is not built;
+  `[abi.c.types]`).
+- Witnesses: `c_membrane_link.rs` builds two fixtures `--emit=obj` on
+  both tiers and links them with their C half: C calls 21 exports
+  (eight mixed-width integers, nine floats, every `#[repr(c)]` class by
+  value both ways, `*Big` read and written back, a `*u8` string) and
+  checks 36 values; wolf calls 14 C functions, two of which write
+  through wolf pointers. Run under gcc 16.2.1 and clang 23.1.1 on
+  kasumi. `c_membrane_lanes.rs` asserts seven corpus rows on the
+  checked, native and release lanes and lupin, and seven refusals by
+  name; lupin 0.1.44 is pinned pre-mirror where it parts
+  (wolf-interp#181).
+
+### Which code a refusal carries: the first diagnostic (s203, #377, ruling #28)
+
+- **One program, one code, on every lane.** `conform-run` stopped at
+  lex whenever lex had an error, wherever it sat, and otherwise took
+  the parser's first error in emission order; `wolf run`/`build`
+  sorted lex, parse and resolve diagnostics together by (offset, span
+  end, code). A file could be E0102 on its record and E0203 on its
+  screen (38 of wl21's 99 three-way rejections), or E0207 and E0301.
+- Ruled by the maintainer (#28) and written as `[proto.record.first]`:
+  the earliest byte offset is first; at one offset the earlier phase
+  (lex, parse, resolve, then later). Lex and parse are one rung for the
+  question, so a parse error before the first lex error is the refusal;
+  `wolf run`/`build` stop at the entry's front end as the ladder does.
+  `wolf_diag::first_error` is the one place that picks. A boundary
+  (E0202) sits at its opener, so an unclosed `(` before an unterminated
+  string inside it is first.
+- Witnesses: six rows `corpus/rows/negative/first_*.lu` and
+  `corpus/rows/first_list_literal_sum.lu` — #377's classes and the
+  parse-before-lex, boundary-before-lex and parse-before-resolve shapes
+  — and two driver fixtures, `tests/fixtures/first_diagnostic/` (#377's
+  error-row class and kw00's top-level `union`, which no formatter can
+  lay out); `first_diagnostic_lanes.rs` asserts the
+  checked, native and release records and both `wolf run` screens, and
+  pins lupin 0.1.43/0.1.44 by version where it parts. Over 90
+  candidates the teacher regenerated for #377's four refusal classes
+  (8 byte-identical to wl21's), the four wolfgang screens and records
+  agree on every one (57 of 90 at trunk); lupin parts where #175 says.
+  The two
+  `exit(0)`-vs-E0201 programs were lupin 0.1.36 without list literals
+  (closed at 0.1.37), not a refusal question.
+
+### The blast radius counts wreck sites (s203, #367, #544, ruling #27)
+
+- **The property counts wreck sites, not diagnostics**: two added
+  diagnostics are separate sites when the mutated tree holds an intact
+  declaration, statement or arm wholly between them; each site is held
+  to the bound (3, 5 structural), which does not move. It now collects
+  every violation instead of stopping at the first, which at budget 1000
+  surfaced seventeen recoveries the first had hidden (and one more at
+  300 once s202's rows joined the corpus); each is fixed in the parser
+  and pinned by (file, iteration). #544's `struct` body read
+  as a `let` is one site and was over the bound: the parser now says
+  one thing per token, reports a valueless binder group once, resets
+  the arm fold only on a clean arm, and stops recovery at a sibling
+  declaration. Budgets 300 (the nightly's) and 1000 are green.
+
+### The attribute set is closed, `cfg(target)` is evaluated, `"c"` is the only ABI (kw01, #519, #524, ruling #31 K13/K7)
+
+- **An attribute nothing read compiled silently on every machine and
+  meant nothing**: `#[frobnicate]`, `#[repr(packed)]` (laid out
+  unpacked), `#[section(".text.boot")]` (landed in `.text`),
+  `#[noalloc]` over a function that allocates, `#[thread_local]`. New
+  **E0817** refuses, by name, an attribute wolf does not know, a known
+  one nothing implements yet (the four performance contracts,
+  `repr(packed | align(N) | transparent)`, `thread_local`, `section`,
+  `link_section`, each naming the lane that owns it), and an
+  implemented one where no pass reads it (`#[repr(c)]` on a function).
+  The implemented set is `trusted`, `consttime`, `allow`, `index`,
+  `budget`, `repr(c)` and `cfg(target = "…")`
+  (`[gram.item.attr.set]`).
+- **`#[cfg(target = "S")]` was ignored**, so target-gated code was
+  compiled for every target. It now keeps its item, statement or field
+  when `S` names the build's target triple or its architecture and
+  drops it before resolution otherwise; a string that names no target,
+  or another predicate (`cfg(unix)`), is E0817 rather than "false"
+  (`[gram.item.attr.cfg]`). The build's target is the host's until
+  `--target` lands.
+- **`extern "x86-interrupt" fn` compiled as an ordinary function
+  returning with `ret`.** New **E0818** refuses every ABI string but
+  `"c"` (`[abi.c.seams]`).
+- Downstream: `corpus/comptime.lu` drops its `#[noalloc]` (it claimed
+  a verification nothing performs); `corpus/ffi.lu` gains an aarch64
+  twin of its x86_64-gated `asm` so its phase is one truth on every
+  host. wolf-std, boreutils and lobo use only implemented attributes;
+  the book's `#[noalloc]` exercises (ch20 `ex20-5.lu`, `ex20-8.lu`,
+  `EXERCISES.md` 20-8) become E0817 at its next pin.
+- Witnesses: `corpus/grammar/attr_*.lu`, `cfg_*.lu`,
+  `extern_abi_interrupt.lu`; `attr_closed_set_lanes.rs` asserts every
+  wolfgang lane and pins lupin 0.1.43 by version (it reads no
+  attribute; the mirror is wolf-interp#174).
+
+### A `#[repr(c)]` struct through a raw pointer has the C layout (kw01, #523, ruling #31 K4)
+
+- **A silent wrong answer at the C membrane on native and release**:
+  a struct stored or loaded through `*T` used the packed spill layout,
+  `{u8, u32, u8}` at offsets 0 1 5 with stride 6, where C has 0 4 8,
+  size 12. The raw tier now loads and stores a pointee field by field
+  at its psABI offsets and steps by the C `sizeof` (`[abi.layout.c]`).
+  The checked machine and lupin refuse a whole-aggregate raw store by
+  name, as before. `repr_c_raw_layout.rs` holds a C compiler to both
+  directions (C reads what wolf wrote, wolf reads what C wrote) on
+  both compiling tiers.
+- **`p[i] op= v` through a raw pointer was wrong on three lanes
+  (#542)**: native and release dropped the operator (`p[0] += 5`
+  stored 5); the checked machine always added and sized a `*i64`
+  element by the wrong type (`w[1] = 9; w[1]` read 0). All three now
+  read, apply the operator with the checked arithmetic, and store, as
+  lupin already did (`corpus/memory/raw_compound_assign.lu`).
+
+### A `for` piece cannot outlive its region; a discarded row is discarded on every lane (s207, #540, #541)
+
+- **A piece bound by a `for` over `words()`/`lines()`/`split()` is
+  refused E1010 when it outlives its region (#540).** `for w in
+  s.words() { last = w }` handed `last` out of `region scratch { }`
+  and printed from freed bytes on checked, native and release, while
+  `s.split(",")[0]` was already E1010 and lupin traps `region-fault`.
+  A loop binding now carries its iterable's sites as `xs[i]` does —
+  less the `List` a view call allocates, which holds no piece's bytes,
+  and a channel's own allocation — so the pieces of a parameter, a
+  literal, or a `str` built outside the region still leave freely. The
+  same rule refuses an element of a region-built `List[str]` held past
+  the region, and `copy s` of a region-built `str`, which shares its
+  bytes (`[mem.tier0.move.3]`) but carried no site. Nothing changes at
+  run time. Witnesses `corpus/memory/region_str_view_for_*.lu`,
+  `region_str_list_for_held.lu`, `region_str_copy_return.lu`; gate
+  `region_view_for_lanes.rs`, which also runs is68's 19 view escapes.
+- **The checked machine discards a row nobody consumes (#541,
+  `[type.unit.discard]`).** Every lane warned W0601; native, release
+  and lupin then dropped the row, but the checked machine propagated
+  it: a unit fn's raising tail, a raising statement, a loop body's
+  tail or an else-less `if` left `main` with `error: bad`, and `let v
+  = if c { maybe(n) }` bound `3` or `none` where the value is `()`. It
+  discards now at every unit-context tail and non-trailing `!T`
+  statement; `?` still propagates. `return boom()` in a unit fn — "the
+  operand of a `return`" is a unit context — stopped native and
+  release with an internal error (`ret carries 1 value(s)`); it is the
+  same discard now. Witnesses `corpus/rows/unit_discard_*.lu`, gate
+  `unit_discard_lanes.rs`. An else-less `if` that is the TAIL of a
+  fallible fn still raises on all four machines; the clause's list
+  reads otherwise, and the ruling is asked on #541.
+
+### Seek, tell and the positional read; `fs_fstat` on descriptors 0, 1 and 2 (s199, #426, #424)
+
+- **Nothing in wolf named an offset**: a program could only read a
+  handle forward from byte zero, so boreutils `tail -n 10` of a
+  256 MiB file read all of it (111 ms against GNU's 0.2 ms). Three new
+  builtins, on every machine: `fs_seek(fd, off, whence) -> int !
+  {invalid, io, unseekable}` (whence 0 start, 1 current, 2 end; the new
+  offset from the start), `fs_tell(fd) -> int ! {io, unseekable}` and
+  `fs_read_at(fd, off, max) -> List[byte] ! {eof, invalid, io,
+  unseekable}` (`pread`: the cursor does not move). **New tag
+  `unseekable`**: a pipe, fifo, socket or terminal (`ESPIPE`), its own
+  tag because a program falls back to reading forward. Clauses
+  `[os.fs.seek]`, `[os.fs.tell]`, `[os.fs.read_at]`; the host table is
+  78 lines.
+- **`fs_fstat(0)`, `(1)` and `(2)` answered `io` whatever the
+  descriptors were**: the handle number was an index into the runtime's
+  own table and the first open was 0 (lupin's was 1). **The first handle
+  an open answers is now 3** on every machine, and 0, 1 and 2 are the
+  process's standard streams for `fs_fstat`, `fs_seek`, `fs_tell` and
+  `fs_read_at` (`[os.fs.std]`): `fs_fstat(0)` is `kind` 0 and the size
+  when standard input is a file, `kind` 2 when it is a pipe.
+  `fs_read`/`fs_read_chunk`/`fs_write`/`fs_write_chunk`/`fs_close`
+  still answer `io` on 0..2 (#405).
+- windows: handles are served through std's seek and `seek_read` (the
+  pointer put back); `GetFileType` decides what a handle IS — anything
+  but a disk file is `kind` 2 for `fs_fstat` and `unseekable` for the
+  offset calls, because std's metadata calls an anonymous pipe a
+  regular file there (measured on the runner, CI run 37062798818).
+- Witnesses: `corpus/fs/seek_tell.lu`, `corpus/fs/read_at.lu`, the
+  stdin fixtures under `crates/wolf_driver/tests/fixtures/fs_std/`;
+  `fs_std_lanes.rs` runs them on checked, native, release and lupin
+  with standard input a file and a pipe, and pins lupin 0.1.43/0.1.44
+  by version until wolf-interp's mirror ships.
+
+=== CHANGELOG 0.2.21 entry
+## 0.2.21 — 2026-10-02
+
+THE TWENTY-FIRST. A `match` over a fallible value compiles and runs on
+every lane (the maintainer's ruling #21, `[type.row.match]`): an arm
+naming a tag of the scrutinee's row handles the error half, any other
+pattern handles the value half, and the match must cover both. A `?`
+inside a `defer` or `errdefer` is refused (ruling #19,
+`[type.row.defer]`, new E0611) where native and release overflowed the
+compiler's stack, and a block's `errdefer` runs when the block's value
+is an error (ruling #20). An unannotated binding's literal takes
+`i32` at the binding, as lupin always answered, and three native and
+release compiler crashes are fixed. Release builds are reproducible
+again. The pairing moves to lupin 0.1.44, whose spec pin moves to
+v0.2.20 and which carries every mirror this release's gates pinned
+lupin 0.1.43's answers on by version. Four lanes and 80 commits: s195, s196, s197,
+s202.
+
+### Read this before you bump the pin
+
+**Three programs gave a wrong answer with no diagnostic on 0.2.20.**
+Each is now refused or answers the ruled bytes on every lane:
+
+- `let b = { errdefer print("errdefer blk"); defer print("defer blk");
+  look(m, "zz") } else 0` printed `defer blk` alone on native and
+  release: a block's `errdefer` did not run when the block's value was
+  an error (#499). Both run on every lane now, as the checked machine
+  and lupin already ran them.
+- `defer print("deferred {key(ok)?}")` ran on the checked machine and
+  dropped the `?`'s error, so the function answered `1` (#498); native
+  and release overflowed the compiler's stack on the same program.
+  E0611 on every lane now.
+- `let big = 5000000000` then `take_int(big)` printed `5000000001` on
+  checked, native and release: a later `int` use typed the literal
+  (#458). The literal takes `i32` at the binding now, so it is E0415,
+  which is lupin's answer.
+
+**Programs that compiled are now refused.** A `?` anywhere inside a
+deferred expression (E0611). s196 found no `?` under a defer in any
+downstream. An unannotated binding whose literal (or term of
+literals) does not fit `i32` (E0415); s202 found no boreutils or lobo
+build that moved, and one corpus row now spells `let i: int`.
+
+**Programs that were refused now compile.** A `!T` bound without `?`
+whose row is empty, read in a hole or a `match` (a compiler panic on
+native and release since 0.2.14, #393); any `str` as an assert
+message (#398); a loop holding an inlined region root on release
+(#425). A `match` whose scrutinee has type `T ! {row}`: `match
+look(m, k) { none => -1, v => v }` (`unsupported` on every wolfgang
+lane through 0.2.20); a tag that is also a variant of the value type
+is E0816, never guessed.
+
+**Release builds are reproducible.** With the mid-end on, three
+release builds of one program by one compiler gave three different
+binaries on 0.2.20 (#503). They are byte-identical now.
+
+### The pairing: lupin 0.1.44
+
+`PAIRING` names **lupin 0.1.44 at pin `cdde128`** (wolf-interp release
+402215729; the linux x86-64 archive's sha256 `e44aae06…`), whose spec
+pin is this compiler's v0.2.20 tag and which carries
+wolffe-lang/wolf-interp#163 and the lupin halves of rulings #21
+(`[type.row.match]`, E0801, E0816) and #19 (`[type.row.defer]`,
+E0611). The ritual (#87, with #281's control against the 0.1.43
+archive, same corpus, same release `wolf`) **moved one ledger count on
+each tier** — the parting named below — and moved **eleven files below
+the ledger on each tier, the same eleven**, each to the compiler's
+answer: the five
+`rows/match_row_*` rows (lupin's stdout now the ruled bytes: 0.1.43
+took the first bare-tag arm for a value too), the three
+`rows/negative/match_row_*` refusals (`exit` → `fail(E0801)` or
+`fail(E0816)`) and the three `rows/negative/try_in_*` rows (`exit(0)`
+→ `fail(E0611)`). Checked: 552 → 551 agreements, hard divergences
+7 → 8, completeness 207, soundness 0; native: 593 → 592, 10 → 11,
+207, 1. Native's one soundness finding
+is still `memory/unsafe_ub_uaf.lu` (`exit` vs `ub(mem.ub)`), the
+program's own use-after-free read on the compiled lane.
+
+The gates that pinned lupin by version drop every 0.1.43 entry: the
+eight `match_fallible_lanes.rs` pins and the three
+`try_under_defer_refused_lanes.rs` pins are gone. The eleven cases they
+held take the ruled arm against the published 0.1.44. None is widened
+and none stays pinned.
+
+One new pin, on one case: lupin 0.1.44 refuses s202's
+`rows/eu_bind_empty_row_handled.lu` with E0801, reading `f`'s inferred
+`-> !int` row as open where the row is empty and every other machine
+(lupin 0.1.43 included) prints `43 42 42`. That is lupin's defect
+(wolffe-lang/wolf-interp#176, which a lupin lane is fixing);
+`fallible_bind_empty_row_lanes.rs` pins 0.1.44's `fail(E0801)` by
+version until the next pairing, and it is the one ledger count the
+ritual moves, on each tier.
+
+### A literal written at an unannotated binding takes `i32` (s202, #458)
+
+- **A later use typed the literal, not only the binding.** `let c =
+  922337203685477580` followed by `if s > c` with `s: int` ran as
+  64-bit on checked, native and release, and `let big = 5000000000`
+  then `take_int(big)` printed `5000000001`; lupin 0.1.43 traps both
+  as outside `i32`. The literal has no context of its own
+  (`[type.numlit.propagate]`), so it takes `i32` and is **E0415** when
+  it does not fit; a later use still decides the binding's type
+  (`let n = 0; take_int(n)` is unchanged). The same holds when the
+  initializer is a `+ - * / %` term made only of literals; a term with
+  a value operand keeps that operand's type. `[type.numlit.value]`
+  carries the rule and corrects its 2026-09-15 measurement.
+- **One corpus row depended on the old reading and moved:**
+  `faults/index_origin_min_overflow.lu` (`let i = 0 -
+  9223372036854775807 - 1`, used as an index) is E0415 unannotated; it
+  now spells `let i: int`, and all four machines trap at the index
+  shift it is about (lupin used to trap it at the literal). No
+  boreutils or lobo build moved (lobo's `packed / 10000000000` is a
+  value term and keeps `int`).
+- Witnesses `corpus/typecheck/numlit_binding_literal*.lu` and the
+  control `numlit_binding_value_later_use.lu`; gate
+  `numlit_binding_literal_lanes.rs`.
+
+### Three native and release crashes and one refusal by syntax kind (s202, #393, #398, #425)
+
+- **A `!T` bound without `?` panicked native and release when its row
+  was empty (#393).** `let x = f()` with `f() -> !int` and nothing
+  for `f` to raise, then `print("{x}")`, stopped the compiler at
+  `build.rs:1210` ("eu.ok on a non-eu or unit-ok value") in every
+  release since 0.2.14; checked and lupin printed `42`. A
+  statically-empty row lowers as the plain ok value, which `else` and
+  `?` already handled; the interpolation hole and `match` now do too
+  (the `match` answered `unsupported`, the unit case refused as "a
+  valueless union"). Witnesses `corpus/rows/eu_bind_empty_row*.lu`,
+  gate `fallible_bind_empty_row_lanes.rs`.
+- **An assert message is any `str`, evaluated only on the failing path
+  (#398, `[conf.trap.assert]`).** Native and release decided by syntax
+  kind: a bare parameter or a field read was refused as "assert
+  messages with effects", while an interpolation that calls was
+  accepted and dropped without running its call. The message now
+  lowers into the trap block, before the trap; a literal still emits
+  nothing. Witnesses `corpus/faults/assert_msg_*.lu`, gate
+  `assert_message_lanes.rs`.
+- **The mid-end's loop versioner no longer clones a loop that holds a
+  region token root (#425).** An inlined callee that reads a lent
+  `List` mints its `region.foreign` roots at the call site, inside the
+  caller's loop; versioning copied them and `--release` stopped on
+  `[region-root] ... two token roots` (boreutils `cut -n`'s walk).
+  Such a loop keeps its checks; it did not compile before. Witnesses
+  `corpus/memory/versioned_loop_inlined_root.lu` and
+  `versioned_loop_cross_module/`, gate `versioned_loop_root_lanes.rs`.
+
+### Release IR is reproducible across builds (s195, #503)
+
+The mid-end walked a natural loop's block set in `HashSet` order, so the versioner's guard chain came out in a per-process order and three release builds of lobo were three binaries; the set is ordered now, `release_determinism.rs` builds a fixed corpus set three times and asserts byte identity (IR and binary), and the macOS native gauntlet runs as three shards (`cargo xtask ci --shard`).
+
+### A `?` inside a `defer` or `errdefer` is refused (s196, #498, ruling #19)
+
+- **Native and release overflowed the compiler's stack** on
+  `defer print("deferred {key(ok)?}")` and on the same `?` under an
+  `errdefer` (`wolf build` and `conform-run` both aborted, rc=134, no
+  record): the `?`'s error edge re-lowered the defer that contains it,
+  without end. The checked machine ran the deferred `?` and dropped
+  its row; lupin 0.1.42 and 0.1.43 made it the function's result.
+- Ruled by the maintainer (#19 = refused) and written as
+  `[type.row.defer]` beside `[type.row.else]`: a deferred expression
+  runs while the function is already leaving, so a second error has
+  nowhere to go. **New E0611** on every machine, at the `?`, naming the
+  `defer`/`errdefer` and the fix (an `else` inside the deferred
+  expression, or the fallible call moved out of it). The refusal reads
+  the whole deferred expression; a `?` in a closure defined under the
+  defer is the closure's own and is not refused.
+- Witnesses: `corpus/rows/negative/try_in_defer.lu`,
+  `try_in_errdefer.lu`, `try_in_defer_block.lu` and the control
+  `corpus/rows/defer_else_handles.lu`; `try_under_defer_refused_lanes.rs`
+  asserts E0611 on checked, native and release, that `wolf build`
+  answers with the diagnostic and never a signal, and pinned lupin
+  0.1.43's measured bytes by version until this release's pairing
+  (below), where 0.1.44 refuses with the same code.
+
+### A block's `errdefer` runs when the block's value is an error (s196, #499, ruling #20)
+
+- **Native and release skipped a block's `errdefer`** when the block's
+  trailing value was a failing call handled by an `else` outside it:
+  `let b = { errdefer print("errdefer blk"); defer print("defer blk");
+  look(m, "zz") } else 0` printed `defer blk` only. The checked machine
+  and lupin ran both, and at a function's tail all four agreed.
+- Ruled by the maintainer (#20 = it runs) and written into
+  `[mem.model.order]`: a scope has left on the error path when its own
+  value is an error, so a block whose value is a row carrying an error
+  runs its `errdefer` as a function whose tail is an error does. The
+  WIR lowering now forks a block's fall-through on the value's err bit
+  — only when the block holds an `errdefer` and its value is a `!T`;
+  every other block's exit is unchanged. The checked machine already
+  did this.
+- Witnesses: `corpus/rows/errdefer_block_row.lu` (the issue's shape),
+  `errdefer_block_nested.lu` (nested blocks, and a block as a
+  function's tail), `errdefer_block_loop_break.lu` (a block in a loop
+  whose `else` breaks) and the control `errdefer_fn_tail_control.lu`;
+  `errdefer_block_row_lanes.rs` runs each on checked, native, release
+  and lupin and asserts they agree on the ruled bytes.
+
+### `match` over a fallible value (s197, #497, ruling #21)
+
+- **`match look(m, k) { none => -1, v => v }` compiles and runs on
+  every lane.** Before this, every wolfgang lane refused a `match`
+  whose scrutinee has type `T ! {row}` as `unsupported`, and lupin ran
+  it with no clause to say what the arms mean. Ruled by the maintainer
+  (#21, "yes, as proposed") and written as `[type.row.match]` beside
+  `[type.row.else]`: an arm naming a tag of the row is a **row arm**
+  (`none`, `Io(e)` with its payload bound); any other pattern is a
+  **value arm** over `T`, exactly as a `match` over `T`; `_` covers
+  what is left on both halves. The match must cover every tag and the
+  whole of `T` — E0801 names the missing tag or the uncovered value
+  half. The row is consumed as `else` consumes it: a `?` that fires
+  inside the scrutinee leaves the function past the arms.
+- **New: E0816** — a tag of the row that is also a variant of `T`
+  (`Shape ! {Line(int)}`) is refused by name, never guessed; `else |e|
+  match e { … }` keeps the halves apart and keeps working.
+- The checked machine dispatches a raw or `let`-bound row to the row
+  arms and a value to the value arms; native and release split the
+  union once (`eu.is_err`) and run one arm chain per half. The sema
+  arm sorter (`fallible_arm_half`) is the one rule all three replay.
+- Witnesses: six `corpus/rows/match_row_*.lu` rows (every arm kind,
+  payload tags, `_` on each half, an enum value half with a nested
+  match, the #492 shape, the `else |e| match e` control) and three
+  refusals under `rows/negative/`. `match_fallible_lanes.rs` runs each
+  on checked, native, release and lupin. lupin 0.1.43 took the first
+  bare-tag arm for a value too; its answers were pinned by version as
+  pre-mirror until this release's pairing (below).
+
+=== pairing pins at NEW naming wolf-interp issues
+=== lupin CHANGELOG heads
+## 0.1.45 — 2026-10-03
+## 0.1.44 — 2026-10-02
+## 0.1.43 — 2026-10-01
+## 0.1.42 — 2026-09-30
+=== book
+count BOLD..BNEW = 23
+book ancestry exit=0
+ 39 files changed, 2590 insertions(+), 132 deletions(-)
+audit/version-literals.txt
+book/back/appendix-c.md
+book/back/book-index.md
+book/back/colophon.md
+book/back/solutions.md
+book/ch01.md
+book/ch06.md
+book/ch09.md
+book/ch18.md
+book/ch20.md
+book/ch22.md
+book/ch32.md
+docs/audit/bs59-evidence/anchors-diff.txt
+docs/audit/bs59-evidence/archive-digests.txt
+docs/audit/bs59-evidence/gate-control-subject.txt
+docs/audit/bs59-evidence/gate-summary.txt
+docs/audit/bs59-evidence/members.txt
+docs/audit/bs59-evidence/oneprog.py
+docs/audit/bs59-evidence/probe.sh
+docs/audit/bs59-evidence/probes-control.txt
+docs/audit/bs59-evidence/probes-subject.txt
+docs/audit/bs59-evidence/scan.py
+docs/audit/bs59-evidence/versions.txt
+docs/audit/bs59-prediction.md
+docs/audit/bs59-results.md
+principles/EXERCISES-INDEX.md
+principles/EXERCISES-PENDING.md
+principles/exercises/ch20/EXERCISES.md
+principles/exercises/ch20/ex20-5.lu
+principles/exercises/ch20/ex20-8.lu
+principles/exercises/ch22/EXERCISES.md
+principles/exercises/ch25/EXERCISES.md
+samples-pending.toml
+snapshots/diagnostics/book__ch09__s3.txt
+snapshots/diagnostics/ch20__ex20-5.txt
+snapshots/diagnostics/ch20__ex20-8.txt
+vendor/spec/anchors.json
+vendor/spec/diagnostic-codes.txt
+wolf-toolchain.toml
+SUMMARY sha c58196034d4fc6c4c2796437dbb9bedb4a4b5506 -> c58196034d4fc6c4c2796437dbb9bedb4a4b5506
+chapters in SUMMARY: 33
+f1d894e audit: bs59 results — 0 flips and the four failures as predicted; one miss named (the s3 page block counts as a second failure)
+5b10d12 audit: bs59 head gate on kasumi — 509/506/3/0/0, 482 of 502 consoles, ledger 132 open, every gate exit 0
+5808a89 backmatter: regenerate solutions.md — 22-13's interface line reads toolchain 0.2.22
+651f276 doc-truth: the version-literal ledger re-read at 0.2.22 / 0.1.45 — every history sentence still true; three new dated sentences in ch09 and ch32
+0258b29 ch09 ledger: the private-*T row names kw02's wolf-lang#514 beside wolf-interp#181, so ledger --check sees it filed
+ecbaa5b ch09 s3: the E1302 block and snapshot carry 0.2.22's note — the module's boundary, the private and C-membrane places a *T may stand
+94a18d7 snapshots: ex20-5 and ex20-8 — E0817 «noalloc is not implemented yet», blessed on the 0.2.22 archive
+6714024 ch09: s3's pub fn carries its /// line, so the block prints E1302 alone (no W0313)
+8ae355a ch25 corpus: 25-5's (c) does not compile at 0.2.22 — the answer is the verifying compiler's
+382a46c appendix C: catalogue 181, E0817 shown at 20.1 (60 codes); index gains E0817 and #[noalloc]
+cb22d9e ch20 §20.1: the contract attributes are refused by name (E0817); ch18 and ch20 ledger rows re-verified at 0.2.22, both stay open on #180
+ca920a5 ch06: the capstone strips punctuation with bare(), not trim(cutset) — lupin 0.1.45 refuses the cutset (#125); same five lines on lupin; ledger note
+649da1d ch32: no *T crosses a public signature — the private-helper case named, Heap stays the shape
+a68fdd1 ch09: E1302 stops at the module's edge (K9(b), 0.2.22) — s3 is pub fn header_len, the private case and the lupin split (wolf-interp#181) in prose and a ledger row; §9.5's pack is safe by choice
+d658b58 exercises index and pending: 20-8 is wolf + lupin (tiers 191/28); 20-5's row reads fail(E0817) today, the verifying rejection still #180's
+ecfbafa ch20 corpus: the contracts set reads 0.2.22 — 20-5 and 20-8 answer per machine, 20-10's comptime.lu quote is history now (the corpus comment says E0817)
+017b388 ex20-5, ex20-8: fail(E0817) — #[noalloc] is refused by name at 0.2.22 (kw01); each keeps its attribute, the header says why and what lupin does
+2c66667 ch22: the interface line reads toolchain 0.2.22 — the export hash holds (b7a67a58… measured on the archive)
+06fd89a ch01, colophon: the pair reads 0.2.22 / 0.1.45 — 222 commits, one release; the Windows archive and the +dev line follow
+004bd19 audit: bs59 evidence — digests, members by name, stamps and glibc, anchor sets both ways, probes on both pairs, control and subject summaries
+20f6d05 pin: wolf v0.2.22 (8e36bc1) and lupin 0.1.45 (9f4e4a1), both from the release archives by digest; anchors 546 -> 569, catalogue 178 -> 181
+a8a88d3 prediction: bs59 — 0 flips, 4 program failures (ex20-5, ex20-8 E0817; ch09 s3 now pass; wordcount's cutset trim refused by lupin), 5 console; written before either archive is downloaded
+731f966 contract: bs59 — the book at wolf 0.2.22 / lupin 0.1.45, the #[noalloc] exercises under E0817
+DERIVE-DONE

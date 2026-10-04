@@ -1,0 +1,29 @@
+n/a   faults/cast_narrow_sign_trap.lu verdict=trap(overflow) stdout="" want=null
+n/a   faults/cast_narrow_unsigned_to_signed_trap.lu verdict=trap(overflow) stdout="" want=null
+n/a   faults/cast_narrow_width_trap.lu verdict=trap(overflow) stdout="" want=null
+DIFF  fs/read_at.lu verdict=unsupported stdout="" want="head=01 at5=567 tell=2 next=23\nat_end=eof empty_len=0 negative=invalid\ntell_unmoved=4 closed=io forged=io\ncleaned=true"
+DIFF  fs/seek_tell.lu verdict=unsupported stdout="" want="first_handle_above_2=true\ntell_after_reads=7 read=0123456\nend=10 size=10 at_end_is_eof=true\nback=7 last=789\nstart=2 cur=5 next=56\npast_end=14 past_end_is_eof=true\nbad_whence=invalid before_start=invalid closed=io forged=io\ncleaned=true"
+DIFF  grammar/attr_implemented_set.lu verdict=unsupported stdout="3\n" want="3\n7\n"
+DIFF  grammar/cfg_target_arch.lu verdict=fail(E0302) stdout="" want="64\n"
+DIFF  grammar/cfg_target_freestanding.lu verdict=fail(E0401) stdout="" want="hosted\n1\n"
+n/a   membrane/export_called.lu verdict=exit(0) stdout="" want=null
+n/a   membrane/export_child.lu verdict=unsupported stdout="" want=null
+DIFF  membrane/extern_libc.lu verdict=fail(E1302) stdout="" want="8 34\n"
+MATCH memory/raw_compound_assign.lu verdict=exit(0) stdout="8\n248\n12\n" want="8\n248\n12\n"
+DIFF  memory/raw_ptr_mut_param.lu verdict=fail(E1302) stdout="" want="42\n"
+DIFF  memory/raw_ptr_private_sig.lu verdict=fail(E1302) stdout="" want="42\n"
+DIFF  memory/raw_repr_c_layout.lu verdict=unsupported stdout="" want="1 0 0 0 2 0 0 0 3 0 0 0 4 0 0 0 5 0 0 0 6 0 0 0\n17 3735928559 34\n"
+MATCH memory/region_str_view_for_inside.lu verdict=exit(0) stdout="regions\nhere\n2\n[here] [here] [gions] [here] [11] [7]\n" want="regions\nhere\n2\n[here] [here] [gions] [here] [11] [7]\n"
+MATCH rows/first_list_literal_sum.lu verdict=exit(0) stdout="285\n" want="285\n"
+MATCH rows/unit_discard_fallible_body_stmt.lu verdict=exit(0) stdout="after if\n7\n" want="after if\n7\n"
+DIFF  rows/unit_discard_if_value.lu verdict=exit(0) stdout="() none\n" want="() ()\n"
+MATCH rows/unit_discard_raise_stmts.lu verdict=exit(0) stdout="a\nb\nc\nd\ne 3\nf 3\ng 3\nother\nh\n" want="a\nb\nc\nd\ne 3\nf 3\ng 3\nother\nh\n"
+MATCH rows/unit_discard_raise_unit_fn.lu verdict=exit(0) stdout="in f\nafter f\nafter g\nafter go\ndefer ran\nafter h\n" want="in f\nafter f\nafter g\nafter go\ndefer ran\nafter h\n"
+MATCH rows/unit_discard_return_operand.lu verdict=exit(0) stdout="after\n" want="after\n"
+MATCH rows/unit_discard_try_leaves.lu verdict=exit(0) stdout="raised\n" want="raised\n"
+MATCH rows/unit_discard_unit_main.lu verdict=exit(0) stdout="hi\n" want="hi\n"
+DIFF  typecheck/cast_narrow_in_range.lu verdict=exit(0) stdout="200 -1 -128 65535 4294967295 127 0 32767\n" want="200 -1 -128 65535 4294967295 127 0 32767"
+DIFF  typecheck/cast_narrow_wrapping_truncates.lu verdict=exit(0) stdout="44 255 4294967295 -56 127 255 0\n" want="44 255 4294967295 -56 127 255 0"
+MATCH rows/eu_bind_empty_row_handled.lu verdict=exit(0) stdout="43 42 42\n" want="43 42 42\n"
+MATCH typecheck/numlit_binding_value_later_use.lu verdict=exit(0) stdout="1 60 3 922337203685477580 5000000001 12\n" want="1 60 3 922337203685477580 5000000001 12\n"
+stdout mismatches: 12

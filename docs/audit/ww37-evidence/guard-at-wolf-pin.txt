@@ -1,0 +1,14 @@
+# the lag guard at the wolf pin commit 9c4e836 (wolf 8e36bc1a, lupin still ba47627 = 0.1.44, spec pin cdde128 = v0.2.20), kasumi 2026-10-04 ~03:2xZ: gap 2, red, exit 1 on both pages
+9c4e836
+ f1d894ec0fe8a2d861d292657f2c0963417df975 upstream/wolf-book (heads/trunk)
+ ba4762714d75c37bb14b300610e2d52630665a05 upstream/wolf-interp (v0.1.44)
+ 8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a upstream/wolf-lang (v0.2.22)
+lag phrases: install/index.html: the gap is 2 and the page does not say so — it must carry the phrase 'two releases'
+lag phrases: install/index.html: still carries 'one release' while the counted gap is 2 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: play/index.html: the gap is 2 and the page does not say so — it must carry the phrase 'two releases'
+lag phrases: play/index.html: still carries 'one release' while the counted gap is 2 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+exit=1
+lag phrases: install/index.html: the gap is 2 and the page does not say so — it must carry the phrase 'two releases'
+lag phrases: install/index.html: still carries 'one release' while the counted gap is 2 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: play/index.html: the gap is 2 and the page does not say so — it must carry the phrase 'two releases'
+lag phrases: play/index.html: still carries 'one release' while the counted gap is 2 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
