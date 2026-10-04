@@ -271,7 +271,8 @@ index.html twenty 1 counted=0
 install/index.html Five 1 counted=1 audited-at-wolf=0.2.23
 install/index.html Six 1 counted=1 audited-at-lupin=0.1.46
 install/index.html eight 2 counted=0
-install/index.html five 1 counted=1 audited-at-wolf=0.2.23
+install/index.html five 2 counted=2 audited-at-wolf=0.2.23
+install/index.html six 1 counted=0
 install/index.html sixteen 1 counted=0
 install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.23
 install/index.html twenty-one 1 counted=0
@@ -280,7 +281,7 @@ play/index.html six 1 counted=1 audited-at-wolf=0.2.23
 play/index.html Twenty-two 1 counted=0
 play/index.html twenty-two 2 counted=0
 play/index.html Six 1 counted=1 audited-at-lupin=0.1.46
-play/index.html five 3 counted=3 audited-at-lupin=0.1.46
+play/index.html five 5 counted=4 audited-at-lupin=0.1.46
 play/index.html nine 1 counted=1 audited-at-lupin=0.1.46
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
