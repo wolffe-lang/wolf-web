@@ -20,6 +20,42 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww37 (the site at 0.2.22, #176 healed, and the newest clauses' witnesses named) — 2026-10-04
+
+All three gitlinks move: the book to bs59's merge, the compiler to wolf 0.2.22,
+and the interpreter to lupin 0.1.45.
+
+**The lag is still one release; the distance is 222 commits.** lupin 0.1.45
+re-pinned on the v0.2.21 tag, so the ancestry guard answers `gap 1`,
+`tagged true`, 222 commits. /install/ and /play/ carry "one release" and
+neither carries another phrase.
+
+**The parting ww36 named is healed.** `rows/eu_bind_empty_row_handled.lu`,
+which the tab refused where every compiler tier prints `43 42 42`
+(wolf-interp#176), runs and prints what the compiler prints. The pages keep
+it named, as history.
+
+**The programs the tab answers differently, re-derived.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes,
+both corpora through both modules: 559 programs, 416 exit, 38 trap, 100
+unsupported, 5 fail, 454 candidates, and no instance killed. The 5 fail rows
+are clauses the compiler wrote after the text the interpreter was built to,
+each pinned by version in the compiler's own release and named on the pages
+by issue: the two `cfg(target)` witnesses (the interpreter reads no `cfg`,
+wolf-interp#174) and the three programs that carry a raw pointer in a private
+signature or across the C membrane (the interpreter refuses one in every
+signature, #181). One program exits 0 on both sides and prints differently,
+inside the text both read: an else-less `if` whose branch raises binds the
+row's tag in the tab where the compiler binds the unit value (#179). A nested
+function with a moded parameter, which the tab declined, runs (#169).
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.22 changed — the freestanding target, assembly in the manifest, the C
+membrane both ways, the closed attribute set, the narrowing cast, loop
+pieces held to their region, seek and tell — with 0.2.21's fallible `match`
+as the release before it. /spec/ names the new clauses under the documents
+that hold them: 01, 02, 04, 06, 10 and 11.
+
 ## ww36 (the site at 0.2.21, and one program the tab refuses) — 2026-10-03
 
 All three gitlinks move: the book to bs58's merge, the compiler to wolf 0.2.21,
