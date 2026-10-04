@@ -235,7 +235,7 @@
   brought its own programs into the corpus's running set — integers and
   pointers converted both ways, prefix <code>*p</code> over signed and
   unsigned pointees, module <code>const</code>, <code>let</code> and
-  <code>var</code>, and five else-less <code>if</code>s at a fallible
+  <code>var</code>, and else-less <code>if</code>s at a fallible
   function's tail whose raise is discarded — and each one that runs here
   prints what its header says it prints; the narrowing cast that must trap
   traps <code>overflow</code>. Under lupin 0.1.45 two of the conversions were
@@ -244,8 +244,8 @@
   the caller (wolf-interp#179). The one decline among them is the volatile
   program: this interpreter has no <code>read_volatile</code> or
   <code>write_volatile</code> yet and says so by name (wolf-interp#185).
-  Five programs the corpus already carried answer differently from the last
-  pin, the ones the two paragraphs above name. The measurement is four
+  The programs the corpus already carried that answer differently from the
+  last pin are the ones the two paragraphs above name. The measurement is four
   walks: both corpora through both modules, and no other program both
   corpora carry changed its answer in any of them. At v0.2.22's pin the
   additions were integer casts that keep their value or trap, an export
