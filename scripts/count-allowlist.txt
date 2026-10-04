@@ -265,7 +265,7 @@ CHANGELOG.md Forty 1 counted=0
 docs/index.html seven 1 counted=1 audited-at-wolf=0.2.21
 index.html five 3 counted=3 audited-at-wolf=0.2.21
 index.html ten 1 counted=1 audited-at-wolf=0.2.21
-index.html eighteen 1 counted=1 audited-at-book=fba6210
+index.html eighteen 1 counted=1 audited-at-book=f1d894e
 index.html seven 1 counted=1 audited-at-wolf=0.2.21
 index.html twenty 1 counted=0
 install/index.html Five 1 counted=1 audited-at-wolf=0.2.21
@@ -285,8 +285,8 @@ play/index.html nine 1 counted=1 audited-at-lupin=0.1.44
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 spec/index.html ten 1 counted=1 audited-at-wolf=0.2.21
-reading/index.html Six 1 counted=1 audited-at-book=fba6210
-reading/index.html Thirty-one 1 counted=1 audited-at-book=fba6210
-reading/index.html five 1 counted=1 audited-at-book=fba6210
+reading/index.html Six 1 counted=1 audited-at-book=f1d894e
+reading/index.html Thirty-one 1 counted=1 audited-at-book=f1d894e
+reading/index.html five 1 counted=1 audited-at-book=f1d894e
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
