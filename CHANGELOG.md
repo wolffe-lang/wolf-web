@@ -20,6 +20,50 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww38 (the site at 0.2.23, the tab's refusals re-derived, and one parting that is the tab's own) — 2026-10-04
+
+All three gitlinks move: the book to bs60's merge, the compiler to wolf 0.2.23,
+and the interpreter to lupin 0.1.46.
+
+**The lag is still one release; the distance is 200 commits.** lupin 0.1.46
+re-pinned on the v0.2.22 tag, so the ancestry guard answers `gap 1`,
+`tagged true`, 200 commits. /install/ and /play/ carry "one release" and
+neither carries another phrase.
+
+**The partings ww37 named are healed.** The two `cfg(target)` witnesses
+(wolf-interp#174), the three programs with a raw pointer in a private
+signature or across the C membrane (#181) and the else-less `if` that
+printed the row's tag (#179) all answer as the compiler does in the tab, or,
+for the bodyless C declaration, are declined by name. The pages keep them
+named, as history.
+
+**The programs the tab answers differently, re-derived.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes,
+both corpora through both modules: 580 programs, 433 exit, 39 trap, 103
+unsupported, 5 fail, 472 candidates, and no instance killed. The 5 fail rows
+are all clauses the compiler wrote after the text the interpreter was built
+to, each pinned by version in the compiler's own release and named on the
+pages by issue: the 4 layout witnesses for `#[repr(c, packed)]` and
+`#[repr(c, align(N))]`, which the interpreter's closed attribute set still
+refuses by name (wolf-interp#188), and `extern "c" let`, a production the
+interpreter's grammar does not have yet (#190). Nothing that runs prints
+differently. The volatile witness is declined by name (#185).
+
+**One parting is the tab's own.** `grammar/cfg_target_arch.lu` prints `64` on
+every compiler tier and under lupin 0.1.46 at a terminal, and answers
+`unsupported` in the tab: the interpreter evaluates `cfg` against the target
+it was built for, and the tab's module is built for WebAssembly, which
+neither gate names. /install/ and /play/ say so, and wolf-web#55 asks which
+target the tab should claim.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.23 changed — integers and pointers both ways and `*p`, volatile access,
+packed and aligned layouts with `size_of`, `align_of` and `offset_of`,
+module state, section placement and `extern "c" let`, interrupts, and the
+else-less `if` at a fallible tail that discards its raise — with 0.2.22's
+freestanding target as the release before it. /spec/ names the new clauses
+under the documents that hold them: 01, 02, 04 and 10.
+
 ## ww37 (the site at 0.2.22, #176 healed, and the newest clauses' witnesses named) — 2026-10-04
 
 All three gitlinks move: the book to bs59's merge, the compiler to wolf 0.2.22,
