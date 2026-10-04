@@ -177,17 +177,15 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   the compiler has tagged once since it, so the newest release whose text the
   interpreter carries whole is one release behind the compiler you are
   installing, __COUNT_speccommits_word__ commits back. At v0.2.19's pin it
-  was one tag back too, reading v0.2.18's text. The compiler has tagged twice
-  since, and the interpreter has followed it twice, each time re-pinning on
-  the compiler's last tag but one: this release re-pinned on the v0.2.20 tag
-  and took, besides the text, every mirror the release above had pinned
-  lupin 0.1.43's answers on by version — a <code>match</code> over a
-  fallible value split into its two halves, and a <code>?</code> under a
-  <code>defer</code> refused — which is why the gap held its width instead of
-  widening. It agrees with the compiler's own second line: the release above
-  was tested against the interpreter version this page names, and the
-  playground serves that interpreter, as it did at v0.2.19's pin, and at
-  v0.2.18's, when the interpreter had just narrowed the gap from the two
+  was one tag back too, reading v0.2.18's text. The compiler has tagged
+  three times since, and the interpreter has followed it each time,
+  re-pinning on the compiler's last tag but one: this release re-pinned on
+  the v0.2.21 tag and, besides the text, healed the one parting the release
+  before it had shipped pinned (wolf-interp#176), which is why the gap held
+  its width instead of widening. It agrees with the compiler's own second
+  line: the release above was tested against the interpreter version this
+  page names, and the playground serves that interpreter, as it did at
+  v0.2.21's pin, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
   tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
@@ -200,42 +198,79 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   two-implementation project, and it closes when the mirror catches up.
   While it is open the <a href="/play/">playground</a> can answer a program
   differently from the compiler you just installed. At these pins it does so
-  for one program, a refusal the interpreter makes at a terminal too, and the
-  list below names it and says how that was measured. When the two disagree, the
+  for the programs the list below names, and each answers the same way at a
+  terminal; none of them is the distance, and the list says how that was
+  measured. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins it is one program long.
+  these pins nothing on it is the gap's distance. Each is a clause the
+  release above wrote that the interpreter has not mirrored yet; the release
+  pins the interpreter's answer on it by version and names the issue, and the
+  fix is in no interpreter release yet.
+  <code>corpus/grammar/cfg_target_arch.lu</code> defines one function twice,
+  gated to two architectures, and
+  <code>corpus/grammar/cfg_target_freestanding.lu</code> gates code to the
+  freestanding target; the compiler keeps what the build's target names and
+  prints <code>64</code>, and <code>hosted</code> and <code>1</code>.
+  <code>lupin __LUPIN_VERSION__</code> reads no <code>cfg</code> and keeps
+  everything, so the first is a name defined twice, <code>fail(E0302)</code>,
+  and the second types the gated code and refuses it,
+  <code>fail(E0401)</code> (wolf-interp#174).
+  <code>corpus/memory/raw_ptr_private_sig.lu</code>,
+  <code>corpus/memory/raw_ptr_mut_param.lu</code> and
+  <code>corpus/membrane/extern_libc.lu</code> carry a <code>*T</code> in a
+  module-private signature or across the C membrane, which the release above
+  allows; the interpreter still refuses a raw pointer in every signature,
+  <code>fail(E1302)</code> (wolf-interp#181). Those are refusals, and the
+  census counts them as its <code>fail</code> rows among the programs the
+  compiler runs. The last one runs on both sides and parts in what it prints:
+  <code>corpus/rows/unit_discard_if_value.lu</code> binds an else-less
+  <code>if</code>, whose value is <code>()</code> whatever its branch does,
+  and the compiler prints <code>() ()</code>; where the branch raises, the
+  interpreter binds the row's tag instead and prints <code>() none</code>
+  (wolf-interp#179). None of them is worked around here.</p>
+
+  <p>Every other program the release above brought into the corpus's running
+  set answers here as its header says, or is declined by this build by name.
+  The census counts verdicts; a second walk feeds every addition to the tab
+  and compares what each prints with its header. The integer casts that keep
+  their value and the ones that trap <code>overflow</code>, a compound
+  assignment through a raw pointer, an export called from wolf, a
+  <code>for</code> piece used inside its region, the first-diagnostic rule's
+  running witness and the unit-context discards all print in the tab what
+  their headers state. A unit <code>main</code> whose tail raises exited 1
+  under lupin 0.1.44, the interpreter this site served until now; the
+  interpreter above discards the row and exits 0, as the compiler does. The
+  declines answer at a terminal or say what they need: the seek and
+  positional-read programs open files a tab has none of, an export reached
+  through a sibling module cannot sit in one editor buffer, a
+  <code>comptime</code> function is the compiler's engine and not the
+  interpreter's, and a whole <code>#[repr(c)]</code> struct stored through a
+  raw pointer is declined by name. Two programs the corpus already carried
+  answer differently under the interpreter above, both toward the compiler:
+  <code>corpus/memory/nested_fn_mut_param.lu</code>, a nested function with a
+  moded parameter, runs where it was declined (wolf-interp#169), and the
+  program the next paragraph names runs. The measurement is four walks, not
+  one — both corpora through both modules — and no other program that both
+  corpora carry changed its answer in any of them.</p>
+
+  <p>At v0.2.21's pin the gap cost one program, and it is healed.
   <code>corpus/rows/eu_bind_empty_row_handled.lu</code> binds a function's
   result whose row the compiler infers to be empty, then reads it in a
   <code>match</code>, an <code>else</code> and a return; every tier of the
-  compiler prints <code>43 42 42</code>. <code>lupin __LUPIN_VERSION__</code>
-  reads the inferred row as open and refuses the program,
-  <code>fail(E0801)</code>, in the tab and at a terminal alike
-  (wolf-interp#176). The specification makes the row empty, so the compiler
-  is right; the release above names this parting in its own notes and pins
-  the interpreter's answer on it by version, and the fix is on the
-  interpreter's trunk, in no release yet. It is a refusal of this
-  interpreter, not a decline of this build, and the census counts it as the
-  one <code>fail</code> among the programs the compiler runs.</p>
-
-  <p>Every other program the release above brought into the corpus's running
-  set answers here as its header says. The census counts verdicts; a second
-  walk feeds every addition to the tab and compares what each prints with
-  its header. A <code>match</code> over a fallible value, an
+  compiler prints <code>43 42 42</code>, and lupin 0.1.44 read the inferred
+  row as open and refused the program, <code>fail(E0801)</code>, in the tab
+  and at a terminal alike (wolf-interp#176). That release named the parting in
+  its own notes and pinned the interpreter's answer on it by version; the
+  interpreter above prints what the compiler prints. Every other addition of
+  that release — a <code>match</code> over a fallible value, an
   <code>errdefer</code> run by its block's own error value, an
-  <code>else</code> that handles only its scrutinee's row, the two-phase
-  arguments of the release before it and the index and slice operands that
-  must run once all print in the tab what their headers state. The
-  two-phase reads trap <code>exclusivity</code> under lupin 0.1.42, the
-  interpreter this site served until now, which took a later argument's read
-  of a claimed place for a conflict; the interpreter above runs them. Two
-  additions are declines of this build and answer at a terminal: a nested
-  function that declares a parameter mode, which the interpreter declines by
-  name, and a program whose modules sit in sibling files, which a single
-  editor buffer cannot hold. The measurement is four walks, not one — both
-  corpora through both modules — and no program that both corpora carry
-  changed its answer in any of them.</p>
+  <code>else</code> that handles only its scrutinee's row, and the two-phase
+  arguments of the release before it — printed in the tab what its header
+  states; the two-phase reads trapped <code>exclusivity</code> under lupin
+  0.1.42, which took a later argument's read of a claimed place for a
+  conflict.</p>
 
   <p>At v0.2.19's pin the gap cost nothing: every addition of that release —
   two <code>mut</code> claims on two different elements of one list, a
