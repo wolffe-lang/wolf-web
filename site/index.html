@@ -134,12 +134,36 @@ fn main() -&gt; !int {
   --short</code> guess.</p>
 
   <!-- The three showcases above are the language, not this release: they came
-       in with the one before it and they are what a reader meets first. The
+       in with an earlier one and they are what a reader meets first. The
        paragraph below is what the advertised release itself moved. Keeping the two
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises lets a <code>match</code> take
+  <p><strong>The release this page advertises builds for a machine with
+  nothing under it.</strong> <code>wolf build --target x86_64-unknown-none
+  --emit=obj</code> emits a kernel object: no <code>main</code> shim, no
+  runtime, one trap hook the program supplies, and everything that needs the
+  hosted runtime or an allocator refused by name before any backend runs.
+  Assembly sources listed in <code>wolf.pkg</code> are assembled and linked
+  beside it. The C membrane opened both ways: an <code>export fn</code> is a C
+  function, a hand-declared <code>extern "c" fn</code> is callable inside
+  <code>unsafe</code>, a <code>#[repr(c)]</code> struct stored through a raw
+  pointer has C's layout where the compiled tiers had packed it, and a
+  <code>*T</code> may stand in a module-private signature or cross to C, never
+  in a <code>pub</code> one. The attribute set is closed — an attribute wolf
+  does not know, or does not implement yet, is <code>E0817</code> by name
+  where it used to compile and mean nothing, <code>#[cfg(target =
+  "…")]</code> is evaluated rather than ignored, and an ABI string other than
+  <code>"c"</code> is <code>E0818</code>. An integer cast keeps its value or
+  traps <code>overflow</code>: native and release had reinterpreted the bits,
+  so <code>-1 as u64</code> printed <code>-1</code>, and the bits are spelled
+  <code>v as wrapping[u64]</code> now. A <code>for</code> piece cannot outlive
+  its region, where the compiled tiers printed it from freed bytes. And a
+  program can seek, tell and read at an offset, with the process's standard
+  streams on the descriptors C gives them, which is what a <code>tail</code>
+  that does not read the whole file needs.</p>
+
+  <p><strong>v0.2.21, the release before it, let a <code>match</code> take
   a fallible value apart.</strong> <code>match look(m, k) { none =&gt; -1,
   v =&gt; v }</code> is the shape a reader reaches for when a function answers
   <code>int ! {none}</code>, and through v0.2.20 every tier of the compiler
@@ -148,7 +172,7 @@ fn main() -&gt; !int {
   scrutinee's row handles the error half, any other pattern handles the value
   half, the match must cover both, and a tag that is also a variant of the
   value's own type is <code>E0816</code> rather than a guess. The same release
-  closes three places where a program compiled and answered wrongly without a
+  closed three places where a program compiled and answered wrongly without a
   word. A <code>?</code> inside a <code>defer</code> or an
   <code>errdefer</code> is refused, <code>E0611</code>
   (<code>[type.row.defer]</code>): the checked machine dropped the error it
@@ -161,7 +185,7 @@ fn main() -&gt; !int {
   widen it after the fact, which <code>lupin</code> never did. Release builds of one program by one compiler are
   byte-identical again.</p>
 
-  <p><strong>v0.2.20, the release before it, made arguments
+  <p><strong>v0.2.20 made arguments
   two-phase.</strong> Within one call a later argument may read what an
   earlier <code>mut</code> argument claims — <code>grow(mut xs, xs.len)</code>
   runs — and may not write, move, re-claim or lend it, a <code>mut</code>
