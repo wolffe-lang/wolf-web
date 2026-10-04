@@ -1,0 +1,2916 @@
+{
+  "summary": {
+    "wasm": "/home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm",
+    "corpus": "upstream/wolf-lang/corpus",
+    "programs": 580,
+    "classes": {
+      "unsupported": 103,
+      "fail": 5,
+      "exit": 433,
+      "trap": 39
+    },
+    "candidates": 472
+  },
+  "rows": [
+    {
+      "file": "comptime.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "comptime/fold_reaches_lane.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "comptime/layout_query_repr_c.lu",
+      "verdict": "fail(E0817)",
+      "cls": "fail"
+    },
+    {
+      "file": "conc/cancel_sibling.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/chan_closed_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/chan_default_rendezvous.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/chan_drain_after_inclusive_loop.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/chan_param_for.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/chan_payload_proc_param.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/chan_root_task.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/chan_send_closed_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/chan_struct_payload.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/freeze_proc_snapshot.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/freeze_publish.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/message_passing.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/par_fail_reraises.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/par_order.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/proc_cancel_defers.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_cap_fault_join.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_cross_module/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_join_param.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_join_value.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_kill_defers.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_link.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_link_root.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_link_root_death.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/proc_spawn_loop.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/reason_interp.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/select_seeded.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/select_single_arm_loop.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/select_two_timeouts.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "conc/spawn_cluster_split.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/spawn_fanout_loop.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/spawn_tail_send_raised_row.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "conc/when_multi.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "ct/public_len.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "entry_no_return.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "faults/assert_fails.lu",
+      "verdict": "trap(assert)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/assert_msg_effect_fails.lu",
+      "verdict": "trap(assert)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/assert_msg_holds.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "faults/assert_msg_name.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "faults/assert_msg_name_fails.lu",
+      "verdict": "trap(assert)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/assert_msg_try.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "faults/bounds_slice.lu",
+      "verdict": "trap(bounds)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/byte_view_slice_reversed.lu",
+      "verdict": "trap(bounds)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/cast_float_nan_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/cast_float_overflow_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/cast_float_to_int_truncate.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "faults/cast_narrow_sign_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/cast_narrow_unsigned_to_signed_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/cast_narrow_width_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/char_cast_negative_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/char_cast_range_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/char_cast_surrogate_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/div_zero_rem.lu",
+      "verdict": "trap(div-zero)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/index_origin_min_overflow.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/index_origin_zero.lu",
+      "verdict": "trap(bounds)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/list_slice_oob.lu",
+      "verdict": "trap(bounds)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/list_slice_reversed.lu",
+      "verdict": "trap(bounds)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_add.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_call_result.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_elem_read.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_elem_write.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_field_read.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_interp_operand.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_list_pop_i32.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/overflow_list_pop_i64.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/region_cap_breach.lu",
+      "verdict": "trap(alloc-contract)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/repeat_negative.lu",
+      "verdict": "trap(assert)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/trap_skips_root_defers.lu",
+      "verdict": "trap(assert)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/wrap_high_as_i32.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "faults/wrap_top_bit_as_int.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "fs/bytes_dirs.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "fs/error_row.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "fs/fstat.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "fs/open_nonblock.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "fs/read_at.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "fs/remove_dir_refused.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "fs/roundtrip.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "fs/seek_tell.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "generics/box_method.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/explicit_apply.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/first_of_list.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/hundred_shapes.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/list_imported_elem/main.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/list_struct_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/list_wrapping_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/pair_of.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/two_instances.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "generics/two_level_raise.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/attr_implemented_set.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "grammar/bang_errunion.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/bang_not.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/bom_at_start.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/brackets_generic_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/cfg_target_arch.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "grammar/cfg_target_freestanding.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/defer_loop_turn.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/else_chain.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/else_default.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/else_default_newline.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_arm.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_block.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_chain.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_ident.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_let.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_member.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_paren_default.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_stmt.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/if_then_width.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/index_origin_closure.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/index_origin_file.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/index_origin_scopes.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/intdot_range.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/interp_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/let_group.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/let_group_destructure.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/list_lit_arg.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/list_lit_empty.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/list_lit_index.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/list_lit_let.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/list_lit_multiline.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/list_lit_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_arm_at_binding.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_arm_deep_tree.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_arm_or_inside_product.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_arm_product_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_arm_str_in_product.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_nullary_variant.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_range.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_range_char.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/match_switch.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/newline_trailing.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/range_header_inclusive_max.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/range_type_char.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/range_type_inclusive.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/range_type_overflow.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "grammar/range_type_param.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/range_type_return.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/range_value_wide_iter.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/shebang.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/struct_pattern_match_arm.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/structlit_paren.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "grammar/tuple_pattern_match_arm.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "hello.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "io/eprint.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "json/query.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "json/rows.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/churn_b3.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/ct_cswap.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/ct_tag_compare.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/guarded_stencil.lu",
+      "verdict": "exit(12)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/hot_counter.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/hot_header.lu",
+      "verdict": "exit(62)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/hot_header_alias.lu",
+      "verdict": "exit(9)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/hot_scale_versioned.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/hot_sum_reduce.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/sha256_block.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "kernels/walk_twice.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/allow_item.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/allow_nothing.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/allow_unknown_code.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/ancestor_import/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "lints/as_view_consuming.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/assume_reassigned.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/binder_capitalized.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/discarded_result.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/else_arithmetic.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/else_comparison.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/float_zero_minus.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/get_prefix.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/get_without_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/index_origin_get.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/match_str_arm_unreachable.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/mut_in_interp.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/mut_param_unwritten.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/narrowing_literal.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/one_item_module/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "lints/pkg_item_unused/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "lints/predicate_shape.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/prefix_statement.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/pub_undocumented.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/raw_interp_braces.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/region_call_allocates.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/region_never_allocates.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/safety_comment_missing.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/shadow_prelude.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/shadow_prelude_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/tag_case_payload.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/tag_name_collision.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "lints/take_returned.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "membrane/export_called.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "membrane/export_child.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "membrane/extern_let_image.lu",
+      "verdict": "fail(E0201)",
+      "cls": "fail"
+    },
+    {
+      "file": "membrane/extern_libc.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/byte_list_ledger.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/byte_producers_ledger.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/carried_quotient_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/carried_quotient_pair.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/checked_unsigned.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/closure_cluster_split.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/closure_kill_list.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/closure_value_paths.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/consumed_walk_charges_nothing.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/copy_independent.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_index_else_once.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_index_return_break_once.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_index_try_once.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_index_try_once_receivers.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_nested_index_try_once.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_slice_endpoints.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_slice_endpoints_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_slice_endpoints_indexed_base.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_slice_endpoints_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_slice_endpoints_str.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_slice_try_once.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_index_try_once.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_order.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_order_captured.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_order_compound.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_order_map.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_order_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_order_nested_index.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/ctl_store_order_raw.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/defer_order.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/destructure_bind.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/destructure_partial_live.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/div_zero.lu",
+      "verdict": "trap(div-zero)",
+      "cls": "trap"
+    },
+    {
+      "file": "memory/elem_char_bool_key_revive.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_dyn_loan.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_field_mut_pair.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_field_of_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_iter_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_move_heap.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_mut_pair.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_nested_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_nested_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_read_after_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_read_while_take.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_store_revives.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_swap.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_swap_heap.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_const_take_while_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_dyn_proofs_legs.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_dyn_read_after_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_header_methods_after_move.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_header_methods_after_move_map.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_header_methods_after_move_pool.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/elem_header_methods_under_claim.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_key_move_map.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_len_after_move.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_loop_induction_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_member_read_after_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_member_read_under_claims.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_move_one_place.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_offset_mut_pair.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_pool_handle_revive.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/elem_same_index_revive.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_str_key_revive.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_tuple_pos_move.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/elem_tuple_pos_mut.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/excl_disjoint_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/exclusivity.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/field_shorthand_copy.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/field_shorthand_mixed_runs.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/field_shorthand_nested_runs.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/field_shorthand_return_take.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/foreign_root_aliasing.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/handle_stale.lu",
+      "verdict": "trap(stale-handle)",
+      "cls": "trap"
+    },
+    {
+      "file": "memory/index_store_copies_list.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/index_store_copies_map.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/index_store_copy_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/index_store_read_param.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_elem_assign.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_elem_copy_loop.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_mixed_width_struct.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_pop_empty.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_session_struct.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_slice.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_slice_edges.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_slice_inline_owned.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/list_slice_owned_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/map_absent_else.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/map_char_bool_keys.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/map_count.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/map_int_keys.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/map_remove.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/map_set_generic.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/map_std_keys.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/move_field_siblings_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/move_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_arg_element.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_cond_write.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_if_else.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_if_no_else.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_match_arms.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_nested_copy_read.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_nested_disjoint_reads.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_nested_get.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_nested_header.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_nested_map.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_nested_read_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_nested_read_whole.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_operand_read.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_claim_two_phase_reads.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_elem_excl.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_param_aggregate_store.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_param_field_lend.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_param_restore_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_param_restore_field.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_param_restore_map.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_param_restore_whole.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_place_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_read_overlap.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/mut_two_fields_one_region.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/nested_fn_mut_param.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/oob_bounds.lu",
+      "verdict": "trap(bounds)",
+      "cls": "trap"
+    },
+    {
+      "file": "memory/packed_fields_at_offset_of.lu",
+      "verdict": "fail(E0817)",
+      "cls": "fail"
+    },
+    {
+      "file": "memory/pool_accessors.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/pool_place_write.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/prov_addr_with_addr.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/prov_cast_round_trip.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/prov_expose_round_trip.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/prov_holy_grail.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/prov_is_null.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/prov_narrow_cast.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/prov_narrow_cast_trap.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "memory/prov_two_phase.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/push_copies_element.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/push_grow_guarded_index.lu",
+      "verdict": "exit(240)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/push_grow_nested_guarded_index.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/raw_compound_assign.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/raw_deref.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/raw_deref_signed.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/raw_ptr_mut_param.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/raw_ptr_private_sig.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/raw_repr_align_layout.lu",
+      "verdict": "fail(E0817)",
+      "cls": "fail"
+    },
+    {
+      "file": "memory/raw_repr_c_layout.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/raw_repr_packed_layout.lu",
+      "verdict": "fail(E0817)",
+      "cls": "fail"
+    },
+    {
+      "file": "memory/read_param_move_legal.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_claim_arg_reads.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_callee_view_write.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_field_recv.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_list_field.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_nested_field.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_outside_write.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_relend.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_two_fields.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/recv_view_arg_two_view_third.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_ambient_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_bytes_query.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_bytes_value.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_cap_boundary.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_container_freeze_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_container_reclaim.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_freeze_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_infer_list_builder.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_infer_request_handler.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_infer_tree_transform.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_multiopen_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_multiopen_swap.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_multiopen_values_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_str_charged.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_str_producers_charged.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_str_view_for_inside.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_str_view_inside.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_unit_tail_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_value_pass.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/region_value_return.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/static_const_let.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/static_var.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/store_rhs_first_list.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/store_rhs_first_map.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/store_rhs_first_pool.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/struct_destructure_partial_live.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/struct_pattern_binder.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/unsafe_c_alloc_native.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/unsafe_creation_not_use.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/unsafe_noalias.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/versioned_loop_cross_module/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "memory/versioned_loop_inlined_root.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/view_set_norm.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "memory/volatile_widths.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "methods/comb_map_filter_fold.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "methods/comb_sort_enumerate_zip.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "methods/comb_sorted_ord.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "methods/home_range_str_map.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "methods/method_is_free_call.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "methods/wordcount_par.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "methods/wordcount_serial.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/accept_posture.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/accept_race.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/byte_roundtrip.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/echo_bytes.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/echo_roundtrip.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/inherit_listener.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/line_reader_bytes.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/nodelay.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/peer_close_after_serve.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/read_deadline.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/refused_row.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/reuse_port.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/spawn_accept.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/syscall_first.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/unix_echo.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/wait_readiness.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/writev_gather.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "net/writev_head_gather.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "os/args_cwd.lu",
+      "verdict": "exit(1)",
+      "cls": "exit"
+    },
+    {
+      "file": "os/cpus.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "os/env_roundtrip.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "os/exit_code.lu",
+      "verdict": "exit(7)",
+      "cls": "exit"
+    },
+    {
+      "file": "os/random_differs.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "os/random_edges.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "os/random_negative_trap.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "os/signal_loopback.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "os/signal_supervisor.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "os/spawn_rows.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "overflow.lu",
+      "verdict": "trap(overflow)",
+      "cls": "trap"
+    },
+    {
+      "file": "procs.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "projects/count.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "projects/count_dir.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "projects/rpn.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "projects/wordtree.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "regions.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "resolve/bare_sibling/pair.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "resolve/forward/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "resolve/leaf_twins/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "resolve/pkgvis/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "resolve/plain_subdir/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "resolve/same_name/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "resolve/standalone_pair/left.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "resolve/standalone_pair/right.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "resolve/two_mod/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "rows/cross_module_arms/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "rows/defer_else_handles.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_own_failure.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_return_tag.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_tag_payload.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_try_block.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_try_call_arg.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_try_handler.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_try_index.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/else_try_nested_else.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/errdefer_block_loop_break.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/errdefer_block_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/errdefer_block_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/errdefer_fn_tail_control.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/error_alias_ident.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/error_alias_qualified/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "rows/error_alias_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/error_alias_transparent.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/error_alias_union.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/eu_bind_empty_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/eu_bind_empty_row_handled.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/eu_bind_empty_row_unit.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/eu_main_err_exit.lu",
+      "verdict": "exit(1)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/first_list_literal_sum.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/handler_diverge_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/handler_diverge_trap.lu",
+      "verdict": "trap(assert)",
+      "cls": "trap"
+    },
+    {
+      "file": "rows/handler_match_tags.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/hof_tail.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/inferred_private.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/iter_diverging_else_bound.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/match_row_bare_tag.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/match_row_else_control.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/match_row_nested.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/match_row_payload_tag.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/match_row_try_scrutinee.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/match_row_wild_each_half.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/nested_row_merge_payload.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/nested_row_param.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/nested_row_return.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/open_row_growth.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/propagate/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "rows/qmark_defer.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/raised_call_arg_position.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/tag_arg_position.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/tag_let_position.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/tag_shadow_local.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/to_int_parse.lu",
+      "verdict": "exit(1)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_fallible_body_stmt.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_if_value.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_raise_stmts.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_raise_unit_fn.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_return_operand.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_tail_if.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_tail_if_chain.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_tail_if_closure.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_tail_if_leaves.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_tail_if_value_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_try_leaves.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "rows/unit_discard_unit_main.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/boundary_battery.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/builtin_methods.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/byte_view.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/byte_view_lend.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/byte_view_slice_lent.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/bytes_roundtrip.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/bytes_view_walk.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/char_battery.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/char_interp.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/char_order.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/chars_walk.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/concat_mix_char.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/concat_plus.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/dollar_brace_escape.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/empty_needle.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/end_relative_get.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/equality_lanes.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/float_format.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/format_spec_full.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/format_spec_width.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/from_utf8_border.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/interp_value_position.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/interp_values.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/match_str_const_scrutinee.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/match_str_dispatch.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/multiline_escapes.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/raw_fences.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/slice_boundary_sweep.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/slice_oob_trap.lu",
+      "verdict": "trap(bounds)",
+      "cls": "trap"
+    },
+    {
+      "file": "strings/split_clause.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/str_uni_leading_zeros.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "strings/to_int.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "test/conc_schedules_test.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "time/monotonic.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "traits/bound_literal_default.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "traits/dyn_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "traits/op_eq_imported/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "traits/op_eq_inverting.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "traits/op_eq_item_import/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "traits/op_money.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "traits/op_ord_struct.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "traits/op_total_num.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "traits/prim_impl.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/bool_cmp.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/byte_casts.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/byte_shapes.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/cast_int_to_float.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/cast_narrow_in_range.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/cast_narrow_wrapping_truncates.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/cast_set.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/closure_param_call.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/closure_return.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "typecheck/float_nan_cmp.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/float_rem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/fn_param_shadows_import/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "typecheck/fn_param_shadows_item.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/fn_value_captured_int.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/fn_value_capturing.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/fn_value_import/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "typecheck/let_shadow_var_ok.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/list_lit_elem_i32.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/list_tuple_elem.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/main_unit_row.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/match_arm_product_unreachable.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/match_chain_reuse.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/match_exhaustive.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/match_guard_const.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/match_narrow_scrutinee.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/match_unreachable.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/nested_fn_value.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_annotation_float.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_arith_through.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_binding_value_later_use.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_c2f.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_compare_adopts.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_div_float.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_div_int.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_extremes.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_list_element_width.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/numlit_u64_edge.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/receiver_modes.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/unit_context_discard.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "typecheck/unit_tail_value_discard.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/variant_value/main.lu",
+      "verdict": "unsupported",
+      "cls": "unsupported"
+    },
+    {
+      "file": "typecheck/wrap_as_int_in_range.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    },
+    {
+      "file": "typecheck/wrap_narrow_cast.lu",
+      "verdict": "exit(0)",
+      "cls": "exit"
+    }
+  ]
+}

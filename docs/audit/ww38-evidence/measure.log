@@ -1,0 +1,90 @@
++ L=/home/mfwolffe/lanes/ww38
++ export PATH=/home/mfwolffe/lanes/ww38/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin CARGO_BUILD_JOBS=4
++ PATH=/home/mfwolffe/lanes/ww38/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin
++ CARGO_BUILD_JOBS=4
++ cd /home/mfwolffe/lanes/ww38/web
++ git fetch -q origin ww38
++ git checkout -q -B ww38 origin/ww38
+++ git branch --show-current
++ test ww38 = ww38
++ git rev-parse HEAD
+e033b2fa4dc4fb5f38657209dbd73be8f8c981e2
++ git submodule update --init --recursive
+Submodule path 'upstream/wolf-interp': checked out '9f4e4a175da109bc4dc0acec3e8a4bc54358b941'
+Submodule path 'upstream/wolf-interp/upstream': checked out 'dfcc2f13e7c73182bdd41fc9bec2802c7da3b024'
++ git -C upstream/wolf-interp fetch -q --tags origin
++ git -C upstream/wolf-interp checkout -q f9269e3364169585fdfe92407639418220be373b
++ git -C upstream/wolf-interp submodule update --init --recursive
+Submodule path 'upstream': checked out '8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a'
++ git -C upstream/wolf-lang fetch -q --tags origin
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-book rev-parse HEAD
++ echo 'wolf-book e777233842830279c44933df830843d5ee218873'
+wolf-book e777233842830279c44933df830843d5ee218873
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-interp rev-parse HEAD
++ echo 'wolf-interp f9269e3364169585fdfe92407639418220be373b'
+wolf-interp f9269e3364169585fdfe92407639418220be373b
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-lang rev-parse HEAD
++ echo 'wolf-lang 8edac3eeb48632b32f02ef41ea87d484d1423492'
+wolf-lang 8edac3eeb48632b32f02ef41ea87d484d1423492
++ cp docs/audit/ww33-evidence/census.mjs docs/audit/ww33-evidence/stdout-probe.mjs /home/mfwolffe/lanes/ww38/
++ mkdir -p dist/play
++ ./scripts/build-wasm.sh
++ echo WASM46-EXIT=0
+WASM46-EXIT=0
++ cp dist/play/lupin.wasm /home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm
++ curl -sfo /home/mfwolffe/lanes/ww38/lupin-0.1.45.wasm https://lupp.us/play/lupin.wasm
++ sha256sum /home/mfwolffe/lanes/ww38/lupin-0.1.45.wasm /home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm
+7a9be83cbd88dbbb895aa4357bb1924aa8eb1a28ec863218900904c68918a78b  /home/mfwolffe/lanes/ww38/lupin-0.1.45.wasm
+eea1c09f1a098ecaa7f380acdb784581601d9595568e6b692bbcfa28810a005a  /home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm
++ O=8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a
++ N=8edac3eeb48632b32f02ef41ea87d484d1423492
++ git -C upstream/wolf-lang checkout -q 8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a
++ for v in 45 46
++ node /home/mfwolffe/lanes/ww38/census.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.45.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww38/census-0222-0145.json
++ echo 'LEG 0222-0145 exit=0'
+LEG 0222-0145 exit=0
++ for v in 45 46
++ node /home/mfwolffe/lanes/ww38/census.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww38/census-0222-0146.json
++ echo 'LEG 0222-0146 exit=0'
+LEG 0222-0146 exit=0
++ git -C upstream/wolf-lang checkout -q 8edac3eeb48632b32f02ef41ea87d484d1423492
++ for v in 45 46
++ node /home/mfwolffe/lanes/ww38/census.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.45.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww38/census-0223-0145.json
++ echo 'LEG 0223-0145 exit=0'
+LEG 0223-0145 exit=0
++ for v in 45 46
++ node /home/mfwolffe/lanes/ww38/census.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm upstream/wolf-lang/corpus /home/mfwolffe/lanes/ww38/census-0223-0146.json
++ echo 'LEG 0223-0146 exit=0'
+LEG 0223-0146 exit=0
++ git -C upstream/wolf-lang rev-parse HEAD
+8edac3eeb48632b32f02ef41ea87d484d1423492
++ git -C upstream/wolf-interp rev-parse HEAD
+f9269e3364169585fdfe92407639418220be373b
++ python3 /home/mfwolffe/lanes/ww38/ww38-rows.py
+++ comm -13 /home/mfwolffe/lanes/ww38/run-8e36bc1.txt /home/mfwolffe/lanes/ww38/run-8edac3e.txt
+++ sed 's|^corpus/||'
++ ARR=$'comptime/layout_query_repr_c.lu\nmembrane/extern_let_image.lu\nmemory/packed_fields_at_offset_of.lu\nmemory/prov_addr_with_addr.lu\nmemory/prov_cast_round_trip.lu\nmemory/prov_expose_round_trip.lu\nmemory/prov_is_null.lu\nmemory/prov_narrow_cast.lu\nmemory/prov_narrow_cast_trap.lu\nmemory/raw_deref.lu\nmemory/raw_deref_signed.lu\nmemory/raw_repr_align_layout.lu\nmemory/raw_repr_packed_layout.lu\nmemory/static_const_let.lu\nmemory/static_var.lu\nmemory/volatile_widths.lu\nrows/unit_discard_tail_if_chain.lu\nrows/unit_discard_tail_if_closure.lu\nrows/unit_discard_tail_if_leaves.lu\nrows/unit_discard_tail_if.lu\nrows/unit_discard_tail_if_value_row.lu'
++ EXTRA='rows/unit_discard_if_value.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu memory/raw_ptr_private_sig.lu memory/raw_ptr_mut_param.lu'
++ for v in 46 45
++ node /home/mfwolffe/lanes/ww38/stdout-probe.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm upstream/wolf-lang/corpus comptime/layout_query_repr_c.lu membrane/extern_let_image.lu memory/packed_fields_at_offset_of.lu memory/prov_addr_with_addr.lu memory/prov_cast_round_trip.lu memory/prov_expose_round_trip.lu memory/prov_is_null.lu memory/prov_narrow_cast.lu memory/prov_narrow_cast_trap.lu memory/raw_deref.lu memory/raw_deref_signed.lu memory/raw_repr_align_layout.lu memory/raw_repr_packed_layout.lu memory/static_const_let.lu memory/static_var.lu memory/volatile_widths.lu rows/unit_discard_tail_if_chain.lu rows/unit_discard_tail_if_closure.lu rows/unit_discard_tail_if_leaves.lu rows/unit_discard_tail_if.lu rows/unit_discard_tail_if_value_row.lu rows/unit_discard_if_value.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu memory/raw_ptr_private_sig.lu memory/raw_ptr_mut_param.lu
++ echo 'PROBE 0146 exit=0'
+PROBE 0146 exit=0
++ for v in 46 45
++ node /home/mfwolffe/lanes/ww38/stdout-probe.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.45.wasm upstream/wolf-lang/corpus comptime/layout_query_repr_c.lu membrane/extern_let_image.lu memory/packed_fields_at_offset_of.lu memory/prov_addr_with_addr.lu memory/prov_cast_round_trip.lu memory/prov_expose_round_trip.lu memory/prov_is_null.lu memory/prov_narrow_cast.lu memory/prov_narrow_cast_trap.lu memory/raw_deref.lu memory/raw_deref_signed.lu memory/raw_repr_align_layout.lu memory/raw_repr_packed_layout.lu memory/static_const_let.lu memory/static_var.lu memory/volatile_widths.lu rows/unit_discard_tail_if_chain.lu rows/unit_discard_tail_if_closure.lu rows/unit_discard_tail_if_leaves.lu rows/unit_discard_tail_if.lu rows/unit_discard_tail_if_value_row.lu rows/unit_discard_if_value.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu memory/raw_ptr_private_sig.lu memory/raw_ptr_mut_param.lu
++ echo 'PROBE 0145 exit=0'
+PROBE 0145 exit=0
++ REC=$'comptime/layout_query_repr_c.lu\nmembrane/extern_let_image.lu\nmemory/packed_fields_at_offset_of.lu\nmemory/prov_addr_with_addr.lu\nmemory/prov_cast_round_trip.lu\nmemory/prov_expose_round_trip.lu\nmemory/prov_is_null.lu\nmemory/prov_narrow_cast.lu\nmemory/prov_narrow_cast_trap.lu\nmemory/raw_deref.lu\nmemory/raw_deref_signed.lu\nmemory/raw_repr_align_layout.lu\nmemory/raw_repr_packed_layout.lu\nmemory/static_const_let.lu\nmemory/static_var.lu\nmemory/volatile_widths.lu\nrows/unit_discard_tail_if_chain.lu\nrows/unit_discard_tail_if_closure.lu\nrows/unit_discard_tail_if_leaves.lu\nrows/unit_discard_tail_if.lu\nrows/unit_discard_tail_if_value_row.lu rows/unit_discard_if_value.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu memory/raw_ptr_private_sig.lu memory/raw_ptr_mut_param.lu membrane/extern_libc.lu grammar/attr_implemented_set.lu memory/raw_repr_c_layout.lu'
++ for v in 46 45
++ node /home/mfwolffe/lanes/ww38/ww38-records.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.46.wasm upstream/wolf-lang/corpus comptime/layout_query_repr_c.lu membrane/extern_let_image.lu memory/packed_fields_at_offset_of.lu memory/prov_addr_with_addr.lu memory/prov_cast_round_trip.lu memory/prov_expose_round_trip.lu memory/prov_is_null.lu memory/prov_narrow_cast.lu memory/prov_narrow_cast_trap.lu memory/raw_deref.lu memory/raw_deref_signed.lu memory/raw_repr_align_layout.lu memory/raw_repr_packed_layout.lu memory/static_const_let.lu memory/static_var.lu memory/volatile_widths.lu rows/unit_discard_tail_if_chain.lu rows/unit_discard_tail_if_closure.lu rows/unit_discard_tail_if_leaves.lu rows/unit_discard_tail_if.lu rows/unit_discard_tail_if_value_row.lu rows/unit_discard_if_value.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu memory/raw_ptr_private_sig.lu memory/raw_ptr_mut_param.lu membrane/extern_libc.lu grammar/attr_implemented_set.lu memory/raw_repr_c_layout.lu
++ echo 'RECORDS 0146 exit=0'
+RECORDS 0146 exit=0
++ for v in 46 45
++ node /home/mfwolffe/lanes/ww38/ww38-records.mjs /home/mfwolffe/lanes/ww38/lupin-0.1.45.wasm upstream/wolf-lang/corpus comptime/layout_query_repr_c.lu membrane/extern_let_image.lu memory/packed_fields_at_offset_of.lu memory/prov_addr_with_addr.lu memory/prov_cast_round_trip.lu memory/prov_expose_round_trip.lu memory/prov_is_null.lu memory/prov_narrow_cast.lu memory/prov_narrow_cast_trap.lu memory/raw_deref.lu memory/raw_deref_signed.lu memory/raw_repr_align_layout.lu memory/raw_repr_packed_layout.lu memory/static_const_let.lu memory/static_var.lu memory/volatile_widths.lu rows/unit_discard_tail_if_chain.lu rows/unit_discard_tail_if_closure.lu rows/unit_discard_tail_if_leaves.lu rows/unit_discard_tail_if.lu rows/unit_discard_tail_if_value_row.lu rows/unit_discard_if_value.lu grammar/cfg_target_arch.lu grammar/cfg_target_freestanding.lu memory/raw_ptr_private_sig.lu memory/raw_ptr_mut_param.lu membrane/extern_libc.lu grammar/attr_implemented_set.lu memory/raw_repr_c_layout.lu
++ echo 'RECORDS 0145 exit=0'
+RECORDS 0145 exit=0
++ echo MEASURE-DONE
+MEASURE-DONE
++ touch /home/mfwolffe/lanes/ww38/measure.done

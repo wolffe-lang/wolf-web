@@ -1,0 +1,11 @@
+# lupin 0.1.46's published linux x86-64 archive (kasumi, 2026-10-04T20:49:21Z) on the two cfg rows at wolf-lang 8edac3ee: the terminal build reads cfg against x86_64
+d13a03790f35f2033570c6284795802dccdb6a0833f1ebdbd132dd4b8049be32  lupin-0.1.46-x86_64-unknown-linux-gnu.tar.gz
+lupin 0.1.46 (wolf-interp, reference interpreter at pin 8e36bc1)
+8edac3eeb48632b32f02ef41ea87d484d1423492
+== lupin run corpus/grammar/cfg_target_arch.lu
+64
+exit=0
+== lupin run corpus/grammar/cfg_target_freestanding.lu
+hosted
+1
+exit=0
