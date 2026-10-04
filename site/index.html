@@ -139,7 +139,34 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises builds for a machine with
+  <p><strong>The release this page advertises lets a wolf kernel own its
+  machine.</strong> Integers and pointers convert both ways —
+  <code>int as *T</code>, <code>*T as int</code>, <code>addr</code>,
+  <code>with_addr</code>, <code>expose</code> and <code>is_null</code> — and
+  prefix <code>*p</code> reads and writes through a raw pointer on every tier,
+  where each was <code>unsupported</code>. On the freestanding target an
+  address no allocation owns is the platform's, so <code>0xb8000 as
+  *u16</code> stores to <code>0xb8000</code>. <code>p.read_volatile()</code>
+  and <code>p.write_volatile(v)</code> are one access each, never elided,
+  split or merged, and a pointee that is not one fixed-width integer or
+  <code>byte</code> is <code>E1307</code>. <code>#[repr(c, packed)]</code>
+  and <code>#[repr(c, align(N))]</code> lay a struct out as C does, and
+  <code>size_of</code>, <code>align_of</code> and <code>offset_of</code>
+  answer at compile time, held to gcc and clang in both directions. Module
+  <code>const</code>, <code>let</code> and <code>var</code> compile as data
+  in the image, evaluated at compile time so there is no initialization
+  order to observe, and a <code>var</code> is raw-tier, read and written
+  inside <code>unsafe</code>. <code>#[section(".name")]</code> places code
+  and data, and <code>extern "c" let</code> names a symbol the link defines.
+  An interrupt reaches an <code>export fn</code> through an assembly
+  trampoline the manifest lists. And one wrong answer with no diagnostic
+  is gone: an else-less <code>if</code> at a fallible function's tail
+  handed its branch's error to the caller on every machine, unwarned, and
+  it is the warned discard now, as the same <code>if</code> one line higher
+  already was. Hosted programs that use none of this build byte-for-byte as
+  before.</p>
+
+  <p><strong>v0.2.22, the release before it, built for a machine with
   nothing under it.</strong> <code>wolf build --target x86_64-unknown-none
   --emit=obj</code> emits a kernel object: no <code>main</code> shim, no
   runtime, one trap hook the program supplies, and everything that needs the
@@ -157,13 +184,13 @@ fn main() -&gt; !int {
   <code>"c"</code> is <code>E0818</code>. An integer cast keeps its value or
   traps <code>overflow</code>: native and release had reinterpreted the bits,
   so <code>-1 as u64</code> printed <code>-1</code>, and the bits are spelled
-  <code>v as wrapping[u64]</code> now. A <code>for</code> piece cannot outlive
+  <code>v as wrapping[u64]</code> since. A <code>for</code> piece cannot outlive
   its region, where the compiled tiers printed it from freed bytes. And a
   program can seek, tell and read at an offset, with the process's standard
   streams on the descriptors C gives them, which is what a <code>tail</code>
   that does not read the whole file needs.</p>
 
-  <p><strong>v0.2.21, the release before it, let a <code>match</code> take
+  <p><strong>v0.2.21 let a <code>match</code> take
   a fallible value apart.</strong> <code>match look(m, k) { none =&gt; -1,
   v =&gt; v }</code> is the shape a reader reaches for when a function answers
   <code>int ! {none}</code>, and through v0.2.20 every tier of the compiler
