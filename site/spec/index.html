@@ -76,13 +76,21 @@
       appear (<code>[gram.expr.assign]</code>). It is
       <code>push(take x)</code>'s twin and means what that spelling means: the
       stored value moves, where the plain store now copies.
-      At v__WOLF_VERSION__ the attribute set is closed without a production
-      moving: <code>[gram.item.attr.set]</code> lists the attributes a pass
+      v0.2.22 closed the attribute set without a production moving:
+      <code>[gram.item.attr.set]</code> lists the attributes a pass
       reads, and one wolf does not know, or knows and does not implement yet,
       is <code>E0817</code> by name where it used to compile and mean nothing;
       <code>[gram.item.attr.cfg]</code> evaluates
       <code>#[cfg(target = "…")]</code> against the build's target, which was
       ignored, so target-gated code had compiled for every target.
+      At v__WOLF_VERSION__ the grammar widens by one production,
+      <code>extern_let_item</code>: <code>extern "c" let NAME: *T</code> names
+      a symbol the link defines, with no initializer, and the parser reads a
+      <code>var</code>, a <code>const</code> or an initializer there only so
+      the checker can refuse each by name (<code>E0821</code>). The
+      attribute table gains <code>#[repr(c, packed)]</code> and
+      <code>#[repr(c, align(N))]</code>, and a representation that cannot be
+      laid out as written is <code>E0820</code>.
       Anchors <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
@@ -168,7 +176,7 @@
       or a loop index the clause proves distinct. v0.2.21 wrote down when an
       <code>errdefer</code> runs: when its scope is left on the error path,
       and a block whose own value is an error has left that way, exactly as
-      a function has. At v__WOLF_VERSION__ a <code>for</code> binding carries
+      a function has. v0.2.22 made a <code>for</code> binding carry
       its iterable's sites, as <code>xs[i]</code> does, so a piece of a
       region-built <code>str</code> held past the region by a loop is
       <code>E1010</code> — the compiled tiers had printed it from freed bytes
@@ -178,6 +186,21 @@
       in a module-private signature, whose every caller is inside the audit
       granule, and on either side of the C membrane, never in a
       <code>pub</code> one.
+      At v__WOLF_VERSION__ integers and pointers convert both ways
+      (<code>[mem.prov.expose]</code>), prefix <code>*p</code> is
+      <code>p[0]</code> by another name, and on the freestanding target an
+      address no allocation owns is the platform's
+      (<code>[mem.prov.device]</code>), where a hosted target keeps it
+      undefined. <code>[mem.unsafe.volatile]</code> defines
+      <code>p.read_volatile()</code> and <code>p.write_volatile(v)</code>:
+      one aligned access of the pointee's width, never elided, split, merged
+      or reordered against another, on a pointee that is one fixed-width
+      integer or <code>byte</code>, anything else <code>E1307</code>. And
+      <code>[mem.static]</code> gives modules state: every initializer is
+      evaluated at compile time into the image, one that reads a
+      <code>var</code> or needs run-time code is <code>E0705</code>, and a
+      <code>var</code> is raw-tier, <code>E1301</code> outside
+      <code>unsafe</code>.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -224,8 +247,9 @@
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
     <dd>Layout, calling convention, and the foreign boundary, differentially
-      fuzzed against platform C compilers. It is the document
-      v__WOLF_VERSION__ grew most. <code>[abi.target]</code> and
+      fuzzed against platform C compilers. It is the document v0.2.22 grew
+      most, and v__WOLF_VERSION__ grew it most again. v0.2.22's
+      <code>[abi.target]</code> and
       <code>[abi.target.none]</code> define the freestanding target: an object
       with no <code>main</code> shim and no runtime, one trap hook the program
       supplies, the code generation a kernel needs, and everything that needs
@@ -237,7 +261,19 @@
       hand-declared <code>extern "c" fn</code> is callable inside
       <code>unsafe</code> — and <code>[abi.layout.c]</code> holds a
       <code>#[repr(c)]</code> struct to C's layout through a raw pointer,
-      where the compiled tiers had packed it. Anchors
+      where the compiled tiers had packed it. At v__WOLF_VERSION__
+      <code>[abi.layout.packed]</code> and <code>[abi.layout.align]</code> lay
+      out <code>#[repr(c, packed)]</code> and <code>#[repr(c, align(N))]</code>
+      as C does, and <code>[abi.layout.query]</code> answers
+      <code>size_of</code>, <code>align_of</code> and <code>offset_of</code> at
+      compile time; a packed field lent is <code>E0819</code>.
+      <code>[abi.link]</code> places code and data with
+      <code>#[section(".name")]</code>, names a symbol the link defines with
+      <code>extern "c" let</code>, and leaves the image to the consuming
+      build's linker script. <code>[abi.interrupt]</code> says how an
+      interrupt reaches wolf, which has no interrupt calling convention: an
+      assembly trampoline saves the registers and calls an
+      <code>export fn</code> with the frame. Anchors
       <code>[abi.*]</code>.</dd>
 
     <dt><a href="/spec/05-conformance.md">05. Conformance</a> (__KIB_spec/05-conformance.md__ KiB)</dt>
@@ -288,7 +324,7 @@
       the record carries a <code>files</code> table and a
       <code>file</code> index on each diagnostic — only when some diagnostic
       lies outside the entry file, so every other record is byte-identical to
-      what it was. At v__WOLF_VERSION__ a refusal carries one code on every
+      what it was. v0.2.22 made a refusal carry one code on every
       lane (<code>[proto.record.first]</code>): the diagnostic at the earliest
       byte offset is first, and at one offset the earlier phase, where the
       record and the screen had been able to name different codes for one
@@ -364,12 +400,16 @@
       <code>?</code> inside a deferred expression, <code>E0611</code>. And
       <code>[type.numlit.value]</code> settles a literal written at a binding
       with no annotation: it takes <code>i32</code> there, and a later use no
-      longer widens it. At v__WOLF_VERSION__
+      longer widens it. v0.2.22's
       <code>[type.numlit.cast.narrow]</code> makes an integer cast keep its
       value or trap <code>overflow</code> on every machine. A change of sign
       is a narrowing cast — native and release had reinterpreted the bits, so
       <code>-1 as u64</code> printed <code>-1</code> — and truncation is
-      spelled <code>v as wrapping[T] as T</code>.
+      spelled <code>v as wrapping[T] as T</code>. At v__WOLF_VERSION__
+      <code>[type.unit.context]</code>'s list of unit contexts has no
+      exception: an else-less <code>if</code> that is itself the tail of a
+      fallible function discards its branch's raise, warned, where every
+      machine had handed it to the caller with no warning.
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
@@ -416,8 +456,8 @@
       rest by name, never by a row, and judges the boundary on the resolved
       path, not its spelling. The compiler already served the whole domain;
       lupin 0.1.40 was the first release of the interpreter to serve, at
-      a terminal, a path that climbs out and back in. At v__WOLF_VERSION__
-      a program can name an offset for the first time:
+      a terminal, a path that climbs out and back in. At v0.2.22
+      a program could name an offset for the first time:
       <code>[os.fs.seek]</code>, <code>[os.fs.tell]</code> and
       <code>[os.fs.read_at]</code> move, report and bypass a handle's cursor,
       with a new tag, <code>unseekable</code>, for a pipe, a socket or a
