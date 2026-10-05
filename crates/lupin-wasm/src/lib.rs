@@ -145,7 +145,9 @@ pub unsafe extern "C" fn lupin_observe(ptr: *const u8, len: usize) -> *mut u8 {
     // The unseeded default: strict FIFO, and the record would declare
     // `seeded: false`. A seed selector is a thing the page could grow later;
     // it is not a thing this crate should invent a spelling for.
-    let observation = frontend::observe_buffer(source, None, &SchedRequest::Default);
+    let observation = with_build_target(TARGET, || {
+        frontend::observe_buffer(source, None, &SchedRequest::Default)
+    });
     // The same lossy decode `run_run` makes before rendering fault lines: a
     // non-UTF-8 source never gets past the lexer's E0107 at offset zero, so
     // the replacement characters can only appear where no span points.
