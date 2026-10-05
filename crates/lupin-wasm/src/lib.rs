@@ -47,8 +47,21 @@
 //! `unsupported` with the reason on the wire, which is the same posture the
 //! interpreter takes toward everything outside its scope
 //! (`[proto.record.unsupported]`).
+//!
+//! # The target
+//!
+//! lupin evaluates `#[cfg(target = "…")]` against the target it was built for
+//! (`wolf_interp::attrs::build_target`, cargo's `TARGET`), and this module is
+//! built for `wasm32-unknown-unknown`, a target no `cfg` in the corpus names.
+//! Left alone, the tab dropped every gated definition and declined a program
+//! a terminal runs (wolf-web#55). Ruling #37 = B: every observation here runs
+//! under `with_build_target(BUNDLE_TARGET, …)`, so the tab reads `cfg` as
+//! `x86_64-unknown-linux-gnu`, the target lupin's own conformance bundle is
+//! observed as, and answers a `cfg`-gated program the way a typical x86-64
+//! Linux host does. [`lupin_version`] states it as `target`.
 
 use serde_json::{Value, json};
+use wolf_interp::attrs::with_build_target;
 use wolf_interp::diag::Diag;
 use wolf_interp::eval::prov::UbFinding;
 use wolf_interp::eval::{SchedRequest, Trap};
@@ -59,6 +72,11 @@ use wolf_interp::protocol::Verdict;
 /// from a path (`src/main.rs`, `run_run`). The playground is that door: a
 /// buffer with no module graph, so the only spelling the invocation has.
 const DISPLAY: &str = "<stdin>";
+
+/// The target `cfg(target = "…")` reads in the tab (ruling #37 = B; see the
+/// module docs): lupin's conformance-bundle target, not the wasm triple this
+/// module was compiled for.
+pub const TARGET: &str = wolf_interp::export::BUNDLE_TARGET;
 
 // ---------------------------------------------------------------------------
 // the ABI
@@ -127,7 +145,9 @@ pub unsafe extern "C" fn lupin_observe(ptr: *const u8, len: usize) -> *mut u8 {
     // The unseeded default: strict FIFO, and the record would declare
     // `seeded: false`. A seed selector is a thing the page could grow later;
     // it is not a thing this crate should invent a spelling for.
-    let observation = frontend::observe_buffer(source, None, &SchedRequest::Default);
+    let observation = with_build_target(TARGET, || {
+        frontend::observe_buffer(source, None, &SchedRequest::Default)
+    });
     // The same lossy decode `run_run` makes before rendering fault lines: a
     // non-UTF-8 source never gets past the lexer's E0107 at offset zero, so
     // the replacement characters can only appear where no span points.
@@ -148,7 +168,9 @@ pub unsafe extern "C" fn lupin_observe(ptr: *const u8, len: usize) -> *mut u8 {
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn lupin_record(ptr: *const u8, len: usize) -> *mut u8 {
     let source = unsafe { borrow(ptr, len) };
-    let (record, _) = wolf_interp::observe_record_stdin(source, &SchedRequest::Default);
+    let (record, _) = with_build_target(TARGET, || {
+        wolf_interp::observe_record_stdin(source, &SchedRequest::Default)
+    });
     let line = match record.to_json_line() {
         Ok(line) => json!({ "record": line }),
         Err(e) => json!({ "error": e.to_string() }),
@@ -163,6 +185,9 @@ pub unsafe extern "C" fn lupin_record(ptr: *const u8, len: usize) -> *mut u8 {
 /// directory of its own and points `GIT_DIR` at the submodule's, so the stamp
 /// is the interpreter's pin rather than this repository's. It reads `unknown`
 /// when there was no gitdir to point at.
+///
+/// `target` is the one field this crate decides: the target `cfg` reads in the
+/// tab, [`TARGET`], which is not the triple the module was compiled for.
 #[unsafe(no_mangle)]
 pub extern "C" fn lupin_version() -> *mut u8 {
     result(&json!({
@@ -171,6 +196,7 @@ pub extern "C" fn lupin_version() -> *mut u8 {
         "commit": wolf_interp::COMMIT,
         "upstream_pin": wolf_interp::UPSTREAM_PIN.trim(),
         "protocol": wolf_interp::protocol::PROTOCOL_VERSION,
+        "target": TARGET,
     }))
 }
 
@@ -512,6 +538,43 @@ mod tests {
         assert_eq!(value["impl"], "lupin");
         assert_eq!(value["impl_version"], wolf_interp::IMPL_VERSION);
         assert_eq!(value["protocol"], 1);
+        assert_eq!(value["target"], "x86_64-unknown-linux-gnu");
+    }
+
+    const CFG_ARCH: &str = "#[cfg(target = \"x86_64\")]\nfn arch_bits() -> int {\n    64\n}\n\n\
+                            #[cfg(target = \"aarch64\")]\nfn arch_bits() -> int {\n    64\n}\n\n\
+                            fn main() -> int {\n    print(\"{arch_bits()}\")\n    0\n}\n";
+
+    /// Ruling #37 = B (wolf-web#55). These run on the host, so the ambient
+    /// target is set to the wasm triple the module is really built for; the
+    /// bridge must read `cfg` as [`TARGET`] whatever the ambient one is. The
+    /// wasm module itself is held by `tests/tab-target.test.mjs`.
+    #[test]
+    fn the_bridge_reads_cfg_as_the_bundle_target_whatever_it_was_built_for() {
+        let observed = with_build_target("wasm32-unknown-unknown", || observe(CFG_ARCH));
+        assert_eq!(observed["verdict"], "exit(0)", "{observed}");
+        assert_eq!(observed["stdout"], "64\n");
+        assert_eq!(wolf_interp::attrs::build_target(), wolf_interp::HOST_TRIPLE);
+    }
+
+    #[test]
+    fn the_record_reads_cfg_as_the_bundle_target_too() {
+        let source = CFG_ARCH.as_bytes();
+        let buffer = lupin_alloc(source.len());
+        unsafe { std::ptr::copy_nonoverlapping(source.as_ptr(), buffer, source.len()) };
+        let result =
+            with_build_target("wasm32-unknown-unknown", || unsafe { lupin_record(buffer, source.len()) });
+        unsafe { lupin_free(buffer, source.len()) };
+        let mut header = [0u8; 4];
+        unsafe { std::ptr::copy_nonoverlapping(result, header.as_mut_ptr(), 4) };
+        let length = u32::from_le_bytes(header) as usize;
+        let json = unsafe { std::slice::from_raw_parts(result.add(4), length) }.to_vec();
+        unsafe { lupin_result_free(result) };
+        let line: Value = serde_json::from_slice(&json).expect("valid json");
+        let record: Value =
+            serde_json::from_str(line["record"].as_str().expect("a record")).expect("a record line");
+        assert_eq!(record["verdict"], "exit(0)", "{record}");
+        assert_eq!(record["stdout_inline"], "64\n");
     }
 
     #[test]
