@@ -562,8 +562,9 @@ mod tests {
         let source = CFG_ARCH.as_bytes();
         let buffer = lupin_alloc(source.len());
         unsafe { std::ptr::copy_nonoverlapping(source.as_ptr(), buffer, source.len()) };
-        let result =
-            with_build_target("wasm32-unknown-unknown", || unsafe { lupin_record(buffer, source.len()) });
+        let result = with_build_target("wasm32-unknown-unknown", || unsafe {
+            lupin_record(buffer, source.len())
+        });
         unsafe { lupin_free(buffer, source.len()) };
         let mut header = [0u8; 4];
         unsafe { std::ptr::copy_nonoverlapping(result, header.as_mut_ptr(), 4) };
@@ -571,8 +572,8 @@ mod tests {
         let json = unsafe { std::slice::from_raw_parts(result.add(4), length) }.to_vec();
         unsafe { lupin_result_free(result) };
         let line: Value = serde_json::from_slice(&json).expect("valid json");
-        let record: Value =
-            serde_json::from_str(line["record"].as_str().expect("a record")).expect("a record line");
+        let record: Value = serde_json::from_str(line["record"].as_str().expect("a record"))
+            .expect("a record line");
         assert_eq!(record["verdict"], "exit(0)", "{record}");
         assert_eq!(record["stdout_inline"], "64\n");
     }
