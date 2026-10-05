@@ -142,6 +142,16 @@ jobs:
       - name: the ahead gate reds on a planted case
         run: node --test tests/ahead-witnesses.test.mjs
 
+      # Ruling #37 = B (wolf-web#55). lupin reads `cfg(target = …)` against
+      # the target it was built for, and this module is built for wasm32,
+      # which no `cfg` names; the bridge observes as x86_64-unknown-linux-gnu,
+      # lupin's own bundle target. Only the wasm module can witness that, so
+      # this suite stands down pre-build and must find the module here.
+      - name: the tab reads cfg as x86_64-unknown-linux-gnu
+        env:
+          WOLF_WEB_REQUIRE_MODULE: "1"
+        run: node --test tests/tab-target.test.mjs
+
   deploy:
     name: deploy to lupp.us
     needs: build
