@@ -20,6 +20,25 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## is71 (the tab reads `cfg` as an x86-64 Linux host) — 2026-10-05
+
+**The tab takes a target.** The interpreter evaluates `#[cfg(target = …)]`
+against the target it was built for, and the playground's module is built for
+WebAssembly, which no gate in the corpus names, so the tab dropped every gated
+definition. Ruled B on wolf-web#55: the bridge now observes every program as
+`x86_64-unknown-linux-gnu`, the target the interpreter's own conformance bundle
+is observed as, and the line above /play/'s editor says so.
+`grammar/cfg_target_arch.lu` prints `64` in the tab, as it does on every
+compiler tier and under the interpreter at a terminal; it was declined,
+naming `arch_bits` as a function that does not resolve. /install/ and /play/
+no longer name it as a parting.
+
+**What else moved.** The census of every `phase: run` program through the
+module moves by that program alone: 580 programs, 434 exit, 39 trap, 102
+unsupported, 5 fail. Outside the census, `ffi.lu` exited 1 in the tab, its
+inline `asm` gated away on both architectures, and is now declined by name for
+the `asm`, as the interpreter declines it at a terminal.
+
 ## ww38 (the site at 0.2.23, the tab's refusals re-derived, and one parting that is the tab's own) — 2026-10-04
 
 All three gitlinks move: the book to bs60's merge, the compiler to wolf 0.2.23,
