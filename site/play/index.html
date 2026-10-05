@@ -192,17 +192,19 @@
   compiler's grammar gained after the tag this interpreter reads, so the line
   does not parse (wolf-interp#190). The compiler runs every one of them.</p>
 
-  <p><strong>And one program parts in this tab alone.</strong>
-  <code>corpus/grammar/cfg_target_arch.lu</code> defines one function twice,
-  gated to two architectures, and prints <code>64</code> on every tier of the
-  compiler and under this interpreter at a terminal, which reads
-  <code>cfg</code> now (wolf-interp#174). Here it answers
-  <code>unsupported</code>, naming <code>arch_bits</code> as a function that
-  does not resolve: the interpreter evaluates a <code>cfg</code> against the
-  target it was built for, this module was built for WebAssembly, and
-  neither definition names it, so both are dropped. It is not the distance
-  and not a disagreement about the text; it is which machine this build
-  says it is, and it is named rather than worked around (wolf-web#55).</p>
+  <p><strong>This tab reads <code>cfg</code> as an x86-64 Linux host.</strong>
+  The interpreter evaluates a <code>#[cfg(target = …)]</code> against the
+  target it was built for, and this module was built for WebAssembly, a
+  target no gate in the corpus names. So the tab observes every program as
+  <code>x86_64-unknown-linux-gnu</code>, the target the interpreter's own
+  conformance bundle is observed as, and says so in the line above the
+  editor. <code>corpus/grammar/cfg_target_arch.lu</code>, which defines one
+  function twice, gated to two architectures, prints <code>64</code> here as
+  it does on every tier of the compiler and under this interpreter at a
+  terminal. Before this tab took that target it read <code>cfg</code> as
+  WebAssembly, both definitions were dropped, and the program was declined,
+  naming <code>arch_bits</code> as a function that does not resolve
+  (wolf-web#55).</p>
 
   <p><strong>Nothing parts in its output.</strong> A verdict census cannot see
   a disagreement that exits 0 on both sides, so the compiler's additions

@@ -226,18 +226,19 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   in what it prints: every addition that runs here prints what its header
   states. None of them is worked around here.</p>
 
-  <p>One program answers differently in the tab and nowhere else, and it is
-  not the distance. <code>corpus/grammar/cfg_target_arch.lu</code> defines
-  one function twice, gated to two architectures, and prints
-  <code>64</code> on every tier of the compiler and under
-  <code>lupin __LUPIN_VERSION__</code> at a terminal, which reads
-  <code>cfg</code> now (wolf-interp#174). The interpreter evaluates a
-  <code>cfg</code> against the target it was itself built for, and the
-  module the <a href="/play/">playground</a> serves is built for
-  WebAssembly, a target neither definition names, so in the tab both are
-  dropped and the program is declined, <code>unsupported</code>, naming the
-  function that does not resolve. That is a fact about this build, recorded
-  here rather than worked around (wolf-web#55).</p>
+  <p>The tab reads <code>cfg</code> as an x86-64 Linux host. The interpreter
+  evaluates a <code>#[cfg(target = …)]</code> against the target it was
+  itself built for, and the module the <a href="/play/">playground</a>
+  serves is built for WebAssembly, a target no gate in the corpus names, so
+  the tab observes every program as <code>x86_64-unknown-linux-gnu</code>,
+  the target the interpreter's own conformance bundle is observed as, and
+  says so on the page. <code>corpus/grammar/cfg_target_arch.lu</code>
+  defines one function twice, gated to two architectures, and prints
+  <code>64</code> in the tab as it does on every tier of the compiler and
+  under <code>lupin __LUPIN_VERSION__</code> at a terminal. Before the tab
+  took that target it read <code>cfg</code> as WebAssembly, both definitions
+  were dropped, and the program was declined, naming the function that does
+  not resolve (wolf-web#55).</p>
 
   <p>Every other program the release above brought into the corpus's running
   set answers here as its header says, or is declined by this build by name.
@@ -265,8 +266,8 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   <code>corpus/membrane/extern_libc.lu</code> is declined by name for its
   bodyless C declaration where it was refused for the <code>*T</code> in its
   signature; and the program the paragraph above names moved from a refusal
-  to the tab's decline. The measurement is four walks,
-  not one — both corpora through both modules — and no other program that
+  to the tab's decline, which ended when the tab took its target. The
+  measurement is four walks, not one — both corpora through both modules — and no other program that
   both corpora carry changed its answer in any of them.</p>
 
   <p>At v0.2.22's pin the gap cost six programs, and all but one are healed
@@ -279,7 +280,8 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   binding the row's tag where an else-less <code>if</code> is
   <code>()</code> (wolf-interp#179) — a disagreement inside the text both
   read, not the distance. The interpreter above prints <code>() ()</code>.
-  The sixth, <code>cfg_target_arch.lu</code>, is the tab's decline above.</p>
+  The sixth, <code>cfg_target_arch.lu</code>, was the tab's decline above,
+  and prints <code>64</code> in the tab now.</p>
 
   <p>At v0.2.21's pin the gap cost one program, and it is healed.
   <code>corpus/rows/eu_bind_empty_row_handled.lu</code> binds a function's
