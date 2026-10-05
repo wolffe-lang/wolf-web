@@ -1,0 +1,33 @@
+HEAD 9b5c46030e7b59c9a2e55e59e8a1e220f2941222
+wolf-book e777233842830279c44933df830843d5ee218873
+wolf-interp f9269e3364169585fdfe92407639418220be373b
+wolf-lang 8edac3eeb48632b32f02ef41ea87d484d1423492
+v26.10.0
+WASM-EXIT=0
+  no portability patch present; building the pin as it stands
+  stamping the interpreter commit as f9269e3
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1184 KiB raw, 442 KiB gzipped
+92b948ad366ce2c39e57497140c6bbb927dc03d1add872e9a1c179757901cc2d  /home/mfwolffe/lanes/is71/lupin-head.wasm
+=== tab-target suite
+SUITE-EXIT=0
+ℹ tests 5
+ℹ pass 5
+ℹ fail 0
+ℹ skipped 0
+=== census
+CENSUS-EXIT=0
+  unsupported  traits/op_eq_item_import/main.lu  unsupported
+  unsupported  typecheck/closure_return.lu  unsupported
+  unsupported  typecheck/fn_param_shadows_import/main.lu  unsupported
+  unsupported  typecheck/fn_value_import/main.lu  unsupported
+  unsupported  typecheck/unit_context_discard.lu  unsupported
+  unsupported  typecheck/variant_value/main.lu  unsupported
+=== records
+RECORDS-EXIT=0
+ffi.lu {"detail":null,"diagnostics":[],"exit":4,"forest":null,"leaks":0,"phase":"resolve","stderr":"<stdin>: unsupported: inline `asm` has no pinned semantics in any document this implementation reads; executing a guessed instruction would put invented behavior into a differential comparison\n","stdout":"","trap":null,"ub":null,"unsupported":"inline `asm` has no pinned semantics in any document th
+grammar/cfg_target_arch.lu {"detail":null,"diagnostics":[],"exit":0,"forest":null,"leaks":0,"phase":"run","stderr":"","stdout":"64\n","trap":null,"ub":null,"unsupported":null,"verdict":"exit(0)","warnings":[]}
+grammar/cfg_target_freestanding.lu {"detail":null,"diagnostics":[],"exit":0,"forest":null,"leaks":0,"phase":"run","stderr":"","stdout":"hosted\n1\n","trap":null,"ub":null,"unsupported":null,"verdict":"exit(0)","warnings":[]}
+grammar/cfg_target_unknown.lu {"detail":{"anchor":"gram.item.attr.set","code":"E0817","message":"`no-such-target` names no target wolf knows: a `target` predicate names a triple (`x86_64-unknown-linux-gnu`, `aarch64-unknown-linux-gnu`, `aarch64-apple-darwin`, `x86_64-pc-windows-msvc`, `x86_64-unknown-freebsd`, `x86_64-unknown-none`) or an architecture (`x86_64`, `aarch64`) ([gram.item.attr.cfg])",
+membrane/extern_let_image.lu {"detail":{"anchor":"gram.item.fn","code":"E0201","message":"expected keyword `fn`, found keyword `let`","span":[660,663]},"diagnostics":[{"code":"E0201","severity":"error","span":[660,663]}],"exit":2,"forest":null,"leaks":0,"phase":"parse","stderr":"<stdin>: E0201: expected keyword `fn`, found keyword `let` [gram.item.fn] at 14:12\n","stdout":"","trap":null,"ub":null,
+LEG-DONE

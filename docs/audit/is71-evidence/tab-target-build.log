@@ -1,0 +1,13 @@
+✔ cfg_target_arch.lu prints 64 in the tab, as it does at a terminal (18.200793ms)
+✔ the record the tab shows says the same (0.978393ms)
+✔ the freestanding target is still not this one (1.257801ms)
+✔ a gate on the other architecture is dropped, as on an x86-64 host (0.480236ms)
+✔ the module states the target it reads cfg as (0.190287ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.931539

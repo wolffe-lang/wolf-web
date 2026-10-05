@@ -1,0 +1,6 @@
+== 98e3df4 98e3df4
+Diff in /home/mfwolffe/lanes/is71/web/crates/lupin-wasm/src/lib.rs:131:
+FMT-EXIT=1
+== f0e1771 f0e1771
+Diff in /home/mfwolffe/lanes/is71/web/crates/lupin-wasm/src/lib.rs:151:
+FMT-EXIT=1

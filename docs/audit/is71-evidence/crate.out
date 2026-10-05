@@ -1,0 +1,55 @@
+HEAD 9b5c46030e7b59c9a2e55e59e8a1e220f2941222
+toolchain 1.97.1
+Diff in /home/mfwolffe/lanes/is71/web/crates/lupin-wasm/src/lib.rs:151:
+     // The same lossy decode `run_run` makes before rendering fault lines: a
+     // non-UTF-8 source never gets past the lexer's E0107 at offset zero, so
+     // the replacement characters can only appear where no span points.
+-    result(&terminal_view(&observation, &String::from_utf8_lossy(source)))
++    result(&terminal_view(
++        &observation,
++        &String::from_utf8_lossy(source),
++    ))
+ }
+ 
+ /// Observes one program and returns the spec/06 observation record, byte-identical
+Diff in /home/mfwolffe/lanes/is71/web/crates/lupin-wasm/src/lib.rs:562:
+         let source = CFG_ARCH.as_bytes();
+         let buffer = lupin_alloc(source.len());
+         unsafe { std::ptr::copy_nonoverlapping(source.as_ptr(), buffer, source.len()) };
+-        let result =
+-            with_build_target("wasm32-unknown-unknown", || unsafe { lupin_record(buffer, source.len()) });
++        let result = with_build_target("wasm32-unknown-unknown", || unsafe {
++            lupin_record(buffer, source.len())
++        });
+         unsafe { lupin_free(buffer, source.len()) };
+         let mut header = [0u8; 4];
+         unsafe { std::ptr::copy_nonoverlapping(result, header.as_mut_ptr(), 4) };
+Diff in /home/mfwolffe/lanes/is71/web/crates/lupin-wasm/src/lib.rs:571:
+         let json = unsafe { std::slice::from_raw_parts(result.add(4), length) }.to_vec();
+         unsafe { lupin_result_free(result) };
+         let line: Value = serde_json::from_slice(&json).expect("valid json");
+-        let record: Value =
+-            serde_json::from_str(line["record"].as_str().expect("a record")).expect("a record line");
++        let record: Value = serde_json::from_str(line["record"].as_str().expect("a record"))
++            .expect("a record line");
+         assert_eq!(record["verdict"], "exit(0)", "{record}");
+         assert_eq!(record["stdout_inline"], "64\n");
+     }
+FMT-EXIT=1
+CLIPPY-EXIT=0
+    Checking clap v4.6.6
+    Checking lupin-wasm v0.1.0 (/home/mfwolffe/lanes/is71/web/crates/lupin-wasm)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.31s
+TEST-EXIT=0
+test tests::the_exit_scale_is_the_front_door_s ... ok
+test tests::the_version_export_names_the_interpreter_and_not_this_crate ... ok
+test tests::a_rejected_program_carries_its_code_and_span_on_the_protocol_shape ... ok
+test tests::a_clean_program_reports_its_output_and_says_nothing_else ... ok
+test tests::a_trap_still_reports_the_output_the_program_managed_to_write ... ok
+test tests::a_trap_is_rendered_the_way_the_terminal_renders_it ... ok
+test tests::the_bridge_reads_cfg_as_the_bundle_target_whatever_it_was_built_for ... ok
+test tests::the_record_reads_cfg_as_the_bundle_target_too ... ok
+test tests::a_program_that_never_loaded_reports_warnings_as_absent_not_as_empty ... ok
+test tests::a_zero_length_allocation_round_trips ... ok
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+CRATE-DONE

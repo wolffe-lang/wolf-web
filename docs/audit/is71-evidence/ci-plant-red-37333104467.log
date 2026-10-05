@@ -1,0 +1,92 @@
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	﻿2026-10-05T15:31:14.3692292Z ##[group]Run node --test tests/tab-target.test.mjs
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3692719Z ^[[36;1mnode --test tests/tab-target.test.mjs^[[0m
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3757225Z shell: /usr/bin/bash -e {0}
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3757500Z env:
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3757773Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3758243Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3758694Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3759090Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3759491Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3759905Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3760277Z   CARGO_HOME: /home/runner/.cargo
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3760548Z   CARGO_INCREMENTAL: 0
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3760787Z   CARGO_TERM_COLOR: always
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3761035Z   WOLF_WEB_REQUIRE_MODULE: 1
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.3761284Z ##[endgroup]
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4255038Z TAP version 13
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4975436Z # Subtest: cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4976454Z not ok 1 - cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4977138Z   ---
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4977464Z   duration_ms: 27.15183
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4977816Z   type: 'test'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4978377Z   location: '/home/runner/work/wolf-web/wolf-web/tests/tab-target.test.mjs:79:1'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4979080Z   failureType: 'testCodeFailure'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4979849Z   error: |-
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4981488Z     the tab answered {"detail":null,"diagnostics":[],"exit":4,"forest":null,"leaks":0,"phase":"resolve","stderr":"<stdin>: unsupported: `arch_bits` does not resolve\n","stdout":"","trap":null,"ub":null,"unsupported":"`arch_bits` does not resolve","verdict":"unsupported","warnings":[]}
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4983272Z     + actual - expected
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4983628Z     
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4983946Z     + 'unsupported'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4984514Z     - 'exit(0)'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4984836Z     
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4985146Z   code: 'ERR_ASSERTION'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4985542Z   name: 'AssertionError'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4985932Z   expected: 'exit(0)'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4986296Z   actual: 'unsupported'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4986654Z   operator: 'strictEqual'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4987004Z   stack: |-
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4987689Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/tab-target.test.mjs:83:10)
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.4988604Z     async Test.run (node:internal/test_runner/test:1054:7)
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5014404Z     async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5015290Z   ...
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5015742Z # Subtest: the record the tab shows says the same
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5016342Z ok 2 - the record the tab shows says the same
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5016882Z   ---
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5017210Z   duration_ms: 4.700098
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5017635Z   type: 'test'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5017961Z   ...
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5018365Z # Subtest: the freestanding target is still not this one
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5018996Z ok 3 - the freestanding target is still not this one
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5019505Z   ---
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5019821Z   duration_ms: 2.00044
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5020179Z   type: 'test'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5020491Z   ...
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5020987Z # Subtest: a gate on the other architecture is dropped, as on an x86-64 host
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5021815Z not ok 4 - a gate on the other architecture is dropped, as on an x86-64 host
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5042046Z   ---
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5051212Z   duration_ms: 0.860833
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5051828Z   type: 'test'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5052392Z   location: '/home/runner/work/wolf-web/wolf-web/tests/tab-target.test.mjs:107:1'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5053051Z   failureType: 'testCodeFailure'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5053390Z   error: |-
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5054739Z     {"detail":null,"diagnostics":[],"exit":4,"forest":null,"leaks":0,"phase":"resolve","stderr":"<stdin>: unsupported: `which` does not resolve\n","stdout":"","trap":null,"ub":null,"unsupported":"`which` does not resolve","verdict":"unsupported","warnings":[]}
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5056968Z     + actual - expected
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5057365Z     
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5057693Z     + 'unsupported'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5058060Z     - 'exit(0)'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5058394Z     
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5058731Z   code: 'ERR_ASSERTION'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5059138Z   name: 'AssertionError'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5059567Z   expected: 'exit(0)'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5059977Z   actual: 'unsupported'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5060377Z   operator: 'strictEqual'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5060763Z   stack: |-
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5061517Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/tab-target.test.mjs:115:10)
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5062546Z     async Test.run (node:internal/test_runner/test:1054:7)
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5063382Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5064377Z   ...
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5064849Z # Subtest: the module states the target it reads cfg as
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5065513Z ok 5 - the module states the target it reads cfg as
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5066072Z   ---
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5066420Z   duration_ms: 0.263447
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5066796Z   type: 'test'
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5067130Z   ...
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5098582Z 1..5
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5099121Z # tests 5
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5100236Z # suites 0
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5130050Z # pass 3
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5130770Z # fail 2
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5131115Z # cancelled 0
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5131509Z # skipped 0
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5131873Z # todo 0
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5132204Z # duration_ms 96.261434
+build the site	the tab reads cfg as x86_64-unknown-linux-gnu	2026-10-05T15:31:14.5173460Z ##[error]Process completed with exit code 1.

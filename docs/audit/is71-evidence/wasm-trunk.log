@@ -1,0 +1,5 @@
+  staged the interpreter's toolchain pin: 1.97.1
+  no portability patch present; building the pin as it stands
+  stamping the interpreter commit as f9269e3
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1183 KiB raw, 442 KiB gzipped

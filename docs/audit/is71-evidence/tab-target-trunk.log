@@ -1,0 +1,91 @@
+✖ cfg_target_arch.lu prints 64 in the tab, as it does at a terminal (14.468213ms)
+✖ the record the tab shows says the same (1.238767ms)
+✔ the freestanding target is still not this one (2.03586ms)
+✖ a gate on the other architecture is dropped, as on an x86-64 host (0.489923ms)
+✖ the module states the target it reads cfg as (0.214902ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 1
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 55.46971
+
+✖ failing tests:
+
+test at tests/tab-target.test.mjs:79:1
+✖ cfg_target_arch.lu prints 64 in the tab, as it does at a terminal (14.468213ms)
+  AssertionError [ERR_ASSERTION]: the tab answered {"detail":null,"diagnostics":[],"exit":4,"forest":null,"leaks":0,"phase":"resolve","stderr":"<stdin>: unsupported: `arch_bits` does not resolve\n","stdout":"","trap":null,"ub":null,"unsupported":"`arch_bits` does not resolve","verdict":"unsupported","warnings":[]}
+  + actual - expected
+  
+  + 'unsupported'
+  - 'exit(0)'
+  
+      at TestContext.<anonymous> (file:///home/mfwolffe/lanes/is71/web/tests/tab-target.test.mjs:83:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'unsupported',
+    expected: 'exit(0)',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/tab-target.test.mjs:89:1
+✖ the record the tab shows says the same (1.238767ms)
+  AssertionError [ERR_ASSERTION]: {"protocol":1,"impl":"lupin","impl_version":"0.1.46","commit":"f9269e3","file":"-","phase_reached":"resolve","seeded":false,"diagnostics":[],"warnings":[],"verdict":"unsupported","stdout_sha256":null,"stdout_inline":null,"x-unsupported":"`arch_bits` does not resolve"}
+  + actual - expected
+  
+  + 'unsupported'
+  - 'exit(0)'
+  
+      at TestContext.<anonymous> (file:///home/mfwolffe/lanes/is71/web/tests/tab-target.test.mjs:95:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'unsupported',
+    expected: 'exit(0)',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/tab-target.test.mjs:107:1
+✖ a gate on the other architecture is dropped, as on an x86-64 host (0.489923ms)
+  AssertionError [ERR_ASSERTION]: {"detail":null,"diagnostics":[],"exit":4,"forest":null,"leaks":0,"phase":"resolve","stderr":"<stdin>: unsupported: `which` does not resolve\n","stdout":"","trap":null,"ub":null,"unsupported":"`which` does not resolve","verdict":"unsupported","warnings":[]}
+  + actual - expected
+  
+  + 'unsupported'
+  - 'exit(0)'
+  
+      at TestContext.<anonymous> (file:///home/mfwolffe/lanes/is71/web/tests/tab-target.test.mjs:115:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'unsupported',
+    expected: 'exit(0)',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/tab-target.test.mjs:119:1
+✖ the module states the target it reads cfg as (0.214902ms)
+  AssertionError [ERR_ASSERTION]: {"commit":"f9269e3","impl":"lupin","impl_version":"0.1.46","protocol":1,"upstream_pin":"8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a"}
+  + actual - expected
+  
+  + undefined
+  - 'x86_64-unknown-linux-gnu'
+  
+      at TestContext.<anonymous> (file:///home/mfwolffe/lanes/is71/web/tests/tab-target.test.mjs:123:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'x86_64-unknown-linux-gnu',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

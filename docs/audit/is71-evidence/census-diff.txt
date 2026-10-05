@@ -1,0 +1,4 @@
+trunk {"candidates": 472, "classes": {"exit": 433, "fail": 5, "trap": 39, "unsupported": 103}, "corpus": "upstream/wolf-lang/corpus", "programs": 580, "wasm": "/home/mfwolffe/lanes/is71/lupin-trunk.wasm"}
+head  {"candidates": 473, "classes": {"exit": 434, "fail": 5, "trap": 39, "unsupported": 102}, "corpus": "upstream/wolf-lang/corpus", "programs": 580, "wasm": "/home/mfwolffe/lanes/is71/lupin-head.wasm"}
+moved 1
+grammar/cfg_target_arch.lu {"cls": "unsupported", "file": "grammar/cfg_target_arch.lu", "verdict": "unsupported"} -> {"cls": "exit", "file": "grammar/cfg_target_arch.lu", "verdict": "exit(0)"}
