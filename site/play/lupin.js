@@ -508,7 +508,11 @@ async function boot() {
   dom.banner.classList.remove("broken");
   dom.bannerText.textContent =
     `${version.impl} ${version.impl_version}, compiled to WebAssembly, ` +
-    `running in this tab against spec and corpus pin ${version.upstream_pin.slice(0, 7)}.`;
+    `running in this tab against spec and corpus pin ${version.upstream_pin.slice(0, 7)}` +
+    /* Ruling #37 = B (wolf-web#55): the bridge reads `cfg(target = …)` as
+     * lupin's bundle target, not the wasm triple; a module that predates the
+     * field says nothing rather than guessing. */
+    (version.target ? `, reading cfg as ${version.target}.` : ".");
   dom.run.disabled = false;
 
   try {
