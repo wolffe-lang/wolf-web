@@ -20,6 +20,52 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww39 (the site at 0.2.25, chapter 7 live, and the tab refuses nothing) — 2026-10-08
+
+All three gitlinks move: the book to bs63's merge, the compiler to wolf 0.2.25,
+and the interpreter to lupin 0.1.48.
+
+**The lag is still one release; the distance is 50 commits.** lupin 0.1.48
+re-pinned two tags forward, on the v0.2.24 tag, so the ancestry guard answers
+`gap 1`, `tagged true`, 50 commits, where it counted 200 at the last bump.
+/install/ and /play/ carry "one release" and neither carries another phrase.
+The pairing in between, lupin 0.1.47 beside wolf 0.2.24, read the v0.2.22
+text; this site never served it, and both pages now say so.
+
+**The tab refuses nothing the compiler runs.** Every `phase: run` program in
+the pinned corpus went through the module this build publishes, both corpora
+through both modules: 592 programs, 443 exit, 39 trap, 110 unsupported, 0
+fail, 482 candidates, and no instance killed. The refusals the site named at
+the last bump leave the list: the 2 layout programs that only ask
+`size_of`, `align_of` and `offset_of` or store bytes print what the compiler
+prints (wolf-interp#188), the 2 that store a whole struct through a raw
+pointer are declined by name, as the compiler's own checked machine declines
+them, and `extern "c" let`'s linker symbol is declined by name because the
+interpreter models no link (wolf-interp#190). What remains is declines, each
+named on the pages: the atomics and the volatile program, whose mirrors are on
+the interpreter's trunk and not yet released (wolf-interp#194, #185), and a
+field read through a raw pointer to a struct (wolf-interp#205).
+
+**No program in the tab printed an old wrong answer.** The fixes this release
+makes on the compiled tiers — a module `var` or raw memory written by a
+callee and read back after the call (wolf-lang#598, #601), a branch on the top
+half of an unsigned shift (#600), and, a release earlier, a module string
+holding its value (#585) — were never wrong in the interpreter: every running
+program printed the same bytes under the module served until now as under
+this one.
+
+**Chapter 7 shows memory.** The book's chapter on ownership draws its trees
+before and after a move, a copy and a re-initialization, generated from the
+interpreter's own record of every place. The drawings are static SVG images,
+no script draws anything, so they render under the site's
+`script-src 'self'`, and the reading page names them in its part list.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.25 fixed, sets 0.2.24's atomics, fences, freestanding allocator, row L4,
+module strings and `wolf prelude` beside it, and moves 0.2.23's story into
+the history. /spec/ dates 01's last widening at v0.2.23 and adds 02's
+alignment row and call clause, 03's atomics and 04's allocator hook.
+
 ## is71 (the tab reads `cfg` as an x86-64 Linux host) — 2026-10-05
 
 **The tab takes a target.** The interpreter evaluates `#[cfg(target = …)]`
