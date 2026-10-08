@@ -1,0 +1,46 @@
+ch07: against http://127.0.0.1:57248/book/ (render served with lupp.us's headers)
+ch07: chromium phone: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+ch07: chromium desktop: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+ch07: firefox phone: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 7 svg responses, 0 CSP violations, 0 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+  svg 200 image/svg+xml favicon.svg
+ch07: firefox desktop: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 7 svg responses, 0 CSP violations, 0 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+  svg 200 image/svg+xml favicon.svg
+ch07: webkit phone: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+ch07: webkit desktop: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+ch07: FAILED

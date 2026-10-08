@@ -1,0 +1,1123 @@
+derive run 2026-10-08T00:19:30Z on kasumi
+=== tags
+v0.2.23 8edac3eeb48632b32f02ef41ea87d484d1423492
+v0.2.24 294d626dd596122285d5df954762e3aee3e5db71
+v0.2.25 6710f9e0cbc3a7264349093751ce7a46a407e473
+=== interp gitlinks
+IOLD upstream: 160000 commit 8e36bc1a0f92bbbbc6861b10d5b2638f76412d6a	upstream
+INEW upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+version = "0.1.48"
+tag v0.1.48 -> 531bf0581dea6bba4b1247edb2abada5214c18ab
+interp commits IOLD..INEW = 58
+531bf05 version: 0.1.48 — Cargo.toml, Cargo.lock, README, the manual's record
+2d5bb1f changelog: 0.1.48 — the 294d626d re-pin (DIV-2026-028), is73's re-pin blockers, is72's place trace
+0932cec docs: the manual's corpus walk and bundle replay at 294d626d (749 run, 704 match, 4 mismatch, all filed)
+cb5504f tests: export — pin 294d626d, 1042 programs / 995 records, anchors 595, the ratchet 290 -> 313
+92eb7fb tests: the run ledger at 294d626d — twenty-six rows reach run (one filed, DIV-2026-028); attr_repr_unimplemented leaves
+2dfc7a0 tests: conformance — is73's two ruled-ahead waivers retire at 294d626d; volatile_outside_unsafe and atomic_outside_unsafe await their mirrors by name (#185, #194)
+739dadc tests: cli — the walk counts 1002 at 294d626d
+5283d0b tests: corpus_harness at the 294d626d pin — 1002 files, 955 entries, 47 members
+1d607b1 docs: divergence log — DIV-2026-028, kw11's plain racy counter at the 294d626d pin (wolf-lang#603)
+f369f4c differ: DIV-2026-028 filed — atomic_race_plain.lu's check: pass cannot spell the trap(race) [conc.mm.race.3] permits (wolf-lang#603)
+bc10e7c pin: re-vendor spec and corpus at wolf-lang v0.2.24 (294d626d) — two releases forward, an ancestor of the released line
+5f8715e changelog: is73's entry under a new Unreleased, above 0.1.47 (the rebase placed it inside)
+2ebaf71 Revert "plant: the admission ladder skips E0705 again" — seen red in run 37374598901 (ubuntu shard 3, job 111979893811) on rulings_is73's two initializer witnesses
+249fa4f plant: the admission ladder skips E0705 again — rulings_is73's initializer witnesses must go red in CI (revert follows)
+885b088 changelog: is73 — the re-pin blockers (#190, #188, #197)
+e00648d docs: the walk and the bundle replay counts — 669 match, 69 out of scope; ledger 138 (#188, #190)
+b6d49ca tests: the run ledger — attr_repr_unimplemented runs (ruled ahead), read_param_escape_static leaves (not static data) (#188, #190)
+0cd1d59 tests: conformance — attr_repr_unimplemented and attr_section ruled ahead of the pin; E0708/E0819/E0820/E0821 resolve codes; declines by name (#188, #190)
+8cf49f5 tests: rulings_is70's attr_repr_unimplemented asks for transparent and attr_section is refused by name, as wolf 0.2.23 answers (#188, #190)
+bfd4c4a frontend: the admission ladder asks the new checks — E0821, E0705, not-static-data, then E0708/E0403/E0819, then section and link refusals (#188, #190)
+21e3a85 eval: module initializers refuse their own value by name and nest 512 deep at most; the layout queries fold; a link-time symbol is refused (#190, #188)
+ef643f0 attrs: packed, align(N) and section join the closed set; E0820 at the compiler's spans; E0818 on an extern let (#188, #190)
+3d543a4 layout: the C layout with packed and align(N), the three queries (E0708, E0403), the packed-lend walk (E0819) (#188)
+bfecf31 statics: E0821, E0705 at the comptime engine's references, not-static-data and section and link-symbol refusals by name (#190)
+4432f41 sema: an extern let defines its name as a link-time symbol; a module var outside unsafe is E1301 at the name (#190)
+d0077f9 lint, repl: the extern-let item in the name and shadow walks; the REPL refuses it by name (#190)
+30dbc07 parse: extern "c" let — the item, read wide (var/const, no type, an initializer) so the checker refuses each by name (#190)
+b733c8e tests: rulings_is73 — 90 witnesses of kw08's and kw09's rows against wolf 0.2.23, each red or a control at trunk (#188, #190)
+0df40cf tests: fuzz_smoke checks [proto.record.first]'s record — one or more errors, by start, the first's code the verdict (#197)
+a4ccaac tests: fuzz_smoke — the v0.2.23 seed's mutant and a two-refusal record, through exercise (#197)
+43764b1 is73: contract — the re-pin blockers (#190, #188, the two-diagnostic fuzz record)
+b7b7ddb ci: place-trace-identity runs both spellings through one command line and tolerates a host without timeout (macOS ladder, run 37373503496 job 111976563720)
+9dba0d6 Revert the plant d181fd2: a Copy-shaped initializer copies with --trace-places on (seen red: run 37364676558, windows ladder job 111946908749, step place trace identity)
+e77844b PLANT (to be reverted): under --trace-places a Copy-shaped initializer moves instead of copying
+cee2845 docs: manual chapter 6, the place trace — schema version 1 and examples/pack.lu (doc-truth checked)
+af4749a ci: run the place-trace identity on every ladder
+73c0877 ci: place-trace-identity.sh — every corpus file through the release binary, flag off and on, stdout/stderr/exit byte-compared
+deb9322 tests: the many golden (16-element cap, map keys) and len in the elements golden
+724967a eval: a container lists at most 16 addressed elements, with len and elided (byte_list_ledger.lu timed out writing 65,536 elements per line)
+340b537 tests: place_trace — goldens, schema v1, the pack.lu answer, trace/trap agreement, CLI, identity over memory/*move*
+7e3ba24 tests: the place-trace goldens — pack.lu (copied unchanged), ch7 §7.2 and its moved leaf, take, copy, plain move, elements, granules
+6f48173 cli: --trace-places[=PATH] on the bare front door and on run (stderr by default, never stdout)
+bf3c588 frontend: observe_live_traced and observe_file_traced carry a place tracer to the machine
+f8dd95b eval: the place trace — one JSON line per statement from SlotState, with move/reinit/copy side records (is72)
+b67c58a is72: contract — lupin --trace-places, the place trace
+b3228cb version: 0.1.47 — Cargo.toml, Cargo.lock, README, the manual's record
+bc81299 changelog: 0.1.47 — s209's mirror of ruling #36 (row L4); the v0.2.23 re-pin waits on #190, #188, #196
+c63b612 fmt: export
+cc19303 tests: the bundle counts take tests/ub's two L4 programs (985/938 -> 987/940) and the closed enumeration is twelve rows (macOS shard 3, run 37238618129 job 111542682615)
+c7e0756 tests: the L4 report snapshot — two spans, the tree, O12
+5dbc44e docs: the manual's bundle counts take tests/ub's two L4 programs (files 1005 -> 1007, programs 985 -> 987, records 938 -> 940)
+2715529 tests: the bundle's coverage table names L4
+78d7e3d changelog: s209 — row L4 (#192)
+5f159f5 prov: the enumeration has twelve rows (L4)
+f675784 tests: L4 trigger and its near-miss twin in tests/ub
+07084a6 eval: raw_load/raw_store ask row L4 before the provenance check, for an allocation-owned pointer to a pointee wider than a byte (#192)
+b71e131 prov: UbRow::L4 — an ordinary raw access at an address not aligned to its pointee (ruling #36 = A, clause mem.unsafe.raw.4)
+53df0f6 s209: contract — lupin's half of ruling #36 = A (row L4, wolf-interp#192)
+=== interp files changed
+ vendor/upstream/spec/grammar.ebnf                  |   3 +-
+ vendor/upstream/spec/prelude.json                  | 148 ++++
+ 313 files changed, 10426 insertions(+), 168 deletions(-)
+=== ancestry
+is-ancestor SPEC_NEW(294d626d) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC_NEW..NEW = 50
+rev-list --count OLD..NEW = 189
+rev-list --count SPEC_OLD..OLD = 200
+=== CHANGELOG headings at NEW
+## 0.2.25 — 2026-10-07
+## 0.2.24 — 2026-10-06
+## 0.2.23 — 2026-10-04
+## 0.2.22 — 2026-10-03
+## 0.2.21 — 2026-10-02
+=== counts OLD vs NEW
+8edac3ee E=151 W=34 net=18 anchors=586
+6710f9e0 E=153 W=34 net=18 anchors=595
+anchors added 9 ['conc.mm.atomic.order', 'conc.mm.atomic.raw', 'conc.mm.atomic.raw.1', 'conc.mm.atomic.raw.2', 'conc.mm.atomic.raw.3', 'conc.mm.atomic.raw.4', 'conc.mm.atomic.raw.5', 'conc.mm.fence', 'mem.unsafe.raw.4']
+anchors dropped 0 []
+grammar.ebnf 67816f8fcb04f096 -> 67816f8fcb04f096
+BYTE-IDENTICAL
+=== phase:run sets
+  592 /home/mfwolffe/lanes/ww39/run-6710f9e.txt
+  580 /home/mfwolffe/lanes/ww39/run-8edac3e.txt
+ 1172 total
+--- in:
+corpus/conc/atomic_counter.lu
+corpus/conc/atomic_fence.lu
+corpus/conc/atomic_orders.lu
+corpus/conc/atomic_widths.lu
+corpus/kernels/lshr_top_bits.lu
+corpus/memory/packed_field_raw_read.lu
+corpus/memory/raw_aligned_control.lu
+corpus/memory/raw_lshr_top_bits.lu
+corpus/memory/raw_store_call_writes.lu
+corpus/memory/static_str_literals.lu
+corpus/memory/static_var_call_deep.lu
+corpus/memory/static_var_call_writes.lu
+--- out:
+=== corpus diff name-status
+A	corpus/conc/atomic_counter.lu
+A	corpus/conc/atomic_fence.lu
+A	corpus/conc/atomic_order_misuse.lu
+A	corpus/conc/atomic_orders.lu
+A	corpus/conc/atomic_outside_unsafe.lu
+A	corpus/conc/atomic_pointee.lu
+A	corpus/conc/atomic_race_plain.lu
+A	corpus/conc/atomic_ub_misaligned.lu
+A	corpus/conc/atomic_ub_uaf.lu
+A	corpus/conc/atomic_widths.lu
+A	corpus/kernels/lshr_top_bits.lu
+A	corpus/memory/packed_field_raw_read.lu
+A	corpus/memory/raw_aligned_control.lu
+A	corpus/memory/raw_lshr_top_bits.lu
+A	corpus/memory/raw_store_call_writes.lu
+A	corpus/memory/raw_ub_misaligned_repr_c_field.lu
+A	corpus/memory/raw_ub_misaligned_u16_read.lu
+A	corpus/memory/raw_ub_misaligned_u16_write.lu
+A	corpus/memory/raw_ub_misaligned_u32_read.lu
+A	corpus/memory/raw_ub_misaligned_u32_write.lu
+A	corpus/memory/raw_ub_misaligned_u64_read.lu
+A	corpus/memory/raw_ub_misaligned_u64_write.lu
+A	corpus/memory/static_str_literals.lu
+A	corpus/memory/static_var_call_deep.lu
+A	corpus/memory/static_var_call_writes.lu
+--- pre-existing run programs modified:
+=== spec/ docs/ stat
+ docs/diagnostics.md     |  44 +++++++++++++-
+ docs/prelude-json.md    |  88 ++++++++++++++++++++++++++++
+ spec/02-memory-model.md |  34 +++++++++--
+ spec/03-concurrency.md  | 100 +++++++++++++++++++++++++++++++-
+ spec/04-abi.md          |  61 ++++++++++++++++----
+ spec/anchors.json       |   9 +++
+ spec/prelude.json       | 148 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 7 files changed, 462 insertions(+), 22 deletions(-)
+=== new run program headers
+## corpus/conc/atomic_counter.lu
+//! check: run(exit=0, stdout="400000 100000\n")
+//! phase: run
+//! conforms: conc.mm.atomic.raw, conc.mm.atomic.raw.3, conc.task.scope
+//!
+//! kw11 (K5 = A): the concurrency witness. Four scope tasks each add 1
+//! to one shared `*u64` 100000 times with `atomic_add` (relaxed: the
+//! count needs atomicity, not ordering), then four more each add 1 25000
+//! times through a compare-and-swap loop (acq_rel on success, relaxed on
+//! failure, the old value retried) on a second word. The counts are
+//! exact on every cpu set — `atomic_witness.rs` runs this program under
+//! all cores, `taskset -c 0-3` and `taskset -c 0`; the plain-increment
+//! twin, `atomic_race_plain.lu`, is a data race and asserts nothing. The
+//! checked machine refuses tasks by name (C1 deferred), so on it this is
+//! `unsupported`, not a count.
+## corpus/conc/atomic_fence.lu
+//! check: run(exit=0, stdout="42 7\n")
+//! phase: run
+//! conforms: conc.mm.fence
+//!
+//! kw11 (K5 = A): `fence(o)` for every order it admits
+//! (`[conc.mm.fence]`): `acquire`, `release` and `acq_rel` inside
+//! `unsafe`, `seq_cst` also outside it — the one fence the safe tier may
+//! spell, because it promises nothing a safe program could misuse. Beside
+//! relaxed stores and loads on one task each fence changes nothing a
+//! single task observes; what each fence compiles to is
+//! `atomic_disasm.rs`'s.
+## corpus/conc/atomic_orders.lu
+//! check: run(exit=0, stdout="load 5 5 5\nstore 1 2 3\nswap 3 4 5 6 7\nadd 8 9 10 11 12\nsub 13 12 11 10 9\nand 8 8 8 8 8\nor 8 9 9 9 9\nxor 9 8 9 8 9\ncas 8 true 9 true 10 true 11 true 12 true 13 true 14 true 15 true 16 true\ncas 17 false 17 false\n")
+//! phase: run
+//! conforms: conc.mm.atomic.order, conc.mm.atomic.raw.2, conc.mm.atomic.raw.5
+//!
+//! kw11 (K5 = A): every order each operation admits
+//! (`[conc.mm.atomic.raw.2]`) on one `*u64` — a load's three, a
+//! store's three, all five for each read-modify-write, and the nine
+//! admitted (success, failure) pairs of a compare-and-swap. On one task
+//! every order answers what `seq_cst` answers; the checked machine runs
+//! each as `seq_cst` (`[conc.mm.atomic.raw.5]`), the native tier
+//! compiles each to Cranelift's sequentially consistent atomics, and the
+//! release tier passes each to LLVM as written (`atomic_disasm.rs`
+//! shows the instructions differ where the hardware has weaker forms).
+## corpus/conc/atomic_widths.lu
+//! check: run(exit=0, stdout="u8 250 4 240 0 48 33 7 true 9 false 9\nu16 65530 4 65520 0 48 33 7 true 9 false 9\nu32 4294967290 4 4294967280 0 48 33 7 true 9 false 9\nu64 4611686018427387904 4611686018427387914 4611686018427387894 6 54 39 7 true 9 false 9\ni8 122 -124 112 0 48 33 7 true 9 false 9\ni16 32762 -32764 32752 0 48 33 7 true 9 false 9\ni32 2147483642 -2147483644 2147483632 0 48 33 7 true 9 false 9\ni64 9223372036854775802 -9223372036854775804 9223372036854775792 0 48 33 7 true 9 false 9\n")
+//! phase: run
+//! conforms: conc.mm.atomic.raw, conc.mm.atomic.raw.1, conc.mm.atomic.raw.5
+//!
+//! kw11 (K5 = A, STATUS #31): every atomic operation on every pointee
+//! `[conc.mm.atomic.raw.1]` admits, through one zeroed 8-byte allocation,
+//! at `Order.seq_cst`. Each line runs store, add, sub, and, or, xor,
+//! swap, a compare-and-swap that matches and one that does not, then a
+//! load; each read-modify-write yields the OLD value, and the arithmetic
+//! wraps at the width (`u8` 250 + 10 is 4; `i8` 122 + 10 is -124 and
+//! -124 - 20 is 112). The `u64` line stays below 2^63 (wolf-lang#551).
+//! Before kw11 every machine answered fail(E0301) (`fence`, `Order`
+//! unresolved); lupin 0.1.46 answers `unsupported` (pinned by version,
+//! wolf-interp#194).
+## corpus/kernels/lshr_top_bits.lu
+//! check: run(exit=0, stdout="33554304 1 131071 15 31\n")
+//! phase: run
+//! conforms: arith.wrapping
+//!
+//! s214 (wolf-lang#600, P0): a branch on the top half of a logical
+//! shift is taken when it holds. `a` is 0xffffc04000001000 and `b` is
+//! 240, each read back out of a List so the mid-end cannot see the
+//! value; `a >> 39` is 33554304, `a >> 63` is 1, `a >> 47` is 131071
+//! and `b >> 4` is 15, and every branch on them holds. At wolf 0.2.24
+//! (294d626d) release printed `... 0`: rangeopt bounded `x >> s` by the
+//! width's SIGNED maximum shifted (`a >> 63` in [0, 0], `a >> 39` below
+//! 2^24, `b >> 4` below 8) and deleted all five branches. The checked
+//! machine, native and lupin 0.1.47 printed what this row says.
+## corpus/memory/packed_field_raw_read.lu
+//! check: run(exit=0, stdout="packed 255 4096 1 512\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.4, abi.layout.packed
+//!
+//! s209 (ruling #36 = A): a packed struct's fields read through a raw
+//! element, `g[i].f`, are never row L4 (`[mem.unsafe.raw.4]`,
+//! `[abi.layout.packed]`). A packed `{u16, u64}` has alignment 1 and
+//! size 10, so `g[0].base` is a `u64` at offset 2 and `g[1].base` one at
+//! offset 12: misaligned for a `u64`, defined for the field, which the
+//! compiled tiers load with `align 1`. The bytes are written one at a
+//! time. At trunk 8edac3ee native and release answered this; the
+//! checked machine refused the field read ("member access outside the
+//! modelled surface").
+## corpus/memory/raw_aligned_control.lu
+//! check: run(exit=0, stdout="aligned 4096 513 77 200 -2\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.4, mem.unsafe.raw.1
+//!
+//! s209 (ruling #36 = A): the near-miss twin of the six
+//! `raw_ub_misaligned_*` rows. Every access sits at a multiple of its
+//! pointee's alignment — a `*u64` at offset 8, a `*u16` at 6, a `*u32`
+//! at 12, an `*i32` at 4 through `*q` — and a `*u8` at the odd
+//! offset 5 needs none, so row L4 is not reached and every machine
+//! answers the same.
+## corpus/memory/raw_lshr_top_bits.lu
+//! check: run(exit=0, stdout="33554304 1 15 31\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.1, mem.unsafe.scope
+//!
+//! s214 (wolf-lang#600, P0): the same top-half branches on a plain `u64`
+//! and `u8`, the shape a kernel writes (`if cr2 >> 39 == 0x1ffff80`,
+//! pax px06): eight bytes of a C allocation set by a callee, read back
+//! as one `u64` and as its top byte. At wolf 0.2.24 (294d626d) release
+//! printed `33554304 1 15 0` — every branch deleted by rangeopt's
+//! signed bound on `>>`. Native and lupin 0.1.47 printed what this row
+//! says; the checked machine refuses `>>` on a non-wrapping integer by
+//! name (it has no ruled checked-tier semantics yet).
+## corpus/memory/raw_store_call_writes.lu
+//! check: run(exit=0, stdout="9 9 4\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.1, mem.unsafe.scope
+//!
+//! s214 (wolf-lang#598, P0): a raw pointer carries no aliasing
+//! assumption (`[mem.unsafe.raw.1]`), so a callee handed the pointer
+//! may write through it and the caller reads the write. Module state,
+//! `extern "c" let` storage and a C allocation all ride the same raw
+//! region, and #598 was that region's, not module state's: at wolf
+//! 0.2.24 (294d626d) native and release printed `1 1 1` here (the
+//! caller's store forwarded across `poke`, the first read reused after
+//! it). The checked machine and lupin 0.1.47 printed what this row says.
+## corpus/memory/static_str_literals.lu
+//! check: run(exit=0)
+//! phase: run
+//! conforms: mem.static.3, gram.lex.str.multi, gram.lex.str.raw, gram.lex.str.escape
+//!
+//! s210 (wolf-lang#585): a module `let` or `const` initialized by a
+//! string literal holds the literal's VALUE, exactly as the same
+//! literal bound inside a fn does: a `"""` string dedented by its
+//! closing delimiter's column, a raw string's bytes between its
+//! fences, `\u{…}` and `\x…` decoded, `{{`/`}}` as one brace. At 0.2.23
+//! the comptime engine cooked module initializers with its own
+//! decoder, which knew none of the four: all three compiler machines
+//! printed the `"""` literal with its quotes and indentation, `r"a\nb"`
+//! with its fence, the escapes and the doubled braces raw. lupin was
+//! right throughout.
+## corpus/memory/static_var_call_deep.lu
+//! check: run(exit=0, stdout="42 42 7 42\n")
+//! phase: run
+//! conforms: mem.static, mem.static.2, mem.unsafe.scope
+//!
+//! s214 (wolf-lang#598, P0): every call clobbers the module state its
+//! callee may write, however the write is reached — two calls deep
+//! (`outer` calls `inner`), by a direct writer, and through a fn value
+//! (`call.ind`, no callee the caller can name). Each read after a call
+//! is the callee's write. At wolf 0.2.24 (294d626d) native and release
+//! printed `0 0 0 1`; the checked machine and lupin 0.1.47 printed what
+//! this row says.
+## corpus/memory/static_var_call_writes.lu
+//! check: run(exit=0, stdout="99 99 1\n")
+//! phase: run
+//! conforms: mem.static, mem.static.2, mem.unsafe.scope
+//!
+//! s214 (wolf-lang#598, P0): a module `var` written by a callee is read
+//! back after the call (`[mem.static.2]`: a write is seen by every later
+//! read, across calls). The first block is the issue's witness verbatim
+//! — store, call a writer, read; the second reads, calls a writer, and
+//! reads again. At wolf 0.2.24 (294d626d) native and release printed
+//! `0 0 0`: the WIR builder forwarded the caller's own store, and
+//! hash-consed the second read into the first, across a call that
+//! consumed none of the module state's tokens. The checked machine and
+//! lupin 0.1.47 printed what this row says.
+=== modified run program diffs
+=== CHANGELOG 0.2.25 entry
+## 0.2.25 — 2026-10-07
+
+THE TWENTY-FIFTH. Three silent wrong answers on the compiled tiers are
+fixed (s214: wolf-lang#598, #600, #601), and the pairing moves to lupin
+0.1.48, which carries this compiler's v0.2.24 spec and corpus. lupin is
+no longer two releases behind, and sixteen gate pins drop. One lane, 39
+commits (s214), then r30's 10: 49 since v0.2.24.
+
+### Read this before you bump the pin
+
+**New prelude names:** none (`cargo xtask prelude-diff v0.2.24 HEAD
+--markdown`, after `git fetch --tags`, run at the release head). There
+is nothing to grep downstream.
+
+**Three silent wrong answers are fixed (s214).** A program that printed
+a wrong value on native or release now prints the value the checked
+machine and lupin always printed.
+- **#598.** On native and release, a store to a module `var`, to
+  `extern "c" let` storage or through any raw pointer was forwarded
+  across a call to a function that wrote it. The caller read its own
+  stale store: checked and lupin printed 99, both compiled tiers 0.
+- **#601.** The same family on loads: a raw-pointer or module-`var`
+  read after a call that writes the memory returned the pre-call value
+  (the builder's GVN joined foreign-region loads across calls).
+  Every call now clobbers that memory. A `List` lent to the function
+  stays frozen for the call, as `[mem.tier0.mode.read]` says, so its
+  loads keep their reuse. The print shims are inert calls and keep it
+  too. `[mem.static.2]` now says it on every machine: no value read or
+  stored before a call stands for that memory after it.
+- **#600.** On release, a branch on the top half of an unsigned shift
+  (`a >> 63 == 1`, `cr2 >> 39 == 0x1ffff80`) was deleted, because
+  rangeopt bounded `x >> s` by the signed maximum. It now uses the
+  width's unsigned maximum.
+
+Downstream binaries gain reloads after calls. No downstream test changed
+its answer.
+
+**One gate was overridden for this release (ruling #52).** The
+compile-track bench gate (D5) went red on one counter,
+`wir/compile/rust/wir_forward_hits`: −3.5%, 57 → 55 on the corpus,
+deterministic. The two lost hits are the forwards across a writing call
+that #598 was, so restoring them would restore the bug. The runtime cost
+is within noise (boreutils CPU −2.8% to +3.9%). The maintainer ruled a
+one-time exception: s214 merged over that one step, and the next
+nightly re-baselines. It is not a precedent.
+
+### The pairing: lupin 0.1.48
+
+`PAIRING` names **lupin 0.1.48 at pin `294d626`** (wolf-interp release
+405340127; the linux x86-64 archive's sha256 `81cfd77a…`). Its spec pin
+is this compiler's v0.2.24 tag. 0.1.48 carries is72 (`lupin
+--trace-places`, a JSON-lines trace of every place's state after each
+statement) and is73 (the re-pin blockers: module initializers, `extern
+"c" let`, `#[section]`, `packed`, `align(N)` and the layout queries,
+wolf-interp#190, #188). The re-pin filed one divergence, DIV-2026-028:
+kw11's `conc/atomic_race_plain.lu` is `check: pass`, and lupin's
+`trap(race)` is the detection `[conc.mm.race.3]` permits
+(wolf-lang#603).
+
+- **Dropped 16.** These rows now answer as the machines do on 0.1.48,
+  measured unpinned:
+  - `static_lanes`, 7 (#190): E0705 on both initializer rows (0.1.47
+    overflowed its stack on the cycle), E1301, E0821, and by-name
+    refusals for a `List` in module state, a link-time symbol and
+    section placement;
+  - `repr_layout_lanes`, 9 (#188): the layout queries' numbers, E0708,
+    E0819, E0820, and the packed and aligned rows.
+- **Kept.** Each is carried to 0.1.48 with its 0.1.47 verdict, measured
+  row by row and naming its open issue:
+  - attr_closed_set's control, 1 (lupin declines its `comptime fn`);
+  - volatile, 6 (#185);
+  - kw11's atomic rows, 9, plus the racy counter's `trap(race)` (#194).
+- **Re-keyed.** `raw_align_lanes`' repr(c) element keeps its verdict
+  (`unsupported`, "has no member `b`") and now names wolf-interp#205: a
+  raw pointer to a `#[repr(c)]` struct still reads its element as bytes.
+- **Kept, verdict changed** (ruled at r30). `raw_align_lanes`' packed
+  field was `fail(E0817)` while `packed` was refused (#188). On 0.1.48
+  `packed` is admitted, and the struct pointee is declined by name:
+  `unsupported`, "has no member `limit`" (#205).
+- **Widened 0.** The plant (the 0.1.48 lists against the published
+  0.1.47) is red on exactly the sixteen dropped cases.
+- **The ritual** (#87, with #281's control against the 0.1.47 archive,
+  the same corpus and the same release `wolf`):
+  - checked: **moved 8 ledger counts**. Agreements 605 → 607, hard
+    20 → 16, SOUNDNESS 0 → 0 (1007 files).
+  - native: **moved 11**. Agreements 642 → 644, hard 34 → 27,
+    SOUNDNESS 8 → 8.
+  - Every move is on is73's rows or #205's, toward agreement or a
+    by-name decline. Nine checked files and six native moved below the
+    ledger: fail-pinned rows whose lupin answer moved to the pinned code
+    (E0705, E0819, E0820, E0821, E1301), which reaches no count by
+    design.
+
+### Stale stores and loads across calls, and the shifted range (s214, #598, #601, #600)
+
+- The builder clobbers foreign storage at every call and `call.ind`:
+  module `var`s, `extern "c" let` storage and raw-pointer memory. No
+  store is forwarded and no load reused across one, in a loop body
+  either. Without a call, and for memory the fn owns, forwarding is
+  unchanged.
+- A `List` lent to the function is frozen for the call: its `len`, its
+  data pointer and its elements are reused across calls. The print shims
+  are inert calls.
+- rangeopt bounds a logical shift by the width's unsigned maximum.
+- New corpus rows (#598: the witness, a read-call-read, a writer two
+  calls deep and through a fn value, a callee writing through a raw
+  pointer; #600: top-half branches on `wrapping[u64]`/`wrapping[u8]` and
+  on a plain `u64`/`u8` from a C allocation). New gates:
+  `stale_global_lanes` (four machines, C writing `extern let` storage
+  and calling back, a freestanding kernel) and `shr_range_lanes` (four
+  machines and the issue's hosted witness behind listed assembly).
+  Plants were seen red in CI for #598 and #600, then reverted.
+
+=== CHANGELOG 0.2.24 entry
+## 0.2.24 — 2026-10-06
+
+THE TWENTY-FOURTH. A kernel can share a word between cpus and can
+allocate. Atomics and fences work on raw pointers (`[conc.mm.atomic.*]`,
+`[conc.mm.fence]`, E1308, E1309). On `x86_64-unknown-none`, `List`,
+`Map`, interpolation, closures and `region` compile against an allocator
+the program supplies, and every archive ships the freestanding runtime
+`libwolf_rt_none.a` beside `wolf`. Ruling #36 makes a misaligned raw
+access UB row L4. A module string holds its value; it printed its own
+source on every compiler machine. `wolf prelude --json` publishes the
+names a program gets without an import, and `cargo xtask prelude-diff`
+lists the ones each release adds. The pairing moves to lupin 0.1.47,
+which mirrors row L4; its spec pin stays v0.2.22 (below). Six lanes and
+129 commits (s210, s209, s212, s211, kw12, kw11), then r29's 10: 139
+since v0.2.23.
+
+### Read this before you bump the pin
+
+**New prelude names** (`cargo xtask prelude-diff v0.2.23 v0.2.24 --markdown`,
+after `git fetch --tags`; run at the release head as `v0.2.23 HEAD`):
+
+> **New prelude names.** HEAD adds `fence` (`fence`: function, `[conc.mm.fence]`). A module that declares a function, type or binding named `fence` now draws W0304 (it shadows the ambient name), which `--deny-warnings` makes fatal: rename yours. (`cargo xtask prelude-diff v0.2.23 HEAD`)
+
+`fence` has `w0304: true` in `spec/prelude.json`. A grep for a
+declaration named `fence` (`fn`, `let`, `var`, `const`, `struct`,
+`enum`, `type`, `union`, `mut`) found none in wolf-std (`2f389a7`),
+boreutils (`2f15585`), lobo (`b4975f7`) or the book (`76143be`). lobo's
+19 uses of the word are comments and strings.
+
+**A program that parsed is now refused (s211, #589).** A keyword member
+name continued onto a new line at the item's own column is refused. In
+`let A: int = B + .` followed by `let B: int = A * 2`, the dangling `.`
+used to take the next line's `let` as a member name and swallowed `B`.
+A declaration keyword that starts its line at or left of the item's
+column is now always a sibling, never a member. A member on the same
+line, or on an indented continuation line, parses as before.
+
+**A silent wrong answer is fixed (s210, #585).** A module-level `let` or
+`const` string literal printed its source on checked, native and
+release: `"""` strings kept their quotes and indentation, raw strings
+kept their fence, and `\u{…}`, `\x…` and `{{`/`}}` printed raw. It now
+holds the same bytes as the same literal inside a fn. A program that
+printed such a string prints different bytes on 0.2.24.
+
+**Programs that compiled are now refused.** An atomic on a pointee that
+is not a fixed-width integer is E1308. An order the operation does not
+admit is E1309. E1301 covers atomics and every fence except
+`fence(Order.seq_cst)` outside `unsafe`.
+
+**Programs that were refused now compile.** `List`, `Map`,
+interpolation, capturing closures and `region` on
+`x86_64-unknown-none`, given `wolf_alloc`/`wolf_free` (kw12). The
+atomic methods and `fence` (kw11). Hosted programs that use none of
+this build byte-for-byte as before.
+
+**Packagers:** the archive has a new member, `libwolf_rt_none.a`. It
+installs beside `wolf` and `libwolf_rt.a`. `cargo xtask dist` builds it
+only with the `x86_64-unknown-none` target installed, and skips it
+loudly otherwise.
+
+### The pairing: lupin 0.1.47
+
+`PAIRING` names **lupin 0.1.47 at pin `8e36bc1`** (wolf-interp release
+404283632; the linux x86-64 archive's sha256 `0ddc4ff3…`). Its spec pin
+is still this compiler's v0.2.22 tag, two releases behind. The v0.2.23
+re-pin was measured and held back: on the v0.2.23 corpus lupin
+overflows its stack on `memory/static_init_cycle.lu` (wolf-interp#190),
+cannot parse `extern "c" let` (#190), answers E0817 on six layout rows
+(#188), and its fuzz test finds a two-diagnostic record (#196). 0.1.47
+carries s209's mirror of ruling #36 (row L4, wolf-interp#192) and
+nothing else.
+
+- **Dropped 6**: `raw_align_lanes`' L4 pins, one test over six rows. On
+  0.1.47 every L4 row answers `ub(mem.ub)`, `x-ub-row` L4, `x-ub-clause`
+  `mem.unsafe.raw.4`, at the checked machine's span. **A gate
+  correction rides with the drop:** s209's gate (`befed047`) held lupin
+  to the checked machine's E1401 diagnostic, but a lupin `ub` record
+  carries none (only a `fail` carries one; `int_ptr_lanes` already
+  holds lupin to verdict and row). lupin is now held to verdict, row
+  and clause.
+- **Kept 34**, each carried to 0.1.47 with its 0.1.46 verdict, measured
+  row by row, each naming its open issue:
+  - attr_closed_set's control, 1 (lupin declines its `comptime fn`);
+  - volatile, 6 (#185);
+  - repr_layout, 9 (#188);
+  - static, 7 (#190);
+  - raw_align's repr(c) element and packed field, 2 (#188);
+  - kw11's atomic rows, 9, plus the racy counter's `trap(race)` (#194).
+- **Widened 0.** The plant (the 0.1.47 lists against the published
+  0.1.46) is red only on the L4 test.
+- **The ritual** (#87, with #281's control against the 0.1.46 archive,
+  the same corpus and the same release `wolf`) **moved 6 ledger counts
+  on each tier**, all on `memory/raw_ub_misaligned_*` (u16/u32/u64,
+  read and write):
+  - checked: `Soundness → agreement`, agreements 595 → 601, hard
+    26 → 20;
+  - native: `agreement → SOUNDNESS`, agreements 643 → 637, SOUNDNESS
+    2 → 8, hard 28 → 34. This is the row's design: native runs the
+    misaligned access (`compiled: None` in the gate; O12 licenses it),
+    and lupin now names it UB, as the checked machine does.
+  - Nothing moved below the ledger. Native's standing SOUNDNESS pair
+    is `unsafe_ub_uaf.lu` and kw11's racy counter.
+
+### Atomics and fences on raw pointers (kw11, ruling K5 = A)
+
+- **A kernel can share a word between cpus.** On a `*T` with a
+  fixed-width integer pointee, inside `unsafe`: `p.atomic_load(o)`,
+  `p.atomic_store(v, o)`, `p.atomic_swap(v, o)`, `p.atomic_add`,
+  `atomic_sub`, `atomic_and`, `atomic_or`, `atomic_xor` (each the old
+  value, the arithmetic wrapping at the width) and
+  `p.atomic_cas(expected, new, success, failure) -> (T, bool)`; and the
+  builtin `fence(o)` (`[conc.mm.atomic.raw]`, `[conc.mm.fence]`). The
+  order is a mark of the closed builtin enum `Order` — `Order.relaxed`,
+  `.acquire`, `.release`, `.acq_rel`, `.seq_cst` — written at the call
+  (`[conc.mm.atomic.order]`).
+- **Native runs every order as `seq_cst`** (Cranelift's atomics are
+  sequentially consistent); **release passes each order to LLVM**. Each
+  call is its instruction in place, hosted and freestanding, with
+  nothing imported: `atomic_disasm.rs` reads every operation, width and
+  order on x86-64 (`lock xadd`, `lock cmpxchg`, `xchg`, `mfence`) and
+  aarch64. Four tasks' `atomic_add`s and CAS loops count exactly on 1,
+  4 and all cpus (`atomic_witness.rs`).
+- **The checked machine runs every order as `seq_cst`**, one task (it
+  runs no task concurrency); the weaker-order outcomes it cannot
+  produce are named in `[conc.mm.atomic.raw.5]`. A misaligned atomic
+  address is row L4.
+- New codes: **E1308** (an atomic operation on a pointee that is not a
+  fixed-width integer: `int`, `uint`, `byte`, `bool`, …) and **E1309**
+  (an order the operation does not admit — a release load, an acquire
+  store, a CAS failure order stronger than its success order or a
+  release one, `fence(Order.relaxed)`, an operand that is not a mark,
+  `Order` as a value). E1301 names atomics and every fence but
+  `fence(Order.seq_cst)`. **New prelude names:** `fence` (`cargo xtask
+  prelude-diff v0.2.23 HEAD`); a module that declares its own `fence`
+  now draws W0304. `Order` is no prelude name (an order operand is a
+  mark), so a program's own `Order` type is untouched.
+- lupin 0.1.46 answers `unsupported`; its half is wolf-interp#194,
+  pinned by version in `atomic_lanes.rs`. The safe `std.sync`
+  `Atomic[T]` is a later layer. Anchors 587 → 595.
+
+### A kernel can allocate: the allocator hook (kw12, K8(b) = B)
+
+- **On `x86_64-unknown-none`, `List`, `Map`, string interpolation, a
+  capturing closure and `region` now compile**, on both tiers, with
+  their hosted meaning (`[abi.target.none.alloc]`). They were refused
+  by name ("`List` allocates, and target x86_64-unknown-none has no
+  allocator").
+- **The program supplies the allocator**: `wolf_alloc(size, align) ->
+  *u8` and `wolf_free(p, size, align)`, in wolf or assembly
+  (`[abi.target.none.hooks]` (d)). The runtime always asks for 16-byte
+  alignment. It frees a region's blocks when the region ends, and an
+  interpolation's buffer when it finishes. It never frees the process
+  root. A null from the hook traps `alloc-contract`.
+- **The freestanding runtime is `libwolf_rt_none.a`**: the `no_std`
+  build of the region runtime (crate `wolf_rt_none`). It shares the
+  hosted list and map source. It ships beside `wolf` in every archive,
+  and a build that allocates writes it beside its object as
+  `K.rt-none.a`. Its members leave only `wolf_alloc`, `wolf_free` and
+  `wolf_trap` undefined; its C memory functions are weak.
+  `cargo xtask rt-none` builds it. A toolchain without the
+  x86_64-unknown-none target (`rustup target add x86_64-unknown-none`)
+  skips loudly, and CI requires it (`WOLF_RT_NONE_REQUIRE=1`).
+- **Still refused by name**: `Pool`, `freeze`, boxed channel payloads,
+  `spawn`, `spawn proc`, channels, `par`, and float holes.
+- **Hosted programs do not move.** `libwolf_rt.a` is untouched, and
+  downstream binaries are byte-identical.
+- **Witness**: `freestanding_alloc.rs`. One report is built through
+  the hosted runtime and through a kernel over a bump allocator written
+  in wolf, linked `-nostdlib`. The bytes are equal on both tiers.
+
+### The prelude's names, as data (s212, ruling #39 = B, #586)
+
+- **`wolf prelude [--json]`** prints every name a program uses without an
+  import: 123 names (17 `builtin_type`, 8 `type`, 84 `function`, 8
+  `intrinsic`, 6 `provisional`) and the 17 builtin marks, the row tags
+  the host builtins declare. Each name comes with its kind, the spec
+  anchor that defines it, and whether a module that declares it draws
+  W0304. The rows are the checker's own tables, which resolution and
+  W0304 read, so the list cannot drift. The schema is `wolf-prelude/0`
+  (`docs/prelude-json.md`). `spec/prelude.json` is the same output,
+  committed beside `anchors.json`, and a test reds when the two part.
+  30 names have no defining clause yet (the print family, `min`, `zip`,
+  four reflection intrinsics, the six stand-ins, and the numeric scalars,
+  `bool` and `wrapping`). Their anchor is `null`, so the gap is visible.
+- **`cargo xtask prelude-diff <tagA> <tagB> [--markdown]`** lists the
+  names a release adds and removes. It reads `spec/prelude.json` at each
+  tag, or the tag's `prelude.rs` tables before that file existed.
+  `--markdown` prints the "Read this before you bump the pin" paragraph.
+  The two releases that went unannounced: `v0.2.22..v0.2.23` adds
+  `align_of` and `offset_of`. `size_of` is not new; 0.2.15 already
+  warned on a module's `fn size_of`. `v0.2.15..v0.2.16` adds `Scope` and
+  `Proc`.
+- No compiled program changes; the tables gained columns, and no name
+  was added or removed.
+
+### The nightly's blast-radius property is green again (s211, #589)
+
+- **A dangling `.` no longer swallows the next declaration.** A `.` at
+  the end of a module-level initializer took the next line's `let` as a
+  keyword member name (`let A: int = B + .` over `let B: int = A * 2`),
+  so `B` vanished into `A`'s initializer. A declaration keyword that
+  leads its line at or left of the item's column is now a sibling, never
+  a member, as `fn`/`struct`/`pub` already were across a line break. A
+  keyword member continued onto a new line at the item's own column
+  (`x.\nlet`) is refused where it was accepted; members on the same
+  line, and indented continuation lines, parse as before.
+- **Recovery stops at a sibling's attribute, not only its keyword.**
+  Under an unclosed `{`, a column-0 `#[…]` was eaten by the wreck above
+  it and the decorated item lost its start (found at budget 1000 on
+  `grammar/attr_section.lu`).
+- The property holds at budget 300 and 1000 over the whole corpus; no
+  bound moved. Three mutations pinned in `SWEEP_1000`. Hosted binaries
+  are byte-identical.
+
+### A misaligned raw access is UB row L4 (s209, ruling #36 = A, #574)
+
+- **The machines disagreed, and release could miscompile.** A `*u16`,
+  `*u32` or `*u64` read or write at an address that is not a multiple of
+  the pointee's alignment (`p.with_addr(p.addr() + 1)`, then `q[0]`)
+  ran as defined on the checked machine and lupin, while release emitted
+  `load i32 … align 4` (UB to LLVM) and native marked the access
+  aligned. It is now §7 row **L4** (`[mem.unsafe.raw.4]`; licenses O12:
+  every ordinary raw access at its natural alignment, no check, no
+  split). The checked machine reports it as it reports L3, before the
+  provenance rows and only for a pointer with an allocation; a dangling
+  pointer stays L2. `[mem.unsafe.raw.1]` names it.
+- **Native and release do not move.** No backend file changed; hosted
+  binaries are byte-identical. `raw_align_ir.rs` holds the release IR to
+  `align 2/4/8` on every raw access and `align 1` on a packed field.
+- **Packed fields stay defined.** Through a raw element it is the
+  struct's alignment that is asked: 1 for `#[repr(c, packed)]`, so a
+  `u64` field at offset 2 is an ordinary read (`[abi.layout.packed]`);
+  a plain `#[repr(c)]` element at a misaligned address is L4. The
+  checked machine now reads a scalar field through a raw element
+  (`g[i].f`) at the clause layout; it refused that read by name before.
+- Read misaligned data byte by byte, or through a packed struct.
+  lupin 0.1.46 still runs the access as defined; its half is
+  wolf-interp#192, which 0.1.47 ships (the pairing, above). Anchors
+  586 → 587.
+
+### Module strings hold their value, a parallel build cannot share a scratch directory, and the pool no longer starves (s210, #585, #583, #570, #584)
+
+- **A silent wrong answer is fixed (#585).** A module `let` or `const`
+  initialized by a string literal printed the literal's source on all
+  three compiler machines. A `"""` string kept its quotes and indentation,
+  `r"a\nb"` kept its fence, and `\u{41}`, `\x42` and `{{`/`}}` printed
+  raw. The comptime engine decoded literals with its own unquoter, which
+  knew none of them. It now cooks every literal through the lowering's
+  cooker (`strlit::cook`), so a module string and the same literal in a
+  fn are the same bytes, and a comptime fn that returns a `"""` string
+  folds to its value. lupin was right throughout. Corpus row
+  `memory/static_str_literals.lu`; `strlit_parity` holds the two cookers
+  together. The untyped module `let` that wolf-book ch06 uses is still
+  declined by name.
+- **The release tier's scratch directory is per unit (#583).** Units
+  compile in parallel, and two could share `wolf-llvm-<pid>-<nanos>`,
+  which made an ICE on macOS. Each finish now owns a directory named by
+  pid and a process sequence, and creation steps over any existing name.
+  `parallel_finish` drives 16 units for 64 rounds at a barrier.
+- **The runtime pool no longer strands a spawned task (#570).** An idle
+  extra worker retired while the pool's running count, which includes
+  blocked workers, exceeded the target. Then nothing ran the next task.
+  An extra now retires only out of surplus unblocked workers, by CAS.
+  `pool_retire` was red at 0.2.23 on 7 of 9 runs across 1, 4 and 16 cpus.
+- **One fault, one record (#584).** A failed comptime `assert` under a
+  module `const` reported E0710 twice. The module-state loop now skips an
+  initializer whose call site already faulted.
+
+=== pairing pins at NEW naming wolf-interp issues
+=== lupin CHANGELOG heads
+## 0.1.48 — 2026-10-06
+## 0.1.47 — 2026-10-05
+## 0.1.46 — 2026-10-04
+## 0.1.45 — 2026-10-03
+=== book
+count BOLD..BNEW = 71
+book ancestry exit=0
+ 153 files changed, 9882 insertions(+), 612 deletions(-)
+.github/workflows/book.yml
+audit/version-literals.txt
+book/back/appendix-c.md
+book/back/appendix-e.md
+book/back/colophon.md
+book/back/solutions.md
+book/ch01.md
+book/ch07.md
+book/ch18.md
+book/ch22.md
+book/diagrams/ch07/part-handover-L4.svg
+book/diagrams/ch07/part-packcopy-L5.svg
+book/diagrams/ch07/part-packcopy-L6.svg
+book/diagrams/ch07/part-packcopy-L7.svg
+book/diagrams/ch07/s3-L5.svg
+book/diagrams/ch07/s7-L4.svg
+docs/audit/bs61-evidence/ex14-7-probe.txt
+docs/audit/bs61-evidence/gate-93be88d-samples.log
+docs/audit/bs61-evidence/gate-93be88d-xtask-test.log
+docs/audit/bs61-evidence/gate-summary-93be88d.txt
+docs/audit/bs61-evidence/quotes-green-93be88d-verify-docs.log
+docs/audit/bs61-evidence/quotes-red-9df056b-verify-docs.log
+docs/audit/bs61-evidence/quotes-red-9df056b-xtask-test.log
+docs/audit/bs61-evidence/samples-declined-red-013087d.log
+docs/audit/bs61-evidence/tiers-21f53bc-1-cargoxtasktierscheck.log
+docs/audit/bs61-evidence/tiers-21f53bc-2-cargoxtasktiers.log
+docs/audit/bs61-evidence/tiers-21f53bc-4-cargoxtasktierscheck.log
+docs/audit/bs61-evidence/tiers-21f53bc-6-cargoxtasktierscheck.log
+docs/audit/bs61-evidence/tiers-cache-red-5778175.log
+docs/audit/bs61-prediction.md
+docs/audit/bs61-results.md
+docs/audit/bs62-evidence/gate-c63d457/backmattercheck.log
+docs/audit/bs62-evidence/gate-c63d457/clippy.log
+docs/audit/bs62-evidence/gate-c63d457/contrast.log
+docs/audit/bs62-evidence/gate-c63d457/diagramscheck.log
+docs/audit/bs62-evidence/gate-c63d457/fmt.log
+docs/audit/bs62-evidence/gate-c63d457/ledgercheck.log
+docs/audit/bs62-evidence/gate-c63d457/renderweb.log
+docs/audit/bs62-evidence/gate-c63d457/samples.log
+docs/audit/bs62-evidence/gate-c63d457/samplesselftest.log
+docs/audit/bs62-evidence/gate-c63d457/verifydocs.log
+docs/audit/bs62-evidence/gate-c63d457/xtasktest.log
+docs/audit/bs62-evidence/plant-red-ubuntu.log
+docs/audit/bs62-evidence/probes.log
+docs/audit/bs62-evidence/probes/ABOUT.txt
+docs/audit/bs62-evidence/probes/p01_strcopy.lu
+docs/audit/bs62-evidence/probes/p02_boolchar.lu
+docs/audit/bs62-evidence/probes/p03_takestr.lu
+docs/audit/bs62-evidence/probes/p04_moveint.lu
+docs/audit/bs62-evidence/probes/p05_plainarg.lu
+docs/audit/bs62-evidence/probes/p06_return.lu
+docs/audit/bs62-evidence/probes/p07_assignmove.lu
+docs/audit/bs62-evidence/probes/p08_fieldstore.lu
+docs/audit/bs62-evidence/probes/p09_copylist.lu
+docs/audit/bs62-evidence/probes/p10_structmove_ok.lu
+docs/audit/bs62-evidence/probes/p11_tuple.lu
+docs/audit/bs62-evidence/probes/p12_strparam_return.lu
+docs/audit/bs62-evidence/probes/p13_listmove.lu
+docs/audit/bs62-evidence/probes/p14_enum.lu
+docs/audit/bs62-evidence/probes/p15_moveintfield.lu
+docs/audit/bs62-evidence/probes/p16_copystruct.lu
+docs/audit/bs62-evidence/probes/q01_enum.lu
+docs/audit/bs62-evidence/probes/q02_distinct.lu
+docs/audit/bs62-evidence/probes/q03_copyread.lu
+docs/audit/bs62-evidence/probes/q04_structmove.lu
+docs/audit/bs62-evidence/probes/q05_fieldmove.lu
+docs/audit/bs62-evidence/probes/q06_fieldmove_read.lu
+docs/audit/bs62-evidence/probes/q07_pushcopy.lu
+docs/audit/bs62-evidence/probes/q08_pushtake.lu
+docs/audit/bs62-evidence/probes/q09_ret_str.lu
+docs/audit/bs62-evidence/probes/q10_tok.lu
+docs/audit/bs62-evidence/probes/q11_pack_shout.lu
+docs/audit/bs62-evidence/probes/q12_strmove_explicit.lu
+docs/audit/bs62-evidence/probes/r01_longest_nocopy.lu
+docs/audit/bs62-evidence/probes/r02_repl_str.lu
+docs/audit/bs62-evidence/probes/run.sh
+docs/audit/bs62-prediction.md
+docs/audit/bs62-results.md
+docs/audit/bs63-evidence/allprogs.py
+docs/audit/bs63-evidence/anchors-diff.txt
+docs/audit/bs63-evidence/archive-digests.txt
+docs/audit/bs63-evidence/cmp.py
+docs/audit/bs63-evidence/control-gates.txt
+docs/audit/bs63-evidence/diagrams-subject.txt
+docs/audit/bs63-evidence/extra/w_comptime_list/w_comptime_list.lu
+docs/audit/bs63-evidence/extra/w_module_str_585/w_module_str_585.lu
+docs/audit/bs63-evidence/extra/w_registry_module_const/w_registry_module_const.lu
+docs/audit/bs63-evidence/gate-aed2644/gate-backmattercheck.log
+docs/audit/bs63-evidence/gate-aed2644/gate-contrast.log
+docs/audit/bs63-evidence/gate-aed2644/gate-diagramscheck.log
+docs/audit/bs63-evidence/gate-aed2644/gate-ledgercheck.log
+docs/audit/bs63-evidence/gate-aed2644/gate-renderweb.log
+docs/audit/bs63-evidence/gate-aed2644/gate-samples-taskset4.log
+docs/audit/bs63-evidence/gate-aed2644/gate-samples.log
+docs/audit/bs63-evidence/gate-aed2644/gate-samplesselftest.log
+docs/audit/bs63-evidence/gate-aed2644/gate-status.txt
+docs/audit/bs63-evidence/gate-aed2644/gate-tierscheck.log
+docs/audit/bs63-evidence/gate-aed2644/gate-verifydocs.log
+docs/audit/bs63-evidence/gate-aed2644/gate-xtasktest.log
+docs/audit/bs63-evidence/gate-summary.txt
+docs/audit/bs63-evidence/members.txt
+docs/audit/bs63-evidence/plant-red-37703424748.txt
+docs/audit/bs63-evidence/probe.sh
+docs/audit/bs63-evidence/probes.txt
+docs/audit/bs63-evidence/splice.py
+docs/audit/bs63-evidence/subject-gates.txt
+docs/audit/bs63-evidence/sweep-0225-noise.txt
+docs/audit/bs63-evidence/sweep-0225a.jsonl
+docs/audit/bs63-evidence/sweep-0225b.jsonl
+docs/audit/bs63-evidence/sweep-c23-noise.txt
+docs/audit/bs63-evidence/sweep-c23-vs-0225.txt
+docs/audit/bs63-evidence/sweep-c23-vs-c24.txt
+docs/audit/bs63-evidence/sweep-c23.jsonl
+docs/audit/bs63-evidence/sweep-c24-vs-0225.txt
+docs/audit/bs63-evidence/sweep-c24.jsonl
+docs/audit/bs63-evidence/sweep.sh
+docs/audit/bs63-evidence/sweep1.sh
+docs/audit/bs63-prediction.md
+docs/audit/bs63-results.md
+principles/EXERCISES-INDEX.md
+principles/EXERCISES.md
+principles/exercises/ch07/EXERCISES.md
+principles/exercises/ch08/EXERCISES.md
+principles/exercises/ch09/EXERCISES.md
+principles/exercises/ch10/EXERCISES.md
+principles/exercises/ch11/EXERCISES.md
+principles/exercises/ch13/EXERCISES.md
+principles/exercises/ch14/EXERCISES.md
+principles/exercises/ch15/EXERCISES.md
+principles/exercises/ch16/EXERCISES.md
+principles/exercises/ch18/EXERCISES.md
+principles/exercises/ch20/EXERCISES.md
+principles/exercises/ch21/EXERCISES.md
+principles/exercises/ch22/EXERCISES.md
+principles/exercises/ch27/EXERCISES.md
+samples-declined.toml
+snapshots/diagnostics/book__ch18__s10.txt
+snapshots/diagnostics/book__ch18__s2.txt
+snapshots/traces/ch07/part-handover.jsonl
+snapshots/traces/ch07/part-packcopy.jsonl
+snapshots/traces/ch07/s3.jsonl
+snapshots/traces/ch07/s7.jsonl
+theme/css/general.css
+vendor/spec/anchors.json
+vendor/spec/diagnostic-codes.txt
+wolf-toolchain.toml
+xtask/src/diagrams.rs
+xtask/src/directives.rs
+xtask/src/main.rs
+xtask/src/preprocess.rs
+xtask/src/render.rs
+xtask/src/tiers.rs
+xtask/src/verify.rs
+SUMMARY sha c58196034d4fc6c4c2796437dbb9bedb4a4b5506 -> c58196034d4fc6c4c2796437dbb9bedb4a4b5506
+chapters in SUMMARY: 33
+fde77b8 audit: bs63 results — the move table over 577 programs on three pairs, every prediction held but one wording (Appendix C is hand-kept), chapter 7 green with its traces byte-identical on the release lupin, the plant red in 37703424748
+448510d audit: the plant's red — run 37703424748, the three samples jobs red at the re-take step (113072032016, 113072031971, 113072032017), the three rig jobs green
+46581bd revert the plant 97f294f — part-packcopy's trace, text and SVG are the release lupin's again (seen red in run 37703424748 on all three samples jobs, green on all three rig jobs)
+97f294f PLANT (reverted next): part-packcopy's trace says p.tail held "GRACE", with the text and SVG redrawn to match — the rig lane cannot see it; only the samples lane's re-take with the pinned release lupin can
+e6e358a audit: bs63 head gate on kasumi at aed2644 — 512/509/3/0/0, 485 of 505 consoles (also under taskset -c 0-3), ledger 127 open / 108 closed, diagrams re-taken on the release lupin, 203 xtask tests, every gate exit 0, SKIPs counted
+aed2644 backmatter: regenerate solutions.md — 22-13's interface line reads toolchain 0.2.25
+9a1bcc8 appendix C: the catalogue holds 187 (E1308, E1309 added at 0.2.24); no page prints them, so the 60 shown hold
+ee70cd6 doc-truth: the version-literal ledger re-read at 0.2.25 / 0.1.48 — every history sentence still true; the pair sentences move to 0.2.25 / 0.1.48 / 50 commits
+eefe4df ch22 ledger: the contract-delta row's two cautions are fixed upstream (#584, #585, measured); its first gap stands at 0.2.25 in the same words, so the row stays open
+ab8ea6d audit: bs63 witnesses on three pairs — #585's module str (wrong at 0.2.23, right since 0.2.24 on every machine), ch22's comptime List gap (unchanged), bs60's module-const registry (unchanged)
+ee63104 ch20 corpus, 20-8: the two machines' E0817 notes name the same attribute set since lupin 0.1.48 (is73, wolf-interp#188/#190) — the 'still differ in one place' sentence is rewritten to the measured lists
+aa16c18 ch01, colophon, ch22: the prose around the stamps reads 0.2.25 / 0.1.48 — pin 6710f9e, the interpreter's 294d626 is v0.2.24's tag, 50 commits and one release; the Windows archive and the +dev line follow
+27668fa appendix E: twenty-three subcommands; prelude joins the reference commands no chapter teaches
+0d3f54c ch18 §18.1: one failed assert is one record again (wolf-lang#584 fixed in 0.2.24) — the two-records paragraph goes, as its ledger row said it would; the row closes, measured on 0.2.24 and 0.2.25
+df3975d ch20 corpus: 20-5 and 20-8's lupin lines take 0.1.48's closed set (repr(c) with packed or align(N), section; is73) (spliced from the run)
+7c5881d stamps: the pair reads wolf 0.2.25 (pin 6710f9e) / lupin 0.1.48 (pin 294d626); ch22 and 22-13's interface line reads toolchain 0.2.25, both export hashes hold (spliced from the run)
+ad82374 appendix E: wolf --help prints prelude under Inspecting and reporting (s212, since 0.2.24; spliced from the run)
+96d30cd ch18: s2 and s10's diagnostic,from blocks take 0.2.25's one E0710 record (spliced from the run)
+ae19135 audit: splice.py — drifted console and diagnostic,from blocks regenerated from the samples log's actual: output and the blessed snapshots, the old text asserted equal to the log's expected:
+21e7768 snapshots: ch18 s2 and s10 — one E0710 record per failed module-const assert (wolf-lang#584, fixed in 0.2.24); blessed on the 0.2.25 archive, the call site's record survives
+40c53a8 pin: wolf v0.2.25 (6710f9e) and lupin 0.1.48 (531bf05), both from the release archives by digest; [lupin-trace] collapses onto [lupin].rev (is72 is in 0.1.48); anchors 586 -> 595, catalogue 185 -> 187, grammar unchanged
+9360187 audit: bs63 evidence — digests for three pairs, members by name, the subject run (507/3/11/0, 478 of 505, exactly the prediction's eleven), traces re-taken on the release lupin byte-identical, the 577-program sweep at 0.2.25 twice, anchor key sets both ways
+aa1e4b5 prediction: bs63 — 0 flips, 11 drifts named (ch18's #584 record x4, wolf --help's prelude line, four stamps, lupin's E0817 set at 20-5/20-8), traces byte-identical on the release lupin; written before either archive is downloaded, with both controls and the 577-program sweep
+beedaa8 contract: bs63 — the book at wolf 0.2.25 / lupin 0.1.48, chapter 7 and its diagrams included, the trace pin collapsed onto the release
+d0213d0 toolchain: [lupin-trace] moves to wolf-interp trunk b7b7ddb, is72 merged (schema version 1)
+6d7b066 pdf: a semicolon after inline code survives — typst ended #raw(…) at the ; and ate it, in every PDF (120 sites in book/), seen in ch07's table
+62dbd10 audit: bs62 results — eight sentences as predicted plus two, 512/509/3, ledger 128/107, six diagrams, the plant red and reverted; head gate logs at c63d457
+c63d457 ci: the samples lane builds the [lupin-trace] lupin and re-takes every memory diagram's trace (diagrams --check with LUPIN_TRACE), three hosts
+7f1693d toolchain: [lupin-trace] at is72's head a56f924 — the lupin the memory diagrams are re-taken with until a release carries the trace; one line to move
+3f38a30 audit: bs62 evidence — the planted trace red in CI, the job's diagrams step
+406fba4 revert the plant: diagrams --check went red on it (run 37364533746, test (ubuntu-latest) job 111946456081: ch07.md:425's text and part-packcopy-L7.svg)
+3c579d8 plant: the trace says let c = p.lead MOVED the str field — diagrams --check must go red in CI (revert follows)
+4b2ad40 ci: diagrams --check in the rig lane on three hosts — every memory fence's text and SVG redrawn from the checked-in traces
+2474056 audit: bs62 probes — 30 programs and pack.lu on both machines from the release archives, one log
+27c0131 ch07: what each construct does — §7.1's table and the Copy types quoted from the spec; part(copyread), part(handover), part(packcopy) show the plain-= cases; six generated memory diagrams replace §7.2's hand-drawn trees; eight sentences fixed; ledger row closed (the maintainer's find)
+d3fa122 corpus: 7-12's REPL block opens at ch07/EXERCISES.md:553 now (declined row follows); solutions.md regenerated for 7-4 and 7-12
+b05ca49 pdf: a memory fence sets the same SVG with typst image, at its own width capped to the column; typst --root is the repository
+839a7c9 web: a memory fence renders as a static <img> of its SVG, the text rendering as alt; no script
+0b12e8c xtask diagrams: memory diagrams from lupin's place trace (is72 schema v1) — the fence's text, a static SVG, the trace kept under snapshots/traces; --check redraws and diffs, re-taking the trace when LUPIN_TRACE is set
+a06e76b directives: line(N) on a fence — the program line a memory diagram draws
+c20925e ch07 corpus page: 7-12 says to move with `move` (a plain = copies a str); 7-4's answer names Copy as a few built-in types, per-decision for the types you define
+3e0b006 audit: bs62 prediction — eight sentences, the table, three named parts, six generated diagrams, ledger 128 open / 107 closed
+0b80df9 contract: bs62 — chapter 7 shows memory: the rule table, the missing examples, diagrams from lupin's place trace
+76143be audit: bs61 results — 168 tier moves and 20 of 114 fences as predicted; ex14-7's page was wrong (W0601); two misses named: the build cache and the declined line keys
+fec3003 audit: bs61 evidence — the checker red at 9df056b and green at 93be88d, tiers red/green/hand-edit red at 21f53bc, the cache red, the declined-key red, ex14-7 on both machines, the head gate
+93be88d xtask tiers: a package is a visible directory holding a .lu — the runner's .lu-cache/ made --check refuse appx at the head gate, after samples ran in the same checkout
+5778175 samples-declined: three row keys follow their blocks down — EXERCISES.md:374→376 (§2's tier sentence grew two lines), ch09:240→243 (9-5's excerpt), ch11:164→166 (11-5's excerpt)
+013087d backmatter: regenerate solutions.md — the twenty fences as the pages now print them, (excerpt) and ... where they are windows, 14-7's send as its file runs it
+9c9b6d1 verify-docs: the index comment says the tier column is generated now, and by what
+6c8039e EXERCISES.md §2: the tier counts re-read from the generated column — 252 run (234 by head, 18 written), 78 prose, 9 REPL, 6 pending; the old 232/76/9/11 summed to 328
+123ba7a exercises index: the reading notes say what the generated column means — the machines CI ran the program on, by head; the checker tag stays the stem's; run (wolf) re-counted as 5 wolf-run, 28 fail, 8 written
+c5c651e exercises index: the tier column generated by cargo xtask tiers — 168 rows move to what their heads ask (145 run( rows lupin → wolf + lupin, 14 fail( rows → wolf, 17-6 and 20-5 leave pending); totals 38 · 9 · 41 · 173 · 78 · 6
+21f53bc ci: cargo xtask tiers --check on all three hosts, in the rig lane
+8e8352b xtask tiers: EXERCISES-INDEX's tier column read off each exercise's //! check: head (ruling #40) — --check names every row its heads contradict; 168 at trunk
+8156c37 verify-docs: say what an excerpt's ends owe — a ... there is the author's, as the doctrine page's 6-3 shows
+8af80f7 ch27 corpus page: 27-1 says (excerpt) and shows both of its two edits, ... between
+172fc92 ch21 corpus page: 21-2 says (excerpt) — saxpy without main
+2d11fd0 ch18 corpus page: 18-15's excerpt marks the skipped one() with ...
+8891934 ch16 corpus page: 16-2's receiver at the file's indentation, 16-7 says (excerpt)
+f500851 ch15 corpus page: 15-6 says (excerpt — the worker)
+4b3f02b ch14 corpus page: 14-9 says (excerpt — main), ... at both ends
+61bc682 ch13 corpus page: 13-5 says (excerpt); 13-7's excerpt at the file's indentation
+ad8d989 ch11 corpus page: 11-5's excerpt at the file's indentation, ... for main's head and tail
+227f6a7 ch10 corpus page: 10-7 says (excerpt) — gather_all without risky and main
+d67f620 ch09 corpus page: 9-5 and 9-13 say (excerpt) and keep their unsafe block's indentation, ... at each elision
+1a5cd73 ch08 corpus page: 8-6 and 8-15 say (excerpt) at the file's indentation — the region block 8-6 dropped is back, 8-15's walk sits in main
+10987f4 ch07 corpus page: 7-15, 7-16, 7-20, 7-23 say (excerpt) — four windows behind a description label; 7-20 marks build_table's elision
+1017dd7 ch14 corpus page: 14-7's fence prints the send its file runs (else { return total }) — the page was wrong, left behind by 2372871; its bare send draws W0601 on wolf 0.2.23 (measured)
+9df056b verify-docs: verify_quoted_solutions covers every exercise page (ruling #41) — any label naming a .lu, bare names resolved per page, an excerpt run may span a blank line; red at trunk on 20 of 114 fences
+2aa877b audit: bs61 prediction — 168 tier moves by head, 20 of 114 fences red at trunk, ex14-7's page is wrong
+b922f38 contract: bs61 — the book quotes itself, rulings #40 (A) and #41 (label)
+=== chapter 7 at BNEW
+ book/ch07.md | 299 ++++++++++++++++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 265 insertions(+), 34 deletions(-)
+audit/tells/ch07.md
+book/ch07.md
+book/diagrams/ch07/part-handover-L4.svg
+book/diagrams/ch07/part-packcopy-L5.svg
+book/diagrams/ch07/part-packcopy-L6.svg
+book/diagrams/ch07/part-packcopy-L7.svg
+book/diagrams/ch07/s3-L5.svg
+book/diagrams/ch07/s7-L4.svg
+docs/audit/bs62-evidence/gate-c63d457/diagramscheck.log
+docs/audit/bs63-evidence/diagrams-subject.txt
+docs/audit/bs63-evidence/gate-aed2644/gate-diagramscheck.log
+principles/exercises/ch07/EXERCISES.md
+principles/exercises/ch07/ex7-1.lu
+principles/exercises/ch07/ex7-13.lu
+principles/exercises/ch07/ex7-15.lu
+principles/exercises/ch07/ex7-16.lu
+principles/exercises/ch07/ex7-17.lu
+principles/exercises/ch07/ex7-18.lu
+principles/exercises/ch07/ex7-19.lu
+principles/exercises/ch07/ex7-2.lu
+principles/exercises/ch07/ex7-20.lu
+principles/exercises/ch07/ex7-21.lu
+principles/exercises/ch07/ex7-22.lu
+principles/exercises/ch07/ex7-23.lu
+principles/exercises/ch07/ex7-23b.lu
+principles/exercises/ch07/ex7-3.lu
+principles/exercises/ch07/ex7-4.lu
+principles/exercises/ch07/ex7-4b.lu
+principles/exercises/ch07/ex7-5.lu
+principles/exercises/ch07/ex7-6.lu
+principles/exercises/ch07/ex7-7.lu
+principles/exercises/ch07/ex7-8.lu
+principles/exercises/ch07/ex7-9.lu
+principles/exercises/ch07/ex7-9b.lu
+snapshots/diagnostics/book__ch07__part-movedleaf.txt
+snapshots/diagnostics/book__ch07__s1.txt
+snapshots/diagnostics/book__ch07__s11.txt
+snapshots/diagnostics/book__ch07__s13.txt
+snapshots/diagnostics/book__ch07__s15.txt
+snapshots/diagnostics/book__ch07__s19.txt
+=== book.toml at BNEW
+# The Wolf Book — mdBook configuration (bs00).
+# The canonical build path is `cargo xtask render` (web + wolf-book.md +
+# wolf-book.pdf). A bare `mdbook build` also works because the wolf
+# preprocessor is declared here; it shells back into xtask.
+
+[book]
+title = "The Wolf Book"
+authors = ["The wolf-book authors"]
+language = "en"
+src = "book"
+description = "The Wolf Book — every sample executed by CI against the pinned toolchain."
+
+[build]
+build-dir = "target/render/web"
+create-missing = false
+
+# Build-time highlighting + section-number anchors + directive stripping.
+# DESIGN.md §5 obligations 2 and 3 live in this preprocessor.
+[preprocessor.wolf]
+command = "cargo run -q -p xtask -- mdbook-preprocess"
+renderer = ["html"]
+
+[output.html]
+theme = "theme"
+# The book lives at https://lupp.us/book/ (bs55); mdBook writes this into
+# 404.html's <base>. lupp.us sends `base-uri 'none'`, so browsers ignore
+# that <base> there, and render.rs also writes the 404 page's links
+# absolute under this path (root_the_404).
+site-url = "/book/"
+default-theme = "wolf"
+preferred-dark-theme = "wolf" # no dark mode at v1 (DESIGN.md §1)
+no-section-label = false
+smart-punctuation = true
+mathjax-support = false
+copy-fonts = true
+
+[output.html.playground]
+runnable = false
+
+[output.html.search]
+enable = true
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
+
+[output.html.print]
+enable = false # the PDF comes from the typst converter, not the browser
+=== inline scripts or event handlers in book sources at BNEW
+fde77b8d28c720206415c9e508c859f6753dd1d4:book/wolf-boot.js:5:// This was three inline <script>s in theme/index.hbs. lupp.us serves
+fde77b8d28c720206415c9e508c859f6753dd1d4:theme/index.hbs:52:        <script src="{{ resource "toc.js" }}"></script>
+fde77b8d28c720206415c9e508c859f6753dd1d4:theme/index.hbs:60:        <script src="{{ path_to_root }}wolf-boot.js"></script>
+fde77b8d28c720206415c9e508c859f6753dd1d4:theme/index.hbs:141:        <script src="{{ resource "elasticlunr.min.js" }}"></script>
+fde77b8d28c720206415c9e508c859f6753dd1d4:theme/index.hbs:142:        <script src="{{ resource "mark.min.js" }}"></script>
+fde77b8d28c720206415c9e508c859f6753dd1d4:theme/index.hbs:143:        <script src="{{ resource "searcher.js" }}"></script>
+fde77b8d28c720206415c9e508c859f6753dd1d4:theme/index.hbs:146:        <script src="{{ resource "book.js" }}"></script>
+fde77b8d28c720206415c9e508c859f6753dd1d4:theme/index.hbs:149:        <script src="{{ resource this}}"></script>
+(end)
+=== kept lupin pins at NEW naming wolf-interp issues
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/PAIRING:27:lupin-version = 0.1.48
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:17://! lupin 0.1.46 answered `unsupported` ("`Order.seq_cst` does not
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:20://! lupin 0.1.46 (the 0.2.23 pairing) has no atomic surface; each row's
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:23://! 0.1.47 (r29) and 0.1.48 (the 0.2.25 pairing, r30; #194 still open)
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:24://! answer every row as 0.1.46 did, measured; the pins are carried.
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:209:/// lupin 0.1.46 (the 0.2.23 pairing) has no atomic surface: every row
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:212:/// 0.1.47 (the 0.2.24 pairing, r29) and 0.1.48 (the 0.2.25 pairing,
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:217:        version: "0.1.46",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:222:        version: "0.1.47",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:227:        version: "0.1.48",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:437:/// count; lupin may detect the race (`[conc.mm.race.3]`), and 0.1.46,
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:438:/// 0.1.47 and 0.1.48 do (measured at r30; lupin files the row's `pass`
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/atomic_lanes.rs:472:    if matches!(lupin.version.as_str(), "0.1.46" | "0.1.47" | "0.1.48") {
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/attr_closed_set_lanes.rs:19://! unread `cfg`, reached one pass sooner. 0.1.46 (the 0.2.23 pairing,
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/attr_closed_set_lanes.rs:23://! its `comptime fn`) and is carried to 0.1.46, to 0.1.47 (the 0.2.24
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/attr_closed_set_lanes.rs:24://! pairing, r29) and to 0.1.48 (the 0.2.25 pairing, r30), measured.
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/attr_closed_set_lanes.rs:318:/// declines its `comptime fn` (`unsupported`), 0.1.46 included.
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/attr_closed_set_lanes.rs:345:                version: "0.1.46",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/attr_closed_set_lanes.rs:350:                version: "0.1.47",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/attr_closed_set_lanes.rs:355:                version: "0.1.48",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/c_membrane_lanes.rs:16://! pinned by version. 0.1.46 (the 0.2.23 pairing, r28) carries is70's
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/c_membrane_lanes.rs:257:/// before they looked (pinned until the 0.1.46 pairing, r28).
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/first_diagnostic_lanes.rs:19://! as wolf-interp#175; this lane did not change lupin. 0.1.46 (the
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/int_ptr_lanes.rs:27://! record (wolf-interp#182), each pinned by version. 0.1.46 (the 0.2.23
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/int_ptr_lanes.rs:238:/// wolf-interp#184, is in 0.1.46).
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/int_ptr_lanes.rs:407:/// record, pinned by version until the 0.1.46 pairing (wolf-interp#182).
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:13://! 0.1.46 alike — the checked machine defined the access the compiled
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:18://! lupin 0.1.46 ran the misaligned rows as defined, each L4 row pinned
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:19://! by that version as pre-mirror. 0.1.47 (the 0.2.24 pairing, r29)
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:27://! pointee), pinned by version. 0.1.48 (the 0.2.25 pairing, r30) admits
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:29://! are pinned at 0.1.48 to wolf-interp#205 (the packed row's verdict
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:318:/// four bytes past an aligned base is L4 at `s[0].b`. lupin 0.1.46 and
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:319:/// 0.1.47 have no struct pointee (a `*Pair` reads as bytes,
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:320:/// wolf-interp#188; measured on 0.1.47 at r29). 0.1.48 (the 0.2.25
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:332:                version: "0.1.46",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:338:                version: "0.1.47",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:344:                version: "0.1.48",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:370:/// 0.1.46 and 0.1.47 refuse `packed` by name (E0817, wolf-interp#188).
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:371:/// 0.1.48 (the 0.2.25 pairing, r30) admits `packed` (is73, #188 closed)
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:385:                version: "0.1.46",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:391:                version: "0.1.47",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/raw_align_lanes.rs:397:                version: "0.1.48",
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/region_view_for_lanes.rs:148:/// still ran it. Emptied at the 0.1.46 pairing (r28): 0.1.46 carries
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/repr_layout_lanes.rs:18://! 0.1.46 (the 0.2.23 pairing, r28) is still pre-mirror (#188 open):
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/repr_layout_lanes.rs:21://! name; ruled at r28). 0.1.47 (the 0.2.24 pairing, r29) answered as
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/repr_layout_lanes.rs:22://! 0.1.46 did on all nine. 0.1.48 (the 0.2.25 pairing, r30) carries
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/repr_layout_lanes.rs:199:/// Every row's pin dropped at the 0.1.48 pairing (r30): lupin answers
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/repr_layout_lanes.rs:201:/// read no attribute; 0.1.46 and 0.1.47 refused `packed` and `align(N)`
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/static_lanes.rs:23://! answer what the clauses say. 0.1.46 (the 0.2.23 pairing, r28) is
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/static_lanes.rs:27://! 0.1.47 (the 0.2.24 pairing, r29) is still pre-mirror (#190 open) and
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/static_lanes.rs:28://! answered as 0.1.46 did. 0.1.48 (the 0.2.25 pairing, r30) carries
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/static_lanes.rs:619:        // 0.1.45 ran the placed program and 0.1.46–0.1.47 refused it
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/static_lanes.rs:620:        // E0817 (pre-mirror); 0.1.48 (r30) declines it by name, as the
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/unit_discard_lanes.rs:20://! `8d820316` (#186, for #179), which lupin 0.1.46 (the 0.2.23 pairing,
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/unit_discard_lanes.rs:239:/// 0.1.46 pairing (r28): 0.1.46 carries s208's mirror and prints `() ()`.
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/unit_discard_lanes.rs:294:// here as `LUPIN_179` by s208; the pin dropped at the 0.1.46 pairing
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/volatile_lanes.rs:17://! says. 0.1.46 (the 0.2.23 pairing, r28) is still pre-mirror (#185
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/volatile_lanes.rs:19://! 0.1.47 (the 0.2.24 pairing, r29) and 0.1.48 (the 0.2.25 pairing, r30;
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/volatile_lanes.rs:206:/// by name (measured at trunk and head, `rows-*.log`). 0.1.46 (the
+6710f9e0cbc3a7264349093751ce7a46a407e473:crates/wolf_driver/tests/volatile_lanes.rs:215:        version: "0.1.46",
+# The reference-interpreter pairing (r01 criteria row 7): the lupin
+# release this wolf is differentially tested against, and the
+# conformance pin that lupin release itself declares.
+#
+# `wolf --version` prints this file; nothing else defines the pairing
+# (#87 retired the hardcoded constants that went three releases stale).
+# Update it WITH the differential ritual — the pairing test compares
+# the version below against the sibling lupin binary whenever one is
+# present (and, when that sibling is a release build, the pin too:
+# D57, a release's pin is part of its identity), so a stale stamp
+=== diagnostics E1308 E1309 at NEW
+1976:## E1301 — this raw-tier operation needs an `unsafe` block
+1997:## E1302 — a raw pointer type cannot cross this boundary
+2015:## E1303 — this module holds `#[trusted]` code the manifest does not declare
+2029:## E1304 — `assume noalias` needs raw pointers to assume about
+2042:## E1305 — this door needs a region and a raw pointer, in that order
+2056:## E1306 — this call reaches a routine no listed assembly source defines
+2070:## E1307 — a volatile access needs a fixed-width integer or `byte` pointee
+2085:## E1308 — an atomic operation needs a fixed-width integer pointee
+2101:## E1309 — this order is not one the atomic operation admits
+=== site programs vs 0.2.24/0.2.25 surface
+site/index.html:160:  and data, and <code>extern "c" let</code> names a symbol the link defines.
+site/install/index.html:221:  linker symbol with <code>extern "c" let</code>, a production the release
+site/play/index.html:191:  <code>fail(E0201)</code>: <code>extern "c" let</code> is a production the
+site/spec/index.html:87:      <code>extern_let_item</code>: <code>extern "c" let NAME: *T</code> names
+site/spec/index.html:272:      <code>extern "c" let</code>, and leaves the image to the consuming
+(end site grep)
+DERIVE-DONE

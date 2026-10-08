@@ -1,0 +1,52 @@
+the archive, on a real windows box	the specification pin lag the site records	﻿2026-10-08T00:25:06.7319241Z ##[group]Run if ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7319885Z ^[[36;1mif ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7320553Z ^[[36;1m  git -C upstream/wolf-lang fetch --quiet --unshallow --tags origin^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7320971Z ^[[36;1m} else {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7321182Z ^[[36;1m  git -C upstream/wolf-lang fetch --quiet --tags origin^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7321419Z ^[[36;1m}^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7321553Z ^[[36;1m^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7321780Z ^[[36;1m# One implementation of the rule, for this runner and the author's^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7322124Z ^[[36;1m# machine alike. Its messages go to the log on stderr; --json puts^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7322429Z ^[[36;1m# the facts on stdout, and only when it is satisfied.^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7322688Z ^[[36;1m$ErrorActionPreference = 'Continue'^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7322897Z ^[[36;1mpython --version^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7323142Z ^[[36;1mpython scripts/check-lag-phrases.py `^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7323450Z ^[[36;1m  site upstream/wolf-lang upstream/wolf-interp --json > lag.json^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7323738Z ^[[36;1mif ($LASTEXITCODE -ne 0) {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7324459Z ^[[36;1m  Write-Output "::error::scripts/check-lag-phrases.py refused the pages — the reasons are in this step's log, and the same command reds locally: python3 scripts/check-lag-phrases.py site upstream/wolf-lang upstream/wolf-interp"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7325166Z ^[[36;1m  exit 1^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7325311Z ^[[36;1m}^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7325498Z ^[[36;1m$f = (Get-Content lag.json -Raw | ConvertFrom-Json)^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7325738Z ^[[36;1mRemove-Item lag.json^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7325907Z ^[[36;1m^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7326097Z ^[[36;1m"wolf $env:WOLF_VER is the release this site advertises"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7326343Z ^[[36;1mif ($f.tagged) {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7326597Z ^[[36;1m  "lupin $env:LUPIN_VER was built at the v$($f.release) tag ($($f.spec))"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7327083Z ^[[36;1m} else {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7327476Z ^[[36;1m  "lupin $env:LUPIN_VER was built at $($f.spec), a development revision past v$($f.release) — $($f.commits) commits behind the advertised tag"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7327889Z ^[[36;1m}^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7328020Z ^[[36;1m^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7328231Z ^[[36;1m# The summary is built from the SCRIPT's numbers, not from a second^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7328566Z ^[[36;1m# walk of the same history. Two walks could disagree; these cannot.^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7329005Z ^[[36;1m$reads = switch ($f.gap) { 0 { "this release" } 1 { "the release before this one" } default { "$($f.gap) releases back" } }^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7329629Z ^[[36;1m$spec = if ($f.tagged) { "``$($f.spec)`` — the v$($f.release) tag" } else { "``$($f.spec)`` — a development revision past v$($f.release), $($f.commits) commits back" }^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7330177Z ^[[36;1m$md = @("", "### The specification pin lag", "",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7330488Z ^[[36;1m        "| | release | specification pin |", "|---|---|---|",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7330825Z ^[[36;1m        "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7331195Z ^[[36;1m        "| the interpreter beside it | lupin $env:LUPIN_VER | $spec |", "",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7331611Z ^[[36;1m        "A counted gap of $($f.gap) — the interpreter reads $reads, and both pages say '$($f.phrase)'.",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7332074Z ^[[36;1m        "", "Measured by ``scripts/check-lag-phrases.py``, which also runs in ``build.sh``.", "")^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7332518Z ^[[36;1m($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7332934Z ^[[36;1m"lupin reads $reads — both pages carry '$($f.phrase)' and neither carries another"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7390767Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7391051Z env:
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7392829Z   WOLF_VER: 0.2.25
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7392987Z   LUPIN_VER: 0.1.46
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:06.7393141Z ##[endgroup]
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:11.3553988Z Python 3.12.10
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:12.2715004Z lag phrases: install/index.html: the gap is 3 and the page does not say so � it must carry the phrase 'three releases'
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:12.2715984Z lag phrases: install/index.html: still carries 'one release' while the counted gap is 3 � a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:12.2716777Z lag phrases: play/index.html: the gap is 3 and the page does not say so � it must carry the phrase 'three releases'
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:12.2717588Z lag phrases: play/index.html: still carries 'one release' while the counted gap is 3 � a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:12.3288579Z ##[error]scripts/check-lag-phrases.py refused the pages — the reasons are in this step's log, and the same command reds locally: python3 scripts/check-lag-phrases.py site upstream/wolf-lang upstream/wolf-interp
+the archive, on a real windows box	the specification pin lag the site records	2026-10-08T00:25:12.3669802Z ##[error]Process completed with exit code 1.

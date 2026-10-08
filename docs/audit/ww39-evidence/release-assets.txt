@@ -1,0 +1,23 @@
+# release assets with GitHub's sha256 (gh api, 2026-10-08T00:31:02Z)
+## wolf-interp release 405340127 (v0.1.48 -> 531bf058)
+lupin-0.1.48-aarch64-apple-darwin.tar.gz sha256:27d860601eb80c5ac9f8d145a452322a620bf54b58a60622eb30ac817195a567
+lupin-0.1.48-aarch64-unknown-linux-gnu.tar.gz sha256:a5c3095751c33a3c966ba46a8fd981771c6be9fbd3ef162ff67036a7498edbdd
+lupin-0.1.48-x86_64-pc-windows-msvc.zip sha256:9e4ea090b74dc7cf611f916bfe3b5255964793c92ca784f8d0f31301dbaff8e9
+lupin-0.1.48-x86_64-unknown-linux-gnu.tar.gz sha256:81cfd77af5c983830b3bc8ddab2a5ba762408ac770e3229032c36d54958d93d8
+lupin.exe sha256:6a6eb6e9e6c0e29284014e5da96cfc26e55ed691ec929a6395372884909904d4
+## wolf-lang release 406122367 (v0.2.25 -> 6710f9e0)
+wolf-0.2.25-aarch64-apple-darwin.tar.gz sha256:202c8d6c5c90e3522bde1d6a3d65a7174d215d3feac0c2ad35502e809f778f4b
+wolf-0.2.25-aarch64-unknown-linux-gnu.tar.gz sha256:6b0bb90d16376890a0fc56892e2a07b97afe7ece7e7f8f86d91a77d4bc00aae1
+wolf-0.2.25-x86_64-pc-windows-msvc.tar.gz sha256:9debee73e150c3d9a8a5eb5d46ad38ad1b1aebdbe1d871977b30049e23a8e3a8
+wolf-0.2.25-x86_64-unknown-linux-gnu.tar.gz sha256:9d91f533ba233bfa0ae5490b567c4b9e15cb77c3e7c997912828ef2b7b2183f8
+## wolf 0.2.25 CHANGELOG pairs by: the linux x86-64 archive's sha256 81cfd77a… (derive.log); the archive native-0148.txt ran hashes 81cfd77af5c9…
+## tap
+  # `wolf --version` is stamped by the BUILDER: `cargo xtask dist` reads
+  # version only when `v<version>` is one of them. An archive tarball has
+  url "https://github.com/wolffe-lang/wolf-lang.git",
+      tag:      "v0.2.25",
+  # `lupin --version` prints the bare version only when `v<version>` is
+  url "https://github.com/wolffe-lang/wolf-interp.git",
+      tag:      "v0.1.48",
+      revision: "531bf0581dea6bba4b1247edb2abada5214c18ab"
+83fcd63

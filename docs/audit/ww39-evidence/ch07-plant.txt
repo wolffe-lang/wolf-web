@@ -1,0 +1,60 @@
+ch07: against http://127.0.0.1:57359/book/ (render served with lupp.us's headers)
+ch07: chromium phone: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 1 CSP violations, 2 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! script-src-elem inline
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-Y331lMcwM3NJmZssXs8oy/rCZgGxLdODmhMeSbfXmRk='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+ch07: chromium desktop: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 1 CSP violations, 2 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! script-src-elem inline
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-Y331lMcwM3NJmZssXs8oy/rCZgGxLdODmhMeSbfXmRk='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+ch07: firefox phone: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 1 CSP violations, 1 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-Y331lMcwM3NJmZssXs8oy/rCZgGxLdODmhMeSbfXmRk=') or a nonce." {file: "http://127.0.0.1:57359/book/ch07.html" line: 1523}]
+ch07: firefox desktop: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 1 CSP violations, 1 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-Y331lMcwM3NJmZssXs8oy/rCZgGxLdODmhMeSbfXmRk=') or a nonce." {file: "http://127.0.0.1:57359/book/ch07.html" line: 1523}]
+ch07: webkit phone: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 1 CSP violations, 2 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! script-src-elem inline
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+ch07: webkit desktop: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 1 CSP violations, 2 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! script-src-elem inline
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+ch07: FAILED

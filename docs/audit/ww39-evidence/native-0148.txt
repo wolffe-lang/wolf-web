@@ -1,0 +1,42 @@
+81cfd77af5c983830b3bc8ddab2a5ba762408ac770e3229032c36d54958d93d8  lupin-0.1.48-x86_64-unknown-linux-gnu.tar.gz
+binary x/lupin-0.1.48-x86_64-unknown-linux-gnu/lupin
+734caee607d2dcbec0ec20e3dab8662f3972cdc151d4e6003d63d1060579fa0e  x/lupin-0.1.48-x86_64-unknown-linux-gnu/lupin
+lupin 0.1.48 (wolf-interp, reference interpreter at pin 294d626)
+== grammar/cfg_target_arch.lu
+64
+exit=0
+== comptime/layout_query_repr_c.lu
+PNest 10 2 0 1 8
+Page 4096 4096
+scalars 1 2 8 8 1 8
+exit=0
+== memory/packed_fields_at_offset_of.lu
+10 0 2
+255 0 0 16 0 0 0 0 0 0
+255 4096
+exit=0
+== memory/raw_repr_packed_layout.lu
+memory/raw_repr_packed_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got P3
+exit=4
+== memory/raw_repr_align_layout.lu
+memory/raw_repr_align_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got A16
+exit=4
+== membrane/extern_let_image.lu
+membrane/extern_let_image.lu: unsupported: a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not model ([abi.link.extern])
+exit=4
+== memory/packed_field_raw_read.lu
+memory/packed_field_raw_read.lu: unsupported: u8 has no member `limit`
+exit=4
+== conc/atomic_fence.lu
+conc/atomic_fence.lu: unsupported: `fence` does not resolve
+exit=4
+== conc/atomic_widths.lu
+conc/atomic_widths.lu: unsupported: `Order.seq_cst` does not resolve
+exit=4
+== memory/volatile_widths.lu
+memory/volatile_widths.lu: unsupported: `*T` has no method `write_volatile` in this machine's std subset
+exit=4
+== memory/static_var_call_writes.lu
+99 99 1
+exit=0
+NATIVE-DONE

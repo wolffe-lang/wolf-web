@@ -1,0 +1,19 @@
+comptime/layout_query_repr_c.lu
+  A "fail(E0817)" ""
+  B "exit(0)" "C3 12 4 0 4 8\nP3 6 1 0 1 5\nGdtr 10 1 0 2\nA16 16 16 0\nOuter 48 16 0 16 32\nPNest 10 2 0 1 8\nPage 4096 4096\nscalars 1 2 8 8 1 8\n"
+membrane/extern_let_image.lu
+  A "fail(E0201)" ""
+  B "unsupported" ""
+memory/packed_field_raw_read.lu
+  A "fail(E0817)" ""
+  B "unsupported" ""
+memory/packed_fields_at_offset_of.lu
+  A "fail(E0817)" ""
+  B "exit(0)" "10 0 2\n255 0 0 16 0 0 0 0 0 0\n255 4096\n"
+memory/raw_repr_align_layout.lu
+  A "fail(E0817)" ""
+  B "unsupported" ""
+memory/raw_repr_packed_layout.lu
+  A "fail(E0817)" ""
+  B "unsupported" ""
+stdout-all: 592 programs, 586 identical in verdict and stdout, 6 differ

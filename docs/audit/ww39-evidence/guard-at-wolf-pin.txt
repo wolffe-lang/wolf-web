@@ -1,0 +1,15 @@
+# the lag guard at the wolf pin, kasumi 2026-10-08T00:24:49Z
+HEAD c44175f (pin: wolf-lang 6710f9e (v0.2.25); nine w)
+wolf-book fde77b8 gitlink fde77b8
+wolf-interp f9269e3 gitlink f9269e3
+wolf-lang 6710f9e0 gitlink 6710f9e
+LAG-EXIT=1
+lag phrases: install/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: install/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: play/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: play/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: install/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: install/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: play/index.html: the gap is 3 and the page does not say so — it must carry the phrase 'three releases'
+lag phrases: play/index.html: still carries 'one release' while the counted gap is 3 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+JSON-EXIT=1
