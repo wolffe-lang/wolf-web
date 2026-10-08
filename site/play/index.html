@@ -130,11 +130,11 @@
   tagged once since it, so the text this tab reads is one release behind the
   one <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap holds the width it had at v0.2.22's pin, when this tab read v0.2.21's
-  text, and at v0.2.21's and v0.2.19's before it: the interpreter re-pinned on
-  the v0.2.22 tag, and healed with it the partings this page named at the
-  release before the one <a href="/install/">install</a> advertises
-  (wolf-interp#174, #179, #181). The
+  gap holds the width it had at v0.2.23's pin, when this tab read v0.2.22's
+  text, and at v0.2.22's, v0.2.21's and v0.2.19's before it: the interpreter
+  re-pinned two tags forward, on the v0.2.24 tag, and mirrored with it the
+  module state and the struct layouts whose refusals this page named at
+  v0.2.23's pin (wolf-interp#190, #188). The
   compiler's own second line names the interpreter in this tab: the release
   <a href="/install/">install</a> advertises was tested against the
   interpreter version above, and this site serves it. At v0.2.15's pin it did
@@ -158,9 +158,12 @@
   step so the gap held its width at a later pair, the compiler tagging once
   more while the mirror released without re-pinning so the gap widened a
   step, the mirror re-pinning on the compiler's last tag but one so the gap
-  was back to a single step — and now the compiler has tagged four times
-  more and the mirror has followed each time onto its last tag but one, so
-  the gap held that single step across all four. The two
+  was back to a single step, the compiler tagging four times more with the
+  mirror following each time onto its last tag but one, so the gap held that
+  single step across all four — and now the mirror released once more
+  without re-pinning, two steps behind, at a pair this site never served,
+  and then re-pinned two steps forward, so the gap this page shows is the
+  single step again. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -172,25 +175,37 @@
   far the tag is, so neither end has to be a tag, and it requires both pages to
   spell what it counted.</p>
 
-  <p><strong>Where the vintage shows: in programs that witness the newest
-  clauses, each named.</strong> Every <code>phase: run</code> program in the
-  pinned corpus goes through the module this page serves, and at these pins
-  five of the ones the compiler runs are refused here, at a terminal alike,
-  because the clauses they witness were written after the text this
-  interpreter was built to. The release <a href="/install/">install</a>
-  advertises pins this interpreter's answer on each by version and names the
-  mirror the interpreter owes. <code>corpus/comptime/layout_query_repr_c.lu</code>,
+  <p><strong>Where the vintage shows: in no refusal at all.</strong> Every
+  <code>phase: run</code> program in the pinned corpus goes through the
+  module this page serves, and at these pins none of the ones the compiler
+  runs is refused here, in the tab or at a terminal. What remains is
+  declines, each by name and the same at a terminal. The atomics the
+  release before the one <a href="/install/">install</a> advertises added,
+  <code>corpus/conc/atomic_counter.lu</code>, <code>atomic_fence.lu</code>,
+  <code>atomic_orders.lu</code> and <code>atomic_widths.lu</code>, answer
+  that <code>fence</code> or <code>Order.seq_cst</code> does not resolve,
+  and <code>corpus/memory/volatile_widths.lu</code> that this interpreter
+  has no <code>write_volatile</code>: both are mirrored on the
+  interpreter's trunk since this release and not yet released
+  (wolf-interp#194, #185). <code>corpus/memory/packed_field_raw_read.lu</code>
+  reads a field through a raw pointer to a struct, and this interpreter
+  reads that pointer's elements as bytes, "<code>u8</code> has no member
+  <code>limit</code>" (wolf-interp#205). At v0.2.23's pin the tab refused
+  five, and none was a decline:
+  <code>corpus/comptime/layout_query_repr_c.lu</code>,
   <code>corpus/memory/packed_fields_at_offset_of.lu</code>,
   <code>corpus/memory/raw_repr_packed_layout.lu</code> and
-  <code>corpus/memory/raw_repr_align_layout.lu</code> answer
-  <code>fail(E0817)</code>: they lay structs out with
-  <code>#[repr(c, packed)]</code> and <code>#[repr(c, align(N))]</code>, and
-  this interpreter's closed attribute set still lists both as not
-  implemented and refuses them by name (wolf-interp#188).
-  <code>corpus/membrane/extern_let_image.lu</code> answers
-  <code>fail(E0201)</code>: <code>extern "c" let</code> is a production the
-  compiler's grammar gained after the tag this interpreter reads, so the line
-  does not parse (wolf-interp#190). The compiler runs every one of them.</p>
+  <code>corpus/memory/raw_repr_align_layout.lu</code> answered
+  <code>fail(E0817)</code>, because lupin 0.1.46's closed attribute set
+  listed <code>#[repr(c, packed)]</code> and
+  <code>#[repr(c, align(N))]</code> as not implemented (wolf-interp#188),
+  and <code>corpus/membrane/extern_let_image.lu</code> answered
+  <code>fail(E0201)</code>, its <code>extern "c" let</code> a line that
+  interpreter could not parse (wolf-interp#190). The first two print here
+  what the compiler prints now. The two that store a whole struct through a
+  raw pointer are declined by name, as the compiler's own checked machine
+  declines them, and the linker symbol is declined because an interpreter
+  has no link to define it.</p>
 
   <p><strong>This tab reads <code>cfg</code> as an x86-64 Linux host.</strong>
   The interpreter evaluates a <code>#[cfg(target = …)]</code> against the
@@ -234,22 +249,26 @@
 
   <p><strong>The compiler's newest programs answer here.</strong> Besides
   the programs above, the release <a href="/install/">install</a> advertises
-  brought its own programs into the corpus's running set — integers and
-  pointers converted both ways, prefix <code>*p</code> over signed and
-  unsigned pointees, module <code>const</code>, <code>let</code> and
-  <code>var</code>, and else-less <code>if</code>s at a fallible
-  function's tail whose raise is discarded — and each one that runs here
-  prints what its header says it prints; the narrowing cast that must trap
-  traps <code>overflow</code>. Under lupin 0.1.45 two of the conversions were
-  declined, a narrowing cast printed <code>0 0 0</code> and the trapping one
-  exited 0 (wolf-interp#184), and four of the discards handed the raise to
-  the caller (wolf-interp#179). The one decline among them is the volatile
-  program: this interpreter has no <code>read_volatile</code> or
-  <code>write_volatile</code> yet and says so by name (wolf-interp#185).
-  The programs the corpus already carried that answer differently from the
-  last pin are the ones the two paragraphs above name. The measurement is four
+  and the one before it brought their own programs into the corpus's running
+  set — a module <code>var</code> and a raw pointer's memory written by a
+  callee and read back after the call, branches on the top half of an
+  unsigned shift, module strings that hold their value, and raw accesses at
+  their pointee's alignment — and each one that runs here prints what its
+  header says it prints. Those are the answers that release fixed on the
+  compiled tiers; this tab never had them wrong, and lupin 0.1.46 printed
+  each of them the same. The programs the corpus already carried that answer
+  differently from the last pin are the five the paragraph on the vintage
+  names, all of them refusals then. The measurement is four
   walks: both corpora through both modules, and no other program both
-  corpora carry changed its answer in any of them. At v0.2.22's pin the
+  corpora carry changed its answer in any of them. At v0.2.23's pin the
+  additions were integers and pointers converted both ways, prefix
+  <code>*p</code> over signed and unsigned pointees, module
+  <code>const</code>, <code>let</code> and <code>var</code>, and else-less
+  <code>if</code>s at a fallible function's tail whose raise is discarded;
+  under lupin 0.1.45 two of the conversions were declined, a narrowing cast
+  printed <code>0 0 0</code> and the trapping one exited 0
+  (wolf-interp#184), and four of the discards handed the raise to the caller
+  (wolf-interp#179). At v0.2.22's pin the
   additions were integer casts that keep their value or trap, an export
   called from wolf, a <code>for</code> piece used inside its region, the
   first-diagnostic rule's running witness and the discards of a row nobody
@@ -400,8 +419,11 @@
   yet, which is a thing that ends. It ended here. The distinction is the
   reason a reader can tell, from the same word, which refusals are worth
   waiting on. Among the programs you can run, the tab has a few of the
-  second kind at these pins, the refusals named above, and each waits on a
-  mirror the interpreter's tracker has open.</p>
+  second kind at these pins, the declines named above, and each but the two
+  whole-struct stores and the linker symbol waits on a mirror: the atomics
+  and the volatile program on a mirror already on the interpreter's trunk
+  and not yet released, the struct field on an issue its tracker has
+  open.</p>
 
   <p><strong>And the gap that opened after that cost nothing while it was
   open, and is closed now.</strong> The compiler tagged once more while the
