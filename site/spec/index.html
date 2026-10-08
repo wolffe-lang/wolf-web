@@ -83,7 +83,7 @@
       <code>[gram.item.attr.cfg]</code> evaluates
       <code>#[cfg(target = "…")]</code> against the build's target, which was
       ignored, so target-gated code had compiled for every target.
-      At v__WOLF_VERSION__ the grammar widens by one production,
+      v0.2.23 widened the grammar by one production,
       <code>extern_let_item</code>: <code>extern "c" let NAME: *T</code> names
       a symbol the link defines, with no initializer, and the parser reads a
       <code>var</code>, a <code>const</code> or an initializer there only so
@@ -91,6 +91,9 @@
       attribute table gains <code>#[repr(c, packed)]</code> and
       <code>#[repr(c, align(N))]</code>, and a representation that cannot be
       laid out as written is <code>E0820</code>.
+      At v__WOLF_VERSION__ the document and its EBNF are v0.2.23's, byte for
+      byte: the two releases since wrote their clauses into the memory,
+      concurrency and ABI documents.
       Anchors <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
@@ -186,7 +189,7 @@
       in a module-private signature, whose every caller is inside the audit
       granule, and on either side of the C membrane, never in a
       <code>pub</code> one.
-      At v__WOLF_VERSION__ integers and pointers convert both ways
+      v0.2.23 converted integers and pointers both ways
       (<code>[mem.prov.expose]</code>), prefix <code>*p</code> is
       <code>p[0]</code> by another name, and on the freestanding target an
       address no allocation owns is the platform's
@@ -200,7 +203,18 @@
       evaluated at compile time into the image, one that reads a
       <code>var</code> or needs run-time code is <code>E0705</code>, and a
       <code>var</code> is raw-tier, <code>E1301</code> outside
-      <code>unsafe</code>.
+      <code>unsafe</code>. v0.2.24 made alignment part of a raw access,
+      <code>[mem.unsafe.raw.4]</code>: an ordinary access through a
+      <code>*T</code> at an address that is not a multiple of
+      <code>T</code>'s alignment is undefined, row L4, which licenses the
+      compiled tiers to emit every raw access aligned, with no check and no
+      split, and a packed struct's field is not that row, the struct's
+      alignment being one byte. At v__WOLF_VERSION__
+      <code>[mem.static.2]</code> says what a call does to that memory on
+      every machine: a call may write any module state and any storage a raw
+      pointer or an <code>extern "c" let</code> reaches, so no value read or
+      stored before a call stands for that memory after it, which native and
+      release had broken.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -242,13 +256,25 @@
       <a href="/play/">playground</a> has the other half of that story: the
       corpus program that writes <code>Proc</code> in a signature was the one
       the tab refused at the pin before this one, and the interpreter it runs
-      now knows the name.
+      now knows the name. v0.2.24 grew it more than any other document, with
+      atomics on raw pointers: <code>[conc.mm.atomic.raw]</code> defines a
+      load, a store, a swap, the read-modify-writes add, sub, and, or and xor,
+      and a compare-and-swap on
+      a <code>*T</code> whose pointee is a fixed-width integer, inside
+      <code>unsafe</code>, each with an order written at the call
+      (<code>[conc.mm.atomic.order]</code>), and
+      <code>[conc.mm.fence]</code> defines <code>fence(o)</code>, of which
+      <code>fence(Order.seq_cst)</code> is the one a safe program may spell.
+      A pointee that is not an integer is <code>E1308</code>, an order the
+      operation does not admit is <code>E1309</code>, and the checked machine
+      runs every order as <code>seq_cst</code> on its one task
+      (<code>[conc.mm.atomic.raw.5]</code>).
       Anchors <code>[conc.*]</code>.</dd>
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
     <dd>Layout, calling convention, and the foreign boundary, differentially
       fuzzed against platform C compilers. It is the document v0.2.22 grew
-      most, and v__WOLF_VERSION__ grew it most again. v0.2.22's
+      most, and v0.2.23 grew it most again. v0.2.22's
       <code>[abi.target]</code> and
       <code>[abi.target.none]</code> define the freestanding target: an object
       with no <code>main</code> shim and no runtime, one trap hook the program
@@ -261,7 +287,7 @@
       hand-declared <code>extern "c" fn</code> is callable inside
       <code>unsafe</code> — and <code>[abi.layout.c]</code> holds a
       <code>#[repr(c)]</code> struct to C's layout through a raw pointer,
-      where the compiled tiers had packed it. At v__WOLF_VERSION__
+      where the compiled tiers had packed it. At v0.2.23
       <code>[abi.layout.packed]</code> and <code>[abi.layout.align]</code> lay
       out <code>#[repr(c, packed)]</code> and <code>#[repr(c, align(N))]</code>
       as C does, and <code>[abi.layout.query]</code> answers
@@ -273,7 +299,15 @@
       build's linker script. <code>[abi.interrupt]</code> says how an
       interrupt reaches wolf, which has no interrupt calling convention: an
       assembly trampoline saves the registers and calls an
-      <code>export fn</code> with the frame. Anchors
+      <code>export fn</code> with the frame. v0.2.24's
+      <code>[abi.target.none.alloc]</code> lifts the freestanding target's
+      refusal of allocation: <code>List</code>, <code>Map</code>,
+      interpolation, a capturing closure and <code>region</code> compile
+      against <code>libwolf_rt_none.a</code>, the region runtime built
+      without the standard library and shipped beside <code>wolf</code>,
+      over a <code>wolf_alloc</code> and <code>wolf_free</code> the program
+      supplies, while <code>Pool</code>, <code>freeze</code>, channels,
+      <code>spawn</code> and <code>par</code> stay refused by name. Anchors
       <code>[abi.*]</code>.</dd>
 
     <dt><a href="/spec/05-conformance.md">05. Conformance</a> (__KIB_spec/05-conformance.md__ KiB)</dt>
@@ -405,7 +439,7 @@
       value or trap <code>overflow</code> on every machine. A change of sign
       is a narrowing cast — native and release had reinterpreted the bits, so
       <code>-1 as u64</code> printed <code>-1</code> — and truncation is
-      spelled <code>v as wrapping[T] as T</code>. At v__WOLF_VERSION__
+      spelled <code>v as wrapping[T] as T</code>. At v0.2.23
       <code>[type.unit.context]</code>'s list of unit contexts has no
       exception: an else-less <code>if</code> that is itself the tail of a
       fallible function discards its branch's raise, warned, where every
