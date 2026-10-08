@@ -139,7 +139,44 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises lets a wolf kernel own its
+  <p><strong>The release this page advertises fixes three answers the
+  compiled tiers got wrong without a word.</strong> A store to a module
+  <code>var</code>, to <code>extern "c" let</code> storage or through any raw
+  pointer was carried across a call to a function that wrote the same memory,
+  so the caller read back its own stale value: the checked machine and
+  <code>lupin</code> printed <code>99</code> where native and release printed
+  <code>0</code>. Loads had the same fault, a read after such a call reusing
+  the value from before it. Every call now ends what the caller knew about
+  that memory, which <code>[mem.static.2]</code> says on every machine; a list
+  lent to the callee stays frozen for the call, as a read parameter promises,
+  so its loads are still reused. And on release a branch on the top half of
+  an unsigned shift, <code>a &gt;&gt; 63 == 1</code>, was deleted, because
+  the range pass bounded the shift by the signed maximum. The interpreter it
+  is tested against re-read the specification at the tag before it, so the
+  two are one release apart where they had been two.</p>
+
+  <p><strong>v0.2.24, the release before it, let a kernel share a word
+  between cpus and allocate.</strong> On a <code>*T</code> whose pointee is
+  a fixed-width integer, inside <code>unsafe</code>, <code>atomic_load</code>,
+  <code>atomic_store</code>, <code>atomic_swap</code>,
+  <code>atomic_add</code>, <code>atomic_sub</code>, <code>atomic_and</code>,
+  <code>atomic_or</code>, <code>atomic_xor</code> and
+  <code>atomic_cas</code> each take an order
+  written at the call, <code>Order.relaxed</code> through
+  <code>Order.seq_cst</code>, and the builtin <code>fence(o)</code> sits
+  beside them. A pointee that is not an integer is <code>E1308</code> and an
+  order the operation does not admit is <code>E1309</code>. On the
+  freestanding target <code>List</code>, <code>Map</code>, interpolation,
+  closures and <code>region</code> compile against a
+  <code>wolf_alloc</code> and <code>wolf_free</code> the program supplies. A
+  raw access at an address that is not a multiple of its pointee's alignment
+  is undefined, row L4, where the machines had disagreed about it. A module
+  string holds the bytes the same literal holds inside a function; every
+  compiler machine had printed its source, quotes and indentation included.
+  And <code>wolf prelude --json</code> lists every name a program gets
+  without an import, with the clause that defines it where one does.</p>
+
+  <p><strong>v0.2.23 let a wolf kernel own its
   machine.</strong> Integers and pointers convert both ways —
   <code>int as *T</code>, <code>*T as int</code>, <code>addr</code>,
   <code>with_addr</code>, <code>expose</code> and <code>is_null</code> — and
@@ -166,7 +203,7 @@ fn main() -&gt; !int {
   already was. Hosted programs that use none of this build byte-for-byte as
   before.</p>
 
-  <p><strong>v0.2.22, the release before it, built for a machine with
+  <p><strong>v0.2.22 built for a machine with
   nothing under it.</strong> <code>wolf build --target x86_64-unknown-none
   --emit=obj</code> emits a kernel object: no <code>main</code> shim, no
   runtime, one trap hook the program supplies, and everything that needs the
