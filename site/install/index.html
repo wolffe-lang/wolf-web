@@ -171,21 +171,24 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has moved forward a release without widening. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has moved forward by two tags without widening. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
   the compiler has tagged once since it, so the newest release whose text the
   interpreter carries whole is one release behind the compiler you are
   installing, __COUNT_speccommits_word__ commits back. At v0.2.19's pin it
-  was one tag back too, reading v0.2.18's text. The compiler has tagged
-  four times since, and the interpreter has followed it each time,
-  re-pinning on the compiler's last tag but one: this release re-pinned on
-  the v0.2.22 tag and, besides the text, healed the partings this page
-  named at the release before it (wolf-interp#174, #179, #181), which is why
-  the gap held its width instead of widening. It agrees with the compiler's own second
+  was one tag back too, reading v0.2.18's text, and at every pin this site
+  has served since, the interpreter had re-pinned on the compiler's last tag
+  but one. The pairing in between did not: lupin 0.1.47 shipped beside
+  v0.2.24 still reading v0.2.22's text, two tags back, and this site never
+  served that pair. This release re-pinned two tags forward, on the v0.2.24
+  tag, and besides the text mirrored the module state and the struct
+  layouts that the refusals this page named at v0.2.23's pin were waiting on
+  (wolf-interp#190, #188), which is why the gap holds its width instead of
+  widening. It agrees with the compiler's own second
   line: the release above was tested against the interpreter version this
   page names, and the playground serves that interpreter, as it did at
-  v0.2.22's pin, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
+  v0.2.23's pin, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
   tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
@@ -197,34 +200,29 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   and the interpreter has not yet followed, which is the ordinary shape of a
   two-implementation project, and it closes when the mirror catches up.
   While it is open the <a href="/play/">playground</a> can answer a program
-  differently from the compiler you just installed. At these pins it does so
-  for the programs the list below names, and each but one answers the same
-  way at a terminal; the list says which of them the distance explains,
-  which one is this build's own, and how that was measured. When the two disagree, the
+  differently from the compiler you just installed. At these pins it refuses
+  none of the programs the compiler runs; it declines some by name, as it
+  does at a terminal, and the list below says which, why, and how that was
+  measured. When the two disagree, the
   <a href="/spec/">specification</a> is what gets read.</p>
 
   <p>What a gap costs, concretely, is a short list of corpus programs, and at
-  these pins all of it is the distance itself: clauses the release above
-  wrote after the text this interpreter was built to. The release pins the
-  interpreter's answer on each by version and names the issue, and no
-  interpreter release mirrors them yet.
-  <code>corpus/comptime/layout_query_repr_c.lu</code>,
-  <code>corpus/memory/packed_fields_at_offset_of.lu</code>,
-  <code>corpus/memory/raw_repr_packed_layout.lu</code> and
-  <code>corpus/memory/raw_repr_align_layout.lu</code> lay structs out with
-  <code>#[repr(c, packed)]</code> and <code>#[repr(c, align(N))]</code> and
-  ask <code>size_of</code>, <code>align_of</code> and <code>offset_of</code>
-  about them, which the release above implements; <code>lupin
-  __LUPIN_VERSION__</code>'s closed attribute set still lists both as not
-  implemented and refuses them by name, <code>fail(E0817)</code>
-  (wolf-interp#188). <code>corpus/membrane/extern_let_image.lu</code> names a
-  linker symbol with <code>extern "c" let</code>, a production the release
-  above added to the grammar; the interpreter reads the grammar of the tag
-  before it and refuses the line at parse, <code>fail(E0201)</code>
-  (wolf-interp#190). Those are refusals, and the census counts them as its
-  <code>fail</code> rows among the programs the compiler runs. Nothing parts
-  in what it prints: every addition that runs here prints what its header
-  states. None of them is worked around here.</p>
+  these pins the list of refusals is empty: no program the compiler runs is
+  refused here, in the tab or at a terminal. What is left is declines, each
+  by name, and each answers the same way under <code>lupin
+  __LUPIN_VERSION__</code> at a terminal. The atomics the release before
+  this one added — <code>corpus/conc/atomic_counter.lu</code>,
+  <code>atomic_fence.lu</code>, <code>atomic_orders.lu</code> and
+  <code>atomic_widths.lu</code> — are declined because the interpreter has
+  no <code>fence</code> and no <code>Order</code> yet, and the volatile
+  program, <code>corpus/memory/volatile_widths.lu</code>, because it has no
+  <code>write_volatile</code>; both halves are mirrored on the interpreter's
+  trunk after this release and not yet released (wolf-interp#194, #185).
+  <code>corpus/memory/packed_field_raw_read.lu</code> reads a field through
+  a raw pointer to a struct, and the interpreter reads that pointer's
+  elements as bytes and declines the field by name, "<code>u8</code> has no
+  member <code>limit</code>" (wolf-interp#205, open). None of them is worked
+  around here.</p>
 
   <p>The tab reads <code>cfg</code> as an x86-64 Linux host. The interpreter
   evaluates a <code>#[cfg(target = …)]</code> against the target it was
@@ -240,35 +238,44 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>Every other program the release above brought into the corpus's running
-  set answers here as its header says, or is declined by this build by name.
-  The census counts verdicts; a second walk feeds every addition to the tab
-  and compares what each prints with its header. The integer and pointer
-  conversions — <code>addr</code>, <code>with_addr</code>,
-  <code>expose</code>, <code>is_null</code>, a round trip and a narrowing
-  cast — prefix <code>*p</code> over signed and unsigned pointees, module
-  <code>const</code>, <code>let</code> and <code>var</code>, and the five
-  discards of an else-less <code>if</code> at a fallible function's tail all
-  print in the tab what their headers state, and the narrowing cast that
-  must trap traps <code>overflow</code>. Under lupin 0.1.45, the interpreter
-  this site served until now, two of the conversions were declined, the
-  narrowing cast printed <code>0 0 0</code> and the trapping one exited 0
-  (wolf-interp#184), and four of those discards handed the raise to the
-  caller (wolf-interp#179). The one decline is the volatile
-  program: the interpreter has no <code>read_volatile</code> or
-  <code>write_volatile</code> yet and says so by name (wolf-interp#185).
-  Of the programs the corpus already carried, these answer differently
-  under the interpreter above, three of them toward the compiler:
-  <code>corpus/grammar/cfg_target_freestanding.lu</code> prints
-  <code>hosted</code> and <code>1</code> (#174),
-  <code>corpus/memory/raw_ptr_private_sig.lu</code> and
-  <code>raw_ptr_mut_param.lu</code> print <code>42</code> (#181);
-  <code>corpus/membrane/extern_libc.lu</code> is declined by name for its
-  bodyless C declaration where it was refused for the <code>*T</code> in its
-  signature; and the program the paragraph above names moved from a refusal
-  to the tab's decline, which ended when the tab took its target. The
-  measurement is four walks, not one — both corpora through both modules — and no other program that
-  both corpora carry changed its answer in any of them.</p>
+  <p>Every other program the release above and the one before it brought into the
+  corpus's running set answers here as its header says. The census counts
+  verdicts; a second walk feeds every addition to the tab and compares what
+  each prints with its header. The calls that write a module
+  <code>var</code> or a raw pointer's memory and are read back after,
+  <code>corpus/memory/static_var_call_writes.lu</code>,
+  <code>static_var_call_deep.lu</code> and
+  <code>raw_store_call_writes.lu</code>, print <code>99 99 1</code>,
+  <code>42 42 7 42</code> and <code>9 9 4</code>; the branches on the top
+  half of an unsigned shift, <code>corpus/kernels/lshr_top_bits.lu</code>
+  and <code>corpus/memory/raw_lshr_top_bits.lu</code>, print every branch
+  taken; <code>corpus/memory/static_str_literals.lu</code> prints its module
+  strings by value; and <code>corpus/memory/raw_aligned_control.lu</code>
+  reads at every pointee's alignment. Those are the answers the release
+  above fixed on the compiled tiers, and the tab never had them wrong: lupin
+  0.1.46, the interpreter this site served until now, printed every one of
+  them the same, and across all of the running set it printed what this
+  interpreter prints wherever it ran a program at all. The measurement is
+  four walks, not one — both corpora through both modules — and no program
+  that both corpora carry changed its answer except the ones the next
+  paragraph names.</p>
+
+  <p>At v0.2.23's pin the gap cost refusals, and none is left. Four programs
+  laid structs out with <code>#[repr(c, packed)]</code> and
+  <code>#[repr(c, align(N))]</code>, which lupin 0.1.46's closed attribute
+  set refused by name, <code>fail(E0817)</code> (wolf-interp#188), and
+  <code>corpus/membrane/extern_let_image.lu</code> named a linker symbol
+  with <code>extern "c" let</code>, a line that interpreter could not parse,
+  <code>fail(E0201)</code> (wolf-interp#190). Under the interpreter above,
+  <code>corpus/comptime/layout_query_repr_c.lu</code> and
+  <code>corpus/memory/packed_fields_at_offset_of.lu</code> print what the
+  compiler prints. <code>corpus/memory/raw_repr_packed_layout.lu</code> and
+  <code>raw_repr_align_layout.lu</code> store a whole struct through a raw
+  pointer, which the interpreter declines by name, as the compiler's own
+  checked machine does: the ABI document says neither models a byte-level
+  aggregate;
+  <code>extern_let_image.lu</code> is declined by name because the
+  interpreter models no link to define the symbol.</p>
 
   <p>At v0.2.22's pin the gap cost six programs, and all but one are healed
   or declined by name. Two gated code by <code>#[cfg(target = …)]</code>,
