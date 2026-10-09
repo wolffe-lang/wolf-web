@@ -262,22 +262,22 @@ CHANGELOG.md Twenty-two 1 counted=0
 CHANGELOG.md sixty-one 1 counted=0
 CHANGELOG.md twenty-six 1 counted=0
 CHANGELOG.md Forty 1 counted=0
-docs/index.html seven 1 counted=1 audited-at-wolf=0.2.25
-index.html five 3 counted=3 audited-at-wolf=0.2.25
-index.html ten 1 counted=1 audited-at-wolf=0.2.25
+docs/index.html seven 1 counted=1 audited-at-wolf=0.2.26
+index.html five 3 counted=3 audited-at-wolf=0.2.26
+index.html ten 1 counted=1 audited-at-wolf=0.2.26
 index.html eighteen 1 counted=1 audited-at-book=2504a0f
-index.html seven 1 counted=1 audited-at-wolf=0.2.25
+index.html seven 1 counted=1 audited-at-wolf=0.2.26
 index.html twenty 1 counted=0
-install/index.html Five 1 counted=1 audited-at-wolf=0.2.25
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.26
 install/index.html Six 1 counted=1 audited-at-lupin=0.1.48
 install/index.html eight 2 counted=0
-install/index.html five 1 counted=1 audited-at-wolf=0.2.25
+install/index.html five 1 counted=1 audited-at-wolf=0.2.26
 install/index.html six 1 counted=0
 install/index.html sixteen 1 counted=0
-install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.25
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.26
 install/index.html twenty-one 1 counted=0
 play/index.html Eight 1 counted=1 audited-at-lupin=0.1.48
-play/index.html six 1 counted=1 audited-at-wolf=0.2.25
+play/index.html six 1 counted=1 audited-at-wolf=0.2.26
 play/index.html Twenty-two 1 counted=0
 play/index.html twenty-two 2 counted=0
 play/index.html Six 1 counted=1 audited-at-lupin=0.1.48
@@ -285,7 +285,7 @@ play/index.html five 6 counted=5 audited-at-lupin=0.1.48
 play/index.html nine 1 counted=1 audited-at-lupin=0.1.48
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-spec/index.html ten 1 counted=1 audited-at-wolf=0.2.25
+spec/index.html ten 1 counted=1 audited-at-wolf=0.2.26
 reading/index.html Six 1 counted=1 audited-at-book=2504a0f
 reading/index.html Thirty-one 1 counted=1 audited-at-book=2504a0f
 reading/index.html five 1 counted=1 audited-at-book=2504a0f
