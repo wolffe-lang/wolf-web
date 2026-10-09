@@ -1,0 +1,79 @@
+book: against http://127.0.0.1:52360/book/ (render served with lupp.us's headers)
+book: chromium phone ch07.html: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: chromium phone ch02.html: page 200, new sample present ("let high = n & !0xff"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-zp9Nhjzy1DQTONWg+ewx4wr/l4jD9BAe07YyXwRT0Ik='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+book: chromium phone ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch08.html: page 200, new sample MISSING ("let summary = copy region command {"), 0 CSP violations, 0 console errors — FAIL
+book: chromium desktop ch07.html: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: chromium desktop ch02.html: page 200, new sample present ("let high = n & !0xff"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-zp9Nhjzy1DQTONWg+ewx4wr/l4jD9BAe07YyXwRT0Ik='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+book: chromium desktop ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch08.html: page 200, new sample MISSING ("let summary = copy region command {"), 0 CSP violations, 0 console errors — FAIL
+book: firefox phone ch07.html: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 0 CSP violations, 0 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+book: firefox phone ch02.html: page 200, new sample present ("let high = n & !0xff"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-zp9Nhjzy1DQTONWg+ewx4wr/l4jD9BAe07YyXwRT0Ik=') or a nonce." {file: "http://127.0.0.1:52360/book/ch02.html" line: 920}]
+book: firefox phone ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch08.html: page 200, new sample MISSING ("let summary = copy region command {"), 0 CSP violations, 0 console errors — FAIL
+book: firefox desktop ch07.html: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 0 CSP violations, 0 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+book: firefox desktop ch02.html: page 200, new sample present ("let high = n & !0xff"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-zp9Nhjzy1DQTONWg+ewx4wr/l4jD9BAe07YyXwRT0Ik=') or a nonce." {file: "http://127.0.0.1:52360/book/ch02.html" line: 920}]
+book: firefox desktop ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch08.html: page 200, new sample MISSING ("let summary = copy region command {"), 0 CSP violations, 0 console errors — FAIL
+book: webkit phone ch07.html: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: webkit phone ch02.html: page 200, new sample present ("let high = n & !0xff"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+book: webkit phone ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch08.html: page 200, new sample MISSING ("let summary = copy region command {"), 0 CSP violations, 0 console errors — FAIL
+book: webkit desktop ch07.html: page 200, 6 diagrams, 5 rendered (538x228 448x176 596x176 666x202 485x228 0x0), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 404 text/html diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: webkit desktop ch02.html: page 200, new sample present ("let high = n & !0xff"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+book: webkit desktop ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch08.html: page 200, new sample MISSING ("let summary = copy region command {"), 0 CSP violations, 0 console errors — FAIL
+book: FAILED
+PLANT-EXIT=1

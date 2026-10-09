@@ -1,0 +1,8 @@
+cd /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/stage/tests/contents || exit 1
+export PLAYWRIGHT_MODULE=/Users/mfwolffe/.npm/_npx/e41f203b7505f1fb/node_modules/playwright-core
+echo "# contents gate (full) and --retry, STAGED: kasumi's dist/book at ww40 f53290b (every script ?v=2504a0f) served by wolf-book 2504a0f tests/contents/serve.mjs under lupp.us's headers, --unversioned; contents.mjs sha256 f0a6c7a5…, playwright-core 1.63.0, nomad-1"
+echo "started $(date -u +%FT%TZ)"
+node contents.mjs --root /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/stage/book --unversioned --json /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/gate-staged.json; echo GATE-EXIT=$?
+node contents.mjs --retry --root /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/stage/book --unversioned --log /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/retry-staged.log; echo RETRY-EXIT=$?
+echo "retry log: $(wc -l < /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/retry-staged.log) lines, $(grep -c 'HTTP 404' /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/retry-staged.log) 'HTTP 404', $(grep -c ERROR /private/tmp/claude-501/-Users-mfwolffe-GithubOrgs-wolffe-lang/7b9aa779-aa75-46cb-9e00-2fabaff85e15/scratchpad/ww40/retry-staged.log) ERROR"
+echo STAGED-DONE

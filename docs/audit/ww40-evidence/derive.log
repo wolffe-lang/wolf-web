@@ -1,0 +1,1344 @@
+derive run 2026-10-09T20:20:31Z on kasumi
+=== tags
+v0.2.24 294d626dd596122285d5df954762e3aee3e5db71
+v0.2.25 6710f9e0cbc3a7264349093751ce7a46a407e473
+v0.2.26 89dc139443da38078df6093568da87bc6d0ee6f9
+trunk ac0ac498c2519c12ce40dfbc5ea40f0e9fde8149
+=== interp gitlinks
+IOLD upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+INEW upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+version = "0.1.49"
+tag v0.1.49 -> f516a5f4ea4341acd3a30f3e5cdd4327aede1912
+interp commits IOLD..INEW = 55
+f516a5f version: 0.1.49
+7acd4ed changelog: 0.1.49 — is74, is75 (written from its nine commits), and the lupin halves of s200, s213, s215, s216
+17f17c2 Revert the plant (e274f03, red in run 37690729423, macOS smoke job 113030284690): copy_out re-homes every str again
+9f96293 PLANT (s216, reverted next): copy_out keeps a str homed in the dying region — tests/region_copyout must go red in CI
+bea29be changelog: copy region { … } (wolf-lang s216, #612)
+820ab0a tests: region_copyout — wolf-lang's copy-out rows on the reference machine
+cc5a78c eval: copy region { … } — a third sugar exit copies the block's value into the enclosing region, then frees (wolf-lang s216, #612)
+43d4d89 s216: inputs re-derived and the prediction, before any change (lupin's half)
+61870c9 fs: os_chdir and containment in the host's plain spelling — windows canonicalize answers a verbatim path (\\?\C:\…) that os_cwd never reports and Path::starts_with tells apart (the compiler's checked machine met it: wolf-lang run 37555223637, windows job 112579792864)
+e4d23e3 fmt: the containment assertion
+a078152 tests: chdir out of the tree asserts the containment decline's words — at trunk the test passed on the unknown-name refusal (lupin-red-trunk-e9d2a204.log 72ba481e…)
+19fc406 changelog: s215's mirror under Unreleased — pipe, chdir, isatty, the map for 0..2, fd > 2 and close refused by name
+6d14aac builtin: os_spawn_fds (invalid, unsupported on windows, a target above 2 or a close refused by name, io, then the program), os_pipe, os_chdir, os_isatty; their rows; os_spawn and os_spawn_with start in the moved directory
+758a029 fs: the pipe (two table handles), a handle's duplicate, the terminal question, and the moved working directory — fs paths, unix-socket paths and os_cwd resolve against it, containment stays the served tree
+197f54e os: ChildTable::spawn_fds (0..2 from the map, the null device where unmapped) and spawn_in (a child starts in the moved working directory)
+69a75e5 tests: proc_fd_s215 — wolf-lang s215's three rows and six unix fixtures byte for byte, the by-name refusals of fd 5 and a close, a forged source, chdir out of the served tree (red at trunk: unsupported)
+4813305 notes: s215 contract (lupin half) — the mirror of [os.proc.fds], [os.proc.pipe], [os.fs.chdir], [os.fs.isatty]
+93915a2 docs: the manual's walk (760 run, 721 match, 72 out of scope) and replay ledger (144) at s213 over is74 (r31)
+3849402 tests: the run ledger gains packed_field_raw_read and raw_ub_misaligned_repr_c_field — s213's struct pointee over is74 runs both (r31)
+e928786 sema, eval: the complement and never comments name rulings #51 and #50 (r31)
+2751a0d changelog: s213's mirror states rulings #50 and #51 (r31)
+ce7324a Revert "plant: ! on an integer is the identity again" — seen red in run 37528293205 (macos-latest test shard 1, job 112490821797) on rulings_s213's bang_on_an_integer_is_its_complement
+6edf802 plant: ! on an integer is the identity again — rulings_s213's complement witnesses must go red in CI (revert follows)
+02faa39 changelog: s213 — lupin's half of the kernel papercuts (#200)
+82daa57 sema: never resolves as a type; a -> never body holding a return, or whose tail is () by shape, is E0401 there ([type.fn.never], wolf-lang#572, ruling owed) (#200)
+008a51c eval, sema: ! on an integer is its complement at the operand's width; a complemented literal adopts an unsigned binding first; ! on a float or str is E0409 at the operand ([type.int.not], wolf-lang#575, ruling owed) (#200)
+6b809c0 eval, layout, prov: a *S to a repr(c) struct carries its layout — p[i] steps by size_of(S); p[i].f, (*p).f and nested paths read and store in place, row L4 asked of the element at align_of(S) ([mem.unsafe.raw.5], wolf-lang#577); a whole element is refused by name (#200)
+facd94b eval, sema: m.V reads and writes another module's var ([mem.static.4], wolf-lang#579); E1301 at the qualified name outside unsafe; module state keyed by its module, so a non-root module's var written first by its own fn runs (#200)
+6a1427b tests: rulings_s213 — 22 witnesses of wolf-lang s213's rows (#572 #575 #577 #579) against the compiler's checked answer, each red or a control at trunk (#200)
+0132981 s213: contract — lupin's half of the kernel papercuts (wolf-interp#200; wolf-lang#572, #575, #577, #579)
+1f71d47 fs: the s199 handle test reads zero bytes from 0..2 — the reads serve the streams since the mirror; close stays io
+2b56d7b changelog: s200's mirror under Unreleased
+c2c16ee builtin: fs_copy_chunk, os_error, os_error_text, bytes_find and bytes_count — names, rows and the scalar scan (wolf-lang#417, #407, #411)
+c648d19 fs: the byte calls serve 0, 1 and 2 (1 and 2 into the capture), fs_copy_chunk through the machine's buffer, the host's number per task (wolf-lang#405, #417, #407)
+6ba81d1 tests: byte_surface — wolf-lang s200's corpus rows and stdin fixtures under lupin run (red before the mirror: io on 1, unsupported on the five names)
+307cfc4 assert-shard-coverage: the summary names the OSes it checked
+79e429d Revert "plant: a windows-only failing test in cli" — seen red in run 37549965195 (windows shard 3, job 112581278711); absent from the PR smoke (job 112582643245, 62 binaries, no cli)
+6b171f0 plant: a windows-only failing test in cli, which the PR smoke omits (revert follows)
+bc1edca CONTRIBUTING: CI and the slot budget, the full-matrix label and dispatch
+f66c838 ci: PR runs get ubuntu in full plus a windows and a macOS smoke; trunk, nightly, dispatch and the full-matrix label keep the full matrix
+4805aa6 assert-shard-coverage: check the OSes SHARD_OSES names, all three when unset
+e1e459b test-shards: smoke-args, every target minus the ones the workflow names
+c0f0288 is75: inputs re-derived and the prediction, before any change
+db66c51 tests: the 294d626d bookkeeping moves with is74's rows — E1307/E1308/E1309 at resolve, the awaiting-mirror list empties, nine rows reach run; the manual's walk and replay; is74's changelog entry back under Unreleased (#185, #194)
+02cd0b4 Revert "plant: atomics skip the release into their location's clock" — seen red in run 37525078461 (ubuntu shard 2, job 112479908507) on rulings_is74's atomic_publish_no_race alone
+a5e2ac4 plant: atomics skip the release into their location's clock — rulings_is74's atomic_publish_no_race must go red in CI (revert follows)
+b51f168 changelog: is74 — volatile access and atomics on *T (#185, #194)
+118833d docs: the approximation contract §10.7 — every order as seq_cst, the location clocks, atomics are not schedule points; §9.4 after kw07
+aeec989 sema: rawops — E1307, E1308, E1309 at the compiler's spans; E1301 for the methods and a weak fence outside the ring; the tier walk in source order (#185, #194)
+39f96d3 eval: rawop — read_volatile/write_volatile, the nine atomics run as seq_cst with their order operands read as marks, and fence (#185, #194)
+825f4e3 sched: atomic_access — every atomic acquires and releases its location's clock, never races another atomic, and a plain access still races an unordered one (#194)
+7fb4e7b prov: a raw pointer carries its pointee's class, and row L3 — a misaligned volatile access, its trigger, twin and report (#185)
+1452953 rules: Volatile and Atomic — kw07's methods and kw11's operations, at anchors every pin since kw07 carries (#185, #194)
+77b78a5 tests: rulings_is74 — 64 witnesses of kw07's and kw11's rows against wolf 0.2.24, each red or a control at trunk (#185, #194)
+a52a61b is74: contract — lupin's volatile and atomics (#185, #194)
+=== interp files changed
+ tests/ub/l3_misaligned_volatile.lu                 |  23 +
+ tests/ub/ok/l3_aligned_volatile_ok.lu              |  22 +
+ 227 files changed, 8953 insertions(+), 195 deletions(-)
+=== lupin CHANGELOG 0.1.49 entry
+## 0.1.49 — 2026-10-08
+
+THE FORTY-NINTH, the lupin half of wolf 0.2.26. **Pin unchanged:
+`294d626d` (wolf-lang v0.2.24).** Fifty-three commits since 0.1.48, in
+six lanes: is74 (11, volatile and atomics), is75 (9, the CI slot
+budget), and the lupin halves of wolf-lang's s200 (5, the byte surface),
+s213 (13, the kernel papercuts, with r31's four), s215 (9, a child's
+descriptors) and s216 (6, `copy region`). Integrated by r31 one lane at
+a time. The 0.2.26 pairing drops the wolf-lang gate pins that waited on
+#185, #194, #200 and each lane's mirror.
+
+- **The walk at this release:** 1002 files, 955 entries, 47 members;
+  760 reach `run`, 721 match, 94 dynamic, 64 conservatism, 72 out of
+  scope, 4 mismatch, every one filed. Two rows newly run and match
+  (`memory/packed_field_raw_read.lu`, `memory/raw_ub_misaligned_repr_c_field.lu`):
+  s213's struct pointee over is74's pointee class, which also answers
+  wolf-interp#205.
+- **Rulings now made** that lanes implemented ahead of them: #50
+  (`-> never`), #51 (`!` on integers), #56 (`copy region`), each A.
+
+### Volatile access and atomics on `*T` (is74, #185, #194)
+
+kw07 (K3 = B) and kw11 (K5 = A) gave wolf `read_volatile`/`write_volatile`
+and nine raw-pointer atomics with `Order` as syntax; lupin answered
+`unsupported` on every row. On every row lupin now answers what the
+compiler's lanes answer (64 witnesses in `tests/rulings_is74/`, measured
+against wolf 0.2.24), the counts of tasks running atomics included.
+
+- **Volatile** (`[mem.unsafe.volatile]`). `p.read_volatile()` and
+  `p.write_volatile(v)` on a `*T` whose `T` is `u8`…`u64`, `i8`…`i64` or
+  `byte`: one access of the width, on an allocation an ordinary one (P1,
+  P3 as `p[0]`). Any other pointee is **E1307** at the method; outside
+  `unsafe`, **E1301**. A misaligned address is the new §7 row **L3**
+  (clause `mem.unsafe.volatile`, O11).
+- **Atomics** (`[conc.mm.atomic.raw]`, `[conc.mm.atomic.order]`,
+  `[conc.mm.fence]`). `atomic_load`, `_store`, `_swap`, `_add`, `_sub`,
+  `_and`, `_or`, `_xor` (the old value, wrapping at the width) and
+  `atomic_cas` (`(T, bool)`); `fence(o)`, a prelude name (W0304 when
+  shadowed). Every order runs as `seq_cst` and is read as a mark, never
+  evaluated. A pointee that is not a fixed-width integer is **E1308**; an
+  order the operation does not admit, an operand that is not a mark, an
+  unknown mark, and `Order` as a value are **E1309**, each at the
+  compiler's span; an atomic outside `unsafe`, or a fence weaker than
+  `seq_cst`, is **E1301**. A misaligned atomic is row **L4**. The tier walk
+  now reports the first E1301 in source order (it walked fns by name).
+- **Tasks**: every atomic acquires and releases its location's clock, so
+  `atomic_counter.lu` prints `400000 100000` as the compiled tiers do; two
+  atomics never race, and an atomic beside an unordered plain access does.
+  The plain-increment twin still traps `race`. Atomics are not schedule
+  points, so a spin-wait whose writer has not run does not terminate here
+  (`docs/approximation-contract.md` §10.7).
+
+### CI: the slot budget (is75)
+
+The org's free plan runs 20 jobs at once, five of them macOS, across every
+repo, and a full wolf-interp run is 17 jobs and about 21 slot-hours. The
+`plan` job in `.github/workflows/ci.yml` now decides the matrix by event:
+a push to `trunk`, the nightly, `workflow_dispatch` and a pull request
+labelled **`full-matrix`** run the full matrix as before; any other pull
+request runs ubuntu's three shards and ladder in full plus one windows and
+one macOS **smoke** (build, fmt, clippy, every test target but the heavy
+ones `SMOKE_OMITS` names, and the fast ladder rungs; a 20-minute cap,
+which r31 found at its edge: one windows smoke timed out at 20.2
+minutes with nothing failed, wolf-interp#215).
+`ci/test-shards.sh` gains `smoke-args`; `ci/assert-shard-coverage.sh`
+checks the OSes `SHARD_OSES` names (all three when unset) and says which.
+`CONTRIBUTING.md` documents the budget and how to ask for the full matrix
+before a merge. The plant (a windows-only failing test in `cli`) went red
+in the full matrix (run 37549965195, windows shard 3) and was absent from
+the smoke, as designed; reverted.
+
+### The byte surface, mirrored (s200; wolf-lang#405, #411, #417, #407)
+
+wolf-lang's s200 gives a program its standard streams as bytes, a bulk
+byte scan, a copy the host makes, and the host's error number beside the
+row. lupin answers each one as the compiler's three lanes do
+(`tests/byte_surface.rs`: wolf-lang's four corpus rows and two stdin
+fixtures, standard input a file, a pipe and an offset the test shares).
+
+- **`[os.fs.std]`, the byte calls.** `fs_read`, `fs_read_chunk`, `fs_write`
+  and `fs_write_chunk` serve descriptors 0, 1 and 2, where they answered
+  `io`. A read of 0 reads the process's descriptor through a safe
+  duplicate, so the offset is the one the process shares. A write to 1 or
+  2 goes into the machine's capture, the one `print` and `eprint` write,
+  in program order. Unlike the offset calls, these four serve the
+  standard streams on windows too: a read or a write needs no
+  `GetFileType`. `fs_close` on 0..2 stays `io`.
+- **`[os.fs.copy]`, `fs_copy_chunk(src, dst, max) -> int ! {eof, io}`.**
+  One read and one write through this machine's buffer: the bytes and
+  offsets the compiled rungs move. Both handles are checked first, then
+  `max`; `eof` at the end.
+- **`[mem.list.bytes]`, `bytes_find(xs, b, from) -> int ! {none}` and
+  `bytes_count(xs, b) -> int`.** The scalar definition, element for
+  element. `from` outside `0..len` is `none`.
+- **`[os.fs.error]`, `os_error()` and `os_error_text(code)`.** Each task's
+  machine keeps the host's number for its last fallible fs call, 0 for a
+  success or a failure decided before the host; the total predicates
+  (`fs_exists`, `fs_is_file`, `fs_is_dir`) leave it alone. The text is std's rendering without its
+  ` (os error N)` suffix, the compiler's runtime word for word. The row
+  mappers record the host error even where the row stays `io` (`io_row`
+  keeps its uniform row).
+
+### The kernel papercuts, lupin's half (s213, #200; wolf-lang #572, #575, #577, #579)
+
+wolf-lang s213 closes four gaps the PAX kernel worked around; lupin now
+answers each of its rows as the compiler's checked machine does (22
+witnesses in `tests/rulings_s213/`, 19 of them the s213 corpus rows
+verbatim). Two of the four spellings — `-> never` and `!` on an integer — were
+ruled by the maintainer on 2026-10-07 as implemented (rulings #50 and
+#51, A each).
+
+- **#579, a module item through its module's name** (`[mem.static.4]`).
+  `counter.COUNT` reads, and inside `unsafe` writes, another module's
+  `var`; a qualified `var` access outside `unsafe` is **E1301** at the
+  qualified name. Module state is now keyed by its module, so a non-root
+  module's `var` written by its own fn before any read of it runs (it was
+  "not a local place"), and two modules' items of one name are two items.
+- **#577, a field of a raw element** (`[mem.unsafe.raw.5]`). A `*S` to a
+  `#[repr(c)]` struct carries the struct's C layout: `p[i]` steps by
+  `size_of(S)` (it stepped one byte), and `p[i].f`, `(*p).f` and nested
+  paths read and store the field's bytes at its offset, a compound operator
+  reading first. Row L4 is asked of the element at `align_of(S)` (1 when
+  packed). A whole `#[repr(c)]` element through `p[i]` is refused by name
+  (it read one byte).
+- **#575, `!` on an integer** (`[type.int.not]`, ruling #51 = A). The bitwise
+  complement at the operand's width — `-x - 1` signed, `max - x` unsigned —
+  never a trap; a byte widens to `int`; a complemented literal adopts an
+  unsigned binding's type first (`const M: u32 = !0xfff`). `!` on a float or
+  a `str` is **E0409** at the operand.
+- **#572, `-> never`** (`[type.fn.never]`, ruling #50 = A). `never` resolves as
+  a type; a call to a `never` fn needs nothing at run time. A `-> never`
+  body holding a `return`, or whose tail is `()` by shape, is **E0401** at
+  the `return` or the tail.
+
+### A child's descriptors, a pipe, the working directory, isatty (s215, pelt's H2)
+
+wolf-lang s215 adds four host builtins (`[os.proc.fds]`, `[os.proc.pipe]`,
+`[os.fs.chdir]`, `[os.fs.isatty]`); lupin mirrors them, witnessed by the
+compiler's own rows and fixtures in `tests/proc_fd_s215.rs`.
+
+- **`os_pipe() -> (int, int) ! {io}`**: a pipe's read and write ends as two
+  handles of the fs table (3 and up), close-on-exec; every handle call
+  serves them.
+- **`os_chdir(str) -> () ! {denied, io, not_found}`** moves this machine's
+  working directory — never the process's, which runs many programs at
+  once. Relative fs and unix-socket paths, `os_cwd` and every spawn follow
+  it; containment stays the served tree, so a directory outside it is
+  declined by name, as an open there is.
+- **`os_isatty(int) -> bool ! {io}`**: 0..2 ask the process's streams, 3
+  and up the table; closed or forged is `io`.
+- **`os_spawn_fds(str, List[str], List[int]) -> int ! {denied, invalid, io,
+  not_found, unsupported}`** for child descriptors 0, 1 and 2 from the
+  table or the standard streams, in the clause's order of refusal (shape
+  `invalid`, windows `unsupported`, sources `io`, then the program). A
+  target above 2 or a close (`-1`) is **refused by name**: placing or
+  closing a child's descriptor between fork and exec needs `unsafe`, which
+  this crate forbids, and stable Rust 1.97 has no safe call for it. An
+  unmapped 0..2 keeps this machine's spawn posture, the null device.
+
+### `copy region { … }` (wolf-lang s216, #612)
+
+wolf-lang's `[mem.region.copyout]`: a region block whose value is copied
+into the region the block was entered from before the block's region is
+freed, so a long-running loop keeps each turn's result and frees the
+rest. lupin read the spelling as a plain `copy` of a plain block and
+trapped `region-fault` at the `}` on every such program (0.1.47, 0.1.48).
+
+- A third sugar exit beside free and freeze. On the closing brace's edge
+  only, after the enclosing region is current again, the value is copied
+  and re-homed there: every `str` rebuilt (charged to that region), lists
+  and structs re-allocated, tuples, maps and error/enum payloads rebuilt.
+  Then the block's region is freed. A `return`, `?` or `break` leaving the
+  block copies nothing, as before.
+- A fn value, closure, region, pool, cell, raw pointer or conc handle has
+  no copy independent of the region: `region-fault`, the dynamic half of
+  the compiler's E1010 at the block.
+- `tests/region_copyout.rs` carries wolf-lang's rows until the re-pin
+  brings them into the corpus walk.
+
+=== spec pins: SPEC_OLD 294d626dd596122285d5df954762e3aee3e5db71 SPEC_NEW 294d626dd596122285d5df954762e3aee3e5db71
+SPEC_NEW is v0.2.24
+=== ancestry
+is-ancestor SPEC_NEW(294d626d) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC_NEW..NEW = 213
+rev-list --count SPEC_OLD..NEW = 213
+rev-list --count OLD..NEW = 163
+rev-list --count SPEC_OLD..OLD = 50
+=== CHANGELOG headings at NEW
+## 0.2.26 — 2026-10-09
+## 0.2.25 — 2026-10-07
+## 0.2.24 — 2026-10-06
+## 0.2.23 — 2026-10-04
+## 0.2.22 — 2026-10-03
+=== counts OLD vs NEW
+6710f9e0 E=153 W=34 net=18 anchors=595
+89dc1394 E=153 W=34 net=18 anchors=607
+anchors added 12 ['mem.list.bytes', 'mem.region.copyout', 'mem.static.4', 'mem.unsafe.raw.5', 'os.fs.chdir', 'os.fs.copy', 'os.fs.error', 'os.fs.isatty', 'os.proc.fds', 'os.proc.pipe', 'type.fn.never', 'type.int.not']
+anchors dropped 0 []
+=== diagnostics added
+=== warnings added
+grammar.ebnf 67816f8fcb04f096 -> 67816f8fcb04f096
+BYTE-IDENTICAL
+=== platforms.md OLD..NEW
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+=== phase:run sets
+  592 /home/mfwolffe/lanes/ww40/run-6710f9e.txt
+  618 /home/mfwolffe/lanes/ww40/run-89dc139.txt
+ 1210 total
+--- in:
+corpus/fs/copy_chunk.lu
+corpus/fs/os_error.lu
+corpus/fs/std_write_bytes.lu
+corpus/memory/bytes_scan.lu
+corpus/memory/raw_field_store_compound.lu
+corpus/memory/raw_field_store.lu
+corpus/memory/raw_field_store_nested.lu
+corpus/memory/raw_field_store_packed.lu
+corpus/memory/region_copyout_exits.lu
+corpus/memory/region_copyout_loop.lu
+corpus/memory/region_copyout_map.lu
+corpus/memory/region_copyout_struct.lu
+corpus/memory/region_str_call_inside.lu
+corpus/memory/region_str_call_static.lu
+corpus/memory/static_qualified_let/main.lu
+corpus/memory/static_qualified/main.lu
+corpus/memory/static_qualified_var/main.lu
+corpus/os/chdir_relative.lu
+corpus/os/pipe_round_trip.lu
+corpus/os/spawn_fds_rows.lu
+corpus/typecheck/fn_never_extern.lu
+corpus/typecheck/fn_never_handler_arm.lu
+corpus/typecheck/fn_never_trap.lu
+corpus/typecheck/int_not_byte.lu
+corpus/typecheck/int_not_mask.lu
+corpus/typecheck/int_not_signed.lu
+--- out:
+=== corpus diff name-status
+A	corpus/comptime/sandbox_chdir.lu
+A	corpus/comptime/sandbox_isatty.lu
+A	corpus/comptime/sandbox_pipe.lu
+A	corpus/comptime/sandbox_spawn_fds.lu
+A	corpus/fs/copy_chunk.lu
+A	corpus/fs/os_error.lu
+A	corpus/fs/std_write_bytes.lu
+A	corpus/memory/bytes_scan.lu
+A	corpus/memory/raw_field_store.lu
+A	corpus/memory/raw_field_store_compound.lu
+A	corpus/memory/raw_field_store_nested.lu
+A	corpus/memory/raw_field_store_outside_unsafe.lu
+A	corpus/memory/raw_field_store_packed.lu
+A	corpus/memory/raw_ub_misaligned_repr_c_field_store.lu
+A	corpus/memory/region_copyout_binding.lu
+A	corpus/memory/region_copyout_closure.lu
+A	corpus/memory/region_copyout_exits.lu
+A	corpus/memory/region_copyout_handle.lu
+A	corpus/memory/region_copyout_loop.lu
+A	corpus/memory/region_copyout_map.lu
+A	corpus/memory/region_copyout_raw_ub.lu
+A	corpus/memory/region_copyout_return.lu
+A	corpus/memory/region_copyout_struct.lu
+A	corpus/memory/region_str_call_block_value.lu
+A	corpus/memory/region_str_call_held.lu
+A	corpus/memory/region_str_call_index_store.lu
+A	corpus/memory/region_str_call_inside.lu
+A	corpus/memory/region_str_call_static.lu
+A	corpus/memory/region_str_call_view.lu
+A	corpus/memory/region_str_elem_call_held.lu
+A	corpus/memory/static_qualified/limits/limits.lu
+A	corpus/memory/static_qualified/main.lu
+A	corpus/memory/static_qualified_let/limits/limits.lu
+A	corpus/memory/static_qualified_let/main.lu
+A	corpus/memory/static_qualified_var/counter/counter.lu
+A	corpus/memory/static_qualified_var/main.lu
+A	corpus/memory/static_qualified_var_outside_unsafe/counter/counter.lu
+A	corpus/memory/static_qualified_var_outside_unsafe/main.lu
+A	corpus/os/chdir_relative.lu
+A	corpus/os/pipe_round_trip.lu
+A	corpus/os/spawn_fds_rows.lu
+A	corpus/typecheck/fn_never_extern.lu
+A	corpus/typecheck/fn_never_handler_arm.lu
+A	corpus/typecheck/fn_never_reaches_end.lu
+A	corpus/typecheck/fn_never_return.lu
+A	corpus/typecheck/fn_never_trap.lu
+A	corpus/typecheck/int_not_byte.lu
+A	corpus/typecheck/int_not_float.lu
+A	corpus/typecheck/int_not_mask.lu
+A	corpus/typecheck/int_not_signed.lu
+--- pre-existing run programs modified:
+=== spec/ docs/ stat
+ docs/diagnostics.md     |  16 ++-
+ spec/02-memory-model.md | 203 ++++++++++++++++++++++++++-
+ spec/08-package.md      |  28 +++-
+ spec/10-types.md        |  47 +++++++
+ spec/11-os.md           | 366 ++++++++++++++++++++++++++++++++++++++++++++----
+ spec/anchors.json       |  12 ++
+ spec/prelude.json       |  25 +++-
+ 7 files changed, 647 insertions(+), 50 deletions(-)
+=== new run program headers
+## corpus/fs/copy_chunk.lu
+//! check: run(exit=0, stdout="total=20 same=true\nbefore\nthe quick brown fox\nafter zero=0\nat_end=eof closed=io forged_src=io forged_dst=io\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.copy, os.fs.std, err.union, err.propagate
+//!
+//! s200 (wolf-lang#417, `[os.fs.copy]`) — `fs_copy_chunk(src, dst, max)`:
+//! one transfer of at most `max` bytes from `src`'s offset to `dst`'s,
+//! both advancing, the bytes never passing through the program (on
+//! linux, never through user space: `copy_file_range`, `sendfile`,
+//! `splice`, the read/write loop last). HOW MANY bytes one call moves is
+//! the host's, so this file pins totals, never a split:
+//!
+//!   total / same     a 20-byte file copied 7 bytes at most per call to
+//!                    a new file: 20 moved, the copy byte-identical.
+//!   before / after   the same file onto descriptor 1, between `print`s:
+//!                    in program order with them, on every tier.
+//!   zero             a `max` of zero moves nothing and answers 0.
+//!   at_end           a source at its end is `eof`.
+//!   closed / forged  either handle closed or forged is `io`.
+## corpus/fs/os_error.lu
+//! check: run(exit=0, stdout="start=0\nmissing=2 text_nonempty=true kept=2\nsuccess=0 forged=0 at_eof=0\nzero_text=true negative_text=true\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.error, err.union, err.propagate
+//!
+//! s200 (wolf-lang#407, `[os.fs.error]`) — the host's number beside the
+//! row. A row says which RESPONSE a failure wants; `os_error()` says
+//! WHY, for a reader: the host's error number for the task's most recent
+//! fallible fs call, 0 when it succeeded or failed before the host was
+//! asked. The relations, on every tier-1 host:
+//!
+//!   start          no fs call yet: 0.
+//!   missing        opening a path that does not exist: 2 — `ENOENT`
+//!                  on linux and macOS, `ERROR_FILE_NOT_FOUND` on
+//!                  windows, the same number by coincidence of history.
+//!   text_nonempty  the host has a message for it (its words differ by
+//!                  host, so this file pins only that there are some).
+//!   kept           a `print` and a total predicate (`fs_exists`) do
+//!                  not touch the number.
+//!   success        a call that succeeds clears it.
+//!   forged / eof   a failure decided before the host — a forged
+## corpus/fs/std_write_bytes.lu
+//! check: run(exit=0, stdout="one\ntwo\nthree\nfour\nclose1=io close2=io")
+//! phase: run
+//! conforms: os.fs.std, err.union, err.propagate
+//!
+//! s200 (wolf-lang#405, `[os.fs.std]`) — bytes onto descriptor 1, the
+//! process's own standard output, with nothing reopened. Until s200 the
+//! byte calls answered `io` on 0, 1 and 2 (s199 served only the offset
+//! calls there), so the one route to a byte on stdout was reopening
+//! `/dev/stdout` — a fresh description on linux, an append for
+//! `1<> file`, and with descriptor 1 closed, the program's own input.
+//!
+//!   one / three        `print`s around the byte writes: a write to 1
+//!                      lands in program order with them on every tier.
+//!   two                `fs_write_chunk(1, …)`: a `List[byte]`.
+//!   four               `fs_write(1, …)`: the text twin.
+//!   close1 / close2    the implementation never closes a standard
+//!                      stream: `fs_close` on 1 and 2 stays `io`, and
+//!                      the lines after it still print.
+## corpus/memory/bytes_scan.lu
+//! check: run(exit=0, stdout="count=3 first=2 next=5 adjacent=6 after=none\nat_len=none past=none negative=none absent=none\nempty_count=0 empty_find=none\nbig_count=2857 last=19998 tail=none lines=2857")
+//! phase: run
+//! conforms: mem.list.bytes, err.union
+//!
+//! s200 (wolf-lang#411, `[mem.list.bytes]`) — the bulk byte scan.
+//! `bytes_find(xs, b, from) -> int ! {none}` is the first index at or
+//! after `from` holding `b`; `bytes_count(xs, b)` is how many do. On the
+//! native and release tiers each is one runtime call into a loop the
+//! runtime's compiler vectorises; every machine answers the scalar
+//! definition, element for element. The edges this file pins:
+//!
+//!   count / first / next / adjacent / after   "ab\ncd\n\nefg": three
+//!                    newlines at 2, 5 and 6; nothing at or after 7.
+//!   at_len / past / negative   a `from` outside `0..len` is `none`,
+//!                    `xs.get`'s posture — absence is a row, not a trap.
+//!   absent           a byte that is not there is `none`.
+//!   empty_*          the empty list counts 0 and finds nothing.
+//!   big_* / lines    20000 bytes, a newline at every seventh: the
+//!                    count across the vector loop's block edges (32,
+//!                    and 255 rows of 32), the last hit at the last
+## corpus/memory/raw_field_store_compound.lu
+//! check: run(exit=0, stdout="3 42 0 -9\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.5, mem.model.place.rhs, abi.layout.c
+//!
+//! s213 (wolf-lang#577): a compound store to a field of a raw element
+//! reads the field at its own type, then stores (`[mem.unsafe.raw.5]`):
+//! `p[1].b += 2` on a `u64` at offset 8, and a signed `i32` field
+//! decremented below zero. The `u32` field at offset 0 and the padding
+//! after it are not touched. At trunk 294d626d every compiling machine
+//! refused the store.
+## corpus/memory/raw_field_store.lu
+//! check: run(exit=0, stdout="1 7 0 5\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.1, mem.unsafe.raw.5, abi.layout.c
+//!
+//! s213 (wolf-lang#577): a store to a field of a raw element,
+//! `p[0].b = 7`, writes the field's bytes in place at its
+//! `#[repr(c)]` offset (`[mem.unsafe.raw.5]`) and leaves the other
+//! field alone — the issue's witness, with the whole-struct setup store
+//! spelled field by field (a whole-aggregate raw store is a separate
+//! gap on the checked machine). At trunk 294d626d every compiling
+//! machine refused `p[0].b = 7` ("assignment through this place
+//! shape"); lupin refused it as no place.
+## corpus/memory/raw_field_store_nested.lu
+//! check: run(exit=0, stdout="5 0 9 11\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.5, abi.layout.c
+//!
+//! s213 (wolf-lang#577): a nested field path through a raw element,
+//! `p[0].inner.y = 5`, stores at the sum of the offsets
+//! (`[mem.unsafe.raw.5]`); the dereference spelling `(*p).tag = 9`
+//! names the element at index 0, and `(*p).tag += 2` reads it back
+//! first. At trunk 294d626d every compiling machine refused both
+//! stores.
+## corpus/memory/raw_field_store_packed.lu
+//! check: run(exit=0, stdout="65535 4096 1 512\n")
+//! phase: run
+//! conforms: mem.unsafe.raw.4, mem.unsafe.raw.5, abi.layout.packed
+//!
+//! s213 (wolf-lang#577): a packed struct's alignment is 1, so a store to
+//! its `u64` field at offset 2 (and 12, in the second element) through
+//! `g[i].base = v` is an ordinary defined access on every machine —
+//! never row L4 (`[mem.unsafe.raw.4]`, `[mem.unsafe.raw.5]`); a
+//! descriptor table's builder sets one field in place this way. s209's
+//! read twin is `packed_field_raw_read.lu`. At trunk 294d626d every
+//! compiling machine refused the store.
+## corpus/memory/region_copyout_exits.lu
+//! check: run(exit=0, stdout="12 7 none\n")
+//! phase: run
+//! conforms: mem.region.copyout, mem.region.intra.2
+//!
+//! s216 — every way out of a `copy region` block other than its
+//! closing brace is the plain block's: `continue`, `break` and `?`
+//! free the region and leave WITHOUT a copy (nothing is handed out on
+//! those edges). The `int` they compute with carries no site.
+## corpus/memory/region_copyout_loop.lu
+//! check: run(exit=0, stdout="piece 49 3-49 50\n")
+//! phase: run
+//! conforms: mem.region.copyout, mem.region.escape, mem.region.create.3
+//!
+//! s216 (wolf-lang#612) — `copy region { … }`: an interpreter-shaped
+//! loop keeps each turn's result and frees the rest. `build(i)` makes
+//! twenty `str`s and a `List` per turn inside `scratch`; at the `}` the
+//! block's value — one `str` — is copied into the region the block was
+//! entered from (`step`'s ambient, its caller's), and only then is
+//! `scratch` freed. The kept value is stored through the `mut`
+//! parameter's map outside the block, where the copy lives. The same
+//! store from INSIDE the block is E1010 (`region_str_call_index_store.lu`).
+## corpus/memory/region_copyout_map.lu
+//! check: run(exit=0, stdout="value-20 value-30 v1 3 4 (1, two) 26890\n")
+//! phase: run
+//! conforms: mem.region.copyout
+//!
+//! s216 — maps and tuples copy out too: a `Map[str, str]` whose keys
+//! and values were built in the block, a `Map[str, int]`, a `List[str]`
+//! and a `(int, str)` leave as copies in the enclosing region (each
+//! entry's key and value materialized), then `clobber()` reuses the
+//! freed chunk.
+## corpus/memory/region_copyout_struct.lu
+//! check: run(exit=0, stdout="plan-7 8 w7-0 w7-2 3 26890\n")
+//! phase: run
+//! conforms: mem.region.copyout
+//!
+//! s216 — the copy is deep: a struct holding a `List[str]`, a `str`
+//! view (`t.trim()` of a string built in the block) and an `int` leaves
+//! `scratch` as a copy in the enclosing region, every `str`'s bytes
+//! materialized there. `clobber()` then runs a region of its own that
+//! reuses the freed chunk, so a value still naming `scratch` would
+//! print `ZZZZ…` on native and release.
+## corpus/memory/region_str_call_inside.lu
+//! check: run(exit=0, stdout="built-1-tail\nbuilt-2-tail\n[built-3-tail]\n")
+//! phase: run
+//! conforms: mem.region.escape
+//!
+//! s216 (wolf-lang#618), the legal side. A call's `str` result used
+//! INSIDE the region that owns its bytes is what the region is for; a
+//! call made OUTSIDE any region builds in the caller's region and lives
+//! as long as it does. Neither is refused.
+## corpus/memory/region_str_call_static.lu
+//! check: run(exit=0, stdout="[Input/output error] [zero] [static]\n")
+//! phase: run
+//! conforms: mem.region.escape
+//!
+//! s216 (wolf-lang#618), the legal side. A declared fn whose every
+//! result is a string literal — a literal tail, a literal `return`, an
+//! `if`/`match` of literals, a call to such a fn — hands back static
+//! bytes, which outlive every region, so its call is no site and the
+//! result may leave the block. This is boreutils' `bore.io_error()`
+//! shape (`cat`'s `why = bore.io_error()` inside `region pass`), which
+//! the conservative rule alone refused.
+## corpus/memory/static_qualified_let/main.lu
+//! check: run(exit=0, stdout="9 lim 18\n")
+//! phase: run
+//! conforms: mem.static, mem.static.1, mem.static.4
+//!
+//! s213 (wolf-lang#579): a `pub let` read through its module's name is
+//! the item's immutable data (`[mem.static.4]`) — a `u32` loaded from
+//! the image and a `str` that is its literal — in safe code. At trunk
+//! 294d626d every compiling machine refused the reads as it refused a
+//! `pub const`'s.
+## corpus/memory/static_qualified/main.lu
+//! check: run(exit=0, stdout="7 7\n")
+//! phase: run
+//! conforms: mem.static, mem.static.1, mem.static.4
+//!
+//! s213 (wolf-lang#579): a module's `pub const`, read from another
+//! module as `limits.WIDTH`, is its value (`[mem.static.4]`) — the
+//! issue's witness, plus the `pub fn` pax wrote beside each constant
+//! meanwhile. At trunk 294d626d native and release refused the read
+//! ("a member access without a recorded type") and the checked machine
+//! refused it ("module items in checked execution"); lupin ran it.
+## corpus/memory/static_qualified_var/main.lu
+//! check: run(exit=0, stdout="40 43 45\n")
+//! phase: run
+//! conforms: mem.static, mem.static.2, mem.static.4
+//!
+//! s213 (wolf-lang#579): a `pub var` read and written through its
+//! module's name is the module's writable data (`[mem.static.4]`):
+//! inside `unsafe`, a qualified write (`counter.COUNT += 3`) is seen by
+//! the next qualified read and by the module's own functions, and the
+//! module's own write is seen through them. At trunk 294d626d every
+//! compiling machine refused the qualified read. No qualified read
+//! follows a call that writes the `var`: on native and release such a
+//! read returns the pre-call value (wolf-lang#601, a separate defect of
+//! the bare name too).
+## corpus/os/chdir_relative.lu
+//! check: run(exit=0, stdout="moved=true\nrelative_read=found\ncwd_ends_inner=true\nup_sees_inner=true\nback=true\nmissing=not_found\nonto_a_file=io\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.chdir, os.fs.path, err.union, err.propagate
+//!
+//! s215 (`[os.fs.chdir]`; wolf-std F-0067's ask; pelt's H2) — `cd`,
+//! then a relative open. After `os_chdir(dir)` a relative path names a
+//! file under `dir` (`[os.fs.path]`: relative paths resolve against the
+//! working directory), `os_cwd` answers the new directory, `..` walks
+//! back up, and changing back to the directory `os_cwd` answered first
+//! restores it exactly. A missing directory is `not_found`; a path that
+//! names a FILE is `io` (the host's ENOTDIR, which the row has no tag
+//! for). The row leaves the working directory where it found it.
+## corpus/os/pipe_round_trip.lu
+//! check: run(exit=0, stdout="ends_above_2=true distinct=true\nread=howl\nthen=eof\nwrite_end_tty=false read_end_tty=false\nclosed_tty=io forged_tty=io\nwrite_after_close=io")
+//! phase: run
+//! conforms: os.proc.pipe, os.fs.isatty, err.union, err.propagate
+//!
+//! s215 (`[os.proc.pipe]`, `[os.fs.isatty]`; pelt's H2) — a pipe made
+//! and used inside one process, with no child: the two ends are
+//! ordinary fs handles (3 and up, `[os.fs.std]`), so `fs_write` on the
+//! write end and `fs_read` on the read end move the bytes, closing the
+//! write end is what the reader sees as `eof`, and neither end is a
+//! terminal. A closed or forged handle is `io` to `os_isatty`, the
+//! family's rule, and so is a write to a closed end. Host-independent:
+//! nothing is spawned, so the row runs on every tier and every host.
+## corpus/os/spawn_fds_rows.lu
+//! check: run(exit=0, stdout="odd=invalid\nout_of_range=invalid\nnegative_target=invalid\nrepeated=invalid\nbad_source=invalid\nempty_exe=not_found\nno_program=not_found")
+//! phase: run
+//! conforms: os.proc.fds, err.union
+//!
+//! s215 (`[os.proc.fds]`; pelt's H2) — the descriptor map's rows that
+//! make no child, deterministic on every host. The map is a flat
+//! `List[int]` of (child fd, source) pairs and its SHAPE is decided
+//! before anything else is read: an odd length, a target outside
+//! 0..255, a target named twice and a source below -1 are each
+//! `invalid` — on windows too, where a well-formed non-empty map is
+//! `unsupported` instead. An EMPTY map is `os_spawn_with` with an empty
+//! set: an empty program name and a program no host has are both
+//! `not_found`. Nothing here is ever spawned (the live witnesses are
+//! `crates/wolf_driver/tests/proc_fd_lanes.rs`, unix).
+## corpus/typecheck/fn_never_extern.lu
+//! check: run(exit=0, stdout="2\n")
+//! phase: run
+//! conforms: type.fn.never, abi.link.extern, abi.c.types
+//!
+//! s213 (wolf-lang#572, ruling owed): a bodyless `extern "c" fn`
+//! declared `-> never` is the programmer's claim about the foreign
+//! function — C's `_Noreturn void abort(void)` — so a call to it fits
+//! the handler where an `int` is wanted (`[type.fn.never]`); it crosses
+//! the membrane as `void`. The handler is not taken here.
+## corpus/typecheck/fn_never_handler_arm.lu
+//! check: run(exit=0, stdout="1\n")
+//! phase: run
+//! conforms: type.fn.never, type.fn.ret
+//!
+//! s213 (wolf-lang#572, ruling owed): a call to a fn declared
+//! `-> never` is bottom, so it fits the `else` handler's arm where an
+//! `int` is wanted, with no dead value after it (`[type.fn.never]`) —
+//! the issue's witness with `die` declared `-> never`. At trunk
+//! 294d626d `-> never` named no type and the undeclared form was E0401
+//! on every compiling machine ("this is `()`, but the `else` fallback
+//! must produce `int`"); lupin ran the undeclared form.
+## corpus/typecheck/fn_never_trap.lu
+//! check: run(exit=trap(assert), stdout="bad\n")
+//! phase: run
+//! conforms: type.fn.never, conf.trap.assert
+//!
+//! s213 (wolf-lang#572, ruling owed): the handler arm takes the `never`
+//! call, which prints and stops at its `assert(false)` — the trap twin
+//! of `fn_never_handler_arm.lu`; nothing after the call runs
+//! (`[type.fn.never]`). A `loop` with no `break` is bottom too, so a
+//! halt loop is a `never` body.
+## corpus/typecheck/int_not_byte.lu
+//! check: run(exit=0, stdout="-16 240 255\n")
+//! phase: run
+//! conforms: type.int.not, type.byte.op
+//!
+//! s213 (wolf-lang#575, ruling owed): a `byte` operand of `!` widens to
+//! `int` first, as every bitwise operator's does (`[type.byte.op]`), so
+//! `!b` is the `int` `-b - 1`; the octet's complement is spelled
+//! `(!b) as byte` (`[type.int.not]`). At trunk 294d626d every compiling
+//! machine answered E0409.
+## corpus/typecheck/int_not_mask.lu
+//! check: run(exit=0, stdout="73728 77824 4294892730 4294967295 4096 57344\n")
+//! phase: run
+//! conforms: type.int.not, type.numlit.adopt
+//!
+//! s213 (wolf-lang#575, ruling owed): `!` on an integer is its bitwise
+//! complement at the operand's own width (`[type.int.not]`) — the page
+//! table's idioms, align down `x & !0xfff` and align up
+//! `(x + 0xfff) & !0xfff`, with the literal adopting `u32` first; a
+//! `const` mask folds at comptime; clearing a flag is `e & !bit`. At
+//! trunk 294d626d every compiling machine answered E0409 ("`!` works on
+//! `bool`") and lupin refused it ("`!` needs a bool"). The rows stay
+//! at `u32`: a `u64` value past `i64::MAX` prints signed on the
+//! compiled tiers (the wolf-lang#538 family) and is out of the checked
+//! machine's range.
+## corpus/typecheck/int_not_signed.lu
+//! check: run(exit=0, stdout="-6 127 0 -256 -1 -128\n")
+//! phase: run
+//! conforms: type.int.not
+//!
+//! s213 (wolf-lang#575, ruling owed): on a signed width `!x` is
+//! `-x - 1` — total, so `!i8::MIN`-shaped values never trap
+//! (`[type.int.not]`); an unannotated literal defaults to `int` first.
+//! At trunk 294d626d every compiling machine answered E0409.
+=== modified run program diffs
+=== CHANGELOG 0.2.26 entry
+## 0.2.26 — 2026-10-09
+
+THE TWENTY-SIXTH. Five compiler lanes, each with its lupin half, land
+together, and the pairing moves to lupin 0.1.49, which mirrors all of
+them. A program's standard streams are bytes; a child's descriptors,
+pipes and the working directory are the program's to set; `-> never`
+and `!` on integers are in the language (rulings #50, #51); a loop can
+keep each turn's result and free the rest (`copy region`, ruling #56);
+a package's capabilities are what its code reaches (rulings #53, #54).
+**One P0 is fixed (#618):** a call's `str` result held past a region
+read freed bytes on checked, native and release. Five lanes, 149
+commits integrated by r31 one at a time (s200 19, s213 42, s215 44,
+s216 29, s217 15, each count including r31's integration commits),
+then r31's release commits.
+
+### Read this before you bump the pin
+
+**New prelude names** (`cargo xtask prelude-diff v0.2.25 HEAD
+--markdown`, after `git fetch --tags`, run at the release head):
+
+> **New prelude names.** HEAD adds `fs_copy_chunk`, `os_spawn_fds`,
+> `os_pipe`, `os_chdir`, `os_isatty`, `os_error`, `os_error_text`,
+> `bytes_find`, `bytes_count`, and `never` (the nine functions at
+> `[os.host.sigs]`; `never`: builtin_type, `[type.fn.never]`). A module
+> that declares a function, type or binding named any of the nine
+> functions now draws W0304 (it shadows the ambient name), which
+> `--deny-warnings` makes fatal: rename yours. `never` draws no W0304.
+>
+> **New builtin marks:** `none` (`[os.host.sigs]`).
+
+A grep for a declaration (`fn`, `let`, `var`, `const`, `type`,
+`struct`, `enum`) of any of the ten in wolf-std `0f74ec5a`, boreutils
+`50d89074`, lobo `a728fab7`, pax `396c5fbf`, the book `fde77b8d`, pelt
+`dd22a86c` and muzzle `7c95300e` found **none**. No downstream calls any
+of the nine functions yet; `os_isatty` appears only in two comments
+(boreutils `src/ls.lu`, pelt `src/sh/interact.lu`) that wait for it.
+
+**Packages that built are now refused (s217).** A package whose own
+files call a host builtin in the fs, net, env or exec family, or that
+imports a std module whose code does (`std.process` → `exec`, `std.os`
+→ `env`), must declare the capability. The fix is the word in
+`capabilities: [ … ]`; the E1504 names it. The census at wolf-std
+`2f389a7`, boreutils `2f15585`, lobo `9167cb5`, pax `94364ad`, pelt
+`f0014da` and the book `d0213d0` found **no build that changes**: only
+lobo, pax's kernel and the book's `samples/pkg` have a manifest beside
+the files they build, and none of them reaches an undeclared capability.
+
+**`wolf audit` prints more.** Under `effective:` there is now a reason
+line per capability, so a transcript with a non-empty set gains lines.
+The book has five: `pkg/acquired` in ch24 (two), solutions.md and
+exercises ch24 (`net: regex — declared (nothing in its code reaches
+it)`), and appendix E's `pkg/promote` (`` fs: local/tally (root) —
+declared; calls `fs_write_text` … ``). Transcripts with `effective: []`
+are byte-identical.
+
+**`wolf audit --ci` refuses where it passed.** It fails on an undeclared
+capability with no build, and on a manifest whose directory holds no
+wolf source. lobo is that case: `wolf.pkg` sits at the repository root
+and the program builds from `./src/main.lu`, so the manifest governs no
+build. Nothing in lobo runs `wolf audit` today. If lobo's manifest did
+govern `src/`, it would need `capabilities: [env, exec, fs, net]`.
+
+**A program that compiled may now be refused (#618, s216).** A call to a
+fn returning `str` is an allocation site in the region it is called in,
+so holding its result past that region is E1010 where it used to build
+and read freed bytes. A fn whose every result is a string literal is
+exempt. s216 measured boreutils, lobo, wolf-std's tests and pelt: the
+same verdicts and byte-identical binaries. The way to keep a region
+block's result is `copy region { … }` (`[mem.region.copyout]`).
+
+**Spellings ruled.** `-> never` (ruling #50) and `!` on an integer as
+its bitwise complement (ruling #51) were implemented ahead of their
+rulings in s213 and are ruled A as implemented; `copy region { … }` is
+ruling #56 = A. ruling #53 keeps stdio, the clock and random free of any
+capability; ruling #54 charges `os_chdir` to `env` and `os_pipe` to
+`exec` (`os_isatty` stays free).
+
+### The pairing: lupin 0.1.49
+
+`PAIRING` names **lupin 0.1.49 at pin `294d626`** (wolf-interp release
+408028965; the linux x86-64 archive's sha256 `84911a35…`). The spec pin
+is unchanged (this compiler's v0.2.24 tag). 0.1.49 carries is74
+(volatile access and the raw-pointer atomics, wolf-interp#185, #194),
+is75 (the CI slot budget) and the lupin halves of s200, s213, s215 and
+s216.
+
+- **Dropped 45 cases in eight gates**, each green on the published
+  0.1.49 unpinned: `atomic_lanes` 9 (#194), `volatile_lanes` 5 (#185),
+  `byte_surface_lanes` 10 (s200), `papercut_lanes` 5 (s213, #200),
+  `raw_align_lanes` 2 (#205, answered by s213's struct pointee),
+  `proc_fd_lanes` 9 (s215), `region_copyout_lanes` 4 (s216), and
+  `pairing` 1. The emptied lists stay, empty, as the gates' machinery.
+- **Kept.** attr_closed_set's control, carried to 0.1.49 measured (lupin
+  still declines its `comptime fn`, #174); the racy counter's
+  `trap(race)` check names 0.1.49 too (DIV-2026-028).
+- **Corrected, not widened (#606).** On the volatile and atomic UB rows
+  lupin is held to the verdict, the row and the clause, without the
+  checked machine's E1401: a `ub` record carries no diagnostic
+  (`[proto.record.verdict]`), as `raw_align_lanes` already held it.
+- **Widened 0.** The plant (the 0.1.49 lists against the published
+  0.1.48) is red on exactly the 45 dropped cases.
+- **The ritual** (#87, with #281's control against the 0.1.48 archive,
+  the same corpus and the same release `wolf`, 1057 files):
+  - checked: **moved 39 ledger counts**. Agreements 625 → 657, hard
+    22 → 16, SOUNDNESS 3 → 0 (s216's three copy-out rows, where 0.1.48
+    trapped, now agree).
+  - native: **moved 40**. Agreements 658 → 685, hard 33 → 33,
+    SOUNDNESS 11 → 14: the three copy-out rows leave it, and six UB rows
+    lupin now reaches join the class every UB row holds on native, which
+    compiles undefined behaviour without a check (`atomic_ub_misaligned`,
+    `atomic_ub_uaf`, `volatile_ub_misaligned`, `volatile_ub_uaf`,
+    `raw_ub_misaligned_repr_c_field`, `…_field_store`).
+  - Every move is on the five lanes' rows or is74's, toward agreement,
+    a completeness note, or that UB class. Four checked files and three
+    native moved below the ledger (fail-pinned rows whose lupin answer
+    moved to the pinned code, and `atomic_counter` on checked).
+
+### The byte surface: bytes on descriptors 0, 1 and 2, the byte scan, the copy the host makes, and the host's number (s200, #405, #411, #417, #407)
+
+**Read this before you bump the pin.** Five new prelude names, all
+`w0304: true` in `spec/prelude.json`: `fs_copy_chunk`, `os_error`,
+`os_error_text`, `bytes_find` and `bytes_count`. A module that declares
+one draws W0304, which `--deny-warnings` makes fatal: rename yours. A
+grep for a declaration of any of the five (`fn`, `let`, `var`, `const`)
+found none in wolf-std (`2f389a7`), boreutils (`2f15585`), lobo
+(`b4975f7`) or the book. **Four calls that answered `io` now answer
+data**: `fs_read`, `fs_read_chunk`, `fs_write` and `fs_write_chunk` on
+0, 1 and 2. A program that relied on `io` there to detect "not a
+handle" now reads its standard input or writes its standard output.
+No row changed anywhere.
+
+- **Bytes on the standard streams, through the descriptors themselves
+  (#405).** The four byte and text calls serve 0, 1 and 2
+  (`[os.fs.std]`): a read of 0 starts at the offset the process shares
+  with whoever started it and moves it, a pipe, socket or terminal is
+  read as what it is, and a write to 1 or 2 lands in program order with
+  `print` (the native tiers write the descriptor under `print`'s lock).
+  A closed descriptor is `io` (`EBADF`), never a silent success and
+  never a write into whatever file took the number. Bytes `read_line`
+  read ahead come first. `fs_close` on 0..2 stays `io`. The checked
+  machine reads descriptor 0 (or a test's input buffer) and writes 1
+  and 2 into its capture, now kept as bytes and decoded once at the
+  end, as the driver decodes a native child's stdout. This retires
+  the `/dev/stdin`/`/dev/stdout` reopen boreutils uses.
+- **`bytes_find(xs, b, from) -> int ! {none}` and `bytes_count(xs, b) ->
+  int` (#411, `[mem.list.bytes]`).** `str`'s `find` and `count` for a
+  `List[byte]`. On native and release each is one call into a runtime
+  loop in the target's baseline vector instructions (SSE2 on x86-64,
+  NEON on aarch64; scalar elsewhere): counting the newlines of 256 MiB
+  costs about 12 ms of CPU above the read on kasumi, against about
+  100 ms for a wolf `for b in chunk` loop (`bench/byte-scan/`). `from`
+  outside `0..len` is `none`. Free builtins, because
+  `List`'s `count` method is its length.
+- **`fs_copy_chunk(src, dst, max) -> int ! {eof, io}` (#417,
+  `[os.fs.copy]`).** `fs_read_chunk` then `fs_write_chunk` fused: at
+  most `max` bytes from `src`'s offset to `dst`'s, the count answered,
+  `eof` at the end. linux tries `copy_file_range`, `sendfile`, `splice`
+  and then a read/write loop, remembering the rung each pair settled
+  on; macOS, freebsd and windows run the loop, by name. A table handle
+  is duplicated for the call, so a copy that parks never holds the
+  handle table's lock. A socket destination stays open on #417.
+- **`os_error() -> int` and `os_error_text(code) -> str` (#407,
+  `[os.fs.error]`).** The host's error number for the task's most
+  recent fallible fs call (`errno`; `GetLastError` on windows), 0 when
+  it succeeded or failed before the host was asked, and the host's
+  words for a number ("No space left on device"). The number travels
+  BESIDE the row, never on it: a payload on `io` breaks W0603's pact
+  and every `io` arm downstream. The word is per task. The net and os
+  families do not set it yet.
+- The host table is 83 lines. Witnesses: `corpus/fs/std_write_bytes.lu`,
+  `corpus/fs/copy_chunk.lu`, `corpus/fs/os_error.lu`,
+  `corpus/memory/bytes_scan.lu`, the fixtures under
+  `crates/wolf_driver/tests/fixtures/byte_surface/`, and
+  `byte_surface_lanes.rs`, which runs them on checked, native, release
+  and lupin with standard input a file, a pipe and a shared offset, a
+  read-only stdout (`EBADF`) and `/dev/full` (`ENOSPC`). It pins lupin
+  0.1.47 and 0.1.48 by version and release commit until wolf-interp's
+  mirror ships. The micro-benchmark is `bench/byte-scan/`.
+
+### The kernel's papercuts (s213, #572, #575, #577, #579)
+
+Two of the four were spellings the maintainer ruled on 2026-10-07:
+`-> never` (#572, ruling #50 = A) and `!` on integers (#575, ruling #51
+= A), each as s213 implemented it.
+
+- **`m.K` reads another module's `pub const` (#579).** A `pub const`,
+  `pub let` or `pub var` read through its module's name after `use m`
+  is the item, exactly as the bare name inside its own module
+  (`[mem.static.4]`). Native and release refused it ("a member access
+  without a recorded type"), the checked machine refused it ("module
+  items in checked execution"); lupin already ran the `const` and `let`
+  reads. A `var` so named is raw-tier, read or written (`m.V = x`,
+  `m.V op= x`) only inside `unsafe`: E1301 outside it, which the
+  compiling machines never reached before.
+- **`p[i].f = v` stores a field of a raw element (#577).** Plain,
+  compound (`p[i].f += 1`), nested (`p[0].inner.y = 5`) and through a
+  dereference (`(*p).f = v`), at the field's `[abi.layout.c]` offset,
+  touching no other byte (`[mem.unsafe.raw.5]`). Every compiling machine
+  refused it ("assignment through this place shape"), outside `unsafe`
+  too, where it is now E1301. The checked machine asks row L4 of the
+  ELEMENT, as s209's read does: a packed struct's `u64` at offset 2 is
+  defined, a plain `#[repr(c)]` element at a misaligned address is L4
+  whichever field is named. The checked machine now also reads
+  `(*p).f` and nested paths. A whole-aggregate raw store (`p[0] =
+  Pair { … }`) is still refused by the checked machine (unchanged).
+- **`!` on an integer is its bitwise complement (#575, ruling #51 = A).**
+  `x & !0xfff`, `(x + 0xfff) & !0xfff`, `e & !bit` and `const MASK:
+  u32 = !0xfff` work at the operand's own width (`[type.int.not]`); a
+  `byte` widens to `int` first (`[type.byte.op]`). It was E0409. The
+  checked machine now also runs `&`, `|` and `^` on plain (checked)
+  integers — total over every range it holds — where it refused them;
+  shifts stay refused there. A `u64`/`uint` complement lies past the
+  checked machine's range and is refused by name, as such a literal is.
+- **`-> never` declares a function that never returns (#572, ruling
+  #50 = A).** `never` is a built-in type name, written as a return type
+  (`[type.fn.never]`); a call to such a function is bottom, so `bad =>
+  die("…")` fits an arm that wants an `int`, and a bodyless
+  `extern "c" fn abort() -> never` crosses the membrane as `void`. A
+  `-> never` body that can reach its end, or holds a `return`, is
+  E0401. The bottom type now renders as `never` (it rendered as `!`,
+  which no diagnostic snapshot printed). `never` is exempt from W0304,
+  as `range` is: wolf-std's tests bind a local named `never`.
+- **New prelude name:** `never` (`builtin_type`, `w0304: false`).
+- lupin 0.1.47 and 0.1.48 part on the `var`, field-store, complement
+  and `never` rows; its half is wolf-interp#200, pinned by version and
+  release commit in `papercut_lanes.rs`. Anchors 595 → 599. Found on
+  the way and filed, not fixed here: **#601** (a silent wrong answer on
+  native and release: a raw-pointer or module-`var` read after a call
+  that writes it returns the pre-call value; since fixed by s214 in
+  0.2.25) and #602 (the checked machine prints a
+  negative narrow signed `wrapping` value unsigned).
+
+### A child's descriptors, a pipe, the working directory, isatty (s215)
+
+A wolf program can now build a shell's plumbing from argv alone: a
+pipeline, a redirection, `2>&1`, `N<file`, `cd`. Four host builtins
+(with s200's five, the host table is 87 lines, `RT_SYMBOLS` 173,
+the prelude 94 functions):
+
+- **`os_spawn_fds(exe, args, map) -> int ! {denied, invalid, io,
+  not_found, unsupported}`** (`[os.proc.fds]`). `map` is a flat
+  `List[int]` of `(child fd, source)` pairs: a source is a handle of
+  this process (0..2 its standard streams, 3 and up an fs handle such as
+  a pipe end) or `-1` for "closed in the child". Unmapped descriptors
+  keep `[os.proc.spawn]`'s posture (0 the null device, 1 and 2
+  inherited, nothing else open). Refusals come in a fixed order and
+  none makes a child: the map's shape (`invalid`), the host (windows
+  answers `unsupported` to a non-empty map), the sources (`io`), then the
+  program. `os_spawn_with`'s listener set stays as it is: its sources are
+  net handles, a separate numbering space. `exec` at comptime.
+- **`os_pipe() -> (int, int) ! {io}`** (`[os.proc.pipe]`): the read and
+  write ends as fs handles, close-on-exec, served by every handle call.
+- **`os_chdir(path) -> () ! {denied, io, not_found}`** (`[os.fs.chdir]`,
+  wolf-std F-0067's ask): the write twin of `os_cwd`. The checked machine
+  keeps a machine-local directory, as it keeps `env_set`'s overlay, and
+  every fs path, unix-socket path, `os_cwd` and spawn follows it.
+- **`os_isatty(fd) -> bool ! {io}`** (`[os.fs.isatty]`): closed or forged
+  is `io`, never `false`.
+
+At comptime `os_spawn_fds` and `os_pipe` are `exec`, `os_chdir` is `env`
+and `os_isatty` is `io` (ruling #54; s217 charges capabilities from these). lupin 0.1.47
+resolves none of the names (pinned pre-mirror in `proc_fd_lanes.rs`);
+its mirror serves descriptors 0..2 and refuses a target above 2 or a
+close by name. Witnesses: `corpus/os/{pipe_round_trip,chdir_relative,
+spawn_fds_rows}.lu`, `corpus/comptime/sandbox_{chdir,pipe,isatty}.lu`
+(E0701), `sandbox_spawn_fds.lu` (a forward pin: the comptime engine
+cannot build its `List` arguments, so `crates/wolf_sema/tests/sandbox_s215.rs`
+pins its `exec` entry), and
+the unix gate `crates/wolf_driver/tests/proc_fd_lanes.rs` (a two-stage
+pipeline, `2>&1` onto a pipe, an explicit fd 5, no leaks, a child in the
+moved directory, `isatty` under a pipe and under `script(1)`).
+
+### A loop can keep each turn's result and free the rest: `copy region { … }` (s216, #612; ruling #56 = A)
+
+- **`copy region name? { … }`** (`[mem.region.copyout]`). The block runs
+  as `region { … }` does; at its closing brace its VALUE is deep-copied
+  into the region it was entered from (every `str` it reaches
+  materialized there, every `List` and `Map` a fresh buffer), and then
+  the block's region is freed. A shell's command loop, a server's
+  request loop or a kernel's event loop computes a turn inside the block
+  and keeps only the result. #612's witness (twenty strings and a list
+  per turn, one string kept in a map) peaks at 27.8 MB at 20,000 turns
+  and 53.1 MB at 40,000 with no region, and at 2.9 MB and 3.6 MB with the
+  prefix, on native and release alike; what still grows is the kept
+  string itself (about 32 bytes a turn here), because the region holding
+  the loop's state (the process root) frees nothing. Keeping a scalar,
+  the loop is flat. Applied to pelt's simple-command expansion in a
+  throwaway copy: 163 MB (empty directory) or 490 MB (24 files) at
+  20,000 turns down to 34 MB.
+- **Every other escape is still E1010.** Only the block's own value at
+  its `}` is copied: an outer binding, a `return`, module state or a
+  channel holding something built in the block is refused as before, and
+  a value with no independent copy (a region, a fn value, a cell, a
+  channel or other handle, a pool, a raw pointer, a trait object) is
+  E1010 at the block, naming the part. A raw pointer into the freed
+  region read afterwards is row P4 on the checked machine.
+- **Cost:** one deep copy of the value per execution, in time and in
+  bytes in the enclosing region; nothing for a program without the
+  prefix. On native and release a `Map` is rebuilt entry by entry; an
+  enum or error-row payload holding a string or a container is refused
+  by name there (`unsupported`), as for a plain `copy`.
+- **The spelling: ruling #56 = A** (the maintainer, 2026-10-07), as
+  implemented (no new token or keyword); the alternatives (a materializing
+  `copy v in outer`, a per-iteration loop region) and their costs are in
+  the clause.
+
+### A silent wrong answer is fixed: a call's `str` result left its region (s216, #618)
+
+- A call to a declared fn returning `str` carried no allocation site, so
+  `region scratch { out = build(7) }` handed `out` freed bytes on
+  checked, native and release (lupin traps `region-fault`); so did
+  #612's own `st.vals["x"] = copy v` witness, which #612 reported as
+  E1010 but which built at 0.2.24. Such a call is now a site in the
+  ambient region and carries its arguments' and receiver's sites
+  (`[mem.region.escape]`); a builtin container method's `str` element
+  (`xs.last()`) carries the receiver's.
+- **A program that compiled is now refused** where it held such a call's
+  result past the region the call was made in. A fn whose every result
+  is a string literal is exempt (its bytes are static), which keeps
+  boreutils' `cat` (`why = bore.io_error()` inside `region pass`)
+  building. Measured, trunk against head on both tiers: boreutils' 27
+  utilities, lobo, wolf-std's 423 test files and pelt build with the
+  same verdicts and byte-identical binaries. Still refused though lupin
+  runs it: a fn returning a parameter's bytes, called inside a region
+  and held past it.
+
+### A package's capabilities are what its code reaches (s217, #615)
+
+I13 counted imports only. A dependency that declared `caps=[]` and
+called `fs_read_text` directly, with no `use std.fs`, built and ran, and
+`wolf audit` printed `effective: []`. `wolf audit --ci` also passed on an
+undeclared `use std.net`, which only the build refused. Now a package
+reaches a capability three ways, and E1504 refuses any it does not
+declare:
+
+- an import the facade rule names (`std.net`, `std.fs`, `std.env`,
+  `import c`), as before;
+- a prelude host builtin named anywhere in the package's own files. The
+  sandbox table (`ctfe::intrinsics::host_stub`) gives its capability:
+  the fs, net, env and exec families carry `fs`, `net`, `env`, `exec`.
+  Stdio, the clock and randomness carry nothing, because the manifest
+  has no word for them. A fn the package declares under a builtin's name
+  is its own;
+- a std module it imports, for what that module's code reaches, closed
+  over the std modules it imports in turn. Until now a std module's
+  imports were charged to the root package, so `use std.process` asked
+  for `net` and never for `exec`.
+
+The E1504 for a builtin names it and points at its call site. `wolf
+audit` resolves the code itself, with no build and no `wolf.sum`. It
+prints `effective` as every declared capability united with every
+reached one, then one reason line per capability and package (`` fs: pad —
+UNDECLARED: calls `fs_read_text` at pkg://pad/pad.lu:4:16 ``). `--ci`
+refuses an undeclared capability, and refuses when it cannot read the
+code. A directory of standalone entries (`//! member: false`) is
+audited entry by entry. `wolf tree` is unchanged. Witnesses:
+`crates/wolf_driver/tests/cap_reach.rs`.
+
+=== PAIRING at NEW
+# The reference-interpreter pairing (r01 criteria row 7): the lupin
+# release this wolf is differentially tested against, and the
+# conformance pin that lupin release itself declares.
+#
+# `wolf --version` prints this file; nothing else defines the pairing
+# (#87 retired the hardcoded constants that went three releases stale).
+# Update it WITH the differential ritual — the pairing test compares
+# the version below against the sibling lupin binary whenever one is
+# present (and, when that sibling is a release build, the pin too:
+# D57, a release's pin is part of its identity), so a stale stamp
+=== kept lupin pins at NEW (0.1.4x literals in lane gates)
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:17://! lupin 0.1.46 answered `unsupported` ("`Order.seq_cst` does not
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:20://! lupin 0.1.46 (the 0.2.23 pairing) has no atomic surface; each row's
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:23://! 0.1.47 (r29) and 0.1.48 (the 0.2.25 pairing, r30; #194 still open)
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:24://! answered every row as 0.1.46 did, measured. 0.1.49 (the 0.2.26
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:28://! plain counter, measured, so that check names 0.1.49 too.
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:219:/// lupin 0.1.46 (the 0.2.23 pairing) has no atomic surface: every row
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:222:/// 0.1.47 (the 0.2.24 pairing, r29) and 0.1.48 (the 0.2.25 pairing,
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:223:/// r30) answered the same, measured row by row. 0.1.49 (the 0.2.26
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:437:/// count; lupin may detect the race (`[conc.mm.race.3]`), and 0.1.46,
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:438:/// 0.1.47 and 0.1.48 do (measured at r30; lupin files the row's `pass`
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/atomic_lanes.rs:474:        "0.1.46" | "0.1.47" | "0.1.48" | "0.1.49"
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:19://! unread `cfg`, reached one pass sooner. 0.1.46 (the 0.2.23 pairing,
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:23://! its `comptime fn`) and is carried to 0.1.46, to 0.1.47 (the 0.2.24
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:24://! pairing, r29) and to 0.1.48 (the 0.2.25 pairing, r30), measured.
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:318:/// declines its `comptime fn` (`unsupported`), 0.1.46 through 0.1.49
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:319:/// included (0.1.49 measured at r31; wolf-interp#174).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:346:                version: "0.1.46",
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:351:                version: "0.1.47",
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:356:                version: "0.1.48",
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/attr_closed_set_lanes.rs:361:                version: "0.1.49",
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/byte_surface_lanes.rs:35://! lupin 0.1.47 and 0.1.48 predated the mirror and were pinned by
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/byte_surface_lanes.rs:37://! precedent); 0.1.49 (the 0.2.26 pairing, r31) carries the mirror, so
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/byte_surface_lanes.rs:55:/// 0.1.47 and 0.1.48 were listed; emptied at the 0.1.49 pairing (r31),
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/c_membrane_lanes.rs:16://! pinned by version. 0.1.46 (the 0.2.23 pairing, r28) carries is70's
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/c_membrane_lanes.rs:257:/// before they looked (pinned until the 0.1.46 pairing, r28).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/first_diagnostic_lanes.rs:19://! as wolf-interp#175; this lane did not change lupin. 0.1.46 (the
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/int_ptr_lanes.rs:27://! record (wolf-interp#182), each pinned by version. 0.1.46 (the 0.2.23
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/int_ptr_lanes.rs:238:/// wolf-interp#184, is in 0.1.46).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/int_ptr_lanes.rs:407:/// record, pinned by version until the 0.1.46 pairing (wolf-interp#182).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/papercut_lanes.rs:24://! lupin 0.1.47 (the 0.2.24 pairing) and 0.1.48 (the 0.2.25 pairing,
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/papercut_lanes.rs:28://! was pinned by version and release commit as pre-mirror. 0.1.49 (the
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/papercut_lanes.rs:325:/// Every row's pin dropped at the 0.1.49 pairing (r31): 0.1.49 carries
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/papercut_lanes.rs:326:/// the mirror (wolf-interp#200). 0.1.47 and 0.1.48 parted on the `var`,
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:23://! lupin 0.1.47 and 0.1.48 predated the mirror (they resolve none of
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:25://! pre-mirror (s180's design); 0.1.49 (the 0.2.26 pairing, r31) carries
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:42:/// 0.1.48 (r30, archive sha256 81cfd77a…) reports `531bf05` and predates
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:45:/// 0.1.47 and 0.1.48 were listed; emptied at the 0.1.49 pairing (r31),
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:282:/// The verdict lupin 0.1.47 gives a program that calls a name it does
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:369:/// lane; lupin 0.1.47 `unsupported`.
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:382:/// E0301 (`os_chdir` unknown); lupin 0.1.47 `unsupported`.
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/proc_fd_lanes.rs:394:/// E0301 (`os_spawn_fds` unknown); lupin 0.1.47 `unsupported`.
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:13://! 0.1.46 alike — the checked machine defined the access the compiled
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:18://! lupin 0.1.46 ran the misaligned rows as defined, each L4 row pinned
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:19://! by that version as pre-mirror. 0.1.47 (the 0.2.24 pairing, r29)
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:27://! pointee); 0.1.48 (the 0.2.25 pairing, r30) admits `packed` (is73) but
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:28://! still read a struct element as bytes (wolf-interp#205). 0.1.49 (the
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:204:/// (r31: s213's struct pointee answers both rows at a dev 0.1.48).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:324:/// Every pin dropped at the 0.1.49 pairing (r31): s213's struct pointee
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:330:/// four bytes past an aligned base is L4 at `s[0].b`. lupin 0.1.46 and
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:331:/// 0.1.47 have no struct pointee (a `*Pair` reads as bytes,
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:332:/// wolf-interp#188; measured on 0.1.47 at r29). 0.1.48 (the 0.2.25
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:334:/// pin was re-keyed to wolf-interp#205; dropped at 0.1.49 (r31).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:366:/// 0.1.46 and 0.1.47 refuse `packed` by name (E0817, wolf-interp#188).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:367:/// 0.1.48 (the 0.2.25 pairing, r30) admits `packed` (is73, #188 closed)
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/raw_align_lanes.rs:370:/// r30), keyed to wolf-interp#205; dropped at 0.1.49 (r31).
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/region_copyout_lanes.rs:141:/// site, run. 0.1.47 and 0.1.48 were listed; emptied at the 0.1.49
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/region_view_for_lanes.rs:148:/// still ran it. Emptied at the 0.1.46 pairing (r28): 0.1.46 carries
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/repr_layout_lanes.rs:18://! 0.1.46 (the 0.2.23 pairing, r28) is still pre-mirror (#188 open):
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/repr_layout_lanes.rs:21://! name; ruled at r28). 0.1.47 (the 0.2.24 pairing, r29) answered as
+89dc139443da38078df6093568da87bc6d0ee6f9:crates/wolf_driver/tests/repr_layout_lanes.rs:22://! 0.1.46 did on all nine. 0.1.48 (the 0.2.25 pairing, r30) carries
+=== book
+book trunk 2504a0fcef5a36422c8704c734912b0a23d12962
+count BOLD..BNEW = 28
+book ancestry exit=0
+ 81 files changed, 5338 insertions(+), 82 deletions(-)
+audit/version-literals.txt
+book/back/appendix-e.md
+book/back/colophon.md
+book/back/solutions.md
+book/ch01.md
+book/ch02.md
+book/ch05.md
+book/ch06.md
+book/ch08.md
+book/ch22.md
+book/ch24.md
+docs/audit/bs64-evidence/allprogs.py
+docs/audit/bs64-evidence/anchors-diff.txt
+docs/audit/bs64-evidence/archive-digests.txt
+docs/audit/bs64-evidence/bless.sh
+docs/audit/bs64-evidence/cmp.py
+docs/audit/bs64-evidence/control-gates.txt
+docs/audit/bs64-evidence/control.sh
+docs/audit/bs64-evidence/explain-e1010.txt
+docs/audit/bs64-evidence/fetch.sh
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-backmattercheck.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-contrast.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-diagramscheck.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-ledgercheck.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-renderweb.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-samples-taskset4.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-samples.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-samplesselftest.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-status.txt
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-tierscheck.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-verifydocs.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-xtasktest.log
+docs/audit/bs64-evidence/gate-summary.txt
+docs/audit/bs64-evidence/gate.sh
+docs/audit/bs64-evidence/members.txt
+docs/audit/bs64-evidence/pkgprobe.sh
+docs/audit/bs64-evidence/pkgprobe.txt
+docs/audit/bs64-evidence/plant-red-37978331246.txt
+docs/audit/bs64-evidence/probes-c25.txt
+docs/audit/bs64-evidence/probes-generic.txt
+docs/audit/bs64-evidence/probes-new.txt
+docs/audit/bs64-evidence/probes-release-site.txt
+docs/audit/bs64-evidence/probes/addT.lu
+docs/audit/bs64-evidence/probes/andT.lu
+docs/audit/bs64-evidence/probes/die-end.lu
+docs/audit/bs64-evidence/probes/die-trap.lu
+docs/audit/bs64-evidence/probes/die.lu
+docs/audit/bs64-evidence/probes/helper-assert.lu
+docs/audit/bs64-evidence/probes/keep-chan.lu
+docs/audit/bs64-evidence/probes/keep-outer.lu
+docs/audit/bs64-evidence/probes/keep.lu
+docs/audit/bs64-evidence/probes/mask.lu
+docs/audit/bs64-evidence/probes/never-loop.lu
+docs/audit/bs64-evidence/probes/notT.lu
+docs/audit/bs64-evidence/probes/notfloat.lu
+docs/audit/bs64-evidence/probes/probe.sh
+docs/audit/bs64-evidence/regen.sh
+docs/audit/bs64-evidence/setup.sh
+docs/audit/bs64-evidence/splice.py
+docs/audit/bs64-evidence/subject-gates.txt
+docs/audit/bs64-evidence/subject.sh
+docs/audit/bs64-evidence/sweep-c25-noise.txt
+docs/audit/bs64-evidence/sweep-c25-vs-new.txt
+docs/audit/bs64-evidence/sweep-c25a.jsonl
+docs/audit/bs64-evidence/sweep-c25b.jsonl
+docs/audit/bs64-evidence/sweep-new-noise.txt
+docs/audit/bs64-evidence/sweep-newa.jsonl
+docs/audit/bs64-evidence/sweep-newb.jsonl
+docs/audit/bs64-evidence/sweep.sh
+docs/audit/bs64-evidence/sweep1.sh
+docs/audit/bs64-prediction.md
+docs/audit/bs64-results.md
+principles/exercises/ch08/EXERCISES.md
+principles/exercises/ch22/EXERCISES.md
+principles/exercises/ch24/EXERCISES.md
+samples-declined.toml
+snapshots/diagnostics/book__ch08__s3.txt
+snapshots/diagnostics/book__ch08__s4.txt
+snapshots/diagnostics/ch08__ex8-3.txt
+vendor/spec/anchors.json
+wolf-toolchain.toml
+SUMMARY sha c58196034d4fc6c4c2796437dbb9bedb4a4b5506 -> c58196034d4fc6c4c2796437dbb9bedb4a4b5506
+chapters in SUMMARY: 33
+2504a0f audit: bs64 results — the move table over 577 programs, every prediction held but one (the checked machine's two ch16 rows: & on plain integers now runs), the new surfaces on four machines, the head gate at 1cc9c1a, the plant red in 37978331246
+56a8cd4 revert the plant cb50c3b — ch24's first pkg/acquired transcript carries s217's reason line again (seen red in run 37978331246: samples on ubuntu 113982177123, windows 113982177195 and macOS at ch24.md:240)
+cb50c3b PLANT (reverted next): ch24's first pkg/acquired transcript loses s217's reason line, the 0.2.25 shape — the samples job's console replay against the source-built 0.2.26 must go red on three hosts
+d813394 audit: bs64 probes — trait-less operators on a bare T (lupin runs !x and x && y, the compiler E0501 plus a stray E0401), and release's trap site after inlining (the call site, as at 0.2.25)
+cabc84d audit: bs64 evidence — the subject run (506/3/12 failed/0 flips, 477 of 505, exactly the prediction's twelve), the 577-program sweep at c25 and 0.2.26 twice each, the new surfaces on four machines and both pairs, the head gate script
+1cc9c1a audit: bs64 regen.sh — backmatter, verify-docs, tiers and ledger against wolf-lang v0.2.26
+80949a4 backmatter: regenerate solutions.md — 8-3's E1010 note, 22-13's toolchain 0.2.26, 24-6's reason line
+9f8da66 doc-truth: the version-literal ledger re-read at 0.2.26 / 0.1.49 — every history sentence still true; the pair sentences change shape (two releases, 213 commits)
+e97617f ch05 §5.6: the E0501 quote loses its 'at this pin' (TONE.md tense discipline, verify-docs)
+4793644 ch02 §2.3: the float refusal named without a code Appendix C does not carry (verify-docs)
+6227b33 24-6: the walkthrough regenerated from a staged run on 0.2.26 (s217's reason line); its declined row's premise corrected — update-then-audit is the exercise's own order, the manifest edit between them, ACQUIRES and exit 1 measured on both pairs
+b4fee94 ch08 ledger: the E1010 explain row closes — present tense at 0.2.25 and 0.2.26, the two escapes named, copy region added at 0.2.26 (measured on both archives)
+d06d787 appendix E: wolf init's audit shows the promoted code reaching fs — fs_write_text at main.lu:4, one call more
+16cb114 ch24 §24.3: the reason line read second (s217); 'reach' is the code, not only the imports — a host builtin call needs the word, a std module charges its importer, printing, clock and random carry none (rulings #53, #54; measured, pkgprobe.txt)
+d02a744 ch22 §22.3: the prose reads toolchain 0.2.26, as the regenerated interface line does
+15ae4a7 ch01 §1.2, colophon: the interpreter's 294d626 is now v0.2.24's tag two releases back — 213 commits, not the previous tag's 50; the bare 0.2.26, pin 89dc139, the Windows archive and the +dev line follow
+14ae231 ch24, appendix E: wolf audit prints s217's reason line under effective — regex declares net and its code reaches nothing; tally declares fs and calls fs_write_text (spliced from the run)
+3f066f3 stamps: the pair reads wolf 0.2.26 (pin 89dc139) / lupin 0.1.49 (pin 294d626); ch22 and 22-13's interface line reads toolchain 0.2.26, both export hashes hold (spliced from the run)
+7a937eb ch08: the s3 diagnostic block and 8-3's conform-run transcript take 0.2.26's E1010 note (spliced from the run); 8-3's declined REPL row re-keyed 134 -> 136
+21a7ed2 snapshots: ch08 s3, s4 and ex8-3 — E1010's note names copy region at 0.2.26; blessed on the 0.2.26 archive, the verdict unchanged
+ea65c9b audit: bs64 scripts — subject, bless, the s217 package probe, and splice.py applying a file's drifts bottom-up (bs63's version asserted on the second block of a file whose first block grew)
+ca3aa99 ch08 §8.2: the fourth repair — `copy region command { … }` keeps the block's value and frees the rest (ruling #56, [mem.region.copyout]); every other way out is still E1010; part(keep) runs on both machines
+32d3be2 ch06 §6.2: a handler that stops calls a `-> never` fn, which fits where an int is wanted (ruling #50, [type.fn.never]); a body that can reach its end is E0401; part(die) runs on both machines
+2f06e9b ch05 §5.6: `!` is bool's logical not and an integer's complement (ruling #51), not bool's alone; E0501's note quoted as measured at 0.2.26, its `!` clause predating #51
+bad10e5 ch02 §2.3: the mask is two operators — `&` and `!` on an integer, its bitwise complement at its own width (ruling #51, [type.int.not]); part(mask) runs on both machines
+186ee31 pin: wolf v0.2.26 (89dc139) and lupin 0.1.49 (f516a5f), both from the release archives by digest; [lupin-trace] follows [lupin]; anchors 595 -> 607, catalogue 187, grammar unchanged
+6d90749 prediction: bs64 — 0 flips, 12 drifts named (E1010's copy-region note x5, four stamps, three s217 reason lines), two releases of distance, the three new surfaces placed; written before either archive is downloaded, with the c25 control
+851b996 contract: bs64 — the book at wolf 0.2.26 / lupin 0.1.49, s217's five audit transcripts, and -> never, ! on integers, copy region placed where the book teaches their neighbours
+=== book.toml at BNEW (pins)
+2:# The canonical build path is `cargo xtask render` (web + wolf-book.md +
+3:# wolf-book.pdf). A bare `mdbook build` also works because the wolf
+8:authors = ["The wolf-book authors"]
+19:[preprocessor.wolf]
+30:default-theme = "wolf"
+31:preferred-dark-theme = "wolf" # no dark mode at v1 (DESIGN.md §1)
+=== new surfaces in book sources at BNEW
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:17:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:55:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:83:literal, in a string you never print, and anywhere else a literal is
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:146:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:185:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:212:even when the two render identically in your editor, because wolf never
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:215:when the line ends is `E0102`, the string that never closed. The note
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:222:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:290:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:325:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:367:width (`[type.int.not]`): `!n` is `-n - 1`, total, never a trap. A byte
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:372:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:406:file is stripped and is never a diagnostic — an editor that insists on
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:419:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:438:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:477:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:504:Each `c` prints as the character it is, never as a number, because a
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:516:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:544:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:567:runtime never has to.
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:614:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:648:walks a large input in slices allocates once, at the input, and never
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch02.md:859:           is stripped and is never a diagnostic; elsewhere it is
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:11:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:56:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:93:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:143:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:155:diagnostic about it names tags, never the alias: a `match` that forgets
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:191:which makes it open: `probe` may return tags the signature never lists.
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:210:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:222:reads a `!int`, no cast narrows one, and nothing happens to the failure
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:247:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:274:need one. A function declared `-> never` never returns
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:275:(`[type.fn.never]`), so a call to it fits wherever a value is wanted,
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:287:fn die(why: str) -> never {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:291:fn main() -> !int {
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:303:`never` is written only as a return type, and the compiler holds the
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:304:body to it: a `-> never` body that can reach its end, or that holds a
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:306:program with `trap(assert)`; a call to another `-> never` function, or
+2504a0fcef5a36422c8704c734912b0a23d12962:book/ch06.md:347:fn main() -> !int {
+=== book diff ch02 ch06 ch08 stat
+ book/back/appendix-e.md |  5 +++-
+ book/back/colophon.md   | 14 +++++------
+ book/back/solutions.md  | 11 +++++----
+ book/ch01.md            | 32 ++++++++++++-------------
+ book/ch02.md            | 27 +++++++++++++++++++++
+ book/ch05.md            | 17 +++++++------
+ book/ch06.md            | 37 +++++++++++++++++++++++++++++
+ book/ch08.md            | 63 +++++++++++++++++++++++++++++++++++++++++++++----
+ book/ch22.md            |  4 ++--
+ book/ch24.md            | 24 +++++++++++++++++++
+ 10 files changed, 193 insertions(+), 41 deletions(-)
+=== inline scripts or event handlers in book sources at BNEW
+2504a0fcef5a36422c8704c734912b0a23d12962:book/wolf-boot.js:5:// This was three inline <script>s in theme/index.hbs. lupp.us serves
+2504a0fcef5a36422c8704c734912b0a23d12962:theme/index.hbs:52:        <script src="{{ resource "toc.js" }}"></script>
+2504a0fcef5a36422c8704c734912b0a23d12962:theme/index.hbs:60:        <script src="{{ path_to_root }}wolf-boot.js"></script>
+2504a0fcef5a36422c8704c734912b0a23d12962:theme/index.hbs:141:        <script src="{{ resource "elasticlunr.min.js" }}"></script>
+2504a0fcef5a36422c8704c734912b0a23d12962:theme/index.hbs:142:        <script src="{{ resource "mark.min.js" }}"></script>
+2504a0fcef5a36422c8704c734912b0a23d12962:theme/index.hbs:143:        <script src="{{ resource "searcher.js" }}"></script>
+2504a0fcef5a36422c8704c734912b0a23d12962:theme/index.hbs:146:        <script src="{{ resource "book.js" }}"></script>
+2504a0fcef5a36422c8704c734912b0a23d12962:theme/index.hbs:149:        <script src="{{ resource this}}"></script>
+(end)
+=== new memory fences / diagrams
+book/diagrams/ch07/part-handover-L4.svg
+book/diagrams/ch07/part-packcopy-L5.svg
+book/diagrams/ch07/part-packcopy-L6.svg
+book/diagrams/ch07/part-packcopy-L7.svg
+book/diagrams/ch07/s3-L5.svg
+book/diagrams/ch07/s7-L4.svg
+docs/audit/bs62-evidence/gate-c63d457/diagramscheck.log
+docs/audit/bs63-evidence/diagrams-subject.txt
+docs/audit/bs63-evidence/gate-aed2644/gate-diagramscheck.log
+docs/audit/bs64-evidence/gate-1cc9c1a/gate-diagramscheck.log
+theme/favicon.svg
+xtask/src/diagrams.rs
+=== site programs vs 0.2.26 surface
+site/index.html:452:  wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
+site/index.html:454:  aarch64 is tier-1 in the matrix without a CI runner or a backend behind it
+site/install/index.html:509:tier targets linux/x86-64 and macOS/aarch64 (s41 + s127; c13 owns the
+site/install/index.html:718:  <p>linux x86-64 and macOS aarch64 are the two hosts the whole toolchain is
+site/install/index.html:727:  two, windows x86-64, and linux aarch64. That last one has no native backend
+(end site grep)
+DERIVE-DONE

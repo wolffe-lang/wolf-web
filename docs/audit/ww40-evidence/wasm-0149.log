@@ -1,0 +1,16 @@
+  staged the interpreter's toolchain pin: 1.97.1
+  applied wasm-portability.patch to the staged copy (submodule untouched)
+  stamping the interpreter commit as f516a5f
+warning: method `set_last_os_error` is never used
+    --> /home/mfwolffe/lanes/ww40/web/target/wasm-stage/upstream/wolf-interp/src/eval/mod.rs:2430:19
+     |
+ 671 | impl Machine {
+     | ------------ method in this implementation
+...
+2430 |     pub(crate) fn set_last_os_error(&mut self, code: i128) {
+     |                   ^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1340 KiB raw, 496 KiB gzipped

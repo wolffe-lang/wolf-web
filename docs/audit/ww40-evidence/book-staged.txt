@@ -1,0 +1,62 @@
+book: against http://127.0.0.1:52016/book/ (render served with lupp.us's headers)
+book: chromium phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: chromium phone ch02.html: page 200, new sample present ("let high = n & !0xff"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch08.html: page 200, new sample present ("let summary = copy region command {"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: chromium desktop ch02.html: page 200, new sample present ("let high = n & !0xff"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch08.html: page 200, new sample present ("let summary = copy region command {"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: firefox phone ch02.html: page 200, new sample present ("let high = n & !0xff"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch08.html: page 200, new sample present ("let summary = copy region command {"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: firefox desktop ch02.html: page 200, new sample present ("let high = n & !0xff"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch08.html: page 200, new sample present ("let summary = copy region command {"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: webkit phone ch02.html: page 200, new sample present ("let high = n & !0xff"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch08.html: page 200, new sample present ("let summary = copy region command {"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: webkit desktop ch02.html: page 200, new sample present ("let high = n & !0xff"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch06.html: page 200, new sample present ("fn die(why: str) -> never"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch08.html: page 200, new sample present ("let summary = copy region command {"), 0 CSP violations, 0 console errors — ok
+book: ok — six diagrams rendered and the three new samples served on every cell, no CSP violation

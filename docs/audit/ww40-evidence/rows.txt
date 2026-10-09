@@ -1,0 +1,184 @@
+census-0225-0148 592 programs: {'exit': 443, 'trap': 39, 'unsupported': 110}; candidates 482
+census-0225-0149 592 programs: {'exit': 448, 'trap': 39, 'unsupported': 105}; candidates 487
+census-0226-0148 618 programs: {'exit': 448, 'fail': 2, 'trap': 42, 'unsupported': 126}; candidates 490
+census-0226-0149 618 programs: {'exit': 465, 'trap': 40, 'unsupported': 113}; candidates 505
+== module move on 0.2.25 corpus (0.1.48 -> 0.1.49): 5 rows differ
+   conc/atomic_fence.lu: unsupported -> exit(0)
+   conc/atomic_orders.lu: unsupported -> exit(0)
+   conc/atomic_widths.lu: unsupported -> exit(0)
+   memory/packed_field_raw_read.lu: unsupported -> exit(0)
+   memory/volatile_widths.lu: unsupported -> exit(0)
+== corpus move under 0.1.48 (common rows): 0 rows differ
+== corpus move under 0.1.49 (common rows): 0 rows differ
+== module move on 0.2.26 corpus (0.1.48 -> 0.1.49): 18 rows differ
+   conc/atomic_fence.lu: unsupported -> exit(0)
+   conc/atomic_orders.lu: unsupported -> exit(0)
+   conc/atomic_widths.lu: unsupported -> exit(0)
+   memory/bytes_scan.lu: unsupported -> exit(0)
+   memory/packed_field_raw_read.lu: unsupported -> exit(0)
+   memory/raw_field_store.lu: unsupported -> exit(0)
+   memory/raw_field_store_compound.lu: unsupported -> exit(0)
+   memory/raw_field_store_nested.lu: unsupported -> exit(0)
+   memory/raw_field_store_packed.lu: unsupported -> exit(0)
+   memory/region_copyout_loop.lu: trap(region-fault) -> exit(0)
+   memory/region_copyout_map.lu: trap(region-fault) -> exit(0)
+   memory/region_copyout_struct.lu: trap(region-fault) -> exit(0)
+   memory/volatile_widths.lu: unsupported -> exit(0)
+   typecheck/fn_never_handler_arm.lu: fail(E0301) -> exit(0)
+   typecheck/fn_never_trap.lu: fail(E0301) -> trap(assert)
+   typecheck/int_not_byte.lu: unsupported -> exit(0)
+   typecheck/int_not_mask.lu: unsupported -> exit(0)
+   typecheck/int_not_signed.lu: unsupported -> exit(0)
+== arrivals at 0.2.26 under 0.1.49:
+   unsupported  fs/copy_chunk.lu  unsupported  (0.1.48: unsupported)
+   unsupported  fs/os_error.lu  unsupported  (0.1.48: unsupported)
+   unsupported  fs/std_write_bytes.lu  unsupported  (0.1.48: unsupported)
+   exit         memory/bytes_scan.lu  exit(0)  (0.1.48: unsupported)
+   exit         memory/raw_field_store.lu  exit(0)  (0.1.48: unsupported)
+   exit         memory/raw_field_store_compound.lu  exit(0)  (0.1.48: unsupported)
+   exit         memory/raw_field_store_nested.lu  exit(0)  (0.1.48: unsupported)
+   exit         memory/raw_field_store_packed.lu  exit(0)  (0.1.48: unsupported)
+   exit         memory/region_copyout_exits.lu  exit(0)  (0.1.48: exit(0))
+   exit         memory/region_copyout_loop.lu  exit(0)  (0.1.48: trap(region-fault))
+   exit         memory/region_copyout_map.lu  exit(0)  (0.1.48: trap(region-fault))
+   exit         memory/region_copyout_struct.lu  exit(0)  (0.1.48: trap(region-fault))
+   exit         memory/region_str_call_inside.lu  exit(0)  (0.1.48: exit(0))
+   exit         memory/region_str_call_static.lu  exit(0)  (0.1.48: exit(0))
+   unsupported  memory/static_qualified/main.lu  unsupported  (0.1.48: unsupported)
+   unsupported  memory/static_qualified_let/main.lu  unsupported  (0.1.48: unsupported)
+   unsupported  memory/static_qualified_var/main.lu  unsupported  (0.1.48: unsupported)
+   exit         os/chdir_relative.lu  exit(1)  (0.1.48: exit(1))
+   unsupported  os/pipe_round_trip.lu  unsupported  (0.1.48: unsupported)
+   unsupported  os/spawn_fds_rows.lu  unsupported  (0.1.48: unsupported)
+   exit         typecheck/fn_never_extern.lu  exit(0)  (0.1.48: exit(0))
+   exit         typecheck/fn_never_handler_arm.lu  exit(0)  (0.1.48: fail(E0301))
+   trap         typecheck/fn_never_trap.lu  trap(assert)  (0.1.48: fail(E0301))
+   exit         typecheck/int_not_byte.lu  exit(0)  (0.1.48: unsupported)
+   exit         typecheck/int_not_mask.lu  exit(0)  (0.1.48: unsupported)
+   exit         typecheck/int_not_signed.lu  exit(0)  (0.1.48: unsupported)
+== departures: []
+== non exit/trap rows at 0.2.26 under 0.1.49:
+   unsupported  comptime.lu  unsupported
+   unsupported  comptime/fold_reaches_lane.lu  unsupported
+   unsupported  conc/atomic_counter.lu  unsupported
+   unsupported  conc/cancel_sibling.lu  unsupported
+   unsupported  conc/chan_default_rendezvous.lu  unsupported
+   unsupported  conc/chan_param_for.lu  unsupported
+   unsupported  conc/chan_payload_proc_param.lu  unsupported
+   unsupported  conc/chan_struct_payload.lu  unsupported
+   unsupported  conc/freeze_proc_snapshot.lu  unsupported
+   unsupported  conc/freeze_publish.lu  unsupported
+   unsupported  conc/message_passing.lu  unsupported
+   unsupported  conc/proc_cancel_defers.lu  unsupported
+   unsupported  conc/proc_cap_fault_join.lu  unsupported
+   unsupported  conc/proc_cross_module/main.lu  unsupported
+   unsupported  conc/proc_join_param.lu  unsupported
+   unsupported  conc/proc_join_value.lu  unsupported
+   unsupported  conc/proc_kill_defers.lu  unsupported
+   unsupported  conc/proc_link.lu  unsupported
+   unsupported  conc/proc_link_root.lu  unsupported
+   unsupported  conc/proc_link_root_death.lu  unsupported
+   unsupported  conc/proc_spawn_loop.lu  unsupported
+   unsupported  conc/reason_interp.lu  unsupported
+   unsupported  conc/select_single_arm_loop.lu  unsupported
+   unsupported  conc/spawn_cluster_split.lu  unsupported
+   unsupported  conc/spawn_fanout_loop.lu  unsupported
+   unsupported  conc/spawn_tail_send_raised_row.lu  unsupported
+   unsupported  conc/when_multi.lu  unsupported
+   unsupported  fs/bytes_dirs.lu  unsupported
+   unsupported  fs/copy_chunk.lu  unsupported
+   unsupported  fs/error_row.lu  unsupported
+   unsupported  fs/fstat.lu  unsupported
+   unsupported  fs/open_nonblock.lu  unsupported
+   unsupported  fs/os_error.lu  unsupported
+   unsupported  fs/read_at.lu  unsupported
+   unsupported  fs/remove_dir_refused.lu  unsupported
+   unsupported  fs/roundtrip.lu  unsupported
+   unsupported  fs/seek_tell.lu  unsupported
+   unsupported  fs/std_write_bytes.lu  unsupported
+   unsupported  grammar/attr_implemented_set.lu  unsupported
+   unsupported  lints/ancestor_import/main.lu  unsupported
+   unsupported  lints/one_item_module/main.lu  unsupported
+   unsupported  lints/pkg_item_unused/main.lu  unsupported
+   unsupported  membrane/export_child.lu  unsupported
+   unsupported  membrane/extern_let_image.lu  unsupported
+   unsupported  membrane/extern_libc.lu  unsupported
+   unsupported  memory/byte_producers_ledger.lu  unsupported
+   unsupported  memory/elem_header_methods_after_move_pool.lu  unsupported
+   unsupported  memory/elem_pool_handle_revive.lu  unsupported
+   unsupported  memory/pool_accessors.lu  unsupported
+   unsupported  memory/pool_place_write.lu  unsupported
+   unsupported  memory/raw_repr_align_layout.lu  unsupported
+   unsupported  memory/raw_repr_c_layout.lu  unsupported
+   unsupported  memory/raw_repr_packed_layout.lu  unsupported
+   unsupported  memory/static_qualified/main.lu  unsupported
+   unsupported  memory/static_qualified_let/main.lu  unsupported
+   unsupported  memory/static_qualified_var/main.lu  unsupported
+   unsupported  memory/store_rhs_first_pool.lu  unsupported
+   unsupported  memory/versioned_loop_cross_module/main.lu  unsupported
+   unsupported  methods/comb_map_filter_fold.lu  unsupported
+   unsupported  methods/comb_sort_enumerate_zip.lu  unsupported
+   unsupported  methods/comb_sorted_ord.lu  unsupported
+   unsupported  methods/home_range_str_map.lu  unsupported
+   unsupported  methods/method_is_free_call.lu  unsupported
+   unsupported  methods/wordcount_par.lu  unsupported
+   unsupported  methods/wordcount_serial.lu  unsupported
+   unsupported  net/accept_posture.lu  unsupported
+   unsupported  net/accept_race.lu  unsupported
+   unsupported  net/byte_roundtrip.lu  unsupported
+   unsupported  net/echo_bytes.lu  unsupported
+   unsupported  net/echo_roundtrip.lu  unsupported
+   unsupported  net/inherit_listener.lu  unsupported
+   unsupported  net/line_reader_bytes.lu  unsupported
+   unsupported  net/nodelay.lu  unsupported
+   unsupported  net/peer_close_after_serve.lu  unsupported
+   unsupported  net/read_deadline.lu  unsupported
+   unsupported  net/refused_row.lu  unsupported
+   unsupported  net/reuse_port.lu  unsupported
+   unsupported  net/spawn_accept.lu  unsupported
+   unsupported  net/syscall_first.lu  unsupported
+   unsupported  net/unix_echo.lu  unsupported
+   unsupported  net/wait_readiness.lu  unsupported
+   unsupported  net/writev_gather.lu  unsupported
+   unsupported  net/writev_head_gather.lu  unsupported
+   unsupported  os/pipe_round_trip.lu  unsupported
+   unsupported  os/random_differs.lu  unsupported
+   unsupported  os/random_edges.lu  unsupported
+   unsupported  os/random_negative_trap.lu  unsupported
+   unsupported  os/signal_loopback.lu  unsupported
+   unsupported  os/signal_supervisor.lu  unsupported
+   unsupported  os/spawn_fds_rows.lu  unsupported
+   unsupported  os/spawn_rows.lu  unsupported
+   unsupported  procs.lu  unsupported
+   unsupported  projects/count.lu  unsupported
+   unsupported  projects/count_dir.lu  unsupported
+   unsupported  resolve/bare_sibling/pair.lu  unsupported
+   unsupported  resolve/forward/main.lu  unsupported
+   unsupported  resolve/leaf_twins/main.lu  unsupported
+   unsupported  resolve/pkgvis/main.lu  unsupported
+   unsupported  resolve/plain_subdir/main.lu  unsupported
+   unsupported  resolve/same_name/main.lu  unsupported
+   unsupported  resolve/two_mod/main.lu  unsupported
+   unsupported  rows/cross_module_arms/main.lu  unsupported
+   unsupported  rows/error_alias_qualified/main.lu  unsupported
+   unsupported  rows/propagate/main.lu  unsupported
+   unsupported  test/conc_schedules_test.lu  unsupported
+   unsupported  time/monotonic.lu  unsupported
+   unsupported  traits/op_eq_imported/main.lu  unsupported
+   unsupported  traits/op_eq_item_import/main.lu  unsupported
+   unsupported  typecheck/closure_return.lu  unsupported
+   unsupported  typecheck/fn_param_shadows_import/main.lu  unsupported
+   unsupported  typecheck/fn_value_import/main.lu  unsupported
+   unsupported  typecheck/unit_context_discard.lu  unsupported
+   unsupported  typecheck/variant_value/main.lu  unsupported
+probe conc/atomic_fence.lu 0.1.48: unsupported 0.1.49: exit(0)
+probe conc/atomic_orders.lu 0.1.48: unsupported 0.1.49: exit(0)
+probe conc/atomic_widths.lu 0.1.48: unsupported 0.1.49: exit(0)
+probe conc/atomic_counter.lu 0.1.48: unsupported 0.1.49: unsupported
+probe memory/volatile_widths.lu 0.1.48: unsupported 0.1.49: exit(0)
+probe memory/packed_field_raw_read.lu 0.1.48: unsupported 0.1.49: exit(0)
+probe memory/raw_repr_c_layout.lu 0.1.48: unsupported 0.1.49: unsupported
+probe memory/raw_repr_packed_layout.lu 0.1.48: unsupported 0.1.49: unsupported
+probe memory/raw_repr_align_layout.lu 0.1.48: unsupported 0.1.49: unsupported
+probe membrane/extern_let_image.lu 0.1.48: unsupported 0.1.49: unsupported
+died rows: []

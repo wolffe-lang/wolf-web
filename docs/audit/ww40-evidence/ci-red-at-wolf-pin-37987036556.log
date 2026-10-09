@@ -1,0 +1,947 @@
+build the site	editor core and CSP gates	﻿2026-10-09T20:30:40.6608987Z ##[group]Run node --test tests/*.test.mjs
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6609209Z ^[[36;1mnode --test tests/*.test.mjs^[[0m
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6661252Z shell: /usr/bin/bash -e {0}
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6661417Z env:
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6661576Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6661824Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6662080Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6662287Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6662490Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6662698Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6662882Z   CARGO_HOME: /home/runner/.cargo
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6663022Z   CARGO_INCREMENTAL: 0
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6663149Z   CARGO_TERM_COLOR: always
+build the site	editor core and CSP gates	2026-10-09T20:30:40.6663277Z ##[endgroup]
+build the site	editor core and CSP gates	2026-10-09T20:30:40.8850399Z TAP version 13
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9240994Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9276902Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9277593Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9278078Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9297236Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9553492Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9890596Z # Subtest: the invocation CI makes is green
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9908127Z ok 1 - the invocation CI makes is green
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9934058Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9934595Z   duration_ms: 3.756599
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9934972Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9935256Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9936288Z # Subtest: the first witness runs on both sides now — it closed at v0.2.11
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9936914Z ok 2 - the first witness runs on both sides now — it closed at v0.2.11
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9937359Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9937633Z   duration_ms: 0.554959
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9937933Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9938208Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9938605Z # Subtest: a program the module runs against a clause the release does not declare reds
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9939579Z ok 3 - a program the module runs against a clause the release does not declare reds
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9940021Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9940292Z   duration_ms: 0.380218
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9940590Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9940864Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9941358Z # Subtest: a witness the module refuses is not a failure — the tab is simply not ahead
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9942023Z ok 4 - a witness the module refuses is not a failure — the tab is simply not ahead
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9942469Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9942744Z   duration_ms: 0.38842
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9943039Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9943313Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9943788Z # Subtest: a witness that runs but answers differently reds — 'it runs' is a claim
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9944405Z ok 5 - a witness that runs but answers differently reds — 'it runs' is a claim
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9944821Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9945082Z   duration_ms: 0.26813
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9945374Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9945781Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9946089Z # Subtest: --witnesses with no file named is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9946492Z ok 6 - --witnesses with no file named is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9946854Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9947132Z   duration_ms: 26.454273
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9947430Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9947711Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9948056Z # Subtest: --witnesses naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9948593Z ok 7 - --witnesses naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9949052Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9949353Z   duration_ms: 0.266458
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9950029Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9950324Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9950677Z # Subtest: a missing module is a refusal, not a silent pass
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9951204Z ok 8 - a missing module is a refusal, not a silent pass
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9951615Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9951900Z   duration_ms: 30.129054
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9952242Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:40.9952549Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0576983Z # Subtest: every local script and stylesheet reference gains ?v=<pin>, nothing else moves
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0577741Z ok 9 - every local script and stylesheet reference gains ?v=<pin>, nothing else moves
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0578106Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0578331Z   duration_ms: 35.815361
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0578840Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0579159Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0580977Z # Subtest: wolf-boot.js one directory down and under /book/ is versioned too
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0581577Z ok 10 - wolf-boot.js one directory down and under /book/ is versioned too
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0582037Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0582301Z   duration_ms: 23.844245
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0582587Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0582864Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0583241Z # Subtest: a second pass versions nothing twice, and so refuses the zero
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0583755Z ok 11 - a second pass versions nothing twice, and so refuses the zero
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0584178Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0584438Z   duration_ms: 25.170702
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0584724Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0584979Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0585340Z # Subtest: a book with no assets to version is refused, not reported as done
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0586144Z ok 12 - a book with no assets to version is refused, not reported as done
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0586538Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0586789Z   duration_ms: 26.642443
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0587063Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0587294Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0587541Z # Subtest: the pin is seven hex characters
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0587860Z ok 13 - the pin is seven hex characters
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0588179Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0588425Z   duration_ms: 21.767583
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0588683Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.0588943Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3104559Z # Subtest: the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3105816Z ok 14 - the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3106661Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3106968Z   duration_ms: 75.32616
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3107281Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3107560Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3107943Z # Subtest: a number word in an --also file that the allowlist does not carry reds
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3108498Z ok 15 - a number word in an --also file that the allowlist does not carry reds
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3108929Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3109220Z   duration_ms: 63.114684
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3109541Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3109820Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3110157Z # Subtest: an --also file that counts nothing is no trouble
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3136349Z ok 16 - an --also file that counts nothing is no trouble
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3136886Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3137182Z   duration_ms: 70.648649
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3137505Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3137796Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3138232Z # Subtest: --also is what carries the CHANGELOG.md block: without it the allowlist is stale
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3138879Z ok 17 - --also is what carries the CHANGELOG.md block: without it the allowlist is stale
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3139358Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3139637Z   duration_ms: 57.060755
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3139948Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3140229Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3140595Z # Subtest: the key is the path as written, not the file it resolves to
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3141109Z ok 18 - the key is the path as written, not the file it resolves to
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3141517Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3141800Z   duration_ms: 69.429259
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3142104Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3142380Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3142734Z # Subtest: --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3143553Z ok 19 - --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3143960Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3144234Z   duration_ms: 24.084325
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3144537Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3144817Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3145156Z # Subtest: --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3145724Z ok 20 - --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3146108Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3146380Z   duration_ms: 24.00155
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3146687Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3146964Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3355820Z # Subtest: the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3374927Z not ok 21 - the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3392159Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3392711Z   duration_ms: 43.550021
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3393053Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3393544Z   location: '/home/runner/work/wolf-web/wolf-web/tests/changelog-versions.test.mjs:67:1'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3394103Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3394462Z   error: |-
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3394761Z     expected a pass, got:
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3395938Z     version prose: docs/index.html: 'v0.1.0' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3397019Z     version prose: index.html: '1.97.1' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3398036Z     version prose: index.html: 'v0.2.13' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3399056Z     version prose: index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3400074Z     version prose: index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3401098Z     version prose: index.html: 'v0.2.17' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3402125Z     version prose: index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3403559Z     version prose: index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3404580Z     version prose: index.html: 'v0.2.20' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3405879Z     version prose: index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3406906Z     version prose: index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3407942Z     version prose: index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3408938Z     version prose: index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3409972Z     version prose: index.html: 'v0.2.7' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3410944Z     version prose: install/index.html: '0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3411932Z     version prose: install/index.html: 'v0.2.1' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3413182Z     version prose: install/index.html: 'v0.2.11' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3414185Z     version prose: install/index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3415207Z     version prose: install/index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3416393Z     version prose: install/index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3417386Z     version prose: install/index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3418380Z     version prose: install/index.html: 'v0.2.2' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3419415Z     version prose: install/index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3421055Z     version prose: install/index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3422748Z     version prose: install/index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3424190Z     version prose: install/index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3425266Z     version prose: install/index.html: 'v0.2.3' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3426461Z     version prose: install/index.html: 'v0.2.4' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3427514Z     version prose: install/index.html: 'v0.2.5' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3428783Z     version prose: install/index.html: 'v0.2.6' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3429857Z     version prose: play/index.html: 'v0.2.11' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3430936Z     version prose: play/index.html: 'v0.2.14' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3432040Z     version prose: play/index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3433151Z     version prose: play/index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3434442Z     version prose: play/index.html: 'v0.2.17' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3435689Z     version prose: play/index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3436755Z     version prose: play/index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3437944Z     version prose: play/index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3438963Z     version prose: play/index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3440044Z     version prose: play/index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3441295Z     version prose: play/index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3442274Z     version prose: play/index.html: 'v0.2.4' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3443238Z     version prose: play/index.html: 'v0.2.8' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3444232Z     version prose: spec/index.html: 'v0.1.0' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3445218Z     version prose: spec/index.html: 'v0.2.11' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3446398Z     version prose: spec/index.html: 'v0.2.13' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3447408Z     version prose: spec/index.html: 'v0.2.14' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3448377Z     version prose: spec/index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3449374Z     version prose: spec/index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3450456Z     version prose: spec/index.html: 'v0.2.17' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3451636Z     version prose: spec/index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3452617Z     version prose: spec/index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3453456Z     version prose: spec/index.html: 'v0.2.20' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3454140Z     version prose: spec/index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3454831Z     version prose: spec/index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3455508Z     version prose: spec/index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3456638Z     version prose: spec/index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3457715Z     version prose: spec/index.html: 'v0.2.4' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3458512Z     version prose: spec/index.html: 'v0.2.5' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3459333Z     version prose: spec/index.html: 'v0.2.6' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3460427Z     version prose: spec/index.html: 'v0.2.7' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3461852Z     version prose: spec/index.html: 'v0.2.8' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3463266Z     version prose: index.html: 2 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3464569Z     version prose: install/index.html: 2 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3465987Z     version prose: play/index.html: 1 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3467199Z     version prose: spec/index.html: 3 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3484051Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3484284Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3484440Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3484605Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3484792Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3485020Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3485225Z   expected: 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3485400Z   actual: 1
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3493845Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3494100Z   stack: |-
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3494499Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/changelog-versions.test.mjs:70:10)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3494965Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3496204Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3496482Z     Test.start (node:internal/test_runner/test:944:17)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3496976Z     startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3497281Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3497788Z # Subtest: the copy the mutation tests are built on is itself green
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3498151Z not ok 22 - the copy the mutation tests are built on is itself green
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3498431Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3498590Z   duration_ms: 41.59464
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3498771Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3499074Z   location: '/home/runner/work/wolf-web/wolf-web/tests/changelog-versions.test.mjs:74:1'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3499419Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3499611Z   error: |-
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3499823Z     expected a pass, got:
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3500576Z     version prose: docs/index.html: 'v0.1.0' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3501464Z     version prose: index.html: '1.97.1' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3502313Z     version prose: index.html: 'v0.2.13' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3503179Z     version prose: index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3504173Z     version prose: index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3505021Z     version prose: index.html: 'v0.2.17' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3506260Z     version prose: index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3507266Z     version prose: index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3508135Z     version prose: index.html: 'v0.2.20' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3508972Z     version prose: index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3509805Z     version prose: index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3510658Z     version prose: index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3511530Z     version prose: index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3512387Z     version prose: index.html: 'v0.2.7' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3513309Z     version prose: install/index.html: '0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3514215Z     version prose: install/index.html: 'v0.2.1' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3515129Z     version prose: install/index.html: 'v0.2.11' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3516354Z     version prose: install/index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3517260Z     version prose: install/index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3518312Z     version prose: install/index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3519188Z     version prose: install/index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3520090Z     version prose: install/index.html: 'v0.2.2' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3520967Z     version prose: install/index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3521820Z     version prose: install/index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3522664Z     version prose: install/index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3523532Z     version prose: install/index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3524409Z     version prose: install/index.html: 'v0.2.3' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3525288Z     version prose: install/index.html: 'v0.2.4' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3526532Z     version prose: install/index.html: 'v0.2.5' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3527412Z     version prose: install/index.html: 'v0.2.6' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3528324Z     version prose: play/index.html: 'v0.2.11' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3529239Z     version prose: play/index.html: 'v0.2.14' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3530168Z     version prose: play/index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3531085Z     version prose: play/index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3532012Z     version prose: play/index.html: 'v0.2.17' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3532937Z     version prose: play/index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3533861Z     version prose: play/index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3534776Z     version prose: play/index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3535871Z     version prose: play/index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3536836Z     version prose: play/index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3537783Z     version prose: play/index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3538875Z     version prose: play/index.html: 'v0.2.4' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3539846Z     version prose: play/index.html: 'v0.2.8' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3540801Z     version prose: spec/index.html: 'v0.1.0' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3541701Z     version prose: spec/index.html: 'v0.2.11' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3542628Z     version prose: spec/index.html: 'v0.2.13' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3543556Z     version prose: spec/index.html: 'v0.2.14' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3544495Z     version prose: spec/index.html: 'v0.2.15' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3545429Z     version prose: spec/index.html: 'v0.2.16' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3546569Z     version prose: spec/index.html: 'v0.2.17' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3547622Z     version prose: spec/index.html: 'v0.2.18' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3548498Z     version prose: spec/index.html: 'v0.2.19' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3549388Z     version prose: spec/index.html: 'v0.2.20' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3550249Z     version prose: spec/index.html: 'v0.2.21' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3551109Z     version prose: spec/index.html: 'v0.2.22' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3551994Z     version prose: spec/index.html: 'v0.2.23' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3552851Z     version prose: spec/index.html: 'v0.2.24' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3553727Z     version prose: spec/index.html: 'v0.2.4' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3554624Z     version prose: spec/index.html: 'v0.2.5' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3555476Z     version prose: spec/index.html: 'v0.2.6' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3556534Z     version prose: spec/index.html: 'v0.2.7' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3557575Z     version prose: spec/index.html: 'v0.2.8' was audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read the sentence, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3559144Z     version prose: index.html: 2 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3561074Z     version prose: install/index.html: 2 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3562400Z     version prose: play/index.html: 1 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3563606Z     version prose: spec/index.html: 3 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.25, the wolf pin is now 0.2.26 — re-read them, then re-stamp its audited-at-wolf
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3564288Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3564455Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3564629Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3564813Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3565003Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3565234Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3565477Z   expected: 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3565816Z   actual: 1
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3566024Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3566236Z   stack: |-
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3566631Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/changelog-versions.test.mjs:77:10)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3567128Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3567415Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3567778Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3568119Z     Test.postRun (node:internal/test_runner/test:1173:19)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3568487Z     Test.run (node:internal/test_runner/test:1101:12)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3568744Z     async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3568972Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3569151Z # Subtest: a frozen literal edited to a version that never existed reds
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3569423Z ok 23 - a frozen literal edited to a version that never existed reds
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3569618Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3569739Z   duration_ms: 45.694944
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3569873Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3569988Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3570137Z # Subtest: a frozen literal that simply disappears reds too
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3570354Z ok 24 - a frozen literal that simply disappears reds too
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3570534Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3570641Z   duration_ms: 44.30024
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3570767Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3570880Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3571017Z # Subtest: --also is what carries the CHANGELOG.md block
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3571222Z ok 25 - --also is what carries the CHANGELOG.md block
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3571393Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3571497Z   duration_ms: 32.756123
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3571618Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3571724Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3571849Z # Subtest: frozen is refused on a living site page
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3572034Z ok 26 - frozen is refused on a living site page
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3572187Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3572289Z   duration_ms: 35.215225
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3572411Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3572517Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3572668Z # Subtest: --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3572897Z ok 27 - --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3573079Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3573182Z   duration_ms: 25.352271
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3573304Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3573413Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3573556Z # Subtest: --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3573778Z ok 28 - --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3573948Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3574056Z   duration_ms: 25.206549
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3574183Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3574287Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3574497Z # Subtest: nginx CSP: script-src is 'self' 'wasm-unsafe-eval', exactly
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3574845Z ok 29 - nginx CSP: script-src is 'self' 'wasm-unsafe-eval', exactly
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3575024Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3575124Z   duration_ms: 0.818201
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3575248Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3575394Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3580132Z # Subtest: site pages: no inline scripts, no inline styles, no foreign sources
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3580564Z ok 30 - site pages: no inline scripts, no inline styles, no foreign sources
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3580841Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3580990Z   duration_ms: 2.479833
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3581163Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3581760Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3582012Z # Subtest: the editor is dependency-free: its modules import only each other
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3582417Z ok 31 - the editor is dependency-free: its modules import only each other
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3582715Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3582875Z   duration_ms: 0.537913
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3583064Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3583240Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3583412Z # Subtest: scan: code is code
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3583628Z ok 32 - scan: code is code
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3586397Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3586580Z   duration_ms: 3.038007
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3586766Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3586930Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3587112Z # Subtest: scan: inside a plain string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3587362Z ok 33 - scan: inside a plain string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3606536Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3626315Z   duration_ms: 0.311285
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3626707Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3627055Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3627468Z # Subtest: scan: interpolation braces re-enter code
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3628282Z ok 34 - scan: interpolation braces re-enter code
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3628673Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3628982Z   duration_ms: 0.26735
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3629336Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3629628Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3629985Z # Subtest: scan: {{ is a literal brace, not an interpolation
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3630460Z ok 35 - scan: {{ is a literal brace, not an interpolation
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3630846Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3631135Z   duration_ms: 0.166098
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3631449Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3631745Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3632068Z # Subtest: scan: a nested string inside an interpolation
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3632510Z ok 36 - scan: a nested string inside an interpolation
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3632899Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3633182Z   duration_ms: 0.125287
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3633498Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3633778Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3634068Z # Subtest: scan: line comments
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3634408Z ok 37 - scan: line comments
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3634733Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3635007Z   duration_ms: 0.121872
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3635310Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3635730Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3636015Z # Subtest: scan: char literals
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3636352Z ok 38 - scan: char literals
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3636656Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3638346Z   duration_ms: 0.097255
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3638672Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3639106Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3639420Z # Subtest: scan: raw strings do not interpolate
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3639825Z ok 39 - scan: raw strings do not interpolate
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3640224Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3640497Z   duration_ms: 0.21457
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3640797Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3641073Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3641361Z # Subtest: scan: multiline strings
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3641701Z ok 40 - scan: multiline strings
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3642015Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3642289Z   duration_ms: 0.312427
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3642596Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3642864Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3643188Z # Subtest: scan: an escaped quote does not close the string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3643628Z ok 41 - scan: an escaped quote does not close the string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3644006Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3644282Z   duration_ms: 0.367018
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3644586Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3645117Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3645433Z # Subtest: scan: open brackets carry their positions
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3646017Z ok 42 - scan: open brackets carry their positions
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3646382Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3646658Z   duration_ms: 0.194931
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3646966Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3647242Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3647587Z # Subtest: type: an opener inserts its pair, caret inside
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3648028Z ok 43 - type: an opener inserts its pair, caret inside
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3648398Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3648675Z   duration_ms: 1.179381
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3648980Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3649280Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3649580Z # Subtest: type: a closer types over its twin
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3649968Z ok 44 - type: a closer types over its twin
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3650314Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3650587Z   duration_ms: 0.148201
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3650888Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3651170Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3651519Z # Subtest: type: a quote pairs in code and types over itself
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3651983Z ok 45 - type: a quote pairs in code and types over itself
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3652363Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3652638Z   duration_ms: 0.228741
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3652941Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3653217Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3653508Z # Subtest: type: no pairing against a word
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3653882Z ok 46 - type: no pairing against a word
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3654226Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3654512Z   duration_ms: 0.168882
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3654813Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3655088Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3656371Z # Subtest: type: a selection is wrapped, and stays selected
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3657271Z ok 47 - type: a selection is wrapped, and stays selected
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3657660Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3657941Z   duration_ms: 0.204285
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3658242Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3658519Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3658851Z # Subtest: type: parens do not pair inside a string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3659270Z ok 48 - type: parens do not pair inside a string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3659637Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3659912Z   duration_ms: 0.150765
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3660213Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3660492Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3668715Z # Subtest: type: interpolation braces DO pair inside a string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3669585Z ok 49 - type: interpolation braces DO pair inside a string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3669962Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3670295Z   duration_ms: 0.182032
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3670611Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3670897Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3726861Z # Subtest: type: the interpolation's closing brace types over
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3747457Z ok 50 - type: the interpolation's closing brace types over
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3823054Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3836239Z   duration_ms: 0.126379
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3836957Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3837263Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3837533Z # Subtest: type: nothing pairs in a comment
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3837923Z ok 51 - type: nothing pairs in a comment
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3838267Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3838518Z   duration_ms: 0.109043
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3838779Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3839050Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3839313Z # Subtest: type: nothing pairs in a raw string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3839666Z ok 52 - type: nothing pairs in a raw string
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3840003Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3840236Z   duration_ms: 0.175683
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3840536Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3840832Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3841111Z # Subtest: type: a lone } dedents to its opener's line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3841505Z ok 53 - type: a lone } dedents to its opener's line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3841836Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3842069Z   duration_ms: 0.22749
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3842329Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3842596Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3842863Z # Subtest: enter: carries the leading whitespace
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3843518Z ok 54 - enter: carries the leading whitespace
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3843855Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3844081Z   duration_ms: 0.257044
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3844341Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3844602Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3844904Z # Subtest: enter: a {-suffixed line indents one step
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3845260Z ok 55 - enter: a {-suffixed line indents one step
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3845753Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3846009Z   duration_ms: 0.16042
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3846261Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3846536Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3846809Z # Subtest: enter: between the braces, the pair splits
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3847189Z ok 56 - enter: between the braces, the pair splits
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3847570Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3847812Z   duration_ms: 0.145117
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3848075Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3848344Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3848615Z # Subtest: enter: a { inside a string does not indent
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3848975Z ok 57 - enter: a { inside a string does not indent
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3849347Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3849590Z   duration_ms: 0.123405
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3849853Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3850120Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3850379Z # Subtest: backspace: an empty pair goes together
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3850720Z ok 58 - backspace: an empty pair goes together
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3851064Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3851292Z   duration_ms: 0.223244
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3851549Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3851815Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3852098Z # Subtest: backspace: leading whitespace backs up one stop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3852515Z ok 59 - backspace: leading whitespace backs up one stop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3853103Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3853340Z   duration_ms: 0.147601
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3853598Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3853863Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3854150Z # Subtest: backspace: one code point, even an astral one
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3854548Z ok 60 - backspace: one code point, even an astral one
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3854903Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3855135Z   duration_ms: 0.156214
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3855390Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3855801Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3856078Z # Subtest: delete forward: a selection or one code point
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3856456Z ok 61 - delete forward: a selection or one code point
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3856809Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3857039Z   duration_ms: 0.177125
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3857286Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3866676Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3867034Z # Subtest: goal columns: a short line does not forget the target
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3867492Z ok 62 - goal columns: a short line does not forget the target
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3867848Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3868116Z   duration_ms: 0.261681
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3868374Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3868640Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3868940Z # Subtest: goal columns: up from the first line goes to the start
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3869365Z ok 63 - goal columns: up from the first line goes to the start
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3869741Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3870017Z   duration_ms: 0.099469
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3870356Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3911121Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3911577Z # Subtest: visual columns treat a tab as a 4-stop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3912033Z ok 64 - visual columns treat a tab as a 4-stop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3912351Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3912625Z   duration_ms: 0.983038
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3912891Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3913172Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3913439Z # Subtest: home: first ink, then column zero
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3913778Z ok 65 - home: first ink, then column zero
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3914141Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3914376Z   duration_ms: 0.189022
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3914635Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3914914Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3915166Z # Subtest: end: end of line for every cursor
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3915721Z ok 66 - end: end of line for every cursor
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3916047Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3916280Z   duration_ms: 0.221571
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3916876Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3917154Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3917421Z # Subtest: add cursor below, then typing lands at both
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3917799Z ok 67 - add cursor below, then typing lands at both
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3918148Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3918376Z   duration_ms: 0.329963
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3918629Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3918893Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3919163Z # Subtest: add cursor above mirrors, with the goal column
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3919546Z ok 68 - add cursor above mirrors, with the goal column
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3919903Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3920133Z   duration_ms: 0.097295
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3920397Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3920665Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3920945Z # Subtest: add cursor below at the last line adds nothing
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3921322Z ok 69 - add cursor below at the last line adds nothing
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3921661Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3921895Z   duration_ms: 0.092668
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3922166Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3922429Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3922713Z # Subtest: backspace applies at every cursor as one edit
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3923092Z ok 70 - backspace applies at every cursor as one edit
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3923451Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3923677Z   duration_ms: 0.135933
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3923927Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3924192Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3924447Z # Subtest: escape collapses to the primary
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3924768Z ok 71 - escape collapses to the primary
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3925097Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3925325Z   duration_ms: 0.079149
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3926034Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3926308Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3926589Z # Subtest: paste: line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3926984Z ok 72 - paste: line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3927340Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3927579Z   duration_ms: 0.206268
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3927842Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3928126Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3928439Z # Subtest: paste: whole clipboard at each cursor when they do not
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3928874Z ok 73 - paste: whole clipboard at each cursor when they do not
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3929261Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3929491Z   duration_ms: 0.163394
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3929744Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3930009Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3930289Z # Subtest: paste: a single cursor takes the whole clipboard
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3930699Z ok 74 - paste: a single cursor takes the whole clipboard
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3931063Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3931292Z   duration_ms: 0.100029
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3931552Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3931823Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3932101Z # Subtest: ctrl+d: word first, then the next occurrence
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3932478Z ok 75 - ctrl+d: word first, then the next occurrence
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3932832Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3933055Z   duration_ms: 0.307209
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3933305Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3933558Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3933842Z # Subtest: normalize: overlapping cursors merge, duplicates drop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3934234Z ok 76 - normalize: overlapping cursors merge, duplicates drop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3934591Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3934809Z   duration_ms: 0.101081
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3935051Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3935273Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3935736Z # Subtest: tab: a bare caret pads to the next 4-stop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3936125Z ok 77 - tab: a bare caret pads to the next 4-stop
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3936474Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3936710Z   duration_ms: 1.413981
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3936965Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3937225Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3937481Z # Subtest: indent and dedent every touched line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3937838Z ok 78 - indent and dedent every touched line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3938174Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3938401Z   duration_ms: 0.480968
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3938649Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3939094Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3939394Z # Subtest: indent with two cursors touches both lines once each
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3939823Z ok 79 - indent with two cursors touches both lines once each
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3940194Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3940424Z   duration_ms: 0.126599
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3940698Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3941204Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3941514Z # Subtest: ctrl+/: comments align at the shallowest indent, and back
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3941927Z ok 80 - ctrl+/: comments align at the shallowest indent, and back
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3942282Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3942509Z   duration_ms: 0.419186
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3942762Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3943018Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3943264Z # Subtest: ctrl+/: mixed lines all gain comments
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3943602Z ok 81 - ctrl+/: mixed lines all gain comments
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3943934Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3944154Z   duration_ms: 0.123825
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3944403Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3944658Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3944972Z # Subtest: coalescing: a typed word is one step, the space after it is not
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3945432Z ok 82 - coalescing: a typed word is one step, the space after it is not
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3945954Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3946182Z   duration_ms: 0.173439
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3946425Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3946682Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3946968Z # Subtest: coalescing: backspaces run together, kinds never mix
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3947368Z ok 83 - coalescing: backspaces run together, kinds never mix
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3947733Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3947960Z   duration_ms: 0.082493
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3948378Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3956187Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3956426Z # Subtest: coalescing: a cursor-count change breaks the run
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3956756Z ok 84 - coalescing: a cursor-count change breaks the run
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3957008Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3957170Z   duration_ms: 0.065608
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3957358Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3957515Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3957732Z # Subtest: session: typing a wolf function with the manners on
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3958092Z ok 85 - session: typing a wolf function with the manners on
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3958459Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3958645Z   duration_ms: 0.419707
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3958817Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3958966Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3959194Z # Subtest: typed keys route through the core: pairs appear in the textarea
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3959612Z ok 86 - typed keys route through the core: pairs appear in the textarea
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3959906Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3960061Z   duration_ms: 1.840859
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3960246Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3960405Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3960574Z # Subtest: the gutter counts the lines
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3960810Z ok 87 - the gutter counts the lines
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3961011Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3961159Z   duration_ms: 0.14094
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3961343Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3961501Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3961677Z # Subtest: mod+Enter runs and edits nothing
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3961905Z ok 88 - mod+Enter runs and edits nothing
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3962108Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3962251Z   duration_ms: 0.123534
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3962419Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3962564Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3962797Z # Subtest: ctrl+alt+down grows a column; typing lands at each; Esc collapses
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3963178Z ok 89 - ctrl+alt+down grows a column; typing lands at each; Esc collapses
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3963455Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3963600Z   duration_ms: 4.360331
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3963780Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3963931Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3964158Z # Subtest: paste distributes line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3964501Z ok 90 - paste distributes line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3964764Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3964916Z   duration_ms: 0.841507
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3965277Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3965429Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3965775Z # Subtest: a typed word undoes as one step; the next word is its own
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3966123Z ok 91 - a typed word undoes as one step; the next word is its own
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3966385Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3966555Z   duration_ms: 0.188882
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3966856Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3967006Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3967224Z # Subtest: a multi-cursor edit undoes as ONE step
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3967494Z ok 92 - a multi-cursor edit undoes as ONE step
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3967721Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3967873Z   duration_ms: 0.697551
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3968050Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3968203Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3968371Z # Subtest: redo brings a step back
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3968591Z ok 93 - redo brings a step back
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3968787Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3968938Z   duration_ms: 0.387108
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3969133Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3969309Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3969573Z # Subtest: tab indents the caret to the next stop; shift+tab dedents the line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3969966Z ok 94 - tab indents the caret to the next stop; shift+tab dedents the line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3970283Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3970445Z   duration_ms: 3.14086
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3970627Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3970786Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3970958Z # Subtest: mod+/ comments and uncomments
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3971200Z ok 95 - mod+/ comments and uncomments
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3971414Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3971568Z   duration_ms: 0.70942
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3971757Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3972081Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3972310Z # Subtest: mod+d selects the word, then adds the next occurrence
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3972644Z ok 96 - mod+d selects the word, then adds the next occurrence
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3972896Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3973052Z   duration_ms: 0.422451
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3973230Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3973388Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3973605Z # Subtest: goal columns survive keyboard travel over a short line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3973944Z ok 97 - goal columns survive keyboard travel over a short line
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3974198Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3974350Z   duration_ms: 0.937971
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3974531Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.3974689Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.4592573Z #   (skipped: upstream/ is not checked out)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.5172261Z #   (skipped: upstream/ is not checked out)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6371283Z #   (skipped: upstream/ is not checked out)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6615403Z # Subtest: the site as it stands passes, and says what it measured
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6616296Z not ok 98 - the site as it stands passes, and says what it measured
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6616767Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6616991Z   duration_ms: 90.858538
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6617217Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6617547Z   location: '/home/runner/work/wolf-web/wolf-web/tests/lag-phrases.test.mjs:74:1'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6617939Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6618156Z   error: |-
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6618901Z     lag phrases: install/index.html: the gap is 2 and the page does not say so — it must carry the phrase 'two releases'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6620077Z     lag phrases: install/index.html: still carries 'one release' while the counted gap is 2 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6621069Z     lag phrases: play/index.html: the gap is 2 and the page does not say so — it must carry the phrase 'two releases'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6622039Z     lag phrases: play/index.html: still carries 'one release' while the counted gap is 2 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6622653Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6622799Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6622943Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6623093Z     
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6623583Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6623778Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6623972Z   expected: 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6624137Z   actual: 1
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6624307Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6624504Z   stack: |-
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6624879Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/lag-phrases.test.mjs:77:10)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6625358Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6625857Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6626182Z     Test.start (node:internal/test_runner/test:944:17)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6626600Z     startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6626978Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6627364Z # Subtest: ww27's own paragraph reds — the phrase for another gap, quoted
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6627846Z ok 99 - ww27's own paragraph reds — the phrase for another gap, quoted
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6628161Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6628356Z   duration_ms: 80.781986
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6628569Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6628736Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6628980Z # Subtest: a page that drops the phrase for the counted gap reds
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6629343Z ok 100 - a page that drops the phrase for the counted gap reds
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6629616Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6629774Z   duration_ms: 57.196918
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6630009Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6630185Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6630445Z # Subtest: the revision written by hand reds, even when it is correct
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6630842Z ok 101 - the revision written by hand reds, even when it is correct
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6631340Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6631504Z   duration_ms: 63.319681
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6631699Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6631861Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6632130Z # Subtest: the distance stamp is required exactly when there is a distance
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6632575Z ok 102 - the distance stamp is required exactly when there is a distance
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6632880Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6633030Z   duration_ms: 56.363224
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6633205Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6633355Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6633546Z # Subtest: no arguments is a usage error, on any checkout
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6633854Z ok 103 - no arguments is a usage error, on any checkout
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6634081Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6634225Z   duration_ms: 20.778437
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6634397Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6634545Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6675402Z # Subtest: the site's server block is found
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6675820Z ok 104 - the site's server block is found
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6676059Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6676181Z   duration_ms: 1.943438
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6676313Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6676427Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6704642Z # Subtest: CSP: every Content-Security-Policy line is the server's, byte for byte, and strict
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6705023Z ok 105 - CSP: every Content-Security-Policy line is the server's, byte for byte, and strict
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6705277Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6705388Z   duration_ms: 0.243604
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6705512Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6705754Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6705998Z # Subtest: every location that sets a header repeats all four security headers
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6706277Z ok 106 - every location that sets a header repeats all four security headers
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6706476Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6706585Z   duration_ms: 0.233919
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6706718Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6706831Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6706970Z # Subtest: a miss under /book/ answers the book's 404 page
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6707193Z ok 107 - a miss under /book/ answers the book's 404 page
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6707371Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6707477Z   duration_ms: 0.137385
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6707611Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6707719Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6707906Z # Subtest: the book revalidates: its unfingerprinted files are never cached blind
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6708482Z ok 108 - the book revalidates: its unfingerprinted files are never cached blind
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6708694Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6708811Z   duration_ms: 0.296974
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6708939Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6709050Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6709199Z # Subtest: a stale revision planted in a page reds the build
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6709431Z ok 109 - a stale revision planted in a page reds the build
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6709607Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6709713Z   duration_ms: 26.078286
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6709837Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6709947Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6710085Z # Subtest: the correct revision, written by hand, reds too
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6710282Z ok 110 - the correct revision, written by hand, reds too
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6710438Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6710541Z   duration_ms: 30.080661
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6710667Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6710779Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6710963Z # Subtest: a placeholder naming no source reds rather than stamping nothing
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6711228Z ok 111 - a placeholder naming no source reds rather than stamping nothing
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6711428Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6711533Z   duration_ms: 21.413876
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6711655Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6711760Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6711889Z # Subtest: the stamp is the interpreter's own gitlink
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6712086Z ok 112 - the stamp is the interpreter's own gitlink
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6712250Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6712357Z   duration_ms: 48.288262
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6712479Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6712688Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6712814Z # Subtest: english prose is not a revision
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6712989Z ok 113 - english prose is not a revision
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6713142Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6713250Z   duration_ms: 20.662564
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6713378Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6713484Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6713638Z # Subtest: both pages carry the stamp and neither carries a literal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6713886Z ok 114 - both pages carry the stamp and neither carries a literal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6714093Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6714196Z   duration_ms: 0.871561
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6714313Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6714416Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6714569Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6714825Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6715080Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6715330Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6715892Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6716251Z # Subtest: cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6716525Z ok 115 - cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6716736Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6716846Z   duration_ms: 1.637144
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6716969Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6717079Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6717202Z # Subtest: the record the tab shows says the same
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6717387Z ok 116 - the record the tab shows says the same
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6717544Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6717654Z   duration_ms: 0.360638
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6717776Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6717885Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6718028Z # Subtest: the freestanding target is still not this one
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6718231Z ok 117 - the freestanding target is still not this one
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6718394Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6718500Z   duration_ms: 1.142226
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6718620Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6718732Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6718900Z # Subtest: a gate on the other architecture is dropped, as on an x86-64 host
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6719151Z ok 118 - a gate on the other architecture is dropped, as on an x86-64 host
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6719494Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6719599Z   duration_ms: 0.417403
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6719723Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6719826Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6719950Z # Subtest: the module states the target it reads cfg as
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720135Z ok 119 - the module states the target it reads cfg as
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720298Z   ---
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720410Z   duration_ms: 0.24086
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720537Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720648Z   ...
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720751Z 1..119
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720854Z # tests 119
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6720959Z # suites 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6721071Z # pass 116
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6721177Z # fail 3
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6721281Z # cancelled 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6721387Z # skipped 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6721487Z # todo 0
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6721597Z # duration_ms 816.324933
+build the site	editor core and CSP gates	2026-10-09T20:30:41.6780586Z ##[error]Process completed with exit code 1.

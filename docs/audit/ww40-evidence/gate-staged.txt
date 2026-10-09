@@ -1,0 +1,22 @@
+# contents gate (full) and --retry, STAGED: kasumi's dist/book at ww40 f53290b (every script ?v=2504a0f) served by wolf-book 2504a0f tests/contents/serve.mjs under lupp.us's headers, --unversioned; contents.mjs sha256 f0a6c7a5…, playwright-core 1.63.0, nomad-1
+started 2026-10-09T20:49:19Z
+contents: gate against http://127.0.0.1:52516/book/ (render served with lupp.us's headers, unversioned)
+contents: chromium phone: 49 pages, 45 entries, 2205 clicks, 2205 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 152s
+contents: chromium desktop: 49 pages, 45 entries, 2205 clicks, 2205 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 46s
+contents: firefox phone: 49 pages, 45 entries, 2205 clicks, 167 at 200, 2038 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 180s
+contents: firefox desktop: 49 pages, 45 entries, 2205 clicks, 165 at 200, 2040 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 116s
+contents: webkit phone: 49 pages, 45 entries, 2205 clicks, 383 at 200, 1822 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 180s
+contents: webkit desktop: 49 pages, 45 entries, 2205 clicks, 377 at 200, 1828 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 84s
+contents: ok — every entry from every page lands where its label says
+GATE-EXIT=0
+contents: retry against http://127.0.0.1:54980/book/ (render served with lupp.us's headers, unversioned)
+# chromium phone: hop1 90/90 landed, 0 at 304 (0 number mismatches); hop2 90/90 landed, 0 at 304
+# chromium desktop: hop1 90/90 landed, 0 at 304 (0 number mismatches); hop2 90/90 landed, 0 at 304
+# firefox phone: hop1 90/90 landed, 47 at 304 (0 number mismatches); hop2 90/90 landed, 89 at 304
+# firefox desktop: hop1 90/90 landed, 47 at 304 (0 number mismatches); hop2 90/90 landed, 89 at 304
+# webkit phone: hop1 90/90 landed, 44 at 304 (0 number mismatches); hop2 90/90 landed, 88 at 304
+# webkit desktop: hop1 90/90 landed, 45 at 304 (0 number mismatches); hop2 90/90 landed, 89 at 304
+contents: ok — every entry from every page lands where its label says
+RETRY-EXIT=0
+retry log:     1092 lines, 0 'HTTP 404', 0 ERROR
+STAGED-DONE

@@ -1,0 +1,7 @@
+f516a5f4ea4341acd3a30f3e5cdd4327aede1912
+UNPATCHED-EXIT=1
+  no portability patch present; building the pin as it stands
+error[E0433]: cannot find `fs` in `super`
+error: could not compile `wolf-interp` (lib) due to 1 previous error
+build-wasm: the wasm build failed; the output above is cargo's
+CONTROL-DONE

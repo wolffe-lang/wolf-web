@@ -1,0 +1,37 @@
++ L=/home/mfwolffe/lanes/ww40
++ export PATH=/home/mfwolffe/lanes/ww40/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin CARGO_BUILD_JOBS=4
++ PATH=/home/mfwolffe/lanes/ww40/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/home/mfwolffe/.cargo/bin:/home/mfwolffe/.local/bin:/opt/cuda/bin:/usr/local/bin:/usr/bin:/bin
++ CARGO_BUILD_JOBS=4
++ cd /home/mfwolffe/lanes/ww40/web
++ git fetch -q origin ww40
++ git checkout -q -- .
++ git checkout -q -B ww40 origin/ww40
+++ git branch --show-current
++ test ww40 = ww40
++ git rev-parse HEAD
+181ca63142404a7a50137eae94f9078fd3d64dc6
++ git submodule update --init --recursive
++ git -C upstream/wolf-interp fetch -q --tags origin
++ git -C upstream/wolf-interp checkout -q f516a5f4ea4341acd3a30f3e5cdd4327aede1912
++ git -C upstream/wolf-interp submodule update --init --recursive
++ git -C upstream/wolf-lang fetch -q --tags origin
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-book rev-parse HEAD
++ echo 'wolf-book 2504a0fcef5a36422c8704c734912b0a23d12962'
+wolf-book 2504a0fcef5a36422c8704c734912b0a23d12962
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-interp rev-parse HEAD
++ echo 'wolf-interp f516a5f4ea4341acd3a30f3e5cdd4327aede1912'
+wolf-interp f516a5f4ea4341acd3a30f3e5cdd4327aede1912
++ for m in wolf-book wolf-interp wolf-lang
+++ git -C upstream/wolf-lang rev-parse HEAD
++ echo 'wolf-lang 89dc139443da38078df6093568da87bc6d0ee6f9'
+wolf-lang 89dc139443da38078df6093568da87bc6d0ee6f9
++ cp docs/audit/ww33-evidence/census.mjs docs/audit/ww33-evidence/stdout-probe.mjs docs/audit/ww38-evidence/ww38-records.mjs /home/mfwolffe/lanes/ww40/
++ mkdir -p dist/play
++ ./scripts/build-wasm.sh
++ echo WASM49-EXIT=1
+WASM49-EXIT=1
++ cp dist/play/lupin.wasm /home/mfwolffe/lanes/ww40/lupin-0.1.49.wasm
+cp: cannot stat 'dist/play/lupin.wasm': No such file or directory
++ exit 1

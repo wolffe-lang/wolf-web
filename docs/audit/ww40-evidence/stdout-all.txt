@@ -1,0 +1,58 @@
+conc/atomic_fence.lu
+  A "unsupported" ""
+  B "exit(0)" "42 7\n"
+conc/atomic_orders.lu
+  A "unsupported" ""
+  B "exit(0)" "load 5 5 5\nstore 1 2 3\nswap 3 4 5 6 7\nadd 8 9 10 11 12\nsub 13 12 11 10 9\nand 8 8 8 8 8\nor 8 9 9 9 9\nxor 9 8 9 8 9\ncas 8 true 9 true 10 true 11 true 12 true 13 true 14 true 15 true 16 true\ncas 17 false 17 false\n"
+conc/atomic_widths.lu
+  A "unsupported" ""
+  B "exit(0)" "u8 250 4 240 0 48 33 7 true 9 false 9\nu16 65530 4 65520 0 48 33 7 true 9 false 9\nu32 4294967290 4 4294967280 0 48 33 7 true 9 false 9\nu64 4611686018427387904 4611686018427387914 4611686018427387894 6 54 39 7 true 9 false 9\ni8 122 -124 112 0 48 33 7 true 9 false 9\ni16 32762 -32764 32752 0 48 33 7 true 9 false 9\ni32 2147483642 -2147483644 2147483632 0 48 33 7 true 9 false 9\ni64 9223372036854775802 -9223372036854775804 9223372036854775792 0 48 33 7 true 9 false 9\n"
+fs/os_error.lu
+  A "unsupported" ""
+  B "unsupported" "start=0\n"
+memory/bytes_scan.lu
+  A "unsupported" ""
+  B "exit(0)" "count=3 first=2 next=5 adjacent=6 after=none\nat_len=none past=none negative=none absent=none\nempty_count=0 empty_find=none\nbig_count=2857 last=19998 tail=none lines=2857\n"
+memory/packed_field_raw_read.lu
+  A "unsupported" ""
+  B "exit(0)" "packed 255 4096 1 512\n"
+memory/raw_field_store_compound.lu
+  A "unsupported" ""
+  B "exit(0)" "3 42 0 -9\n"
+memory/raw_field_store.lu
+  A "unsupported" ""
+  B "exit(0)" "1 7 0 5\n"
+memory/raw_field_store_nested.lu
+  A "unsupported" ""
+  B "exit(0)" "5 0 9 11\n"
+memory/raw_field_store_packed.lu
+  A "unsupported" ""
+  B "exit(0)" "65535 4096 1 512\n"
+memory/region_copyout_loop.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "piece 49 3-49 50\n"
+memory/region_copyout_map.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "value-20 value-30 v1 3 4 (1, two) 26890\n"
+memory/region_copyout_struct.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "plan-7 8 w7-0 w7-2 3 26890\n"
+memory/volatile_widths.lu
+  A "unsupported" ""
+  B "exit(0)" "255 65535 4294967295 9223372036854775807\n-128 -32768 -2147483648 -9223372036854775808\n200 4 772\n17367812 5\n"
+typecheck/fn_never_handler_arm.lu
+  A "fail(E0301)" ""
+  B "exit(0)" "1\n"
+typecheck/fn_never_trap.lu
+  A "fail(E0301)" ""
+  B "trap(assert)" "bad\n"
+typecheck/int_not_byte.lu
+  A "unsupported" ""
+  B "exit(0)" "-16 240 255\n"
+typecheck/int_not_mask.lu
+  A "unsupported" ""
+  B "exit(0)" "73728 77824 4294892730 4294967295 4096 57344\n"
+typecheck/int_not_signed.lu
+  A "unsupported" ""
+  B "exit(0)" "-6 127 0 -256 -1 -128\n"
+stdout-all: 618 programs, 599 identical in verdict and stdout, 19 differ

@@ -1,0 +1,87 @@
+84911a353a03878c630762896ca2a19c2e2e20bf1a774d3f13858c99c9f56d6d  lupin-0.1.49-x86_64-unknown-linux-gnu.tar.gz
+binary x/lupin-0.1.49-x86_64-unknown-linux-gnu/lupin
+6d057eb1ad06aa0aa1c1622410125edc8de6a830cbab533a848fd8a162d0f7e4  x/lupin-0.1.49-x86_64-unknown-linux-gnu/lupin
+lupin 0.1.49 (wolf-interp, reference interpreter at pin 294d626)
+== grammar/cfg_target_arch.lu
+64
+exit=0
+== conc/atomic_fence.lu
+42 7
+exit=0
+== conc/atomic_orders.lu
+store 1 2 3
+swap 3 4 5 6 7
+add 8 9 10 11 12
+sub 13 12 11 10 9
+and 8 8 8 8 8
+or 8 9 9 9 9
+xor 9 8 9 8 9
+cas 8 true 9 true 10 true 11 true 12 true 13 true 14 true 15 true 16 true
+cas 17 false 17 false
+exit=0
+== conc/atomic_widths.lu
+u8 250 4 240 0 48 33 7 true 9 false 9
+u16 65530 4 65520 0 48 33 7 true 9 false 9
+u32 4294967290 4 4294967280 0 48 33 7 true 9 false 9
+u64 4611686018427387904 4611686018427387914 4611686018427387894 6 54 39 7 true 9 false 9
+i8 122 -124 112 0 48 33 7 true 9 false 9
+i16 32762 -32764 32752 0 48 33 7 true 9 false 9
+i32 2147483642 -2147483644 2147483632 0 48 33 7 true 9 false 9
+i64 9223372036854775802 -9223372036854775804 9223372036854775792 0 48 33 7 true 9 false 9
+exit=0
+== conc/atomic_counter.lu
+400000 100000
+exit=0
+== memory/volatile_widths.lu
+255 65535 4294967295 9223372036854775807
+-128 -32768 -2147483648 -9223372036854775808
+200 4 772
+17367812 5
+exit=0
+== memory/packed_field_raw_read.lu
+packed 255 4096 1 512
+exit=0
+== memory/raw_repr_c_layout.lu
+memory/raw_repr_c_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got C3
+exit=4
+== memory/raw_repr_packed_layout.lu
+memory/raw_repr_packed_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got P3
+exit=4
+== memory/raw_repr_align_layout.lu
+memory/raw_repr_align_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got A16
+exit=4
+== membrane/extern_let_image.lu
+membrane/extern_let_image.lu: unsupported: a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not model ([abi.link.extern])
+exit=4
+== membrane/extern_libc.lu
+membrane/extern_libc.lu: unsupported: `strlen` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch
+exit=4
+== typecheck/fn_never_extern.lu
+2
+exit=0
+== os/chdir_relative.lu
+moved=true
+relative_read=found
+cwd_ends_inner=true
+up_sees_inner=true
+back=true
+missing=not_found
+onto_a_file=io
+cleaned=true
+exit=0
+== os/pipe_round_trip.lu
+ends_above_2=true distinct=true
+read=howl
+then=eof
+write_end_tty=false read_end_tty=false
+closed_tty=io forged_tty=io
+write_after_close=io
+exit=0
+== fs/std_write_bytes.lu
+one
+two
+three
+four
+close1=io close2=io
+exit=0
+NATIVE-DONE
