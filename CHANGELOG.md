@@ -20,6 +20,60 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww40 (the site at 0.2.26, two releases of lag, and linux aarch64 told as it is) — 2026-10-09
+
+All three gitlinks move: the book to bs64's merge, the compiler to wolf 0.2.26,
+and the interpreter to lupin 0.1.49.
+
+**The lag widens to two releases; the distance is 213 commits.** lupin 0.1.49
+kept 0.1.48's specification pin, the v0.2.24 tag, while the compiler tagged
+0.2.25 and 0.2.26, so the ancestry guard answers `gap 2`, `tagged true`, 213
+commits, where it counted 50 at the last bump. It went red at the compiler's
+pin and stayed red at the interpreter's, because the new interpreter did not
+move the pin; /install/ and /play/ now carry "two releases" and neither
+carries another phrase.
+
+**The tab still refuses nothing the compiler runs, and its declines shrink.**
+Every `phase: run` program in the pinned corpus went through the module this
+build publishes, both corpora through both modules: 618 programs, 465 exit,
+40 trap, 113 unsupported, 0 fail, 505 candidates, and no instance killed. The
+atomics (`fence`, `Order`), the volatile program and the field read through a
+raw pointer to a struct, which the last bump named as declines waiting on the
+interpreter, print what the compiler prints (wolf-interp#194, #185, #205).
+What remains is the whole-struct raw stores, `extern "c" let`'s link symbol
+and a bodyless C call, all declined by name at a terminal too. The release's
+own additions — raw field stores, `!` on integers, `-> never`, `copy region`
+and the byte scan — print their headers here. One program answers
+differently in the tab without being declined: `os/chdir_relative.lu` exits
+1 on the `io` row this build's `os_chdir` answers, where the interpreter at a
+terminal exits 0 (wolf-interp#222).
+
+**lupin 0.1.49 does not compile to WebAssembly as released.** Its new
+`os_error_text` calls into the filesystem module, which the wasm build leaves
+out. The site's build carries a portability patch for the staged copy (never
+the submodule), as it was built to do: in the tab that call declines by name,
+as the filesystem tier does. Filed as wolf-interp#222.
+
+**No program in the tab printed an old wrong answer.** The fix this release
+makes on the compiled tiers, a call's `str` result read after its region was
+freed (wolf-lang#618), was never wrong in the interpreter, which traps it;
+every program both corpora carry printed the same under both modules except
+the five declines that now run.
+
+**linux aarch64, as the release measures it.** The front page and /install/
+said its archive runs programs on the checked tier and that it has no CI
+runner. The second half was false: the release workflow builds and gates
+that archive on an arm runner at every tag, and the gate asserts both
+compiled tiers refuse the host by name with exit code 2 while the checked
+tier runs the program (wolf-lang#614). Both pages now say that, and the front
+page's sentence carries the release stamp so the next bump re-reads it.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.26 fixed and added and moves 0.2.25's story into the history. /spec/
+binds 02's copy-out, call-site, `m.K`, raw-field and byte-scan clauses, 08's
+derived capabilities, 10's `never` and `!`, and 11's descriptor, pipe,
+working-directory, terminal, copy and error-number clauses to the stamp.
+
 ## ww39 (the site at 0.2.25, chapter 7 live, and the tab refuses nothing) — 2026-10-08
 
 All three gitlinks move: the book to bs63's merge, the compiler to wolf 0.2.25,

@@ -208,15 +208,17 @@ play/index.html v0.2.25 5 audited-at-wolf=0.2.26
 # site spells a lupin release bare and a wolf release tagged, and the entries
 # below keep both spellings apart on purpose: they are different strings on
 # the page and a drift in either is a different sentence going wrong.
+CHANGELOG.md 0.2.26 4 frozen
+CHANGELOG.md 0.1.49 3 frozen
 CHANGELOG.md version 0.1.0 1 frozen
 CHANGELOG.md 0.2.18 5 frozen
 CHANGELOG.md 0.2.19 4 frozen
 CHANGELOG.md 0.2.20 1 frozen
-CHANGELOG.md 0.2.25 3 frozen
+CHANGELOG.md 0.2.25 5 frozen
 CHANGELOG.md 0.2.24 2 frozen
-CHANGELOG.md 0.1.48 2 frozen
+CHANGELOG.md 0.1.48 3 frozen
 CHANGELOG.md 0.1.47 1 frozen
-CHANGELOG.md v0.2.24 1 frozen
+CHANGELOG.md v0.2.24 2 frozen
 CHANGELOG.md v0.2.23 1 frozen
 CHANGELOG.md 0.2.23 4 frozen
 CHANGELOG.md 0.1.46 3 frozen
