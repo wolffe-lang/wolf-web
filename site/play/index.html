@@ -127,14 +127,17 @@
   these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk; the compiler has
-  tagged once since it, so the text this tab reads is one release behind the
-  one <a href="/install/">install</a> advertises,
+  tagged twice since it, so the text this tab reads is two releases behind
+  the one <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap holds the width it had at v0.2.23's pin, when this tab read v0.2.22's
-  text, and at v0.2.22's, v0.2.21's and v0.2.19's before it: the interpreter
-  re-pinned two tags forward, on the v0.2.24 tag, and mirrored with it the
-  module state and the struct layouts whose refusals this page named at
-  v0.2.23's pin (wolf-interp#190, #188). The
+  gap is a step wider than at v0.2.25's pin, when this tab read the same
+  tag a single step back: the interpreter released again without
+  re-pinning, and mirrored instead what the compiler had added since —
+  volatile access and the atomics on raw pointers, the kernel's papercuts,
+  a child's descriptors and <code>copy region</code> (wolf-interp#185, #194,
+  #200) — so the programs those releases brought run here while the text
+  the tab reads has fallen behind. From v0.2.19's pin to v0.2.25's the gap
+  was a single step at every pair this site served. The
   compiler's own second line names the interpreter in this tab: the release
   <a href="/install/">install</a> advertises was tested against the
   interpreter version above, and this site serves it. At v0.2.15's pin it did
@@ -160,10 +163,12 @@
   step, the mirror re-pinning on the compiler's last tag but one so the gap
   was back to a single step, the compiler tagging four times more with the
   mirror following each time onto its last tag but one, so the gap held that
-  single step across all four — and now the mirror released once more
-  without re-pinning, two steps behind, at a pair this site never served,
-  and then re-pinned two steps forward, so the gap this page shows is the
-  single step again. The two
+  single step across all four, the mirror releasing once more without
+  re-pinning, two steps behind, at a pair this site never served, and then
+  re-pinning two steps forward, so the gap was the single step again — and
+  now the compiler tagged once more and the mirror released beside it on
+  the same pin, so the gap this page shows is two steps, the first pair two
+  steps apart this site has served since v0.2.18's. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -179,19 +184,28 @@
   <code>phase: run</code> program in the pinned corpus goes through the
   module this page serves, and at these pins none of the ones the compiler
   runs is refused here, in the tab or at a terminal. What remains is
-  declines, each by name and the same at a terminal. The atomics the
-  release before the one <a href="/install/">install</a> advertises added,
-  <code>corpus/conc/atomic_counter.lu</code>, <code>atomic_fence.lu</code>,
-  <code>atomic_orders.lu</code> and <code>atomic_widths.lu</code>, answer
+  declines, each by name and the same at a terminal: the three programs
+  that store a whole struct through a raw pointer,
+  <code>corpus/memory/raw_repr_c_layout.lu</code>,
+  <code>raw_repr_packed_layout.lu</code> and
+  <code>raw_repr_align_layout.lu</code>, which the interpreter declines as
+  the compiler's own checked machine does, and the two that need a link or
+  a C ABI the interpreter does not model,
+  <code>corpus/membrane/extern_let_image.lu</code> and
+  <code>extern_libc.lu</code>. At v0.2.25's pin the list was longer. The
+  atomics the release before it added, <code>corpus/conc/atomic_fence.lu</code>,
+  <code>atomic_orders.lu</code> and <code>atomic_widths.lu</code>, answered
   that <code>fence</code> or <code>Order.seq_cst</code> does not resolve,
-  and <code>corpus/memory/volatile_widths.lu</code> that this interpreter
-  has no <code>write_volatile</code>: both are mirrored on the
-  interpreter's trunk since this release and not yet released
-  (wolf-interp#194, #185). <code>corpus/memory/packed_field_raw_read.lu</code>
-  reads a field through a raw pointer to a struct, and this interpreter
-  reads that pointer's elements as bytes, "<code>u8</code> has no member
-  <code>limit</code>" (wolf-interp#205). At v0.2.23's pin the tab refused
-  five, and none was a decline:
+  <code>corpus/memory/volatile_widths.lu</code> that lupin 0.1.48 had no
+  <code>write_volatile</code>, and
+  <code>corpus/memory/packed_field_raw_read.lu</code> that a raw pointer's
+  element, read as bytes, "<code>u8</code> has no member
+  <code>limit</code>" (wolf-interp#194, #185, #205). All five print here
+  what the compiler prints now. <code>corpus/conc/atomic_counter.lu</code>
+  is the one atomics program still declined, and for the tab's reason, not
+  the interpreter's: it spawns tasks, which a page has no thread for, and
+  at a terminal it prints <code>400000 100000</code>. At v0.2.23's pin the
+  tab refused five, and none was a decline:
   <code>corpus/comptime/layout_query_repr_c.lu</code>,
   <code>corpus/memory/packed_fields_at_offset_of.lu</code>,
   <code>corpus/memory/raw_repr_packed_layout.lu</code> and
@@ -202,10 +216,8 @@
   and <code>corpus/membrane/extern_let_image.lu</code> answered
   <code>fail(E0201)</code>, its <code>extern "c" let</code> a line that
   interpreter could not parse (wolf-interp#190). The first two print here
-  what the compiler prints now. The two that store a whole struct through a
-  raw pointer are declined by name, as the compiler's own checked machine
-  declines them, and the linker symbol is declined because an interpreter
-  has no link to define it.</p>
+  what the compiler prints; the other three are among the declines
+  above.</p>
 
   <p><strong>This tab reads <code>cfg</code> as an x86-64 Linux host.</strong>
   The interpreter evaluates a <code>#[cfg(target = …)]</code> against the
@@ -224,7 +236,13 @@
   <p><strong>Nothing parts in its output.</strong> A verdict census cannot see
   a disagreement that exits 0 on both sides, so the compiler's additions
   were walked a second time and each one's output compared with its header,
-  and every one that runs here prints what its header says. At v0.2.22's
+  and every one that runs here prints what its header says but one, and that
+  one is the tab's: <code>corpus/os/chdir_relative.lu</code> moves the
+  working directory, a page has none to move, and this build's
+  <code>os_chdir</code> answers the <code>io</code> row rather than
+  declining, so the program exits 1 printing <code>error: io</code>, where
+  at a terminal this interpreter prints its header's lines and exits 0
+  (wolf-interp#222). At v0.2.22's
   pin that walk is where <code>corpus/rows/unit_discard_if_value.lu</code>
   showed: it exited 0 here as there and printed <code>() none</code> where
   the compiler prints <code>() ()</code>, because lupin 0.1.45 bound the
@@ -249,18 +267,32 @@
 
   <p><strong>The compiler's newest programs answer here.</strong> Besides
   the programs above, the release <a href="/install/">install</a> advertises
-  and the one before it brought their own programs into the corpus's running
-  set — a module <code>var</code> and a raw pointer's memory written by a
-  callee and read back after the call, branches on the top half of an
-  unsigned shift, module strings that hold their value, and raw accesses at
-  their pointee's alignment — and each one that runs here prints what its
-  header says it prints. Those are the answers that release fixed on the
-  compiled tiers; this tab never had them wrong, and lupin 0.1.46 printed
-  each of them the same. The programs the corpus already carried that answer
-  differently from the last pin are the five the paragraph on the vintage
-  names, all of them refusals then. The measurement is four
+  brought its own programs into the corpus's running set — a field stored
+  through a raw pointer to a struct, <code>!</code> on an integer as its
+  complement, functions declared <code>-&gt; never</code>, blocks that keep
+  their value with <code>copy region</code>, and a byte scan over a
+  <code>List[byte]</code> — and each one that runs here prints what its
+  header says it prints. Under lupin 0.1.48, the interpreter this page
+  served until now, most of them were declined or refused, and three of the
+  <code>copy region</code> programs trapped <code>region-fault</code>,
+  reading the block as a plain <code>region</code>. The one answer that
+  release fixed on the compiled tiers, a call's <code>str</code> result read
+  from its freed region, this tab never had wrong: lupin traps that shape,
+  and the two programs beside it print the same under both interpreters. The
+  rest of the additions are declined for the tab's reasons — the byte calls
+  on the standard streams with the filesystem, the pipe and a child's
+  descriptors with the process tier, and the three programs that read
+  another module's item, which name sibling files — except
+  <code>chdir_relative.lu</code> above. The programs the corpus already
+  carried that answer differently from the last pin are the five the
+  paragraph on the vintage names, all of them declines then. The measurement is four
   walks: both corpora through both modules, and no other program both
-  corpora carry changed its answer in any of them. At v0.2.23's pin the
+  corpora carry changed its answer in any of them. At v0.2.25's pin the
+  additions were a module <code>var</code> and a raw pointer's memory
+  written by a callee and read back after the call, branches on the top
+  half of an unsigned shift, module strings that hold their value, and raw
+  accesses at their pointee's alignment, which lupin 0.1.46 printed the
+  same. At v0.2.23's pin the
   additions were integers and pointers converted both ways, prefix
   <code>*p</code> over signed and unsigned pointees, module
   <code>const</code>, <code>let</code> and <code>var</code>, and else-less
@@ -418,12 +450,13 @@
   Money</code> — an interpreter honestly behind a clause it had not mirrored
   yet, which is a thing that ends. It ended here. The distinction is the
   reason a reader can tell, from the same word, which refusals are worth
-  waiting on. Among the programs you can run, the tab has a few of the
-  second kind at these pins, the declines named above, and each but the two
-  whole-struct stores and the linker symbol waits on a mirror: the atomics
-  and the volatile program on a mirror already on the interpreter's trunk
-  and not yet released, the struct field on an issue its tracker has
-  open.</p>
+  waiting on. Among the programs you can run, the tab has none of the
+  second kind at these pins: the declines named above are the whole-struct
+  stores, which the interpreter declines as the compiler's checked machine
+  does, and the link symbol and the C call, which an interpreter has no link
+  or C ABI to serve, and neither is waiting on a release. The
+  atomics, the volatile program and the struct field that waited at
+  v0.2.25's pin had their mirrors released, and run.</p>
 
   <p><strong>And the gap that opened after that cost nothing while it was
   open, and is closed now.</strong> The compiler tagged once more while the
@@ -496,7 +529,10 @@
   exits 0 with <code>answered false</code> on the line at every pin since,
   which is the program working as written. It is not on the menu, because its own header says
   <code>answered true</code> and a sample shown beside a header it contradicts
-  looks broken.</p>
+  looks broken. <code>corpus/os/chdir_relative.lu</code> is the second near
+  miss, and the one that shows: <code>os_chdir</code> answers the same
+  <code>io</code> row here, and the program, which stops on it, exits 1
+  (above).</p>
 
   <p>__COUNT_netprograms_Word__ of the corpus's net programs land in that
   count, and the newest of them is v0.2.14's: <code>writev_head_gather.lu</code>,
