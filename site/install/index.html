@@ -171,24 +171,28 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has moved forward by two tags without widening. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has not: the interpreter released again without re-reading
+  the specification, so the gap widened a step. <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
-  the compiler has tagged once since it, so the newest release whose text the
-  interpreter carries whole is one release behind the compiler you are
-  installing, __COUNT_speccommits_word__ commits back. At v0.2.19's pin it
-  was one tag back too, reading v0.2.18's text, and at every pin this site
-  has served since, the interpreter had re-pinned on the compiler's last tag
-  but one. The pairing in between did not: lupin 0.1.47 shipped beside
-  v0.2.24 still reading v0.2.22's text, two tags back, and this site never
-  served that pair. This release re-pinned two tags forward, on the v0.2.24
-  tag, and besides the text mirrored the module state and the struct
-  layouts that the refusals this page named at v0.2.23's pin were waiting on
-  (wolf-interp#190, #188), which is why the gap holds its width instead of
-  widening. It agrees with the compiler's own second
+  the compiler has tagged twice since it, so the newest release whose text
+  the interpreter carries whole is two releases behind the compiler you are
+  installing, __COUNT_speccommits_word__ commits back. At v0.2.25's pin the
+  same tag was a single step back: lupin 0.1.48 had re-pinned on it, two
+  tags forward. The interpreter above kept that pin and mirrored instead what the
+  compiler had added since — volatile access and the atomics on raw
+  pointers, the kernel's papercuts, a child's descriptors and
+  <code>copy region</code> (wolf-interp#185, #194, #200) — which is why the
+  programs those releases brought run in the tab while the text it reads
+  has fallen a step further behind. From v0.2.19's pin to v0.2.25's the
+  interpreter had re-pinned on the compiler's last tag but one at every
+  pair this site served; lupin 0.1.47 shipped beside v0.2.24 reading
+  v0.2.22's text, two tags back, and this site never served that pair, so
+  this is the first pair it serves two tags apart since v0.2.18's. It
+  agrees with the compiler's own second
   line: the release above was tested against the interpreter version this
   page names, and the playground serves that interpreter, as it did at
-  v0.2.23's pin, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
+  v0.2.25's pin, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
   tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
@@ -210,19 +214,31 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   these pins the list of refusals is empty: no program the compiler runs is
   refused here, in the tab or at a terminal. What is left is declines, each
   by name, and each answers the same way under <code>lupin
-  __LUPIN_VERSION__</code> at a terminal. The atomics the release before
-  this one added — <code>corpus/conc/atomic_counter.lu</code>,
-  <code>atomic_fence.lu</code>, <code>atomic_orders.lu</code> and
-  <code>atomic_widths.lu</code> — are declined because the interpreter has
-  no <code>fence</code> and no <code>Order</code> yet, and the volatile
-  program, <code>corpus/memory/volatile_widths.lu</code>, because it has no
-  <code>write_volatile</code>; both halves are mirrored on the interpreter's
-  trunk after this release and not yet released (wolf-interp#194, #185).
-  <code>corpus/memory/packed_field_raw_read.lu</code> reads a field through
-  a raw pointer to a struct, and the interpreter reads that pointer's
-  elements as bytes and declines the field by name, "<code>u8</code> has no
-  member <code>limit</code>" (wolf-interp#205, open). None of them is worked
-  around here.</p>
+  __LUPIN_VERSION__</code> at a terminal. Three programs store a whole
+  struct through a raw pointer — <code>corpus/memory/raw_repr_c_layout.lu</code>,
+  <code>raw_repr_packed_layout.lu</code> and
+  <code>raw_repr_align_layout.lu</code> — which the interpreter declines by
+  name, as the compiler's own checked machine does;
+  <code>corpus/membrane/extern_let_image.lu</code> names a symbol only a
+  link defines, and <code>corpus/membrane/extern_libc.lu</code> calls a
+  bodyless C declaration, and the interpreter models neither a link nor a C
+  ABI. The declines this page named at v0.2.25's pin are gone: the atomics
+  and the volatile program, <code>corpus/conc/atomic_fence.lu</code>,
+  <code>atomic_orders.lu</code>, <code>atomic_widths.lu</code> and
+  <code>corpus/memory/volatile_widths.lu</code>, which lupin 0.1.48 had no
+  <code>fence</code>, <code>Order</code> or <code>write_volatile</code> for,
+  and <code>corpus/memory/packed_field_raw_read.lu</code>, whose raw
+  pointer to a struct it read as bytes, all print what the compiler prints
+  (wolf-interp#194, #185, #205). <code>corpus/conc/atomic_counter.lu</code>
+  runs at a terminal and is declined in the tab only, for the tab's reason:
+  it spawns tasks, and a page has no thread to give them. One program
+  answers differently in the tab without being declined, and it is the
+  tab's too: <code>corpus/os/chdir_relative.lu</code> moves the working
+  directory, which a page does not have, so the tab's
+  <code>os_chdir</code> answers the <code>io</code> row and the program
+  exits 1 printing <code>error: io</code>, where at a terminal it prints
+  what its header says and exits 0 (wolf-interp#222). None of them is
+  worked around here.</p>
 
   <p>The tab reads <code>cfg</code> as an x86-64 Linux host. The interpreter
   evaluates a <code>#[cfg(target = …)]</code> against the target it was
@@ -238,27 +254,35 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>Every other program the release above and the one before it brought into the
-  corpus's running set answers here as its header says. The census counts
-  verdicts; a second walk feeds every addition to the tab and compares what
-  each prints with its header. The calls that write a module
-  <code>var</code> or a raw pointer's memory and are read back after,
-  <code>corpus/memory/static_var_call_writes.lu</code>,
-  <code>static_var_call_deep.lu</code> and
-  <code>raw_store_call_writes.lu</code>, print <code>99 99 1</code>,
-  <code>42 42 7 42</code> and <code>9 9 4</code>; the branches on the top
-  half of an unsigned shift, <code>corpus/kernels/lshr_top_bits.lu</code>
-  and <code>corpus/memory/raw_lshr_top_bits.lu</code>, print every branch
-  taken; <code>corpus/memory/static_str_literals.lu</code> prints its module
-  strings by value; and <code>corpus/memory/raw_aligned_control.lu</code>
-  reads at every pointee's alignment. Those are the answers the release
-  above fixed on the compiled tiers, and the tab never had them wrong: lupin
-  0.1.46, the interpreter this site served until now, printed every one of
-  them the same, and across all of the running set it printed what this
-  interpreter prints wherever it ran a program at all. The measurement is
-  four walks, not one — both corpora through both modules — and no program
-  that both corpora carry changed its answer except the ones the next
-  paragraph names.</p>
+  <p>Every other program the release above brought into the corpus's running
+  set answers here as its header says, or is declined for the tab's reason.
+  The census counts verdicts; a second walk feeds every addition to the tab
+  and compares what each prints with its header. The raw field stores,
+  <code>corpus/memory/raw_field_store.lu</code> and its compound, nested and
+  packed twins, the complements in
+  <code>corpus/typecheck/int_not_byte.lu</code>, <code>int_not_mask.lu</code>
+  and <code>int_not_signed.lu</code>, the <code>-&gt; never</code> handlers in
+  <code>fn_never_handler_arm.lu</code> and <code>fn_never_extern.lu</code>,
+  the <code>copy region</code> programs and the byte scan in
+  <code>corpus/memory/bytes_scan.lu</code> each print their header's lines,
+  and <code>fn_never_trap.lu</code> stops at its <code>assert</code> as its
+  header says it does. Under lupin 0.1.48, the interpreter this site served
+  until now, most of those were declined or refused, and three of the
+  <code>copy region</code> programs trapped <code>region-fault</code>,
+  because that interpreter read the block as a plain <code>region</code>.
+  The release's one fixed wrong answer never reached the tab:
+  <code>corpus/memory/region_str_call_inside.lu</code> and
+  <code>region_str_call_static.lu</code> print the same under both
+  interpreters, and the shape the compiled tiers read from freed bytes is
+  one lupin traps. The byte calls on the standard streams, the copy between
+  handles and the host's error number (<code>corpus/fs/</code>) are declined
+  here with the filesystem, the pipe and the child's descriptors
+  (<code>corpus/os/</code>) with the process tier, and the three
+  <code>m.K</code> programs, <code>corpus/memory/static_qualified/</code>
+  and its <code>let</code> and <code>var</code> twins, name sibling files
+  the editor does not have. The measurement is four walks, not one — both
+  corpora through both modules — and no program that both corpora carry
+  changed its answer except the ones the paragraph above names.</p>
 
   <p>At v0.2.23's pin the gap cost refusals, and none is left. Four programs
   laid structs out with <code>#[repr(c, packed)]</code> and
@@ -724,10 +748,15 @@ hello, wolf</code></pre>
   and put its folder on your PATH — the binary and the runtime archive have to
   stay together, because the binary cannot link a program without it.</p>
   <p>__WOLF_VERSION__ carries four archives, one for every tier-1 host: those
-  two, windows x86-64, and linux aarch64. That last one has no native backend
-  behind it yet, so what its archive serves is the checked tier —
-  <code>wolf test</code> and <code>wolf conform-run --checked</code> run your
-  program, <code>wolf run</code> refuses the host by name — and v0.2.2
+  two, windows x86-64, and linux aarch64. That last one has no compiled tier
+  behind it yet, neither the native backend nor the LLVM one. The release
+  workflow builds its archive on an arm runner when the tag is pushed, and
+  the gate there asserts what it serves: <code>wolf run</code> and
+  <code>wolf run --release</code> each refuse the host by name with exit
+  code 2, and <code>wolf conform-run --checked</code> runs the program. So
+  that archive checks and runs programs on the checked machine and compiles
+  none (wolf-lang#614); <code>wolf test</code> runs its tests on the same
+  machine everywhere, though no gate measures it on that host. v0.2.2
   shipped no arm archive at all, because the smoke that gates the upload could
   not tell an unserved host from a broken build. Every release since carries
   it. All four
