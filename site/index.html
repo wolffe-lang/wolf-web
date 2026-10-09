@@ -139,7 +139,34 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises fixes three answers the
+  <p><strong>The release this page advertises fixes one more answer the
+  compiled tiers got wrong without a word, and hands a program its own
+  plumbing.</strong> A call to a function returning a <code>str</code> left
+  no record of the region it was made in, so <code>region scratch { out =
+  build(7) }</code> handed <code>out</code> freed bytes on the checked,
+  native and release tiers, where <code>lupin</code> trapped; that call is an
+  allocation site now, and holding its result past the region is
+  <code>E1010</code>. The way to keep a region block's result is new as well:
+  <code>copy region { … }</code> runs the block, copies its value out into
+  the region it was entered from and frees the rest, so a loop keeps each
+  turn's answer and nothing else (<code>[mem.region.copyout]</code>). A
+  program's standard streams take bytes on descriptors 0, 1 and 2;
+  <code>os_spawn_fds</code>, <code>os_pipe</code> and <code>os_chdir</code>
+  build a pipeline, a redirection and a <code>cd</code> from the program's
+  own argv, and <code>os_isatty</code> asks whether a descriptor is a
+  terminal. <code>-&gt; never</code> declares a function that never returns,
+  so <code>bad =&gt; die("…")</code> fits an arm that wants an
+  <code>int</code>; <code>!</code> on an integer is its bitwise complement at
+  the operand's width, so <code>x &amp; !0xfff</code> is the mask it looks
+  like; <code>p[i].f = v</code> stores one field through a raw pointer to a
+  struct; and another module's <code>pub const</code> reads as
+  <code>m.K</code>. A package's capabilities are what its code reaches now, a
+  host builtin it calls as much as a module it imports, and <code>wolf
+  audit</code> prints why each one is there. The interpreter it is tested
+  against released beside it without re-reading the specification, so the
+  two are two releases apart where they had been one.</p>
+
+  <p><strong>v0.2.25, the release before it, fixed three answers the
   compiled tiers got wrong without a word.</strong> A store to a module
   <code>var</code>, to <code>extern "c" let</code> storage or through any raw
   pointer was carried across a call to a function that wrote the same memory,
@@ -152,10 +179,10 @@ fn main() -&gt; !int {
   so its loads are still reused. And on release a branch on the top half of
   an unsigned shift, <code>a &gt;&gt; 63 == 1</code>, was deleted, because
   the range pass bounded the shift by the signed maximum. The interpreter it
-  is tested against re-read the specification at the tag before it, so the
-  two are one release apart where they had been two.</p>
+  was tested against had re-read the specification at the tag before it, so
+  the two were one release apart where they had been two.</p>
 
-  <p><strong>v0.2.24, the release before it, let a kernel share a word
+  <p><strong>v0.2.24 let a kernel share a word
   between cpus and allocate.</strong> On a <code>*T</code> whose pointee is
   a fixed-width integer, inside <code>unsafe</code>, <code>atomic_load</code>,
   <code>atomic_store</code>, <code>atomic_swap</code>,
@@ -450,10 +477,15 @@ cargo build --release -p wolf_driver
   <code>rust-toolchain.toml</code>, and rustup honors it on the first
   <code>cargo</code> invocation. There are no build scripts anywhere in the
   wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
-  x86-64, which are also the three hosts native code generation serves; linux
-  aarch64 is tier-1 in the matrix without a CI runner or a backend behind it
-  yet, so its archive runs programs on the checked tier rather than compiling
-  them. Tagged builds upload an archive per tier-1 host to the
+  x86-64 on every change, which are also the three hosts native code
+  generation serves; linux aarch64 is tier-1 in the matrix with no compiled
+  tier behind it yet. At v__WOLF_VERSION__ its archive is built and gated on
+  an arm runner when the release is tagged, and the gate asserts what that
+  archive serves: <code>wolf run</code> and <code>wolf run --release</code>
+  each refuse the host by name with exit code 2, and the checked tier runs
+  the program (<code>wolf conform-run --checked</code>). So on linux aarch64
+  the toolchain checks and runs programs on the checked machine and compiles
+  none (wolf-lang#614). Tagged builds upload an archive per tier-1 host to the
   <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>
   — four at v__WOLF_VERSION__, and a job in this site's own CI asks every one
   of those four URLs for a 200 on every change to this site. The packaging
