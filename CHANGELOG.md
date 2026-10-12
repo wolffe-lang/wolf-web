@@ -20,6 +20,56 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww41 (the site at 0.2.28, four releases of lag, and std/ in the archive) — 2026-10-12
+
+All three gitlinks move: the book to bs65's merge, the compiler to wolf 0.2.28,
+and the interpreter to lupin 0.1.51. The site skipped 0.2.27 and 0.1.50, so
+both releases' surfaces arrive at once.
+
+**The lag widens to four releases; the distance is 541 commits.** lupin 0.1.50
+and 0.1.51 kept 0.1.49's specification pin, the v0.2.24 tag, while the
+compiler tagged 0.2.27 and 0.2.28, so the ancestry guard answers `gap 4`,
+`tagged true`, 541 commits, where it counted 213 at the last bump. Its closed
+set of phrases stopped at a gap of three, so at the compiler's pin it did not
+list wrong phrases: it stopped, naming the phrase no page had. Both pages'
+sentences were written first, then "four releases" joined the set, with a
+test that the set has no hole.
+
+**The tab still refuses nothing the compiler runs.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes,
+both corpora through both modules: 658 programs, 487 exit, 47 trap, 124
+unsupported, 0 fail, 534 candidates, and no instance killed. The declines
+are the ones the last bump named. The two releases' additions print their
+headers here — the unsigned and wrapping integers and their traps, the json
+names that answer last-wins, `env_unset`, octal and binary literals, and the
+calls that keep or send a string and stay legal — or are declined for the
+tab's reasons: the calls that change a file, `os_exec`, jobs and the umask,
+a net read, a task-spawning program, and a module named `c` that lives in a
+sibling file. No program both corpora carry changed its answer.
+
+**Three answers the old tab gave are gone.** Under lupin 0.1.49 the json
+programs answered a repeated name first-wins, `os/env_unset.lu` was declined
+and `typecheck/int_truth_wrap_mul_wide.lu` trapped `overflow` where the
+compiler prints the wrapped product; lupin 0.1.51 answers each as the
+compiler does.
+
+**lupin 0.1.51 still does not compile to WebAssembly as released**
+(wolf-interp#222, open). The portability patch the last bump added applies
+unchanged to the staged copy, and the module builds with no imports.
+
+**The archive carries the standard library.** Since 0.2.27 every archive
+holds `std/` beside `wolf`, the default std root. /install/ says so where it
+lists the archive's folder, and the Windows job asserts `std/` and its
+`STD-REV` with the rest of the folder; the front page says a source build
+has none.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.28 closed and added and sets 0.2.27 beside it, and 0.2.26's story moves
+into the history. /spec/ binds 02's call rule, 03's checked concurrency and
+channel rule and 11's file-changing calls to the stamp, and dates 0.2.26's
+and 0.2.27's clauses. linux aarch64 holds as written: the 0.2.28 release's
+arm gate asserts the same refusals and the same checked run.
+
 ## ww40 (the site at 0.2.26, two releases of lag, and linux aarch64 told as it is) — 2026-10-09
 
 All three gitlinks move: the book to bs64's merge, the compiler to wolf 0.2.26,
