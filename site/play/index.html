@@ -127,17 +127,19 @@
   these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk; the compiler has
-  tagged twice since it, so the text this tab reads is two releases behind
-  the one <a href="/install/">install</a> advertises,
+  tagged four times since it, so the text this tab reads is four releases
+  behind the one <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap is a step wider than at v0.2.25's pin, when this tab read the same
-  tag a single step back: the interpreter released again without
-  re-pinning, and mirrored instead what the compiler had added since —
-  volatile access and the atomics on raw pointers, the kernel's papercuts,
-  a child's descriptors and <code>copy region</code> (wolf-interp#185, #194,
-  #200) — so the programs those releases brought run here while the text
-  the tab reads has fallen behind. From v0.2.19's pin to v0.2.25's the gap
-  was a single step at every pair this site served. The
+  gap is two steps wider than at v0.2.26's pin, when this tab read the same
+  tag two steps back: the interpreter released twice more without
+  re-pinning, and mirrored instead what the compiler had added — at
+  v0.2.26's pin volatile access and the atomics on raw pointers, the
+  kernel's papercuts, a child's descriptors and <code>copy region</code>
+  (wolf-interp#185, #194, #200), and since then the unsigned and wrapping
+  integers, a repeated json name, <code>env_unset</code> and the calls that
+  change a file — so the programs those releases brought run here while the
+  text the tab reads has fallen further behind. From v0.2.19's pin to
+  v0.2.25's the gap was a single step at every pair this site served. The
   compiler's own second line names the interpreter in this tab: the release
   <a href="/install/">install</a> advertises was tested against the
   interpreter version above, and this site serves it. At v0.2.15's pin it did
@@ -165,10 +167,13 @@
   mirror following each time onto its last tag but one, so the gap held that
   single step across all four, the mirror releasing once more without
   re-pinning, two steps behind, at a pair this site never served, and then
-  re-pinning two steps forward, so the gap was the single step again — and
-  now the compiler tagged once more and the mirror released beside it on
-  the same pin, so the gap this page shows is two steps, the first pair two
-  steps apart this site has served since v0.2.18's. The two
+  re-pinning two steps forward, so the gap was the single step again, the
+  compiler tagging once more and the mirror releasing beside it on the same
+  pin, so the gap was two steps at v0.2.26's pin, the first pair two steps
+  apart this site had served since v0.2.18's — and now the compiler tagged
+  twice more with the mirror releasing beside it each time, still on that
+  pin, so the gap this page shows is four steps, the widest the check that
+  holds these sentences has counted. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -236,8 +241,9 @@
   <p><strong>Nothing parts in its output.</strong> A verdict census cannot see
   a disagreement that exits 0 on both sides, so the compiler's additions
   were walked a second time and each one's output compared with its header,
-  and every one that runs here prints what its header says but one, and that
-  one is the tab's: <code>corpus/os/chdir_relative.lu</code> moves the
+  and every one that runs here prints what its header says. One program
+  from the release before them parts, and it is the tab's:
+  <code>corpus/os/chdir_relative.lu</code> moves the
   working directory, a page has none to move, and this build's
   <code>os_chdir</code> answers the <code>io</code> row rather than
   declining, so the program exits 1 printing <code>error: io</code>, where
@@ -267,27 +273,32 @@
 
   <p><strong>The compiler's newest programs answer here.</strong> Besides
   the programs above, the release <a href="/install/">install</a> advertises
-  brought its own programs into the corpus's running set — a field stored
-  through a raw pointer to a struct, <code>!</code> on an integer as its
-  complement, functions declared <code>-&gt; never</code>, blocks that keep
-  their value with <code>copy region</code>, and a byte scan over a
-  <code>List[byte]</code> — and each one that runs here prints what its
-  header says it prints. Under lupin 0.1.48, the interpreter this page
-  served until now, most of them were declined or refused, and three of the
-  <code>copy region</code> programs trapped <code>region-fault</code>,
-  reading the block as a plain <code>region</code>. The one answer that
-  release fixed on the compiled tiers, a call's <code>str</code> result read
-  from its freed region, this tab never had wrong: lupin traps that shape,
-  and the two programs beside it print the same under both interpreters. The
-  rest of the additions are declined for the tab's reasons — the byte calls
-  on the standard streams with the filesystem, the pipe and a child's
-  descriptors with the process tier, and the three programs that read
-  another module's item, which name sibling files — except
-  <code>chdir_relative.lu</code> above. The programs the corpus already
-  carried that answer differently from the last pin are the five the
-  paragraph on the vintage names, all of them declines then. The measurement is four
-  walks: both corpora through both modules, and no other program both
-  corpora carry changed its answer in any of them. At v0.2.25's pin the
+  and the one before it brought their own programs into the corpus's
+  running set — unsigned and wrapping integers that print and divide as
+  the values their types hold, and the faults that trap where those values
+  leave their type; repeated json names that answer last-wins; a variable
+  removed with <code>env_unset</code>; octal and binary literals; and calls
+  that keep or send a string they are handed and stay legal — and each one
+  that runs here prints what its header says it prints. Under lupin 0.1.49,
+  the interpreter this page served until now, the json programs answered
+  first-wins, <code>corpus/os/env_unset.lu</code> was declined, and
+  <code>corpus/typecheck/int_truth_wrap_mul_wide.lu</code> trapped
+  <code>overflow</code> where the compiler prints the wrapped product. The
+  rest of the additions are declined for the tab's reasons — the calls that
+  change a file with the filesystem, <code>os_exec</code>, a job and the
+  umask with the process tier, a net read with the net tier, a task-spawning
+  channel program with the task tier, and
+  <code>corpus/link/module_c.lu</code>, which names a sibling module. No
+  program the corpus already carried answers differently from the last pin.
+  The measurement is four walks: both corpora through both modules, and no
+  program both corpora carry changed its answer in any of them. At
+  v0.2.26's pin the additions were a field stored through a raw pointer to
+  a struct, <code>!</code> on an integer as its complement, functions
+  declared <code>-&gt; never</code>, blocks that keep their value with
+  <code>copy region</code> and a byte scan over a <code>List[byte]</code>;
+  under lupin 0.1.48 most of them were declined or refused, and three of
+  the <code>copy region</code> programs trapped <code>region-fault</code>,
+  reading the block as a plain <code>region</code>. At v0.2.25's pin the
   additions were a module <code>var</code> and a raw pointer's memory
   written by a callee and read back after the call, branches on the top
   half of an unsigned shift, module strings that hold their value, and raw
