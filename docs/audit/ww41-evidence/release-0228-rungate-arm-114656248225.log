@@ -1,0 +1,202 @@
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	﻿2026-10-12T04:02:08.4508680Z Current runner version: '2.337.0'
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4534644Z ##[group]Runner Image Provisioner
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4535804Z Hosted Compute Agent
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4536400Z Version: 20261002.596
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4537090Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4537840Z Build Date: 2026-10-02T22:28:27Z
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4538543Z Worker ID: {961b94e3-b064-4a8c-b7d1-2afea1f697fd}
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4539335Z Region: westus2
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4539902Z Cloud: Azure
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4540554Z ##[endgroup]
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4542460Z ##[group]Operating System
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4543438Z Ubuntu
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4544127Z 22.04.5
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4544629Z LTS
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4545131Z ##[endgroup]
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4545762Z ##[group]Runner Image
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4546389Z Image: ubuntu-22.04-arm
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4547069Z Version: 20261004.149.1
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4548222Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22-arm64/20261004.149/images/ubuntu/Ubuntu2204-Arm64-Readme.md
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4550113Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22-arm64%2F20261004.149
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4551106Z ##[endgroup]
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4552745Z ##[group]GITHUB_TOKEN Permissions
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4555595Z Contents: write
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4556374Z Metadata: read
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4556930Z ##[endgroup]
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4559430Z Secret source: Actions
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4560588Z Cache mode: write
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4561674Z Prepare workflow directory
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4910285Z Prepare all required actions
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.4959565Z Getting action download info
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:08.9116791Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+run gate (ubuntu-22.04-arm, glibc 2.35)	Set up job	2026-10-12T04:02:09.8353865Z Complete job name: run gate (ubuntu-22.04-arm, glibc 2.35)
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	﻿2026-10-12T04:02:09.9164561Z ##[group]Run actions/download-artifact@v4
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:09.9166160Z with:
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:09.9166928Z   name: archive-ubuntu-22.04-arm
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:09.9167799Z   path: archive
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:09.9168459Z   merge-multiple: false
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:09.9169172Z   repository: wolffe-lang/wolf-lang
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:09.9170011Z   run-id: 38198234720
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:09.9171181Z ##[endgroup]
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.0524904Z Downloading single artifact
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.0630079Z (node:1823) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.0631882Z (Use `node --trace-deprecation ...` to show where the warning was created)
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.3348017Z Preparing to download the following artifacts:
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.3349965Z - archive-ubuntu-22.04-arm (ID: 11726095662, Size: 73622983, Expected Digest: sha256:26b3c23c709d0f7e3cc360ed623ff4411b0788899c4989d6888694dabe9bcebf)
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.5958648Z Redirecting to blob download url: https://productionresultssa5.blob.core.windows.net/actions-results/c144a350-1e8a-8c88-a52d-93a5fd85d591/workflow-job-run-0317e4e4-c4d8-5d56-9b00-404734bd5aec/artifacts/8a5955195a405e3fe9b350c49d1f2236e632cf087a12f8f298ebf7e83524a2cb.zip
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.5964306Z Starting download of artifact to: /home/runner/work/wolf-lang/wolf-lang/archive
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:10.9567671Z (node:1823) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:14.0659080Z SHA256 digest of downloaded artifact is 26b3c23c709d0f7e3cc360ed623ff4411b0788899c4989d6888694dabe9bcebf
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:14.0660000Z Artifact download completed successfully.
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:14.0660431Z Total of 1 artifact(s) downloaded
+run gate (ubuntu-22.04-arm, glibc 2.35)	Run actions/download-artifact@v4	2026-10-12T04:02:14.0665406Z Download artifact has finished successfully
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	﻿2026-10-12T04:02:14.0887206Z ##[group]Run sudo apt-get update && sudo apt-get install -y lld clang-15
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.0888183Z ^[[36;1msudo apt-get update && sudo apt-get install -y lld clang-15^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.0918114Z shell: /usr/bin/bash -e {0}
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.0918770Z ##[endgroup]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.3263829Z Get:1 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease [3632 B]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.4298711Z Get:2 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main arm64 Packages [585 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.4440455Z Get:3 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 Packages [833 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.4553330Z Get:4 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main armhf Packages [23.4 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:14.8707707Z Hit:5 http://ports.ubuntu.com/ubuntu-ports jammy InRelease
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:15.0267171Z Get:6 http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease [128 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:15.6989817Z Get:7 http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease [127 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:15.9677342Z Get:8 http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease [129 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:16.2169941Z Get:9 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 Packages [3762 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:19.3942357Z Get:10 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main Translation-en [576 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:19.6830355Z Get:11 http://ports.ubuntu.com/ubuntu-ports jammy-updates/restricted arm64 Packages [6936 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:21.1192071Z Get:12 http://ports.ubuntu.com/ubuntu-ports jammy-updates/restricted Translation-en [1294 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:21.4359404Z Get:13 http://ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 Packages [1363 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:21.7596878Z Get:14 http://ports.ubuntu.com/ubuntu-ports jammy-updates/universe Translation-en [325 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:21.9552276Z Get:15 http://ports.ubuntu.com/ubuntu-ports jammy-updates/multiverse arm64 Packages [66.8 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:22.1188127Z Get:16 http://ports.ubuntu.com/ubuntu-ports jammy-updates/multiverse Translation-en [16.6 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:22.2764433Z Get:17 http://ports.ubuntu.com/ubuntu-ports jammy-security/main arm64 Packages [3511 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:22.8115210Z Get:18 http://ports.ubuntu.com/ubuntu-ports jammy-security/main Translation-en [509 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:23.2134651Z Get:19 http://ports.ubuntu.com/ubuntu-ports jammy-security/restricted arm64 Packages [6688 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:23.8991936Z Get:20 http://ports.ubuntu.com/ubuntu-ports jammy-security/restricted Translation-en [1250 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:24.1384869Z Get:21 http://ports.ubuntu.com/ubuntu-ports jammy-security/universe arm64 Packages [1135 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:24.3695108Z Get:22 http://ports.ubuntu.com/ubuntu-ports jammy-security/universe Translation-en [237 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:24.5408236Z Get:23 http://ports.ubuntu.com/ubuntu-ports jammy-security/multiverse arm64 Packages [61.8 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:24.6999248Z Get:24 http://ports.ubuntu.com/ubuntu-ports jammy-security/multiverse Translation-en [13.7 kB]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:31.3282020Z Fetched 29.6 MB in 10s (2832 kB/s)
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:32.5967556Z Reading package lists...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:32.6587056Z Reading package lists...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:32.9489899Z Building dependency tree...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:32.9499977Z Reading state information...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.2108473Z clang-15 is already the newest version (1:15.0.7-0ubuntu0.22.04.3).
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.2109590Z The following NEW packages will be installed:
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.2110364Z   lld
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.6557066Z 0 upgraded, 1 newly installed, 0 to remove and 30 not upgraded.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.6557925Z Need to get 3178 B of archives.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.6574041Z After this operation, 25.6 kB of additional disk space will be used.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.6574710Z Get:1 http://ports.ubuntu.com/ubuntu-ports jammy/universe arm64 lld arm64 1:14.0-55~exp2 [3178 B]
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:33.9730241Z Fetched 3178 B in 0s (7266 B/s)
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.0249827Z Selecting previously unselected package lld:arm64.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1076087Z (Reading database ... 
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1076452Z (Reading database ... 5%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1076959Z (Reading database ... 10%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1077641Z (Reading database ... 15%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1077982Z (Reading database ... 20%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1078263Z (Reading database ... 25%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1078507Z (Reading database ... 30%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1078806Z (Reading database ... 35%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1079076Z (Reading database ... 40%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1079384Z (Reading database ... 45%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.1079924Z (Reading database ... 50%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.4731985Z (Reading database ... 55%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:34.7833638Z (Reading database ... 60%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:35.0216373Z (Reading database ... 65%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:35.4437108Z (Reading database ... 70%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:36.0516988Z (Reading database ... 75%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:36.6714229Z (Reading database ... 80%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:37.4227359Z (Reading database ... 85%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.1035506Z (Reading database ... 90%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.7150965Z (Reading database ... 95%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.7151695Z (Reading database ... 100%
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.7152069Z (Reading database ... 202580 files and directories currently installed.)
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.7199929Z Preparing to unpack .../lld_1%3a14.0-55~exp2_arm64.deb ...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.7317496Z Unpacking lld:arm64 (1:14.0-55~exp2) ...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.7914516Z Setting up lld:arm64 (1:14.0-55~exp2) ...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.7949359Z Processing triggers for man-db (2.10.2-1) ...
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:38.8012595Z Not building database; man-db/auto-update is not 'true'.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4581141Z 
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4583513Z Running kernel seems to be up-to-date.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4583833Z 
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4584281Z No services need to be restarted.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4584714Z 
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4584846Z No containers need to be restarted.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4585048Z 
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4585180Z No user sessions are running outdated binaries.
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4585456Z 
+run gate (ubuntu-22.04-arm, glibc 2.35)	the native linker and the release tier's clang, nothing else	2026-10-12T04:02:41.4594085Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	﻿2026-10-12T04:02:42.8229653Z ##[group]Run set -euo pipefail
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8230201Z ^[[36;1mset -euo pipefail^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8230595Z ^[[36;1mecho "host: $(ldd --version | head -1)"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8230939Z ^[[36;1marchives=(archive/*.tar.gz)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8231492Z ^[[36;1mtest "${#archives[@]}" -eq 1 || { echo "::error::expected one archive, found ${#archives[@]}"; exit 1; }^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8232101Z ^[[36;1mmkdir unpacked && tar -xzf "${archives[0]}" -C unpacked^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8232464Z ^[[36;1mdir=$(ls -d unpacked/wolf-*)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8232799Z ^[[36;1mwolf="$dir/wolf"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8234433Z ^[[36;1mtest -x "$wolf" && test -f "$dir/libwolf_rt.a" && test -x "$dir/wolf-cimport-worker"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8235085Z ^[[36;1m# The floor, measured on the shipped binary rather than assumed^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8235576Z ^[[36;1m# from the runner: the highest GLIBC symbol version it imports.^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8236055Z ^[[36;1mneed=$(objdump -T "$wolf" | grep -o 'GLIBC_[0-9.]*' | sort -uV | tail -1)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8236677Z ^[[36;1mecho "highest GLIBC symbol version needed: ${need:-none}"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8237119Z ^[[36;1mminor=${need#GLIBC_2.}; minor=${minor%%.*}^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8237490Z ^[[36;1mif [ -n "$need" ] && [ "$minor" -gt 35 ]; then^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8237999Z ^[[36;1m  echo "::error::${need} is above the 2.35 floor (#447) — this archive will not start on Ubuntu 22.04"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8238523Z ^[[36;1m  exit 1^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8238743Z ^[[36;1mfi^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8239101Z ^[[36;1m# The D57 stamp: bare at a release tag; an rc rehearses on a +dev build.^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8239535Z ^[[36;1mv=$("$wolf" --version | head -1)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8239830Z ^[[36;1mecho "$v"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8240129Z ^[[36;1mif [ "$PRERELEASE" = "false" ]; then^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8240611Z ^[[36;1m  case "$v" in *+dev*) echo "::error::the release build carries the dev suffix: $v"; exit 1 ;; esac^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8241090Z ^[[36;1mfi^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8241695Z ^[[36;1mprintf 'fn main() -> !int {\n    print("hello, wolf")\n    0\n}\n' > hello.lu^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8242129Z ^[[36;1mif [ "$(uname -m)" = "aarch64" ]; then^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8243064Z ^[[36;1m  # linux aarch64 is served by NEITHER compiled tier yet (D35's^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8243718Z ^[[36;1m  # matrix: native is s28/s59/s60a, release is s41/s127, the rest^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8244215Z ^[[36;1m  # is c13). What the archive owes this host is a refusal BY NAME^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8244682Z ^[[36;1m  # with exit 2 — exit 2 with nothing said is #447's second^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8245187Z ^[[36;1m  # defect exactly — and a checked tier that still runs the^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8245645Z ^[[36;1m  # program. rc.1 (run 35716056293) asked this host for a native^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8246111Z ^[[36;1m  # run and went red on the refusal; the gate was wrong, not the^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8246654Z ^[[36;1m  # archive.^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8247031Z ^[[36;1m  set +e; out=$("$wolf" run hello.lu 2>&1); rc=$?; set -e^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8247553Z ^[[36;1m  grep -q "this host cannot run the native tier" <<< "$out" && [ "$rc" -eq 2 ] \^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8248094Z ^[[36;1m    || { echo "::error::native tier on aarch64 linux: exit $rc: $out"; exit 1; }^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8248570Z ^[[36;1m  echo "native tier: refuses by name, exit $rc"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8249067Z ^[[36;1m  set +e; out=$(WOLF_CLANG=clang-15 "$wolf" run --release hello.lu 2>&1); rc=$?; set -e^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8249639Z ^[[36;1m  grep -q "this host cannot run the release tier" <<< "$out" && [ "$rc" -ne 0 ] \^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8250218Z ^[[36;1m    || { echo "::error::release tier on aarch64 linux: exit $rc: $out"; exit 1; }^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8250691Z ^[[36;1m  echo "release tier: refuses by name, exit $rc"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8251006Z ^[[36;1melse^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8251301Z ^[[36;1m  # native tier (the default, `wolf run`)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8251654Z ^[[36;1m  out=$("$wolf" run hello.lu)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8252344Z ^[[36;1m  test "$out" = "hello, wolf" || { echo "::error::native tier: $out"; exit 1; }^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8252754Z ^[[36;1m  echo "native tier: $out"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8253289Z ^[[36;1m  # release tier (LLVM, through clang-15)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8253739Z ^[[36;1m  out=$(WOLF_CLANG=clang-15 "$wolf" run --release hello.lu)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8254207Z ^[[36;1m  test "$out" = "hello, wolf" || { echo "::error::release tier: $out"; exit 1; }^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8254669Z ^[[36;1m  echo "release tier: $out"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8254958Z ^[[36;1mfi^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8255615Z ^[[36;1m# checked tier — it answers only through conform-run --checked^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8256081Z ^[[36;1mrec=$("$wolf" conform-run hello.lu --checked --json)^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8256608Z ^[[36;1mecho "$rec" | jq -e '.verdict == "exit(0)" and .stdout_inline == "hello, wolf\n"' > /dev/null \^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8257137Z ^[[36;1m  || { echo "::error::checked tier: $rec"; exit 1; }^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8257681Z ^[[36;1mecho "checked tier: $(echo "$rec" | jq -r .verdict), $(echo "$rec" | jq -r .stdout_inline | head -1)"^[[0m
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8283069Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8283891Z env:
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8284141Z   PRERELEASE: false
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8284373Z ##[endgroup]
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8388027Z /usr/bin/ldd: line 41: printf: write error: Broken pipe
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8388747Z /usr/bin/ldd: line 43: printf: write error: Broken pipe
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:42.8390921Z host: ldd (Ubuntu GLIBC 2.35-0ubuntu3.15) 2.35
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:45.2395024Z highest GLIBC symbol version needed: GLIBC_2.34
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:45.2411721Z wolf 0.2.28 (wolfgang, pin f71ece8)
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:45.2461273Z native tier: refuses by name, exit 2
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:45.2499550Z release tier: refuses by name, exit 2
+run gate (ubuntu-22.04-arm, glibc 2.35)	one program per tier, from the unpacked archive	2026-10-12T04:02:45.3228965Z checked tier: exit(0), hello, wolf
+run gate (ubuntu-22.04-arm, glibc 2.35)	Complete job	﻿2026-10-12T04:02:45.3319691Z Cleaning up orphan processes
+run gate (ubuntu-22.04-arm, glibc 2.35)	Complete job	2026-10-12T04:02:45.3635613Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

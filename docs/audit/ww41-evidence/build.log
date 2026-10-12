@@ -1,0 +1,59 @@
+
+▶ Submodules at their pinned revisions
+  wolf-book b845e07
+  wolf-interp f72e78d
+  wolf-lang f71ece8
+
+▶ Static site
+version prose: 553 literal mention(s) audited against wolf 0.2.28 and lupin 0.1.51, 182 allowlisted (72 on the wolf clock, 26 on lupin's, 84 frozen in 1 dated root(s))
+version prose: 30 placeholder(s) in 6 entries, 15 of them release-bound and re-read at this bump
+counts: 255 number word(s) in 80 entries, 25 of them live and re-read at this bump (wolf 0.2.28, lupin 0.1.51, book b845e07)
+lag phrases: wolf 0.2.28 is advertised; lupin was built at the v0.2.24 tag (294d626) — it reads 4 releases back, and both pages carry 'four releases' and neither carries another
+  version prose stamped: wolf 0.2.28, lupin 0.1.51
+  file sizes: 15 stamped from the pin across 2 page(s)
+  revisions: 3 stamped across 2 page(s) — specrev 294d626
+
+▶ The book (web edition)
+  book: 48 pages
+  book assets: 569 script and stylesheet reference(s) across 48 of 48 page(s) versioned ?v=b845e07; nothing exempt
+
+▶ The book (PDF)
+  pdf: 5.8 MB at dist/book/wolf-book.pdf
+
+▶ The interpreter (wasm)
+  staged the interpreter's toolchain pin: 1.97.1
+  applied wasm-portability.patch to the staged copy (submodule untouched)
+  stamping the interpreter commit as f72e78d
+warning: method `set_last_os_error` is never used
+    --> /home/mfwolffe/lanes/ww41/web/target/wasm-stage/upstream/wolf-interp/src/eval/mod.rs:2468:19
+     |
+ 673 | impl Machine {
+     | ------------ method in this implementation
+...
+2468 |     pub(crate) fn set_last_os_error(&mut self, code: i128) {
+     |                   ^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1345 KiB raw, 498 KiB gzipped
+  wasm: 1.4M at dist/play/lupin.wasm
+
+▶ Docs and spec
+
+▶ The changelogs
+  changelog/wolf: rendered
+  changelog/lupin: rendered
+  changelog/book: rendered
+  changelog/site: rendered
+
+▶ Sample programs for the playground
+  samples: 36 programs from the pinned corpus
+  counts: 10 stamped across 7 page(s) — bookchapters 33, diagnostics 153, netprograms 18, samples 36, speccommits 541, warnings 34
+
+▶ What could not be built
+  everything built
+
+▶ Version stamp
+
+✓ dist/ built (17M)

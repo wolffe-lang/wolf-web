@@ -1,0 +1,62 @@
+book: against http://127.0.0.1:55917/book/ (render served with lupp.us's headers)
+book: chromium phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: chromium phone ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch22.html: page 200, new sample present ("module pkg :: std.range"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch24.html: page 200, new sample present ("E1504: this package uses a capability its manifest does not declare"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: chromium desktop ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch22.html: page 200, new sample present ("module pkg :: std.range"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch24.html: page 200, new sample present ("E1504: this package uses a capability its manifest does not declare"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: firefox phone ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch22.html: page 200, new sample present ("module pkg :: std.range"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch24.html: page 200, new sample present ("E1504: this package uses a capability its manifest does not declare"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: firefox desktop ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch22.html: page 200, new sample present ("module pkg :: std.range"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch24.html: page 200, new sample present ("E1504: this package uses a capability its manifest does not declare"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: webkit phone ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch22.html: page 200, new sample present ("module pkg :: std.range"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch24.html: page 200, new sample present ("E1504: this package uses a capability its manifest does not declare"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: webkit desktop ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch22.html: page 200, new sample present ("module pkg :: std.range"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch24.html: page 200, new sample present ("E1504: this package uses a capability its manifest does not declare"), 0 CSP violations, 0 console errors — ok
+book: ok — six diagrams rendered and the three changed blocks served on every cell, no CSP violation

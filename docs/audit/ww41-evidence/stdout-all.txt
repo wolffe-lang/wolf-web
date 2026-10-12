@@ -1,0 +1,28 @@
+json/dup_count_distinct.lu
+  A "exit(0)" "1 3\n"
+  B "exit(0)" "3 2\n"
+json/dup_kind.lu
+  A "exit(0)" "num str -1\n"
+  B "exit(0)" "str array 3\n"
+json/dup_last_wins.lu
+  A "exit(0)" "1 2\n"
+  B "exit(0)" "2 1\n"
+json/dup_nested.lu
+  A "exit(0)" "first 2 1 2\n"
+  B "exit(0)" "last 1 9 1\n"
+json/dup_path.lu
+  A "exit(0)" "missing 1\n"
+  B "exit(0)" "2 missing\n"
+json/dup_render.lu
+  A "exit(0)" "{\"a\":1,\"b\":2,\"a\":3}\n"
+  B "exit(0)" "{\"a\":3,\"b\":2}\n"
+json/dup_thrice.lu
+  A "exit(0)" "1 2 6\n"
+  B "exit(0)" "5 6 3\n"
+os/env_unset.lu
+  A "unsupported" "got: tarn\n"
+  B "exit(0)" "got: tarn\nafter: <missing>\nabsent: ok\nempty: invalid\nequals: invalid\nagain: fell\n"
+typecheck/int_truth_wrap_mul_wide.lu
+  A "trap(overflow)" ""
+  B "exit(0)" "3596837031075064250 4 0 1\n"
+stdout-all: 658 programs, 649 identical in verdict and stdout, 9 differ

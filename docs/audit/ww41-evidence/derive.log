@@ -1,0 +1,2395 @@
+derive run 2026-10-12T09:00:31Z on kasumi
+=== tags
+v0.2.24 294d626dd596122285d5df954762e3aee3e5db71
+v0.2.25 6710f9e0cbc3a7264349093751ce7a46a407e473
+v0.2.26 89dc139443da38078df6093568da87bc6d0ee6f9
+v0.2.27 0ddda6b7ab9f899aeeea13a66b3427f8422b8a0f
+v0.2.28 f71ece8e1ad2234940040d300359888932ad67af
+trunk 6f27f5b281e68c48a302d3f279adafd425005929
+=== interp gitlinks
+f516a5f4ea4341acd3a30f3e5cdd4327aede1912 upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+v0.1.50 upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+f72e78d7a9d0ceb39d80380389ad6a2072991c63 upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+version = "0.1.51"
+tag v0.1.50 -> 32b970da7f3a50e0b82825985a39b52b74da59dc; tag v0.1.51 -> f72e78d7a9d0ceb39d80380389ad6a2072991c63
+interp commits IOLD..INEW = 51
+f72e78d changelog: 0.1.51 heads the file — no empty Unreleased section, as at 0.1.50
+7b1fa50 version: 0.1.51
+ff1ac55 changelog: 0.1.51 — the lupin half of s230; the 0.2.28 lanes with no lupin half and their open partings; ruling #67
+c00b88c Revert the plant (71014ec): fs_open_perm passes the creation's mode again — its CI run is 38134190288 (the macOS smoke, job 114455336449)
+71014ec PLANT (s230, reverted next): fs_open_perm widens every creation to 0o666 — fs_change_s230's modes_under_a_known_mask and a_mode_and_a_symlink_or_unsupported must go red in CI
+8f6061f builtin: os_umask is refused by name on every host — one answer for a ledger, where windows alone could have been served its unsupported row
+699238c changelog: s230 under Unreleased — the seven calls served, the two refusals by name, #235
+abe1ccb tests: fs_change_s230 — wolf-lang s230's six corpus rows and five unix fixtures under lupin conform-run, the two refusals asserted on their words, and exists with the host's number (#235)
+d68b862 builtin: the eight s230 names resolve with their declared rows; os_umask answers its shape row and is refused by name — the standard library has no umask (wolf-lang#704)
+349586e eval::fs: the file changers — fs_set_mode, fs_open_perm, fs_create_dir_mode, fs_symlink, fs_link, fs_set_times, fs_truncate through the standard library's own calls; a link's own times and an unopenable path refused by name (wolf-lang#346, #698, #699, #700, #702)
+d5f8ba6 eval::fs: exists and cross_device note the host's number — fs_create_dir and fs_rename matched the two kinds ahead of path_row, the one place it was noted, so os_error() read 0 after them (#235)
+c8c9855 notes: s230 contract — five sections; lupin's mirror of the file changers' builtins (wolf-lang#346, #698, #699, #700, #702, #704) and #235, before the first change
+32b970d version: 0.1.50
+96f9c96 ci: the PR smoke's cap is 30 minutes — the windows smoke ran 19m40s against 20 (#215, #226)
+cfed650 changelog: 0.1.50 — the lupin halves of s220, s219, s225, s224, s218 and s204
+9b146f0 changelog: the std beside the binary is the last std root (wolf-lang s204)
+d50e85f tests: the default std root and each precedence order over it; a std file is not a root (one red at trunk)
+7058167 eval: the no-std refusal names the std/ beside lupin and beside wolf
+3f488c7 sema: the default std root is std/ beside the lupin binary, after --std-root, LUPIN_STD and a std/ beside the entry (wolf-lang ruling #29)
+1d26c03 eval::fs: timespec's test steps in 100 ns — windows' SystemTime cannot hold 1 ns (run 37964240513, windows smoke job 113936042378)
+f4c7f02 Revert the plant (be2411f): fs_lstat answers the link itself again
+be2411f PLANT (s218, reverted next): fs_lstat follows the link — eval::fs's stat_and_lstat_and_readlink must go red in CI
+e97abf5 changelog: s218 under Unreleased — the four fs calls, mirrored from the clauses
+e4a7180 builtin: the four s218 names resolve and dispatch to eval::fs, with their declared rows
+58745b6 eval: fs_stat, fs_lstat, fs_read_link, fs_read_dir_entries from the clauses — the twenty-word record, the target's bytes, the host's order with kinds; lstat and readlink contained by the parent; unit tests
+686935f notes: s218 contract — lupin's half of the full stat record (wolf-lang#625, #626)
+fafa642 fmt: rustfmt over the json slot map
+43d7f01 changelog: a repeated json object key is last-wins (wolf-lang s224)
+543f8fb tests: json_dup_s224 — wolf-lang's seven dup rows held to their headers
+31da675 json: a repeated object key is last-wins in its first slot (wolf-lang#124, [os.json.dup])
+f619d8c Revert the plant (051ab8e): lupin's exec hands the new image only the environment it is given again — seen red in run 38018876325 (macOS smoke job 114120900497: exec_s225's image row printed host=[1])
+051ab8e PLANT (s225, reverted next): lupin's exec hands the new image this process's environment too — exec_s225's image row must go red in CI (host=[1])
+6b859c0 fmt: rustfmt over exec_resolve
+921caa9 changelog: s225's mirror under Unreleased — env_unset with children handed the overlay, os_exec through CommandExt::exec for 0..2
+37ec120 tests: exec_s225 — the rows, the interpreter replaced with the pid kept and no record after, a map above 2 refused by name, a failed exec putting 0 back, a child that no longer sees a removed variable
+bb0770b fixtures: exec_s225 — wolf-lang s225's two corpus rows and four unix fixtures, byte for byte
+4d3cc2c eval: env_unset, and os_exec through std's CommandExt::exec — targets 0..2, a target above 2 or a -1 refused by name, the program asked before anything moves (s225, [os.proc.exec])
+d7bf1c0 eval: the env overlay keeps removals as tombstones, and a spawned child is handed the host environment with the overlay applied (s225, [os.env.unset])
+4fc8685 notes: s225 contract (mirror half) — env_unset and os_exec (wolf-lang#534)
+51cb491 Revert the plant (a545560): wait_status answers -N for a death by signal N again — seen red in run 37963709460 (macOS smoke job 113933646330: eval::os::tests::wait_status_and_pid left Ok(9), right Ok(-9); log e0d6b19a…)
+dd0873c PLANT (s219, reverted next): wait_status answers +N for a death by signal N — job_s219's status row and os's unit test must go red in CI
+72f519b changelog: s219's mirror under Unreleased — the group spawn, pid, status, poll and shape rows served; dispositions and the terminal refused by name (R8)
+83ebe57 tests: job_s219 — wolf-lang s219's job_rows.lu and status.lu byte for byte, the by-name refusals naming each call, a bad mode invalid first
+d8a51e4 builtin: the eleven s219 names — the poll and every shape row served, the job spawn with a group, pid and status; dispositions, os_pgid, the terminal, a tty handoff and defaults refused by name (no unsafe, no std call; R8)
+c91a8b2 os: ChildTable::spawn_job (a process group through std's process_group), pid, wait_status (-N for a death by signal N) (wolf-lang s219)
+e5282d4 notes: s219 contract (lupin half) — the mirror of [os.signal.disp], [os.signal.poll], [os.proc.job], [os.proc.status], [os.term]
+1c1f096 fmt: rustfmt over the int_truth test
+834b604 changelog: a wrapping product past i128 keeps its low bits (wolf-lang s220)
+0780f19 tests: the two int_truth rows wolf-lang's formatter relaid (fmt-lu canonical form)
+b4fec43 tests: wolf-lang s220's eighteen int_truth rows, each held to its header
+94b94ca eval: a wrapping product past i128 keeps its low bits instead of trapping
+=== interp files changed
+ tests/json_dup_s224/dup_thrice.lu                  |  15 +
+ tests/std_root.rs                                  | 166 ++++
+ 65 files changed, 4698 insertions(+), 52 deletions(-)
+=== interp wasm-relevant files changed
+ src/eval/mod.rs | 70 ++++++++++++++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 62 insertions(+), 8 deletions(-)
+=== lupin CHANGELOG 0.1.51 and 0.1.50 entries
+## 0.1.51 — 2026-10-11
+
+THE FIFTY-FIRST, the lupin half of wolf 0.2.28. **Pin unchanged:
+`294d626d` (wolf-lang v0.2.24).** Nine commits since 0.1.50, all the
+lupin half of one wolf-lang lane, s230 (the calls that change a file;
+a planted break, `71014ec`, and its revert among them). Every lane was
+merged before the release lane (r33) began; r33 adds the version.
+
+- **The other lanes in wolf 0.2.28 have no lupin half.** wolf-lang's
+  s226 (the checked machine runs tasks), s227 and s229 (E1010 at a call
+  that keeps or sends what it is handed: wolf-lang#660, #665) and s228
+  (the runtime residue) changed only the compiler. Where lupin answers
+  their programs differently, the difference is filed and still open,
+  and wolf-lang's gates pin it by version: wolf-interp#227 (no
+  rendezvous back-edge in the race detector) and #230 (`when` through a
+  closure holding the mutex is `trap(exclusivity)`), #228 and #229
+  (a UB finding inside a proc; tasks' module state), #232 (a freed
+  region's bytes reached through a `List` element, a `Map` key or a
+  channel payload run to `exit(0)`), #233 (a sound `copy` of a scalar
+  struct under `in r { }` traps) and #234 (a `net_read` result returned
+  out of its region runs). The 0.2.28 pairing
+  measures each against this release's published archive.
+- **The walk at this release:** 1002 files, 955 entries, 47 members;
+  760 reach `run`, 721 match, 94 dynamic, 64 conservatism, 72 out of
+  scope, 4 mismatch, every one filed. Unchanged from 0.1.50 to the byte
+  (the pin did not move; s230's rows live in `tests/` until a re-pin
+  brings them into the walk).
+- **Ruling now made** that the lane implemented ahead of it, as
+  implemented: #67 (s230's spellings and shapes; R10 = A: lupin serves
+  what the Rust standard library reaches and refuses the rest by name).
+- **lupin's archive still ships no std** (ruling #59 B(1)): a `lupin`
+  installed alone answers `unsupported` for `use std.…` with nothing
+  set; one placed beside a 0.2.28 `wolf` reads the `std/` wolf ships.
+
+### The calls that change a file, and `os_error()` after `exists` (s230, wolf-lang#346, #698, #699, #700, #702, #704; #235)
+
+lupin's half of wolf-lang s230, written from `[os.fs.mode]`,
+`[os.fs.create.mode]`, `[os.fs.symlink]`, `[os.fs.link]`,
+`[os.fs.times]`, `[os.fs.truncate]` and `[os.fs.umask]`. Eight names
+resolve. Seven are served through the standard library's own calls, no
+`unsafe`: `fs_set_mode` (`chmod`, a final link followed),
+`fs_open_perm` and `fs_create_dir_mode` (a creation's permission bits,
+less the umask), `fs_symlink` (the target verbatim, an empty one
+`invalid`), `fs_link` (a second name; never replaces, never follows),
+`fs_truncate` (a length on a handle, the offset unmoved) and
+`fs_set_times`. Every shape row (`invalid`) is answered before
+containment and before the host, in the compiler's order; windows
+answers the clause's `unsupported` row for the mode, the moded
+creations and the symbolic link.
+
+What the standard library does not reach is refused BY NAME, never
+answered with a row the host would not give:
+
+- **`os_umask`**, whole and on every host: there is no `umask` in the
+  standard library. A mask outside `0o777` is still `invalid`.
+- **`fs_set_times` on a link itself** (`follow` false and the path a
+  link): that is `utimensat` with `AT_SYMLINK_NOFOLLOW`, and the
+  library sets times only on an open handle. On a path that is not a
+  link the flag changes nothing and the call is served. "Now" is this
+  machine's clock, read once per call; a path this process can open
+  neither for reading nor for writing, and a "now" the host refuses for
+  want of ownership, are refused by name too (the host's own call
+  needs neither).
+
+Whether lupin may take a safe system-call crate for these two was
+wolf-lang's `[os.fs.change.note]` R10, the question ruling #57's R8
+answered "no" for the terminal calls. Ruling #67 answers it the same
+way (R10 = A): both stay refused by name.
+
+**`os_error()` is the host's number after `exists` and `cross_device`
+(#235).** `fs_create_dir` and `fs_rename` matched those two kinds
+ahead of the one place the number was noted, so it read 0 after
+exactly those rows where every compiler machine answers `EEXIST` and
+`EXDEV`. Both old rows are fixed, and every new row notes it.
+
+`tests/fs_change_s230.rs` runs wolf-lang's six corpus rows and five
+unix fixtures byte for byte and asserts each refusal on its words;
+every row of wolf-lang's `fs_change_lanes` gate agrees with this lupin
+as the sibling.
+
+## 0.1.50 — 2026-10-10
+
+THE FIFTIETH, the lupin half of wolf 0.2.27. **Pin unchanged:
+`294d626d` (wolf-lang v0.2.24).** Thirty-six commits since 0.1.49, the
+lupin halves of six wolf-lang lanes: s220 (5, a wrapping product past
+`i128`), s219 (7, jobs and the signal poll), s225 (9, `env_unset` and
+`os_exec`), s224 (4, json last-wins), s218 (7, the stat record, `lstat`,
+`readlink`, the typed listing) and s204 (4, the std beside the binary).
+Every lane was merged before the release lane (r32) began; r32 adds the
+version and one CI line. wolf-lang's gates pin 0.1.49 as pre-mirror in
+`int_truth_lanes`, `json_dup_lanes`, `fs_stat_lanes`, `ctrl_c_lanes` and
+`exec_lanes`; the 0.2.27 pairing measures each against this release's
+published archive and drops what it answers.
+
+- **The walk at this release:** 1002 files, 955 entries, 47 members;
+  760 reach `run`, 721 match, 94 dynamic, 64 conservatism, 72 out of
+  scope, 4 mismatch, every one filed. Unchanged from 0.1.49 to the byte
+  (the pin did not move; the six lanes' rows live in `tests/` until a
+  re-pin brings them into the walk).
+- **Rulings now made** that lanes implemented ahead of them, each as
+  implemented: #57 (s219's surface, R8 = A: lupin refuses the terminal
+  half by name), #59 (the std beside the binary; lupin's archive ships
+  no std), #60 (s218's spellings), #61 (json: one member per name, first
+  position, last value), #62 (`env_unset`, the execve shape).
+- **lupin's archive still ships no std** (ruling #59 B(1)). A `lupin`
+  installed alone answers `unsupported` for `use std.…` with nothing
+  set, where a `wolf` from the 0.2.27 archive runs it; a `lupin` placed
+  beside that `wolf` reads the `std/` wolf ships.
+- **CI:** the PR smoke's cap goes from 20 to 30 minutes. The windows
+  smoke had grown to about 19 m 40 s across these lanes and was
+  cancelled at the cap twice with nothing failed (r31's #214, s224's
+  #225; wolf-interp#215, #226). The cap is a budget, not a fix: trimming
+  the smoke's targets stays open in #215.
+
+### The std beside the binary is the last std root (wolf-lang s204, ruling #29)
+
+wolf-lang ruling #29 makes the compiler's default std root a `std`
+directory beside the `wolf` binary, where its release archive now ships
+wolf-std at a pin. lupin reads the same default beside its own binary,
+last: `--std-root`, then `LUPIN_STD`, then a `std/` beside the entry
+(s166's fixture rule), then `std/` beside `lupin`. A lupin unpacked
+beside such a `wolf` (the pairing's sibling layout) therefore reads the
+very tree the compiler reads, and `use std.env` runs there with nothing
+set, where it answered `unsupported`. A lupin with nothing beside it
+answers as before. lupin's own archive ships no std (the ruling owed
+is named in wolf-lang's s204 PR). The no-std refusal for a home-module
+method now names the `std/` beside `lupin` as a third way to configure
+a root.
+
+### A repeated json object key is last-wins (wolf-lang s224, #124)
+
+Ruling B22 (2026-09-11) made a repeated object name last-wins, and
+wolf-lang s224 writes it as `[os.json.dup]`: one member per name, at the
+position where the name first appears, holding its last value. lupin
+read the FIRST occurrence and counted every one, as the three compiler
+machines did, so `json_get("{\"a\": 1, \"a\": 2}", "a")` was `1` and
+`json_len` of that object `2`; it is now `2` and `1`. A path walks
+through the last container a repeated name holds, and a nested object
+that `json_get` re-renders carries the name once (`{"a":1,"b":2,"a":3}`
+renders `{"a":3,"b":2}`); the root's own text is unchanged. Written
+from the clause, not from wolf-lang's kernel (the track's independence
+rule). Red at `1c1f096`: `tests/json_dup_s224.rs`, which holds
+wolf-lang's seven `corpus/json/dup_*.lu` rows (copied verbatim) to their
+headers; lupin 0.1.49 answers all seven first-wins. wolf-lang's
+`json_dup_lanes` gate pins 0.1.49 (`f516a5f`) by version and commit
+until a lupin release carries this.
+
+### Exec and env unset: the mirror (wolf-lang s225, #534)
+
+wolf-lang's `[os.proc.exec]` and `[os.env.unset]` add two builtins.
+
+- **`env_unset(name)`** removes a name from this machine's environment
+  overlay as a tombstone: `env_get` answers `missing` after it, absent
+  is not an error, and `env_set`'s names are `invalid`. **A spawned
+  child is now handed the host environment with the overlay applied**
+  — every `env_set` set and every `env_unset` removed — where before a
+  lupin child inherited the host's environment untouched, so an
+  `env_set` never reached it (a parting nothing witnessed: lupin
+  children are null-wired; the new witness asks through an exit
+  status).
+- **`os_exec(exe, argv, env, map)`** replaces this interpreter through
+  std's `CommandExt::exec`, which is safe code: argv[0] as given, the
+  handed environment as the whole one, the machine's working directory,
+  and descriptors 0..2 from the map (an unmapped one is this process's
+  own). The program is resolved first — along the handed environment's
+  `PATH`, or `/usr/bin:/bin` — because std's exec moves descriptors
+  before it tries the program; a refusal this machine can see coming
+  never reaches it. Under `conform-run` the buffered stdout is written
+  before the exec and no record follows. A map that names a descriptor
+  above 2, or closes one, is refused BY NAME, as `os_spawn_fds`'s is.
+  Witnesses: `tests/exec_s225.rs` over wolf-lang s225's rows and
+  fixtures, byte for byte (the new image's pid is the pid the test
+  started). Red at `51cb491`: neither name resolves (`unsupported`).
+
+### A wrapping product past `i128` keeps its low bits (wolf-lang s220)
+
+wolf-lang s220's four-machine integer sweep found that lupin multiplied
+every integer in `i128` with `checked_mul`, so a `wrapping[u64]`
+product whose exact value passes 2^127 — `(2^64 - 2)^2`, or
+`(2^64 - 2) * 16648325558172019491` — trapped `overflow` where its
+answer is the product's low 64 bits (4 and 3596837031075064250) on
+every compiler machine. A wrapping product now falls back to `i128`'s
+wrapping product, whose low 128 bits `reduce` reads; a saturating one
+saturates by sign; a checked one still traps. Red at `f516a5f`
+(0.1.49): `tests/int_truth_s220.rs`, which holds all eighteen of
+wolf-lang s220's `int_truth_*` corpus rows (copied verbatim) to their
+headers; lupin answered the other seventeen already. wolf-lang's
+`int_truth_lanes` gate pins 0.1.48 and 0.1.49 by version and commit on
+this row until a lupin release carries the fix.
+
+### Ctrl-C and jobs: what lupin can mirror (wolf-lang s219, #622)
+
+wolf-lang's `[os.signal.disp]`, `[os.signal.poll]`, `[os.proc.job]`,
+`[os.proc.status]` and `[os.term]` add eleven builtins. lupin forbids
+`unsafe` and links no libc, so it serves what std reaches and refuses the
+rest by name (`[os.term.note]` R8):
+
+- **Served:** `os_spawn_job` with a process group and no terminal or
+  defaults (std's `CommandExt::process_group`; a map as `os_spawn_fds`'s,
+  0..2), `os_proc_pid`, `os_wait_status` (the exit code, or `-N` for a
+  death by signal N), `os_signal_poll` (0 for every well-formed set — this
+  machine never listens, so nothing is queued), and every SHAPE row in the
+  compiler's order: a bad map, group, tty or defaults is `invalid`, a bad
+  meaning set `io`, a bad terminal mode `invalid`.
+- **Refused by name:** `os_signal_ignore`/`os_signal_default` of a
+  well-formed set (no `sigaction`), `os_pgid` and the four `os_term_*`
+  calls (no `getpgrp`, `tcgetpgrp`, `tcsetpgrp`, `tcgetattr`,
+  `tcsetattr`), and a job spawn that hands the child the terminal or
+  sets dispositions back to default. Whether lupin may take a safe
+  syscall crate for the terminal half is the maintainer's ruling (R8).
+- `tests/job_s219.rs` runs wolf-lang's `job_rows.lu` and `status.lu` byte
+  for byte and asserts each refusal names its call.
+
+### The full stat record, `lstat`, `readlink` and the typed listing (s218, wolf-lang#625, #626)
+
+lupin's half of wolf-lang s218, written from `[os.fs.stat]`,
+`[os.fs.readlink]` and `[os.fs.readdir]`. `fs_stat` and `fs_lstat`
+answer the twenty-word record (kind with links, fifos, sockets and
+devices told apart; size; modified_ms; the `have` mask; mode, nlink,
+uid, gid, blocks, dev, ino, rdev; access, modification, change and birth
+times to the nanosecond) from one host call; `fs_read_link` the
+target's bytes, `invalid` on a non-link; `fs_read_dir_entries` the
+directory in the host's order, each entry its own kind and its name's
+bytes, a non-UTF-8 name included. Containment: `fs_stat` keeps the
+family's resolved check, so a link whose target leaves the served tree
+is refused by name; `fs_lstat` and `fs_read_link` check the parent only,
+since they follow nothing. No `unsafe`. Every row of wolf-lang's
+`fs_stat_lanes` gate agrees.
+
+=== spec pins: SPEC_OLD 294d626dd596122285d5df954762e3aee3e5db71 SPEC_NEW 294d626dd596122285d5df954762e3aee3e5db71
+SPEC_NEW is v0.2.24
+=== ancestry
+is-ancestor SPEC_NEW(294d626d) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC_NEW..NEW = 541
+rev-list --count SPEC_OLD..OLD = 213
+rev-list --count OLD..NEW = 328
+rev-list --count v0.2.26..v0.2.27 = 196
+rev-list --count v0.2.27..v0.2.28 = 132
+=== CHANGELOG headings at NEW
+## 0.2.28 — 2026-10-11
+## 0.2.27 — 2026-10-11
+## 0.2.26 — 2026-10-09
+## 0.2.25 — 2026-10-07
+## 0.2.24 — 2026-10-06
+## 0.2.23 — 2026-10-04
+=== counts OLD vs NEW
+89dc1394 E=153 W=34 net=18 anchors=607
+v0.2.27 E=153 W=34 net=18 anchors=623
+f71ece8e E=153 W=34 net=18 anchors=634
+anchors added 27 ['abi.target.none.ambient', 'exec.checked.race', 'exec.checked.sched', 'exec.checked.task', 'os.env.unset', 'os.fs.change.note', 'os.fs.create.mode', 'os.fs.link', 'os.fs.mode', 'os.fs.readdir', 'os.fs.readlink', 'os.fs.stat', 'os.fs.symlink', 'os.fs.times', 'os.fs.truncate', 'os.fs.umask', 'os.json', 'os.json.dup', 'os.proc.exec', 'os.proc.job', 'os.proc.status', 'os.signal.disp', 'os.signal.poll', 'os.term', 'os.term.mode', 'os.term.note', 'type.wrap.div']
+anchors dropped 0 []
+=== diagnostics added
+=== warnings added
+grammar.ebnf 67816f8fcb04f096 -> 67816f8fcb04f096
+BYTE-IDENTICAL
+=== platforms.md / README / workflows OLD..NEW
+ .github/workflows/ci.yml | 15 ++++++++++++++-
+ README.md                | 21 +++++++++++++--------
+ 2 files changed, 27 insertions(+), 9 deletions(-)
+=== platforms.md diff
+=== release.yml run gate at NEW (arm lines)
+17:# dist jobs upload BY RELEASE ID, never by tag. `publish` refuses unless
+94:        # tier-1 hosts: linux x86-64, linux aarch64, macOS aarch64, windows
+99:        os: [ubuntu-22.04, ubuntu-22.04-arm, macos-latest, windows-latest]
+148:  # 0.2.15's x86-64 archive printed `--version` and then the native tier
+154:  # compile: the native tier's linker (`lld`) and the release tier's clang
+155:  # (>= 15; 22.04's default is 14). On aarch64 linux the compiled tiers
+156:  # refuse by name and the checked tier is the one that runs.
+163:        os: [ubuntu-22.04, ubuntu-22.04-arm]
+171:      - name: the native linker and the release tier's clang, nothing else
+202:          if [ "$(uname -m)" = "aarch64" ]; then
+203:            # linux aarch64 is served by NEITHER compiled tier yet (D35's
+207:            # defect exactly — and a checked tier that still runs the
+212:            grep -q "this host cannot run the native tier" <<< "$out" && [ "$rc" -eq 2 ] \
+213:              || { echo "::error::native tier on aarch64 linux: exit $rc: $out"; exit 1; }
+214:            echo "native tier: refuses by name, exit $rc"
+216:            grep -q "this host cannot run the release tier" <<< "$out" && [ "$rc" -ne 0 ] \
+217:              || { echo "::error::release tier on aarch64 linux: exit $rc: $out"; exit 1; }
+218:            echo "release tier: refuses by name, exit $rc"
+220:            # native tier (the default, `wolf run`)
+222:            test "$out" = "hello, wolf" || { echo "::error::native tier: $out"; exit 1; }
+223:            echo "native tier: $out"
+224:            # release tier (LLVM, through clang-15)
+226:            test "$out" = "hello, wolf" || { echo "::error::release tier: $out"; exit 1; }
+227:            echo "release tier: $out"
+229:          # checked tier — it answers only through conform-run --checked
+232:            || { echo "::error::checked tier: $rec"; exit 1; }
+233:          echo "checked tier: $(echo "$rec" | jq -r .verdict), $(echo "$rec" | jq -r .stdout_inline | head -1)"
+=== phase:run sets
+  618 /home/mfwolffe/lanes/ww41/run-89dc139.txt
+  658 /home/mfwolffe/lanes/ww41/run-f71ece8.txt
+ 1276 total
+--- in:
+corpus/conc/chan_sent_arg_legal.lu
+corpus/conc/chan_sent_arg_legal_tasks.lu
+corpus/faults/int_truth_neg_u64_trap.lu
+corpus/faults/int_truth_neg_u8_trap.lu
+corpus/faults/int_truth_u64_add_trap.lu
+corpus/faults/int_truth_u64_cast_trap.lu
+corpus/faults/int_truth_uint_sub_trap.lu
+corpus/faults/int_truth_wrap_div_zero.lu
+corpus/faults/int_truth_wrap_rem_zero_signed.lu
+corpus/fs/change_rows.lu
+corpus/fs/hard_link.lu
+corpus/fs/mode_symlink.lu
+corpus/fs/set_times.lu
+corpus/fs/truncate.lu
+corpus/json/dup_count_distinct.lu
+corpus/json/dup_kind.lu
+corpus/json/dup_last_wins.lu
+corpus/json/dup_nested.lu
+corpus/json/dup_path.lu
+corpus/json/dup_render.lu
+corpus/json/dup_thrice.lu
+corpus/link/module_c.lu
+corpus/memory/region_kept_arg_legal.lu
+corpus/memory/region_net_read_charged.lu
+corpus/os/env_unset.lu
+corpus/os/exec_rows.lu
+corpus/os/job_rows.lu
+corpus/os/umask.lu
+corpus/typecheck/int_truth_signed_print.lu
+corpus/typecheck/int_truth_u64_arith.lu
+corpus/typecheck/int_truth_u64_cast.lu
+corpus/typecheck/int_truth_u64_not.lu
+corpus/typecheck/int_truth_unsigned_print.lu
+corpus/typecheck/int_truth_wrap_div_signed.lu
+corpus/typecheck/int_truth_wrap_div_unsigned.lu
+corpus/typecheck/int_truth_wrap_mul_wide.lu
+corpus/typecheck/int_truth_wrap_neg.lu
+corpus/typecheck/int_truth_wrap_signed.lu
+corpus/typecheck/int_truth_wrap_unsigned.lu
+corpus/typecheck/numlit_radix.lu
+--- out:
+=== corpus diff name-status
+A	corpus/comptime/sandbox_env_unset.lu
+A	corpus/comptime/sandbox_os_exec.lu
+A	corpus/comptime/sandbox_set_mode.lu
+A	corpus/comptime/sandbox_umask.lu
+M	corpus/conc/atomic_counter.lu
+A	corpus/conc/chan_sent_arg_bound.lu
+A	corpus/conc/chan_sent_arg_enum.lu
+A	corpus/conc/chan_sent_arg_for.lu
+A	corpus/conc/chan_sent_arg_legal.lu
+A	corpus/conc/chan_sent_arg_legal_tasks.lu
+A	corpus/conc/chan_sent_arg_nested.lu
+A	corpus/conc/chan_sent_arg_proc.lu
+A	corpus/conc/chan_sent_arg_proc_site.lu
+A	corpus/conc/chan_sent_arg_scope.lu
+A	corpus/conc/chan_sent_arg_select.lu
+A	corpus/conc/chan_sent_arg_spawn.lu
+A	corpus/conc/chan_sent_arg_struct.lu
+A	corpus/conc/chan_sent_arg_tuple.lu
+M	corpus/conc/chan_struct_payload.lu
+M	corpus/conc/reason_interp.lu
+A	corpus/faults/int_truth_neg_u64_trap.lu
+A	corpus/faults/int_truth_neg_u8_trap.lu
+A	corpus/faults/int_truth_u64_add_trap.lu
+A	corpus/faults/int_truth_u64_cast_trap.lu
+A	corpus/faults/int_truth_uint_sub_trap.lu
+A	corpus/faults/int_truth_wrap_div_zero.lu
+A	corpus/faults/int_truth_wrap_rem_zero_signed.lu
+A	corpus/fs/change_rows.lu
+A	corpus/fs/hard_link.lu
+A	corpus/fs/mode_symlink.lu
+A	corpus/fs/set_times.lu
+A	corpus/fs/truncate.lu
+A	corpus/json/dup_count_distinct.lu
+A	corpus/json/dup_kind.lu
+A	corpus/json/dup_last_wins.lu
+A	corpus/json/dup_nested.lu
+A	corpus/json/dup_path.lu
+A	corpus/json/dup_render.lu
+A	corpus/json/dup_thrice.lu
+A	corpus/link/c/c.lu
+A	corpus/link/module_c.lu
+A	corpus/memory/region_copy_index_store.lu
+A	corpus/memory/region_copy_shares_str.lu
+A	corpus/memory/region_kept_arg_closure.lu
+A	corpus/memory/region_kept_arg_field.lu
+A	corpus/memory/region_kept_arg_generic.lu
+A	corpus/memory/region_kept_arg_legal.lu
+A	corpus/memory/region_kept_arg_map.lu
+A	corpus/memory/region_kept_arg_method.lu
+A	corpus/memory/region_kept_arg_module/keeper/keeper.lu
+A	corpus/memory/region_kept_arg_module/main.lu
+A	corpus/memory/region_kept_arg_read_struct.lu
+A	corpus/memory/region_kept_arg_recv.lu
+A	corpus/memory/region_kept_arg_take.lu
+A	corpus/memory/region_kept_arg_two_mut.lu
+A	corpus/memory/region_kept_result_method.lu
+A	corpus/memory/region_kept_result_read.lu
+A	corpus/memory/region_net_read_charged.lu
+A	corpus/memory/region_net_read_return.lu
+M	corpus/net/spawn_accept.lu
+A	corpus/os/env_unset.lu
+A	corpus/os/exec_rows.lu
+A	corpus/os/job_rows.lu
+M	corpus/os/signal_supervisor.lu
+A	corpus/os/umask.lu
+A	corpus/typecheck/int_truth_signed_print.lu
+A	corpus/typecheck/int_truth_u64_arith.lu
+A	corpus/typecheck/int_truth_u64_cast.lu
+A	corpus/typecheck/int_truth_u64_not.lu
+A	corpus/typecheck/int_truth_unsigned_print.lu
+A	corpus/typecheck/int_truth_wrap_div_signed.lu
+A	corpus/typecheck/int_truth_wrap_div_unsigned.lu
+A	corpus/typecheck/int_truth_wrap_mul_wide.lu
+A	corpus/typecheck/int_truth_wrap_neg.lu
+A	corpus/typecheck/int_truth_wrap_signed.lu
+A	corpus/typecheck/int_truth_wrap_unsigned.lu
+A	corpus/typecheck/numlit_radix.lu
+--- pre-existing run programs modified:
+corpus/conc/atomic_counter.lu
+corpus/conc/chan_struct_payload.lu
+corpus/conc/reason_interp.lu
+corpus/net/spawn_accept.lu
+corpus/os/signal_supervisor.lu
+=== spec/ docs/ stat
+ docs/diagnostics.md     |  65 +++-
+ spec/02-memory-model.md | 146 +++++++-
+ spec/03-concurrency.md  | 175 ++++++++--
+ spec/04-abi.md          |  59 +++-
+ spec/05-conformance.md  | 108 +++++-
+ spec/08-package.md      |  13 +-
+ spec/10-types.md        |  68 +++-
+ spec/11-os.md           | 875 +++++++++++++++++++++++++++++++++++++++++++++++-
+ spec/anchors.json       |  29 +-
+ spec/prelude.json       |  39 ++-
+ 10 files changed, 1491 insertions(+), 86 deletions(-)
+=== new run program headers
+## corpus/conc/chan_sent_arg_legal.lu
+//! check: run(exit=0, stdout="28\nbuilt in main, 0 uses\nbuilt by emit, 0 uses\nstatic\nbuilt in pass, 0 uses\na 0 doc 2\n21")
+//! phase: run
+//! conforms: conc.chan.payload, mem.region.escape
+//!
+//! s229 (wolf-lang#665): the sound neighbours of the sent-argument
+//! rule, every one green before s229 on checked, native, release
+//! and lupin — they must stay green. A helper called where the bytes
+//! outlive the frame; a callee that builds where `main` allocates; a
+//! literal; the fix-it applied under `in life { }` for a region handed
+//! in; an aggregate payload built at the call; and a channel of
+//! scalars, which carries no bytes wherever the call sits.
+## corpus/conc/chan_sent_arg_legal_tasks.lu
+//! check: run(exit=0, stdout="built in main, 7 uses\nbuilt in launch, 7 uses\n7")
+//! phase: run
+//! conforms: conc.chan.payload, mem.region.escape, conc.proc.arg
+//!
+//! s229 (wolf-lang#665): the sound neighbours that need tasks — green
+//! before s229 on native, release and lupin (the checked machine
+//! declines `scope` and `spawn`, C1). A scope task handing a helper
+//! bytes built where `main` allocates; a proc's argument built in the
+//! spawner's caller's region; a proc relaying what it received with a
+//! direct send; a closure that captured a channel of bytes called where
+//! it was made; a closure that captured a channel of scalars handed to
+//! a callee.
+## corpus/faults/int_truth_neg_u64_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.wrap.div
+//!
+//! s220 (`[type.wrap.div]`): `-x` on a plain `u64` traps overflow. At
+//! 0.2.25 native and release answered the signed negation.
+## corpus/faults/int_truth_neg_u8_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.wrap.div
+//!
+//! s220 (`[type.wrap.div]`): `-x` on a plain `u8` is `0 - x` in `u8` and
+//! traps overflow, as lupin always has. At 0.2.25 native and release
+//! printed 251 and the checked machine -5.
+## corpus/faults/int_truth_u64_add_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.numlit.value
+//!
+//! s220 (wolf-lang#551): `u64::MAX + 1` traps overflow on every
+//! machine. The checked machine refused the literal at 0.2.25; it now
+//! holds the whole range and traps where the type ends, not at
+//! `i64::MAX`.
+## corpus/faults/int_truth_u64_cast_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.numlit.cast.narrow
+//!
+//! s220 (wolf-lang#551): a `u64` holding `2^63` does not fit `int`, so
+//! the cast traps on every machine. The checked machine refused the
+//! literal at 0.2.25.
+## corpus/faults/int_truth_uint_sub_trap.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.numlit.value
+//!
+//! s220: `0 - 1` at `uint` traps overflow on every machine (the bottom
+//! of the unsigned range, beside `int_truth_u64_add_trap`'s top).
+## corpus/faults/int_truth_wrap_div_zero.lu
+//! check: run(exit=trap(div-zero))
+//! phase: run
+//! conforms: type.wrap.div
+//!
+//! s220 (`[type.wrap.div]`): a zero divisor traps `div-zero` at a
+//! wrapping type too. Native and release refused the division at 0.2.25;
+//! the checked machine and lupin trapped.
+## corpus/faults/int_truth_wrap_rem_zero_signed.lu
+//! check: run(exit=trap(div-zero))
+//! phase: run
+//! conforms: type.wrap.div
+//!
+//! s220 (`[type.wrap.div]`): `%` by zero at a signed wrapping type traps
+//! `div-zero` (the divisor may be -1 here, so native and release take the
+//! branch around `irem.chk`; zero reaches the check).
+## corpus/fs/change_rows.lu
+//! check: run(exit=0, stdout="set_mode(0o10000)=invalid set_mode(-1)=invalid\ncreate_dir_mode(0o1000)=invalid\nopen_perm(open 9)=invalid open_perm(mode 0o1000)=invalid\nsymlink(empty)=invalid\nset_times(ns 1000000000)=invalid set_times(ns -3)=invalid\ntruncate(-1)=invalid truncate(forged)=io\numask(0o1000)=invalid umask(-1)=invalid\nos_error=0 made_nothing=true")
+//! phase: run
+//! conforms: os.fs.mode, os.fs.create.mode, os.fs.symlink, os.fs.times, os.fs.truncate, os.fs.umask, os.fs.error, err.union
+//!
+//! s230 (wolf-lang#346, #698, #700, #702, #704) — the SHAPE rows of the
+//! calls that change a file, deterministic on every host. Each call
+//! judges its arguments before it asks the host anything: a mode outside
+//! its bits (0o7777 for a change, 0o777 for a creation), an open mode
+//! outside `[os.fs.open]`'s set, an empty link target, a nanosecond word
+//! that is neither a count below a second nor -1 ("now") nor -2
+//! ("leave"), a negative length, a mask outside 0o777 — each is
+//! `invalid`, on windows too, where the well-formed call would be
+//! `unsupported` instead. A forged handle is `io`. None of them reaches
+//! the host, so `os_error()` stays 0 and nothing is created. The rows
+//! that change something are `hard_link.lu`, `truncate.lu`,
+//! `set_times.lu`, `mode_symlink.lu` and `corpus/os/umask.lu`.
+## corpus/fs/hard_link.lu
+//! check: run(exit=0, stdout="link=ok second_name_reads=more wolves\nagain=exists host_number=true\nmissing_source=not_found missing_parent=not_found\nafter_remove=more wolves one_name_left=true\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.link, os.fs.error, err.union
+//!
+//! s230 (wolf-lang#699, `[os.fs.link]`) — a hard link is a second name
+//! of one file, on every tier-1 host. `fs_link(existing, path)` makes
+//! `path` name the file `existing` names: bytes written through one
+//! name are read through the other, and removing one name leaves the
+//! file under the other (the link count, where the host answers one,
+//! is back to 1). The call never replaces: a name that is taken is
+//! `exists`, with the host's number beside the row — which is what
+//! makes it the atomic publish `fs_rename` (which replaces) is not. A
+//! source that is not there and a parent that is not there are both
+//! `not_found`. The rows that need a second file system
+//! (`cross_device`), a directory (`denied`) or a symbolic link (the
+//! link itself is linked, never its target) are the unix witnesses in
+//! `crates/wolf_driver/tests/fs_change_lanes.rs`.
+## corpus/fs/mode_symlink.lu
+//! check: run(exit=0, stdout="set_mode: true\nopen_perm: true\ncreate_dir_mode: true\nsymlink: true\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.mode, os.fs.create.mode, os.fs.symlink, os.fs.stat, os.fs.readlink, err.union
+//!
+//! s230 (wolf-lang#346, #698; `[os.fs.mode]`, `[os.fs.create.mode]`,
+//! `[os.fs.symlink]`) — a mode set, a mode at creation and a symbolic
+//! link, with one truth on every tier-1 host. Each is a host CAPABILITY:
+//! linux, macOS and freebsd serve it, and windows answers `unsupported`
+//! by name. So each line is asserted on both sides, in the program:
+//!
+//!   served        the effect is read back through `fs_stat` — the mode
+//!                 is exactly the one set; a created file is 0o600 and a
+//!                 created directory 0o700 from the first instant (the
+//!                 owner's bits, which no sane umask takes); the link
+//!                 reads back its target verbatim, is kind 3 to
+//!                 `fs_lstat`, reads through to the file, refuses to
+//!                 replace (`exists`), and a link to nothing is made
+//!                 like any other;
+//!   unsupported   nothing was made or changed, and the record does not
+//!                 answer a mode either (`have` bit 4 clear).
+## corpus/fs/set_times.lu
+//! check: run(exit=0, stdout="both: atime=1000000000.123456700 mtime=1500000000.7654300 modified_ms=1500000000007\nleave: atime=1000000000.123456700 mtime=1600000000.0\nnow: atime_kept=true mtime_is_now=true\ndirectory: mtime=1400000000\nbefore_epoch: atime=-1.999999900 mtime=-86400.0\nmissing=not_found host_number=true\ncleaned=true")
+//! phase: run
+//! conforms: os.fs.times, os.fs.stat, os.fs.error, err.union
+//!
+//! s230 (wolf-lang#700, `[os.fs.times]`) — a file's access and
+//! modification times, set and read back through `fs_stat`'s words
+//! 12..15, on every tier-1 host. `fs_set_times(path, atime_s, atime_ns,
+//! mtime_s, mtime_ns, follow)` takes each time as whole seconds from the
+//! Unix epoch (negative before it, floored) and nanoseconds, or — in the
+//! nanosecond word — one of two special values: **-1**, the host's clock
+//! now, and **-2**, leave this time as it is (the seconds beside either
+//! are not read). So one call sets both, sets one and keeps the other
+//! with no read in between, or stamps "now". The nanoseconds here are
+//! multiples of 100 because windows keeps a time in 100 ns steps. A
+//! directory's times are set like a file's; a path that is not there is
+//! `not_found`. A link's own times (`follow` false on a link) are the
+//! unix witness in `crates/wolf_driver/tests/fs_change_lanes.rs`.
+## corpus/fs/truncate.lu
+//! check: run(exit=0, stdout="shorter=4 offset=10\nlonger=8 kept=51 zeros=0,0\nwrite_at_offset=11 hole=0\nempty=0\nclosed=io host_number=0\nread_only=io host_number=true size_kept=12")
+//! phase: run
+//! conforms: os.fs.truncate, os.fs.error, err.union
+//!
+//! s230 (wolf-lang#702, `[os.fs.truncate]`) — a file's length, set on a
+//! handle, on every tier-1 host. `fs_truncate(fd, len)` makes the file
+//! exactly `len` bytes: shorter (the tail is gone), or longer with zeros
+//! no write stored. The handle's offset does NOT move — after ten bytes
+//! written and a truncation to four the offset is still 10, and the next
+//! write lands there, leaving zeros between. Every host refusal is `io`:
+//! a closed handle (no host number: the implementation decided it) and a
+//! handle opened for reading (the host's number beside the row; the file
+//! keeps its length — 12, the one byte written at the unmoved offset 11
+//! after the truncation to nothing). A negative length is `invalid` before any of that
+//! (`change_rows.lu`).
+## corpus/json/dup_count_distinct.lu
+//! check: run(exit=0, stdout="3 2\n")
+//! phase: run
+//! conforms: os.json.dup
+//! `json_len` counts distinct names: three members written, two names.
+//! Ruling B22 (wolf-lang#124): a repeated object name is last-wins.
+## corpus/json/dup_kind.lu
+//! check: run(exit=0, stdout="str array 3\n")
+//! phase: run
+//! conforms: os.json.dup
+//! A repeat may change the member's kind: `json_type` and `json_len`
+//! answer the later value's.
+//! Ruling B22 (wolf-lang#124): a repeated object name is last-wins.
+## corpus/json/dup_last_wins.lu
+//! check: run(exit=0, stdout="2 1\n")
+//! phase: run
+//! conforms: os.json.dup
+//! The simplest repeat: the later value is the one a read sees, and the
+//! object holds one member.
+//! Ruling B22 (wolf-lang#124): a repeated object name is last-wins.
+## corpus/json/dup_nested.lu
+//! check: run(exit=0, stdout="last 1 9 1\n")
+//! phase: run
+//! conforms: os.json.dup
+//! The rule holds at every depth: an object inside an object, and an
+//! object inside an array.
+//! Ruling B22 (wolf-lang#124): a repeated object name is last-wins.
+## corpus/json/dup_path.lu
+//! check: run(exit=0, stdout="2 missing\n")
+//! phase: run
+//! conforms: os.json.dup
+//! A path walks through the LAST container a repeated name holds: the
+//! earlier object, and its `x`, are gone.
+//! Ruling B22 (wolf-lang#124): a repeated object name is last-wins.
+## corpus/json/dup_render.lu
+//! check: run(exit=0, stdout="{\"a\":3,\"b\":2}\n")
+//! phase: run
+//! conforms: os.json.dup
+//! A nested object re-renders compactly with one member per name, at
+//! the position where the name first appeared, holding its last value.
+//! Ruling B22 (wolf-lang#124): a repeated object name is last-wins.
+## corpus/json/dup_thrice.lu
+//! check: run(exit=0, stdout="5 6 3\n")
+//! phase: run
+//! conforms: os.json.dup
+//! A name repeated three times reads its third value; two names repeat
+//! interleaved and each keeps its own last value.
+//! Ruling B22 (wolf-lang#124): a repeated object name is last-wins.
+## corpus/link/module_c.lu
+//! check: run(exit=0, stdout="21 22\n")
+//! phase: run
+//! conforms: abi.c.import
+//! A child module named `c` is an ordinary module (wolf-lang#620). Its
+//! functions are spelled `c.go` and `c.go2` below the checker, which is
+//! also how the C membrane spells an imported function. Until s224 the
+//! native tier linked a call into another object as the C symbol `go`
+//! and failed with `undefined reference to 'go'`. A wolf function the
+//! program defines is never a C import.
+## corpus/memory/region_kept_arg_legal.lu
+//! check: run(exit=0, stdout="built in pass, 0 uses|21|static|built in st 0|21|7|7|21|2|carried out|a.log,b.log|conf-0\n")
+//! phase: run
+//! conforms: mem.region.escape, mem.region.create.3, mem.region.copyout
+//!
+//! s227 (wolf-lang#660) — the sound neighbours of the kept-argument
+//! rule, every one accepted at trunk a027b643 and still accepted: a
+//! string built INSIDE the `in` block; a scalar argument; a literal; a
+//! string built where the `mut` argument lives; a `List[byte]` the
+//! callee can only copy; a `mut` argument that can name no bytes; a
+//! builtin that keeps nothing of its key (`remove`, an index read); the
+//! block's value carried out by `copy region { }` and handed on after
+//! it; and the two shapes the first cut of the rule refused in the
+//! census (wolf-book's `pargrep`, lobo's reload): strings from a
+//! LONGER-lived region pushed into a list built in a region block, and
+//! a `copy` of a longer-lived aggregate stored into a struct built
+//! there — kept bytes are shared, never placed, so no store asks for
+//! co-location with them.
+## corpus/memory/region_net_read_charged.lu
+//! check: run(exit=0, stdout="charged true | reclaimed true | got 64000")
+//! phase: run
+//! conforms: mem.region.account.1, mem.region.account.2, mem.region.create.3
+//!
+//! s228 (wolf-lang#374, the net half) — `region_str_charged.lu` for the
+//! one `str` a server builds per request without asking: what
+//! `net_read` returns. `[mem.region.create.3]` charges every
+//! materialization to the ambient region and a read's bytes are one,
+//! so a read inside `region pass { }` must appear in that region's
+//! ledger and vanish with it.
+//!
+//! Until s228 the native tiers copied a read into the process root
+//! whatever region was open: `charged` read 0 here, and a server that
+//! read each request inside its own region kept every request head
+//! for the life of the process (lobo routed around it with
+//! `net_read_bytes` + `str_from_utf8`, lobo#66). The booleans are the
+//! portable claim (`[mem.region.account.1]`: the ledger's units are a
+//! per-tier fact); `got` is the bytes that arrived, which every
+//! machine owes.
+## corpus/os/env_unset.lu
+//! check: run(exit=0, stdout="got: tarn\nafter: <missing>\nabsent: ok\nempty: invalid\nequals: invalid\nagain: fell")
+//! phase: run
+//! conforms: os.env.unset, err.union
+//!
+//! s225 (`[os.env.unset]`; wolf-lang#534) — `env_unset` removes a
+//! variable: `env_get` answers `missing` after it. Removing a variable
+//! that is not there succeeds (POSIX `unsetenv`), and the names
+//! `env_set` refuses (`=`, empty) are `invalid` here too. A later `env_set` brings the name back. Every
+//! machine runs it: the checked machine and lupin over their overlays,
+//! native and release over the program's own environment. That a CHILD
+//! no longer sees an unset variable is a spawn, so it is the unix
+//! witness in `crates/wolf_driver/tests/exec_lanes.rs`. That `env_vars`
+//! no longer lists it is pinned beside the checked machine's and the
+//! runtime's own tests, not here: lupin has no `env_vars` (its
+//! environment is hermetic, s40), so a row that lists would part on it
+//! for a reason that is not this one.
+## corpus/os/exec_rows.lu
+//! check: run(exit=0, stdout="no_argv=invalid\nno_equals=invalid\nempty_name=invalid\nodd_map=invalid\nout_of_range=invalid\nrepeated=invalid\nbad_source=invalid\nstill_here")
+//! phase: run
+//! conforms: os.proc.exec, err.union
+//!
+//! s225 (`[os.proc.exec]`; wolf-lang#534) — the exec rows that replace
+//! nothing, deterministic on every host. `os_exec(exe, argv, env, map)`
+//! decides its SHAPE before anything else is read: an empty argv (argv[0]
+//! is the new program's own name and must be given), an environment entry
+//! with no `=` or an empty name, and every map that `os_spawn_fds` would
+//! call `invalid` are each `invalid` — on windows too, where a well-formed
+//! exec is `unsupported` instead. Every row returns, so the program is
+//! still here at the end. The rows that would replace the image are the
+//! unix witnesses in `crates/wolf_driver/tests/exec_lanes.rs`.
+## corpus/os/job_rows.lu
+//! check: run(exit=0, stdout="group=invalid\ntty=invalid\ndefaults=invalid\nmap=invalid\npid=io\nstatus=io\npoll_empty=io\npoll_none=0\nignore_empty=io\ndefault_outside=io")
+//! phase: run
+//! conforms: os.proc.job, os.proc.status, os.signal.poll, os.signal.disp, err.union
+//!
+//! s219 (wolf-lang#622; pelt's H3) — the job-control rows that make no
+//! child and touch no terminal, deterministic on every host. A job
+//! spawn's SHAPE is decided before anything else is read: a group
+//! below -1, a tty below -1, a `defaults` bit outside the nine meanings
+//! and a map of odd length are each `invalid` — on windows too. A
+//! forged handle has no pid and no status (`io`). A poll of an empty
+//! set is `io`; a poll of a meaning this program never listened for
+//! has nothing to take (0). A disposition call with an empty set, or a
+//! bit outside the meanings, is `io` and changes nothing. The live
+//! witnesses run under a pseudo-terminal in
+//! `crates/wolf_driver/tests/ctrl_c_lanes.rs` (unix).
+## corpus/os/umask.lu
+//! check: run(exit=0, stdout="umask: true\nread_is_two_calls: true\nrestored: true")
+//! phase: run
+//! conforms: os.fs.umask, err.union
+//!
+//! s230 (wolf-lang#704, `[os.fs.umask]`) — the file mode creation mask,
+//! with one truth on every tier-1 host. `os_umask(mask)` sets the
+//! process's mask and answers the one it replaced — the only form POSIX
+//! has, so a program READS the mask by setting one and setting it back,
+//! which is what this file does. windows has no mask and answers
+//! `unsupported` by name; there every line is true because nothing was
+//! changed. The masks used here keep every owner bit (0o027 and the
+//! one found), so a file some other program creates meanwhile in this
+//! process is still its owner's to use. What a mask does to a creation,
+//! and that a child inherits it, are the unix witnesses in
+//! `crates/wolf_driver/tests/fs_change_lanes.rs`; a mask outside 0o777
+//! is `invalid` (`corpus/fs/change_rows.lu`).
+## corpus/typecheck/int_truth_signed_print.lu
+//! check: run(exit=0, stdout="-128 127 -32768 32767 -2147483648 2147483647\n-9223372036854775808 9223372036854775807 -9223372036854775808 9223372036854775807 -9223372036854775808 9223372036854775807 -80  -9223372036854775808\n")
+//! phase: run
+//! conforms: type.interp.value, type.interp.spec
+//!
+//! s220: the control beside `int_truth_unsigned_print` — every signed
+//! width at its minimum and maximum, both signs, bare, in hex and under a
+//! width, and built into a `str`. All four machines agreed on it at
+//! 0.2.25; it pins that the unsigned fix moved no signed hole.
+## corpus/typecheck/int_truth_u64_arith.lu
+//! check: run(exit=0, stdout="9223372036854775808 18446744073709551615 1844674407370955161 5 18446744069414584320 18446744073709551615\ntrue false true 9223372036854775807 18374686479671623680 9223372036854775807 9223372036854775809\n")
+//! phase: run
+//! conforms: type.interp.value, type.numlit.value
+//!
+//! s220 (wolf-lang#551): `u64`/`uint` arithmetic in range above
+//! `i64::MAX` — `+`, `-`, `*`, `/`, `%`, `+=`, the bitwise operators and
+//! the orderings. At 0.2.25 the checked machine trapped `i64::MAX + 1`
+//! (its `u64` was `0..=i64::MAX`) and native and release printed every
+//! upper-half result signed.
+## corpus/typecheck/int_truth_u64_cast.lu
+//! check: run(exit=0, stdout="4294967295 18446744073709551615 18446744073709551615 9223372036854775808 42 -9223372036854775808 true true 10000000000000000000\n")
+//! phase: run
+//! conforms: type.numlit.cast.narrow, type.numlit.cast.wrap, type.numlit.cast.trunc
+//!
+//! s220 (wolf-lang#551): casts that keep an upper-half `u64` value —
+//! truncation through `wrapping[u32]`, `-1` through `wrapping[u64]` into
+//! `u64`, a `wrapping[u64]` above `i64::MAX` into `u64` (refused by name on
+//! the checked machine since kw03), `u64` to `uint`, `u64` to `f64`, and
+//! `1e19 as u64`; a reinterpretation into `wrapping[i64]` is the signed
+//! value.
+## corpus/typecheck/int_truth_u64_not.lu
+//! check: run(exit=0, stdout="18446744073709551615 18446744073709547520 0 18446744073709551614\n")
+//! phase: run
+//! conforms: type.int.not, type.interp.value
+//!
+//! s220 (wolf-lang#551): `!` on a `u64`/`uint` lands in the upper half
+//! — the page-mask idiom `n & !k`. The checked machine refused it by name
+//! until s220; native and release printed it signed.
+## corpus/typecheck/int_truth_unsigned_print.lu
+//! check: run(exit=0, stdout="255 65535 4294967295 18446744073709551615 18446744073709551615 9223372036854775808 0\nffffffffffffffff FFFFFFFFFFFFFFFF   9223372036854775808|11111111111111111111111111111111|18446744073709551615 18446744073709551615\n")
+//! phase: run
+//! conforms: type.interp.value, type.interp.spec
+//!
+//! s220 (wolf-lang#551, #538): an integer hole prints the value its
+//! type holds. `u8`..`u64` and `uint` at their maxima, `2^63` and zero,
+//! bare, under a radix and a width spec, and built into a `str`. At
+//! 0.2.25 native and release printed `u64::MAX` as `-1` and `2^63` as
+//! `-9223372036854775808` in every spec-less hole (the spec path was
+//! already unsigned), and the checked machine refused the literal.
+## corpus/typecheck/int_truth_wrap_div_signed.lu
+//! check: run(exit=0, stdout="-128 0 -32768 0\n-2147483648 0 -9223372036854775808 0\n-3 -1 -3 -1\n-3 1 -3 1\ntrue -9223372036854775808 0\n")
+//! phase: run
+//! conforms: type.wrap.div
+//!
+//! s220 (wolf-lang#538, `[type.wrap.div]`): signed wrapping `/` and `%`
+//! at every width truncate toward zero, and `MIN / -1` wraps to `MIN`
+//! (`MIN % -1` is 0), with a variable and a constant divisor. At 0.2.25
+//! native and release refused them, and the checked machine divided the
+//! narrow minima as their masks (`-128 / -1` at `wrapping[i8]` was 0).
+## corpus/typecheck/int_truth_wrap_div_unsigned.lu
+//! check: run(exit=0, stdout="25 5 6553 5 429496729 5\n1844674407370955161 5 3074457345618258602 2 1 9223372036854775807\n1152921504606846975 295\n")
+//! phase: run
+//! conforms: type.wrap.div
+//!
+//! s220 (wolf-lang#538, `[type.wrap.div]`): unsigned wrapping `/` and `%`
+//! at every width divide the values, `/=` and `%=` included. At 0.2.25
+//! native and release refused them ("no idiv.wrap op") and the checked
+//! machine divided a `wrapping[u64]` as signed (`u64::MAX / 10` was 0).
+## corpus/typecheck/int_truth_wrap_mul_wide.lu
+//! check: run(exit=0, stdout="3596837031075064250 4 0 1\n")
+//! phase: run
+//! conforms: type.interp.value
+//!
+//! s220: a `wrapping[u64]` product whose exact value passes 2^127 keeps
+//! its low 64 bits like any other — `(2^64 - 2)^2` is 4 at the width.
+//! Found by s220's sweep: lupin 0.1.49 multiplies in `i128` and trapped
+//! `overflow` on these products (fixed beside s220 in wolf-interp); the
+//! compiler machines wrap them in hardware.
+## corpus/typecheck/int_truth_wrap_neg.lu
+//! check: run(exit=0, stdout="-128 -32768 -2147483648 -9223372036854775808 -5\n251 65531 4294967291 18446744073709551611 0\n0\n")
+//! phase: run
+//! conforms: type.wrap.div
+//!
+//! s220 (`[type.wrap.div]`): `-x` at a wrapping type wraps at its width
+//! — `-MIN` is `MIN`, `-5` at `wrapping[u8]` is 251 — and `-0` at a plain
+//! `u64` is 0. Found by s220: at 0.2.25 native and release trapped every
+//! `-MIN`, and the checked machine printed `-5` for the unsigned ones.
+## corpus/typecheck/int_truth_wrap_signed.lu
+//! check: run(exit=0, stdout="-56 -6 -6 -1294967296 2147483647 9223372036854775807 -128 -9223372036854775808\ntrue true true true true true\n88 -38 -6 -56 -6 -1294967296 -28 55\n-56 -6 -1294967296\n")
+//! phase: run
+//! conforms: type.interp.value, type.numlit.cast.narrow
+//!
+//! s220 (wolf-lang#553, #602): a negative signed `wrapping[iN]` holds a
+//! negative value at every width — printed, ordered, multiplied, in hex,
+//! cast to `int`, shifted, complemented and built into a `str`. At 0.2.25
+//! the checked machine held the 8-, 16- and 32-bit results as their
+//! unsigned masks: `200 as wrapping[i8]` printed `200`, `5 - 11` at
+//! `wrapping[i16]` printed `65530`, and both ordered above zero.
+## corpus/typecheck/int_truth_wrap_unsigned.lu
+//! check: run(exit=0, stdout="255 65535 4294967295 18446744073709551615 9223372036854775808\n0 0 0 0 0\n255 65535 4294967295 18446744073709551615 18446744073709551613 9223372036854775808\nffffffffffffffff true false true 15 1\n18446744073709551615 9223372036854775808\n")
+//! phase: run
+//! conforms: type.interp.value, type.interp.spec
+//!
+//! s220 (wolf-lang#538): `wrapping[u8]`..`wrapping[u64]` at their maxima
+//! and at `2^63`, wrapping past the top and below zero, multiplied, in
+//! hex, ordered, shifted and built into a `str`. At 0.2.25 all three
+//! compiler machines printed the 64-bit values signed (`-1`), and the
+//! checked machine also ordered them signed (`d > 1` false) and printed
+//! `{d:x}` as `-1`.
+## corpus/typecheck/numlit_radix.lu
+//! check: run(exit=0, stdout="oct=15 bin=5 hex=255\nannotated=493 u64=511 u8=7\nunderscored=420 grouped=192\nreturned=438 argument=448 negated=-8\nmatched=octal\nsum=2748")
+//! phase: run
+//! conforms: type.numlit.value
+//!
+//! wolf-lang#688: an integer literal in octal (`0o17`) or binary
+//! (`0b101`) is a value like a hexadecimal one, on every machine. The
+//! grammar's `INT` has had all three prefixes since s02 and the checked
+//! machine and lupin ran them; the native and release tiers knew `0x`
+//! alone and refused the other two ("this literal shape in WIR
+//! lowering", exit 4), so a program that wrote a file mode the way
+//! everyone writes one — `0o755` — passed `wolf test` and could not be
+//! built. Every position a literal lowers from: an inferred `let`, an
+//! annotated one, two unsigned ones, with underscores, a
+//! `return`, a call argument, under a
+//! minus, and a `match` pattern.
+=== modified run program diffs
+diff --git a/corpus/conc/atomic_counter.lu b/corpus/conc/atomic_counter.lu
+index 1f738ab5..a232fdfd 100644
+--- a/corpus/conc/atomic_counter.lu
++++ b/corpus/conc/atomic_counter.lu
+@@ -10,8 +10,8 @@
+ //! exact on every cpu set — `atomic_witness.rs` runs this program under
+ //! all cores, `taskset -c 0-3` and `taskset -c 0`; the plain-increment
+ //! twin, `atomic_race_plain.lu`, is a data race and asserts nothing. The
+-//! checked machine refuses tasks by name (C1 deferred), so on it this is
+-//! `unsupported`, not a count.
++//! checked machine runs the eight tasks one at a time (s226) and counts
++//! the same.
+ 
+ import c "stdlib.h"
+ 
+diff --git a/corpus/conc/chan_struct_payload.lu b/corpus/conc/chan_struct_payload.lu
+index b411ad6b..3f4e58c6 100644
+--- a/corpus/conc/chan_struct_payload.lu
++++ b/corpus/conc/chan_struct_payload.lu
+@@ -8,9 +8,9 @@
+ //! three words (a `str` view and an `int`); each send copies it into a
+ //! box the channel owns in flight, the `for` takes each box on
+ //! receipt, and the drained-closed channel answers `closed` to the
+-//! last `recv`. The checked lane declines `scope` and `spawn`
+-//! (structured concurrency, C1 deferred), so this stays a native
+-//! witness, byte-identical under lupin; the same payload sent and
++//! last `recv`. The checked lane runs `scope` and `spawn` since s226
++//! (C1 was deferred there until then), so this is a witness on every
++//! lane, byte-identical under lupin; the same payload sent and
+ //! received from the root task runs on all three lanes in
+ //! `chan_root_task.lu` (wolf-lang#342).
+ 
+diff --git a/corpus/conc/reason_interp.lu b/corpus/conc/reason_interp.lu
+index 63fdfc45..8dbc84a6 100644
+--- a/corpus/conc/reason_interp.lu
++++ b/corpus/conc/reason_interp.lu
+@@ -11,8 +11,8 @@
+ //! row's tag by name, `killed`, and `fault(bounds)` — the trap kind
+ //! contained at the proc boundary (D68), spelled from
+ //! `[conf.trap.set]`. `cancelled` is `conc/proc_cancel_defers.lu`'s.
+-//! The checked lane refuses procs (C1 deferred); this is a native
+-//! witness, byte-identical with lupin 0.1.28.
++//! The checked lane runs procs since s226 (C1 was deferred); this is a
++//! witness on every lane, byte-identical with lupin 0.1.28.
+ 
+ fn fine() -> int { 1540 }
+ 
+diff --git a/corpus/net/spawn_accept.lu b/corpus/net/spawn_accept.lu
+index ae446b6d..34847ea3 100644
+--- a/corpus/net/spawn_accept.lu
++++ b/corpus/net/spawn_accept.lu
+@@ -11,8 +11,8 @@
+ //! (the X12 ten-run suite in `conc_native.rs` runs this file on both
+ //! tiers). Output is deterministic by construction: main writes,
+ //! the task echoes, main reads — one order, whatever the schedule.
+-//! The checked lane refuses structured concurrency wholesale (C1
+-//! deferred), so this file's run rung is the native tiers'.
++//! The checked lane runs it since s226: its one running thread polls
++//! the socket and lets the other task run between polls.
+ 
+ fn main() -> !int {
+     let srv = net_listen("127.0.0.1:0")?
+diff --git a/corpus/os/signal_supervisor.lu b/corpus/os/signal_supervisor.lu
+index 39ef2103..d82416eb 100644
+--- a/corpus/os/signal_supervisor.lu
++++ b/corpus/os/signal_supervisor.lu
+@@ -12,10 +12,10 @@
+ //! composes; here the supervisor simply waits.
+ //!
+ //! Lanes: native and release RUN this (the real SIGUSR2 through the
+-//! task layer). The CHECKED lane refuses it BY NAME — `spawn` is
+-//! structured concurrency, C1-deferred in checked execution — so it is
+-//! an honest `unsupported`, never a fake pass. The deterministic
+-//! sequential twin (`signal_loopback.lu`) carries the checked lane.
++//! task layer). The CHECKED lane runs it since s226 through its own
++//! queue: the waiter lets the sibling task run, and its raise is the
++//! delivery the wait takes (`[os.signal.checked]`). The deterministic
++//! sequential twin is `signal_loopback.lu`.
+ 
+ fn main() -> !int {
+     os_signal_listen(8)?
+=== CHANGELOG 0.2.28 and 0.2.27 entries
+## 0.2.28 — 2026-10-11
+
+THE TWENTY-EIGHTH, the soundness release. **0.2.27 shipped with two
+known soundness holes (#660, #665); both are fixed here, and users of
+0.2.27 should move.** Six compiler lanes land with it, one with a lupin
+half, and the pairing moves to lupin 0.1.51, which mirrors it: the
+checked machine runs tasks (s226, ruling #63); the calls that change a
+file, eight new builtins (s230, ruling #67); a long-running server
+stops growing in the runtime, and a `List` slice is one copy (s228,
+ruling #65); a call that keeps or sends what it is handed is refused
+when its bytes die first (s227, ruling #64; s229, ruling #66). The
+bundled standard library moves to wolf-std `98e1b7b`. 120 commits since
+0.2.27 (s228 25, s227 22, s229 20, s230 24, s226 29), every lane merged
+before the release lane (r33) began, then r33's release commits.
+
+### Soundness: a program could read freed region bytes on every compiler tier (#660, #665)
+
+**Affected: 0.2.27 and earlier.** Two holes, both named as known in
+0.2.27's notes, both through a call: the callee keeps or sends an
+argument, and the call site charged that to nothing.
+
+- **#660, a callee keeps a string built in an enclosing region block.**
+  `region pass { let s = "built {n}"; in st { keep_it(mut l, s) } }`,
+  with `l` living in `st`: the callee may keep `s` in `l` (a `copy`
+  shares the bytes; a `push` or an index store lends them), and `l`
+  outlives `pass`. It built on every compiler tier: native and release
+  then printed whatever the next region wrote into the freed chunk, the
+  checked machine printed stale bytes, and lupin traps `region-fault`.
+  The same hole reached two shapes with no call at all: `in st { out =
+  copy d }` (a `copy` of an aggregate shares its strings), and a
+  region-built `str` stored as a key in an outer `Map` — which needed
+  no `in` either, and then answered `m[k] else 0` with `0` for the key
+  just stored.
+- **#665, a callee sends its argument on a channel it was handed.**
+  `fn fwd(ch: channel[str], s: str) { ch.send(s) else { } }` called with
+  a string built in a region block: the direct `ch.send(s)` was always
+  E1010, the send through the helper was not, and the receiver read the
+  freed bytes on native and release and stale bytes on the checked
+  machine. No `in` and no `mut` argument were needed. **#678's direct
+  half** is the same hole without a channel: a `spawn proc` argument
+  built in a region block, read by the proc after the block freed it.
+
+**The fix is a compile-time refusal (E1010), not a run-time check.** No
+accepted program's code changes and nothing costs time at run time; a
+program that compiled on 0.2.27 may now be refused. Each rule reads the
+call's signature, never the callee's body (rulings #64 R1 and #66 R1):
+a `mut` argument (the receiver too) or a non-`Copy` result shares the
+bytes of every other argument that can reach it by mode and type; a call
+that hands its callee a channel able to carry bytes, and every `spawn
+proc` argument, must outlive the frame, as a sent payload must. So the
+refusals include some programs that ran correctly — a region-built
+`str` handed under `in r { }` to a callee that only reads it beside a
+`mut` argument that could have held it; any helper handed a
+`channel[str]` inside a region block, whatever it sends; a proc joined
+inside the block that built its argument.
+
+**The fix-it.** E1010 names the callee, the argument and the region or
+channel, and offers the edit that is sound at the call for a `str`:
+`"{s}"`, an interpolation inside the `in` block, which builds the bytes
+where the callee allocates. Otherwise: hand the callee a scalar
+(`s.len`), make the call outside the region block, send from the proc
+entry itself rather than a helper it calls, hand a function the channel
+rather than a closure that captured it, and pass a spawned proc its
+bytes as parameters of a function that joins it before returning.
+
+**Measured downstream before each fix landed** (`conform-run
+--phase=mem --json`, verdict and every diagnostic's code and span, the
+compiler before against after, linux x86-64 and macOS arm64, over
+wolf-std, boreutils, lobo, pelt, pax, muzzle and the book): s227, 1,276
+records (1,156 files and lobo's 120 staged tests), **0 rows moved**;
+s229, 1,287 records (1,165 files and lobo's 122 staged tests), **0 rows
+moved**. Each time, lobo, boreutils' 28 utilities and pelt built
+byte-identical binaries on native and release, on both hosts (60 of
+60); in s227's census pax's 28 kernels built 56 of 56 identical objects
+(linux).
+
+**Known, not fixed here.** #678's other half (#678 stays open for
+it): a function that spawns a proc with its own parameter and returns
+without joining it is legal in the function and invisible at its call;
+it needs a must-join rule (ruling #66 R4 left it to a lane of its own).
+The checked machine has no dynamic `region-fault` for safe-tier values
+(#667), so an escape the compiler missed would run there too. lupin 0.1.51 still runs a freed
+region's bytes reached through a `List` element, a `Map` key or a
+channel payload read inside an interpolation to `exit(0)`
+(wolf-interp#232); the compiler refuses all of them.
+
+### Read this before you bump the pin
+
+**New refusals (E1010).** A program that compiled on 0.2.27 can be
+refused by this release in four shapes, each a soundness fix (above and
+in the lanes' sections below), each with the edits above:
+
+- under `in r { f(mut outer, s) }`, an argument whose bytes die before
+  `outer` does (s227, #660);
+- `in st { out = copy d }` and `in st { xs[i] = d }` where `d` reaches a
+  region-built `str`, and a region-built `str` stored as a key in a
+  `Map` that outlives its block, with or without `in` (s227);
+- a call that hands its callee a channel able to carry bytes, from a
+  region block, under `in r { }` for a region made in the same frame,
+  or in a `spawn proc` entry; and a `spawn proc` argument that can name
+  region bytes, channel or no channel (s229, #665, #678's direct half);
+- a `net_read` result returned out of the region it was read in (s228,
+  #374's net half).
+
+None of them moved a row in the downstream censuses taken as each
+landed (above; s228's census: boreutils, lobo and its 28 serve tests,
+pelt, wolf-std's 433 test files and the book's 357 samples and
+exercises, the same verdicts and diagnostics).
+
+**Eight new builtins, and what windows answers (s230, ruling #67).**
+`fs_set_mode`, `fs_open_perm`, `fs_create_dir_mode`, `fs_symlink`,
+`fs_link`, `fs_set_times`, `fs_truncate` and `os_umask`: `chmod`,
+creating a file or directory with its permission bits, `ln -s`, `ln`,
+`touch`, a length, and the process's creation mask. On windows
+`fs_set_mode`, `fs_open_perm`, `fs_create_dir_mode`, `fs_symlink` and
+`os_umask` answer `unsupported` by name (no permission bits, no mask, no
+unprivileged symbolic link); `fs_link`, `fs_set_times` and
+`fs_truncate` are served. The seven `fs_*` calls charge `fs` and
+`os_umask` charges `env` (E1504 without the declaration). lupin 0.1.51
+mirrors seven and refuses `os_umask`, and `fs_set_times` on a link
+itself, by name (ruling #67 R10). **Not run per lane on windows** by the
+lane (CI green only), nor on linux aarch64.
+
+**The bundled std is wolf-std `98e1b7b`** (sc58: std at 0.2.27 / lupin
+0.1.50, wolf-lang#693), where 0.2.27 shipped `87ba162`. It carries
+what 0.2.27's bundled std lacked: `std.signal`, `std.term` and process
+jobs (s219), `fs.stat`, `lstat`, `read_link` and `entries` (s218),
+`env.unset` and `process.exec` (s225), and json's last-wins reading in
+its header and tests (s224, ruling #61); the red row 0.2.27 shipped
+(`tests/x/json/dom_typed_reads.lu`) is green. **It does not have this
+release's wrappers**: `fs.set_mode`, `create_private`,
+`create_with_mode`, `create_dir_mode`, `symlink`, `link`, `fs.Time`,
+`set_times`, `set_link_times`, `truncate` and `env.umask` (wolf-std#62)
+need this compiler and merge after it. Until a release bumps `STD-PIN`
+again, call the builtins directly (they are in the prelude), or point
+`WOLF_STD`, `--std-root` or a `wolf.pkg` `std` dependency at a wolf-std
+that has them.
+
+- **Measured under this release** (kasumi, linux x86-64, the
+  release-head archive with lupin 0.1.51 beside `wolf`, no `WOLF_STD`):
+  wolf-std `98e1b7b`'s 442 tests on lupin, the checked machine and
+  native, and its 464 doc examples, compile and answer as under 0.2.27
+  except **one test, `tests/mem/budget/breach_is_a_row.lu`, which the
+  checked machine now runs** (s226) to the exit and bytes its directive
+  names, where wolf-std's ledger still records the checked machine
+  declining it; `cargo xtask std-test` reads that advancement as red
+  until the ledger moves (wolf-std, after this release). Nothing in it
+  answers a wrong value. The release machine equals native on 441 of
+  the 442 with no std configured; the one (`list/sort_by_tier.lu`) is
+  refused by name on release, as at 0.2.27.
+
+**The checked machine runs tasks (s226, ruling #63).** `wolf
+conform-run --checked` answers `scope`, `spawn`, `spawn proc`, `select`,
+`when`, closures and `par` where it answered `unsupported` since s23;
+`--seed=N` selects its one schedule and the record says `"seeded":
+true`; a data race is `trap(race)`. A tool that read a checked record's
+`unsupported` as "concurrency, skip it" now gets a verdict. `wolf run
+--checked` is still the native build. No compiled binary changes for
+this.
+
+**Every hosted binary's bytes move** (`libwolf_rt.a`: s228's handle
+tables, monitor and pool; s230's eight shims; `__wolf_rt_list_slice`).
+No handle number, error row or exit reason moves. A `List` slice's
+region charge is the slice's own bytes, where it counted the abandoned
+doubling buffers: a slice that fit a checked `cap:` budget now fits
+natively too.
+
+**For contributors:** the linux CI job's limit is 45 minutes, from 30
+(s226; the gauntlet had grown to 29 m 42 s).
+
+**A correction to 0.2.27's notes (#695).** They said nothing hosted
+downstream declares C. pax's `user/play` does (`extern "c" fn
+play_kd`), and at 0.2.27 it is E1504 without `capabilities: [ffi]`;
+pax added the line in `0cc43be`. Re-taken over every downstream
+manifest at this release (wolf-std `98e1b7bc`, boreutils `abc59f5b`,
+lobo `d6bd15b2`, pelt `84a02dc1`, pax `1af462d5`, muzzle `7c95300e`, the
+book `2504a0fc`): the packages whose sources declare C are pax's
+`kernel` and `tests/mkw.d/kernel` and muzzle's `src` (freestanding), and
+pax's `user/play` (hosted). pax's three carry `ffi`; **muzzle's
+`src/wolf.pkg` still does not**, so muzzle's build stays E1504 (0.2.27's
+notes name the line) until it adds it.
+
+**New prelude names** (`cargo xtask prelude-diff v0.2.27 HEAD
+--markdown`, after `git fetch --tags`, run at the release head):
+
+> **New prelude names.** HEAD adds `fs_set_mode`, `fs_open_perm`,
+> `fs_create_dir_mode`, `fs_symlink`, `fs_link`, `fs_set_times`,
+> `fs_truncate`, and `os_umask` (all eight: function,
+> `[os.host.sigs]`). A module that declares a function, type or binding
+> named any of the eight now draws W0304 (it shadows the ambient name),
+> which `--deny-warnings` makes fatal: rename yours.
+
+A grep for a declaration (`fn`, `let`, `var`, `const`, `type`,
+`struct`, `enum`) of any of the eight in wolf-std `98e1b7bc`, boreutils
+`abc59f5b`, lobo `d6bd15b2`, pelt `84a02dc1`, pax `1af462d5`, muzzle
+`7c95300e` and the book `2504a0fc` found **none**. The only calls are
+boreutils' bu21 probes for the then-missing builtins
+(`notes/bu21/census/missing/`), which are notes and are not built. s226,
+s227, s228 and s229 add no prelude name.
+
+**Spellings ruled, each as implemented:** #63 (s226, R1–R8, A
+throughout: the seed, `trap(race)`, a UB finding inside a proc ends the
+run, the rendezvous back-edge, the deadlock through a closure, a task's
+ambient region and module state, exit 121 when the root domain is
+killed, `par` regions on checked first), #64 (s227, R1–R6), #65 (s228:
+a finished proc keeps its exit reason for now, #671; the parked
+worker's frames by option A as their own lane, #670), #66 (s229, R1–R6:
+refuse now; a copying send stays the alternative), #67 (s230, R1–R10,
+the umask the real process mask on the checked machine).
+
+**What each downstream does to bump.**
+
+- **wolf-std, first:** pins to 0.2.28 / 0.1.51 in `vendor/tools.toml`;
+  rebase and merge #62 (s230's wrappers, red by design until this pin);
+  move `tests/ledger.toml`'s checked column for
+  `mem/budget/breach_is_a_row.lu` to `run` (s226). A later compiler
+  release bumps `STD-PIN` to carry #62.
+- **wolf-book, then the site:** the book pins 0.2.28 / 0.1.51 (the book
+  and lupp.us are still at 0.2.26 / 0.1.49); ex16-7 and ex16-8, the two
+  concurrency samples the checked machine declined, can run on it; no
+  sample moved in the E1010 censuses. Then wolf-web pins the pair and
+  the book, and deploys.
+- **boreutils:** the toolchain digests (remove the staged
+  `.wolf-bin/std` before unpacking its own std pin, as at 0.2.27).
+  `chmod`, `touch`, `ln`, `mkdir -m` and `cp -p` can be written on the
+  new builtins (bu21 left them out for want of each).
+- **lobo:** the toolchain digests; `conn.sock_read` can go back to
+  `net_read`, which now allocates in the region it is called in (s228).
+- **pelt:** the toolchain digests; a `umask` built-in can be served by
+  `os_umask`.
+- **pax:** the pin; `user/play` already carries `ffi`. The eight new
+  builtins are hosted: the freestanding target refuses each by name.
+- **muzzle:** `capabilities: [ffi]` in `src/wolf.pkg`, owed since 0.2.27.
+- **Homebrew and the AUR:** the std beside the binary moves to
+  `98e1b7b` (this release's tap change).
+
+### The pairing: lupin 0.1.51
+
+`PAIRING` names **lupin 0.1.51 at pin `294d626`** (wolf-interp release
+409991647; the linux x86-64 archive's sha256 `d8f62dd1…`). The spec pin
+is unchanged (this compiler's v0.2.24 tag). 0.1.51 carries the lupin
+half of s230; s226, s227, s228 and s229 have none.
+
+- **Dropped 9 cases in two gates**, each green on the published 0.1.51
+  unpinned: `fs_change_lanes` 8 (s230's mirror; its pre-mirror list
+  stays, empty, as the gate's machinery) and `pairing` 1.
+- **Carried to 0.1.51, measured** (each answers as 0.1.50 on the pinned
+  rows; the issues are open): `checked_tasks_lanes`' two partings
+  (wolf-interp#227, #230), `region_kept_arg_lanes`' seven `List` and
+  `Map`-key rows and `chan_sent_arg_lanes`' channel-payload rows (both
+  wolf-interp#232), attr_closed_set's control (lupin still declines its
+  `comptime fn`); the racy counter's `trap(race)` check names 0.1.51 too;
+  `int_truth_lanes`' `PIN_INT_NOT` names 0.1.48 alone and is inert.
+- **Widened 0.** The plant (the 0.1.51 lists against the published
+  0.1.50) is red on exactly those 9 cases.
+- **The ritual** (#87, with #281's control against the 0.1.50 archive,
+  the same corpus and the same release `wolf`, 1129 files):
+  - checked: **moved 5 ledger counts**. Agreements 759 → 764,
+    unsupported 98 → 93; SOUNDNESS 0 and hard 19 unchanged.
+  - native: **moved 5**. Agreements 744 → 749, unsupported 99 → 94;
+    SOUNDNESS 14 and hard 33 unchanged.
+  - The same five files on both, s230's rows: `fs/change_rows.lu`,
+    `fs/hard_link.lu`, `fs/mode_symlink.lu`, `fs/set_times.lu` and
+    `fs/truncate.lu`, from unsupported to agreement. Nothing moved
+    below the ledger.
+
+### The checked machine runs tasks (s226, C1)
+
+`wolf conform-run --checked` (the checked machine; `wolf run --checked`
+is the native build) refused `scope`, `spawn`, `spawn proc`, `select`,
+`when`, closures and `xs.par(f)` by name since s23 — "structured
+concurrency in checked execution (C1 deferred)". It runs them now, so
+the concurrency tier is checked by three machines and lupin instead of
+two. No compiled binary changes: the runtime and both backends are
+untouched.
+
+- **Tasks, one at a time, under a deterministic scheduler
+  (`[exec.checked.task]`, `[exec.checked.sched]`).** The scheduler is
+  lupin's: a task runs until it blocks and is never preempted, a spawn
+  leaves the spawner running, and with no seed tasks run in spawn
+  order. `--seed=N` selects one schedule (the ready-task and
+  `select`-arm choices; a seed with bit 62 set is a packed schedule),
+  equal seeds are equal runs, and a seeded checked record now says
+  `"seeded": true` (it said `false` whatever the flag). It explores
+  nothing: one seed is one interleaving. Procs, `link`, `monitor`,
+  `kill`, `cancel`, `join`, `timeout` arms on a virtual clock, `when`
+  and `Mutex` run as `[conc.*]` says; a `par` worker allocates in a
+  region of its own that is transferred to the `par`'s region at the
+  join (ruling #30, the checked machine first).
+- **A data race is `trap(race)` (`[exec.checked.race]`,
+  `[conc.mm.race.3]`).** Vector clocks over `[conc.mm.hb]`'s edges,
+  checked on every raw access, pool slot and module `var`:
+  `corpus/conc/atomic_race_plain.lu` is `trap(race)` at the span lupin
+  reports, where the compiled tiers print whatever four racing writers
+  left (119370 and 400000 on one run). Two tasks that only wait on
+  each other are `trap(deadlock)` with the roster on stderr.
+- **What moved.** The checked lane executes 671 of the corpus's 1076
+  entries at run, from 624, and all three lanes together 663, from 619
+  (`cargo xtask lane-coverage`). The rows that were `unsupported` there
+  — the `corpus/conc/` tier, `procs.lu`, `net/spawn_accept.lu`,
+  `os/signal_supervisor.lu`, the closure rows — reach lupin's verdict
+  and bytes; `freeze region { … }` and `1.s`-style durations run there
+  too. Still declined there by name: a nested `fn`
+  (`typecheck/closure_return.lu`).
+- **Two measured partings from lupin 0.1.49, 0.1.50 and 0.1.51**,
+  pinned by version in `checked_tasks_lanes`: lupin adds no rendezvous back-edge
+  (`[conc.mm.hb.chan]`: "the receive also happens-before the send
+  returns"), so a program ordered only by it is `trap(race)` on lupin
+  and runs here (wolf-interp#227); and a `when` reached through a
+  closure that captured a held mutex is `trap(deadlock)`
+  (`[conc.deadlock.self]`) here and `trap(exclusivity)` on lupin
+  (wolf-interp#230). Three more differences sit outside the corpus:
+  a UB finding inside a proc ends the run here and is the exit reason
+  `error` on lupin (wolf-interp#228); a task writes the program's one
+  module state here and a private copy on lupin, and allocates in the
+  root region here and its spawner's on lupin (wolf-interp#229).
+- **For the book:** ex16-7 and ex16-8, the two concurrency samples the
+  checked machine declined, can run on it at the pin that carries
+  this.
+
+### The calls that change a file: modes, links, times, a length, the umask (s230, #346, #698, #699, #700, #702, #704, #688)
+
+**Read this before you bump the pin.** Eight new prelude names, all
+`w0304: true` in `spec/prelude.json`: `fs_set_mode`, `fs_open_perm`,
+`fs_create_dir_mode`, `fs_symlink`, `fs_link`, `fs_set_times`,
+`fs_truncate` and `os_umask`. A module that declares one draws W0304,
+which `--deny-warnings` makes fatal: rename yours. A grep for a
+declaration of any of the eight found none in wolf-std (`98e1b7b`),
+boreutils (`abc59f5`), pelt (`b32bebc`), lobo (`b256d2e`), pax
+(`0cc43be`) or the book (`2504a0f`). Nothing that existed changed:
+`fs_open_mode` and `fs_create_dir` keep their arity and still ask for
+`0o666` and `0o777`. Every hosted binary moves bytes (`libwolf_rt.a`
+gained the eight shims). **Each spelling and shape was a ruling owed
+and is ruled as implemented** (ruling #67; `[os.fs.change.note]`, R1
+to R10).
+
+s218 let a program read what `ls -l` shows; these let it write the same
+words — what `chmod`, `touch`, `ln`, `mkdir -m`, `cp -p` and a shell's
+`umask` are made of (boreutils' bu21 left them out for want of each).
+Every call judges its arguments first (`invalid`, the same on every
+host), then says so by name where the host has no such operation
+(`unsupported`), then makes the host's one call.
+
+- **`fs_set_mode(path, mode) -> () ! {denied, invalid, io, not_found,
+  unsupported}` (`[os.fs.mode]`).** `chmod`: the permission, set-id and
+  sticky bits become exactly `mode` (`0..=0o7777`, `fs_stat`'s word 4),
+  following a final link.
+- **`fs_open_perm(path, open, mode) -> int` and
+  `fs_create_dir_mode(path, mode) -> ()`, each `! {denied, exists,
+  invalid, io, not_found, unsupported}` (`[os.fs.create.mode]`).**
+  `fs_open_mode` and `fs_create_dir` with the permission bits the
+  creation uses (`0..=0o777`, less the umask), so a private file is
+  never readable for an instant (#346) and a copied program is
+  executable from the first.
+- **`fs_symlink(target, path) -> () ! {denied, exists, invalid, io,
+  not_found, unsupported}` (`[os.fs.symlink]`).** The target stored
+  verbatim, as `fs_read_link` reads it back; an empty target is
+  `invalid`.
+- **`fs_link(existing, path) -> () ! {cross_device, denied, exists,
+  io, not_found}` (`[os.fs.link]`).** A second name. It never replaces
+  (the atomic publish `fs_rename` is not) and never follows a final
+  link in `existing`.
+- **`fs_set_times(path, atime_s, atime_ns, mtime_s, mtime_ns, follow)
+  -> () ! {denied, invalid, io, not_found}` (`[os.fs.times]`).** One
+  `utimensat`. A nanosecond word is a count below a second, or `-1`
+  for the host's clock now, or `-2` to leave that time alone; `follow`
+  false sets a link's own times.
+- **`fs_truncate(fd, len) -> () ! {invalid, io}`
+  (`[os.fs.truncate]`).** The file behind a handle becomes exactly
+  `len` bytes; the offset does not move.
+- **`os_umask(mask) -> int ! {invalid, unsupported}`
+  (`[os.fs.umask]`).** Sets the process's file mode creation mask and
+  answers the one it replaced, POSIX's only form. The mask is the
+  process's: every task's, and every child's.
+- **windows**, by name: `fs_set_mode`, `fs_open_perm`,
+  `fs_create_dir_mode`, `fs_symlink` and `os_umask` are `unsupported`
+  (it has no permission bits, no mask, and no unprivileged symbolic
+  link); `fs_link`, `fs_set_times` and `fs_truncate` are served.
+- **Capabilities:** the seven `fs_*` calls charge `fs`; `os_umask`
+  charges `env`, as `os_chdir` does. A package that reaches one must
+  declare it (E1504).
+- **Every machine.** native and release call the runtime; the checked
+  machine makes the same host calls — and sets the process's real mask,
+  where it keeps the working directory to itself (`[os.fs.umask]` says
+  why); the freestanding target refuses each by name; lupin mirrors
+  seven and refuses `os_umask`, and a link's own times, by name
+  (wolf-interp s230). `os_error()` carries the host's number after each
+  new `fs_*` refusal.
+- **An octal or binary literal lowers (#688).** `0o755` and `0b101` ran
+  on the checked machine and lupin and were refused by native and
+  release ("this literal shape in WIR lowering", exit 4): the two
+  literal readers in the lowering knew `0x` alone. A mode can be
+  written the way everyone writes one. Witness:
+  `corpus/typecheck/numlit_radix.lu`.
+- Witnesses: `crates/wolf_driver/tests/fs_change_lanes.rs` — six corpus
+  rows on every host and five unix fixtures (modes under a known mask,
+  both links, a link's own times, `denied`, the mask), on four
+  machines, each followed by the test's own reading of the host;
+  `wolf_rt`'s crate tests, the umask's in a test binary of their own.
+  Not done, each left to its issue: owner changes (#701), holes and
+  reflinks (#703), fifos and device nodes (#705), a rename that does
+  not replace (#706), calls relative to an open directory (#707).
+
+### A long-running server stops growing in the runtime (s228, #661, #662, #374)
+
+**Read this before you bump the pin.** Three places where the runtime
+kept memory for the life of the process, and one compile-time rule that
+had to come with the third. Every hosted binary moves bytes
+(`libwolf_rt.a` changed); no handle number, error row or exit reason
+moves; one program shape is newly refused (a `net_read` result leaving
+the region it was read in, E1010), and no downstream source has it.
+
+- **A closed handle's storage is reused (#661).** `fs_open` and the net
+  calls kept one table slot per open for ever — 4 bytes a file, 56 a
+  socket: five million open/close cycles took a process from 6 MB to
+  22 MB, a million connections to 112 MB. The tables are now keyed by
+  the live handle numbers. **The numbers themselves are unchanged**:
+  they still only go up and are never reused (`[os.fs.std]`), which is
+  also the use-after-close argument — a closed number is absent from
+  the table and can never be handed out again, so a call on it answers
+  `io` as before and cannot reach the handle whose storage it now
+  shares. After: 0 bytes a cycle for both. The cost is the lookup: a
+  slot found by the number's low bits and one comparison, 72 more user
+  instructions per `fs_open` + `fs_close` than the vector's index (345
+  to 417, linux x86-64) and 103 more per socket's life, with no change
+  in wall time — both cycles are their syscalls.
+- **A finished proc leaves its reason word, and nothing else (#662).**
+  A spawned and monitored proc kept about 277 bytes: the monitor's
+  channel, handed to compiled code as a raw pointer that nothing ever
+  freed (260 bytes), and a 16-byte registry tombstone. The monitor is
+  now a table handle whose channel is dropped once its delivery has
+  been received — still an ordinary `channel[ExitReason]` to the
+  program, an empty one afterwards — and the registry keeps one word
+  per finished proc, one word per 512 when they ended alike. A million
+  procs: 286 MB before; 0.1 MB after when they end alike (a server's
+  per-request procs), 8 MB when each ends with a value of its own. That
+  last word cannot go without a rule the language does not have: a
+  `Proc[T]` is a copyable id, and `[conc.proc.join]` lets it be joined
+  after the exit any number of times (#671).
+- **Contained traps no longer stop the pool (#662).** A trap contained
+  at a proc boundary parks its worker thread for good (D68). The parked
+  thread also kept its pool slot, the pool has eight slots a core, and
+  after that many `fault` exits nothing could run a task: the process
+  stopped answering (a 2-cpu host: 16 traps). The parked worker now
+  gives its slot and its queued work back. The thread itself remains,
+  14.5 kB each, until D68's mechanism changes (#670).
+- **`net_read` allocates in the region it is called in (#374, the net
+  half).** It copied into the process root whatever region was open, so
+  a server that read each request inside its own region gave none of
+  it back. The mem tier names `net_read` a `[mem.region.escape]` site
+  first (a read returned out of its region is E1010,
+  `corpus/memory/region_net_read_return.lu`), then the runtime puts
+  the bytes in the ambient region; the checked machine charges the same
+  ledger. Census, trunk compiler against head: boreutils (28), lobo and
+  its 28 serve tests, pelt, wolf-std (433 test files) and the book (357
+  samples and exercises) build with the same verdicts and diagnostics.
+  lobo's `conn.sock_read` (which read bytes and decoded them to route
+  around this) can go back to `net_read`: with it removed, lobo's
+  memory gate reads 4 kB over 4,000 requests at this branch and
+  17,112 kB without the change (trunk `a027b643`). `fs_read_text`, `fs_read`, `read_line`, the
+  directory, environment and json producers still use the root (#374
+  stays open). lupin charges the read to its region already and
+  does not yet refuse the escape (wolf-interp#234).
+- **The gate.** `soak_residue` (wolf_driver) builds one program on the
+  release tier and runs a million opens, a million connections and two
+  million procs, reading the process's RSS from outside: 0 kB, 0 kB,
+  96 kB and 7,124 kB of growth (8.1 bytes a proc on the leg where
+  every proc returns its own value), against 3,516, 98,436, 251,256
+  and 251,540 kB at trunk. `handle_residue` (wolf_rt) counts host bytes
+  outstanding around the same cycles at the shims.
+
+### A `List` slice is one copy (s228, #663)
+
+`xs[a..b]` on a `List` was lowered as a loop of runtime `push` calls,
+one per element, into a list that grew by doubling: 12.2 µs for a
+4,096-byte `List[byte]` slice on the release tier (linux x86-64), where
+a UTF-8 decode of twice those bytes takes 0.19 µs. It is now one
+runtime call, `__wolf_rt_list_slice`: the bounds check the caller
+already made, one allocation at exact capacity, one copy — 0.06 µs for
+the same slice, for every element type (a slice is only lowered for
+flat elements, and a flat element's copy is its bytes). The value is
+the list the loop built; what a program can observe is the region
+charge, which stops counting the abandoned doubling buffers: 4,144
+bytes for that slice where it was 8,240, so a slice that fits a
+`cap:` budget on the checked machine (4,096) no longer breaches it
+natively. The freestanding runtime archive defines the symbol too, so
+a kernel that slices a `List` links as before.
+
+### A call keeps what it is handed: `in r { f(mut outer, s) }` is refused when `s` dies first (s227, #660, ruling #64)
+
+**Read this before you bump the pin: a soundness fix that refuses
+programs 0.2.26 built.** Under `in r { … }` a call aims what the callee
+allocates at `r`, but an argument's bytes stay in the region that built
+them, and a callee may keep an argument in a `mut` one: `l.last = copy
+s` shares a `str`'s bytes, a `push` or an index store lends them. So
+
+```wolf
+region pass {
+    let s = "built in pass, {n} uses"
+    in st { keep_it(mut l, s) }     // `l` lives in `st`
+}
+```
+
+built on every tier and left `l` naming freed bytes: native and release
+printed the chunk the next region reused, the checked machine stale
+bytes, and lupin traps `region-fault`. It is E1010 now, at `s`, naming
+the callee, both arguments and the region, with the edit that is sound
+at the call for a `str` (`"{s}"`: an interpolation inside the `in` block
+materializes the bytes where the callee allocates). The rule reads the
+call's signature, never the callee's body: every `mut` argument (the
+`mut` receiver included) shares the bytes of every other argument that
+can reach it — a `take` or `mut` argument always; a `read` one when its
+type can name bytes a read can share (a `str`, a fn value and its
+captures, a type parameter, or an aggregate reaching one) and the `mut`
+argument's type can too. A non-`Copy` result and a declared call's `str`
+result share the `read` arguments' bytes the same way; a builtin
+container method keeps only what it stores (`push`'s value) and answers
+from its receiver. Two doors that need no call close with it: `in st {
+out = copy d }` and `in st { xs[i] = d }` — a `copy` of a struct, list
+or map shares every `str` the original reaches (`[mem.tier0.move.3]`).
+And one that needs neither a call nor `in`: **a `Map` store keeps its
+key.** `region pass { let s = "built {n}"; m[s] = 1 }`, with `m` declared
+outside the block, was accepted, and native and release then answered
+`m[k] else 0` with `0` for the key just stored (its bytes freed and
+reused): a silent wrong answer. It is E1010 at the store.
+
+What is **not** refused: a string built inside the `in` block, a scalar
+(`s.len`), a literal, a string built where the `mut` argument lives, a
+`List[byte]` (the callee can only copy it), a `mut` argument that can
+name no bytes (an `int`, a struct of scalars, a `List[int]`), a builtin
+that keeps nothing of its argument (`(mut m).remove(key)`), and
+anything without `in` that built before — there the call already pinned
+its `mut` arguments to the current region. Shared bytes are never
+"placed": a list built in a region block that holds strings from a
+longer-lived region still goes into a struct built in the block.
+
+What is refused that would have run correctly: under `in r { }`, a
+region-built `str` handed to a callee that only reads it, beside a `mut`
+argument that could have held it. The repair is the `"{s}"` edit or a
+scalar argument. **Measured** against trunk `a027b643` at the memory
+check: wolf-std, boreutils, lobo `c9eff15`, pelt, pax, muzzle and the
+book — 1,156 files and lobo's 120 staged tests — move zero rows, and
+lobo, boreutils' 28 utilities and pelt build byte-identical binaries on
+both tiers. No run-time cost on any tier: a refusal.
+
+A callee that sends its argument on a channel it was handed (#665, the
+same read of freed bytes, no `in` needed) is s229's, below. lupin 0.1.51
+(as 0.1.50 and 0.1.49) runs the `List` and `Map`-key forms of this to
+`exit(0)` on stale bytes (wolf-interp#232) and traps a sound `copy` of a
+scalar struct under `in` (wolf-interp#233). Witnesses: `corpus/memory/region_kept_*.lu`,
+`region_copy_shares_str.lu`, `region_copy_index_store.lu`; gate
+`region_kept_arg_lanes` (checked, native, release, lupin).
+
+### A call sends what it is handed: `fwd(ch, s)` is refused where `ch.send(s)` was (s229, #665, #678, ruling #66)
+
+**Read this before you bump the pin: a soundness fix that refuses
+programs 0.2.27 built.** A sent payload must outlive the frame that
+sends it (`[conc.chan.payload]`), and the compiler asked that of the
+builtin `send` alone. One line of helper around the send and nothing
+was asked:
+
+```wolf
+fn fwd(ch: channel[str], s: str) { ch.send(s) else { } }
+
+region pass {
+    let s = "built in pass, {n} uses"
+    fwd(ch, s)                      // E1010 now; `ch.send(s)` always was
+}
+```
+
+built on every tier, and the receiver read `s` after `pass` was freed:
+native and release printed the chunk the next region reused, the
+checked machine stale bytes. It is E1010 now, at `s`, naming the
+callee, the argument and the channel. The rule reads the call's
+signature, never the callee's body. At a call that hands its callee a
+channel able to carry bytes — an argument or receiver whose type
+reaches a `channel[str]` or a channel of structs, tuples or enums
+reaching a `str`, through any field or container; a type parameter or
+a `dyn` value counts — two things must outlive the frame, as a sent
+payload must:
+
+- **every argument that can name region bytes** (a `str`, or a list,
+  map, struct, tuple or enum reaching one, by any mode);
+- **the call's own site.** A callee allocates in its caller's current
+  region and may send what it builds there, so `region pass { emit(ch,
+  n) }` — `emit` sending `"built {n}"` — read freed bytes with no
+  argument carrying them. A call that hands such a channel from inside
+  a region block, under `in r { }` for a region made in the same
+  frame, or in a `spawn proc` entry is refused at the call.
+
+**A `spawn proc` argument is demanded the same way, channel or no
+channel (#678).** The proc outlives the frame that spawned it, and a
+`str` argument crosses as its view, so `region pass { let s = "built
+{n}"; spawn proc child(s) }` left `child` reading freed bytes. It is
+E1010 at `s` now. A function handed the bytes as parameters that spawns
+and joins before it returns is accepted, and is the repair. **A closure that
+captured such a channel** sends what it is called with, wherever it is
+called: calling it is a call under both demands, and handing it to a
+function, returning it, sending it or storing it in module state is
+E1010 there (a `scope`'s `spawn` is not a handing-over).
+
+**What to change.** Make the call where the bytes outlive the frame:
+outside the region block, or under `in r { }` for a region the
+function was handed — there the diagnostic offers `"{s}"`, which builds
+the string in `r`. Send from a proc entry itself, not from a helper it
+calls. Hand a function the channel, never a closure that captured it.
+
+**What it costs.** Nothing at run time; no accepted program's code
+changes. It refuses some programs that would have run correctly, and
+says so: a helper that only reads the argument beside a channel it
+sends something else on; any helper handed a `channel[str]` inside a
+region block or a proc entry, whatever it sends; a channel made, used
+and drained inside one region block through a helper; a proc joined
+inside the region block that built its argument. A `channel[int]`
+and every channel of scalars is untouched, in any region. Measured
+before it landed, the compiler before against after at the memory
+check: wolf-std, boreutils, lobo, pelt, pax, muzzle and the book
+(1,165 files and lobo's 122 staged tests) — zero rows moved; lobo has
+no channel that carries bytes, and its two spawns with request-lived
+strings pass them as parameters and join.
+
+Still open: a function that spawns a proc with its own parameter and
+returns without joining it — legal in the function, invisible at its
+call, and it needs a must-join rule this change does not have (#678's
+helper half; ruling #66 R4 leaves it to a lane of its own). lupin 0.1.51,
+as 0.1.50, runs the shapes whose receive is read inside an
+interpolation (wolf-interp#232) and traps the rest. A run-time
+alternative — a send that copies the bytes out, about 40 ns a message —
+was weighed; ruling #66 refuses now (R2).
+Gate `chan_sent_arg_lanes`: 42 rows on checked, native, release and
+lupin.
+
+## 0.2.27 — 2026-10-11
+
+THE TWENTY-SEVENTH, and the first release that ships its standard
+library: every archive carries wolf-std as `std/` beside the `wolf`
+binary, and that copy is the default std root (s204, ruling #59). Nine
+compiler lanes land with it, six of them with a lupin half, and the
+pairing moves to lupin 0.1.50, which mirrors all six. A program can
+survive Ctrl-C, run a job in its own process group and own the terminal
+(s219, ruling #57); become another program and remove a variable (s225,
+ruling #62); read the full stat record, a link and a typed listing
+(s218, ruling #60). **Three P0s are fixed (#551, #538, #553):** unsigned
+and wrapping integers print and compute as the values their types hold
+(s220). A repeated json name is last-wins (s224, ruling #61); a C
+declaration needs the `ffi` capability (s221, ruling #55); a kernel's
+threads keep their own ambient region (s223, ruling #58); the root arena
+takes no lock per allocation (s222). 184 commits since 0.2.26 (s220 18,
+s219 29, s221 20, s222 15, s225 32, s223 13, s224 23, s218 16, s204 18),
+every lane merged before the release lane (r32) began, then r32's
+release commits.
+
+### Read this before you bump the pin
+
+**The archive carries std, and it is the default (s204, ruling #59).**
+`std/` sits beside `wolf` in all four archives with `std/STD-REV` naming
+its commit. With nothing configured, `use std.env` resolves there, where
+every machine answered E0301 through 0.2.26. Every configured source
+still wins, in this order: `--std-root`, `WOLF_STD`, a `std` path
+dependency in `wolf.pkg`, then the copy beside the binary. A `wolf`
+built from source with plain `cargo build` has nothing beside it and
+keeps the prelude stub.
+
+- **The bundled std is wolf-std `87ba162`** (sc57: std as it stood for
+  wolf 0.2.26 / lupin 0.1.49). It does **not** have the wrappers for
+  this release's new builtins, because those wolf-std changes need this
+  compiler and merge after it: `std.signal`, `std.term` and process
+  jobs (wolf-std#56, s219), `std.fs`'s `stat`, `lstat`, `read_link` and
+  `entries` (wolf-std#57, s218), `std.env.unset` and `std.process.exec`
+  (wolf-std#60, s225). Until a release bumps `STD-PIN`, call the
+  builtins directly (they are in the prelude), or point `WOLF_STD`,
+  `--std-root` or a `wolf.pkg` `std` dependency at a wolf-std that has
+  them; any of the three overrides the bundled copy.
+- **Measured under this release** (kasumi, linux x86-64, the
+  release-head archive with lupin 0.1.50 beside `wolf`, no `WOLF_STD`):
+  wolf-std `87ba162`'s
+  433 tests on lupin, the checked machine and native, and its 457 doc
+  examples, answer as under 0.2.26 except **one test,
+  `tests/x/json/dom_typed_reads.lu`, which exits 33**: its row 33 pins
+  the first-wins json reading this release replaces (below). The
+  release machine equals native on 432 of the 433 with no std
+  configured; the one (`list/sort_by_tier.lu`) is refused by name on
+  release as it was at 0.2.26. So the bundled std compiles and runs,
+  and one sentence in it is stale: the header of `std/x/json/json.lu`
+  still says a repeated key answers its first occurrence. The code
+  calls the builtins and is last-wins. wolf-std#59 corrects the header
+  and the row.
+- **If you stage your own std beside a staged `wolf`** (boreutils',
+  pelt's and lobo's `.wolf-bin/std`): the archive now puts a `std/`
+  there first. A fetch that copies the whole archive into `.wolf-bin/`
+  and then unpacks its own std pin over it is left with a mix whenever
+  the two commits differ in a file one of them lacks. Remove
+  `.wolf-bin/std` before staging yours, or stage none and read the
+  archive's `std/STD-REV` as the pin. A `WOLF_STD` you export still
+  wins either way.
+- **A freestanding build reads no default std.** `--target
+  x86_64-unknown-none` (or a manifest `target`) sees only a root you
+  name: the shipped std is the hosted library (with it beside the
+  binary, 27 of pax's 29 kernels stopped on a `str` comparison its home
+  modules lower).
+- **lupin's archive ships no std** (ruling #59 B(1)). A `lupin` unpacked
+  beside this `wolf` reads the same `std/`; a `lupin` installed alone
+  (Homebrew's, the AUR's) still answers `unsupported` for `use std.…`
+  with nothing set. `LUPIN_STD` or `--std-root` serves it.
+- **Packagers** install `std/` beside the real binary: Homebrew's
+  `libexec/std`, the AUR's `/usr/lib/wolf-lang/std`. A source build
+  that must not fetch sets `WOLF_DIST_STD_SRC` to a wolf-std checkout
+  at `STD-PIN`'s commit; `cargo xtask dist` refuses any other commit.
+
+**Freestanding downstreams (pax, muzzle): one line each, before the
+build (s221, ruling #55).** A package that declares C — a bodyless
+`extern "c" fn` or an `extern "c" let` — must list `ffi` in its
+manifest's `capabilities`, called or not. Without it every one of pax's
+29 kernels and muzzle's `src/muzzle.lu` is E1504 on native and release.
+The files: `pax/kernel/wolf.pkg`, `pax/tests/mkw.d/kernel/wolf.pkg`,
+`muzzle/src/wolf.pkg`. With the line their objects are the same as
+0.2.26 built them. Nothing hosted downstream declares C this way.
+
+**New prelude names** (`cargo xtask prelude-diff v0.2.26 HEAD
+--markdown`, after `git fetch --tags`, run at the release head):
+
+> **New prelude names.** HEAD adds `fs_stat`, `fs_lstat`,
+> `fs_read_link`, `fs_read_dir_entries`, `env_unset`, `os_exec`,
+> `os_signal_ignore`, `os_signal_default`, `os_signal_poll`,
+> `os_spawn_job`, `os_proc_pid`, `os_wait_status`, `os_pgid`,
+> `os_term_foreground`, `os_term_set_foreground`, `os_term_mode`, and
+> `os_term_set_mode` (all seventeen: function, `[os.host.sigs]`). A
+> module that declares a function, type or binding named any of the
+> seventeen now draws W0304 (it shadows the ambient name), which
+> `--deny-warnings` makes fatal: rename yours.
+
+A grep for a declaration (`fn`, `let`, `var`, `const`, `type`,
+`struct`, `enum`) of any of the seventeen in wolf-std `87ba1620`,
+boreutils `5da892e8`, lobo `d1bf1356`, pelt `3e7516c9`, pax `bc130e46`,
+muzzle `7c95300e` and the book `2504a0fc` found **none**. No downstream
+calls any of them yet; the one mention is a comment in wolf-std's
+`std/env/env.lu` ("There is no `env_unset` builtin"), which wolf-std#60
+retires.
+
+**Output that moves.**
+
+- *Unsigned 64-bit values print as themselves (s220).* A `u64`, `uint`
+  or `wrapping[u64]` above `i64::MAX` printed negative in a spec-less
+  hole on native and release (`u64::MAX` was `-1`); it prints
+  `18446744073709551615`. `-x` on a plain unsigned type traps
+  `overflow` for any `x` but 0, where native and release printed a
+  wrapped value. Wrapping `/` and `%` compile. A program that worked
+  around the printing (boreutils' `bore.u64` halves) still runs.
+- *json (s224, ruling #61).* `json_get`, `json_type`, `json_len` and
+  paths read a repeated object name last-wins, one member per name:
+  `json_get("{\"a\": 1, \"a\": 2}", "a")` was `1` and is `2`, and
+  `json_len` of that object was `2` and is `1`.
+- *A checked child sees `env_set` (s225).* A child the checked machine
+  spawns is handed the environment with the program's `env_set` and
+  `env_unset` applied, as native and release always did.
+- *Every hosted binary's bytes move, and nothing else it prints does.*
+  `libwolf_rt.a` changed (the root arena, the json kernel, the exec
+  module). The lanes' censuses (984 builds a side) found the compiler's
+  own output byte-identical when both sides link one runtime.
+  `libwolf_rt_none.a` gains two symbols (`wolf_rt_ambient_get`,
+  `wolf_rt_ambient_set`); a freestanding object that calls neither is
+  unchanged.
+
+**A module or alias named `c` now links (s224, #620)**, and a program
+that needs both an imported C `f` and a module-`c` function `f` is
+refused by name.
+
+**Spellings ruled, each as implemented:** #55 (`ffi` at a C
+declaration), #57 (s219's eleven names, R1–R7; R8 = A, lupin refuses the
+terminal half by name), #58 (`wolf_rt_ambient_get`/`_set`, option A),
+#59 (the archive's `std/`, A–D), #60 (s218's four names; a non-UTF-8
+name is listable, not yet stat'able by name), #61 (json: Map
+semantics), #62 (`env_unset`, the execve-shaped `os_exec`, R1–R5).
+
+**Known issues: two soundness holes this release shares with 0.2.26.**
+Neither is new in 0.2.27 and neither is fixed in it. Both let a
+compiled program read freed bytes with no diagnostic, and both go
+through a call: the callee stores or sends an argument, and the call
+site does not charge that to the other arguments.
+
+- **wolf-lang#660: a callee keeps a string built in an enclosing region
+  block.** Inside a region block, under `in r { f(mut outer, s) }` with
+  `r` a longer-lived region, the callee may keep `s` (through
+  `copy s`, which shares the bytes) in the `mut` argument, which
+  outlives the block. No E1010 on any compiler machine. Native and
+  release then read the freed bytes (the witness prints another
+  region's reuse of them); the checked machine prints the stale bytes
+  and reports nothing; lupin traps `region-fault`. Until the fix, hand
+  such a call scalars, or a string built inside the `in` block
+  (`"{s}"`), as lobo does. The fix is written (PR #666, s227), held for
+  a ruling, and ships in the next release.
+- **wolf-lang#665: a callee sends its argument on a channel it was
+  handed.** `fn fwd(ch: channel[str], s: str) { ch.send(s) else { } }`
+  called with a string built in a region block: the direct send is
+  E1010, the send through the helper is not refused, and the receiver
+  reads freed bytes on native and release and stale bytes on the
+  checked machine. No `in` and no `mut` argument are needed. lupin does
+  not trap here either. Not yet fixed; send directly, where the
+  compiler checks the payload, until it is.
+
+**What each downstream does to bump.**
+
+- **wolf-std:** pins to 0.2.27 / 0.1.50 in `vendor/tools.toml`; rebase
+  and merge #56, #57, #59, #60 (each red by design until this pin);
+  `tests/x/json/dom_typed_reads.lu` goes green with #59. A later
+  compiler release bumps `STD-PIN` to carry them.
+- **boreutils, pelt, lobo:** the toolchain digests; remove the staged
+  `.wolf-bin/std` before unpacking their own std pin (above); no
+  manifest change. boreutils can now write `ls -l`, `stat`, `readlink`
+  and `env -u` on the new builtins and retire `bore.u64`'s halves; pelt
+  can take `os_exec`, `env_unset`, the signal poll and job spawn.
+- **pax, muzzle:** `capabilities: [ffi]` in the three manifests named
+  above, in the same change as the pin. pax may save and restore the
+  ambient slot in its switch (`wolf_rt_ambient_get`/`_set`) and then
+  lift its rule against a `region` held across a yield. No std reaches
+  a kernel unless it names one.
+- **wolf-book:** builds wolf from source, so no std is beside its
+  binary and no transcript moves for that reason; a sample that prints
+  a 64-bit unsigned value above `i64::MAX`, or reads a repeated json
+  name, prints the new bytes.
+- **Homebrew and the AUR:** install `std/` beside the binary (done in
+  this release's tap change).
+
+### The pairing: lupin 0.1.50
+
+`PAIRING` names **lupin 0.1.50 at pin `294d626`** (wolf-interp release
+409303515; the linux x86-64 archive's sha256 `e2867a35…`). The spec pin
+is unchanged (this compiler's v0.2.24 tag). 0.1.50 carries the lupin
+halves of s220, s219, s225, s224, s218 and s204.
+
+- **Dropped 13 cases in five gates**, each green on the published
+  0.1.50 unpinned: `exec_lanes` 5 (s225), `fs_stat_lanes` 4 (s218),
+  `int_truth_lanes` 2 (s220's wide wrapping product, in the rows and in
+  the sweep), `ctrl_c_lanes` 1 (s219) and `json_dup_lanes` 1 (s224, its
+  seven rows); and `pairing` 1. The emptied lists stay, empty, as the
+  gates' machinery; `json_dup_lanes` loses its 0.1.49 table outright.
+- **Kept.** attr_closed_set's control, carried to 0.1.50 measured (lupin
+  still declines its `comptime fn`, #174); the racy counter's
+  `trap(race)` check names 0.1.50 too; `int_truth_lanes`' `PIN_INT_NOT`,
+  which names 0.1.48 alone and is inert against this pairing.
+- **Widened 0.** The plant (the 0.1.50 lists against the published
+  0.1.49) is red on exactly those 14 cases.
+- **The ritual** (#87, with #281's control against the 0.1.49 archive,
+  the same corpus and the same release `wolf`, 1089 files):
+  - checked: **moved 4 ledger counts**. Agreements 683 → 687,
+    unsupported 138 → 135, SOUNDNESS 1 → 0, hard 17 → 16.
+  - native: **moved 4**. Agreements 710 → 714, unsupported 94 → 91,
+    SOUNDNESS 15 → 14, hard 34 → 33.
+  - The same four files on both: `os/env_unset.lu`, `os/exec_rows.lu`
+    and `os/job_rows.lu` go from unsupported to agreement, and
+    `typecheck/int_truth_wrap_mul_wide.lu` from SOUNDNESS to agreement
+    (0.1.49 trapped where the compiler machines answered). Seven files
+    moved below the ledger on each, the seven `json/dup_*.lu` rows,
+    whose lupin stdout is now the last-wins answer.
+- **lupin and the shipped std.** A lupin beside this `wolf` reads the
+  archive's `std/` as its last std root; lupin's own archive ships none.
+
+### The standard library ships with the compiler (s204, ruling #29, #415)
+
+**Read this before you bump the pin.** The release archive now carries
+wolf-std as `std/` beside the `wolf` binary, at the commit
+`crates/wolf_driver/STD-PIN` names (`87ba162…`, std at wolf 0.2.26 /
+lupin 0.1.49), with `std/STD-REV` recording it and wolf-std's `LICENSE`
+and `LICENSE-EXCEPTION` beside the tree. That directory is the default
+std root: after `brew install wolf` or an unpacked archive, `use std.env`
+and `xs.map(f)` work with no `WOLF_STD` and no `--std-root`, where every
+machine answered E0301 before. Every configured source still wins, in
+this order: `--std-root`, `WOLF_STD`, a `std` path dependency in
+`wolf.pkg`, then the copy beside the binary. A `wolf` built from source
+(`target/<profile>/wolf`) has nothing beside it and keeps the prelude
+stub, so the test suite and the corpus answer as before. A freestanding
+build (`--target x86_64-unknown-none`, or a manifest `target`) reads no
+default: the shipped std is the hosted library, and with it beside the
+binary 27 of pax's 29 kernels stopped on a `str` comparison its home
+modules lower; only an explicit root reaches a kernel. `cargo xtask
+dist` fetches the pinned commit (or takes a checkout named by
+`WOLF_DIST_STD_SRC`, refused unless it is at the pin), and its smoke runs
+a `use std.env` program from the unpacked archive with `WOLF_STD` unset.
+Packagers: install `std/` beside the binary with the rest (Homebrew's
+`libexec`, the AUR's `/usr/lib/wolf-lang`). The E0301 stub note now says
+where the shipped std lives.
+
+### A repeated json name is last-wins; a module named `c` links (s224, #124, #620)
+
+**Read this before you bump the pin.** Two fixes, one runtime rebuild.
+Every hosted binary moves bytes, because `libwolf_rt.a` changed (the
+json kernel); none changes behaviour except a program that reads a
+json object with a repeated name.
+
+- **A repeated json object name is last-wins (#124, ruling B22,
+  `[os.json.dup]`).** `json_get`, `json_type`, `json_len` and every path
+  segment now read an object as one member per name, at the position
+  where the name first appears, holding its LAST value, as
+  `std.json.parse`, JavaScript, Python and serde do.
+  `json_get("{\"a\": 1, \"a\": 2}", "a")` was `1` and is `2`; `json_len`
+  of that object was `2` and is `1`; a nested object `json_get`
+  re-renders carries the name once (`{"a":1,"b":2,"a":3}` renders
+  `{"a":3,"b":2}`). The root's own text is unchanged. All four machines
+  answered first-wins before (the checked machine's `wolf_mem::json`,
+  native and release's `wolf_rt::json`, and lupin); lupin's half is
+  wolf-interp s224, in lupin 0.1.50; `json_dup_lanes` pinned lupin
+  0.1.49 to its measured first-wins answers until then (dropped at
+  this pairing).
+  wolf-std's `tests/x/json/dom_typed_reads.lu` pinned first-wins (rows
+  33 and 34); its s224 PR flips them and waits for this release.
+- **A module named `c` links on every tier (#620).** WIR spells a
+  function `go` of a module whose path is `c` (a child directory `c/`,
+  or a dependency under the alias `c`) as `c.go`, which is also how the
+  C membrane spells an imported C function. Both backends read such a
+  callee outside the current object as C, so the native tier linked it
+  as the plain symbol `go` and failed (`undefined reference to 'go'`,
+  exit 2), and release did the same whenever its cluster partition
+  separated caller and callee. A function the program defines is now
+  never a C import. No symbol moved: wolf functions were already
+  mangled by their module path, and two packages that each define `go`
+  were never the problem (t05's witness happened to name one of them
+  `c`). The one program that needs both readings — an imported C `f`
+  beside a module-`c` function `f` — is refused by name instead of the
+  ICE it was.
+- **A link error fails a gate, never skips it (#620).**
+  `lane_exit::environment_refusal` now fails an exit 2 whose stderr
+  names an undefined or duplicate symbol, as it already failed an ICE;
+  pkg.rs's diamond had been reading `undefined reference to 'go'` as an
+  environment skip. A missing `cc` or runtime library still skips.
+
+**Downstream** (boreutils `5da892e`, lobo `ebace85`, pelt `3e7516c`,
+wolf-std `87ba162`, pax `ef4c3ca`; 984 builds a side, native and
+release): with one runtime on both sides all 1968 are byte-identical
+(stripped), so the compiler change moves nothing. With each side's own
+runtime, 834 hosted binaries move (every one that links
+`libwolf_rt.a`: the runtime's code layout shifted) and the 58 pax
+objects do not. Run, the 399 native and 399 release wolf-std test
+binaries answer as before except `x/json/dom_typed_reads`, which now
+exits 33: its row 33 is the first-wins pin above.
+
+### A C declaration carries the `ffi` capability, as `import c` does (s221, #619, ruling #55)
+
+**Read this before you bump the pin if your package declares C.** A
+bodyless `extern "c" fn` (a C function wolf calls, `[abi.c.import]`)
+and an `extern "c" let` (a link-time symbol, `[abi.link.extern]`) now
+charge `ffi` at the declaration, called or not, exactly as `import c`
+is charged at its line (`[pkg.caps]` (1a)). Until now a `caps=[]`
+package could call `getpid` through `extern "c" fn` and run, and `wolf
+audit --ci` said `effective: []`. A package that declares C without
+`capabilities: [ffi]` is now E1504 on native and release, naming the
+declaration and its first call (or that nothing calls it), and `wolf
+audit --ci` exits 1 with the reason ("declares `extern "c" fn getpid`
+at app/main.lu:4:15, first called at app/main.lu:7:22"). An `extern "c"
+fn` with a body and an `export fn` are wolf code that C calls and charge
+nothing; an inline `asm` block still compiles nowhere, so it charges
+nothing yet (kw13's). The checked machine and lupin never reached C
+through these declarations (both refuse the call by name) and do not
+move.
+
+- **Downstream (census at boreutils `5da892e`, lobo `ebace85`, wolf-std
+  `87ba162`, pelt `3e7516c`, pax `ef4c3ca`, muzzle `7c95300`, wolf-book
+  `2504a0f`; trunk vs this change, native and release).** Every
+  boreutils utility (28), lobo, pelt, wolf-std's 433 test files and the
+  book's 6 sample packages build byte-identical with identical
+  diagnostics, and every manifest's `wolf audit` prints the same bytes.
+  **pax and muzzle declare C and need one line each:** all 29 pax
+  kernels (27 under `kernel/`, 2 under `tests/mkw.d/kernel/`) and
+  muzzle's `src/muzzle.lu` are E1504 until `capabilities: [ffi]` is in
+  `pax/kernel/wolf.pkg`, `pax/tests/mkw.d/kernel/wolf.pkg` and
+  `muzzle/src/wolf.pkg`; with it their objects are the same as trunk's
+  (release byte for byte; native with debug info stripped, since the
+  declared copy builds from another directory).
+- **In this repository** three gates' packages call their listed
+  assembly through bodyless externs, so they declare `ffi`: kw05's
+  `asm_link.rs` manifests, kw10's
+  `tests/fixtures/freestanding_interrupt/wolf.pkg`, and s214's #600
+  witness in `shr_range_lanes.rs`.
+- `wolf audit` unites a directory's standalone entries (pax's
+  `kmain_*.lu`) by the reason a reader sees, so a declaration several
+  entries share is counted once.
+- Witness: `crates/wolf_driver/tests/cap_ffi.rs` (nine rows: a
+  `caps=[]` root and dependency, an `extern "c" let`, an unused
+  declaration, a pax-shaped freestanding kernel per entry and in the
+  audit, and the honest twins).
+
+### A kernel's threads each keep their own ambient region (s223, #611)
+
+On the freestanding target (`x86_64-unknown-none`), the runtime kept
+one ambient-region slot for the whole program. A kernel that switched
+threads while one of them was inside a `region` sent the next thread's
+allocations into a region that thread never entered, and that
+region's exit freed them under it. pax measured `region ra 0 bytes,
+region rb 1008 bytes` on both tiers, BIOS and UEFI. The freestanding
+runtime now exports `wolf_rt_ambient_get() -> *u8` and
+`wolf_rt_ambient_set(p: *u8)` (`[abi.target.none.ambient]`,
+`[abi.target.none.hooks]` (e)). A scheduler stores `get()` in the
+outgoing thread's record and calls `set()` with the incoming thread's
+saved value, or null for a thread that has not run yet. In a package
+that lists assembly, the roster admits both as hooks. A call to either
+links `libwolf_rt_none.a`, which still imports only `wolf_alloc`,
+`wolf_free` and `wolf_trap`, so a kernel that calls the pair supplies
+the allocator hooks. **What moves:** `libwolf_rt_none.a` gains the two
+symbols. No hosted runtime byte changes, and a freestanding object that
+never calls the pair is unchanged. pax can lift its rule against
+holding a `region` across a yield once it saves the slot in its switch.
+Witness: `crates/wolf_driver/tests/freestanding_threads.rs`. With the
+pair, the List lands in its own thread's region on both tiers. Without
+it (the control), the List lands in the other thread's region.
+
+### Unsigned and wrapping integers print and compute as the values their types hold (s220, #551, #538, #553)
+
+**Read this before you bump the pin.** Programs that print a `u64`,
+`uint` or `wrapping[u64]` value above `i64::MAX` print different bytes
+on native and release, and that is the fix: `u64::MAX` printed `-1` in
+a spec-less hole (`"{x}"`, `print`, a `str` built from it) and now
+prints `18446744073709551615`, as lupin always has and as `{x:x}`
+already did. A program that worked around it (boreutils' `bore.u64`
+halves, `nproc`'s spelled-out `umax_tenth`) still runs and can retire
+the workaround. **No downstream build changed:** boreutils `50d8907`,
+lobo `a728fab`, pelt `1c1d0f7`, wolf-std `0f74ec5` (its 423 test
+files) and pax `f197e40` (29 kernels, freestanding objects) built with
+trunk and with this change, 964 pairs a tier on native and release,
+are byte-identical with identical diagnostics, and the checked machine
+answers all 423 wolf-std test files as before (none of them prints a
+64-bit unsigned value, divides or negates a wrapping value, or holds a
+negative narrow one).
+
+- **Printing (#551, #538, `[type.interp.value]`).** Native and release
+  set the runtime's unsigned bit only beside a format spec; every
+  64-bit unsigned hole now carries it. The checked machine printed
+  `Value::Int` signed whatever the type and its format-spec path said
+  `unsigned: false` (`{d:x}` of `u64::MAX` was `-1`).
+- **The checked machine holds `u64`'s whole range (#551).** A `u64`/
+  `uint` is held as its bit pattern, as the compiled tiers' registers
+  hold it: the literal takes the whole range (it was `unsupported`),
+  arithmetic is `u64`'s (it trapped `overflow` past `i64::MAX`), `<`
+  `>` `<=` `>=` and `/` `%` read it unsigned, `!` answers (it was
+  refused by name), and casts keep it (`wrapping[u64]` above
+  `i64::MAX` into `u64` was refused by name since kw03). kw03's
+  `narrow_cast_lanes` carve-out of 20 checked rows is gone.
+- **Signed narrow wrapping values are negative on the checked machine
+  (#553, #602).** It held every `wrapping[iN]` result as its unsigned
+  mask, so `200 as wrapping[i8]` printed `200`, `5 - 11` at
+  `wrapping[i16]` printed `65530`, and both ordered above zero; native,
+  release and lupin print `-56` and `-6`.
+- **Wrapping division (#538, `[type.wrap.div]`, new).** `/` and `%` on
+  a `wrapping[T]` divide the values: native and release refused them
+  ("no idiv.wrap op"), the checked machine divided a `wrapping[u64]`
+  as signed (`u64::MAX / 10` was `0`). `MIN / -1` wraps to `MIN`,
+  `MIN % -1` is `0`, a zero divisor traps `div-zero`. No new WIR
+  opcode: unsigned is `udiv.chk`, signed branches around `idiv.chk`
+  when the divisor may be -1.
+- **Negation, found on the way.** `-x` at a wrapping type wraps (native
+  and release trapped `-MIN`; `-(5 as wrapping[u8])` is 251), and at a
+  plain unsigned type is `0 - x` there, trapping `overflow` for any `x`
+  but 0: `-x` on a `u8` printed `251` on native and release and `-5`
+  on the checked machine, where lupin traps.
+- **lupin** (wolf-interp s220): a `wrapping[u64]` product past 2^127
+  trapped `overflow` (its `i128` multiply); it now keeps the low bits.
+  Found by the sweep; `int_truth_lanes` pinned 0.1.48 and 0.1.49 by
+  version and commit until 0.1.50 carried it (dropped at this pairing).
+- **Witnesses:** eighteen `corpus/{typecheck,faults}/int_truth_*.lu`
+  rows and `crates/wolf_driver/tests/int_truth_lanes.rs`, which holds
+  them on four machines and sweeps seeded random values of all
+  eighteen integer types (printed, ordered, combined) against an
+  `i128` reference.
+
+### Ctrl-C: a program that survives SIGINT, process groups and the terminal (s219, #622)
+
+**Read this before you bump the pin.** Eleven new prelude names, all
+`w0304: true` in `spec/prelude.json`: `os_signal_ignore`,
+`os_signal_default`, `os_signal_poll`, `os_spawn_job`, `os_proc_pid`,
+`os_wait_status`, `os_pgid`, `os_term_foreground`,
+`os_term_set_foreground`, `os_term_mode` and `os_term_set_mode`. A
+module that declares one draws W0304 (fatal under `--deny-warnings`). No
+existing builtin's row changed. **Every spelling below was a ruling
+owed** (`[os.term.note]` R1–R8) and is ruled as implemented (ruling
+#57, R8 = A).
+
+- **Five new meanings** (`[os.signal.set]`): `INTERRUPT` 16 (`SIGINT`,
+  Ctrl-C), `SUSPEND` 32 (`SIGTSTP`), `BG_READ` 64 (`SIGTTIN`),
+  `BG_WRITE` 128 (`SIGTTOU`), `CHILD` 256 (`SIGCHLD`). `os_signal_listen`
+  takes them on unix; on windows a listen for one is `io`.
+- **A disposition: default, ignored or listened** (`[os.signal.disp]`).
+  `os_signal_ignore(set)` and `os_signal_default(set)` beside
+  `os_signal_listen(set)`; the last call wins; a child starts as `exec`
+  leaves it, so an ignored meaning stays ignored there and a listened
+  one is the default. No wolf code ever runs in a handler.
+- **`os_signal_poll(set) -> int ! {io}`** (`[os.signal.poll]`) takes a
+  delivered meaning without waiting, 0 when none has come: how a shell
+  learns after its read returns that Ctrl-C was typed.
+- **`os_spawn_job(exe, args, map, group, tty, defaults)`**
+  (`[os.proc.job]`): `os_spawn_fds` plus, in the child before `exec`, a
+  process group (-1 stay, 0 lead, > 0 join), the terminal's foreground
+  handed to it (`tcsetpgrp`, `SIGTTOU` blocked for the call) and the
+  meanings in `defaults` set back to default; the parent repeats the
+  group and the handoff.
+- **`os_proc_pid(h)` and `os_wait_status(h)`** (`[os.proc.status]`): a
+  child's pid, and how it ended — the exit code, or `-N` for a death by
+  signal N, so a shell can say `128 + N` (130 for Ctrl-C).
+- **The terminal** (`[os.term]`, `[os.term.mode]`): `os_pgid()`,
+  `os_term_foreground(fd)`, `os_term_set_foreground(fd, pgid)`, and the
+  mode as one int — canonical 1, echo 2, signals 4, `VMIN` in bits
+  8..15, `VTIME` in 16..23 — read by `os_term_mode(fd)` and set by
+  `os_term_set_mode(fd, mode)`; every other termios field is left as
+  found.
+- **Every machine.** Native and release share `wolf_rt` (`signal.rs`,
+  `os.rs`, the new `term.rs`). The checked machine now arms the host for
+  real when it listens (a handler that only sets an atomic bit) and uses
+  the host's `sigaction` for ignore and default, so a checked program
+  survives Ctrl-C exactly as a native one does. lupin mirrors the group
+  spawn, the pid, the status, the poll and every shape row, and refuses
+  the dispositions and the terminal by name (no `unsafe`, no std call;
+  R8). windows: `unsupported` by name for the dispositions, the job
+  options and the terminal.
+- **Witnesses** (`crates/wolf_driver/tests/ctrl_c_lanes.rs`): five rows
+  through a pseudo-terminal — an ignored INTERRUPT survives Ctrl-C, a
+  listened one is polled as 16, a child group handed the terminal dies
+  of Ctrl-C (-2) while its parent lives and takes the terminal back, raw
+  mode reads one key and restores — on checked, native and release (and
+  under `taskset -c 0-3`), with each program's SigBlk/SigIgn printed;
+  a control that dies of Ctrl-C; and `status.lu` with no terminal on
+  every machine, lupin included. pelt (a throwaway build, not pushed)
+  matches dash on its `ctrl_c_prompt` and `ctrl_c_child` sessions with
+  four calls added: a listen, a poll after the read, `os_wait_status`,
+  a poll after the wait.
+
+### The root arena takes no lock per allocation; reads and gathered writes stop allocating (s222, #635, #421)
+
+No program's output, verdict or diagnostics change: this is the native
+runtime (`libwolf_rt.a`), so every native and release binary's bytes
+move and nothing it prints does.
+
+- **The root arena bumps a per-thread window (#635, #421).** Where an
+  allocation lands with no `region` open — every list header, list
+  growth and materialized `str` in such code — was one bump window
+  behind one `Mutex`, taken on EVERY allocation. Each thread now bumps
+  its own window over the same never-freed chunk list and takes the
+  lock only to refill one (once per 64 KiB, or for one allocation of
+  16 KiB or more); a thread's unused tail is parked when it exits and
+  adopted by the next thread. The root's meaning is unchanged (process
+  lifetime, readable from every thread; the design note and its
+  memory-safety argument are `wolf_rt::str`'s module doc), so no rule
+  moves on the checked machine or in lupin. `[conc.task.par.cost]`'s
+  sentence that the root "serializes allocation behind one lock" is
+  rewritten. bs50's word counter (#421: 72 pieces of ~380k characters,
+  a `Map[str, int]` and a `lower()` per word) on kasumi (16 cpus):
+  `par` 0.77–0.79 s with 6.3–7.3 s of system time and 178,911 futex
+  calls before, 0.03–0.04 s and 2,556 after, against 0.18–0.21 s
+  serial; under `taskset -c 0-3`, 0.63–0.75 s before and 0.05–0.07 s
+  after.
+- **Reads stop zeroing a buffer per call (#635).** `net_read`,
+  `net_read_bytes`, `fs_read`, `fs_read_chunk` and `fs_read_at` read
+  into one buffer a thread keeps (zero-filled only when it grows,
+  never past the 1 MiB clamp) and copy the bytes read out of it, where
+  each call used to allocate `max` zeroed bytes and free them.
+- **Gathered writes and interpolations stop asking the host allocator
+  (#635).** `net_writev` and `net_writev_head` build their `IoSlice`
+  run on the stack for up to 16 parts (two malloc/free pairs a call
+  before); an interpolation's buffer comes from a per-thread pool and
+  keeps its capacity (a `Box`, a `realloc` per doubling and a free per
+  interpolation before), and an integer hole formats in place. #635
+  named the `realloc` as `net_writev_head`'s; measured, it was the
+  interpolation buffer's.
+- **Measured on lobo** (trunk `ebace85`, its release build, one hand,
+  `perf stat -e instructions:u`, kasumi, median of three): user
+  instructions a request keepalive 19,532 → 17,179 (−12.0 %), close
+  20,847 → 18,182 (−12.8 %); the arena alone −4.1 % / −5.8 %, the
+  reads −3.6 % / −2.9 %, the writes −4.9 % / −4.7 %.
+- **Witnesses:** `wolf_rt`'s `str::tests` (a warmed thread allocates
+  while the arena's lock is held; a dead thread's bytes survive later
+  threads' churn; concurrent allocations never overlap),
+  `crates/wolf_rt/tests/read_write_alloc.rs` (a counting global
+  allocator: zero zeroed allocations and at most one host call per 50
+  reads, gathers or interpolations once warm), and
+  `crates/wolf_driver/tests/root_arena_threads_lanes.rs` (`par` and
+  scoped-task strings read back on the spawner on native, release and
+  lupin; the checked machine refuses both shapes by name).
+
+### Exec and env unset: a program can become another, and remove a variable (s225, #534)
+
+**Read this before you bump the pin.** Two new prelude names, both
+`w0304: true` in `spec/prelude.json`: `os_exec` and `env_unset`. A
+module that declares one draws W0304 (fatal under `--deny-warnings`);
+no downstream does (boreutils, lobo, pelt, wolf-std, pax at their
+trunks). No existing builtin's row changed. **One checked-machine
+behaviour moved:** a child the checked machine spawns is now handed the
+environment with the machine's overlay applied, so a variable the
+program `env_set` reaches its children there as it always did on
+native and release (before, a checked child saw only the host's
+environment). **No compiler output changed:** boreutils `5da892e`,
+lobo `ebace85`, pelt `3e7516c`, wolf-std `87ba162` (433 test files) and
+pax `ef4c3ca` (29 kernels, freestanding objects), 1968 builds on native
+and release, are byte-identical (debug info and build-id stripped)
+with identical diagnostics and exit codes when trunk and this change
+link one runtime archive; 1826 build and 142 refuse identically. Linked
+with each side's own archive every linked binary differs, because a new
+module in `wolf_rt` moves rustc's code-generation units (the freestanding
+objects, which link no runtime, do not); that is layout, not behaviour.
+
+- **`os_exec(exe, argv, env, map)` (`[os.proc.exec]`, new).** Replace
+  the running program: the pid stays, the image goes. `argv` is the
+  whole vector (argv[0] included), `env` the new program's whole
+  environment as `NAME=VALUE` entries (`env_vars()` passed through
+  keeps the current one), `map` `os_spawn_fds`'s pairs with an unmapped
+  0, 1 and 2 left as this process's own; everything else the runtime
+  opened is close-on-exec. A bare name is searched along the `PATH` of
+  the handed `env`, or `/usr/bin:/bin`. Returns only with a row, in
+  order: `invalid` (shape), `unsupported` (windows), `io` (a source),
+  `not_found`/`denied`/`io` (the program); a failed exec puts back
+  every descriptor the map moved. Result type unit, as `os_exit`'s.
+  The checked machine replaces the `wolf` process itself, its print
+  buffers written out, its working directory entered and `SIGPIPE`
+  defaulted first; under `conform-run` no record follows a successful
+  exec. Capability `exec`.
+- **`env_unset(name)` (`[os.env.unset]`, new).** Remove a variable;
+  absent is not an error; `env_set`'s names are `invalid`. Native and
+  release write the real environment; the checked machine keeps a
+  tombstone in its overlay. Capability `env`.
+- **Every spelling was a ruling owed**, and is ruled as implemented
+  (ruling #62, R1–R5):
+  `env_unset` beside `env_set` (no `os_env_set`: `env_set` exists),
+  `os_exec`'s execve shape, the handed environment's `PATH`, and the
+  record-less checked exec.
+- **lupin** (wolf-interp s225) mirrors both; its exec is std's
+  `CommandExt::exec` for descriptors 0..2 and refuses a map above 2 or
+  a close by name. `exec_lanes` pinned 0.1.49 (`f516a5f`) and its
+  trunk (`51cb491`) as pre-mirror by version and commit until 0.1.50
+  (dropped at this pairing).
+- **Witnesses:** `corpus/os/exec_rows.lu`, `corpus/os/env_unset.lu`,
+  two comptime rows, and `crates/wolf_driver/tests/exec_lanes.rs`: the
+  new image's pid is the pid the harness started, argv[0] read from the
+  kernel, SIGPIPE not ignored in the image, a file mapped AS descriptor
+  5, an opened unmapped file closed, a failed exec putting descriptor 0
+  back, and a child that no longer sees a removed variable — checked,
+  native, release (and under `taskset -c 0-3`) and lupin. #534's
+  signal-number half is s219's `os_wait_status`.
+
+### The full stat record, `lstat`, `readlink`, and a listing as the host keeps it (s218, #625, #626, #536)
+
+**Read this before you bump the pin.** Four new prelude names, all
+`w0304: true` in `spec/prelude.json`: `fs_stat`, `fs_lstat`,
+`fs_read_link` and `fs_read_dir_entries`. A module that declares one
+draws W0304, which `--deny-warnings` makes fatal: rename yours. A grep for
+a declaration of any of the four found none in wolf-std (`0f74ec5`),
+boreutils (`50d8907`), lobo (`a728fab`), pelt (`dd22a86`), pax
+(`396c5fb`) or the book (`fde77b8`). Nothing that existed changed:
+`fs_read_dir` still sorts and still answers `utf8`, `fs_fstat` still
+answers three words, and every path call still follows a link.
+
+- **`fs_stat(path)` and `fs_lstat(path) -> List[int] ! {denied, io,
+  not_found}` (`[os.fs.stat]`).** One record from one host call: kind
+  (file, directory, other, symbolic link, fifo, socket, character and
+  block device), size, modified_ms, a `have` mask, mode bits, link
+  count, uid, gid, blocks, device, inode, rdev, and the access,
+  modification, status-change and birth times to the nanosecond. The
+  first three words are `fs_fstat`'s. `fs_lstat` answers a link itself,
+  so a program can at last tell a link from its target, and a dangling
+  link from a missing name. A word the host does not keep is 0 with its
+  `have` bit clear: windows refuses mode, link count, owner, blocks,
+  identity and ctime by name; linux answers a birth time where the
+  filesystem keeps one. Two paths name one file when their device and
+  inode agree (#536's `pwd -L` question).
+- **`fs_read_link(path) -> List[byte] ! {denied, invalid, io,
+  not_found}` (`[os.fs.readlink]`).** A link's target, as bytes, as
+  stored; `invalid` when the path is not a link.
+- **`fs_read_dir_entries(path) -> List[List[byte]] ! {denied, io,
+  not_found}` (`[os.fs.readdir]`).** A directory in the host's own
+  order, unsorted, each entry one byte list: its kind, then its name's
+  bytes. A name that is not UTF-8 is listed like any other, so one odd
+  name can no longer fail a listing, and a walk knows a directory (or a
+  link) without a stat per entry. `ls -U` prints this order.
+- Every machine: the checked machine reads the same metadata the runtime
+  does, word for word; native and release call the runtime; lupin
+  mirrors all four (wolf-interp s218). A path is still a `str`, so a
+  name that is not UTF-8 can be listed but not yet stat'd by name; the
+  record from an open handle stays `fs_fstat`'s three words. Witnesses:
+  `crates/wolf_driver/tests/fs_stat_lanes.rs` (every word against
+  `stat(1)` on linux).
+
+=== PAIRING at NEW
+# The reference-interpreter pairing (r01 criteria row 7): the lupin
+# release this wolf is differentially tested against, and the
+# conformance pin that lupin release itself declares.
+#
+# `wolf --version` prints this file; nothing else defines the pairing
+# (#87 retired the hardcoded constants that went three releases stale).
+# Update it WITH the differential ritual — the pairing test compares
+# the version below against the sibling lupin binary whenever one is
+# present (and, when that sibling is a release build, the pin too:
+# D57, a release's pin is part of its identity), so a stale stamp
+=== STD-PIN at NEW
+# The standard library this wolf ships (ruling #29, wolf-lang#415):
+# `cargo xtask dist` stages wolf-std's `std/` tree at the commit below
+# into the release archive as `std/`, beside the `wolf` binary, with
+# the commit written to `std/STD-REV` (the 40-hex line boreutils'
+# fetch-toolchain already writes for its own staged tree). The driver's
+# default std root is that directory; `--std-root`, `WOLF_STD` and a
+# `wolf.pkg` `std` dependency still override it.
+#
+# Pinned as PAIRING pins lupin: a deliberate bump in its own commit,
+# with the gauntlet green at the new pin (dist-smoke runs a `use std.…`
+=== book
+book trunk b845e0773a402f7f4f3879171e6d0d5414f34ef3
+count BOLD..BNEW = 25
+book ancestry exit=0
+ 162 files changed, 14916 insertions(+), 84 deletions(-)
+ book/back/appendix-e.md |  7 ++---
+ book/back/colophon.md   | 12 ++++-----
+ book/back/solutions.md  |  2 +-
+ book/ch01.md            | 39 +++++++++++++++-------------
+ book/ch16.md            | 17 +++++++++++++
+ book/ch22.md            | 68 +++++++++++++++++++++++++++++++++++++++----------
+ book/ch24.md            | 19 +++++++++-----
+ book/ch25.md            | 33 ++++++++++++++++++++----
+ 8 files changed, 144 insertions(+), 53 deletions(-)
+SUMMARY sha c58196034d4fc6c4c2796437dbb9bedb4a4b5506 -> c58196034d4fc6c4c2796437dbb9bedb4a4b5506
+chapters in SUMMARY: 33
+=== book diagrams changed
+=== ch01 Windows block at BNEW
+229:itself, which is the same requirement Rust's own `windows-msvc`
+237:tar -xzf wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz
+238:$env:Path = "C:\tools\wolf-0.2.28-x86_64-pc-windows-msvc;$env:Path"
+703:           inferred: wolf-0.2.3-{aarch64-apple-darwin, aarch64-
+704:           unknown-linux-gnu, x86_64-pc-windows-msvc, x86_64-unknown-
+718:           measured rather than inferred — wolf-0.2.4-{aarch64-apple-
+719:           darwin, aarch64-unknown-linux-gnu, x86_64-pc-windows-msvc,
+735:           wolf-0.2.5-{aarch64-apple-darwin, aarch64-unknown-linux-gnu,
+736:           x86_64-pc-windows-msvc, x86_64-unknown-linux-gnu}.tar.gz,
+745:           rather than inferred: wolf-0.2.6's four archives over the
+=== inline scripts or event handlers in book sources at BNEW
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:book/wolf-boot.js:5:// This was three inline <script>s in theme/index.hbs. lupp.us serves
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:theme/index.hbs:52:        <script src="{{ resource "toc.js" }}"></script>
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:theme/index.hbs:60:        <script src="{{ path_to_root }}wolf-boot.js"></script>
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:theme/index.hbs:141:        <script src="{{ resource "elasticlunr.min.js" }}"></script>
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:theme/index.hbs:142:        <script src="{{ resource "mark.min.js" }}"></script>
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:theme/index.hbs:143:        <script src="{{ resource "searcher.js" }}"></script>
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:theme/index.hbs:146:        <script src="{{ resource "book.js" }}"></script>
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:theme/index.hbs:149:        <script src="{{ resource this}}"></script>
+(end)
+=== book render path: external commands
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:xtask/src/highlight.rs:346:    let out = std::process::Command::new("git")
+b845e0773a402f7f4f3879171e6d0d5414f34ef3:xtask/src/render.rs:522:    let status = std::process::Command::new(&typst)
+=== site grep
+site/index.html:479:  wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
+site/index.html:481:  generation serves; linux aarch64 is tier-1 in the matrix with no compiled
+site/index.html:486:  the program (<code>wolf conform-run --checked</code>). So on linux aarch64
+site/install/index.html:124:  own <code>windows-msvc</code> toolchain carries. Without it wolf refuses
+site/install/index.html:142:  <a href="https://github.com/wolffe-lang/wolf-lang/releases/download/v__WOLF_VERSION__/wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz"><code>wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.
+site/install/index.html:147:<pre><code>tar -xzf wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></pre>
+site/install/index.html:155:<pre><code>$env:Path = "C:\tools\wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc;$env:Path"</code></pre>
+site/install/index.html:533:tier targets linux/x86-64 and macOS/aarch64 (s41 + s127; c13 owns the
+site/install/index.html:742:  <p>linux x86-64 and macOS aarch64 are the two hosts the whole toolchain is
+site/install/index.html:751:  two, windows x86-64, and linux aarch64. That last one has no compiled tier
+(end site grep)
+DERIVE-DONE

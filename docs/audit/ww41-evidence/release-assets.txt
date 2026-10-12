@@ -1,0 +1,22 @@
+v0.2.27 id=409367590 draft=false pre=false published=2026-10-11T04:12:05Z assets=4
+  wolf-0.2.27-aarch64-apple-darwin.tar.gz 18065548 sha256:ea461a7668d98604493c2af49ed931f999d702dc70f163c40bac2ec5479e5c1c
+  wolf-0.2.27-aarch64-unknown-linux-gnu.tar.gz 72904426 sha256:c475e5dc0a3748d15ae64096d6a33d52a67f0d879f30a4a11d40e72dfea955f7
+  wolf-0.2.27-x86_64-pc-windows-msvc.tar.gz 15229623 sha256:ac78441650a6375c6041db0e251a5657f3c299a025ae9d670b081bbdd75f83bb
+  wolf-0.2.27-x86_64-unknown-linux-gnu.tar.gz 76823481 sha256:5e17eebed7ffbb3ee10bc669c653145903db7f591f250a096f791e4e6f377001
+v0.2.28 id=410118732 draft=false pre=false published=2026-10-12T04:09:37Z assets=4
+  wolf-0.2.28-aarch64-apple-darwin.tar.gz 18357853 sha256:656ab5535467bd0dbbde4a93e9a8589a19516c17938b580e80f616ad876926c0
+  wolf-0.2.28-aarch64-unknown-linux-gnu.tar.gz 74360463 sha256:f2697a69c7e9e0fb986435c4ea480cba3a58752feb024490c427647d142d9f99
+  wolf-0.2.28-x86_64-pc-windows-msvc.tar.gz 15531766 sha256:bb9e2f5f0882bf940548dc04f09dcc66e6794e2d27dd4daaf57fb797a3d72151
+  wolf-0.2.28-x86_64-unknown-linux-gnu.tar.gz 78447277 sha256:3215f3219c5c6c3b84f0f9abf421cdaecec5b81cf42d92b6c64475f95ad199aa
+v0.1.50 id=409303515 draft=false pre=false published=2026-10-11T00:53:58Z assets=5
+  lupin-0.1.50-aarch64-apple-darwin.tar.gz 2619691 sha256:2cbd192d2f4fa8b994489196ad5f94ccc72c5d21d5dfe5b812045513feae626d
+  lupin-0.1.50-aarch64-unknown-linux-gnu.tar.gz 2772748 sha256:a0c0c7071f0a27796fdb89d099a6e655f27f93dd208dfb493c847b6c7eb84d31
+  lupin-0.1.50-x86_64-pc-windows-msvc.zip 2568584 sha256:420e02c00aa580c6536b4fcd41bf56cfe2ff07d6bb2c7d24b362cf11a29085d5
+  lupin-0.1.50-x86_64-unknown-linux-gnu.tar.gz 2931697 sha256:e2867a3515d4691f073f9ef30f4fe3e0fc6201f280bf24e87a42ce66562f1d93
+  lupin.exe 6713344 sha256:b37b13bf6555c1bec8c52ec08340d0f433a76263a496024790da9a01781d18ad
+v0.1.51 id=409991647 draft=false pre=false published=2026-10-11T23:42:56Z assets=5
+  lupin-0.1.51-aarch64-apple-darwin.tar.gz 2628693 sha256:2b11a7d15bcd56d8695df563ce95a075cfe3a948c6e8552caaed0d5dd444764b
+  lupin-0.1.51-aarch64-unknown-linux-gnu.tar.gz 2782626 sha256:e29d02bf56727d64adde1aac970b66669e3f35b2ecde6c97a18d45ec27e9adb3
+  lupin-0.1.51-x86_64-pc-windows-msvc.zip 2574911 sha256:06ccce94a44d9c1f5d8bb149a9474427c3e230d5ce9e6d8321aa93a5cd9ac086
+  lupin-0.1.51-x86_64-unknown-linux-gnu.tar.gz 2939151 sha256:d8f62dd1175b3171d900700ab033f07ba4987a8d545897c5e587314657c69509
+  lupin.exe 6729216 sha256:3875deeab7686000abff1383a298190d4a66a15a5e6a254c0eb65df783d44aa3

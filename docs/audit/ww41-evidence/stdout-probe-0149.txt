@@ -1,0 +1,47 @@
+DIFF  conc/chan_sent_arg_legal.lu verdict=exit(0) stdout="28\nbuilt in main, 0 uses\nbuilt by emit, 0 uses\nstatic\nbuilt in pass, 0 uses\na 0 doc 2\n21\n" want="28\nbuilt in main, 0 uses\nbuilt by emit, 0 uses\nstatic\nbuilt in pass, 0 uses\na 0 doc 2\n21"
+DIFF  conc/chan_sent_arg_legal_tasks.lu verdict=unsupported stdout="" want="built in main, 7 uses\nbuilt in launch, 7 uses\n7"
+n/a   faults/int_truth_neg_u64_trap.lu verdict=trap(overflow) stdout="" want=null
+n/a   faults/int_truth_neg_u8_trap.lu verdict=trap(overflow) stdout="" want=null
+n/a   faults/int_truth_u64_add_trap.lu verdict=trap(overflow) stdout="" want=null
+n/a   faults/int_truth_u64_cast_trap.lu verdict=trap(overflow) stdout="" want=null
+n/a   faults/int_truth_uint_sub_trap.lu verdict=trap(overflow) stdout="" want=null
+n/a   faults/int_truth_wrap_div_zero.lu verdict=trap(div-zero) stdout="" want=null
+n/a   faults/int_truth_wrap_rem_zero_signed.lu verdict=trap(div-zero) stdout="" want=null
+DIFF  fs/change_rows.lu verdict=unsupported stdout="" want="set_mode(0o10000)=invalid set_mode(-1)=invalid\ncreate_dir_mode(0o1000)=invalid\nopen_perm(open 9)=invalid open_perm(mode 0o1000)=invalid\nsymlink(empty)=invalid\nset_times(ns 1000000000)=invalid set_times(ns -3)=invalid\ntruncate(-1)=invalid truncate(forged)=io\numask(0o1000)=invalid umask(-1)=invalid\nos_error=0 made_nothing=true"
+DIFF  fs/hard_link.lu verdict=unsupported stdout="" want="link=ok second_name_reads=more wolves\nagain=exists host_number=true\nmissing_source=not_found missing_parent=not_found\nafter_remove=more wolves one_name_left=true\ncleaned=true"
+DIFF  fs/mode_symlink.lu verdict=unsupported stdout="" want="set_mode: true\nopen_perm: true\ncreate_dir_mode: true\nsymlink: true\ncleaned=true"
+DIFF  fs/set_times.lu verdict=unsupported stdout="" want="both: atime=1000000000.123456700 mtime=1500000000.7654300 modified_ms=1500000000007\nleave: atime=1000000000.123456700 mtime=1600000000.0\nnow: atime_kept=true mtime_is_now=true\ndirectory: mtime=1400000000\nbefore_epoch: atime=-1.999999900 mtime=-86400.0\nmissing=not_found host_number=true\ncleaned=true"
+DIFF  fs/truncate.lu verdict=unsupported stdout="" want="shorter=4 offset=10\nlonger=8 kept=51 zeros=0,0\nwrite_at_offset=11 hole=0\nempty=0\nclosed=io host_number=0\nread_only=io host_number=true size_kept=12"
+DIFF  json/dup_count_distinct.lu verdict=exit(0) stdout="1 3\n" want="3 2\n"
+DIFF  json/dup_kind.lu verdict=exit(0) stdout="num str -1\n" want="str array 3\n"
+DIFF  json/dup_last_wins.lu verdict=exit(0) stdout="1 2\n" want="2 1\n"
+DIFF  json/dup_nested.lu verdict=exit(0) stdout="first 2 1 2\n" want="last 1 9 1\n"
+DIFF  json/dup_path.lu verdict=exit(0) stdout="missing 1\n" want="2 missing\n"
+DIFF  json/dup_render.lu verdict=exit(0) stdout="{\"a\":1,\"b\":2,\"a\":3}\n" want="{\"a\":3,\"b\":2}\n"
+DIFF  json/dup_thrice.lu verdict=exit(0) stdout="1 2 6\n" want="5 6 3\n"
+DIFF  link/module_c.lu verdict=unsupported stdout="" want="21 22\n"
+MATCH memory/region_kept_arg_legal.lu verdict=exit(0) stdout="built in pass, 0 uses|21|static|built in st 0|21|7|7|21|2|carried out|a.log,b.log|conf-0\n" want="built in pass, 0 uses|21|static|built in st 0|21|7|7|21|2|carried out|a.log,b.log|conf-0\n"
+DIFF  memory/region_net_read_charged.lu verdict=unsupported stdout="" want="charged true | reclaimed true | got 64000"
+DIFF  os/env_unset.lu verdict=unsupported stdout="got: tarn\n" want="got: tarn\nafter: <missing>\nabsent: ok\nempty: invalid\nequals: invalid\nagain: fell"
+DIFF  os/exec_rows.lu verdict=unsupported stdout="" want="no_argv=invalid\nno_equals=invalid\nempty_name=invalid\nodd_map=invalid\nout_of_range=invalid\nrepeated=invalid\nbad_source=invalid\nstill_here"
+DIFF  os/job_rows.lu verdict=unsupported stdout="" want="group=invalid\ntty=invalid\ndefaults=invalid\nmap=invalid\npid=io\nstatus=io\npoll_empty=io\npoll_none=0\nignore_empty=io\ndefault_outside=io"
+DIFF  os/umask.lu verdict=unsupported stdout="" want="umask: true\nread_is_two_calls: true\nrestored: true"
+MATCH typecheck/int_truth_signed_print.lu verdict=exit(0) stdout="-128 127 -32768 32767 -2147483648 2147483647\n-9223372036854775808 9223372036854775807 -9223372036854775808 9223372036854775807 -9223372036854775808 9223372036854775807 -80  -9223372036854775808\n" want="-128 127 -32768 32767 -2147483648 2147483647\n-9223372036854775808 9223372036854775807 -9223372036854775808 9223372036854775807 -9223372036854775808 9223372036854775807 -80  -9223372036854775808\n"
+MATCH typecheck/int_truth_u64_arith.lu verdict=exit(0) stdout="9223372036854775808 18446744073709551615 1844674407370955161 5 18446744069414584320 18446744073709551615\ntrue false true 9223372036854775807 18374686479671623680 9223372036854775807 9223372036854775809\n" want="9223372036854775808 18446744073709551615 1844674407370955161 5 18446744069414584320 18446744073709551615\ntrue false true 9223372036854775807 18374686479671623680 9223372036854775807 9223372036854775809\n"
+MATCH typecheck/int_truth_u64_cast.lu verdict=exit(0) stdout="4294967295 18446744073709551615 18446744073709551615 9223372036854775808 42 -9223372036854775808 true true 10000000000000000000\n" want="4294967295 18446744073709551615 18446744073709551615 9223372036854775808 42 -9223372036854775808 true true 10000000000000000000\n"
+MATCH typecheck/int_truth_u64_not.lu verdict=exit(0) stdout="18446744073709551615 18446744073709547520 0 18446744073709551614\n" want="18446744073709551615 18446744073709547520 0 18446744073709551614\n"
+MATCH typecheck/int_truth_unsigned_print.lu verdict=exit(0) stdout="255 65535 4294967295 18446744073709551615 18446744073709551615 9223372036854775808 0\nffffffffffffffff FFFFFFFFFFFFFFFF   9223372036854775808|11111111111111111111111111111111|18446744073709551615 18446744073709551615\n" want="255 65535 4294967295 18446744073709551615 18446744073709551615 9223372036854775808 0\nffffffffffffffff FFFFFFFFFFFFFFFF   9223372036854775808|11111111111111111111111111111111|18446744073709551615 18446744073709551615\n"
+MATCH typecheck/int_truth_wrap_div_signed.lu verdict=exit(0) stdout="-128 0 -32768 0\n-2147483648 0 -9223372036854775808 0\n-3 -1 -3 -1\n-3 1 -3 1\ntrue -9223372036854775808 0\n" want="-128 0 -32768 0\n-2147483648 0 -9223372036854775808 0\n-3 -1 -3 -1\n-3 1 -3 1\ntrue -9223372036854775808 0\n"
+MATCH typecheck/int_truth_wrap_div_unsigned.lu verdict=exit(0) stdout="25 5 6553 5 429496729 5\n1844674407370955161 5 3074457345618258602 2 1 9223372036854775807\n1152921504606846975 295\n" want="25 5 6553 5 429496729 5\n1844674407370955161 5 3074457345618258602 2 1 9223372036854775807\n1152921504606846975 295\n"
+DIFF  typecheck/int_truth_wrap_mul_wide.lu verdict=trap(overflow) stdout="" want="3596837031075064250 4 0 1\n"
+MATCH typecheck/int_truth_wrap_neg.lu verdict=exit(0) stdout="-128 -32768 -2147483648 -9223372036854775808 -5\n251 65531 4294967291 18446744073709551611 0\n0\n" want="-128 -32768 -2147483648 -9223372036854775808 -5\n251 65531 4294967291 18446744073709551611 0\n0\n"
+MATCH typecheck/int_truth_wrap_signed.lu verdict=exit(0) stdout="-56 -6 -6 -1294967296 2147483647 9223372036854775807 -128 -9223372036854775808\ntrue true true true true true\n88 -38 -6 -56 -6 -1294967296 -28 55\n-56 -6 -1294967296\n" want="-56 -6 -6 -1294967296 2147483647 9223372036854775807 -128 -9223372036854775808\ntrue true true true true true\n88 -38 -6 -56 -6 -1294967296 -28 55\n-56 -6 -1294967296\n"
+MATCH typecheck/int_truth_wrap_unsigned.lu verdict=exit(0) stdout="255 65535 4294967295 18446744073709551615 9223372036854775808\n0 0 0 0 0\n255 65535 4294967295 18446744073709551615 18446744073709551613 9223372036854775808\nffffffffffffffff true false true 15 1\n18446744073709551615 9223372036854775808\n" want="255 65535 4294967295 18446744073709551615 9223372036854775808\n0 0 0 0 0\n255 65535 4294967295 18446744073709551615 18446744073709551613 9223372036854775808\nffffffffffffffff true false true 15 1\n18446744073709551615 9223372036854775808\n"
+DIFF  typecheck/numlit_radix.lu verdict=exit(0) stdout="oct=15 bin=5 hex=255\nannotated=493 u64=511 u8=7\nunderscored=420 grouped=192\nreturned=438 argument=448 negated=-8\nmatched=octal\nsum=2748\n" want="oct=15 bin=5 hex=255\nannotated=493 u64=511 u8=7\nunderscored=420 grouped=192\nreturned=438 argument=448 negated=-8\nmatched=octal\nsum=2748"
+DIFF  conc/atomic_counter.lu verdict=unsupported stdout="" want="400000 100000\n"
+DIFF  conc/chan_struct_payload.lu verdict=unsupported stdout="" want="regions\nmoves\nchannels\n3 documents shelved, 2740 words\nlast: closed"
+DIFF  conc/reason_interp.lu verdict=unsupported stdout="" want="fine normal(1540)\nbroken error(Corrupt)\nkilled killed\nfaulty fault(bounds)"
+DIFF  net/spawn_accept.lu verdict=unsupported stdout="" want="echo: howl"
+DIFF  os/signal_supervisor.lu verdict=unsupported stdout="" want="upgrade\n"
+DIFF  os/chdir_relative.lu verdict=exit(1) stdout="error: io\n" want="moved=true\nrelative_read=found\ncwd_ends_inner=true\nup_sees_inner=true\nback=true\nmissing=not_found\nonto_a_file=io\ncleaned=true"
+stdout mismatches: 28
