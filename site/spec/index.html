@@ -92,9 +92,9 @@
       <code>#[repr(c, align(N))]</code>, and a representation that cannot be
       laid out as written is <code>E0820</code>.
       At v__WOLF_VERSION__ the document and its EBNF are v0.2.23's, byte for
-      byte: the three releases since wrote their clauses into the memory,
-      concurrency, ABI, package, types and OS documents, and the three
-      spellings v__WOLF_VERSION__ added — <code>-&gt; never</code>,
+      byte: every release since wrote its clauses into the memory,
+      concurrency, ABI, conformance, package, types and OS documents, and the
+      spellings v0.2.26 added — <code>-&gt; never</code>,
       <code>!</code> on an integer and <code>copy region { … }</code> — parse
       under productions the grammar already had.
       Anchors <code>[gram.*]</code>.</dd>
@@ -217,7 +217,7 @@
       every machine: a call may write any module state and any storage a raw
       pointer or an <code>extern "c" let</code> reaches, so no value read or
       stored before a call stands for that memory after it, which native and
-      release had broken. At v__WOLF_VERSION__
+      release had broken. At v0.2.26
       <code>[mem.region.copyout]</code> gives a region block one way out:
       <code>copy region { … }</code> deep-copies the block's value into the
       region it was entered from and then frees its own, and every other
@@ -230,6 +230,18 @@
       stores one field of a raw element at its C offset, touching no other
       byte; and <code>[mem.list.bytes]</code> gives a <code>List[byte]</code>
       the <code>find</code> and <code>count</code> a <code>str</code> has.
+      At v__WOLF_VERSION__ <code>[mem.region.escape]</code> reads a call's
+      signature for what its callee can keep: a <code>mut</code> argument,
+      the receiver included, or a non-<code>Copy</code> result shares the
+      bytes of every other argument that can reach it, so a string built in a
+      region block and handed to a callee that may keep it in an outer list
+      is <code>E1010</code> at the call, where only the direct store had been
+      refused; a <code>copy</code> of an aggregate shares its strings and a
+      <code>Map</code> keeps the key it is written through, so each of those
+      is held to the same rule. The callee's body is never read, so some
+      correct calls are refused too, and the clause names the edit that is
+      sound at the call. A <code>net_read</code> result is an allocation site
+      where it is read.
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -284,6 +296,17 @@
       operation does not admit is <code>E1309</code>, and the checked machine
       runs every order as <code>seq_cst</code> on its one task
       (<code>[conc.mm.atomic.raw.5]</code>).
+      At v__WOLF_VERSION__ the checked machine runs the concurrency tier it
+      had refused by name — <code>scope</code>, <code>spawn</code>, procs,
+      <code>select</code>, <code>when</code>, closures and
+      <code>xs.par(f)</code> — one task at a time under the deterministic
+      scheduler a seed selects (<code>[exec.checked.task]</code>,
+      <code>[exec.checked.sched]</code>, <code>[exec.checked.race]</code>).
+      And the call rule <code>[mem.region.escape]</code> states carries to a
+      channel: a callee handed a channel that can carry bytes, and every
+      <code>spawn proc</code> argument, must outlive the frame, as a sent
+      payload must (<code>[conc.chan.payload]</code>,
+      <code>[conc.proc.arg]</code>).
       Anchors <code>[conc.*]</code>.</dd>
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
@@ -322,7 +345,9 @@
       without the standard library and shipped beside <code>wolf</code>,
       over a <code>wolf_alloc</code> and <code>wolf_free</code> the program
       supplies, while <code>Pool</code>, <code>freeze</code>, channels,
-      <code>spawn</code> and <code>par</code> stay refused by name. Anchors
+      <code>spawn</code> and <code>par</code> stay refused by name. v0.2.27's
+      <code>[abi.target.none.ambient]</code> gives each of a kernel's threads
+      its own ambient region. Anchors
       <code>[abi.*]</code>.</dd>
 
     <dt><a href="/spec/05-conformance.md">05. Conformance</a> (__KIB_spec/05-conformance.md__ KiB)</dt>
@@ -393,13 +418,16 @@
       graph never executes anything — no build scripts, no hooks, no fallbacks.
       The manifest is data, resolution is minimal-version, and the registry
       entry's shape is fixed before any hosted registry exists to serve it.
-      At v__WOLF_VERSION__ a package's capabilities are what its code
+      Since v0.2.26 a package's capabilities are what its code
       reaches: a host builtin named in its own files charges the capability
       its family carries, as an import of <code>std.fs</code> always did, a
       std module charges its importer for what its own code reaches, and
       <code>E1504</code> refuses whichever one the manifest does not declare;
       <code>wolf audit</code> derives the same set from source, with a reason
-      per capability.
+      per capability. v0.2.27 counted a C declaration among the reaches: a
+      bodyless <code>extern "c" fn</code> or an <code>extern "c" let</code>
+      carries <code>ffi</code> where it is declared, called or not, as
+      <code>import c</code> carries it at its line.
       Anchors <code>[pkg.*]</code>.</dd>
 
     <dt><a href="/spec/09-constant-time.md">09. Constant-Time</a> (__KIB_spec/09-constant-time.md__ KiB)</dt>
@@ -466,13 +494,19 @@
       exception: an else-less <code>if</code> that is itself the tail of a
       fallible function discards its branch's raise, warned, where every
       machine had handed it to the caller with no warning. At
-      v__WOLF_VERSION__ <code>[type.fn.never]</code> names the bottom type: a
+      v0.2.26 <code>[type.fn.never]</code> named the bottom type: a
       function declared <code>-&gt; never</code> never returns, a call to it
       fits wherever a value is wanted, and a body that can reach its end or
       holds a <code>return</code> is <code>E0401</code>; and
       <code>[type.int.not]</code> makes <code>!</code> on an integer its
       bitwise complement at the operand's own width, <code>-n - 1</code>,
-      total, where it was <code>E0409</code>.
+      total, where it was <code>E0409</code>. v0.2.27's
+      <code>[type.wrap.div]</code> makes <code>/</code> and <code>%</code> on
+      a <code>wrapping[T]</code> divide the values the operands hold, so
+      <code>wrapping[u64]</code>'s <code>(2^64 - 1) / 10</code> is
+      <code>1844674407370955161</code>, and an unsigned or wrapping integer
+      prints as the value its type holds; the compiled tiers had printed a
+      <code>wrapping[u64]</code> as signed and refused or trapped its division.
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
@@ -527,8 +561,8 @@
       terminal, because a program falls back to reading forward there. And
       <code>[os.fs.std]</code> makes the process's standard streams the
       handles C gives them, so the first handle an open answers is no longer
-      the same number as standard input. At v__WOLF_VERSION__ those
-      streams carry bytes, the byte and text calls serving 0, 1 and 2 in
+      the same number as standard input. At v0.2.26 those
+      streams carried bytes, the byte and text calls serving 0, 1 and 2 in
       program order with <code>print</code>; a child's descriptors are the
       program's to set (<code>[os.proc.fds]</code>, with the two ends
       <code>[os.proc.pipe]</code> answers); the working directory moves
@@ -536,7 +570,26 @@
       terminal (<code>[os.fs.isatty]</code>); one call copies between two
       handles the fastest way the host offers (<code>[os.fs.copy]</code>);
       and the host's error number travels beside the <code>io</code> row,
-      never on it (<code>[os.fs.error]</code>). Anchors
+      never on it (<code>[os.fs.error]</code>). v0.2.27 let a program
+      survive a signal and own a terminal — a meaning's disposition
+      (<code>[os.signal.disp]</code>), a queue it can poll without waiting
+      (<code>[os.signal.poll]</code>), a job spawned into its own process
+      group and how a child ended (<code>[os.proc.job]</code>,
+      <code>[os.proc.status]</code>), and the terminal's foreground group and
+      mode (<code>[os.term]</code>, <code>[os.term.mode]</code>); become
+      another program and remove a variable (<code>[os.proc.exec]</code>,
+      <code>[os.env.unset]</code>); read the full stat record, a link and a
+      typed listing (<code>[os.fs.stat]</code>, <code>[os.fs.readlink]</code>,
+      <code>[os.fs.readdir]</code>); and it ruled a repeated json name
+      last-wins (<code>[os.json.dup]</code>). At v__WOLF_VERSION__ a program
+      changes a file as well as reads one: its mode, a creation's permission
+      bits, a symbolic or a hard link, its times, its length and the
+      process's umask (<code>[os.fs.mode]</code>,
+      <code>[os.fs.create.mode]</code>, <code>[os.fs.symlink]</code>,
+      <code>[os.fs.link]</code>, <code>[os.fs.times]</code>,
+      <code>[os.fs.truncate]</code>, <code>[os.fs.umask]</code>), each judging
+      its arguments first, then answering <code>unsupported</code> by name
+      where the host has no such operation. Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>
