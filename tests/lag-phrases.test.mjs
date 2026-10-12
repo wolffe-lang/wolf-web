@@ -1,6 +1,6 @@
 /* The lag-phrase gate: the rule that lived on one runner now reds here.
  *
- * /install/ and /play/ are held to a CLOSED SET of four phrases for the
+ * /install/ and /play/ are held to a CLOSED SET of phrases (five since ww41) for the
  * counted distance between the compiler this site advertises and the
  * specification the pinned interpreter was built to. The rule is correct and
  * has been since ww13 — and until now it lived only in PowerShell, inside
@@ -79,7 +79,7 @@ test("the site as it stands passes, and says what it measured", () => {
 });
 
 /* The closed set, read off the script's own table rather than typed here:
- * the one source of truth for which four phrases exist. */
+ * the one source of truth for which phrases exist. */
 function phrases() {
   const src = readFileSync(script, "utf-8");
   const block = /PHRASES = \{([\s\S]*?)\}/.exec(src);
@@ -183,4 +183,21 @@ test("no arguments is a usage error, on any checkout", () => {
   const done = spawnSync("python3", [script], { encoding: "utf-8" });
   assert.equal(done.status, 2);
   assert.match(done.stderr, /usage/);
+});
+
+/* ww41. The gap reached four (lupin 0.1.51 kept the v0.2.24 pin through
+ * 0.2.27 and 0.2.28), past the end of the closed set, and the check refused
+ * by name as it should. The set grows one entry at a time, after the pages'
+ * sentences are written; a hole in it would make a gap the check can name
+ * and no page can carry. */
+test("the closed set runs from zero with no hole, every entry a phrase in words", () => {
+  const set = phrases();
+  const keys = Object.keys(set).map(Number).sort((a, b) => a - b);
+  assert.deepEqual(keys, keys.map((_, i) => i), "keys are 0..n");
+  assert.equal(set[0], "the same commit");
+  for (const k of keys.slice(1)) {
+    assert.match(set[k], /^[a-z]+ releases?$/, `${k} is a number word and 'release(s)'`);
+    assert.equal(set[k].endsWith("releases"), k > 1, `${k}'s plural agrees`);
+  }
+  assert.equal(new Set(Object.values(set)).size, keys.length, "no phrase twice");
 });

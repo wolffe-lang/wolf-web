@@ -6,10 +6,10 @@
 
 Two implementations are compared against one specification and they do not tag
 together, so the site has to say which one is behind. /install/ and /play/ both
-write that sentence in prose, in a CLOSED SET of four phrases — `the same
-commit`, `one release`, `two releases`, `three releases` — and the rule is that
-the page carries the phrase for the counted gap and NONE of the other three,
-anywhere on the page.
+write that sentence in prose, in a CLOSED SET of five phrases — `the same
+commit`, `one release`, `two releases`, `three releases`, `four releases` — and
+the rule is that the page carries the phrase for the counted gap and NONE of
+the others, anywhere on the page.
 
 The rule is not new. It has been enforced since ww13, correctly, in PowerShell,
 inside the `the specification pin lag the site records` step of
@@ -41,7 +41,7 @@ release tag that is an ancestor of the interpreter's pin — because since ww20
 the interpreter's pin has not always been a tag at all (lupin 0.1.29 was built
 to `e9a17cb`, a development revision of trunk). A pin that is not a tag gets
 its own half of the rule: `a development revision` is reserved vocabulary
-beside the four phrases, required when the pin is no release and refused when
+beside the five phrases, required when the pin is no release and refused when
 it is.
 
 That needs the compiler checkout to carry history and tags. A depth-1 clone
@@ -70,6 +70,10 @@ PHRASES = {
     1: "one release",
     2: "two releases",
     3: "three releases",
+    # ww41: lupin 0.1.51 kept 0.1.49's v0.2.24 pin while the compiler tagged
+    # 0.2.27 and 0.2.28, so the gap reached four; this entry was written after
+    # both pages' sentences, as the refusal below asks.
+    4: "four releases",
 }
 DEVREV = "a development revision"
 SPECREV = "__PIN_specrev_short__"
