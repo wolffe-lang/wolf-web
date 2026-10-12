@@ -139,14 +139,58 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises fixes one more answer the
-  compiled tiers got wrong without a word, and hands a program its own
+  <p><strong>The release this page advertises closes two ways a program
+  could read freed bytes through a call, and the checked machine runs
+  concurrent code.</strong> A callee handed a <code>mut</code> argument may
+  keep what else it is handed in it, and a callee handed a channel may send
+  it on; when the bytes came from a string built in a region block, the block
+  freed them while the caller's list or the receiver still held them, and
+  native, release and the checked machine read what was left
+  (wolf-lang#660, #665). Both shapes are
+  <code>E1010</code> at the call now, read from the callee's signature and
+  never from its body, and the message names the edit that is sound there:
+  <code>"{s}"</code> inside the <code>in</code> block builds the bytes where
+  the callee allocates. It is a compile-time refusal, so no accepted program
+  changes and nothing costs time at run time; some programs that were
+  correct are refused too, and the release notes say which shapes. The
+  checked machine, <code>wolf conform-run --checked</code>, runs
+  <code>scope</code>, <code>spawn</code>, procs, <code>select</code>,
+  <code>when</code>, closures and <code>xs.par(f)</code> one task at a time
+  under a deterministic scheduler, where it had refused them by name, so the
+  machine that watches for undefined behaviour reaches concurrent programs. A
+  program can change a file as well as read one —
+  <code>fs_set_mode</code>, <code>fs_symlink</code>, <code>fs_link</code>,
+  <code>fs_truncate</code>, <code>fs_set_times</code>, a creation's
+  permission bits and <code>os_umask</code>, what <code>chmod</code>,
+  <code>ln</code>, <code>touch</code> and <code>mkdir -m</code> are made of.
+  A long-running server stops growing in the runtime, and a
+  <code>List</code> slice is one copy where it was a loop of pushes.</p>
+
+  <p><strong>v0.2.27, the release before it, shipped the standard library
+  in the archive and fixed three integer answers.</strong> Every archive
+  carries wolf-std as <code>std/</code> beside <code>wolf</code>, and that
+  copy is where <code>use std.env</code> resolves when nothing else is
+  configured. Unsigned and wrapping integers print and compute as the values
+  their types hold, where the compiled tiers had printed a
+  <code>wrapping[u64]</code> as signed and refused or trapped its division
+  (wolf-lang#551, #538, #553). A program can survive Ctrl-C, run a job in its
+  own process group and own the terminal; become another program with
+  <code>os_exec</code> and remove a variable; read the full stat record, a
+  link and a typed directory listing. A repeated json name answers its last
+  occurrence, a module named <code>c</code> links, and a C declaration needs
+  the <code>ffi</code> capability as <code>import c</code> does. The
+  interpreter it is tested against released beside each of the two without
+  re-reading the specification, so the gap between them widened again; the
+  <a href="/play/">playground</a> counts it.</p>
+
+  <p><strong>v0.2.26 fixed one more answer the
+  compiled tiers got wrong without a word, and handed a program its own
   plumbing.</strong> A call to a function returning a <code>str</code> left
   no record of the region it was made in, so <code>region scratch { out =
   build(7) }</code> handed <code>out</code> freed bytes on the checked,
-  native and release tiers, where <code>lupin</code> trapped; that call is an
-  allocation site now, and holding its result past the region is
-  <code>E1010</code>. The way to keep a region block's result is new as well:
+  native and release tiers, where <code>lupin</code> trapped; that call became
+  an allocation site, and holding its result past the region
+  <code>E1010</code>. The way to keep a region block's result came with it:
   <code>copy region { … }</code> runs the block, copies its value out into
   the region it was entered from and frees the rest, so a loop keeps each
   turn's answer and nothing else (<code>[mem.region.copyout]</code>). A
@@ -162,11 +206,11 @@ fn main() -&gt; !int {
   struct; and another module's <code>pub const</code> reads as
   <code>m.K</code>. A package's capabilities are what its code reaches now, a
   host builtin it calls as much as a module it imports, and <code>wolf
-  audit</code> prints why each one is there. The interpreter it is tested
+  audit</code> prints why each one is there. The interpreter it was tested
   against released beside it without re-reading the specification, so the
-  two are two releases apart where they had been one.</p>
+  two were two releases apart where they had been one.</p>
 
-  <p><strong>v0.2.25, the release before it, fixed three answers the
+  <p><strong>v0.2.25 fixed three answers the
   compiled tiers got wrong without a word.</strong> A store to a module
   <code>var</code>, to <code>extern "c" let</code> storage or through any raw
   pointer was carried across a call to a function that wrote the same memory,
@@ -462,7 +506,11 @@ cargo build --release -p wolf_driver
   instead, <code>cargo xtask install</code> copies both artifacts to
   <code>~/.local/bin</code>: the <code>wolf</code> binary and the runtime
   archive it links programs against. The binary cannot link anything without
-  the archive beside it, which is why the install step exists.</p>
+  the archive beside it, which is why the install step exists. Neither step
+  puts a standard library beside the binary, which the published archives
+  do: a toolchain built from source answers <code>use std.…</code> only when
+  <code>--std-root</code>, <code>WOLF_STD</code> or a <code>wolf.pkg</code>
+  <code>std</code> dependency names one.</p>
   <p>Or let a package manager do it (a Homebrew tap on macOS and linux, five
   packages on the AUR, all of them the project's own), or take a published
   archive instead of building one:
