@@ -27,9 +27,11 @@
 <section>
   <p>Every tagged release uploads an archive per host to the
   <a href="https://github.com/wolffe-lang/wolf-lang/releases">releases page</a>.
-  An archive is a folder with the <code>wolf</code> binary in it and the
-  runtime archive it links programs against — there is no installer and
-  nothing to register. On macOS and linux a package manager will do it for
+  An archive is a folder with the <code>wolf</code> binary in it, the
+  runtime archive it links programs against and, since v0.2.27, the
+  standard library as <code>std/</code> beside the binary, which is where
+  <code>use std.…</code> resolves when nothing else is configured — there is
+  no installer and nothing to register. On macOS and linux a package manager will do it for
   you instead: <a href="#package-managers">the doors are below</a>. Building
   from source is the path the project itself uses; the recipe is on the
   <a href="/">front page</a>.</p>
@@ -147,9 +149,13 @@ Error: Cannot tap wolffe-lang/wolf: invalid syntax in tap!</code></pre>
 <pre><code>tar -xzf wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></pre>
 
   <p>That leaves a folder holding <code>wolf.exe</code>, the C-import worker,
-  the runtime library <code>wolf_rt.lib</code> and the licenses. Keep them
-  together: <code>wolf.exe</code> cannot link a program without
-  <code>wolf_rt.lib</code> beside it. Move the folder wherever you keep tools
+  the runtime library <code>wolf_rt.lib</code>, the licenses and
+  <code>std/</code>, the standard library, with <code>std/STD-REV</code>
+  naming the wolf-std commit it is. Keep them together:
+  <code>wolf.exe</code> cannot link a program without
+  <code>wolf_rt.lib</code> beside it, and reads <code>std/</code> beside it
+  unless <code>--std-root</code>, <code>WOLF_STD</code> or a
+  <code>wolf.pkg</code> <code>std</code> dependency names another. Move the folder wherever you keep tools
   and put it on your PATH. For one PowerShell session:</p>
 
 <pre><code>$env:Path = "C:\tools\wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc;$env:Path"</code></pre>
@@ -171,28 +177,32 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has not: the interpreter released again without re-reading
-  the specification, so the gap widened a step. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it has not: the interpreter released twice more without
+  re-reading the specification, so the gap widened by two steps.
+  <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
-  the compiler has tagged twice since it, so the newest release whose text
-  the interpreter carries whole is two releases behind the compiler you are
-  installing, __COUNT_speccommits_word__ commits back. At v0.2.25's pin the
-  same tag was a single step back: lupin 0.1.48 had re-pinned on it, two
-  tags forward. The interpreter above kept that pin and mirrored instead what the
-  compiler had added since — volatile access and the atomics on raw
-  pointers, the kernel's papercuts, a child's descriptors and
-  <code>copy region</code> (wolf-interp#185, #194, #200) — which is why the
-  programs those releases brought run in the tab while the text it reads
-  has fallen a step further behind. From v0.2.19's pin to v0.2.25's the
+  the compiler has tagged four times since it, so the newest release whose
+  text the interpreter carries whole is four releases behind the compiler
+  you are installing, __COUNT_speccommits_word__ commits back. At v0.2.26's
+  pin the same tag was two steps back: lupin 0.1.49 had kept lupin 0.1.48's
+  pin, and lupin 0.1.50 and the interpreter above have kept it since. Each
+  of them mirrored instead what the compiler had added — volatile access
+  and the atomics on raw pointers, the kernel's papercuts, a child's
+  descriptors and <code>copy region</code> (wolf-interp#185, #194, #200),
+  then the unsigned and wrapping integers, a repeated json name,
+  <code>env_unset</code> and the calls that change a file — which is why
+  the programs those releases brought run in the tab while the text it reads
+  has fallen further behind. From v0.2.19's pin to v0.2.25's the
   interpreter had re-pinned on the compiler's last tag but one at every
   pair this site served; lupin 0.1.47 shipped beside v0.2.24 reading
-  v0.2.22's text, two tags back, and this site never served that pair, so
-  this is the first pair it serves two tags apart since v0.2.18's. It
+  v0.2.22's text, two tags back, and this site never served that pair;
+  v0.2.26's pair was the first it served two tags apart since v0.2.18's,
+  and this pair is the widest gap the check below has ever counted. It
   agrees with the compiler's own second
   line: the release above was tested against the interpreter version this
   page names, and the playground serves that interpreter, as it did at
-  v0.2.25's pin, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
+  v0.2.26's pin, at v0.2.25's, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
   tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
@@ -254,35 +264,51 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>Every other program the release above brought into the corpus's running
-  set answers here as its header says, or is declined for the tab's reason.
-  The census counts verdicts; a second walk feeds every addition to the tab
-  and compares what each prints with its header. The raw field stores,
+  <p>Every other program the releases since v0.2.26's pin brought into the
+  corpus's running set answers here as its header says, or is declined for
+  the tab's reason. The census counts verdicts; a second walk feeds every
+  addition to the tab and compares what each prints with its header. The
+  unsigned and wrapping integers in <code>corpus/typecheck/</code>'s
+  <code>int_truth_*.lu</code> print their headers' values, and the
+  <code>int_truth_*</code> programs in <code>corpus/faults/</code> trap
+  <code>overflow</code> or <code>div-zero</code> where their headers say;
+  the repeated names in <code>corpus/json/dup_*.lu</code> answer last-wins;
+  <code>corpus/os/env_unset.lu</code> removes its variable;
+  <code>corpus/typecheck/numlit_radix.lu</code> reads its octal and binary
+  literals; and the calls that keep or send what they are handed and stay
+  legal, <code>corpus/memory/region_kept_arg_legal.lu</code> and
+  <code>corpus/conc/chan_sent_arg_legal.lu</code>, print their headers'
+  lines. Under lupin 0.1.49, the interpreter this site served until now, the
+  json programs answered first-wins, <code>env_unset.lu</code> was declined
+  and <code>int_truth_wrap_mul_wide.lu</code> trapped <code>overflow</code>
+  where the compiler prints the wrapped product. The rest are declined for
+  the tab's reasons: the calls that change a file with the filesystem
+  (<code>corpus/fs/</code>), <code>os_exec</code>, a job and the umask with
+  the process tier (<code>corpus/os/</code>), a net read with the net tier,
+  the channel program's task-spawning twin with the task tier, and
+  <code>corpus/link/module_c.lu</code>, which names a sibling module the
+  editor does not have. The measurement is four walks, not one — both
+  corpora through both modules — and no program that both corpora carry
+  changed its answer.</p>
+
+  <p>At v0.2.26's pin the additions were the raw field stores,
   <code>corpus/memory/raw_field_store.lu</code> and its compound, nested and
   packed twins, the complements in
   <code>corpus/typecheck/int_not_byte.lu</code>, <code>int_not_mask.lu</code>
   and <code>int_not_signed.lu</code>, the <code>-&gt; never</code> handlers in
   <code>fn_never_handler_arm.lu</code> and <code>fn_never_extern.lu</code>,
   the <code>copy region</code> programs and the byte scan in
-  <code>corpus/memory/bytes_scan.lu</code> each print their header's lines,
-  and <code>fn_never_trap.lu</code> stops at its <code>assert</code> as its
-  header says it does. Under lupin 0.1.48, the interpreter this site served
-  until now, most of those were declined or refused, and three of the
-  <code>copy region</code> programs trapped <code>region-fault</code>,
-  because that interpreter read the block as a plain <code>region</code>.
-  The release's one fixed wrong answer never reached the tab:
-  <code>corpus/memory/region_str_call_inside.lu</code> and
-  <code>region_str_call_static.lu</code> print the same under both
+  <code>corpus/memory/bytes_scan.lu</code>, and each printed its header's
+  lines under lupin 0.1.49, as each still does here;
+  <code>fn_never_trap.lu</code> stops at its <code>assert</code> as its
+  header says it does. Under lupin 0.1.48 most of those were declined or
+  refused, and three of the <code>copy region</code> programs trapped
+  <code>region-fault</code>, because that interpreter read the block as a
+  plain <code>region</code>. That release's one fixed wrong answer never
+  reached the tab: <code>corpus/memory/region_str_call_inside.lu</code> and
+  <code>region_str_call_static.lu</code> print the same under both of those
   interpreters, and the shape the compiled tiers read from freed bytes is
-  one lupin traps. The byte calls on the standard streams, the copy between
-  handles and the host's error number (<code>corpus/fs/</code>) are declined
-  here with the filesystem, the pipe and the child's descriptors
-  (<code>corpus/os/</code>) with the process tier, and the three
-  <code>m.K</code> programs, <code>corpus/memory/static_qualified/</code>
-  and its <code>let</code> and <code>var</code> twins, name sibling files
-  the editor does not have. The measurement is four walks, not one — both
-  corpora through both modules — and no program that both corpora carry
-  changed its answer except the ones the paragraph above names.</p>
+  one lupin traps.</p>
 
   <p>At v0.2.23's pin the gap cost refusals, and none is left. Four programs
   laid structs out with <code>#[repr(c, packed)]</code> and
@@ -403,9 +429,11 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   outright. This interpreter mirrors both texts, so every one of them runs in
   the tab now and answers what the compiler answers; the <a href="/play/">playground</a>
   counts them exactly. No program that ran in the tab at an earlier pin has
-  stopped, and of what the release above adds to the corpus only the programs
-  named above part from the compiler, each on a clause the interpreter has not
-  mirrored yet; nothing else does, in its verdict or in its output.</p>
+  stopped, and of what the releases above add to the corpus none parts from
+  the compiler on a clause the interpreter has not mirrored: what does not
+  run here is declined for the tab's own reasons, named above, and the one
+  program that runs and parts in its output, <code>chdir_relative.lu</code>,
+  is the tab's too.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code>, <code>net_nodelay</code> and

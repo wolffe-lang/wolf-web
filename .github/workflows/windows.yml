@@ -799,10 +799,14 @@ jobs:
           }
 
           # "That leaves a folder holding wolf.exe, the C-import worker, the
-          # runtime library wolf_rt.lib and the licenses."
-          foreach ($f in @("wolf.exe", "wolf-cimport-worker.exe", "wolf_rt.lib", "LICENSE", "LICENSE-EXCEPTION")) {
+          # runtime library wolf_rt.lib, the licenses and std/, the standard
+          # library, with std/STD-REV naming the wolf-std commit it is."
+          # (ww41: the archive has carried std/ since v0.2.27, s204.)
+          foreach ($f in @("wolf.exe", "wolf-cimport-worker.exe", "wolf_rt.lib", "LICENSE", "LICENSE-EXCEPTION", "std", "std\STD-REV")) {
             Claim "the archive carries $f" (Test-Path (Join-Path $env:WOLF_DIR $f)) "missing from $env:WOLF_DIR"
           }
+          $rev = (Get-Content (Join-Path $env:WOLF_DIR "std\STD-REV") -Raw).Trim()
+          Claim "std\STD-REV names a commit" ($rev -match '^[0-9a-f]{40}$') $rev
 
           # "Every .lu file in a directory is one module, so two files each
           # with a main is a duplicate definition rather than two programs."
