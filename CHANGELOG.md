@@ -20,6 +20,49 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww42 (the site at 0.2.29, a wider lag, and the shell's signals) — 2026-10-13
+
+All three gitlinks move: the book to bs66's merge, the compiler to wolf 0.2.29,
+and the interpreter to lupin 0.1.52.
+
+**The lag widens by a release; the distance is 611 commits.** lupin 0.1.52
+kept the specification pin lupin 0.1.48 first took, the v0.2.24 tag, while the
+compiler tagged 0.2.29, so the ancestry guard answers `gap 5`, `tagged true`,
+611 commits, where it counted 541 at the last bump. Its closed set of phrases
+stopped one short again, so at the compiler's pin and at the interpreter's it
+stopped, naming the phrase no page had. Both pages' sentences were written
+first, then the phrase joined the set.
+
+**The tab still refuses nothing the compiler runs.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes,
+both corpora through both modules: 659 programs, 487 exit, 47 trap, 125
+unsupported, 0 fail, 534 candidates, and no instance killed. The release
+brought one program into the running set, `os/signal_shell_rows.lu`, and the
+tab declines it at its first call, a poll of a signal set, with the process
+tier; at a terminal lupin 0.1.52 prints its header. No program both corpora
+carry changed its verdict, and all 659 print the same under lupin 0.1.51's
+module and lupin 0.1.52's.
+
+**What the tab answers for the release's new calls.** `os_pid`, `os_ppid`,
+`os_signal_send`, `os_signal_number` and `os_signal_ignored` are hosted
+calls, and a program that makes any one of them here is answered
+`unsupported`, naming the call: the WebAssembly build declines them with the
+process tier. Under lupin 0.1.51's module each was a name that does not
+resolve. At a terminal lupin 0.1.52 serves the two ids and the number and
+refuses the send and the ignored set by name. /play/ and /install/ say so.
+
+**lupin 0.1.52 still does not compile to WebAssembly as released**
+(wolf-interp#222, open). The portability patch applies unchanged to the
+staged copy, and the module builds with no imports.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.29 added (a task parked for every connection, the shell's signals, a
+language server that finds the standard library) and says the archive's
+`std.signal` predates the new meanings; 0.2.28's story moves into the
+history. /spec/ binds 03's restated task cost and 11's signal clauses to the
+stamp and dates 0.2.28's clauses. linux aarch64 holds as written: the 0.2.29
+release's arm gate asserts the same refusals and the same checked run.
+
 ## ww41 (the site at 0.2.28, four releases of lag, and std/ in the archive) — 2026-10-12
 
 All three gitlinks move: the book to bs65's merge, the compiler to wolf 0.2.28,
