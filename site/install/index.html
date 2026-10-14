@@ -177,23 +177,25 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has not: the interpreter released twice more without
-  re-reading the specification, so the gap widened by two steps.
+  these pins it has not: the interpreter released once more without
+  re-reading the specification, so the gap widened another step.
   <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
-  the compiler has tagged four times since it, so the newest release whose
-  text the interpreter carries whole is four releases behind the compiler
-  you are installing, __COUNT_speccommits_word__ commits back. At v0.2.26's
-  pin the same tag was two steps back: lupin 0.1.49 had kept lupin 0.1.48's
-  pin, and lupin 0.1.50 and the interpreter above have kept it since. Each
-  of them mirrored instead what the compiler had added — volatile access
-  and the atomics on raw pointers, the kernel's papercuts, a child's
-  descriptors and <code>copy region</code> (wolf-interp#185, #194, #200),
-  then the unsigned and wrapping integers, a repeated json name,
-  <code>env_unset</code> and the calls that change a file — which is why
-  the programs those releases brought run in the tab while the text it reads
-  has fallen further behind. From v0.2.19's pin to v0.2.25's the
+  the compiler has tagged at every release since without the interpreter
+  following, so the newest release whose text the interpreter carries whole
+  is five releases behind the compiler you are installing,
+  __COUNT_speccommits_word__ commits back. At v0.2.28's pin the same tag was
+  a step nearer: lupin 0.1.49 had kept lupin 0.1.48's pin, lupin 0.1.50 and
+  lupin 0.1.51 kept it after that, and the interpreter above has kept it
+  again. Each of them mirrored instead what the compiler had added —
+  volatile access and the atomics on raw pointers, the kernel's papercuts,
+  a child's descriptors and <code>copy region</code> (wolf-interp#185, #194,
+  #200), then the unsigned and wrapping integers, a repeated json name,
+  <code>env_unset</code> and the calls that change a file, and now as much
+  of the shell's signals as it can serve without <code>unsafe</code> — which
+  is why the programs those releases brought run in the tab, where a page
+  has what they need, while the text it reads has fallen further behind. From v0.2.19's pin to v0.2.25's the
   interpreter had re-pinned on the compiler's last tag but one at every
   pair this site served; lupin 0.1.47 shipped beside v0.2.24 reading
   v0.2.22's text, two tags back, and this site never served that pair;
@@ -202,7 +204,7 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   agrees with the compiler's own second
   line: the release above was tested against the interpreter version this
   page names, and the playground serves that interpreter, as it did at
-  v0.2.26's pin, at v0.2.25's, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
+  v0.2.28's pin, at v0.2.26's, at v0.2.25's, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
   tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
@@ -264,10 +266,34 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>Every other program the releases since v0.2.26's pin brought into the
-  corpus's running set answers here as its header says, or is declined for
-  the tab's reason. The census counts verdicts; a second walk feeds every
-  addition to the tab and compares what each prints with its header. The
+  <p>The release above brought one program into the corpus's running set,
+  and it is declined here for the tab's reason.
+  <code>corpus/os/signal_shell_rows.lu</code> walks the shapes of the
+  shell's signal calls — a poll, a disposition, a send, a signal's number,
+  this process's id and its parent's — and the first of them is a call the
+  page has no process to answer, so the tab declines the program by name
+  with the process tier. It declines each of the release's new calls the
+  same way when a program makes one alone: <code>os_pid</code>,
+  <code>os_ppid</code>, <code>os_signal_send</code>,
+  <code>os_signal_number</code> and <code>os_signal_ignored</code> all
+  answer <code>unsupported</code>, naming the call. Under <code>lupin
+  __LUPIN_VERSION__</code> at a terminal the program prints what its header
+  says: that interpreter serves the two ids and the number, answers every
+  shape row, and refuses the send and the ignored set by name, because it
+  admits no <code>unsafe</code> and its host library has neither call.
+  lupin 0.1.51, the interpreter this site served until now, declined the
+  program in the tab at the same call, and did not know the new names at
+  all. <code>corpus/os/job_rows.lu</code>, whose outside bit the release
+  moved because its old one became a meaning, was declined in the tab
+  before and is declined now, at its job spawn. The census counts verdicts;
+  a second walk feeds every running program in the corpus to both modules
+  and compares what each prints. The measurement is four walks, not one —
+  both corpora through both modules — and no program that both corpora
+  carry changed its answer, in its verdict or in its output.</p>
+
+  <p>At v0.2.28's pin the additions were v0.2.27's and v0.2.28's together,
+  and each answered as its header says or was declined for the tab's
+  reason. The
   unsigned and wrapping integers in <code>corpus/typecheck/</code>'s
   <code>int_truth_*.lu</code> print their headers' values, and the
   <code>int_truth_*</code> programs in <code>corpus/faults/</code> trap
@@ -278,18 +304,16 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   literals; and the calls that keep or send what they are handed and stay
   legal, <code>corpus/memory/region_kept_arg_legal.lu</code> and
   <code>corpus/conc/chan_sent_arg_legal.lu</code>, print their headers'
-  lines. Under lupin 0.1.49, the interpreter this site served until now, the
-  json programs answered first-wins, <code>env_unset.lu</code> was declined
+  lines. Under lupin 0.1.49, the interpreter this site served before that
+  pin, the json programs answered first-wins, <code>env_unset.lu</code> was declined
   and <code>int_truth_wrap_mul_wide.lu</code> trapped <code>overflow</code>
-  where the compiler prints the wrapped product. The rest are declined for
-  the tab's reasons: the calls that change a file with the filesystem
+  where the compiler prints the wrapped product. The rest were declined for
+  the tab's reasons, and still are: the calls that change a file with the filesystem
   (<code>corpus/fs/</code>), <code>os_exec</code>, a job and the umask with
   the process tier (<code>corpus/os/</code>), a net read with the net tier,
   the channel program's task-spawning twin with the task tier, and
   <code>corpus/link/module_c.lu</code>, which names a sibling module the
-  editor does not have. The measurement is four walks, not one — both
-  corpora through both modules — and no program that both corpora carry
-  changed its answer.</p>
+  editor does not have.</p>
 
   <p>At v0.2.26's pin the additions were the raw field stores,
   <code>corpus/memory/raw_field_store.lu</code> and its compound, nested and
