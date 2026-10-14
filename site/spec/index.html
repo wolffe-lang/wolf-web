@@ -230,7 +230,7 @@
       stores one field of a raw element at its C offset, touching no other
       byte; and <code>[mem.list.bytes]</code> gives a <code>List[byte]</code>
       the <code>find</code> and <code>count</code> a <code>str</code> has.
-      At v__WOLF_VERSION__ <code>[mem.region.escape]</code> reads a call's
+      At v0.2.28 <code>[mem.region.escape]</code> came to read a call's
       signature for what its callee can keep: a <code>mut</code> argument,
       the receiver included, or a non-<code>Copy</code> result shares the
       bytes of every other argument that can reach it, so a string built in a
@@ -296,7 +296,7 @@
       operation does not admit is <code>E1309</code>, and the checked machine
       runs every order as <code>seq_cst</code> on its one task
       (<code>[conc.mm.atomic.raw.5]</code>).
-      At v__WOLF_VERSION__ the checked machine runs the concurrency tier it
+      Since v0.2.28 the checked machine runs the concurrency tier it
       had refused by name — <code>scope</code>, <code>spawn</code>, procs,
       <code>select</code>, <code>when</code>, closures and
       <code>xs.par(f)</code> — one task at a time under the deterministic
@@ -307,6 +307,16 @@
       <code>spawn proc</code> argument, must outlive the frame, as a sent
       payload must (<code>[conc.chan.payload]</code>,
       <code>[conc.proc.arg]</code>).
+      At v__WOLF_VERSION__ <code>[conc.task.order]</code> restates what a
+      parked task costs the host. Compensation has no cap of its own: the
+      native runtime holds a thread for every task parked in a wait, so a
+      program that parks a task for each connection holds as many as the
+      host lets it start, and a thread the host refuses is reported once on
+      stderr. A parked task costs its thread and no cpu, a wait in the
+      reactor, a channel operation or a <code>when</code> sleeping until its
+      completion, its deadline or a cancellation with no system call
+      meanwhile; <code>os_signal_wait</code> is the wait that still polls,
+      and the clause says how often.
       Anchors <code>[conc.*]</code>.</dd>
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
@@ -581,7 +591,7 @@
       <code>[os.env.unset]</code>); read the full stat record, a link and a
       typed listing (<code>[os.fs.stat]</code>, <code>[os.fs.readlink]</code>,
       <code>[os.fs.readdir]</code>); and it ruled a repeated json name
-      last-wins (<code>[os.json.dup]</code>). At v__WOLF_VERSION__ a program
+      last-wins (<code>[os.json.dup]</code>). Since v0.2.28 a program
       changes a file as well as reads one: its mode, a creation's permission
       bits, a symbolic or a hard link, its times, its length and the
       process's umask (<code>[os.fs.mode]</code>,
@@ -589,7 +599,21 @@
       <code>[os.fs.link]</code>, <code>[os.fs.times]</code>,
       <code>[os.fs.truncate]</code>, <code>[os.fs.umask]</code>), each judging
       its arguments first, then answering <code>unsupported</code> by name
-      where the host has no such operation. Anchors
+      where the host has no such operation. At v__WOLF_VERSION__ the signal
+      set holds every signal POSIX names (<code>[os.signal.set]</code>): the
+      meanings a program may listen for, ignore, wait for and poll, and the
+      ones it may only send, <code>KILL</code> and <code>STOP</code> among
+      them, and every call that takes a set answers <code>io</code> for an
+      empty one or for a bit that is not a listenable meaning. A published
+      meaning keeps its bit in every later release
+      (<code>[os.signal.set.stable]</code>). A program reads the meanings
+      it was started ignoring (<code>[os.signal.ignored]</code>), signals a
+      process by its id (<code>[os.signal.send]</code>), asks the host's
+      number for a meaning (<code>[os.signal.number]</code>) and names its
+      own id and its parent's (<code>[os.proc.self]</code>), and a poll lets
+      pending signals be delivered before it answers, so it never trails
+      one (<code>[os.signal.poll]</code>). Each of the new calls is hosted:
+      the freestanding target refuses it by name. Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>
