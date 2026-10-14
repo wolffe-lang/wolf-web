@@ -139,19 +139,58 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises closes two ways a program
-  could read freed bytes through a call, and the checked machine runs
+  <p><strong>The release this page advertises lets a server park a task
+  for every connection, and gives a shell the signals it is made
+  of.</strong> A task parked in a wait — <code>net_read</code>,
+  <code>net_accept</code>, a channel <code>recv</code>, a <code>when</code>
+  or a sleep — holds a thread, and the pool adds a worker beside it. That
+  stopped at a fixed number of workers a core, so a program that parked more
+  tasks at once stopped with them, the task that would have woken them
+  queued behind them (wolf-lang#713). The pool has no cap now: the host's
+  thread limit is the last word, and a thread the host refuses is one line
+  on stderr, never an abort. A parked task costs its thread and no cpu,
+  where every parked wait had woken many times a second to look for a
+  cancellation; <code>os_signal_wait</code> still polls. Every signal POSIX
+  names has a meaning in the signal set, the ones a program may listen for,
+  ignore, wait for and poll, and <code>KILL</code>, <code>STOP</code> and the
+  fault signals, which it may only send; a set holding a bit that is not a
+  listenable meaning is <code>io</code> at every call that takes one, where
+  a listen had dropped the bit and answered ok.
+  <code>os_signal_ignored</code> reads what the program was started
+  ignoring, a poll no longer trails a delivery, <code>os_pid</code> and
+  <code>os_ppid</code> are this process's id and its parent's,
+  <code>os_signal_send</code> signals a process by its id, and
+  <code>os_signal_number</code> is the one way to a host's number — what
+  <code>trap</code>, <code>kill</code>, <code>$$</code> and
+  <code>$PPID</code> are made of. A published meaning keeps its bit in every
+  later release (<code>[os.signal.set.stable]</code>), so a set a program
+  holds today means the same signals under the next compiler.
+  <code>wolf lsp</code> finds the standard
+  library as <code>wolf build</code> does, where an editor had shown a false
+  <code>E0301</code> on every std method outside the builtins
+  (wolf-lang#724). The <code>std/</code> in the archive was written against
+  the release before this one: its <code>std.signal</code> names the
+  meanings that release had and wraps none of the new calls, so a program
+  calls them as the prelude spells them and writes a newer meaning as the
+  bit the specification gives it. The interpreter this release is
+  tested against mirrors the calls it can serve without <code>unsafe</code>
+  and refuses the send and the ignored set by name; it released without
+  re-reading the specification, so the gap between the two widened once
+  more, and the <a href="/play/">playground</a> counts it.</p>
+
+  <p><strong>v0.2.28, the release before it, closed two ways a program
+  could read freed bytes through a call, and its checked machine ran
   concurrent code.</strong> A callee handed a <code>mut</code> argument may
   keep what else it is handed in it, and a callee handed a channel may send
   it on; when the bytes came from a string built in a region block, the block
   freed them while the caller's list or the receiver still held them, and
   native, release and the checked machine read what was left
-  (wolf-lang#660, #665). Both shapes are
-  <code>E1010</code> at the call now, read from the callee's signature and
+  (wolf-lang#660, #665). Both shapes became
+  <code>E1010</code> at the call, read from the callee's signature and
   never from its body, and the message names the edit that is sound there:
   <code>"{s}"</code> inside the <code>in</code> block builds the bytes where
   the callee allocates. It is a compile-time refusal, so no accepted program
-  changes and nothing costs time at run time; some programs that were
+  changed and nothing costs time at run time; some programs that were
   correct are refused too, and the release notes say which shapes. The
   checked machine, <code>wolf conform-run --checked</code>, runs
   <code>scope</code>, <code>spawn</code>, procs, <code>select</code>,
@@ -163,10 +202,10 @@ fn main() -&gt; !int {
   <code>fs_truncate</code>, <code>fs_set_times</code>, a creation's
   permission bits and <code>os_umask</code>, what <code>chmod</code>,
   <code>ln</code>, <code>touch</code> and <code>mkdir -m</code> are made of.
-  A long-running server stops growing in the runtime, and a
-  <code>List</code> slice is one copy where it was a loop of pushes.</p>
+  A long-running server stopped growing in the runtime, and a
+  <code>List</code> slice became one copy where it was a loop of pushes.</p>
 
-  <p><strong>v0.2.27, the release before it, shipped the standard library
+  <p><strong>v0.2.27 shipped the standard library
   in the archive and fixed three integer answers.</strong> Every archive
   carries wolf-std as <code>std/</code> beside <code>wolf</code>, and that
   copy is where <code>use std.env</code> resolves when nothing else is
@@ -179,9 +218,9 @@ fn main() -&gt; !int {
   link and a typed directory listing. A repeated json name answers its last
   occurrence, a module named <code>c</code> links, and a C declaration needs
   the <code>ffi</code> capability as <code>import c</code> does. The
-  interpreter it is tested against released beside each of the two without
-  re-reading the specification, so the gap between them widened again; the
-  <a href="/play/">playground</a> counts it.</p>
+  interpreter it was tested against released beside it and beside v0.2.28
+  without re-reading the specification, so the gap between them widened at
+  each.</p>
 
   <p><strong>v0.2.26 fixed one more answer the
   compiled tiers got wrong without a word, and handed a program its own
