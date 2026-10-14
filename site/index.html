@@ -156,8 +156,9 @@ fn main() -&gt; !int {
   fault signals, which it may only send; a set holding a bit that is not a
   listenable meaning is <code>io</code> at every call that takes one, where
   a listen had dropped the bit and answered ok.
-  <code>os_signal_ignored</code> reads what the program was started
-  ignoring, a poll no longer trails a delivery, <code>os_pid</code> and
+  <code>os_signal_ignored</code> reads which meanings are ignored, at start
+  the ones the program was started ignoring; a poll no longer trails a
+  delivery; <code>os_pid</code> and
   <code>os_ppid</code> are this process's id and its parent's,
   <code>os_signal_send</code> signals a process by its id, and
   <code>os_signal_number</code> is the one way to a host's number — what

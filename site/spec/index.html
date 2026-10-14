@@ -607,7 +607,8 @@
       empty one or for a bit that is not a listenable meaning. A published
       meaning keeps its bit in every later release
       (<code>[os.signal.set.stable]</code>). A program reads the meanings
-      it was started ignoring (<code>[os.signal.ignored]</code>), signals a
+      ignored now, at start the ones it was started ignoring
+      (<code>[os.signal.ignored]</code>), signals a
       process by its id (<code>[os.signal.send]</code>), asks the host's
       number for a meaning (<code>[os.signal.number]</code>) and names its
       own id and its parent's (<code>[os.proc.self]</code>), and a poll lets

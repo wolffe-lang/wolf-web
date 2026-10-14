@@ -127,8 +127,8 @@
   these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk; the compiler has
-  tagged at every release since without the interpreter following, so the
-  text this tab reads is five releases behind the one
+  tagged release after release since while the interpreter kept that pin, so
+  the text this tab reads is five releases behind the one
   <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
   gap is a step wider than at v0.2.28's pin, when this tab read the same
@@ -541,7 +541,7 @@
   trio needs processes the page cannot spawn — and the interpreter builds
   the rest of what it knows about processes only where it has that tier, so
   this process's id and its parent's, a signal's number, a send to another
-  process and the set a program was started ignoring are declined with it
+  process and the set of meanings a program ignores are declined with it
   — the net tier needs sockets the page cannot open, <code>os_random</code> needs an entropy source the module
   has no way to ask for, <code>os_signal_listen</code> needs signals nothing
   in a tab can send, and the filesystem tier needs files a module in a page
