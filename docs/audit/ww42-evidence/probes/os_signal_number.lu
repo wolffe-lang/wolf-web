@@ -1,0 +1,12 @@
+//! member: false
+//! ww42 probe: one call of os_signal_number, for the tab and for lupin at a terminal.
+fn main() -> !int {
+    let n = os_signal_number(16) else |e| {
+        match e {
+            invalid => -1,
+            unsupported => -2,
+        }
+    }
+    print("number: {n}")
+    0
+}

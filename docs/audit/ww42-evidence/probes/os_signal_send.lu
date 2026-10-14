@@ -1,0 +1,16 @@
+//! member: false
+//! ww42 probe: one call of os_signal_send, for the tab and for lupin at a terminal.
+fn main() -> !int {
+    var r = "ok"
+    os_signal_send(1, 0) else |e| {
+        r = match e {
+            unsupported => "unsupported",
+            invalid => "invalid",
+            not_found => "not_found",
+            denied => "denied",
+            io => "io",
+        }
+    }
+    print("send: {r}")
+    0
+}

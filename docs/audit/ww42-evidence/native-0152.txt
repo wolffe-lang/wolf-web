@@ -1,0 +1,90 @@
+published sha256:f5194b74879c45ad96484566950b4ae59fe1faa7ccd86461c6656f9e662b698f
+f5194b74879c45ad96484566950b4ae59fe1faa7ccd86461c6656f9e662b698f  lupin-0.1.52-x86_64-unknown-linux-gnu.tar.gz
+binary x/lupin-0.1.52-x86_64-unknown-linux-gnu/lupin
+74043b0ac022da6cfdd97c9919901ad6c72047b1997cbc767d269059782c2664  x/lupin-0.1.52-x86_64-unknown-linux-gnu/lupin
+lupin 0.1.52 (wolf-interp, reference interpreter at pin 294d626)
+== os/signal_shell_rows.lu
+poll_outside=io
+poll_past_table=io
+poll_quiet_user=0
+ignore_kill=io
+default_past_table=io
+send_pid_zero=invalid
+send_pid_negative=invalid
+send_two_bits=invalid
+send_past_table=invalid
+send_wide_pid=invalid
+number_two_bits=invalid
+number_zero=invalid
+number_interrupt: true
+number_kill: true
+pid: true
+ppid: true
+exit=0
+== os/job_rows.lu
+group=invalid
+tty=invalid
+defaults=invalid
+map=invalid
+pid=io
+status=io
+poll_empty=io
+poll_none=0
+ignore_empty=io
+default_outside=io
+exit=0
+== grammar/cfg_target_arch.lu
+64
+exit=0
+== conc/atomic_counter.lu
+400000 100000
+exit=0
+== memory/raw_repr_c_layout.lu
+memory/raw_repr_c_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got C3
+exit=4
+== memory/raw_repr_packed_layout.lu
+memory/raw_repr_packed_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got P3
+exit=4
+== memory/raw_repr_align_layout.lu
+memory/raw_repr_align_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got A16
+exit=4
+== membrane/extern_let_image.lu
+membrane/extern_let_image.lu: unsupported: a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not model ([abi.link.extern])
+exit=4
+== membrane/extern_libc.lu
+membrane/extern_libc.lu: unsupported: `strlen` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch
+exit=4
+== os/chdir_relative.lu
+moved=true
+relative_read=found
+cwd_ends_inner=true
+up_sees_inner=true
+back=true
+missing=not_found
+onto_a_file=io
+cleaned=true
+exit=0
+== os/env_unset.lu
+got: tarn
+after: <missing>
+absent: ok
+empty: invalid
+equals: invalid
+again: fell
+exit=0
+== probes/os_pid.lu
+pid: true
+exit=0
+== probes/os_ppid.lu
+ppid: 2342902
+exit=0
+== probes/os_signal_send.lu
+os_signal_send.lu: unsupported: `os_signal_send` signals a process by id: this machine admits no `unsafe` and std has no `kill(pid, sig)` ([os.signal.send], [os.term.note] R8)
+exit=4
+== probes/os_signal_number.lu
+number: 2
+exit=0
+== probes/os_signal_ignored.lu
+os_signal_ignored.lu: unsupported: `os_signal_ignored` reads a signal's disposition: this machine admits no `unsafe` and std has no `sigaction` ([os.signal.ignored], [os.term.note] R8)
+exit=4
+NATIVE-DONE

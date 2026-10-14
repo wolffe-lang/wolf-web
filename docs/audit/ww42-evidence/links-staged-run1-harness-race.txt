@@ -1,0 +1,10 @@
+links: against http://127.0.0.1:8742/
+links: chromium phone: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: chromium desktop: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: firefox phone: hop 1 6/6 landed (6 clicked), hop 2 0/0 landed, 0 faults — FAIL
+  ! Error: page.$$eval: Execution context was destroyed, most likely because of a navigation
+links: firefox desktop: hop 1 4/4 landed (4 clicked), hop 2 0/0 landed, 0 faults — FAIL
+  ! Error: page.$$eval: Execution context was destroyed, most likely because of a navigation
+links: webkit phone: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: webkit desktop: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: FAILED

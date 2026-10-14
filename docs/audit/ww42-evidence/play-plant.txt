@@ -1,0 +1,47 @@
+# PLANT, /play/: ~/lanes/ww42/plant = the staged dist with an inline <script> added to play/index.html, one menu entry (corpus/strings/builtin_methods.lu) removed from play/samples/index.json, and the first menu program's file (corpus/hello.lu) replaced by the os_pid probe, served on 127.0.0.1:8743 under the same headers; started 2026-10-14T00:34:21Z
+play: against http://127.0.0.1:8743/play/
+play: chromium phone: page 200, banner "lupin 0.1.52, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 35 menu programs run {"unsupported":1,"exit":29,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+play: chromium desktop: page 200, banner "lupin 0.1.52, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 35 menu programs run {"unsupported":1,"exit":29,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+play: firefox phone: page 200, banner "lupin 0.1.52, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 35 menu programs run {"unsupported":1,"exit":29,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs=') or a nonce." {file: "http://127.0.0.1:8743/play/" line: 649}]
+play: firefox desktop: page 200, banner "lupin 0.1.52, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 35 menu programs run {"unsupported":1,"exit":29,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs=') or a nonce." {file: "http://127.0.0.1:8743/play/" line: 649}]
+play: webkit phone: page 200, banner "lupin 0.1.52, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 35 menu programs run {"unsupported":1,"exit":29,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+play: webkit desktop: page 200, banner "lupin 0.1.52, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 35 menu programs run {"unsupported":1,"exit":29,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+play: os_pid: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_pid` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked"
+play: os_ppid: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_ppid` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked"
+play: os_signal_send: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_signal_send` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked"
+play: os_signal_number: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_signal_number` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked"
+play: os_signal_ignored: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_signal_ignored` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked"
+play: the six cells agree on every verdict and every probe's answer
+play: FAILED
+PLANT-PLAY-EXIT=1
+chromium phone: corpus/hello.lu exit(0) -> unsupported  REFUSED NOW
+chromium phone: corpus/strings/builtin_methods.lu was on the menu (exit(0)) and is not now
+chromium desktop: corpus/hello.lu exit(0) -> unsupported  REFUSED NOW
+chromium desktop: corpus/strings/builtin_methods.lu was on the menu (exit(0)) and is not now
+firefox phone: corpus/hello.lu exit(0) -> unsupported  REFUSED NOW
+firefox phone: corpus/strings/builtin_methods.lu was on the menu (exit(0)) and is not now
+firefox desktop: corpus/hello.lu exit(0) -> unsupported  REFUSED NOW
+firefox desktop: corpus/strings/builtin_methods.lu was on the menu (exit(0)) and is not now
+webkit phone: corpus/hello.lu exit(0) -> unsupported  REFUSED NOW
+webkit phone: corpus/strings/builtin_methods.lu was on the menu (exit(0)) and is not now
+webkit desktop: corpus/hello.lu exit(0) -> unsupported  REFUSED NOW
+webkit desktop: corpus/strings/builtin_methods.lu was on the menu (exit(0)) and is not now
+os_pid: before unsupported (<stdin>: unsupported: `os_pid` does not resolve) | after unsupported (<stdin>: unsupported: `os_pid` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_ppid: before unsupported (<stdin>: unsupported: `os_ppid` does not resolve) | after unsupported (<stdin>: unsupported: `os_ppid` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_signal_send: before unsupported (<stdin>: unsupported: `os_signal_send` does not resolve) | after unsupported (<stdin>: unsupported: `os_signal_send` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_signal_number: before unsupported (<stdin>: unsupported: `os_signal_number` does not resolve) | after unsupported (<stdin>: unsupported: `os_signal_number` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_signal_ignored: before unsupported (<stdin>: unsupported: `os_signal_ignored` does not resolve) | after unsupported (<stdin>: unsupported: `os_signal_ignored` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+compare: https://lupp.us -> http://127.0.0.1:8743: 216 menu runs over 6 cells, 6 verdicts moved, 12 served before and refused or missing now
+PLANT-COMPARE-EXIT=1

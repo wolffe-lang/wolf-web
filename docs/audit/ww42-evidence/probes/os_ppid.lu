@@ -1,0 +1,7 @@
+//! member: false
+//! ww42 probe: one call of os_ppid, for the tab and for lupin at a terminal.
+fn main() -> !int {
+    let pp = os_ppid() else |_| { -2 }
+    print("ppid: {pp}")
+    0
+}

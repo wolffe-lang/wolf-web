@@ -1,0 +1,7 @@
+os_pid: before unsupported (<stdin>: unsupported: `os_pid` does not resolve) | after unsupported (<stdin>: unsupported: `os_pid` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_ppid: before unsupported (<stdin>: unsupported: `os_ppid` does not resolve) | after unsupported (<stdin>: unsupported: `os_ppid` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_signal_send: before unsupported (<stdin>: unsupported: `os_signal_send` does not resolve) | after unsupported (<stdin>: unsupported: `os_signal_send` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_signal_number: before unsupported (<stdin>: unsupported: `os_signal_number` does not resolve) | after unsupported (<stdin>: unsupported: `os_signal_number` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+os_signal_ignored: before unsupported (<stdin>: unsupported: `os_signal_ignored` does not resolve) | after unsupported (<stdin>: unsupported: `os_signal_ignored` is the s40 process trio; this wasm build has no processes to spawn, so the tier is declined rather than mocked)
+compare: https://lupp.us -> http://127.0.0.1:8742: 216 menu runs over 6 cells, 0 verdicts moved, 0 served before and refused or missing now
+COMPARE-EXIT=0

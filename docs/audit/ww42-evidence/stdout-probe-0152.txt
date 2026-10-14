@@ -1,0 +1,8 @@
+DIFF  os/signal_shell_rows.lu verdict=unsupported stdout="" want="poll_outside=io\npoll_past_table=io\npoll_quiet_user=0\nignore_kill=io\ndefault_past_table=io\nsend_pid_zero=invalid\nsend_pid_negative=invalid\nsend_two_bits=invalid\nsend_past_table=invalid\nsend_wide_pid=invalid\nnumber_two_bits=invalid\nnumber_zero=invalid\nnumber_interrupt: true\nnumber_kill: true\npid: true\nppid: true"
+DIFF  os/job_rows.lu verdict=unsupported stdout="" want="group=invalid\ntty=invalid\ndefaults=invalid\nmap=invalid\npid=io\nstatus=io\npoll_empty=io\npoll_none=0\nignore_empty=io\ndefault_outside=io"
+DIFF  conc/atomic_counter.lu verdict=unsupported stdout="" want="400000 100000\n"
+DIFF  os/signal_supervisor.lu verdict=unsupported stdout="" want="upgrade\n"
+DIFF  os/chdir_relative.lu verdict=exit(1) stdout="error: io\n" want="moved=true\nrelative_read=found\ncwd_ends_inner=true\nup_sees_inner=true\nback=true\nmissing=not_found\nonto_a_file=io\ncleaned=true"
+DIFF  os/env_unset.lu verdict=exit(0) stdout="got: tarn\nafter: <missing>\nabsent: ok\nempty: invalid\nequals: invalid\nagain: fell\n" want="got: tarn\nafter: <missing>\nabsent: ok\nempty: invalid\nequals: invalid\nagain: fell"
+DIFF  link/module_c.lu verdict=unsupported stdout="" want="21 22\n"
+stdout mismatches: 7

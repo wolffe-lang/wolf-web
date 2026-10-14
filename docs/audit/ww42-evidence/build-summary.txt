@@ -1,0 +1,149 @@
+HEAD cb9b639aa2d19449d2175bf35b93321ffcc3590c
+wolf-book 0a5fecc0c173a7c27b94b6063da59a82c1c7b6a8
+wolf-interp 025428b725a35bfbc53745d4166817ff3053c0fd
+wolf-lang 6ffe7c6056eeb8c661b37e38d99b91166e8c1add
+Python 3.14.7
+v26.10.0
+typst 0.15.1 (9dfd3a08)
+=== node tests (pre-build)
+ℹ tests 120
+ℹ pass 120
+ℹ fail 0
+=== build
+BUILD-EXIT=0
+version prose: 584 literal mention(s) audited against wolf 0.2.29 and lupin 0.1.52, 190 allowlisted (76 on the wolf clock, 28 on lupin's, 86 frozen in 1 dated root(s))
+version prose: 30 placeholder(s) in 6 entries, 15 of them release-bound and re-read at this bump
+counts: 257 number word(s) in 80 entries, 25 of them live and re-read at this bump (wolf 0.2.29, lupin 0.1.52, book 0a5fecc)
+lag phrases: wolf 0.2.29 is advertised; lupin was built at the v0.2.24 tag (294d626) — it reads 5 releases back, and both pages carry 'five releases' and neither carries another
+  version prose stamped: wolf 0.2.29, lupin 0.1.52
+  file sizes: 15 stamped from the pin across 2 page(s)
+  revisions: 3 stamped across 2 page(s) — specrev 294d626
+  book: 48 pages
+  book assets: 569 script and stylesheet reference(s) across 48 of 48 page(s) versioned ?v=0a5fecc; nothing exempt
+  pdf: 5.8 MB at dist/book/wolf-book.pdf
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1345 KiB raw, 498 KiB gzipped
+  wasm: 1.4M at dist/play/lupin.wasm
+  changelog/book: rendered
+  samples: 36 programs from the pinned corpus
+  counts: 10 stamped across 7 page(s) — bookchapters 33, diagnostics 153, netprograms 18, samples 36, speccommits 611, warnings 34
+  everything built
+✓ dist/ built (17M)
+=== guard json
+{"gap": 5, "phrase": "five releases", "tagged": true, "commits": 611, "spec": "294d626", "release": "0.2.24", "advertised": "0.2.29"}
+=== version.json
+{
+  "built": "2026-10-14T00:16:22Z",
+  "lupin": "0.1.52",
+  "pins": { "wolf-lang": "6ffe7c6", "wolf-interp": "025428b", "wolf-book": "0a5fecc" },
+  "spec-pin": "294d626",
+  "missing": []
+}
+=== links
+link check: allowlist carries 0 known-dead link(s)
+link check: 1513 internal links across 63 pages, 0 dead
+LINKS-EXIT=0
+=== samples
+  ok   corpus/projects/wordtree.lu                     exit(0)
+
+check-samples: 36 menu entries, each in the class the page claims for it (0 noted as not running here)
+check-samples: all 18 programs in upstream/wolf-lang/corpus/net answer unsupported, which is what /play/ counts
+SAMPLES-EXIT=0
+=== ahead
+  a one-line if  exit(0)      both sides carry it
+check-ahead: 1 witness(es) against the built module and 640 anchors the pinned release declares — 1 run on both sides, 0 not yet mirrored here, 0 ahead of the release
+AHEAD-EXIT=0
+=== ahead planted
+ℹ tests 8
+ℹ pass 8
+ℹ fail 0
+=== pages
+12
+48
+=== all html (site pages as ww34 counted)
+63
+=== book asset refs
+    287 css ?v=0a5fecc
+    282 js ?v=0a5fecc
+=== bare local js/css refs in dist/book
+0
+=== wolf-boot refs
+     47 wolf-boot.js?v=0a5fecc"
+=== md under dist/book
+1
+=== wasm
+e531173e1a02619d78fbb1ab65513ca4f4d87bffbad54b2d6d787d247ff85c9d  dist/play/lupin.wasm
+-rw-r--r-- 1 mfwolffe mfwolffe 5773403 Oct 13 20:15 dist/book/wolf-book.pdf
+=== stamps
+      1 dist/install/index.html:six hundred and eleven commits
+      1 dist/play/index.html:six hundred and eleven commits
+=== phrases
+dist/install/index.html the same commit 0
+dist/install/index.html one release 0
+dist/install/index.html two releases 0
+dist/install/index.html three releases 0
+dist/install/index.html four releases 0
+dist/install/index.html five releases 1
+dist/install/index.html a development revision 0
+dist/play/index.html the same commit 0
+dist/play/index.html one release 0
+dist/play/index.html two releases 0
+dist/play/index.html three releases 0
+dist/play/index.html four releases 0
+dist/play/index.html five releases 1
+dist/play/index.html a development revision 0
+=== chapter 7 diagrams
+<figure class="memory-diagram"><img src="diagrams/ch07/s3-L5.svg"
+<figure class="memory-diagram"><img src="diagrams/ch07/part-packcopy-L5.svg"
+<figure class="memory-diagram"><img src="diagrams/ch07/part-packcopy-L6.svg"
+<figure class="memory-diagram"><img src="diagrams/ch07/part-packcopy-L7.svg"
+<figure class="memory-diagram"><img src="diagrams/ch07/part-handover-L4.svg"
+<figure class="memory-diagram"><img src="diagrams/ch07/s7-L4.svg"
+total 24
+-rw-r--r-- 1 mfwolffe mfwolffe 3251 Oct 13 20:15 part-handover-L4.svg
+-rw-r--r-- 1 mfwolffe mfwolffe 2644 Oct 13 20:15 part-packcopy-L5.svg
+-rw-r--r-- 1 mfwolffe mfwolffe 2903 Oct 13 20:15 part-packcopy-L6.svg
+-rw-r--r-- 1 mfwolffe mfwolffe 3155 Oct 13 20:15 part-packcopy-L7.svg
+-rw-r--r-- 1 mfwolffe mfwolffe 3732 Oct 13 20:15 s3-L5.svg
+-rw-r--r-- 1 mfwolffe mfwolffe 3075 Oct 13 20:15 s7-L4.svg
+5f9fae6888b06d417a93eecdfaba1e1133747b3986ca2df387190f307d762d5f  dist/book/diagrams/ch07/part-handover-L4.svg
+940a1ba518019509ffcb6b3ae231cd75dcbd791973115e6753dc57b2a47ede75  dist/book/diagrams/ch07/part-packcopy-L5.svg
+949cdef799e71c96591618fac8f4ef92188af340fa9b1f9a856b092cd7c8fdb4  dist/book/diagrams/ch07/part-packcopy-L6.svg
+3e63609ba3a7e3b9f6af5e47da953130635d5663a4e2eb9e7c99f81f3abb6d1a  dist/book/diagrams/ch07/part-packcopy-L7.svg
+65406175f0e013bec553889a6dc638dfe44af1f30369fc02f7de3e79755d2803  dist/book/diagrams/ch07/s3-L5.svg
+d720936975fccc1408a9391ce9b1fa5ee45f948b679b798a5239db1f8ababb35  dist/book/diagrams/ch07/s7-L4.svg
+=== the changed chapters (ch01 Windows block, ch01 old name, ch22 toolchain line, ch22 old, colophon distance)
+2
+0
+4
+1
+grep: dist/book/colophon.html: No such file or directory
+=== install page: the Windows archive name as stamped
+      1 wolf-0.2.29-x86_64-pc-windows-msvc
+      3 wolf-0.2.29-x86_64-pc-windows-msvc.tar.gz
+=== unreleased surfaces named on any built site page (expect 0 lines)
+(end)
+=== ch07 svgs vs ww41 (sha256)
+5f9fae6888b06d41
+940a1ba518019509
+949cdef799e71c96
+3e63609ba3a7e3b9
+65406175f0e013be
+d720936975fccc14
+=== svg contents scan (script/style/external refs)
+dist/book/diagrams/ch07/part-handover-L4.svg:2
+dist/book/diagrams/ch07/part-packcopy-L5.svg:2
+dist/book/diagrams/ch07/part-packcopy-L6.svg:2
+dist/book/diagrams/ch07/part-packcopy-L7.svg:2
+dist/book/diagrams/ch07/s3-L5.svg:4
+dist/book/diagrams/ch07/s7-L4.svg:3
+=== stamps (counts)
+      1 dist/install/index.html:six hundred and eleven commits
+      1 dist/play/index.html:six hundred and eleven commits
+=== play banner
+x86_64-unknown-linux-gnu
+=== tab target suite
+ℹ tests 5
+ℹ pass 5
+ℹ fail 0
+BUILD-DONE

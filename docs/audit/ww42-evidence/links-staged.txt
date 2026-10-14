@@ -1,0 +1,11 @@
+# site links two hops deep, STAGED (second run; the first, links-staged-run1-harness-race.txt, lost both firefox cells to 'Execution context was destroyed' when the walker read a page's links straight after a click; the walker now waits for the load and retries that read; cause not established further): kasumi's dist at ww42 cb9b639 served by ww42-serve.mjs on 127.0.0.1:8742 under nginx/lupp.us.conf's headers; playwright-core 1.63.0, nomad-1; started 2026-10-14T00:33:28Z
+links: against http://127.0.0.1:8742/
+links: chromium phone: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: chromium desktop: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: firefox phone: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: firefox desktop: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: webkit phone: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: webkit desktop: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: ok — every link two hops from the front page lands, no CSP violation, no console error
+LINKS-EXIT=0
+finished 2026-10-14T00:33:44Z

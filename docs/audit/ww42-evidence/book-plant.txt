@@ -1,0 +1,80 @@
+book: against http://127.0.0.1:61096/book/ (render served with lupp.us's headers)
+book: chromium phone ch07.html: page 200, 6 diagrams, 5 rendered (0x0 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 404 text/html diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: chromium phone ch01.html: page 200, new sample MISSING ("tar -xzf wolf-0.2.29-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — FAIL
+book: chromium phone ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.29 · edition v1"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+book: chromium phone back/colophon.html: page 200, new sample present ("paired with lupin 0.1.52 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch07.html: page 200, 6 diagrams, 5 rendered (0x0 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 404 text/html diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: chromium desktop ch01.html: page 200, new sample MISSING ("tar -xzf wolf-0.2.29-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — FAIL
+book: chromium desktop ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.29 · edition v1"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+book: chromium desktop back/colophon.html: page 200, new sample present ("paired with lupin 0.1.52 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch07.html: page 200, 6 diagrams, 5 rendered (0x0 448x176 596x176 666x202 485x228 454x228), 7 svg responses, 0 CSP violations, 0 console errors — FAIL
+  svg 404 text/html diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+  svg 404 text/html diagrams/ch07/s3-L5.svg
+book: firefox phone ch01.html: page 200, new sample MISSING ("tar -xzf wolf-0.2.29-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — FAIL
+book: firefox phone ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.29 · edition v1"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs=') or a nonce." {file: "http://127.0.0.1:61096/book/ch22.html" line: 782}]
+book: firefox phone back/colophon.html: page 200, new sample present ("paired with lupin 0.1.52 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch07.html: page 200, 6 diagrams, 5 rendered (0x0 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — FAIL
+  svg 404 text/html diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: firefox desktop ch01.html: page 200, new sample MISSING ("tar -xzf wolf-0.2.29-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — FAIL
+book: firefox desktop ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.29 · edition v1"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: [JavaScript Error: "Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-ylYjsy4erpc1SIw1d7SQujLB20yyUeQ+gnKSxuI31xs=') or a nonce." {file: "http://127.0.0.1:61096/book/ch22.html" line: 782}]
+book: firefox desktop back/colophon.html: page 200, new sample present ("paired with lupin 0.1.52 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch07.html: page 200, 6 diagrams, 5 rendered (0x0 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 404 text/html diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: webkit phone ch01.html: page 200, new sample MISSING ("tar -xzf wolf-0.2.29-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — FAIL
+book: webkit phone ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.29 · edition v1"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+book: webkit phone back/colophon.html: page 200, new sample present ("paired with lupin 0.1.52 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch07.html: page 200, 6 diagrams, 5 rendered (0x0 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 1 console errors — FAIL
+  svg 404 text/html diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+  ! console error: Failed to load resource: the server responded with a status of 404 (Not Found)
+book: webkit desktop ch01.html: page 200, new sample MISSING ("tar -xzf wolf-0.2.29-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — FAIL
+book: webkit desktop ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.29 · edition v1"), 1 CSP violations, 1 console errors — FAIL
+  ! script-src-elem inline
+  ! console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy.
+book: webkit desktop back/colophon.html: page 200, new sample present ("paired with lupin 0.1.52 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: FAILED
+PLANT-EXIT=1

@@ -1,0 +1,1 @@
+stdout-all: 659 programs, 659 identical in verdict and stdout, 0 differ

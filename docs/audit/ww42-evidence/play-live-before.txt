@@ -1,0 +1,17 @@
+# /play/ LIVE BEFORE THE MERGE: https://lupp.us as ww41 deployed it (lupin 0.1.51); playwright-core 1.63.0, nomad-1; started 2026-10-14T00:13:40Z
+play: against https://lupp.us/play/
+play: chromium phone: page 200, banner "lupin 0.1.51, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 36 menu programs run {"exit":31,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 0 CSP violations, 0 console errors — ok
+play: chromium desktop: page 200, banner "lupin 0.1.51, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 36 menu programs run {"exit":31,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 0 CSP violations, 0 console errors — ok
+play: firefox phone: page 200, banner "lupin 0.1.51, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 36 menu programs run {"exit":31,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 0 CSP violations, 0 console errors — ok
+play: firefox desktop: page 200, banner "lupin 0.1.51, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 36 menu programs run {"exit":31,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 0 CSP violations, 0 console errors — ok
+play: webkit phone: page 200, banner "lupin 0.1.51, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 36 menu programs run {"exit":31,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 0 CSP violations, 0 console errors — ok
+play: webkit desktop: page 200, banner "lupin 0.1.51, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.", 36 menu programs run {"exit":31,"trap":5}, probes os_pid=unsupported os_ppid=unsupported os_signal_send=unsupported os_signal_number=unsupported os_signal_ignored=unsupported, 0 CSP violations, 0 console errors — ok
+play: os_pid: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_pid` does not resolve"
+play: os_ppid: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_ppid` does not resolve"
+play: os_signal_send: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_signal_send` does not resolve"
+play: os_signal_number: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_signal_number` does not resolve"
+play: os_signal_ignored: ["verdict unsupported","phase reached resolve","exit code 4"] stderr "<stdin>: unsupported: `os_signal_ignored` does not resolve"
+play: the six cells agree on every verdict and every probe's answer
+play: ok
+PLAY-EXIT=0
+finished 2026-10-14T00:14:18Z

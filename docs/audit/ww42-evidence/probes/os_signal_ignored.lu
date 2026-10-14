@@ -1,0 +1,7 @@
+//! member: false
+//! ww42 probe: one call of os_signal_ignored, for the tab and for lupin at a terminal.
+fn main() -> !int {
+    let s = os_signal_ignored() else |_| { -2 }
+    print("ignored: {s}")
+    0
+}

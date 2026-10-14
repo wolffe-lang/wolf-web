@@ -1,0 +1,36 @@
+# STAGED gates: kasumi's dist at ww42 cb9b639 (every book script ?v=0a5fecc); the book served by wolf-book 0a5fecc tests/contents/serve.mjs under lupp.us's headers, --unversioned; contents.mjs sha256 f0a6c7a5…; the site served by ww42-serve.mjs on 127.0.0.1:8742 (pid 34525) with nginx/lupp.us.conf's headers; playwright-core 1.63.0, nomad-1
+started 2026-10-14T00:16:57Z
+BOOK-EXIT=0
+book: ok — six diagrams rendered and the three changed blocks served on every cell, no CSP violation
+LINKS-EXIT=1
+links: against http://127.0.0.1:8742/
+links: chromium phone: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: chromium desktop: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: firefox phone: hop 1 6/6 landed (6 clicked), hop 2 0/0 landed, 0 faults — FAIL
+  ! Error: page.$$eval: Execution context was destroyed, most likely because of a navigation
+links: firefox desktop: hop 1 4/4 landed (4 clicked), hop 2 0/0 landed, 0 faults — FAIL
+  ! Error: page.$$eval: Execution context was destroyed, most likely because of a navigation
+links: webkit phone: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: webkit desktop: hop 1 7/7 landed (7 clicked), hop 2 29/29 landed, 0 faults — ok
+links: FAILED
+contents: gate against http://127.0.0.1:58533/book/ (render served with lupp.us's headers, unversioned)
+contents: chromium phone: 49 pages, 45 entries, 2205 clicks, 2205 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 151s
+contents: chromium desktop: 49 pages, 45 entries, 2205 clicks, 2205 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 43s
+contents: firefox phone: 49 pages, 45 entries, 2205 clicks, 166 at 200, 2039 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 180s
+contents: firefox desktop: 49 pages, 45 entries, 2205 clicks, 165 at 200, 2040 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 127s
+contents: webkit phone: 49 pages, 45 entries, 2205 clicks, 382 at 200, 1823 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 172s
+contents: webkit desktop: 49 pages, 45 entries, 2205 clicks, 381 at 200, 1824 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 75s
+contents: ok — every entry from every page lands where its label says
+GATE-EXIT=0
+contents: retry against http://127.0.0.1:60668/book/ (render served with lupp.us's headers, unversioned)
+# chromium phone: hop1 90/90 landed, 0 at 304 (0 number mismatches); hop2 90/90 landed, 0 at 304
+# chromium desktop: hop1 90/90 landed, 0 at 304 (0 number mismatches); hop2 90/90 landed, 0 at 304
+# firefox phone: hop1 90/90 landed, 47 at 304 (0 number mismatches); hop2 90/90 landed, 89 at 304
+# firefox desktop: hop1 90/90 landed, 47 at 304 (0 number mismatches); hop2 90/90 landed, 89 at 304
+# webkit phone: hop1 90/90 landed, 45 at 304 (0 number mismatches); hop2 90/90 landed, 89 at 304
+# webkit desktop: hop1 90/90 landed, 45 at 304 (0 number mismatches); hop2 90/90 landed, 89 at 304
+contents: ok — every entry from every page lands where its label says
+RETRY-EXIT=0
+retry log:     1092 lines, 0 'HTTP 404', 0 ERROR
+finished 2026-10-14T00:33:05Z
+STAGED-DONE
