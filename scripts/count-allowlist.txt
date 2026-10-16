@@ -269,7 +269,7 @@ index.html eighteen 1 counted=1 audited-at-book=95d68ad
 index.html seven 1 counted=1 audited-at-wolf=0.2.30
 index.html twenty 1 counted=0
 install/index.html Five 1 counted=1 audited-at-wolf=0.2.30
-install/index.html Six 1 counted=1 audited-at-lupin=0.1.52
+install/index.html Six 1 counted=1 audited-at-lupin=0.1.53
 install/index.html eight 2 counted=0
 # ww42: /install/'s second `five` is the lag phrase, held page-wide by
 # check-lag-phrases.py against the two gitlinks and not by this clock; the one
@@ -279,15 +279,15 @@ install/index.html six 1 counted=0
 install/index.html sixteen 1 counted=0
 install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.30
 install/index.html twenty-one 1 counted=0
-play/index.html Eight 1 counted=1 audited-at-lupin=0.1.52
+play/index.html Eight 1 counted=1 audited-at-lupin=0.1.53
 play/index.html six 1 counted=1 audited-at-wolf=0.2.30
 play/index.html Twenty-two 1 counted=0
 play/index.html twenty-two 2 counted=0
-play/index.html Six 1 counted=1 audited-at-lupin=0.1.52
+play/index.html Six 1 counted=1 audited-at-lupin=0.1.53
 # ww42: /play/'s seventh `five` is the lag phrase, held by
 # check-lag-phrases.py and not by this clock, as on /install/.
-play/index.html five 7 counted=5 audited-at-lupin=0.1.52
-play/index.html nine 1 counted=1 audited-at-lupin=0.1.52
+play/index.html five 7 counted=5 audited-at-lupin=0.1.53
+play/index.html nine 1 counted=1 audited-at-lupin=0.1.53
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 spec/index.html ten 1 counted=1 audited-at-wolf=0.2.30
