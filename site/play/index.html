@@ -128,18 +128,19 @@
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk; the compiler has
   tagged release after release since while the interpreter kept that pin, so
-  the text this tab reads is five releases behind the one
+  the text this tab reads is six releases behind the one
   <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap is a step wider than at v0.2.28's pin, when this tab read the same
-  tag four steps back: the interpreter released once more without
-  re-pinning, and mirrored instead what the compiler had added — at
+  gap is a step wider than at v0.2.29's pin, when this tab read the same
+  tag a step nearer: the interpreter released again without re-pinning,
+  and mirrored instead what the compiler had added — at
   v0.2.26's pin volatile access and the atomics on raw pointers, the
   kernel's papercuts, a child's descriptors and <code>copy region</code>
   (wolf-interp#185, #194, #200), at v0.2.28's the unsigned and wrapping
   integers, a repeated json name, <code>env_unset</code> and the calls that
-  change a file, and now as much of the shell's signals as it can serve
-  without <code>unsafe</code> — so the programs those releases brought run
+  change a file, at v0.2.29's as much of the shell's signals as it could
+  serve without <code>unsafe</code>, and now a file's owner and the shape
+  rows of the id and terminal calls — so the programs those releases brought run
   here, where a page has what they need, while the text the tab reads has
   fallen further behind. From v0.2.19's pin to
   v0.2.25's the gap was a single step at every pair this site served. The
@@ -175,10 +176,11 @@
   pin, so the gap was two steps at v0.2.26's pin, the first pair two steps
   apart this site had served since v0.2.18's, the compiler tagging twice
   more with the mirror releasing beside it each time, still on that pin, so
-  the gap was four steps at v0.2.28's pin — and now the compiler tagged
-  once more and the mirror released beside it on that pin again, so the gap
-  this page shows is a step wider still, the widest the check that holds
-  these sentences has counted. The two
+  the gap was four steps at v0.2.28's pin, then the compiler tagging once
+  more and the mirror releasing beside it on that pin again, so the gap was
+  a step wider at v0.2.29's — and now the same once more, so the gap this
+  page shows is a step wider still, the widest the check that holds these
+  sentences has counted. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -277,26 +279,48 @@
   row as open (wolf-interp#176). This interpreter reads the row as the
   specification makes it and prints what the compiler prints.</p>
 
-  <p><strong>The compiler's newest program asks for a process.</strong>
-  Besides the programs above, the release <a href="/install/">install</a>
-  advertises brought one program into the corpus's running set,
+  <p><strong>The compiler's newest programs ask for a process, or run.</strong>
+  Besides the programs above, every program the release
+  <a href="/install/">install</a> advertises brought into the corpus's
+  running set answers here as its header says or is declined for the tab's
+  reason. The <code>corpus/typecheck/straight_line_*.lu</code> programs,
+  the shapes the compiled tiers of the release before it panicked on, print
+  their headers' values here, as this interpreter always did.
+  <code>corpus/conc/proc_must_join_legal.lu</code> spawns procs, which this
+  build declines with the proc tier. <code>corpus/os/ids_read.lu</code>,
+  <code>corpus/os/ids_rows.lu</code> and
+  <code>corpus/os/term_editor_rows.lu</code> each begin with one of the
+  release's new calls, and this build declines them with the process tier.
+  Those calls — the ones <a href="/book/ch34.html#34.3">chapter 34 of the
+  book</a> teaches — answer the same way when a program makes one alone:
+  <code>os_uid</code>, <code>os_euid</code>, <code>os_gid</code>,
+  <code>os_egid</code>, <code>os_groups</code>, <code>os_set_ids</code>,
+  <code>os_term_size</code>, <code>os_term_chars</code> and
+  <code>os_signal_wait_fd</code> each report <code>unsupported</code> with
+  the process tier, and <code>fs_set_owner</code> and
+  <code>fs_set_owner_fd</code> with the filesystem, naming the call. The
+  reason this build gives for the id reads and the terminal calls calls
+  them the process trio; none of them spawns anything, and the interpreter
+  builds them only where it has that tier. The chapter's own programs are
+  declined here as well: most import <code>std.signal</code>,
+  <code>std.env</code> or <code>std.term</code>, and this tab has no
+  standard library to import, and the rest begin with a call the tab
+  declines. At a terminal this interpreter prints the must-join program's,
+  the owner rows' and the terminal rows' headers: it serves the owner
+  calls and answers every shape row, and refuses the id reads, the drop and
+  the terminal calls by name, because it admits no <code>unsafe</code>.
+  lupin 0.1.52, the interpreter this page served until now, declined the
+  same four programs and answered that each of the new names does not
+  resolve. No program the corpus already carried answers differently from
+  the last pin. The measurement is four walks: both corpora through both
+  modules, and no program both corpora carry changed its answer in any of
+  them. At v0.2.29's pin the addition was one program,
   <code>corpus/os/signal_shell_rows.lu</code>, which walks the shapes of
-  the shell's signal calls, and its first call is a poll of a signal set,
-  which this build declines with the process tier. The release's new calls
-  answer the same way when a program makes one alone: <code>os_pid</code>,
-  <code>os_ppid</code>, <code>os_signal_send</code>,
-  <code>os_signal_number</code> and <code>os_signal_ignored</code> each
-  report <code>unsupported</code> here, naming the call. At a terminal this
-  interpreter prints the program's header: it serves the two ids and the
-  number, answers every shape row, and refuses the send and the ignored set
-  by name, because it admits no <code>unsafe</code>. lupin 0.1.51, the
-  interpreter this page served until now, declined the program at the same
-  poll and answered that each of the new names does not resolve. No program
-  the corpus already carried answers differently from the last pin;
-  <code>corpus/os/job_rows.lu</code>, the one the release edited, was
-  declined at its job spawn before and is now. The measurement is four
-  walks: both corpora through both modules, and no program both corpora
-  carry changed its answer in any of them. At v0.2.28's pin the additions
+  the shell's signal calls; its first call is a poll of a signal set, which
+  this build declined then and declines now with the process tier, and
+  <code>os_pid</code>, <code>os_ppid</code>, <code>os_signal_send</code>,
+  <code>os_signal_number</code> and <code>os_signal_ignored</code> made
+  alone each report <code>unsupported</code> here. At v0.2.28's pin the additions
   were unsigned and wrapping integers that print and divide as the values
   their types hold, and the faults that trap where those values leave
   their type; repeated json names that answer last-wins; a variable
@@ -541,11 +565,13 @@
   trio needs processes the page cannot spawn — and the interpreter builds
   the rest of what it knows about processes only where it has that tier, so
   this process's id and its parent's, a signal's number, a send to another
-  process and the set of meanings a program ignores are declined with it
+  process, the set of meanings a program ignores, who the process runs as,
+  the drop to another user and the terminal's size, keys and wait are
+  declined with it
   — the net tier needs sockets the page cannot open, <code>os_random</code> needs an entropy source the module
   has no way to ask for, <code>os_signal_listen</code> needs signals nothing
-  in a tab can send, and the filesystem tier needs files a module in a page
-  has no way to open. That last one is the newest of them: through lupin
+  in a tab can send, and the filesystem tier, a file's owner with it, needs
+  files a module in a page has no way to open. That last one is the newest of them: through lupin
   0.1.35 the interpreter declined the filesystem in every build, by design,
   and the terminal build serves it now — real files, at the paths the program
   names — so only this build is left declining it, for the tab's reason and
