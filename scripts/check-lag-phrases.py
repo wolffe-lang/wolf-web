@@ -79,6 +79,7 @@ PHRASES = {
     5: "five releases",
     # ww43: lupin 0.1.53 kept it through 0.2.30, so the gap reached six;
     # written after both pages' sentences, as at ww41 and ww42.
+    6: "six releases",
 }
 DEVREV = "a development revision"
 SPECREV = "__PIN_specrev_short__"
