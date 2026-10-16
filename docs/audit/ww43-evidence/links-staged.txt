@@ -1,0 +1,14 @@
+links: against http://127.0.0.1:8743/
+links: chromium phone: hop 1 7/7 landed (7 clicked), hop 2 34/34 landed, 0 faults — ok
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+links: chromium desktop: hop 1 7/7 landed (7 clicked), hop 2 34/34 landed, 0 faults — ok
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+links: firefox phone: hop 1 7/7 landed (7 clicked), hop 2 34/34 landed, 0 faults — ok
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+links: firefox desktop: hop 1 7/7 landed (7 clicked), hop 2 34/34 landed, 0 faults — ok
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+links: webkit phone: hop 1 7/7 landed (7 clicked), hop 2 34/34 landed, 0 faults — ok
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+links: webkit desktop: hop 1 7/7 landed (7 clicked), hop 2 34/34 landed, 0 faults — ok
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+links: ok — every link two hops from the front page lands, no CSP violation, no console error

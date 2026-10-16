@@ -1,0 +1,14 @@
+//! member: false
+//! ww43 probe: one call of os_signal_wait_fd, for the tab and for lupin at a terminal (chapter 34's builtins).
+//! An empty set is `io` by the shape rule, before any wait: nothing blocks.
+fn main() -> !int {
+    let m = os_signal_wait_fd(0, 0) else |e| {
+        print(match e {
+            unsupported => "wait_fd: unsupported",
+            io => "wait_fd: io",
+        })
+        return 0
+    }
+    print("wait_fd: {m}")
+    0
+}

@@ -1,0 +1,202 @@
+﻿2026-10-15T08:46:14.4302508Z Current runner version: '2.337.0'
+2026-10-15T08:46:14.4333399Z ##[group]Runner Image Provisioner
+2026-10-15T08:46:14.4334380Z Hosted Compute Agent
+2026-10-15T08:46:14.4334988Z Version: 20261002.596
+2026-10-15T08:46:14.4335893Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-15T08:46:14.4336660Z Build Date: 2026-10-02T22:28:27Z
+2026-10-15T08:46:14.4337492Z Worker ID: {d9bde032-f243-4004-86a0-1c7f81ce1210}
+2026-10-15T08:46:14.4338224Z Region: centralus
+2026-10-15T08:46:14.4339116Z Cloud: Azure
+2026-10-15T08:46:14.4339787Z ##[endgroup]
+2026-10-15T08:46:14.4341739Z ##[group]Operating System
+2026-10-15T08:46:14.4342574Z Ubuntu
+2026-10-15T08:46:14.4343155Z 22.04.5
+2026-10-15T08:46:14.4343701Z LTS
+2026-10-15T08:46:14.4344278Z ##[endgroup]
+2026-10-15T08:46:14.4344932Z ##[group]Runner Image
+2026-10-15T08:46:14.4345649Z Image: ubuntu-22.04-arm
+2026-10-15T08:46:14.4346302Z Version: 20261004.149.1
+2026-10-15T08:46:14.4347769Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22-arm64/20261004.149/images/ubuntu/Ubuntu2204-Arm64-Readme.md
+2026-10-15T08:46:14.4349858Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22-arm64%2F20261004.149
+2026-10-15T08:46:14.4351343Z ##[endgroup]
+2026-10-15T08:46:14.4352581Z ##[group]GITHUB_TOKEN Permissions
+2026-10-15T08:46:14.4356266Z Contents: write
+2026-10-15T08:46:14.4356931Z Metadata: read
+2026-10-15T08:46:14.4357521Z ##[endgroup]
+2026-10-15T08:46:14.4361067Z Secret source: Actions
+2026-10-15T08:46:14.4362373Z Cache mode: write
+2026-10-15T08:46:14.4363198Z Prepare workflow directory
+2026-10-15T08:46:14.4760250Z Prepare all required actions
+2026-10-15T08:46:14.4812926Z Getting action download info
+2026-10-15T08:46:14.7714045Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-15T08:46:15.4201397Z Complete job name: run gate (ubuntu-22.04-arm, glibc 2.35)
+2026-10-15T08:46:15.5041931Z ##[group]Run actions/download-artifact@v4
+2026-10-15T08:46:15.5043441Z with:
+2026-10-15T08:46:15.5044113Z   name: archive-ubuntu-22.04-arm
+2026-10-15T08:46:15.5044748Z   path: archive
+2026-10-15T08:46:15.5045386Z   merge-multiple: false
+2026-10-15T08:46:15.5046032Z   repository: wolffe-lang/wolf-lang
+2026-10-15T08:46:15.5046758Z   run-id: 38706839251
+2026-10-15T08:46:15.5047857Z ##[endgroup]
+2026-10-15T08:46:15.6428280Z Downloading single artifact
+2026-10-15T08:46:15.6555267Z (node:1817) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-15T08:46:15.6557336Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-15T08:46:15.8283171Z Preparing to download the following artifacts:
+2026-10-15T08:46:15.8284978Z - archive-ubuntu-22.04-arm (ID: 11958139783, Size: 74937641, Expected Digest: sha256:e0a7bd84283ad345dce1a8af18e54d37b6387577f26a6b060f3435df6ecb675a)
+2026-10-15T08:46:16.0033571Z Redirecting to blob download url: https://productionresultssa14.blob.core.windows.net/actions-results/c3d0e4c4-eddd-864e-af87-1a0e36b4871e/workflow-job-run-6c773dd4-685a-55de-9354-fa11c50bb53e/artifacts/8a5955195a405e3fe9b350c49d1f2236e632cf087a12f8f298ebf7e83524a2cb.zip
+2026-10-15T08:46:16.0038978Z Starting download of artifact to: /home/runner/work/wolf-lang/wolf-lang/archive
+2026-10-15T08:46:16.2270116Z (node:1817) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-15T08:46:17.9401819Z SHA256 digest of downloaded artifact is e0a7bd84283ad345dce1a8af18e54d37b6387577f26a6b060f3435df6ecb675a
+2026-10-15T08:46:17.9404747Z Artifact download completed successfully.
+2026-10-15T08:46:17.9405632Z Total of 1 artifact(s) downloaded
+2026-10-15T08:46:17.9408379Z Download artifact has finished successfully
+2026-10-15T08:46:17.9636922Z ##[group]Run sudo apt-get update && sudo apt-get install -y lld clang-15
+2026-10-15T08:46:17.9637892Z sudo apt-get update && sudo apt-get install -y lld clang-15
+2026-10-15T08:46:17.9672853Z shell: /usr/bin/bash -e {0}
+2026-10-15T08:46:17.9673361Z ##[endgroup]
+2026-10-15T08:46:18.1322874Z Get:1 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease [3632 B]
+2026-10-15T08:46:18.2354274Z Get:2 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main armhf Packages [23.5 kB]
+2026-10-15T08:46:18.2462412Z Get:3 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 Packages [870 kB]
+2026-10-15T08:46:18.2633003Z Get:4 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main arm64 Packages [615 kB]
+2026-10-15T08:46:18.2744814Z Hit:5 http://ports.ubuntu.com/ubuntu-ports jammy InRelease
+2026-10-15T08:46:18.3179478Z Get:6 http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease [128 kB]
+2026-10-15T08:46:18.5120954Z Get:7 http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease [127 kB]
+2026-10-15T08:46:18.5840509Z Get:8 http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease [129 kB]
+2026-10-15T08:46:18.6546127Z Get:9 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 Packages [3763 kB]
+2026-10-15T08:46:18.9046400Z Get:10 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main Translation-en [576 kB]
+2026-10-15T08:46:18.9524416Z Get:11 http://ports.ubuntu.com/ubuntu-ports jammy-updates/restricted arm64 Packages [6936 kB]
+2026-10-15T08:46:19.0608351Z Get:12 http://ports.ubuntu.com/ubuntu-ports jammy-updates/restricted Translation-en [1294 kB]
+2026-10-15T08:46:19.1106933Z Get:13 http://ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 Packages [1364 kB]
+2026-10-15T08:46:19.1609508Z Get:14 http://ports.ubuntu.com/ubuntu-ports jammy-updates/universe Translation-en [326 kB]
+2026-10-15T08:46:19.2060460Z Get:15 http://ports.ubuntu.com/ubuntu-ports jammy-updates/multiverse arm64 Packages [66.8 kB]
+2026-10-15T08:46:19.2499594Z Get:16 http://ports.ubuntu.com/ubuntu-ports jammy-updates/multiverse Translation-en [16.6 kB]
+2026-10-15T08:46:19.2939569Z Get:17 http://ports.ubuntu.com/ubuntu-ports jammy-security/main arm64 Packages [3511 kB]
+2026-10-15T08:46:19.3503537Z Get:18 http://ports.ubuntu.com/ubuntu-ports jammy-security/main Translation-en [509 kB]
+2026-10-15T08:46:19.4797282Z Get:19 http://ports.ubuntu.com/ubuntu-ports jammy-security/restricted arm64 Packages [6688 kB]
+2026-10-15T08:46:19.6003604Z Get:20 http://ports.ubuntu.com/ubuntu-ports jammy-security/restricted Translation-en [1250 kB]
+2026-10-15T08:46:19.6500521Z Get:21 http://ports.ubuntu.com/ubuntu-ports jammy-security/universe arm64 Packages [1135 kB]
+2026-10-15T08:46:19.7064020Z Get:22 http://ports.ubuntu.com/ubuntu-ports jammy-security/universe Translation-en [237 kB]
+2026-10-15T08:46:19.7559194Z Get:23 http://ports.ubuntu.com/ubuntu-ports jammy-security/multiverse arm64 Packages [61.8 kB]
+2026-10-15T08:46:19.7993074Z Get:24 http://ports.ubuntu.com/ubuntu-ports jammy-security/multiverse Translation-en [13.7 kB]
+2026-10-15T08:46:24.8668488Z Fetched 29.6 MB in 3s (9843 kB/s)
+2026-10-15T08:46:26.3220960Z Reading package lists...
+2026-10-15T08:46:26.3853993Z Reading package lists...
+2026-10-15T08:46:26.7363010Z Building dependency tree...
+2026-10-15T08:46:26.7372070Z Reading state information...
+2026-10-15T08:46:27.0477950Z clang-15 is already the newest version (1:15.0.7-0ubuntu0.22.04.3).
+2026-10-15T08:46:27.0478717Z The following NEW packages will be installed:
+2026-10-15T08:46:27.0479750Z   lld
+2026-10-15T08:46:27.2688447Z 0 upgraded, 1 newly installed, 0 to remove and 59 not upgraded.
+2026-10-15T08:46:27.2689200Z Need to get 3178 B of archives.
+2026-10-15T08:46:27.2689866Z After this operation, 25.6 kB of additional disk space will be used.
+2026-10-15T08:46:27.2690471Z Get:1 http://ports.ubuntu.com/ubuntu-ports jammy/universe arm64 lld arm64 1:14.0-55~exp2 [3178 B]
+2026-10-15T08:46:27.5881174Z Fetched 3178 B in 0s (15.0 kB/s)
+2026-10-15T08:46:27.6330748Z Selecting previously unselected package lld:arm64.
+2026-10-15T08:46:27.6607427Z (Reading database ... 
+2026-10-15T08:46:27.6607967Z (Reading database ... 5%
+2026-10-15T08:46:27.6608466Z (Reading database ... 10%
+2026-10-15T08:46:27.6609453Z (Reading database ... 15%
+2026-10-15T08:46:27.6609779Z (Reading database ... 20%
+2026-10-15T08:46:27.6610144Z (Reading database ... 25%
+2026-10-15T08:46:27.6610424Z (Reading database ... 30%
+2026-10-15T08:46:27.6610733Z (Reading database ... 35%
+2026-10-15T08:46:27.6611061Z (Reading database ... 40%
+2026-10-15T08:46:27.6612201Z (Reading database ... 45%
+2026-10-15T08:46:27.6612795Z (Reading database ... 50%
+2026-10-15T08:46:27.7789154Z (Reading database ... 55%
+2026-10-15T08:46:27.9850421Z (Reading database ... 60%
+2026-10-15T08:46:28.1304908Z (Reading database ... 65%
+2026-10-15T08:46:28.3738476Z (Reading database ... 70%
+2026-10-15T08:46:28.5862201Z (Reading database ... 75%
+2026-10-15T08:46:28.8323625Z (Reading database ... 80%
+2026-10-15T08:46:29.0277978Z (Reading database ... 85%
+2026-10-15T08:46:29.2784417Z (Reading database ... 90%
+2026-10-15T08:46:29.5401844Z (Reading database ... 95%
+2026-10-15T08:46:29.5402349Z (Reading database ... 100%
+2026-10-15T08:46:29.5402898Z (Reading database ... 202580 files and directories currently installed.)
+2026-10-15T08:46:29.5456569Z Preparing to unpack .../lld_1%3a14.0-55~exp2_arm64.deb ...
+2026-10-15T08:46:29.5488183Z Unpacking lld:arm64 (1:14.0-55~exp2) ...
+2026-10-15T08:46:29.6240327Z Setting up lld:arm64 (1:14.0-55~exp2) ...
+2026-10-15T08:46:29.6273677Z Processing triggers for man-db (2.10.2-1) ...
+2026-10-15T08:46:29.6299007Z Not building database; man-db/auto-update is not 'true'.
+2026-10-15T08:46:31.8684086Z 
+2026-10-15T08:46:31.8686291Z Running kernel seems to be up-to-date.
+2026-10-15T08:46:31.8686922Z 
+2026-10-15T08:46:31.8687113Z No services need to be restarted.
+2026-10-15T08:46:31.8687365Z 
+2026-10-15T08:46:31.8687478Z No containers need to be restarted.
+2026-10-15T08:46:31.8687719Z 
+2026-10-15T08:46:31.8687941Z No user sessions are running outdated binaries.
+2026-10-15T08:46:31.8688177Z 
+2026-10-15T08:46:31.8710330Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-15T08:46:33.5875974Z ##[group]Run set -euo pipefail
+2026-10-15T08:46:33.5876576Z set -euo pipefail
+2026-10-15T08:46:33.5876991Z echo "host: $(ldd --version | head -1)"
+2026-10-15T08:46:33.5877354Z archives=(archive/*.tar.gz)
+2026-10-15T08:46:33.5877922Z test "${#archives[@]}" -eq 1 || { echo "::error::expected one archive, found ${#archives[@]}"; exit 1; }
+2026-10-15T08:46:33.5878482Z mkdir unpacked && tar -xzf "${archives[0]}" -C unpacked
+2026-10-15T08:46:33.5879190Z dir=$(ls -d unpacked/wolf-*)
+2026-10-15T08:46:33.5879510Z wolf="$dir/wolf"
+2026-10-15T08:46:33.5879925Z test -x "$wolf" && test -f "$dir/libwolf_rt.a" && test -x "$dir/wolf-cimport-worker"
+2026-10-15T08:46:33.5880496Z # The floor, measured on the shipped binary rather than assumed
+2026-10-15T08:46:33.5881003Z # from the runner: the highest GLIBC symbol version it imports.
+2026-10-15T08:46:33.5881612Z need=$(objdump -T "$wolf" | grep -o 'GLIBC_[0-9.]*' | sort -uV | tail -1)
+2026-10-15T08:46:33.5882165Z echo "highest GLIBC symbol version needed: ${need:-none}"
+2026-10-15T08:46:33.5882612Z minor=${need#GLIBC_2.}; minor=${minor%%.*}
+2026-10-15T08:46:33.5883012Z if [ -n "$need" ] && [ "$minor" -gt 35 ]; then
+2026-10-15T08:46:33.5883527Z   echo "::error::${need} is above the 2.35 floor (#447) — this archive will not start on Ubuntu 22.04"
+2026-10-15T08:46:33.5884077Z   exit 1
+2026-10-15T08:46:33.5884300Z fi
+2026-10-15T08:46:33.5884684Z # The D57 stamp: bare at a release tag; an rc rehearses on a +dev build.
+2026-10-15T08:46:33.5885112Z v=$("$wolf" --version | head -1)
+2026-10-15T08:46:33.5885394Z echo "$v"
+2026-10-15T08:46:33.5885711Z if [ "$PRERELEASE" = "false" ]; then
+2026-10-15T08:46:33.5886213Z   case "$v" in *+dev*) echo "::error::the release build carries the dev suffix: $v"; exit 1 ;; esac
+2026-10-15T08:46:33.5886742Z fi
+2026-10-15T08:46:33.5887403Z printf 'fn main() -> !int {\n    print("hello, wolf")\n    0\n}\n' > hello.lu
+2026-10-15T08:46:33.5887901Z if [ "$(uname -m)" = "aarch64" ]; then
+2026-10-15T08:46:33.5888303Z   # linux aarch64 is served by NEITHER compiled tier yet (D35's
+2026-10-15T08:46:33.5888768Z   # matrix: native is s28/s59/s60a, release is s41/s127, the rest
+2026-10-15T08:46:33.5889485Z   # is c13). What the archive owes this host is a refusal BY NAME
+2026-10-15T08:46:33.5889992Z   # with exit 2 — exit 2 with nothing said is #447's second
+2026-10-15T08:46:33.5890468Z   # defect exactly — and a checked tier that still runs the
+2026-10-15T08:46:33.5890928Z   # program. rc.1 (run 35716056293) asked this host for a native
+2026-10-15T08:46:33.5891412Z   # run and went red on the refusal; the gate was wrong, not the
+2026-10-15T08:46:33.5891962Z   # archive.
+2026-10-15T08:46:33.5892360Z   set +e; out=$("$wolf" run hello.lu 2>&1); rc=$?; set -e
+2026-10-15T08:46:33.5892916Z   grep -q "this host cannot run the native tier" <<< "$out" && [ "$rc" -eq 2 ] \
+2026-10-15T08:46:33.5893460Z     || { echo "::error::native tier on aarch64 linux: exit $rc: $out"; exit 1; }
+2026-10-15T08:46:33.5893924Z   echo "native tier: refuses by name, exit $rc"
+2026-10-15T08:46:33.5894474Z   set +e; out=$(WOLF_CLANG=clang-15 "$wolf" run --release hello.lu 2>&1); rc=$?; set -e
+2026-10-15T08:46:33.5895058Z   grep -q "this host cannot run the release tier" <<< "$out" && [ "$rc" -ne 0 ] \
+2026-10-15T08:46:33.5895635Z     || { echo "::error::release tier on aarch64 linux: exit $rc: $out"; exit 1; }
+2026-10-15T08:46:33.5896114Z   echo "release tier: refuses by name, exit $rc"
+2026-10-15T08:46:33.5896482Z else
+2026-10-15T08:46:33.5896758Z   # native tier (the default, `wolf run`)
+2026-10-15T08:46:33.5897342Z   out=$("$wolf" run hello.lu)
+2026-10-15T08:46:33.5897923Z   test "$out" = "hello, wolf" || { echo "::error::native tier: $out"; exit 1; }
+2026-10-15T08:46:33.5898341Z   echo "native tier: $out"
+2026-10-15T08:46:33.5898709Z   # release tier (LLVM, through clang-15)
+2026-10-15T08:46:33.5899460Z   out=$(WOLF_CLANG=clang-15 "$wolf" run --release hello.lu)
+2026-10-15T08:46:33.5899954Z   test "$out" = "hello, wolf" || { echo "::error::release tier: $out"; exit 1; }
+2026-10-15T08:46:33.5900442Z   echo "release tier: $out"
+2026-10-15T08:46:33.5900718Z fi
+2026-10-15T08:46:33.5901109Z # checked tier — it answers only through conform-run --checked
+2026-10-15T08:46:33.5901565Z rec=$("$wolf" conform-run hello.lu --checked --json)
+2026-10-15T08:46:33.5902070Z echo "$rec" | jq -e '.verdict == "exit(0)" and .stdout_inline == "hello, wolf\n"' > /dev/null \
+2026-10-15T08:46:33.5902641Z   || { echo "::error::checked tier: $rec"; exit 1; }
+2026-10-15T08:46:33.5903184Z echo "checked tier: $(echo "$rec" | jq -r .verdict), $(echo "$rec" | jq -r .stdout_inline | head -1)"
+2026-10-15T08:46:33.5926837Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-15T08:46:33.5927376Z env:
+2026-10-15T08:46:33.5927635Z   PRERELEASE: false
+2026-10-15T08:46:33.5927902Z ##[endgroup]
+2026-10-15T08:46:33.5989256Z /usr/bin/ldd: line 41: printf: write error: Broken pipe
+2026-10-15T08:46:33.5990080Z /usr/bin/ldd: line 43: printf: write error: Broken pipe
+2026-10-15T08:46:33.5992852Z host: ldd (Ubuntu GLIBC 2.35-0ubuntu3.15) 2.35
+2026-10-15T08:46:35.9836445Z highest GLIBC symbol version needed: GLIBC_2.34
+2026-10-15T08:46:35.9853933Z wolf 0.2.30 (wolfgang, pin 1b37f36)
+2026-10-15T08:46:35.9903616Z native tier: refuses by name, exit 2
+2026-10-15T08:46:35.9942642Z release tier: refuses by name, exit 2
+2026-10-15T08:46:36.0632027Z checked tier: exit(0), hello, wolf
+2026-10-15T08:46:36.0723124Z Cleaning up orphan processes
+2026-10-15T08:46:36.1073518Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

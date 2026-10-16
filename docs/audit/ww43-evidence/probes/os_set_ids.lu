@@ -1,0 +1,20 @@
+//! member: false
+//! ww43 probe: one call of os_set_ids, for the tab and for lupin at a terminal (chapter 34's builtins).
+//! The uid -1 is outside 0..=4294967294, so the call is `invalid` before
+//! the host is asked: nothing changes on any machine.
+fn row() -> str {
+    os_set_ids(-1, -1, List[int]()) else |e| {
+        return match e {
+            denied => "denied",
+            invalid => "invalid",
+            unsupported => "unsupported",
+            io => "io",
+        }
+    }
+    "ok"
+}
+
+fn main() -> !int {
+    print("set_ids: {row()}")
+    0
+}

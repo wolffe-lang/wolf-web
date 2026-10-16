@@ -1,0 +1,10 @@
+//! member: false
+//! ww43 probe: chapter 34 program 5, book/ch34.md:292 at wolf-book 95d68ad, fence wolf-run(exit=0), verbatim below this header.
+use std.env
+
+fn main() -> !int {
+    print("an id: {env.pid() > 0}, a parent: {env.ppid()? > 0}")
+    print("started set-user-id: {os_uid()? != os_euid()?}")
+    print("started set-group-id: {os_gid()? != os_egid()?}")
+    0
+}

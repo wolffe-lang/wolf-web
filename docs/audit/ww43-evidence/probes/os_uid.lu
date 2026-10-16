@@ -1,0 +1,11 @@
+//! member: false
+//! ww43 probe: one call of os_uid, for the tab and for lupin at a terminal (chapter 34's builtins).
+fn main() -> !int {
+    let v = os_uid() else |e| {
+        match e {
+            unsupported => -2,
+        }
+    }
+    print("uid: {v >= 0}")
+    0
+}

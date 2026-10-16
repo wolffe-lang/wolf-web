@@ -1,0 +1,46 @@
+# STAGED gates: kasumi's dist at ww43 0254e28 (every book script ?v=95d68ad); the book served by wolf-book 95d68ad tests/contents/serve.mjs under lupp.us's headers, --unversioned; contents.mjs sha256 f0a6c7a5…; the site served by ww43-serve.mjs on 127.0.0.1:8743 (pid 30184) with nginx/lupp.us.conf's headers; playwright-core 1.63.0, nomad-1
+started 2026-10-16T22:22:11Z
+BOOK-EXIT=0
+book: ok — six diagrams rendered and the three changed blocks served on every cell, no CSP violation
+LINKS-EXIT=1
+links: against http://127.0.0.1:8743/
+links: chromium phone: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: chromium desktop: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: firefox phone: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: firefox desktop: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: webkit phone: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: webkit desktop: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: FAILED
+contents: gate against http://127.0.0.1:57528/book/ (render served with lupp.us's headers, unversioned)
+contents: chromium phone: 50 pages, 46 entries, 2300 clicks, 2300 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 158s
+contents: chromium desktop: 50 pages, 46 entries, 2300 clicks, 2300 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 46s
+contents: firefox phone: 50 pages, 46 entries, 2300 clicks, 167 at 200, 2133 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 185s
+contents: firefox desktop: 50 pages, 46 entries, 2300 clicks, 170 at 200, 2130 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 120s
+contents: webkit phone: 50 pages, 46 entries, 2300 clicks, 394 at 200, 1906 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 182s
+contents: webkit desktop: 50 pages, 46 entries, 2300 clicks, 390 at 200, 1910 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 78s
+contents: ok — every entry from every page lands where its label says
+GATE-EXIT=0
+contents: retry against http://127.0.0.1:59424/book/ (render served with lupp.us's headers, unversioned)
+# chromium phone: hop1 92/92 landed, 0 at 304 (0 number mismatches); hop2 92/92 landed, 0 at 304
+# chromium desktop: hop1 92/92 landed, 0 at 304 (0 number mismatches); hop2 92/92 landed, 0 at 304
+# firefox phone: hop1 92/92 landed, 48 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+# firefox desktop: hop1 92/92 landed, 48 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+# webkit phone: hop1 92/92 landed, 46 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+# webkit desktop: hop1 92/92 landed, 46 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+contents: ok — every entry from every page lands where its label says
+RETRY-EXIT=0
+retry log:     1116 lines, 0 'HTTP 404', 0 ERROR
+finished 2026-10-16T22:39:02Z
+STAGED-DONE

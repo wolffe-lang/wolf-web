@@ -1,0 +1,14 @@
+//! member: false
+//! ww43 probe: one call of os_term_size, for the tab and for lupin at a terminal (chapter 34's builtins).
+fn main() -> !int {
+    let (r, c) = os_term_size(1) else |e| {
+        print(match e {
+            unsupported => "size: unsupported",
+            io => "size: io",
+        })
+        return 0
+    }
+    let fits = r >= 0 && c >= 0
+    print("size: {fits}")
+    0
+}

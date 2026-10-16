@@ -1,0 +1,20 @@
+links: against http://127.0.0.1:8743/
+links: chromium phone: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: chromium desktop: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: firefox phone: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: firefox desktop: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: webkit phone: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: webkit desktop: hop 1 7/7 landed (7 clicked), hop 2 31/31 landed, 0 faults — FAIL
+  ch34 in the two-hop set: true; anchors #34.1 200 found scrolled "34.1 A signal is an event"
+  ! TypeError: Cannot read properties of null (reading 'status')
+links: FAILED

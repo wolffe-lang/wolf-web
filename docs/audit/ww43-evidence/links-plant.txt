@@ -1,0 +1,46 @@
+# PLANT, the site's links: the same plant dir (an inline <script> in index.html and play/index.html, reading/index.html removed, /play/'s link to chapter 34 removed, ch34.html's id="34.2" renamed), 127.0.0.1:8743; started 2026-10-16T22:41:10Z
+links: against http://127.0.0.1:8743/
+links: chromium phone: hop 1 6/7 landed (7 clicked), hop 2 27/27 landed, 5 faults — FAIL
+  ch34 in the two-hop set: false; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 MISSING ""; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+  ! {"url":"/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."]}
+  ! {"url":"/play/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."]}
+  ! {"url":"/reading/","status":404,"how":"click","csp":0,"errors":1,"detail":["console error: Failed to load resource: the server responded with a status of 404 (Not Found)"]}
+  ! {"url":"/book/ch34.html","how":"two-hop set","detail":["chapter 34 is not within two hops of the front page"]}
+  ! {"url":"/book/ch34.html#34.2","how":"anchor","detail":["{\"found\":false}"]}
+links: chromium desktop: hop 1 6/7 landed (7 clicked), hop 2 27/27 landed, 5 faults — FAIL
+  ch34 in the two-hop set: false; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 MISSING ""; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+  ! {"url":"/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."]}
+  ! {"url":"/play/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."]}
+  ! {"url":"/reading/","status":404,"how":"click","csp":0,"errors":1,"detail":["console error: Failed to load resource: the server responded with a status of 404 (Not Found)"]}
+  ! {"url":"/book/ch34.html","how":"two-hop set","detail":["chapter 34 is not within two hops of the front page"]}
+  ! {"url":"/book/ch34.html#34.2","how":"anchor","detail":["{\"found\":false}"]}
+links: firefox phone: hop 1 6/7 landed (7 clicked), hop 2 27/27 landed, 5 faults — FAIL
+  ch34 in the two-hop set: false; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 MISSING ""; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+  ! {"url":"/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: [JavaScript Error: \"Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ=') or a nonce.\" {file: \"http://127.0.0.1:8743/\" line: 662}]"]}
+  ! {"url":"/play/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: [JavaScript Error: \"Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ=') or a nonce.\" {file: \"http://127.0.0.1:8743/play/\" line: 675}]"]}
+  ! {"url":"/reading/","status":404,"how":"click","csp":0,"errors":0,"detail":[]}
+  ! {"url":"/book/ch34.html","how":"two-hop set","detail":["chapter 34 is not within two hops of the front page"]}
+  ! {"url":"/book/ch34.html#34.2","how":"anchor","detail":["{\"found\":false}"]}
+links: firefox desktop: hop 1 6/7 landed (7 clicked), hop 2 27/27 landed, 5 faults — FAIL
+  ch34 in the two-hop set: false; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 MISSING ""; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+  ! {"url":"/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: [JavaScript Error: \"Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ=') or a nonce.\" {file: \"http://127.0.0.1:8743/\" line: 662}]"]}
+  ! {"url":"/play/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: [JavaScript Error: \"Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-c4+NqYAwurQcUB8VPC0WFaHBKAyKtSsfnvo1xJJBtLQ=') or a nonce.\" {file: \"http://127.0.0.1:8743/play/\" line: 675}]"]}
+  ! {"url":"/reading/","status":404,"how":"click","csp":0,"errors":0,"detail":[]}
+  ! {"url":"/book/ch34.html","how":"two-hop set","detail":["chapter 34 is not within two hops of the front page"]}
+  ! {"url":"/book/ch34.html#34.2","how":"anchor","detail":["{\"found\":false}"]}
+links: webkit phone: hop 1 6/7 landed (7 clicked), hop 2 27/27 landed, 5 faults — FAIL
+  ch34 in the two-hop set: false; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 MISSING ""; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+  ! {"url":"/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy."]}
+  ! {"url":"/play/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy."]}
+  ! {"url":"/reading/","status":404,"how":"click","csp":0,"errors":1,"detail":["console error: Failed to load resource: the server responded with a status of 404 (Not Found)"]}
+  ! {"url":"/book/ch34.html","how":"two-hop set","detail":["chapter 34 is not within two hops of the front page"]}
+  ! {"url":"/book/ch34.html#34.2","how":"anchor","detail":["{\"found\":false}"]}
+links: webkit desktop: hop 1 6/7 landed (7 clicked), hop 2 27/27 landed, 5 faults — FAIL
+  ch34 in the two-hop set: false; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 MISSING ""; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"
+  ! {"url":"/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy."]}
+  ! {"url":"/play/","status":200,"how":"click","csp":1,"errors":1,"detail":["script-src-elem inline","console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy."]}
+  ! {"url":"/reading/","status":404,"how":"click","csp":0,"errors":1,"detail":["console error: Failed to load resource: the server responded with a status of 404 (Not Found)"]}
+  ! {"url":"/book/ch34.html","how":"two-hop set","detail":["chapter 34 is not within two hops of the front page"]}
+  ! {"url":"/book/ch34.html#34.2","how":"anchor","detail":["{\"found\":false}"]}
+links: FAILED
+PLANT-LINKS-EXIT=1
