@@ -307,7 +307,7 @@
       <code>spawn proc</code> argument, must outlive the frame, as a sent
       payload must (<code>[conc.chan.payload]</code>,
       <code>[conc.proc.arg]</code>).
-      At v__WOLF_VERSION__ <code>[conc.task.order]</code> restates what a
+      Since v0.2.29 <code>[conc.task.order]</code> restates what a
       parked task costs the host. Compensation has no cap of its own: the
       native runtime holds a thread for every task parked in a wait, so a
       program that parks a task for each connection holds as many as the
@@ -317,6 +317,15 @@
       completion, its deadline or a cancellation with no system call
       meanwhile; <code>os_signal_wait</code> is the wait that still polls,
       and the clause says how often.
+      At v__WOLF_VERSION__ <code>[conc.proc.arg]</code> carries the frame
+      rule into a helper: a <code>spawn proc</code> whose arguments can name
+      a parameter's bytes, or bytes in the caller's region, must be met on
+      every path out of the function — <code>p.join()</code>, an exit
+      received from <code>p.monitor()</code>, or <code>p</code> handed to a
+      function that meets it — and a kill meets nothing. A function that
+      may miss one leaves a proc running, and every call to it is held to
+      the frame rule, <code>E1010</code> at the argument whose bytes a
+      region block would free first.
       Anchors <code>[conc.*]</code>.</dd>
 
     <dt><a href="/spec/04-abi.md">04. ABI</a> (__KIB_spec/04-abi.md__ KiB)</dt>
@@ -599,7 +608,7 @@
       <code>[os.fs.link]</code>, <code>[os.fs.times]</code>,
       <code>[os.fs.truncate]</code>, <code>[os.fs.umask]</code>), each judging
       its arguments first, then answering <code>unsupported</code> by name
-      where the host has no such operation. At v__WOLF_VERSION__ the signal
+      where the host has no such operation. Since v0.2.29 the signal
       set holds every signal POSIX names (<code>[os.signal.set]</code>): the
       meanings a program may listen for, ignore, wait for and poll, and the
       ones it may only send, <code>KILL</code> and <code>STOP</code> among
@@ -613,9 +622,21 @@
       number for a meaning (<code>[os.signal.number]</code>) and names its
       own id and its parent's (<code>[os.proc.self]</code>), and a poll lets
       pending signals be delivered before it answers, so it never trails
-      one (<code>[os.signal.poll]</code>). Each of the new calls is hosted:
-      the freestanding target refuses it by name. Anchors
-      <code>[os.*]</code>.</dd>
+      one (<code>[os.signal.poll]</code>). At v__WOLF_VERSION__ a program
+      reads who it runs as, its real and effective ids and its groups
+      (<code>[os.proc.ids]</code>), changes a file's owner by path or on a
+      handle (<code>[os.fs.owner]</code>), and becomes another user for good
+      (<code>[os.proc.ids.set]</code>): the call returns with every id as
+      asked or every id as it was, and ends the process rather than leave
+      it in between. It reads the terminal's size and its special
+      characters (<code>[os.term.size]</code>,
+      <code>[os.term.chars]</code>), waits on a descriptor and a signal set
+      at once (<code>[os.signal.wait.fd]</code>), and a terminal mode carries
+      flow control and the host's extended input as two more switches
+      (<code>[os.term.mode]</code>). windows answers
+      <code>unsupported</code> for every one of these calls once its shape
+      is judged. Each of the new calls is hosted: the freestanding target
+      refuses it by name. Anchors <code>[os.*]</code>.</dd>
   </dl>
 </section>
 
