@@ -20,6 +20,60 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww43 (the site at 0.2.30, chapter 34, and a process's ids and terminal) — 2026-10-16
+
+All three gitlinks move: the book to bs67's merge, the compiler to wolf 0.2.30,
+and the interpreter to lupin 0.1.53.
+
+**The book gains chapter 34, Signals and the process.** It sits after chapter
+33 at the end of part 4, its sections are the anchors `#34.1` to `#34.4`, and
+the reading page counts it among the chapters written through and names it in
+part 4's line. ch01's Windows block names the 0.2.30 archive, as /install/
+does.
+
+**The lag widens by a release; the distance is 717 commits.** lupin 0.1.53
+kept the specification pin lupin 0.1.48 first took, the v0.2.24 tag, while the
+compiler tagged 0.2.30, so the ancestry guard answers `gap 6`, `tagged true`,
+717 commits, where it counted 611 at the last bump. Its closed set of phrases
+stopped one short again, so at the compiler's pin and at the interpreter's it
+stopped, naming the phrase no page had. Both pages' sentences were written
+first, then the phrase joined the set.
+
+**The tab still refuses nothing the compiler runs.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes,
+both corpora through both modules: 670 programs, 494 exit, 47 trap, 129
+unsupported, 0 fail, 541 candidates, and no instance killed. The release's
+straight-line programs, the shapes 0.2.29's compiled tiers panicked on, print
+their headers here; `conc/proc_must_join_legal.lu` is declined with the proc
+tier, and `os/ids_read.lu`, `os/ids_rows.lu` and `os/term_editor_rows.lu` at
+their first new call with the process tier. No program both corpora carry
+changed its verdict, and all 670 print the same under lupin 0.1.52's module and
+lupin 0.1.53's.
+
+**What the tab answers for chapter 34's builtins.** The release's new calls
+are hosted, and a program that makes any one of them here is answered
+`unsupported`, naming the call: the id reads, the drop and the terminal calls
+with the process tier, and the two owner calls with the filesystem. Under
+lupin 0.1.52's module each was a name that does not resolve. The chapter's own
+programs are declined too, most because the tab has no standard library to
+import. At a terminal lupin 0.1.53 serves the owner calls and every shape row
+and refuses the id reads, the drop and the terminal calls by name. /play/ and
+/install/ say so.
+
+**lupin 0.1.53 still does not compile to WebAssembly as released**
+(wolf-interp#222, open). The portability patch applies unchanged to the
+staged copy, and the module builds with no imports.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.30 changed (the compiled tiers' crash fixed, a proc a helper may leave
+running held to the frame rule at every call, the terminal's size, keys and a
+wait a key and a signal both end, who a process runs as, a file's owner and
+the drop) and says what the archive's standard library wraps; 0.2.29's story
+moves into the history. /spec/ binds 03's must-join extension and 11's id,
+owner and terminal clauses to the stamp and dates 0.2.29's clauses. linux
+aarch64 holds as written: the 0.2.30 release's arm gate asserts the same
+refusals and the same checked run.
+
 ## ww42 (the site at 0.2.29, a wider lag, and the shell's signals) — 2026-10-13
 
 All three gitlinks move: the book to bs66's merge, the compiler to wolf 0.2.29,
