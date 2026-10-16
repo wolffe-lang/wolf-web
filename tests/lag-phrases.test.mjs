@@ -1,6 +1,6 @@
 /* The lag-phrase gate: the rule that lived on one runner now reds here.
  *
- * /install/ and /play/ are held to a CLOSED SET of phrases (six since ww42) for the
+ * /install/ and /play/ are held to a CLOSED SET of phrases (seven since ww43) for the
  * counted distance between the compiler this site advertises and the
  * specification the pinned interpreter was built to. The rule is correct and
  * has been since ww13 — and until now it lived only in PowerShell, inside

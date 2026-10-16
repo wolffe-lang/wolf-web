@@ -6,9 +6,9 @@
 
 Two implementations are compared against one specification and they do not tag
 together, so the site has to say which one is behind. /install/ and /play/ both
-write that sentence in prose, in a CLOSED SET of six phrases — `the same
+write that sentence in prose, in a CLOSED SET of seven phrases — `the same
 commit`, `one release`, `two releases`, `three releases`, `four releases`,
-`five releases` — and the rule is that the page carries the phrase for the
+`five releases`, `six releases` — and the rule is that the page carries the phrase for the
 counted gap and NONE of the others, anywhere on the page.
 
 The rule is not new. It has been enforced since ww13, correctly, in PowerShell,
@@ -41,7 +41,7 @@ release tag that is an ancestor of the interpreter's pin — because since ww20
 the interpreter's pin has not always been a tag at all (lupin 0.1.29 was built
 to `e9a17cb`, a development revision of trunk). A pin that is not a tag gets
 its own half of the rule: `a development revision` is reserved vocabulary
-beside the six phrases, required when the pin is no release and refused when
+beside the seven phrases, required when the pin is no release and refused when
 it is.
 
 That needs the compiler checkout to carry history and tags. A depth-1 clone
@@ -77,6 +77,9 @@ PHRASES = {
     # ww42: lupin 0.1.52 kept the same pin while the compiler tagged 0.2.29,
     # so the gap reached five; written after both pages' sentences again.
     5: "five releases",
+    # ww43: lupin 0.1.53 kept it through 0.2.30, so the gap reached six;
+    # written after both pages' sentences, as at ww41 and ww42.
+    6: "six releases",
 }
 DEVREV = "a development revision"
 SPECREV = "__PIN_specrev_short__"
