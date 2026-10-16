@@ -292,7 +292,7 @@ play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 spec/index.html ten 1 counted=1 audited-at-wolf=0.2.29
 reading/index.html Six 1 counted=1 audited-at-book=95d68ad
-reading/index.html Thirty-one 1 counted=1 audited-at-book=0a5fecc
+reading/index.html Thirty-two 1 counted=1 audited-at-book=95d68ad
 reading/index.html five 1 counted=1 audited-at-book=95d68ad
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
