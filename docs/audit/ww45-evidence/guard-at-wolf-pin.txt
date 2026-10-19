@@ -1,0 +1,17 @@
+HEAD 70d9d98
+wolf-book 3ac6fa9
+wolf-interp 0e536e8
+wolf-lang 85dab5d7
+check-lag-phrases: the interpreter is 9 releases behind and /install/ and /play/ have prose for 0 through 8 only — write the sentence, then add its phrase here
+LAG-EXIT=1
+check-lag-phrases: the interpreter is 9 releases behind and /install/ and /play/ have prose for 0 through 8 only — write the sentence, then add its phrase here
+
+VP-EXIT=1
+version-prose lines: 90
+version prose: docs/index.html: 'v0.1.0' was audited at wolf 0.2.32, the wolf pin is now 0.2.33 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: '1.97.1' was audited at wolf 0.2.32, the wolf pin is now 0.2.33 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.13' was audited at wolf 0.2.32, the wolf pin is now 0.2.33 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.15' was audited at wolf 0.2.32, the wolf pin is now 0.2.33 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.16' was audited at wolf 0.2.32, the wolf pin is now 0.2.33 — re-read the sentence, then re-stamp its audited-at-wolf
+counts: 260 number word(s) in 81 entries, 25 of them live and re-read at this bump (wolf 0.2.33, lupin 0.1.54, book 3ac6fa9)
+CC-EXIT=0

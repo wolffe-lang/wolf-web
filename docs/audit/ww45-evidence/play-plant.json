@@ -1,0 +1,2293 @@
+{
+ "base": "http://127.0.0.1:8755",
+ "started": "2026-10-19T23:51:58.325Z",
+ "cells": {
+  "chromium phone": {
+   "samples": [
+    {
+     "title": "hello, wolf",
+     "corpus": "corpus/hello.lu",
+     "noted": null,
+     "bytes": 490,
+     "verdict": "unsupported"
+    },
+    {
+     "title": "interpolation",
+     "corpus": "corpus/strings/interp_value_position.lu",
+     "noted": null,
+     "bytes": 757,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "format specs",
+     "corpus": "corpus/strings/format_spec_width.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "string methods",
+     "corpus": "corpus/strings/builtin_methods.lu",
+     "noted": null,
+     "bytes": 1225,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "text to a number, and the row when it is not",
+     "corpus": "corpus/strings/to_int.lu",
+     "noted": null,
+     "bytes": 4010,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the char scalar",
+     "corpus": "corpus/strings/char_interp.lu",
+     "noted": null,
+     "bytes": 786,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the byte, and its cast ladder",
+     "corpus": "corpus/typecheck/byte_casts.lu",
+     "noted": null,
+     "bytes": 1969,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "strings inside strings",
+     "corpus": "corpus/grammar/interp_nested.lu",
+     "noted": null,
+     "bytes": 457,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a scratch region",
+     "corpus": "corpus/memory/region_ambient_ok.lu",
+     "noted": null,
+     "bytes": 659,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "regions as values, and freeze",
+     "corpus": "corpus/memory/region_freeze_ok.lu",
+     "noted": null,
+     "bytes": 614,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "inferred regions",
+     "corpus": "corpus/memory/region_infer_list_builder.lu",
+     "noted": null,
+     "bytes": 901,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "move, take, copy",
+     "corpus": "corpus/memory/move_ok.lu",
+     "noted": null,
+     "bytes": 587,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "defer runs backwards",
+     "corpus": "corpus/memory/defer_order.lu",
+     "noted": null,
+     "bytes": 344,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exclusivity, checked at run time",
+     "corpus": "corpus/memory/exclusivity.lu",
+     "noted": null,
+     "bytes": 1726,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a region with a budget",
+     "corpus": "corpus/memory/region_cap_boundary.lu",
+     "noted": null,
+     "bytes": 1796,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "call-site mut and take",
+     "corpus": "corpus/typecheck/receiver_modes.lu",
+     "noted": null,
+     "bytes": 727,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match, exhaustively",
+     "corpus": "corpus/typecheck/match_exhaustive.lu",
+     "noted": null,
+     "bytes": 873,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match as a switch",
+     "corpus": "corpus/grammar/match_switch.lu",
+     "noted": null,
+     "bytes": 916,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match on a range",
+     "corpus": "corpus/grammar/match_range.lu",
+     "noted": null,
+     "bytes": 1087,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a generic function",
+     "corpus": "corpus/generics/first_of_list.lu",
+     "noted": null,
+     "bytes": 760,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "two instantiations",
+     "corpus": "corpus/generics/two_instances.lu",
+     "noted": null,
+     "bytes": 1039,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an explicit type argument",
+     "corpus": "corpus/grammar/brackets_generic_call.lu",
+     "noted": null,
+     "bytes": 826,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "traits, and a trait object",
+     "corpus": "corpus/traits/dyn_ok.lu",
+     "noted": null,
+     "bytes": 1331,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "errors are values",
+     "corpus": "corpus/rows/else_tag_payload.lu",
+     "noted": null,
+     "bytes": 1065,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an error out of main",
+     "corpus": "corpus/rows/eu_main_err_exit.lu",
+     "noted": null,
+     "bytes": 555,
+     "verdict": "exit(1)"
+    },
+    {
+     "title": "arithmetic traps (overflow)",
+     "corpus": "corpus/faults/overflow_add.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "trap(overflow)"
+    },
+    {
+     "title": "arithmetic traps (divide by zero)",
+     "corpus": "corpus/faults/div_zero_rem.lu",
+     "noted": null,
+     "bytes": 405,
+     "verdict": "trap(div-zero)"
+    },
+    {
+     "title": "a bad slice traps",
+     "corpus": "corpus/faults/bounds_slice.lu",
+     "noted": null,
+     "bytes": 454,
+     "verdict": "trap(bounds)"
+    },
+    {
+     "title": "a region over its budget traps",
+     "corpus": "corpus/faults/region_cap_breach.lu",
+     "noted": null,
+     "bytes": 1196,
+     "verdict": "trap(alloc-contract)"
+    },
+    {
+     "title": "a trap runs no defers",
+     "corpus": "corpus/faults/trap_skips_root_defers.lu",
+     "noted": null,
+     "bytes": 2104,
+     "verdict": "trap(assert)"
+    },
+    {
+     "title": "a warning",
+     "corpus": "corpus/lints/mut_in_interp.lu",
+     "noted": null,
+     "bytes": 479,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a channel",
+     "corpus": "corpus/conc/chan_drain_after_inclusive_loop.lu",
+     "noted": null,
+     "bytes": 973,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "stdout and stderr",
+     "corpus": "corpus/io/eprint.lu",
+     "noted": null,
+     "bytes": 593,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exit codes",
+     "corpus": "corpus/os/exit_code.lu",
+     "noted": null,
+     "bytes": 481,
+     "verdict": "exit(7)"
+    },
+    {
+     "title": "a calculator",
+     "corpus": "corpus/projects/rpn.lu",
+     "noted": null,
+     "bytes": 1595,
+     "verdict": "exit(0)"
+    }
+   ],
+   "probes": {
+    "ch34-again": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `env.args` does not resolve"
+    },
+    "ch34-groups": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `process.lead_group` does not resolve"
+    },
+    "ch34-jobs": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.listen` does not resolve"
+    },
+    "ch34-nochild": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "ch34-one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.kill` does not resolve"
+    },
+    "os_exit_signal": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_exit_signal` does not resolve"
+    },
+    "os_signal_default_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_default_one` does not resolve"
+    },
+    "os_signal_ignore_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_ignore_one` does not resolve"
+    },
+    "os_signal_text_zero": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_text` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "os_wait_poll_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll_core` does not resolve"
+    },
+    "os_wait_status_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_status_core` does not resolve"
+    }
+   },
+   "status": 200,
+   "csp_header": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+   "banner": "lupin 0.1.54, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.",
+   "csp": [
+    "script-src-elem inline"
+   ],
+   "errors": [
+    "console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-Y7gvwGnWPSjN3hUOto5DSht7SFSDSls/ohCDTTna4gM='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."
+   ]
+  },
+  "chromium desktop": {
+   "samples": [
+    {
+     "title": "hello, wolf",
+     "corpus": "corpus/hello.lu",
+     "noted": null,
+     "bytes": 490,
+     "verdict": "unsupported"
+    },
+    {
+     "title": "interpolation",
+     "corpus": "corpus/strings/interp_value_position.lu",
+     "noted": null,
+     "bytes": 757,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "format specs",
+     "corpus": "corpus/strings/format_spec_width.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "string methods",
+     "corpus": "corpus/strings/builtin_methods.lu",
+     "noted": null,
+     "bytes": 1225,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "text to a number, and the row when it is not",
+     "corpus": "corpus/strings/to_int.lu",
+     "noted": null,
+     "bytes": 4010,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the char scalar",
+     "corpus": "corpus/strings/char_interp.lu",
+     "noted": null,
+     "bytes": 786,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the byte, and its cast ladder",
+     "corpus": "corpus/typecheck/byte_casts.lu",
+     "noted": null,
+     "bytes": 1969,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "strings inside strings",
+     "corpus": "corpus/grammar/interp_nested.lu",
+     "noted": null,
+     "bytes": 457,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a scratch region",
+     "corpus": "corpus/memory/region_ambient_ok.lu",
+     "noted": null,
+     "bytes": 659,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "regions as values, and freeze",
+     "corpus": "corpus/memory/region_freeze_ok.lu",
+     "noted": null,
+     "bytes": 614,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "inferred regions",
+     "corpus": "corpus/memory/region_infer_list_builder.lu",
+     "noted": null,
+     "bytes": 901,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "move, take, copy",
+     "corpus": "corpus/memory/move_ok.lu",
+     "noted": null,
+     "bytes": 587,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "defer runs backwards",
+     "corpus": "corpus/memory/defer_order.lu",
+     "noted": null,
+     "bytes": 344,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exclusivity, checked at run time",
+     "corpus": "corpus/memory/exclusivity.lu",
+     "noted": null,
+     "bytes": 1726,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a region with a budget",
+     "corpus": "corpus/memory/region_cap_boundary.lu",
+     "noted": null,
+     "bytes": 1796,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "call-site mut and take",
+     "corpus": "corpus/typecheck/receiver_modes.lu",
+     "noted": null,
+     "bytes": 727,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match, exhaustively",
+     "corpus": "corpus/typecheck/match_exhaustive.lu",
+     "noted": null,
+     "bytes": 873,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match as a switch",
+     "corpus": "corpus/grammar/match_switch.lu",
+     "noted": null,
+     "bytes": 916,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match on a range",
+     "corpus": "corpus/grammar/match_range.lu",
+     "noted": null,
+     "bytes": 1087,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a generic function",
+     "corpus": "corpus/generics/first_of_list.lu",
+     "noted": null,
+     "bytes": 760,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "two instantiations",
+     "corpus": "corpus/generics/two_instances.lu",
+     "noted": null,
+     "bytes": 1039,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an explicit type argument",
+     "corpus": "corpus/grammar/brackets_generic_call.lu",
+     "noted": null,
+     "bytes": 826,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "traits, and a trait object",
+     "corpus": "corpus/traits/dyn_ok.lu",
+     "noted": null,
+     "bytes": 1331,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "errors are values",
+     "corpus": "corpus/rows/else_tag_payload.lu",
+     "noted": null,
+     "bytes": 1065,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an error out of main",
+     "corpus": "corpus/rows/eu_main_err_exit.lu",
+     "noted": null,
+     "bytes": 555,
+     "verdict": "exit(1)"
+    },
+    {
+     "title": "arithmetic traps (overflow)",
+     "corpus": "corpus/faults/overflow_add.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "trap(overflow)"
+    },
+    {
+     "title": "arithmetic traps (divide by zero)",
+     "corpus": "corpus/faults/div_zero_rem.lu",
+     "noted": null,
+     "bytes": 405,
+     "verdict": "trap(div-zero)"
+    },
+    {
+     "title": "a bad slice traps",
+     "corpus": "corpus/faults/bounds_slice.lu",
+     "noted": null,
+     "bytes": 454,
+     "verdict": "trap(bounds)"
+    },
+    {
+     "title": "a region over its budget traps",
+     "corpus": "corpus/faults/region_cap_breach.lu",
+     "noted": null,
+     "bytes": 1196,
+     "verdict": "trap(alloc-contract)"
+    },
+    {
+     "title": "a trap runs no defers",
+     "corpus": "corpus/faults/trap_skips_root_defers.lu",
+     "noted": null,
+     "bytes": 2104,
+     "verdict": "trap(assert)"
+    },
+    {
+     "title": "a warning",
+     "corpus": "corpus/lints/mut_in_interp.lu",
+     "noted": null,
+     "bytes": 479,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a channel",
+     "corpus": "corpus/conc/chan_drain_after_inclusive_loop.lu",
+     "noted": null,
+     "bytes": 973,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "stdout and stderr",
+     "corpus": "corpus/io/eprint.lu",
+     "noted": null,
+     "bytes": 593,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exit codes",
+     "corpus": "corpus/os/exit_code.lu",
+     "noted": null,
+     "bytes": 481,
+     "verdict": "exit(7)"
+    },
+    {
+     "title": "a calculator",
+     "corpus": "corpus/projects/rpn.lu",
+     "noted": null,
+     "bytes": 1595,
+     "verdict": "exit(0)"
+    }
+   ],
+   "probes": {
+    "ch34-again": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `env.args` does not resolve"
+    },
+    "ch34-groups": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `process.lead_group` does not resolve"
+    },
+    "ch34-jobs": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.listen` does not resolve"
+    },
+    "ch34-nochild": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "ch34-one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.kill` does not resolve"
+    },
+    "os_exit_signal": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_exit_signal` does not resolve"
+    },
+    "os_signal_default_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_default_one` does not resolve"
+    },
+    "os_signal_ignore_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_ignore_one` does not resolve"
+    },
+    "os_signal_text_zero": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_text` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "os_wait_poll_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll_core` does not resolve"
+    },
+    "os_wait_status_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_status_core` does not resolve"
+    }
+   },
+   "status": 200,
+   "csp_header": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+   "banner": "lupin 0.1.54, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.",
+   "csp": [
+    "script-src-elem inline"
+   ],
+   "errors": [
+    "console error: Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-Y7gvwGnWPSjN3hUOto5DSht7SFSDSls/ohCDTTna4gM='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."
+   ]
+  },
+  "firefox phone": {
+   "samples": [
+    {
+     "title": "hello, wolf",
+     "corpus": "corpus/hello.lu",
+     "noted": null,
+     "bytes": 490,
+     "verdict": "unsupported"
+    },
+    {
+     "title": "interpolation",
+     "corpus": "corpus/strings/interp_value_position.lu",
+     "noted": null,
+     "bytes": 757,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "format specs",
+     "corpus": "corpus/strings/format_spec_width.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "string methods",
+     "corpus": "corpus/strings/builtin_methods.lu",
+     "noted": null,
+     "bytes": 1225,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "text to a number, and the row when it is not",
+     "corpus": "corpus/strings/to_int.lu",
+     "noted": null,
+     "bytes": 4010,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the char scalar",
+     "corpus": "corpus/strings/char_interp.lu",
+     "noted": null,
+     "bytes": 786,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the byte, and its cast ladder",
+     "corpus": "corpus/typecheck/byte_casts.lu",
+     "noted": null,
+     "bytes": 1969,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "strings inside strings",
+     "corpus": "corpus/grammar/interp_nested.lu",
+     "noted": null,
+     "bytes": 457,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a scratch region",
+     "corpus": "corpus/memory/region_ambient_ok.lu",
+     "noted": null,
+     "bytes": 659,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "regions as values, and freeze",
+     "corpus": "corpus/memory/region_freeze_ok.lu",
+     "noted": null,
+     "bytes": 614,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "inferred regions",
+     "corpus": "corpus/memory/region_infer_list_builder.lu",
+     "noted": null,
+     "bytes": 901,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "move, take, copy",
+     "corpus": "corpus/memory/move_ok.lu",
+     "noted": null,
+     "bytes": 587,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "defer runs backwards",
+     "corpus": "corpus/memory/defer_order.lu",
+     "noted": null,
+     "bytes": 344,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exclusivity, checked at run time",
+     "corpus": "corpus/memory/exclusivity.lu",
+     "noted": null,
+     "bytes": 1726,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a region with a budget",
+     "corpus": "corpus/memory/region_cap_boundary.lu",
+     "noted": null,
+     "bytes": 1796,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "call-site mut and take",
+     "corpus": "corpus/typecheck/receiver_modes.lu",
+     "noted": null,
+     "bytes": 727,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match, exhaustively",
+     "corpus": "corpus/typecheck/match_exhaustive.lu",
+     "noted": null,
+     "bytes": 873,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match as a switch",
+     "corpus": "corpus/grammar/match_switch.lu",
+     "noted": null,
+     "bytes": 916,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match on a range",
+     "corpus": "corpus/grammar/match_range.lu",
+     "noted": null,
+     "bytes": 1087,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a generic function",
+     "corpus": "corpus/generics/first_of_list.lu",
+     "noted": null,
+     "bytes": 760,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "two instantiations",
+     "corpus": "corpus/generics/two_instances.lu",
+     "noted": null,
+     "bytes": 1039,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an explicit type argument",
+     "corpus": "corpus/grammar/brackets_generic_call.lu",
+     "noted": null,
+     "bytes": 826,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "traits, and a trait object",
+     "corpus": "corpus/traits/dyn_ok.lu",
+     "noted": null,
+     "bytes": 1331,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "errors are values",
+     "corpus": "corpus/rows/else_tag_payload.lu",
+     "noted": null,
+     "bytes": 1065,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an error out of main",
+     "corpus": "corpus/rows/eu_main_err_exit.lu",
+     "noted": null,
+     "bytes": 555,
+     "verdict": "exit(1)"
+    },
+    {
+     "title": "arithmetic traps (overflow)",
+     "corpus": "corpus/faults/overflow_add.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "trap(overflow)"
+    },
+    {
+     "title": "arithmetic traps (divide by zero)",
+     "corpus": "corpus/faults/div_zero_rem.lu",
+     "noted": null,
+     "bytes": 405,
+     "verdict": "trap(div-zero)"
+    },
+    {
+     "title": "a bad slice traps",
+     "corpus": "corpus/faults/bounds_slice.lu",
+     "noted": null,
+     "bytes": 454,
+     "verdict": "trap(bounds)"
+    },
+    {
+     "title": "a region over its budget traps",
+     "corpus": "corpus/faults/region_cap_breach.lu",
+     "noted": null,
+     "bytes": 1196,
+     "verdict": "trap(alloc-contract)"
+    },
+    {
+     "title": "a trap runs no defers",
+     "corpus": "corpus/faults/trap_skips_root_defers.lu",
+     "noted": null,
+     "bytes": 2104,
+     "verdict": "trap(assert)"
+    },
+    {
+     "title": "a warning",
+     "corpus": "corpus/lints/mut_in_interp.lu",
+     "noted": null,
+     "bytes": 479,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a channel",
+     "corpus": "corpus/conc/chan_drain_after_inclusive_loop.lu",
+     "noted": null,
+     "bytes": 973,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "stdout and stderr",
+     "corpus": "corpus/io/eprint.lu",
+     "noted": null,
+     "bytes": 593,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exit codes",
+     "corpus": "corpus/os/exit_code.lu",
+     "noted": null,
+     "bytes": 481,
+     "verdict": "exit(7)"
+    },
+    {
+     "title": "a calculator",
+     "corpus": "corpus/projects/rpn.lu",
+     "noted": null,
+     "bytes": 1595,
+     "verdict": "exit(0)"
+    }
+   ],
+   "probes": {
+    "ch34-again": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `env.args` does not resolve"
+    },
+    "ch34-groups": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `process.lead_group` does not resolve"
+    },
+    "ch34-jobs": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.listen` does not resolve"
+    },
+    "ch34-nochild": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "ch34-one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.kill` does not resolve"
+    },
+    "os_exit_signal": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_exit_signal` does not resolve"
+    },
+    "os_signal_default_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_default_one` does not resolve"
+    },
+    "os_signal_ignore_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_ignore_one` does not resolve"
+    },
+    "os_signal_text_zero": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_text` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "os_wait_poll_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll_core` does not resolve"
+    },
+    "os_wait_status_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_status_core` does not resolve"
+    }
+   },
+   "status": 200,
+   "csp_header": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+   "banner": "lupin 0.1.54, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.",
+   "csp": [
+    "script-src-elem inline"
+   ],
+   "errors": [
+    "console error: [JavaScript Error: \"Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-Y7gvwGnWPSjN3hUOto5DSht7SFSDSls/ohCDTTna4gM=') or a nonce.\" {file: \"http://127.0.0.1:8755/play/\" line: 723}]"
+   ]
+  },
+  "firefox desktop": {
+   "samples": [
+    {
+     "title": "hello, wolf",
+     "corpus": "corpus/hello.lu",
+     "noted": null,
+     "bytes": 490,
+     "verdict": "unsupported"
+    },
+    {
+     "title": "interpolation",
+     "corpus": "corpus/strings/interp_value_position.lu",
+     "noted": null,
+     "bytes": 757,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "format specs",
+     "corpus": "corpus/strings/format_spec_width.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "string methods",
+     "corpus": "corpus/strings/builtin_methods.lu",
+     "noted": null,
+     "bytes": 1225,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "text to a number, and the row when it is not",
+     "corpus": "corpus/strings/to_int.lu",
+     "noted": null,
+     "bytes": 4010,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the char scalar",
+     "corpus": "corpus/strings/char_interp.lu",
+     "noted": null,
+     "bytes": 786,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the byte, and its cast ladder",
+     "corpus": "corpus/typecheck/byte_casts.lu",
+     "noted": null,
+     "bytes": 1969,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "strings inside strings",
+     "corpus": "corpus/grammar/interp_nested.lu",
+     "noted": null,
+     "bytes": 457,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a scratch region",
+     "corpus": "corpus/memory/region_ambient_ok.lu",
+     "noted": null,
+     "bytes": 659,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "regions as values, and freeze",
+     "corpus": "corpus/memory/region_freeze_ok.lu",
+     "noted": null,
+     "bytes": 614,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "inferred regions",
+     "corpus": "corpus/memory/region_infer_list_builder.lu",
+     "noted": null,
+     "bytes": 901,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "move, take, copy",
+     "corpus": "corpus/memory/move_ok.lu",
+     "noted": null,
+     "bytes": 587,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "defer runs backwards",
+     "corpus": "corpus/memory/defer_order.lu",
+     "noted": null,
+     "bytes": 344,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exclusivity, checked at run time",
+     "corpus": "corpus/memory/exclusivity.lu",
+     "noted": null,
+     "bytes": 1726,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a region with a budget",
+     "corpus": "corpus/memory/region_cap_boundary.lu",
+     "noted": null,
+     "bytes": 1796,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "call-site mut and take",
+     "corpus": "corpus/typecheck/receiver_modes.lu",
+     "noted": null,
+     "bytes": 727,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match, exhaustively",
+     "corpus": "corpus/typecheck/match_exhaustive.lu",
+     "noted": null,
+     "bytes": 873,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match as a switch",
+     "corpus": "corpus/grammar/match_switch.lu",
+     "noted": null,
+     "bytes": 916,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match on a range",
+     "corpus": "corpus/grammar/match_range.lu",
+     "noted": null,
+     "bytes": 1087,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a generic function",
+     "corpus": "corpus/generics/first_of_list.lu",
+     "noted": null,
+     "bytes": 760,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "two instantiations",
+     "corpus": "corpus/generics/two_instances.lu",
+     "noted": null,
+     "bytes": 1039,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an explicit type argument",
+     "corpus": "corpus/grammar/brackets_generic_call.lu",
+     "noted": null,
+     "bytes": 826,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "traits, and a trait object",
+     "corpus": "corpus/traits/dyn_ok.lu",
+     "noted": null,
+     "bytes": 1331,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "errors are values",
+     "corpus": "corpus/rows/else_tag_payload.lu",
+     "noted": null,
+     "bytes": 1065,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an error out of main",
+     "corpus": "corpus/rows/eu_main_err_exit.lu",
+     "noted": null,
+     "bytes": 555,
+     "verdict": "exit(1)"
+    },
+    {
+     "title": "arithmetic traps (overflow)",
+     "corpus": "corpus/faults/overflow_add.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "trap(overflow)"
+    },
+    {
+     "title": "arithmetic traps (divide by zero)",
+     "corpus": "corpus/faults/div_zero_rem.lu",
+     "noted": null,
+     "bytes": 405,
+     "verdict": "trap(div-zero)"
+    },
+    {
+     "title": "a bad slice traps",
+     "corpus": "corpus/faults/bounds_slice.lu",
+     "noted": null,
+     "bytes": 454,
+     "verdict": "trap(bounds)"
+    },
+    {
+     "title": "a region over its budget traps",
+     "corpus": "corpus/faults/region_cap_breach.lu",
+     "noted": null,
+     "bytes": 1196,
+     "verdict": "trap(alloc-contract)"
+    },
+    {
+     "title": "a trap runs no defers",
+     "corpus": "corpus/faults/trap_skips_root_defers.lu",
+     "noted": null,
+     "bytes": 2104,
+     "verdict": "trap(assert)"
+    },
+    {
+     "title": "a warning",
+     "corpus": "corpus/lints/mut_in_interp.lu",
+     "noted": null,
+     "bytes": 479,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a channel",
+     "corpus": "corpus/conc/chan_drain_after_inclusive_loop.lu",
+     "noted": null,
+     "bytes": 973,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "stdout and stderr",
+     "corpus": "corpus/io/eprint.lu",
+     "noted": null,
+     "bytes": 593,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exit codes",
+     "corpus": "corpus/os/exit_code.lu",
+     "noted": null,
+     "bytes": 481,
+     "verdict": "exit(7)"
+    },
+    {
+     "title": "a calculator",
+     "corpus": "corpus/projects/rpn.lu",
+     "noted": null,
+     "bytes": 1595,
+     "verdict": "exit(0)"
+    }
+   ],
+   "probes": {
+    "ch34-again": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `env.args` does not resolve"
+    },
+    "ch34-groups": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `process.lead_group` does not resolve"
+    },
+    "ch34-jobs": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.listen` does not resolve"
+    },
+    "ch34-nochild": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "ch34-one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.kill` does not resolve"
+    },
+    "os_exit_signal": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_exit_signal` does not resolve"
+    },
+    "os_signal_default_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_default_one` does not resolve"
+    },
+    "os_signal_ignore_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_ignore_one` does not resolve"
+    },
+    "os_signal_text_zero": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_text` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "os_wait_poll_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll_core` does not resolve"
+    },
+    "os_wait_status_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_status_core` does not resolve"
+    }
+   },
+   "status": 200,
+   "csp_header": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+   "banner": "lupin 0.1.54, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.",
+   "csp": [
+    "script-src-elem inline"
+   ],
+   "errors": [
+    "console error: [JavaScript Error: \"Content-Security-Policy: The page’s settings blocked an inline script (script-src-elem) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'”. Consider using a hash ('sha256-Y7gvwGnWPSjN3hUOto5DSht7SFSDSls/ohCDTTna4gM=') or a nonce.\" {file: \"http://127.0.0.1:8755/play/\" line: 723}]"
+   ]
+  },
+  "webkit phone": {
+   "samples": [
+    {
+     "title": "hello, wolf",
+     "corpus": "corpus/hello.lu",
+     "noted": null,
+     "bytes": 490,
+     "verdict": "unsupported"
+    },
+    {
+     "title": "interpolation",
+     "corpus": "corpus/strings/interp_value_position.lu",
+     "noted": null,
+     "bytes": 757,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "format specs",
+     "corpus": "corpus/strings/format_spec_width.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "string methods",
+     "corpus": "corpus/strings/builtin_methods.lu",
+     "noted": null,
+     "bytes": 1225,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "text to a number, and the row when it is not",
+     "corpus": "corpus/strings/to_int.lu",
+     "noted": null,
+     "bytes": 4010,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the char scalar",
+     "corpus": "corpus/strings/char_interp.lu",
+     "noted": null,
+     "bytes": 786,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the byte, and its cast ladder",
+     "corpus": "corpus/typecheck/byte_casts.lu",
+     "noted": null,
+     "bytes": 1969,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "strings inside strings",
+     "corpus": "corpus/grammar/interp_nested.lu",
+     "noted": null,
+     "bytes": 457,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a scratch region",
+     "corpus": "corpus/memory/region_ambient_ok.lu",
+     "noted": null,
+     "bytes": 659,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "regions as values, and freeze",
+     "corpus": "corpus/memory/region_freeze_ok.lu",
+     "noted": null,
+     "bytes": 614,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "inferred regions",
+     "corpus": "corpus/memory/region_infer_list_builder.lu",
+     "noted": null,
+     "bytes": 901,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "move, take, copy",
+     "corpus": "corpus/memory/move_ok.lu",
+     "noted": null,
+     "bytes": 587,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "defer runs backwards",
+     "corpus": "corpus/memory/defer_order.lu",
+     "noted": null,
+     "bytes": 344,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exclusivity, checked at run time",
+     "corpus": "corpus/memory/exclusivity.lu",
+     "noted": null,
+     "bytes": 1726,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a region with a budget",
+     "corpus": "corpus/memory/region_cap_boundary.lu",
+     "noted": null,
+     "bytes": 1796,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "call-site mut and take",
+     "corpus": "corpus/typecheck/receiver_modes.lu",
+     "noted": null,
+     "bytes": 727,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match, exhaustively",
+     "corpus": "corpus/typecheck/match_exhaustive.lu",
+     "noted": null,
+     "bytes": 873,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match as a switch",
+     "corpus": "corpus/grammar/match_switch.lu",
+     "noted": null,
+     "bytes": 916,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match on a range",
+     "corpus": "corpus/grammar/match_range.lu",
+     "noted": null,
+     "bytes": 1087,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a generic function",
+     "corpus": "corpus/generics/first_of_list.lu",
+     "noted": null,
+     "bytes": 760,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "two instantiations",
+     "corpus": "corpus/generics/two_instances.lu",
+     "noted": null,
+     "bytes": 1039,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an explicit type argument",
+     "corpus": "corpus/grammar/brackets_generic_call.lu",
+     "noted": null,
+     "bytes": 826,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "traits, and a trait object",
+     "corpus": "corpus/traits/dyn_ok.lu",
+     "noted": null,
+     "bytes": 1331,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "errors are values",
+     "corpus": "corpus/rows/else_tag_payload.lu",
+     "noted": null,
+     "bytes": 1065,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an error out of main",
+     "corpus": "corpus/rows/eu_main_err_exit.lu",
+     "noted": null,
+     "bytes": 555,
+     "verdict": "exit(1)"
+    },
+    {
+     "title": "arithmetic traps (overflow)",
+     "corpus": "corpus/faults/overflow_add.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "trap(overflow)"
+    },
+    {
+     "title": "arithmetic traps (divide by zero)",
+     "corpus": "corpus/faults/div_zero_rem.lu",
+     "noted": null,
+     "bytes": 405,
+     "verdict": "trap(div-zero)"
+    },
+    {
+     "title": "a bad slice traps",
+     "corpus": "corpus/faults/bounds_slice.lu",
+     "noted": null,
+     "bytes": 454,
+     "verdict": "trap(bounds)"
+    },
+    {
+     "title": "a region over its budget traps",
+     "corpus": "corpus/faults/region_cap_breach.lu",
+     "noted": null,
+     "bytes": 1196,
+     "verdict": "trap(alloc-contract)"
+    },
+    {
+     "title": "a trap runs no defers",
+     "corpus": "corpus/faults/trap_skips_root_defers.lu",
+     "noted": null,
+     "bytes": 2104,
+     "verdict": "trap(assert)"
+    },
+    {
+     "title": "a warning",
+     "corpus": "corpus/lints/mut_in_interp.lu",
+     "noted": null,
+     "bytes": 479,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a channel",
+     "corpus": "corpus/conc/chan_drain_after_inclusive_loop.lu",
+     "noted": null,
+     "bytes": 973,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "stdout and stderr",
+     "corpus": "corpus/io/eprint.lu",
+     "noted": null,
+     "bytes": 593,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exit codes",
+     "corpus": "corpus/os/exit_code.lu",
+     "noted": null,
+     "bytes": 481,
+     "verdict": "exit(7)"
+    },
+    {
+     "title": "a calculator",
+     "corpus": "corpus/projects/rpn.lu",
+     "noted": null,
+     "bytes": 1595,
+     "verdict": "exit(0)"
+    }
+   ],
+   "probes": {
+    "ch34-again": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `env.args` does not resolve"
+    },
+    "ch34-groups": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `process.lead_group` does not resolve"
+    },
+    "ch34-jobs": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.listen` does not resolve"
+    },
+    "ch34-nochild": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "ch34-one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.kill` does not resolve"
+    },
+    "os_exit_signal": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_exit_signal` does not resolve"
+    },
+    "os_signal_default_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_default_one` does not resolve"
+    },
+    "os_signal_ignore_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_ignore_one` does not resolve"
+    },
+    "os_signal_text_zero": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_text` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "os_wait_poll_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll_core` does not resolve"
+    },
+    "os_wait_status_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_status_core` does not resolve"
+    }
+   },
+   "status": 200,
+   "csp_header": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+   "banner": "lupin 0.1.54, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.",
+   "csp": [
+    "script-src-elem inline"
+   ],
+   "errors": [
+    "console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy."
+   ]
+  },
+  "webkit desktop": {
+   "samples": [
+    {
+     "title": "hello, wolf",
+     "corpus": "corpus/hello.lu",
+     "noted": null,
+     "bytes": 490,
+     "verdict": "unsupported"
+    },
+    {
+     "title": "interpolation",
+     "corpus": "corpus/strings/interp_value_position.lu",
+     "noted": null,
+     "bytes": 757,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "format specs",
+     "corpus": "corpus/strings/format_spec_width.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "string methods",
+     "corpus": "corpus/strings/builtin_methods.lu",
+     "noted": null,
+     "bytes": 1225,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "text to a number, and the row when it is not",
+     "corpus": "corpus/strings/to_int.lu",
+     "noted": null,
+     "bytes": 4010,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the char scalar",
+     "corpus": "corpus/strings/char_interp.lu",
+     "noted": null,
+     "bytes": 786,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "the byte, and its cast ladder",
+     "corpus": "corpus/typecheck/byte_casts.lu",
+     "noted": null,
+     "bytes": 1969,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "strings inside strings",
+     "corpus": "corpus/grammar/interp_nested.lu",
+     "noted": null,
+     "bytes": 457,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a scratch region",
+     "corpus": "corpus/memory/region_ambient_ok.lu",
+     "noted": null,
+     "bytes": 659,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "regions as values, and freeze",
+     "corpus": "corpus/memory/region_freeze_ok.lu",
+     "noted": null,
+     "bytes": 614,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "inferred regions",
+     "corpus": "corpus/memory/region_infer_list_builder.lu",
+     "noted": null,
+     "bytes": 901,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "move, take, copy",
+     "corpus": "corpus/memory/move_ok.lu",
+     "noted": null,
+     "bytes": 587,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "defer runs backwards",
+     "corpus": "corpus/memory/defer_order.lu",
+     "noted": null,
+     "bytes": 344,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exclusivity, checked at run time",
+     "corpus": "corpus/memory/exclusivity.lu",
+     "noted": null,
+     "bytes": 1726,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a region with a budget",
+     "corpus": "corpus/memory/region_cap_boundary.lu",
+     "noted": null,
+     "bytes": 1796,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "call-site mut and take",
+     "corpus": "corpus/typecheck/receiver_modes.lu",
+     "noted": null,
+     "bytes": 727,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match, exhaustively",
+     "corpus": "corpus/typecheck/match_exhaustive.lu",
+     "noted": null,
+     "bytes": 873,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match as a switch",
+     "corpus": "corpus/grammar/match_switch.lu",
+     "noted": null,
+     "bytes": 916,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "match on a range",
+     "corpus": "corpus/grammar/match_range.lu",
+     "noted": null,
+     "bytes": 1087,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a generic function",
+     "corpus": "corpus/generics/first_of_list.lu",
+     "noted": null,
+     "bytes": 760,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "two instantiations",
+     "corpus": "corpus/generics/two_instances.lu",
+     "noted": null,
+     "bytes": 1039,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an explicit type argument",
+     "corpus": "corpus/grammar/brackets_generic_call.lu",
+     "noted": null,
+     "bytes": 826,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "traits, and a trait object",
+     "corpus": "corpus/traits/dyn_ok.lu",
+     "noted": null,
+     "bytes": 1331,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "errors are values",
+     "corpus": "corpus/rows/else_tag_payload.lu",
+     "noted": null,
+     "bytes": 1065,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "an error out of main",
+     "corpus": "corpus/rows/eu_main_err_exit.lu",
+     "noted": null,
+     "bytes": 555,
+     "verdict": "exit(1)"
+    },
+    {
+     "title": "arithmetic traps (overflow)",
+     "corpus": "corpus/faults/overflow_add.lu",
+     "noted": null,
+     "bytes": 598,
+     "verdict": "trap(overflow)"
+    },
+    {
+     "title": "arithmetic traps (divide by zero)",
+     "corpus": "corpus/faults/div_zero_rem.lu",
+     "noted": null,
+     "bytes": 405,
+     "verdict": "trap(div-zero)"
+    },
+    {
+     "title": "a bad slice traps",
+     "corpus": "corpus/faults/bounds_slice.lu",
+     "noted": null,
+     "bytes": 454,
+     "verdict": "trap(bounds)"
+    },
+    {
+     "title": "a region over its budget traps",
+     "corpus": "corpus/faults/region_cap_breach.lu",
+     "noted": null,
+     "bytes": 1196,
+     "verdict": "trap(alloc-contract)"
+    },
+    {
+     "title": "a trap runs no defers",
+     "corpus": "corpus/faults/trap_skips_root_defers.lu",
+     "noted": null,
+     "bytes": 2104,
+     "verdict": "trap(assert)"
+    },
+    {
+     "title": "a warning",
+     "corpus": "corpus/lints/mut_in_interp.lu",
+     "noted": null,
+     "bytes": 479,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "a channel",
+     "corpus": "corpus/conc/chan_drain_after_inclusive_loop.lu",
+     "noted": null,
+     "bytes": 973,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "stdout and stderr",
+     "corpus": "corpus/io/eprint.lu",
+     "noted": null,
+     "bytes": 593,
+     "verdict": "exit(0)"
+    },
+    {
+     "title": "exit codes",
+     "corpus": "corpus/os/exit_code.lu",
+     "noted": null,
+     "bytes": 481,
+     "verdict": "exit(7)"
+    },
+    {
+     "title": "a calculator",
+     "corpus": "corpus/projects/rpn.lu",
+     "noted": null,
+     "bytes": 1595,
+     "verdict": "exit(0)"
+    }
+   ],
+   "probes": {
+    "ch34-again": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `env.args` does not resolve"
+    },
+    "ch34-groups": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `process.lead_group` does not resolve"
+    },
+    "ch34-jobs": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.listen` does not resolve"
+    },
+    "ch34-nochild": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "ch34-one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `signal.kill` does not resolve"
+    },
+    "os_exit_signal": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_exit_signal` does not resolve"
+    },
+    "os_signal_default_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_default_one` does not resolve"
+    },
+    "os_signal_ignore_one": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_ignore_one` does not resolve"
+    },
+    "os_signal_text_zero": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_signal_text` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"
+    },
+    "os_wait_poll_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_poll_core` does not resolve"
+    },
+    "os_wait_status_core": {
+     "typed": true,
+     "verdict": "unsupported",
+     "fields": [
+      "verdict unsupported",
+      "phase reached resolve",
+      "exit code 4"
+     ],
+     "stdout": "",
+     "stderr": "<stdin>: unsupported: `os_wait_status_core` does not resolve"
+    }
+   },
+   "status": 200,
+   "csp_header": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+   "banner": "lupin 0.1.54, compiled to WebAssembly, running in this tab against spec and corpus pin 294d626, reading cfg as x86_64-unknown-linux-gnu.",
+   "csp": [
+    "script-src-elem inline"
+   ],
+   "errors": [
+    "console error: Refused to execute a script because its hash, its nonce, or 'unsafe-inline' does not appear in the script-src directive of the Content Security Policy."
+   ]
+  }
+ },
+ "finished": "2026-10-19T23:52:14.945Z"
+}

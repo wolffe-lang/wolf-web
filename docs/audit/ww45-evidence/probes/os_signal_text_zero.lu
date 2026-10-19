@@ -1,0 +1,13 @@
+//! member: false
+//! ww45 probe: os_signal_text(0), whose answer 0.2.33 changed (#787, book §34.5): the host's words where it answered `invalid`.
+fn main() -> !int {
+    let t = os_signal_text(0) else |e| {
+        print(match e {
+            invalid => "text(0): invalid",
+            unsupported => "text(0): unsupported",
+        })
+        return 0
+    }
+    print("text(0): {t}")
+    0
+}

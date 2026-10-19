@@ -1,0 +1,1096 @@
+derive run 2026-10-19T23:10:08Z on kasumi
+NEW (twice) 85dab5d7e597680d6fd7034f1d7ed2acb9a92f97 85dab5d7e597680d6fd7034f1d7ed2acb9a92f97; tag object 56110e4f1ab4331ba10a6e48b6cbdb36acb3333e type tag
+NEW 85dab5d7e597680d6fd7034f1d7ed2acb9a92f97 INEW 0e536e8fb4518eaa798ac426901ab81275db5c9f (IOLD 0e536e8fb4518eaa798ac426901ab81275db5c9f)
+LUPIN PIN UNCHANGED
+=== tags
+v0.2.24 294d626dd596122285d5df954762e3aee3e5db71
+v0.2.25 6710f9e0cbc3a7264349093751ce7a46a407e473
+v0.2.26 89dc139443da38078df6093568da87bc6d0ee6f9
+v0.2.27 0ddda6b7ab9f899aeeea13a66b3427f8422b8a0f
+v0.2.28 f71ece8e1ad2234940040d300359888932ad67af
+v0.2.29 6ffe7c6056eeb8c661b37e38d99b91166e8c1add
+v0.2.30 1b37f368228db92eca505c8c4cd3c531ea60be48
+v0.2.31 f4faf59d5572cb8026493829a8a1791b5e917914
+v0.2.32 72de141f624662fdff522e8beba459fab7c5cf66
+v0.2.33 85dab5d7e597680d6fd7034f1d7ed2acb9a92f97
+trunk 85dab5d7e597680d6fd7034f1d7ed2acb9a92f97
+=== interp
+interp trunk 0e536e8fb4518eaa798ac426901ab81275db5c9f; tags containing the pin: v0.1.54 
+0e536e8fb4518eaa798ac426901ab81275db5c9f upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+version = "0.1.54"
+=== interp: the five names at the pin (expect none)
+(end)
+=== interp: os_signal_text at the pin
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:265:    "os_signal_text",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:751:        | "os_signal_text"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1137:        | "os_signal_text" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1164:                "os_signal_text" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1166:                        return unsupported("`os_signal_text` takes a meaning".to_owned());
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1201:                "os_signal_text" => "[os.signal.text]",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:3642:        "os_signal_text" => &["unsupported", "invalid"],
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:4078:/// call's meaning (and, with `zero` false, `os_signal_text`'s): 0 where
+=== spec pin: SPEC 294d626dd596122285d5df954762e3aee3e5db71
+SPEC is v0.2.24
+=== ancestry
+is-ancestor SPEC(294d626d) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC..NEW = 955
+rev-list --count SPEC..OLD = 913
+rev-list --count OLD..NEW = 42
+=== CHANGELOG headings at NEW
+## 0.2.33 — 2026-10-19
+## 0.2.32 — 2026-10-18
+## 0.2.31 — 2026-10-17
+## 0.2.30 — 2026-10-15
+## 0.2.29 — 2026-10-12
+## 0.2.28 — 2026-10-11
+## 0.2.27 — 2026-10-11
+## 0.2.26 — 2026-10-09
+## 0.2.25 — 2026-10-07
+## 0.2.24 — 2026-10-06
+## 0.2.23 — 2026-10-04
+=== counts OLD vs NEW
+72de141f E=153 W=34 net=18 anchors=661
+85dab5d7 E=153 W=34 net=18 anchors=664
+anchors added 3 ['os.signal.disp.one', 'os.signal.exit', 'os.signal.gaps.note']
+anchors dropped 0 []
+=== diagnostics diff
+=== warnings diff
+grammar.ebnf 67816f8fcb04f096 -> 67816f8fcb04f096
+BYTE-IDENTICAL
+=== platforms.md / README / workflows OLD..NEW
+ .github/workflows/ci.yml | 14 ++++++++++++++
+ README.md                |  4 ++--
+ 2 files changed, 16 insertions(+), 2 deletions(-)
+=== platforms.md diff
+=== phase:run sets
+  682 /home/mfwolffe/lanes/ww45/run-72de141.txt
+  683 /home/mfwolffe/lanes/ww45/run-85dab5d.txt
+ 1365 total
+--- in:
+corpus/os/signal_one_rows.lu
+--- out:
+=== corpus diff name-status
+M	corpus/os/group_rows.lu
+A	corpus/os/signal_one_rows.lu
+--- pre-existing run programs modified:
+corpus/os/group_rows.lu
+=== spec/ docs/ demo/ stat
+ spec/02-memory-model.md |   2 +-
+ spec/03-concurrency.md  |  29 +++--
+ spec/11-os.md           | 287 +++++++++++++++++++++++++++++++++++++++++++-----
+ spec/anchors.json       |   3 +
+ spec/prelude.json       |  11 +-
+ 5 files changed, 293 insertions(+), 39 deletions(-)
+=== new run program headers
+## corpus/os/signal_one_rows.lu
+//! check: run(exit=0, stdout="ignore_one_zero=invalid\nignore_one_kill=invalid\nignore_one_stop=invalid\nignore_one_two_bits=invalid\nignore_one_past_table=invalid\ndefault_one_zero=invalid\ndefault_one_kill=invalid\ndefault_one_stop=invalid\ndefault_one_two_bits=invalid\ndefault_one_past_table=invalid\nexit_zero=invalid\nexit_two_bits=invalid\nexit_past_table=invalid\nfar_host_number: true")
+//! phase: run
+//! conforms: os.signal.disp.one, os.signal.exit, err.union
+//!
+//! s246 (wolf-lang#783, #784; ruling asked, recommendation implemented) —
+//! the rows of one meaning's disposition and of the end by a signal that
+//! are decided by their SHAPE, before any host is asked: one truth on
+//! every host, and nothing changes. A meaning is one bit of the table or a
+//! host number -N, never 0; `KILL` (1048576) and `STOP` (2097152), which
+//! no process can catch or ignore, are `invalid` for the dispositions. A
+//! host number far past any host's last signal is `invalid` where the host
+//! has numbers and `unsupported` on windows, which has none. The live
+//! witnesses — a group send of a fault the sender ignores, a program that
+//! ends itself by one — are `crates/wolf_driver/tests/signal_gaps_lanes.rs`.
+=== modified run program diffs
+diff --git a/corpus/os/group_rows.lu b/corpus/os/group_rows.lu
+index 9baf1c50..b1afde99 100644
+--- a/corpus/os/group_rows.lu
++++ b/corpus/os/group_rows.lu
+@@ -1,4 +1,4 @@
+-//! check: run(exit=0, stdout="group_one=invalid\ngroup_zero=invalid\ngroup_negative=invalid\ngroup_wide=invalid\ngroup_two_bits=invalid\ngroup_past_table=invalid\nall_two_bits=invalid\nall_past_table=invalid\nset_pgid_negative=invalid\nset_pgid_wide=invalid\ntext_zero=invalid\ntext_two_bits=invalid\ntext_past_table=invalid\nfar_host_number: true")
++//! check: run(exit=0, stdout="group_one=invalid\ngroup_zero=invalid\ngroup_negative=invalid\ngroup_wide=invalid\ngroup_two_bits=invalid\ngroup_past_table=invalid\nall_two_bits=invalid\nall_past_table=invalid\nset_pgid_negative=invalid\nset_pgid_wide=invalid\ntext_two_bits=invalid\ntext_past_table=invalid\nfar_host_number: true")
+ //! phase: run
+ //! conforms: os.signal.send.group, os.signal.send.all, os.term.group, os.signal.host, os.signal.text, err.union
+ //!
+@@ -9,7 +9,10 @@
+ //! process id (group 1 is `invalid`: `kill`'s -1 is every process, not
+ //! group 1); a meaning is 0, one bit of the table, or a host number -N;
+ //! a group to move into is 0 or above and fits a process id; a text is
+-//! for one meaning or -N, never 0. A host number far past any host's last
++//! for 0, one meaning or -N (s246, wolf-lang#787: 0 has words since,
++//! `strsignal(0)`'s, so its row is no longer a shape row: it moved to
++//! `crates/wolf_driver/tests/signal_gaps_lanes.rs`, which holds each
++//! machine to its own answer). A host number far past any host's last
+ //! signal is `invalid` where the host has numbers and `unsupported` on
+ //! windows, which has none. The live witnesses — sends to a group the
+ //! test started, `send_all` and the move, in a throwaway container — are
+@@ -78,7 +81,6 @@ fn main() -> !int {
+     print("all_past_table={all(268435456)}")
+     print("set_pgid_negative={set_pgid(-1)}")
+     print("set_pgid_wide={set_pgid(1099511627776)}")
+-    print("text_zero={text(0)}")
+     print("text_two_bits={text(3)}")
+     print("text_past_table={text(268435456)}")
+     let far: int = -1099511627776
+=== PAIRING at NEW
+# The reference-interpreter pairing (r01 criteria row 7): the lupin
+# release this wolf is differentially tested against, and the
+# conformance pin that lupin release itself declares.
+#
+# `wolf --version` prints this file; nothing else defines the pairing
+# (#87 retired the hardcoded constants that went three releases stale).
+# Update it WITH the differential ritual — the pairing test compares
+# the version below against the sibling lupin binary whenever one is
+# present (and, when that sibling is a release build, the pin too:
+# D57, a release's pin is part of its identity), so a stale stamp
+=== STD-PIN at OLD and NEW
+wolf-std-commit = d37c911f12206c4bf5c8d3281a649bf31da3beef
+wolf-std-commit = cceda63151430eac07df895fdfffddfa4a0b92c1
+=== spec 03 [conc.task.order] at NEW (ww44 found it stale)
+226:  an unbudgeted `net_accept` made 8 `futex` calls in its whole run,
+232:  `futex`, `poll`, `ppoll`, `epoll_wait`, `nanosleep`,
+238:  `os_signal_wait` woke on that 5 ms clock: ~196 `futex` calls a
+921:  primitives: stdlib concurrency paths may not call clocks, futexes, or
+=== book
+book trunk 3ac6fa944da048cc24814ec3f500f8d51765034d; BNEW twice 3ac6fa944da048cc24814ec3f500f8d51765034d 3ac6fa944da048cc24814ec3f500f8d51765034d
+count BOLD..BNEW = 21
+book ancestry exit=0
+ 164 files changed, 9619 insertions(+), 154 deletions(-)
+ .github/workflows/book.yml |  10 +-
+ book/back/colophon.md      |   6 +-
+ book/back/solutions.md     |  14 +-
+ book/ch01.md               |  18 +-
+ book/ch22.md               |  12 +-
+ book/ch34.md               | 406 +++++++++++++++++++++++++++++++++------------
+ wolf-toolchain.toml        |  83 ++++++++-
+ xtask/src/backmatter.rs    |  51 +++++-
+ xtask/src/console.rs       |  34 ++++
+ 9 files changed, 498 insertions(+), 136 deletions(-)
+SUMMARY sha 404c8c4b7a14aaddd69bec74da09b1c1a11266f0 -> 404c8c4b7a14aaddd69bec74da09b1c1a11266f0
+chapters in SUMMARY: 34
+=== book diagrams changed
+=== ch34 headings at BNEW
+1:# 34. Signals and the process
+34:## 34.1 A signal is an event
+76:### Twenty-eight names
+174:## 34.2 Sending, numbering, and what was ignored
+278:## 34.3 Who this process is, and its terminal
+339:### The terminal
+436:## 34.4 What a call charges, and where it is refused
+463:### What your machine does
+504:## 34.5 Groups, and what the children did
+599:### The children's changes
+687:## 34.6 One signal at a time, and an end by one
+809:## Exercises
+=== chapters with new headings BOLD..BNEW
+book/ch34.md 10a11
+book/ch34.md > ## 34.6 One signal at a time, and an end by one
+=== ch01 Windows block at BNEW
+229:itself, which is the same requirement Rust's own `windows-msvc`
+237:tar -xzf wolf-0.2.33-x86_64-pc-windows-msvc.tar.gz
+238:$env:Path = "C:\tools\wolf-0.2.33-x86_64-pc-windows-msvc;$env:Path"
+703:           inferred: wolf-0.2.3-{aarch64-apple-darwin, aarch64-
+704:           unknown-linux-gnu, x86_64-pc-windows-msvc, x86_64-unknown-
+719:           darwin, aarch64-unknown-linux-gnu, x86_64-pc-windows-msvc,
+736:           x86_64-pc-windows-msvc, x86_64-unknown-linux-gnu}.tar.gz,
+758:           x86_64-pc-windows-msvc and x86_64-unknown-linux-gnu, out of
+908:           x86_64-pc-windows-msvc and x86_64-unknown-linux-gnu, so the
+=== ch22 toolchain line at BNEW
+291:  wolfi v0 · toolchain 0.2.33 · edition v1
+303:  wolfi v0 · toolchain 0.2.33 · edition v1
+328:Read the line above the hash while you are here. `toolchain 0.2.33` is
+682:           22-13's `05a012a2…`, only `toolchain 0.2.28` moves — and
+705:           and only `toolchain 0.2.29` moves. The archive's std moved
+709:           bs67 re-measure (wolf 0.2.30 / lupin 0.1.53, the archive
+711:           `toolchain 0.2.30` moves. The archive's std moved (wolf-std
+715:           bs68 re-measure (wolf 0.2.32 / lupin 0.1.54, the archive
+717:           `toolchain 0.2.32` moves. The archive's std moved (wolf-std
+721:           bs69 re-measure (wolf 0.2.33 / lupin 0.1.54, the archive
+=== colophon distance at BNEW
+9:wolf 0.2.33 (wolfgang, pin 85dab5d)
+10:paired with lupin 0.1.54 (reference interpreter), pin 294d626
+12:lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+18:own schedules. The compiler names `lupin 0.1.54`, the interpreter
+20:a release tag of the compiler's from nine releases back — reachable, on
+22:clauses are a distance this printing: 955 commits, nine releases. An
+=== inline scripts or event handlers in book sources at BNEW
+3ac6fa944da048cc24814ec3f500f8d51765034d:book/wolf-boot.js:5:// This was three inline <script>s in theme/index.hbs. lupp.us serves
+3ac6fa944da048cc24814ec3f500f8d51765034d:theme/index.hbs:52:        <script src="{{ resource "toc.js" }}"></script>
+3ac6fa944da048cc24814ec3f500f8d51765034d:theme/index.hbs:60:        <script src="{{ path_to_root }}wolf-boot.js"></script>
+3ac6fa944da048cc24814ec3f500f8d51765034d:theme/index.hbs:141:        <script src="{{ resource "elasticlunr.min.js" }}"></script>
+3ac6fa944da048cc24814ec3f500f8d51765034d:theme/index.hbs:142:        <script src="{{ resource "mark.min.js" }}"></script>
+3ac6fa944da048cc24814ec3f500f8d51765034d:theme/index.hbs:143:        <script src="{{ resource "searcher.js" }}"></script>
+3ac6fa944da048cc24814ec3f500f8d51765034d:theme/index.hbs:146:        <script src="{{ resource "book.js" }}"></script>
+3ac6fa944da048cc24814ec3f500f8d51765034d:theme/index.hbs:149:        <script src="{{ resource this}}"></script>
+(end)
+=== book render path: external commands (render runs typst and git; diagrams/samples/console are other subcommands)
+3ac6fa944da048cc24814ec3f500f8d51765034d:xtask/src/highlight.rs:346:    let out = std::process::Command::new("git")
+3ac6fa944da048cc24814ec3f500f8d51765034d:xtask/src/render.rs:522:    let status = std::process::Command::new(&typst)
+3ac6fa944da048cc24814ec3f500f8d51765034d:xtask/src/main.rs:52:        Some("samples") => samples::run(&repo_root()?, rest),
+3ac6fa944da048cc24814ec3f500f8d51765034d:xtask/src/main.rs:56:        Some("render") => render::run(&repo_root()?, rest),
+3ac6fa944da048cc24814ec3f500f8d51765034d:xtask/src/main.rs:61:        Some("diagrams") => diagrams::run(&repo_root()?, rest),
+=== book CI std staging step at BNEW
+        working-directory: wolf-lang
+        run: |
+          WOLF_COMMIT="$(git rev-parse --short=7 HEAD)"
+          export WOLF_COMMIT
+          WOLF_RELEASE="$(git tag --points-at HEAD | grep -E '^v[0-9]' | head -1 || true)"
+          if [ -n "$WOLF_RELEASE" ]; then export WOLF_RELEASE; fi
+          cargo build --release -p wolf_driver -p wolf_rt -p wolf_cimport
+      # The release archive carries the standard library as `std/` beside
+      # `wolf` (s204, ruling #59, since 0.2.27), and the driver's default
+      # std root is that directory. A `cargo build` has nothing there, so
+      # without this step the lane measured a toolchain no reader
+      # installs: bs65 found `wolf interface` answering differently (ch22,
+      # a std module reached through a method call joins the package's
+      # interface and its hashes). Stage exactly what `cargo xtask dist`
+      # stages: wolf-std's `std/` tree at the commit wolf-lang's
+      # `crates/wolf_driver/STD-PIN` names, the two licences, and
+      # `STD-REV`. The manifest below is the archive's own, measured from
+      # the 0.2.33 release archive (bs69,
+      # docs/audit/bs69-evidence/kasumi/subject-members.txt; wolf-std
+      # `cceda63`, where 0.2.32's `d37c911` read `1f7389b7…`); a STD-PIN
+      # bump moves it, and this step then fails until the bump re-measures it.
+      # autocrlf off: windows runners convert line endings by default,
+      # and the archive's bytes are LF.
+      - name: stage std/ beside wolf, as the release archive does
+        if: steps.acquire.outputs.toolchain == 'full'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha() { if command -v sha256sum >/dev/null; then sha256sum "$@"; else shasum -a 256 "$@"; fi; }
+          pin=$(awk -F' = ' '/^wolf-std-commit = /{print $2}' wolf-lang/crates/wolf_driver/STD-PIN)
+          echo "STD-PIN: ${pin}"
+          [ -n "${pin}" ]
+          git -c core.autocrlf=false clone --quiet https://github.com/wolffe-lang/wolf-std wolf-std
+          git -C wolf-std -c core.autocrlf=false checkout --quiet "${pin}"
+          dest=wolf-lang/target/release/std
+          rm -rf "${dest}"
+          cp -R wolf-std/std "${dest}"
+          cp wolf-std/LICENSE wolf-std/LICENSE-EXCEPTION "${dest}/"
+          printf '%s\n' "${pin}" > "${dest}/STD-REV"
+          # Each line written as `<hash>  <path>` by hand: windows' sha256sum
+          # marks binary mode (`*path`), which would move the manifest and
+          # nothing else.
+          got=$(cd wolf-lang/target/release && find std -type f | LC_ALL=C sort | while IFS= read -r f; do printf '%s  %s\n' "$(sha "$f" | cut -c1-64)" "$f"; done | sha | cut -c1-64)
+          want=4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0
+          echo "staged std/: $(cd wolf-lang/target/release && find std -type f | wc -l) files, manifest ${got}"
+          if [ "${got}" != "${want}" ]; then echo "::error::staged std/ manifest ${got} is not the 0.2.33 archive's ${want}"; exit 1; fi
+      - name: build pinned lupin (release)
+        if: steps.acquire.outputs.toolchain == 'full'
+        shell: bash
+        working-directory: wolf-interp
+        run: cargo build --release --bin lupin
+=== book pins at BNEW
+2:[wolf]
+3:repo = "wolffe-lang/wolf-lang"
+4:rev = "85dab5d7e597680d6fd7034f1d7ed2acb9a92f97"
+5:impl_version = "0.2.33"
+7:[lupin]
+8:repo = "wolffe-lang/wolf-interp"
+9:rev = "0e536e8fb4518eaa798ac426901ab81275db5c9f"
+10:version = "lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)"
+12:[lupin-trace]
+13:repo = "wolffe-lang/wolf-interp"
+14:rev = "0e536e8fb4518eaa798ac426901ab81275db5c9f"
+15:[wolf-lsp]
+16:repo = "wolffe-lang/wolf-lsp"
+17:rev = "d194486e78478b6a744402e541ba2d112a0dac05"
+19:[wolf-repl]
+22:[wolf-std]
+23:pending = "wolf-std publishes no release to pin (wolf-book#39)"
+=== book/ prose diff
+diff --git a/book/back/colophon.md b/book/back/colophon.md
+index da4dc0e..72385b8 100644
+--- a/book/back/colophon.md
++++ b/book/back/colophon.md
+@@ -6,7 +6,7 @@ against:
+ 
+ ```console
+ $ wolf --version
+-wolf 0.2.32 (wolfgang, pin 72de141)
++wolf 0.2.33 (wolfgang, pin 85dab5d)
+ paired with lupin 0.1.54 (reference interpreter), pin 294d626
+ $ lupin --version
+ lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+@@ -17,9 +17,9 @@ readable. Each tool reports the revision of the other it was
+ differentially tested against, and the two projects are cut on their
+ own schedules. The compiler names `lupin 0.1.54`, the interpreter
+ under it and not a release older. The interpreter names `294d626`,
+-a release tag of the compiler's from eight releases back — reachable, on
++a release tag of the compiler's from nine releases back — reachable, on
+ the branch, and an ancestor of the compiler's own revision, so the two
+-clauses are a distance this printing: 913 commits, eight releases. An
++clauses are a distance this printing: 955 commits, nine releases. An
+ earlier printing was the other case, where the interpreter's
+ clause named a rebased-away development head and no count between the
+ two meant anything. §1.2 teaches the reader to check which case a pair
+diff --git a/book/back/solutions.md b/book/back/solutions.md
+index 1fca306..84a3a28 100644
+--- a/book/back/solutions.md
++++ b/book/back/solutions.md
+@@ -9967,7 +9967,7 @@ Solution. Both runs, one item and one number between them:
+ ```console
+ $ wolf interface ./wordcount/tokens/tokens.lu
+ module pkg :: (root)
+-  wolfi v0 · toolchain 0.2.32 · edition v1
++  wolfi v0 · toolchain 0.2.33 · edition v1
+   export_hash 05a012a2ca47c85fc47f13e7e2c80930951ae8c59a84d1631ca8844e71669f3c
+   pkg_hash    05a012a2ca47c85fc47f13e7e2c80930951ae8c59a84d1631ca8844e71669f3c
+   deps: (none)
+@@ -11382,7 +11382,7 @@ made.
+ </details>
+ 
+ <details>
+-<summary>Exercise 33-5. <a href="../ch33.md#33.4">§33.4</a></summary>
++<summary>Exercise 33-5. <a href="../ch33.md#33">Chapter 33</a></summary>
+ 
+ **Exercise 33-5** *(spelunking · prose)*. §33.4 says a lost accept race is
+ not an error row. Read `[os.net.accept]` in the specification and write
+@@ -11413,7 +11413,7 @@ claim it cannot support.
+ </details>
+ 
+ <details>
+-<summary>Exercise 33-6. <a href="../ch33.md#33.4">§33.4</a></summary>
++<summary>Exercise 33-6. <a href="../ch33.md#33">Chapter 33</a></summary>
+ 
+ **Exercise 33-6** *(design)*. A configuration file says `workers auto`.
+ Write down the rule your program follows: what it starts when `os_cpus`
+@@ -11443,7 +11443,7 @@ is also why `os_cpus` has a row instead of quietly answering 1 — a silent
+ </details>
+ 
+ <details>
+-<summary>Exercise 33-7. <a href="../ch33.md#33.4">§33.4</a></summary>
++<summary>Exercise 33-7. <a href="../ch33.md#33">Chapter 33</a></summary>
+ 
+ **Exercise 33-7** *(extension · lupin)*. §33.3's loop answers one question
+ per connection and forgets it. Make the shelf answer two: keep serving a
+@@ -11562,7 +11562,7 @@ that only reads who it is should not also be able to stop someone else.
+ </details>
+ 
+ <details>
+-<summary>Exercise 34-5. <a href="../ch34.md#34.5">§34.5</a></summary>
++<summary>Exercise 34-5. <a href="../ch34.md#34">Chapter 34</a></summary>
+ 
+ **Exercise 34-5** *(spelunking · prose)*. Read `[os.signal.set.stable]`
+ in the specification. Say what it promises a program that stores a set
+@@ -11583,7 +11583,7 @@ signal number.
+ </details>
+ 
+ <details>
+-<summary>Exercise 34-6. <a href="../ch34.md#34.5">§34.5</a></summary>
++<summary>Exercise 34-6. <a href="../ch34.md#34">Chapter 34</a></summary>
+ 
+ **Exercise 34-6** *(design)*. A long-running program is started by a
+ user who means it to survive the terminal closing. Write down the first
+@@ -11604,7 +11604,7 @@ choice rather than how it was started.
+ </details>
+ 
+ <details>
+-<summary>Exercise 34-7. <a href="../ch34.md#34.5">§34.5</a></summary>
++<summary>Exercise 34-7. <a href="../ch34.md#34">Chapter 34</a></summary>
+ 
+ **Exercise 34-7** *(extension · wolf)*. Put all twenty-eight names in a
+ list. For each, ask the host for its number and try a listen (then reset
+diff --git a/book/ch01.md b/book/ch01.md
+index cbdba9f..a9d6866 100644
+--- a/book/ch01.md
++++ b/book/ch01.md
+@@ -152,7 +152,7 @@ Ask either who it is and it tells you:
+ 
+ ```console
+ $ wolf --version
+-wolf 0.2.32 (wolfgang, pin 72de141)
++wolf 0.2.33 (wolfgang, pin 85dab5d)
+ paired with lupin 0.1.54 (reference interpreter), pin 294d626
+ $ lupin --version
+ lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+@@ -164,11 +164,11 @@ interpreter's is the compiler revision it was tested against. Two
+ implementations agreeing is worth something only when you can find out
+ *which* two agreed.
+ 
+-Read the compiler's own version first. `0.2.32` is bare, and a bare
++Read the compiler's own version first. `0.2.33` is bare, and a bare
+ number belongs to one kind of build and to nothing else: one made
+ exactly at a release tag. Every other build prints the commit it came
+ from after the number and claims no release. This printing's compiler
+-is the first kind, and the `pin 72de141` clause beside it is that tag's
++is the first kind, and the `pin 85dab5d` clause beside it is that tag's
+ revision, abbreviated to seven characters — a width the toolchain
+ chooses on purpose, so that two people who clone the project on
+ different days read the same stamp.
+@@ -176,9 +176,9 @@ different days read the same stamp.
+ Both halves of the pair are readable this printing. The compiler names
+ `lupin 0.1.54`, the interpreter printed under it and not a release
+ older. And the interpreter names `294d626`, a release tag of the
+-compiler's from eight releases back: a revision you can check out, on the
++compiler's from nine releases back: a revision you can check out, on the
+ branch, behind the compiler above it. Count the commits between the two
+-and you get 913, which is worth knowing before you trust the number,
++and you get 955, which is worth knowing before you trust the number,
+ because a count is only a distance when one revision is an ancestor of
+ the other.
+ 
+@@ -234,8 +234,8 @@ in PowerShell (`tar` has shipped with Windows since Windows 10 build
+ your path for the session:
+ 
+ ```text
+-tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz
+-$env:Path = "C:\tools\wolf-0.2.32-x86_64-pc-windows-msvc;$env:Path"
++tar -xzf wolf-0.2.33-x86_64-pc-windows-msvc.tar.gz
++$env:Path = "C:\tools\wolf-0.2.33-x86_64-pc-windows-msvc;$env:Path"
+ ```
+ 
+ From a folder holding one `hello.lu`, the greeting compiles and runs
+@@ -328,11 +328,11 @@ $ (cd wolf-interp && cargo build --release --bin lupin)
+ The first command is wolf's own release builder: it compiles the
+ compiler and the runtime library it links programs against, stages the
+ standard library beside them as the archive does, and stamps the build
+-with the commit it was made from — the stamp is what the `pin 72de141`
++with the commit it was made from — the stamp is what the `pin 85dab5d`
+ clause above is. A plain `cargo build` compiles the same compiler and
+ runs everything in this book, but with no `std/` beside it (chapter 22's
+ `wolf interface` listing is one place that shows), and its first line
+-reads `wolf 0.2.32+dev.unknown`: a build the release machinery did not
++reads `wolf 0.2.33+dev.unknown`: a build the release machinery did not
+ stamp cannot name its own commit, let alone claim a release. Cargo
+ leaves `wolf` under `wolf-lang/target/release/` and `lupin` under
+ `wolf-interp/target/release/`. Put both on your `PATH`, run the two
+diff --git a/book/ch22.md b/book/ch22.md
+index 5f63596..10ad901 100644
+--- a/book/ch22.md
++++ b/book/ch22.md
+@@ -288,7 +288,7 @@ that surface is and hash it:
+ ```console,in(pkg/mods-iface)
+ $ wolf interface ./summary.lu
+ module pkg :: std.range
+-  wolfi v0 · toolchain 0.2.32 · edition v1
++  wolfi v0 · toolchain 0.2.33 · edition v1
+   export_hash d7c8e2cafbb418b680a777f06602e91128373f7ed3b341a20edccaa108e513bf
+   pkg_hash    d7c8e2cafbb418b680a777f06602e91128373f7ed3b341a20edccaa108e513bf
+   deps: (none)
+@@ -300,7 +300,7 @@ module pkg :: std.range
+     [4] pub len — fn len(r: prelude.range[int]) -> int · regions (ρ1) -> -
+ 
+ module pkg :: (root)
+-  wolfi v0 · toolchain 0.2.32 · edition v1
++  wolfi v0 · toolchain 0.2.33 · edition v1
+   export_hash c8e04b6da198d815eeb6be3fabd7eb6e3ca36b0cb85d505e4f29e9c33f0b78a6
+   pkg_hash    c8e04b6da198d815eeb6be3fabd7eb6e3ca36b0cb85d505e4f29e9c33f0b78a6
+   deps:
+@@ -325,7 +325,7 @@ helper does not move it. Chapter 25 spends that fact on semantic
+ versioning, where a hash that did not move is the difference between a
+ patch and a lie.
+ 
+-Read the line above the hash while you are here. `toolchain 0.2.32` is
++Read the line above the hash while you are here. `toolchain 0.2.33` is
+ which compiler printed the page, and it is *not* part of what was
+ hashed. The distinction is worth a sentence because the alternative was
+ tried: while the compiler's own version went into the digest, upgrading
+@@ -718,6 +718,12 @@ helpers too, since a future caller might want them? Name what every
+            `fd6bcdc` -> `d37c911`, in `env.lu`, `fs.lu`, `process.lu`,
+            `signal.lu`, `term.lu` and the new `os/users`); `std/range`
+            did not (docs/audit/bs68-evidence/kasumi/subject-samples.log).
++           bs69 re-measure (wolf 0.2.33 / lupin 0.1.54, the archive
++           whole, kasumi and hasu): every hash on the page HOLDS again and
++           only `toolchain 0.2.33` moves. The archive's std moved
++           (wolf-std `d37c911` -> `cceda63`, in `process.lu` and
++           `signal.lu`); `std/range` did not
++           (docs/audit/bs69-evidence/kasumi/subject-samples.log).
+      - [ ] ba:blocker (rig) — AND A THIRD TRANSCRIPT WAS WRONG AND NO
+            GATE SAID SO. Exercise 22-13's solution prints a `wolf
+            interface` run, and at this pin all three of its moving
+diff --git a/book/ch34.md b/book/ch34.md
+index 4ad6053..349e3b8 100644
+--- a/book/ch34.md
++++ b/book/ch34.md
+@@ -287,8 +287,8 @@ The ids a process runs as are four numbers and a list, and `std.env`
+ reads them: `env.uid()` and `env.euid()` are the real and effective user
+ ids, and `env.gid()` and `env.egid()` the group ids, each `int !
+ {unsupported}`. Each is a builtin underneath, the same name with `os_`
+-in front (`os_uid()` and so on, in the prelude), and the program below
+-calls the builtins directly. The real id is who started the process. The effective id
++in front (`os_uid()` and so on, in the prelude). The real id is who
++started the process. The effective id
+ is the one the host checks when the process opens a file, signals another
+ process or changes an owner, so "am I the super-user?" is `env.euid()? ==
+ 0`. The two differ only in a program started set-user-id.
+@@ -303,8 +303,8 @@ use std.env
+ 
+ fn main() -> !int {
+     print("an id: {env.pid() > 0}, a parent: {env.ppid()? > 0}")
+-    print("started set-user-id: {os_uid()? != os_euid()?}")
+-    print("started set-group-id: {os_gid()? != os_egid()?}")
++    print("started set-user-id: {env.uid()? != env.euid()?}")
++    print("started set-group-id: {env.gid()? != env.egid()?}")
+     0
+ }
+ ```
+@@ -377,42 +377,47 @@ flow control and no extended input, so every key reaches the program, and
+ says what it wants of all five switches. Leaving `flow` and `extended`
+ out of a mode is not leaving them alone: it turns them off.
+ 
+-Three more terminal questions have wrappers too: `term.size(tty)` and
+-`term.chars(tty)` take the terminal as an `fs.File` and answer named
+-fields, and `signal.wait_fd(tty, set)` is the wait. Underneath,
+-`os_term_size(fd)` answers the window's rows and columns, 0 for a size nobody told the terminal; when the window changes,
+-the foreground group is sent `resize()`. `os_term_chars(fd)` answers the
+-twelve special characters the user chose, in a fixed order (erase, kill,
+-interrupt, quit, suspend, end of file, word erase, literal next, start,
+-stop, reprint, discard), -1 for one that is turned off, so an editor that
++Three more terminal questions take the terminal as an `fs.File`.
++`term.size(tty)` answers the window's `rows` and `columns`, 0 for a size
++nobody told the terminal; when the window changes, the foreground group
++is sent `resize()`. `term.chars(tty)` answers the twelve special
++characters the user chose, as named fields (`erase`, `kill`,
++`interrupt`, `quit`, `suspend`, `end_of_file`, `word_erase`,
++`literal_next`, `start`, `stop`, `reprint`, `discard`), and
++`term.char_disabled()` for one that is turned off, so an editor that
+ turns `canonical` and `signals` off can keep the keys its user set.
+-`os_signal_wait_fd(fd, set)` is the one wait a key and a signal both
+-end: it answers the meaning that arrived, or 0 when the descriptor has
+-something to read, and reads nothing.
++`signal.wait_fd(tty, set)` is the one wait a key and a signal both end:
++it answers the meaning that arrived, or 0 when the terminal has something
++to read, and reads nothing. Underneath are `os_term_size(fd)`,
++`os_term_chars(fd)` and `os_signal_wait_fd(fd, set)`, which take the
++descriptor's number.
+ 
+ ```wolf,wolf-run(exit=0, stdout="size: io, keys: io")
+-fn size_row(fd: int) -> str {
+-    let (rows, cols) = os_term_size(fd) else |e| {
++use std.term
++use std.fs
++
++fn size_row(tty: fs.File) -> str {
++    let size = term.size(tty) else |e| {
+         return match e {
+             io => "io",
+             unsupported => "unsupported",
+         }
+     }
+-    "{rows} rows, {cols} columns"
++    "{size.rows} rows, {size.columns} columns"
+ }
+ 
+-fn keys_row(fd: int) -> str {
+-    let keys = os_term_chars(fd) else |e| {
++fn keys_row(tty: fs.File) -> str {
++    let keys = term.chars(tty) else |e| {
+         return match e {
+             io => "io",
+             unsupported => "unsupported",
+         }
+     }
+-    "interrupt is byte {keys[2]}"
++    "interrupt is byte {keys.interrupt}"
+ }
+ 
+ fn main() {
+-    print("size: {size_row(1)}, keys: {keys_row(1)}")
++    print("size: {size_row(fs.stdout())}, keys: {keys_row(fs.stdout())}")
+ }
+ ```
+ 
+@@ -435,15 +440,15 @@ call in this chapter is charged to one, or to none:
+ 
+ | charges | builtins | in `std` |
+ |---|---|---|
+-| `exec` | `os_signal_listen`, `os_signal_wait`, `os_signal_poll`, `os_signal_raise`, `os_signal_ignore`, `os_signal_default`, `os_signal_send`, `os_signal_wait_fd`, `os_set_ids`, `os_signal_send_group`, `os_signal_send_all`, `os_set_pgid`, `os_wait_poll` | `signal.listen`, `wait`, `poll`, `raise`, `ignore`, `reset`, `send`, `wait_fd`; `process.set_ids` |
+-| `env` | `os_pid`, `os_ppid`, `os_signal_ignored`, `os_uid`, `os_euid`, `os_gid`, `os_egid`, `os_groups`, `os_pgid` | `env.pid`, `ppid`, `uid`, `euid`, `gid`, `egid`, `groups`; `signal.ignored`; `term.group` |
++| `exec` | `os_signal_listen`, `os_signal_wait`, `os_signal_poll`, `os_signal_raise`, `os_signal_ignore`, `os_signal_default`, `os_signal_send`, `os_signal_wait_fd`, `os_set_ids`, `os_signal_send_group`, `os_signal_send_all`, `os_set_pgid`, `os_wait_poll`, `os_signal_ignore_one`, `os_signal_default_one`, `os_exit_signal`, `os_wait_status_core`, `os_wait_poll_core` | `signal.listen`, `wait`, `poll`, `raise`, `ignore`, `reset`, `send`, `send_group`, `send_all`, `wait_fd`; `process.set_ids`, `poll`, `lead_group`, `join_group` |
++| `env` | `os_pid`, `os_ppid`, `os_signal_ignored`, `os_uid`, `os_euid`, `os_gid`, `os_egid`, `os_groups`, `os_pgid` | `env.pid`, `ppid`, `uid`, `euid`, `gid`, `egid`, `groups`; `signal.ignored`; `term.group`; `process.own_group` |
+ | `fs` | `fs_set_owner`, `fs_set_owner_fd` | `fs.set_owner`, `set_link_owner`, `set_file_owner` |
+-| nothing | `os_signal_number`, `os_term_mode`, `os_term_set_mode`, `os_term_foreground`, `os_term_size`, `os_term_chars`, `os_signal_last`, `os_signal_realtime`, `os_signal_text` | `signal.number`; `term.mode`, `set_mode`, `foreground`, `size`, `chars` |
++| nothing | `os_signal_number`, `os_term_mode`, `os_term_set_mode`, `os_term_foreground`, `os_term_size`, `os_term_chars`, `os_signal_last`, `os_signal_realtime`, `os_signal_text` | `signal.number`, `last`, `realtime`, `text`; `term.mode`, `set_mode`, `foreground`, `size`, `chars` |
+ 
+ The reasoning is one rule applied three ways. Changing what a signal
+ does, waiting for one, sending one (to a process, a group or every
+-process), moving into a group, reaping a child and becoming another user
+-are process control, and process control is `exec`, with spawning a
++process), ending this process by one, moving into a group, reaping a
++child and becoming another user are process control, and process control is `exec`, with spawning a
+ child. Reading
+ this process's ids and what it ignores is reading its context, which is
+ `env`, with the working directory. Changing a file's owner is `fs`. The
+@@ -469,8 +474,10 @@ declines `os_signal_ignore` and `os_signal_default`, `os_signal_send` and
+ three terminal calls above, each by name, as §34.2 showed, after the
+ call's shape rows (an empty set is `io` there too). It answers the shape
+ rows of §34.5's group calls, host numbers and words and declines each
+-well-formed call by name, and it answers §34.5's poll with `(-1, 0)`
+-while it has started no child, declining it by name once one is live.
++well-formed call by name (and answers signal 0's words with `invalid`),
++and it answers §34.5's poll with `(-1, 0)` while it has started no child,
++declining it by name once one is live. It does not resolve §34.6's five
++calls at all.
+ And the interpreter unpacked from its own archive has no standard
+ library beside it, so every program here that imports one is declined
+ before any call is reached.
+@@ -483,9 +490,10 @@ Every other listen is `io` there. `signal.send`, `signal.number`,
+ `signal.ignored`, `signal.ignore`, `signal.reset`, `env.ppid`, the id
+ reads and every terminal call are `unsupported` once their arguments
+ have passed the shape rule, and so are §34.5's group calls, host numbers
+-and words. `env.pid` answers, and the poll of the children reports a
+-child's end and never a stop, because a Windows process cannot be
+-stopped.
++and words and §34.6's one-meaning dispositions and end by a signal.
++`env.pid` answers, and the poll of the children reports a child's end
++and never a stop or a core, because a Windows process cannot be stopped
++and leaves no core.
+ 
+ **Exercise 34-4** *(comprehension · prose)*. A package's manifest
+ declares `env` and nothing else, and its own code calls `os_pid`,
+@@ -499,40 +507,42 @@ A shell runs a pipeline as a **job**, and it puts every process of the
+ job in one **process group**, so that one signal reaches all of them:
+ Ctrl-C at the terminal interrupts the whole pipeline, not its first
+ command, and a shell's `kill %1` reaches the job and every child its
+-commands started. `term.group()` answers this process's group, and six
+-builtins act on groups and on the host's own numbering. The standard
+-library this toolchain ships has no wrappers for them, or for the poll
+-later in this section, so a program calls the builtins, which are in the
+-prelude.
+-
+-`os_signal_send_group(pgid, meaning)` sends a meaning to every member of
+-the group this process may signal, and answers `signal.send`'s rows in
++commands started. `std.process` names a group as a `process.Group`,
++whose `id` is the host's number for it: `process.own_group()` is this
++process's, and `process.group_of(child)` is the group a child leads.
++
++`signal.send_group(g, meaning)` sends a meaning to every member of the
++group this process may signal, and answers `signal.send`'s rows in
+ `signal.send`'s order: the shape, then the host, then the target. The
+-group must be above 1. Group 1 cannot be named, because the host's own
+-spelling of "every process" is the same number with a sign, and a group
+-id computed wrong must never become a broadcast; the broadcast is a call
+-of its own, `os_signal_send_all(meaning)`, which reaches every process
+-the host lets this one signal. A shell's `kill 0` is
+-`os_signal_send_group(term.group()?, meaning)`, and it reaches the
++group's id must be above 1. Group 1 cannot be named, because the host's
++own spelling of "every process" is the same number with a sign, and a
++group id computed wrong must never become a broadcast; the broadcast is
++a call of its own, `signal.send_all(meaning)`, which reaches every
++process the host lets this one signal. A shell's `kill 0` is
++`signal.send_group(process.own_group()?, meaning)`, and it reaches the
+ caller too.
+ 
+-`os_set_pgid(pgid)` moves **this** process into a group, or, with 0,
+-makes it lead a new group of its own, which is what an interactive shell
+-does at start and what `timeout` does before it runs its command, so
+-that a send to its own group reaches everything the command started. It
+-moves the caller and nothing else: a child's group is chosen when the
+-child is started. A session leader may not move, and that is `denied`.
++`process.lead_group()` makes **this** process lead a new group of its
++own, which is what an interactive shell does at start and what `timeout`
++does before it runs its command, so that a send to its own group reaches
++everything the command started. `process.join_group(g)` moves it into
++another group of its session, which is how a shell goes back to the
++group it was started in. Both move the caller and nothing else: a
++child's group is chosen when the child is started. A session leader may
++not move, and that is `denied`. Underneath are the builtins
++`os_signal_send_group`, `os_signal_send_all`, `os_set_pgid` and
++`os_pgid`, in the prelude.
+ 
+ A program that means to signal its own group leads one first, so that
+ the group holds nothing it did not start:
+ 
+ ```wolf,wolf-run(exit=0)
+ use std.signal
+-use std.term
++use std.process
+ use std.env
+ 
+-fn group_row(g: int, meaning: int) -> str {
+-    os_signal_send_group(g, meaning) else |e| {
++fn group_row(g: process.Group, meaning: int) -> str {
++    signal.send_group(g, meaning) else |e| {
+         return match e {
+             unsupported => "unsupported",
+             invalid => "invalid",
+@@ -545,14 +555,16 @@ fn group_row(g: int, meaning: int) -> str {
+ }
+ 
+ fn main() -> !int {
+-    os_set_pgid(0)?
+-    let mine = term.group()?
+-    print("leads a group of its own: {mine == env.pid()}")
++    process.lead_group()?
++    let mine = process.own_group()?
++    let one = process.Group { id: 1 }
++    let nobody = process.Group { id: 2147483647 }
++    print("leads a group of its own: {mine.id == env.pid()}")
+     print("its own group, nothing sent: {group_row(mine, 0)}")
+-    print("group 1: {group_row(1, 0)}")
+-    print("a group nobody leads: {group_row(2147483647, 0)}")
++    print("group 1: {group_row(one, 0)}")
++    print("a group nobody leads: {group_row(nobody, 0)}")
+     print("two meanings at once: {group_row(mine, signal.user() | signal.alarm())}")
+-    print("host numbers past the table's: {os_signal_last()? > 28}")
++    print("host numbers past the table's: {signal.last()? > 28}")
+     0
+ }
+ ```
+@@ -571,30 +583,41 @@ Meaning 0 sends nothing here either, so the second line is the question
+ `kill -0` asks of a group: is there one, and may I signal it.
+ 
+ A host has signals the table of §34.1 has no name for, the real-time
+-ones above all. The sending calls take **`-N`** for the host's signal
+-`N`, from 1 to `os_signal_last()`, and `os_signal_realtime()` answers the
+-host's real-time range, first and last. A host number carries no
+-promise past the host that gave it, which is why it gets no name and no
+-bit: it is how a program sends back a signal it was told about, as
+-`kill -l` and a shell's `trap` read and print them.
+-`os_signal_text(meaning)` is the C library's words for a signal, read
+-in the C locale whatever the user's language is, and they are the C
+-library's own: `Killed` under one, `Killed: 9` under another.
++ones above all. The sending calls take `signal.host(n)` for the host's
++signal `n`, from 1 to `signal.last()` (it is `-n`, the spelling the
++builtins take), and `signal.realtime()` answers the host's real-time
++range as a `signal.Realtime`, its `first` and `last`. A host number
++carries no promise past the host that gave it, which is why it gets no
++name and no bit: it is how a program sends back a signal it was told
++about, as `kill -l` and a shell's `trap` read and print them.
++`signal.text(meaning)` is the C library's words for a signal, read in
++the C locale whatever the user's language is, and they are the C
++library's own: `Killed` under one, `Killed: 9` under another. Signal 0,
++the meaning that sends nothing, has words too (`Unknown signal 0`, from
++glibc), so a table of every signal's words has no empty row.
+ 
+ ### The children's changes
+ 
+ A program that starts children has to find out when one of them changes.
+-`os_wait_poll()` never waits. It looks at every child this program
+-started and has not yet seen end, and answers `(h, status)` for the
+-first one that ended or stopped since it last looked: the exit code, 0
+-to 255, for a child that exited; `-N` for one ended by host signal `N`;
+-and `256 + N` for one **stopped** by host signal `N` (`stop()` or a
+-terminal's `suspend()`, `bg_read()` or `bg_write()`). The three ranges
+-never meet, so no status means two things. A child that ended is reaped
+-and its handle closed. A child that stopped stays, and its stop is
+-reported once. A continue is not reported at all: whoever sent it knows.
+-With nothing to report the answer is `(-1, n)`, `n` the children still
+-alive, so `(-1, 0)` is "none left":
++`process.poll()` never waits. It looks at every child this program
++started and has not yet seen end, and answers a `process.Change`: for
++the first child that ended or stopped since it last looked, `changed` is
++true, `child` is that child and `status` says what happened; with
++nothing to report, `changed` is false and `live` is the number of
++children still alive, so a `live` of 0 is "none left". A
++`process.Status` is one of three kinds that never meet, and its
++accessors keep them apart: an exit (`process.is_exited`, and its
++`exit_code`), an end by a host signal (`is_signalled`, and `signal_of`,
++the signal's number), and a **stop** by one (`is_stopped`, and
++`stopped_by`: `stop()` or a terminal's `suspend()`, `bg_read()` or
++`bg_write()`). A child that ended is reaped and its handle closed. A
++child that stopped stays, and its stop is reported once. A continue is
++not reported at all: whoever sent it knows.
++
++Underneath is the builtin `os_wait_poll()`, which answers the same
++thing as two numbers, `(h, status)`: 0 to 255 for an exit, `-N` for an
++end by host signal `N`, `256 + N` for a stop by it, and `(-1, n)` with
++nothing to report:
+ 
+ ```wolf,run(exit=0, stdout="nothing to report: -1, 0 live")
+ fn main() -> !int {
+@@ -609,31 +632,32 @@ answer needs no host at all. Here is a child that stops and then ends:
+ 
+ ```wolf,wolf-run(exit=0)
+ use std.signal
++use std.process
+ 
+-fn changed(kid: int) -> int ! {io} {
+-    while true {
+-        let (h, status) = os_wait_poll()?
+-        if h == kid { return status }
++fn changed(kid: process.Child) -> process.Status ! {io} {
++    var c = process.poll()?
++    while !c.changed || c.child.slot != kid.slot {
+         let _ = signal.wait(signal.child())?
++        c = process.poll()?
+     }
+-    0
++    c.status
+ }
+ 
+ fn main() -> !int {
+     signal.listen(signal.child())?
+-    var argv = List[str]()
+-    (mut argv).push("/bin/sleep")
+-    (mut argv).push("10")
+-    let kid = os_spawn(argv)?
+-    let pid = os_proc_pid(kid)?
+-    signal.send(pid, signal.stop())?
++    var cmd = process.command("sleep")
++    process.push_arg(mut cmd, "10")
++    var kid = process.start(cmd)?
++    signal.send(process.pid(kid)?, signal.stop())?
+     let stopped = changed(kid)?
+-    print("a stop: {stopped >= 256}, by stop(): {stopped - 256 == signal.number(signal.stop())?}")
+-    signal.send(pid, signal.kill())?
++    let stop_n = process.stopped_by(stopped) else 0
++    print("a stop: {process.is_stopped(stopped)}, by stop(): {stop_n == signal.number(signal.stop())?}")
++    process.kill(mut kid)?
+     let ended = changed(kid)?
+-    print("an end: {ended < 0}, by kill(): {-ended == signal.number(signal.kill())?}")
+-    let (h, live) = os_wait_poll()?
+-    print("then: {h}, {live} live")
++    let end_n = process.signal_of(ended) else 0
++    print("an end: {process.is_signalled(ended)}, by kill(): {end_n == signal.number(signal.kill())?}")
++    let after = process.poll()?
++    print("then: changed {after.changed}, {after.live} live")
+     0
+ }
+ ```
+@@ -642,7 +666,7 @@ fn main() -> !int {
+ $ wolf run jobs.lu
+ a stop: true, by stop(): true
+ an end: true, by kill(): true
+-then: -1, 0 live
++then: changed false, 0 live
+ ```
+ 
+ `changed` is the whole of a shell's `wait`. It polls, and when the poll
+@@ -654,9 +678,133 @@ nothing happens. A shell that also traps a signal adds that meaning to
+ the listen and the wait, so a `wait` cut short by the trap and a `wait`
+ ended by a child are the same loop. The poll asks the host about each
+ child the program started, one at a time, and never asks for "any
+-child": a child somebody else started is never reaped by mistake. A
+-shell prints a stopped job's status as `128 + N`, as for an end, so its
+-`$?` for a stop is `128 + (status - 256)`.
++child": a child somebody else started is never reaped by mistake. The
++stop goes to the child's id, which no other process can hold while the
++child is unreaped, and the end through its handle (`process.kill`). A
++shell prints a stopped job's status as `128 + N`, as for an end, and
++`process.shell_code(status)` is that number for either.
++
++## 34.6 One signal at a time, and an end by one
++
++`signal.ignore` and `signal.reset` take a set, and a set holds only the
++twenty listenable meanings. A program sometimes has to choose for a
++signal outside them. GNU `timeout -s SEGV` leads a group, ignores the
++signal it is about to send that group, sends it, and lives; and a
++wrapper whose command died of a signal has to end by the same one, so
++that whoever started the wrapper reads the same end. Five builtins, in
++the prelude, do what a set cannot.
++
++`os_signal_ignore_one(meaning)` sets one meaning's signal ignored, and
++`os_signal_default_one(meaning)` sets it back to what the host does by
++default. The meaning is the sending calls': one meaning of the table,
++the send-only ones included, or a host number `signal.host(n)`. The rows
++are decided in `signal.send`'s order: `invalid` for 0, for anything the
++sending calls refuse, and for `kill()` and `stop()`, which nothing can
++catch or ignore; `unsupported` on Windows; then `io` where the host
++refuses a number (the C library keeps some real-time numbers for
++itself). For one of the twenty listenable meanings the call is the set
++calls' own, and it ends a listen as they do.
++
++```wolf,wolf-run(exit=0)
++use std.signal
++use std.env
++
++fn one_row(meaning: int) -> str {
++    os_signal_ignore_one(meaning) else |e| {
++        return match e {
++            invalid => "invalid",
++            io => "io",
++            unsupported => "unsupported",
++        }
++    }
++    "ok"
++}
++
++fn main() -> !int {
++    print("kill: {one_row(signal.kill())}, stop: {one_row(signal.stop())}")
++    print("nothing: {one_row(0)}, two at once: {one_row(signal.user() | signal.alarm())}")
++    print("a fault meaning: {one_row(signal.segment_fault())}")
++    signal.send(env.pid(), signal.segment_fault())?
++    print("lived through the segment_fault() it sent itself")
++    os_signal_default_one(signal.segment_fault())?
++    0
++}
++```
++
++```console
++$ wolf run one.lu
++kill: invalid, stop: invalid
++nothing: invalid, two at once: invalid
++a fault meaning: ok
++lived through the segment_fault() it sent itself
++```
++
++The last two lines are the runtime keeping a rule. `segment_fault()` and
++`bus_error()` are the runtime's own: it watches for them to catch a task
++that runs off the end of its stack, and it tells a signal a process
++*sent* from a real fault. A sent one does what the program chose, which
++is the host's default (the program dies of it) until the program chooses
++otherwise, and nothing at all under an ignore. A real fault is the
++runtime's whatever the program chose: a stack overflow is still its
++report and exit 134, and any other real fault the host's default,
++because a program that returned from one would run the faulting
++instruction again. macOS describes a sent fault the way it describes a
++real one, so there the runtime can tell only a fault this program sent
++itself, as `one.lu` does; one sent by another process ends the program
++under the default, and under an ignore is lived through once.
++
++`os_exit_signal(meaning)` ends this process by a signal, in the same
++shape, so that its parent reads the end as an end by that signal and a
++shell reports `128 + N`. It sets the signal back to the default, lets
++the calling thread take it, and raises it there. A process that lives on
++anyway (a meaning whose default does nothing, such as `child()`) exits
++with `128 + N`, so the call never returns for a meaning in its shape: it
++answers only `invalid`, and `unsupported` on Windows.
++
++A wrapper that says how its command ended also wants to know whether the
++command left a core, as `timeout` prints "(core dumped)".
++`os_wait_status_core(h)` and `os_wait_poll_core()` are the wait and the
++poll of the children again, with one difference: a child that dumped
++core ends as `-(256 + N)`, below every end without one. `os_wait_status`
++and `os_wait_poll`, and `process.poll` over them, answer `-N` whether or
++not a core was written, so a program that compares a status with `-N`
++reads what it always read. Which ends write a core is the host's
++business, and some hosts write one whatever `ulimit -c` says. Either way
++the status's low byte, `|status| & 255`, is `N`, and a shell's exit
++status for the end, `(128 - status) & 255`, is `128 + N`.
++
++Here is a program that ends by `terminate()`, read by a parent that is
++the same program, re-executed with a marker argument as chapter 33's
++prefork server is:
++
++```wolf,wolf-run(exit=0)
++use std.signal
++use std.process
++use std.env
++
++fn main() -> !int {
++    for a in env.args() {
++        if a == "again" { os_exit_signal(signal.terminate())? }
++    }
++    var again = process.command(os_exe()?)
++    process.push_arg(mut again, "again")
++    let kid = process.start(again)?
++    let status = os_wait_status_core(kid.slot)?
++    let n = signal.number(signal.terminate())?
++    print("ended by terminate(): {status == 0 - n}")
++    print("and with a core: {status == 0 - (256 + n)}")
++    0
++}
++```
++
++```console
++$ wolf run again.lu
++ended by terminate(): true
++and with a core: false
++```
++
++`terminate()`'s default writes no core, so the child's end is `-N` from
++either call, and the second line is false on every host.
+ 
+ ## Exercises
+ 
+@@ -700,6 +848,11 @@ for two meanings at once. Print counts, not numbers.
+            `unsupported: … does not resolve` there (wolf-book#45), and
+            the two builtin-only programs reach calls it declines by
+            name: `os_signal_send` (§34.2, printed) and `os_term_size`.
++           bs69 (wolf 0.2.33): `window.lu` now imports `std.term`, so the
++           builtin-only programs are `alive.lu` (refused by name,
++           printed) and `nochild.lu` (which lupin runs); §34.6's two
++           programs import std too, and lupin 0.1.54 resolves none of the
++           five names they call (wolf-interp#261, #263).
+            → waived(by design: lupin admits no `unsafe` and links no
+            libc, rulings #57 R8, #70 R9, #73 R6, #78; the std half is
+            wolf-book#45).
+@@ -709,13 +862,17 @@ for two meanings at once. Print counts, not numbers.
+            and exercise 34-7 answer an `unsupported` row there, and
+            `lupin alive.lu` prints the row instead of the by-name
+            refusal. Each is declared in samples-os.toml from the windows
+-           lane's own log (run 38956581744), not skipped. The `wolf run`
++           lane's own log (run 38956581744), not skipped. bs68 added
++           `groups.lu` and `jobs.lu` (run 39175460332); bs69's std moves
++           answer the same rows there, and §34.6's `one.lu` and
++           `again.lu` are declared from bs69's windows log (run
++           39317769517). The `wolf run`
+            console blocks are the unix lanes' (that lane links no
+            binary for a console replay).
+            → waived(host scope: no signals, ids or terminal calls on
+            windows by the specification; docs/platforms.md's rows are
+            wolf-lang#749).
+-     - [ ] ba:doc-only — TONE.md §Tense discipline forbids schedule
++     - [x] ba:doc-only — TONE.md §Tense discipline forbids schedule
+            prose. bs67 (planning `be08902`) wrote §34.3's two sentences
+            that the standard library's wrappers for the ids and the
+            terminal calls "ship with the next release", and recorded the
+@@ -736,6 +893,16 @@ for two meanings at once. Print counts, not numbers.
+            → waived(bs68 contract, 2026-10-18; retires at the STD-PIN
+            that carries wolf-std dcf3e89 or later, when §34.5 teaches
+            `process.poll` and the group wrappers).
++           RETIRED by bs69 (2026-10-19, wolf 0.2.33): the archive bundles
++           wolf-std `cceda63` (sc64 and sc65, ruling #85), so the sentence
++           is out and §34.5 teaches `process.Group`, `own_group`,
++           `group_of`, `lead_group`, `join_group`, `signal.send_group`,
++           `send_all`, `last`, `realtime`, `text`, `host`, `process.poll`
++           and `process.Status`, with the builtins named underneath.
++           §34.3's `who.lu` and `window.lu` moved to `std.env` and
++           `std.term` with it. No sentence of this kind is left: §34.6
++           teaches its five calls as builtins without saying what the std
++           lacks.
+      - [ ] ba:doc-only — no program here calls `os_set_ids`,
+            `fs_set_owner` or `fs_set_owner_fd`: they need the
+            super-user to do anything worth printing, and this book does
+@@ -776,8 +943,39 @@ for two meanings at once. Print counts, not numbers.
+            programs inherit process group 1 from the container's first
+            process (docs/audit/bs68-evidence/pgid.sh,
+            kasumi/pgid.txt): a program that asks about "its own group"
+-           without leading one answers for whoever started it. §34.1's hub sentence is
++           without leading one answers for whoever started it
++           (wolf-book#83: bs69 makes the console replay give every
++           program a group of its own, as the sample run does). §34.1's hub sentence is
+            measured at a four-descriptor limit on both compiled tiers
+            (`hublimit.lu`, kasumi/limits-new.txt): exit 71, the one
+            stderr line, no line of `main`.
++     - [ ] Recorded (bs69, 2026-10-19): §34.4's table re-read from the
++           compiler at v0.2.33 (`wolf_sema::ctfe::intrinsics`' sandbox
++           categories and `wolf_driver::pkg_cmd::builtin_cap`): the five
++           new calls charge `exec`. Its "in `std`" column is wolf-std
++           `cceda63`'s.
++     - [ ] Recorded (bs69): chapter 34's programs on the std spellings
++           (`who.lu`, `window.lu`, `groups.lu`, `jobs.lu`), the unchanged
++           `nochild.lu`, and §34.6's `one.lu` and `again.lu` were run on
++           four machines at wolf 0.2.33 / lupin 0.1.54 and under
++           `taskset -c 0-3`, inside a container with its own pid
++           namespace and RLIMIT_CORE 0
++           (docs/audit/bs69-evidence/kasumi/probes.txt). `one.lu` sends
++           `segment_fault()` only to itself, under its own ignore;
++           `again.lu`'s child ends by `terminate()`, which writes no core,
++           and nothing on these pages dumps one. The checked machine
++           refuses `one.lu` by name (the `wolf` process's own stack guard
++           holds SEGV, `[os.signal.checked]`), and runs `again.lu`'s
++           parent with `os_exe()` the `wolf` binary, so its child is not
++           the program (wolf answers that `again` is not a wolf command): both
++           pages are `wolf-run(…)`, the native build. `jobs.lu` starts
++           `sleep` by name on the `PATH`: hasu (NixOS) has no
++           `/bin/sleep`, and bs68's draft that named it failed there
++           (`error: not_found`, docs/audit/bs69-evidence/hasu/).
++     - [ ] Recorded (bs69, dated 2026-10-19): §34.6's five calls are
++           builtins on the page. The std this toolchain bundles
++           (`cceda63`) has no wrappers for them; wolf-std#74 (sc66) adds
++           them. When a release bundles them, §34.6 moves to them as
++           §34.5 did here, and nothing in the reader's text needs a
++           sentence retired first.
+ -->
+=== site grep (0.2.32 / 0.1.54 literals)
+site/index.html:144:  way for the tasks they wait on.</strong> At v0.2.31 a program on the dev
+site/index.html:164:  <p><strong>v0.2.31, the release before it, made a shift arithmetic,
+site/index.html:661:  wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
+site/index.html:663:  generation serves; linux aarch64 is tier-1 in the matrix with no compiled
+site/index.html:668:  the program (<code>wolf conform-run --checked</code>). So on linux aarch64
+site/install/index.html:126:  own <code>windows-msvc</code> toolchain carries. Without it wolf refuses
+site/install/index.html:144:  <a href="https://github.com/wolffe-lang/wolf-lang/releases/download/v__WOLF_VERSION__/wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz"><code>wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.
+site/install/index.html:149:<pre><code>tar -xzf wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></pre>
+site/install/index.html:161:<pre><code>$env:Path = "C:\tools\wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc;$env:Path"</code></pre>
+site/install/index.html:619:tier targets linux/x86-64 and macOS/aarch64 (s41 + s127; c13 owns the
+site/install/index.html:828:  <p>linux x86-64 and macOS aarch64 are the two hosts the whole toolchain is
+site/install/index.html:837:  two, windows x86-64, and linux aarch64. That last one has no compiled tier
+site/spec/index.html:319:      wait that polls, and says how often, though since v0.2.31 an idle
+site/spec/index.html:540:      Since v0.2.31 <code>[type.int.shift]</code> makes a shift on a plain
+site/spec/index.html:660:      is judged. Since v0.2.31 a program signals a process group or every
+(end site grep)
+(end five-name grep)
+=== wolf-std trunk (sc66's wrappers are past cceda63 and must not be shown)
+std trunk: cceda63151430eac07df895fdfffddfa4a0b92c1	refs/heads/trunk
+DERIVE-DONE

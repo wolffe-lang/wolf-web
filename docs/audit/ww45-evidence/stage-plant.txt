@@ -1,0 +1,10 @@
+planted index.html: '</body>' -> '<script>window.__planted = 1</script></body>'
+planted play/index.html: '</body>' -> '<script>window.__planted = 1</script></body>'
+planted play/index.html: 'href="/book/ch34.html#34.6"' -> 'href="/book/ch34.html"'
+planted book/ch34.html: 'id="34.6"' -> 'id="34.6-planted"'
+planted book/ch01.html: 'wolf-0.2.33-x86_64-pc-windows-msvc' -> 'wolf-0.2.32-x86_64-pc-windows-msvc'
+planted book/ch34.html: again.lu's os_exit_signal(signal.terminate()) -> interrupt()
+planted play/samples/index.json: last entry corpus/projects/wordtree.lu removed
+planted play/samples/hello.lu (corpus/hello.lu): replaced by the os_exit_signal probe
+planted: removed book/diagrams/ch07/part-handover-L4.svg
+STAGE-PLANT-DONE

@@ -1,0 +1,207 @@
+namespace: pid 1 procs 4 uid 1000 core 0/0
+SigBlk:	0000000000000000
+SigIgn:	0000000000000006
+lupin /home/mfwolffe/lanes/ww45/pair/lupin-0.1.54-x86_64-unknown-linux-gnu/lupin
+lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+wolf /home/mfwolffe/lanes/ww45/pair/wolf-0.2.33-x86_64-unknown-linux-gnu/wolf
+wolf 0.2.33 (wolfgang, pin 85dab5d)
+paired with lupin 0.1.54 (reference interpreter), pin 294d626
+wolf's std/: base64 bytes cmp deque env errors fmt fs hex io iter json LICENSE LICENSE-EXCEPTION list map math mem net ops option os pool prelude process rand range search set signal sort STD-REV str strbuf term testing time unicode x ; STD-REV cceda63151430eac07df895fdfffddfa4a0b92c1
+== lupin os/signal_one_rows.lu
+os/signal_one_rows.lu: unsupported: `os_signal_ignore_one` does not resolve
+exit=4
+== wolf checked os/signal_one_rows.lu
+{"commit":"85dab5d","diagnostics":[],"file":"os/signal_one_rows.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"ignore_one_zero=invalid\nignore_one_kill=invalid\nignore_one_stop=invalid\nignore_one_two_bits=invalid\nignore_one_past_table=invalid\ndefault_one_zero=invalid\ndefault_one_kill=invalid\ndefault_one_stop=invalid\ndefault_one_two_bits=invalid\ndefault_one_past_table=invalid\nexit_zero=invalid\nexit_two_bits=invalid\nexit_past_table=invalid\nfar_host_number: true\n","stdout_sha256":"d5164752042fbd6b3e8f4c943348f0e0cd47e5c0b14d2a20820f16bfd0edad4e","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) os/signal_one_rows.lu
+ignore_one_zero=invalid
+ignore_one_kill=invalid
+ignore_one_stop=invalid
+ignore_one_two_bits=invalid
+ignore_one_past_table=invalid
+default_one_zero=invalid
+default_one_kill=invalid
+default_one_stop=invalid
+default_one_two_bits=invalid
+default_one_past_table=invalid
+exit_zero=invalid
+exit_two_bits=invalid
+exit_past_table=invalid
+far_host_number: true
+exit=0
+== lupin os/group_rows.lu
+group_one=invalid
+group_zero=invalid
+group_negative=invalid
+group_wide=invalid
+group_two_bits=invalid
+group_past_table=invalid
+all_two_bits=invalid
+all_past_table=invalid
+set_pgid_negative=invalid
+set_pgid_wide=invalid
+text_two_bits=invalid
+text_past_table=invalid
+far_host_number: true
+exit=0
+== wolf checked os/group_rows.lu
+{"commit":"85dab5d","diagnostics":[],"file":"os/group_rows.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"group_one=invalid\ngroup_zero=invalid\ngroup_negative=invalid\ngroup_wide=invalid\ngroup_two_bits=invalid\ngroup_past_table=invalid\nall_two_bits=invalid\nall_past_table=invalid\nset_pgid_negative=invalid\nset_pgid_wide=invalid\ntext_two_bits=invalid\ntext_past_table=invalid\nfar_host_number: true\n","stdout_sha256":"b9fad54da11591428f222c99522e3943008c8b77b46aa27ab4784f3ad328f6b4","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) os/group_rows.lu
+group_one=invalid
+group_zero=invalid
+group_negative=invalid
+group_wide=invalid
+group_two_bits=invalid
+group_past_table=invalid
+all_two_bits=invalid
+all_past_table=invalid
+set_pgid_negative=invalid
+set_pgid_wide=invalid
+text_two_bits=invalid
+text_past_table=invalid
+far_host_number: true
+exit=0
+== lupin os/job_poll_rows.lu
+no child: (-1, 0)
+again: (-1, 0)
+a spawn the host refused: not_found
+still none: (-1, 0)
+exit=0
+== wolf checked os/job_poll_rows.lu
+{"commit":"85dab5d","diagnostics":[],"file":"os/job_poll_rows.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"no child: (-1, 0)\nagain: (-1, 0)\na spawn the host refused: not_found\nstill none: (-1, 0)\n","stdout_sha256":"f88440694ad6863ea5b6ae9eefaf4a648ae828793d5b054abe31ac16f1cc3d65","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) os/job_poll_rows.lu
+no child: (-1, 0)
+again: (-1, 0)
+a spawn the host refused: not_found
+still none: (-1, 0)
+exit=0
+== lupin probes/ch34-again.lu
+ch34-again.lu: unsupported: `env.args` does not resolve
+exit=4
+== wolf checked probes/ch34-again.lu
+wolf: `again` is not a wolf command.
+(`wolf --help` lists every command and shows a first program)
+{"commit":"85dab5d","diagnostics":[],"file":"./ch34-again.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"ended by terminate(): false\nand with a core: false\n","stdout_sha256":"4e514b24468c774a14cf5d1f2ce8db760e31aa9f73e977795410217501f96911","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch34-again.lu
+ended by terminate(): true
+and with a core: false
+exit=0
+== lupin probes/ch34-groups.lu
+ch34-groups.lu: unsupported: `process.lead_group` does not resolve
+exit=4
+== wolf checked probes/ch34-groups.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./ch34-groups.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"leads a group of its own: true\nits own group, nothing sent: ok\ngroup 1: invalid\na group nobody leads: not_found\ntwo meanings at once: invalid\nhost numbers past the table's: true\n","stdout_sha256":"0bc3c3a57ba974df3c9224cdc6a32f79c28820f0c49ab23977fa1da2ee61488b","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch34-groups.lu
+leads a group of its own: true
+its own group, nothing sent: ok
+group 1: invalid
+a group nobody leads: not_found
+two meanings at once: invalid
+host numbers past the table's: true
+exit=0
+== lupin probes/ch34-jobs.lu
+ch34-jobs.lu: unsupported: `signal.listen` does not resolve
+exit=4
+== wolf checked probes/ch34-jobs.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./ch34-jobs.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"a stop: true, by stop(): true\nan end: true, by kill(): true\nthen: changed false, 0 live\n","stdout_sha256":"44f6058c94e443f49c3853285cab8fdc3aacc81b7d9ee24f0abe56210b2f5d66","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch34-jobs.lu
+a stop: true, by stop(): true
+an end: true, by kill(): true
+then: changed false, 0 live
+exit=0
+== lupin probes/ch34-nochild.lu
+nothing to report: -1, 0 live
+exit=0
+== wolf checked probes/ch34-nochild.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./ch34-nochild.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"nothing to report: -1, 0 live\n","stdout_sha256":"1f87a8b5279f28dcc19045c29bcd8e89336f57713d81175505b21de7353d17cc","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch34-nochild.lu
+nothing to report: -1, 0 live
+exit=0
+== lupin probes/ch34-one.lu
+ch34-one.lu: unsupported: `signal.kill` does not resolve
+exit=4
+== wolf checked probes/ch34-one.lu
+wolf conform-run --checked: unsupported — `os_signal_ignore_one`/`os_signal_default_one` of a fault meaning (SEGMENT_FAULT, BUS_ERROR: the `wolf` process's own stack guard holds them; [os.signal.disp.one]) @196..225
+{"commit":"85dab5d","diagnostics":[],"file":"./ch34-one.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"mem","protocol":1,"seeded":false,"stdout_inline":null,"stdout_sha256":null,"verdict":"unsupported","warnings":[],"x-unsupported-construct":"`os_signal_ignore_one`/`os_signal_default_one` of a fault meaning (SEGMENT_FAULT, BUS_ERROR: the `wolf` process's own stack guard holds them; [os.signal.disp.one])","x-unsupported-span":[196,225]}
+
+exit=0
+== wolf run (native) probes/ch34-one.lu
+kill: invalid, stop: invalid
+nothing: invalid, two at once: invalid
+a fault meaning: ok
+lived through the segment_fault() it sent itself
+exit=0
+== lupin probes/os_exit_signal.lu
+os_exit_signal.lu: unsupported: `os_exit_signal` does not resolve
+exit=4
+== wolf checked probes/os_exit_signal.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./os_exit_signal.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"exit_signal: invalid\n","stdout_sha256":"ebf0b3d2e46ddc0a6d2514d7b4f66c3a142bf5a700afd7150c1248c2d733ce72","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_exit_signal.lu
+exit_signal: invalid
+exit=0
+== lupin probes/os_signal_default_one.lu
+os_signal_default_one.lu: unsupported: `os_signal_default_one` does not resolve
+exit=4
+== wolf checked probes/os_signal_default_one.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./os_signal_default_one.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"default_one: invalid\n","stdout_sha256":"d26be57599ae6d0d30cb436e639c673b5b171895e78702dad0215142d016c214","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_default_one.lu
+default_one: invalid
+exit=0
+== lupin probes/os_signal_ignore_one.lu
+os_signal_ignore_one.lu: unsupported: `os_signal_ignore_one` does not resolve
+exit=4
+== wolf checked probes/os_signal_ignore_one.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./os_signal_ignore_one.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"ignore_one: invalid\n","stdout_sha256":"acb22c91860c1564b486001c17877c096454d36e13e9a9e5ebc550994622ecf5","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_ignore_one.lu
+ignore_one: invalid
+exit=0
+== lupin probes/os_signal_text_zero.lu
+text(0): invalid
+exit=0
+== wolf checked probes/os_signal_text_zero.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./os_signal_text_zero.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"text(0): Unknown signal 0\n","stdout_sha256":"5acd69ff20e61b43831a3d3b8578fe78cbe4ad6d6c670968a28d683186ce9697","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_text_zero.lu
+text(0): Unknown signal 0
+exit=0
+== lupin probes/os_wait_poll_core.lu
+os_wait_poll_core.lu: unsupported: `os_wait_poll_core` does not resolve
+exit=4
+== wolf checked probes/os_wait_poll_core.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./os_wait_poll_core.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"poll_core: -1, 0 live\n","stdout_sha256":"2b08a658d650292ca4efbb197822bc25ec20c649c36ed14b0d8d798441b1527b","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_wait_poll_core.lu
+poll_core: -1, 0 live
+exit=0
+== lupin probes/os_wait_status_core.lu
+os_wait_status_core.lu: unsupported: `os_wait_status_core` does not resolve
+exit=4
+== wolf checked probes/os_wait_status_core.lu
+{"commit":"85dab5d","diagnostics":[],"file":"./os_wait_status_core.lu","impl":"wolfgang","impl_version":"0.2.33","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"wait_status_core: io\n","stdout_sha256":"101c0693bdd9315b187dc13da82b20b141e5087b64fc13b9149b57806eb280c6","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_wait_status_core.lu
+wait_status_core: io
+exit=0
+NATIVE-DONE

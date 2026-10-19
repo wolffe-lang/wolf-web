@@ -1,0 +1,6 @@
+lupin 0.1.54 (builtin.rs at 0e536e8) names 108 os/fs/net builtins; of 0.2.33's five it knows [], so ['os_signal_ignore_one', 'os_signal_default_one', 'os_exit_signal', 'os_wait_status_core', 'os_wait_poll_core'] do not resolve
+predicted census, 0.2.33 corpus through lupin 0.1.54: 683 programs {'exit': 499, 'trap': 51, 'unsupported': 133}, candidates 550, fail 0, died 0
+  arrival   os/signal_one_rows.lu: unsupported (`os_signal_ignore_one` does not resolve) — arrival naming a 0.2.33 builtin 0.1.54 lacks
+  modified  os/group_rows.lu: unsupported (unsupported) — modified, adds no name 0.1.54 lacks: ww44's measured class
+predicted module leg (live 0.1.54 -> kasumi-built 0.1.54) on either corpus: 0 rows move
+PREDICT-DONE

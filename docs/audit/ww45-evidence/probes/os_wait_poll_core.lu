@@ -1,0 +1,13 @@
+//! member: false
+//! ww45 probe: one call of os_wait_poll_core, for the tab and for lupin at a terminal (0.2.33's builtins, book §34.6).
+//! No child was started: the poll's answer is (-1, 0) without asking the host.
+fn main() -> !int {
+    let (h, live) = os_wait_poll_core() else |e| {
+        print(match e {
+            io => "poll_core: io",
+        })
+        return 0
+    }
+    print("poll_core: {h}, {live} live")
+    0
+}

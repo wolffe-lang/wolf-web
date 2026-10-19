@@ -1,0 +1,45 @@
+archives run 2026-10-19T23:10:08Z on kasumi
+release ids: wolf-lang v0.2.33 417610226, wolf-interp v0.1.54 415937354
+ok   wolf-0.2.33-aarch64-apple-darwin.tar.gz published 9152dbd136d858539100088394cbaa97cf23f7ddd2816512cd9b48c70a9f40eb read1 9152dbd136d858539100088394cbaa97cf23f7ddd2816512cd9b48c70a9f40eb read2 9152dbd136d858539100088394cbaa97cf23f7ddd2816512cd9b48c70a9f40eb (18780248 B)
+ok   wolf-0.2.33-aarch64-unknown-linux-gnu.tar.gz published 24cde9e4668d17448527f774db602d93a348d285c2219a1edff791519530a2ac read1 24cde9e4668d17448527f774db602d93a348d285c2219a1edff791519530a2ac read2 24cde9e4668d17448527f774db602d93a348d285c2219a1edff791519530a2ac (75894894 B)
+ok   wolf-0.2.33-x86_64-pc-windows-msvc.tar.gz published 967748011252defeb7b4b8d7e1ab2a61bb2971f183e3e2aa3834821391b90398 read1 967748011252defeb7b4b8d7e1ab2a61bb2971f183e3e2aa3834821391b90398 read2 967748011252defeb7b4b8d7e1ab2a61bb2971f183e3e2aa3834821391b90398 (15837258 B)
+ok   wolf-0.2.33-x86_64-unknown-linux-gnu.tar.gz published 4f955e8dfe6eaafa441903eeba43c009c4ec2b45a8da09fe13431e8b12340af8 read1 4f955e8dfe6eaafa441903eeba43c009c4ec2b45a8da09fe13431e8b12340af8 read2 4f955e8dfe6eaafa441903eeba43c009c4ec2b45a8da09fe13431e8b12340af8 (80128936 B)
+ok   lupin-0.1.54-aarch64-apple-darwin.tar.gz published 9cd14db71e32c277829b5e05cdae27bf60cd6f269a9a24f97a7dba67e28a4093 read1 9cd14db71e32c277829b5e05cdae27bf60cd6f269a9a24f97a7dba67e28a4093 read2 9cd14db71e32c277829b5e05cdae27bf60cd6f269a9a24f97a7dba67e28a4093 (2654405 B)
+ok   lupin-0.1.54-aarch64-unknown-linux-gnu.tar.gz published 5fb15e31289d810129b40a9a0af07417d85d5090e74045f66b1f7f4016d166e7 read1 5fb15e31289d810129b40a9a0af07417d85d5090e74045f66b1f7f4016d166e7 read2 5fb15e31289d810129b40a9a0af07417d85d5090e74045f66b1f7f4016d166e7 (2809793 B)
+ok   lupin-0.1.54-x86_64-pc-windows-msvc.zip published cc0b7b242b8546634b4b6ae64bdea2626b2640152d8fca48dac531276a4c7b90 read1 cc0b7b242b8546634b4b6ae64bdea2626b2640152d8fca48dac531276a4c7b90 read2 cc0b7b242b8546634b4b6ae64bdea2626b2640152d8fca48dac531276a4c7b90 (2592214 B)
+ok   lupin-0.1.54-x86_64-unknown-linux-gnu.tar.gz published 175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd read1 175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd read2 175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd (2971403 B)
+ok   lupin.exe published 4ed2487b2492a5073d14252c4fe6383331a87ce312aaa7715fa42737057d7957 read1 4ed2487b2492a5073d14252c4fe6383331a87ce312aaa7715fa42737057d7957 read2 4ed2487b2492a5073d14252c4fe6383331a87ce312aaa7715fa42737057d7957 (6749184 B)
+ok   wolf-0.2.33-aarch64-apple-darwin: folder libwolf_rt.a libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf wolf.1 wolf.bash wolf-cimport-worker wolf.fish ; std/ 58 files (54 .lu), manifest 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0 (book.yml wants 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0), STD-REV cceda63151430eac07df895fdfffddfa4a0b92c1
+ok   wolf-0.2.33-aarch64-unknown-linux-gnu: folder libwolf_rt.a libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf wolf.1 wolf.bash wolf-cimport-worker wolf.fish ; std/ 58 files (54 .lu), manifest 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0 (book.yml wants 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0), STD-REV cceda63151430eac07df895fdfffddfa4a0b92c1
+ok   wolf-0.2.33-x86_64-pc-windows-msvc: folder libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf.1 wolf.bash wolf-cimport-worker.exe wolf.exe wolf.fish wolf_rt.lib ; std/ 58 files (54 .lu), manifest 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0 (book.yml wants 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0), STD-REV cceda63151430eac07df895fdfffddfa4a0b92c1
+ok   wolf-0.2.33-x86_64-unknown-linux-gnu: folder libwolf_rt.a libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf wolf.1 wolf.bash wolf-cimport-worker wolf.fish ; std/ 58 files (54 .lu), manifest 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0 (book.yml wants 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0), STD-REV cceda63151430eac07df895fdfffddfa4a0b92c1
+=== the book CI's staging step, mirrored (book.yml:173-195 at 3ac6fa9)
+STD-PIN at v0.2.33: wolf-std-commit = cceda63151430eac07df895fdfffddfa4a0b92c1
+wolf-std at cceda63151430eac07df895fdfffddfa4a0b92c1
+ok   staged std/: 58 files (54 .lu), manifest 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0 (book.yml wants 4382865a5166fbde9b496a2f76b4a9cda3fbddc8f8e917e1d4f4d4aa9257bbc0)
+staged vs the linux x86-64 archive's std/: IDENTICAL
+STD-REV as the book stages it: cceda63151430eac07df895fdfffddfa4a0b92c1; the archive's: cceda63151430eac07df895fdfffddfa4a0b92c1
+linux x86-64 wolf --version:
+wolf 0.2.33 (wolfgang, pin 85dab5d)
+paired with lupin 0.1.54 (reference interpreter), pin 294d626
+lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+std.process and std.signal pub fns in the archive: x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/process/process.lu:37 x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:44 
+(std lines naming any of the five 0.2.33 builtins: listed above, none if blank)
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/process/process.lu:804:pub fn status_from(value: int) -> Status {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/process/process.lu:957:pub fn poll() -> Change ! {io} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/process/process.lu:1000:pub fn group_of(leader: Child) -> Group ! {io} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/process/process.lu:1011:pub fn own_group() -> Group ! {unsupported} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/process/process.lu:1030:pub fn lead_group() -> () ! {denied, invalid, io, unsupported} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/process/process.lu:1053:pub fn join_group(g: Group) -> () ! {denied, invalid, io, unsupporte
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:221:pub fn poll(set: int) -> int ! {io} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:296:pub fn send_group(g: process.Group, meaning: int) -> () ! {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:328:pub fn send_all(meaning: int) -> () ! {unsupported, invalid, not_found,
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:368:pub fn last() -> int ! {unsupported} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:389:pub fn realtime() -> Realtime ! {unsupported} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:419:pub fn text(meaning: int) -> str ! {invalid, unsupported} {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/signal/signal.lu:438:pub fn host(n: int) -> int {
+x-x86_64-unknown-linux-gnu/wolf-0.2.33-x86_64-unknown-linux-gnu/std/list/list.lu:247:pub fn last[T](xs: List[T]) -> T ! {none} {
+(ruling #85's wrappers in the archive's std: listed above)
+pair kept: lupin-0.1.54-x86_64-unknown-linux-gnu wolf-0.2.33-x86_64-unknown-linux-gnu 
+ARCHIVES-FAIL=0
+ARCHIVES-DONE
