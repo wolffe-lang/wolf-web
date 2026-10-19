@@ -128,19 +128,22 @@
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk; the compiler has
   tagged release after release since while the interpreter kept that pin, so
-  the text this tab reads is six releases behind the one
+  the text this tab reads is eight releases behind the one
   <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap is a step wider than at v0.2.29's pin, when this tab read the same
-  tag a step nearer: the interpreter released again without re-pinning,
-  and mirrored instead what the compiler had added — at
+  gap is two steps wider than at v0.2.30's pin, when this tab read the same
+  tag two steps nearer: the compiler tagged twice, the interpreter released
+  once more without re-pinning, and it mirrored instead what the compiler
+  had added — at
   v0.2.26's pin volatile access and the atomics on raw pointers, the
   kernel's papercuts, a child's descriptors and <code>copy region</code>
   (wolf-interp#185, #194, #200), at v0.2.28's the unsigned and wrapping
   integers, a repeated json name, <code>env_unset</code> and the calls that
   change a file, at v0.2.29's as much of the shell's signals as it could
-  serve without <code>unsafe</code>, and now a file's owner and the shape
-  rows of the id and terminal calls — so the programs those releases brought run
+  serve without <code>unsafe</code>, at v0.2.30's a file's owner and the
+  shape rows of the id and terminal calls, and now the shift rule, the net
+  calls' error number, the shape rows of the group calls and the poll of a
+  program with no child left — so the programs those releases brought run
   here, where a page has what they need, while the text the tab reads has
   fallen further behind. From v0.2.19's pin to
   v0.2.25's the gap was a single step at every pair this site served. The
@@ -178,9 +181,11 @@
   more with the mirror releasing beside it each time, still on that pin, so
   the gap was four steps at v0.2.28's pin, then the compiler tagging once
   more and the mirror releasing beside it on that pin again, so the gap was
-  a step wider at v0.2.29's — and now the same once more, so the gap this
-  page shows is a step wider still, the widest the check that holds these
-  sentences has counted. The two
+  a step wider at v0.2.29's, the same once more, so it was a step wider
+  again at v0.2.30's — and now the compiler tagging twice with the mirror
+  releasing once between, still on that pin, so the gap this page shows is
+  two steps wider still, the widest the check that holds these sentences
+  has counted. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -279,42 +284,60 @@
   row as open (wolf-interp#176). This interpreter reads the row as the
   specification makes it and prints what the compiler prints.</p>
 
-  <p><strong>The compiler's newest programs ask for a process, or run.</strong>
+  <p><strong>The compiler's newest programs shift, or ask for a process.</strong>
   Besides the programs above, every program the release
-  <a href="/install/">install</a> advertises brought into the corpus's
-  running set answers here as its header says or is declined for the tab's
-  reason. The <code>corpus/typecheck/straight_line_*.lu</code> programs,
-  the shapes the compiled tiers of the release before it panicked on, print
-  their headers' values here, as this interpreter always did.
-  <code>corpus/conc/proc_must_join_legal.lu</code> spawns procs, which this
-  build declines with the proc tier. <code>corpus/os/ids_read.lu</code>,
+  <a href="/install/">install</a> advertises and the one before it brought
+  into the corpus's running set answers here as its header says or is
+  declined for the tab's reason. The shift rule's programs,
+  <code>corpus/typecheck/int_shift_value.lu</code>,
+  <code>corpus/kernels/wrap_lshr_fold.lu</code> and the
+  <code>corpus/typecheck/straight_line_sh*.lu</code> programs, print their
+  headers' values here, and the <code>int_shift_*</code> programs in
+  <code>corpus/faults/</code> trap <code>overflow</code> where their headers
+  say, as this interpreter's checked arithmetic always did;
+  <code>corpus/comptime/shift_value.lu</code> computes its shifts in a
+  <code>comptime fn</code>, which this interpreter declines by name in every
+  build. The two programs of <a href="/book/ch03.html#3.3">§3.3 of the
+  book</a> that teach the rule answer here as the chapter prints them: one
+  prints <code>100 0</code> and traps <code>overflow</code>, the other prints
+  <code>144 1 200</code>. <code>corpus/os/group_rows.lu</code> and
+  <code>corpus/os/job_poll_rows.lu</code> each begin with one of the new
+  calls, and this build declines them with the process tier. Those calls —
+  the ones <a href="/book/ch34.html#34.5">§34.5 of the book</a> teaches —
+  answer the same way when a program makes one alone:
+  <code>os_signal_send_group</code>, <code>os_signal_send_all</code>,
+  <code>os_set_pgid</code>, <code>os_signal_last</code>,
+  <code>os_signal_realtime</code>, <code>os_signal_text</code> and
+  <code>os_wait_poll</code> each report <code>unsupported</code>, naming
+  the call. The poll is declined here even with no child, and that is the
+  one program of §34.5 the book runs on the interpreter: at a terminal it
+  answers <code>(-1, 0)</code> without asking the host, and in this build
+  the whole tier is declined before that answer is reached. The section's
+  other two programs are declined as well: one stops at its first call,
+  <code>os_set_pgid</code>, and the other at <code>std.signal</code>, which
+  this tab has no standard library to import. The reason this build gives
+  for the tier says what it is now, the hosted-only process and signal
+  tier, with no host process to ask about, signal from or start another
+  from (wolf-interp#245), where at the last pin it called the id and
+  terminal calls the process trio. At a terminal this interpreter prints
+  the group rows' and the poll rows' headers: it answers every shape row and
+  the poll with no child left, and refuses a well-formed group call, and the
+  poll once a child is live, by name, because it admits no
+  <code>unsafe</code>. lupin 0.1.53, the interpreter this page served until
+  now, declined the same programs and answered that each of the new names
+  does not resolve. No program the corpus already carried answers
+  differently from the last pin. The measurement is four walks: both
+  corpora through both modules, and no program both corpora carry changed
+  its answer in any of them. At v0.2.30's pin the additions were the
+  <code>corpus/typecheck/straight_line_*.lu</code> programs, which print
+  their headers' values here; <code>corpus/conc/proc_must_join_legal.lu</code>,
+  declined with the proc tier; and <code>corpus/os/ids_read.lu</code>,
   <code>corpus/os/ids_rows.lu</code> and
-  <code>corpus/os/term_editor_rows.lu</code> each begin with one of the
-  release's new calls, and this build declines them with the process tier.
-  Those calls — the ones <a href="/book/ch34.html#34.3">chapter 34 of the
-  book</a> teaches — answer the same way when a program makes one alone:
-  <code>os_uid</code>, <code>os_euid</code>, <code>os_gid</code>,
-  <code>os_egid</code>, <code>os_groups</code>, <code>os_set_ids</code>,
-  <code>os_term_size</code>, <code>os_term_chars</code> and
-  <code>os_signal_wait_fd</code> each report <code>unsupported</code> with
-  the process tier, and <code>fs_set_owner</code> and
-  <code>fs_set_owner_fd</code> with the filesystem, naming the call. The
-  reason this build gives for the id reads and the terminal calls calls
-  them the process trio; none of them spawns anything, and the interpreter
-  builds them only where it has that tier. The chapter's own programs are
-  declined here as well: most import <code>std.signal</code>,
-  <code>std.env</code> or <code>std.term</code>, and this tab has no
-  standard library to import, and the rest begin with a call the tab
-  declines. At a terminal this interpreter prints the must-join program's,
-  the owner rows' and the terminal rows' headers: it serves the owner
-  calls and answers every shape row, and refuses the id reads, the drop and
-  the terminal calls by name, because it admits no <code>unsafe</code>.
-  lupin 0.1.52, the interpreter this page served until now, declined the
-  same four programs and answered that each of the new names does not
-  resolve. No program the corpus already carried answers differently from
-  the last pin. The measurement is four walks: both corpora through both
-  modules, and no program both corpora carry changed its answer in any of
-  them. At v0.2.29's pin the addition was one program,
+  <code>corpus/os/term_editor_rows.lu</code>, declined with the process
+  tier, as that release's calls — the ones
+  <a href="/book/ch34.html#34.3">§34.3</a> teaches — are when a program
+  makes one alone, the two owner calls with the filesystem.
+  At v0.2.29's pin the addition was one program,
   <code>corpus/os/signal_shell_rows.lu</code>, which walks the shapes of
   the shell's signal calls; its first call is a poll of a signal set, which
   this build declined then and declines now with the process tier, and
@@ -561,13 +584,14 @@
   <p>Eight tiers report <code>unsupported</code> here that work when you run
   <code>lupin</code> at a terminal. Tasks and procs each need an operating
   system thread, and a WebAssembly module in a page has none to spawn. The
-  <code>time</code> builtins need a clock the module cannot read, the process
-  trio needs processes the page cannot spawn — and the interpreter builds
-  the rest of what it knows about processes only where it has that tier, so
-  this process's id and its parent's, a signal's number, a send to another
-  process, the set of meanings a program ignores, who the process runs as,
-  the drop to another user and the terminal's size, keys and wait are
-  declined with it
+  <code>time</code> builtins need a clock the module cannot read, the
+  process and signal tier needs a host process the page does not have, to
+  ask about, signal from or start another from — so the spawns and waits,
+  this process's id and its parent's, a signal's number and words, a send to
+  another process, to a group or to every process, the move into a group,
+  the set of meanings a program ignores, who the process runs as, the drop
+  to another user, the terminal's size, keys and wait, and the poll of the
+  children are all declined with it
   — the net tier needs sockets the page cannot open, <code>os_random</code> needs an entropy source the module
   has no way to ask for, <code>os_signal_listen</code> needs signals nothing
   in a tab can send, and the filesystem tier, a file's owner with it, needs
