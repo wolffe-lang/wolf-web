@@ -315,10 +315,13 @@
       stderr. A parked task costs its thread and no cpu, a wait in the
       reactor, a channel operation or a <code>when</code> sleeping until its
       completion, its deadline or a cancellation with no system call
-      meanwhile. The clause still names <code>os_signal_wait</code> as the
-      wait that polls, and says how often, though since v0.2.31 an idle
-      signal wait makes no context switch at all (wolf-lang#680): that
-      sentence of the document has not caught up with the release.
+      meanwhile. Since v0.2.31 an idle signal wait makes no context switch
+      at all (wolf-lang#680), and at v__WOLF_VERSION__ the clause says so:
+      outside a scope that can be killed <code>os_signal_wait</code> has no
+      timer and makes no system call while it waits, inside one it still
+      looks for a kill every 5 ms, and the count the clause gave before,
+      about 196 a second, is kept as what the wait cost until then
+      (wolf-lang#788).
       Since v0.2.30 <code>[conc.proc.arg]</code> carries the frame
       rule into a helper: a <code>spawn proc</code> whose arguments can name
       a parameter's bytes, or bytes in the caller's region, must be met on
@@ -398,7 +401,7 @@
       <code>[conf.exit.class]</code>, <code>[conf.exit.refused]</code>,
       <code>[conf.exit.static]</code>, <code>[conf.exit.collide]</code> and
       <code>[conf.exit.test]</code> are the clauses under it.
-      At v__WOLF_VERSION__ <code>[exec.checked.task]</code> lists two more
+      Since v0.2.32 <code>[exec.checked.task]</code> lists two more
       host calls the checked machine waits on a millisecond at a time while
       other tasks exist, letting them run between waits: a readiness wait
       over a set, <code>net_wait</code>, and a write to a socket whose
@@ -671,11 +674,28 @@
       (<code>[os.net.error]</code>), and the readiness set and the signal hub
       are made before <code>main</code> (<code>[os.net.reactor]</code>,
       <code>[os.signal.hub]</code>): when the host refuses one, the program
-      does not start and exits 71. At v__WOLF_VERSION__ a program makes
+      does not start and exits 71. Since v0.2.32 a program makes
       them only where it reaches a call that needs one, on both compiled
       tiers, and neither ever takes a standard descriptor, so 0, 1 or 2 left
-      closed at start stays closed. Each of the new calls is hosted: the
-      freestanding target refuses it by name. Anchors
+      closed at start stays closed. At v__WOLF_VERSION__ a program sets one
+      meaning's signal ignored or back to the host's default in the shape
+      the sending calls take, a meaning only sent or a host number
+      <code>-N</code> included, with 0, <code>KILL</code> and
+      <code>STOP</code> refused (<code>[os.signal.disp.one]</code>), and ends
+      itself by a signal, so its parent reads that signal's end, exiting
+      <code>128 + N</code> if it lives on (<code>[os.signal.exit]</code>); a
+      SEGV or BUS another process sends goes to the program's own
+      disposition, while a real fault stays the runtime's. The wait and the
+      poll of the children gain a sibling each that answers an end which
+      dumped core as <code>-(256 + N)</code>, the released two answering
+      <code>-N</code> as before (<code>[os.proc.status]</code>,
+      <code>[os.proc.poll]</code>); signal 0 has words
+      (<code>[os.signal.text]</code>); a descriptor wait's wake pipe is made
+      once, before <code>main</code>, and shared; and
+      <code>[os.signal.gaps.note]</code> records the three rulings behind
+      them. windows answers <code>unsupported</code> for the disposition and
+      the end by a signal once their shape is judged. Each of the new calls
+      is hosted: the freestanding target refuses it by name. Anchors
       <code>[os.*]</code>.</dd>
   </dl>
 </section>
