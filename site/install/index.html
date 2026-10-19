@@ -177,24 +177,27 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has not: the interpreter released again without
-  re-reading the specification, so the gap widened by one more step.
+  these pins it has not: the compiler tagged twice while the interpreter
+  released once more without re-reading the specification, so the gap
+  widened by two more steps.
   <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
   the compiler has tagged release after release since while the interpreter
   kept that pin, so the newest release whose text the interpreter carries
-  whole is six releases behind the compiler you are installing,
-  __COUNT_speccommits_word__ commits back. At v0.2.29's pin the same tag was
-  a step nearer: lupin 0.1.49 had kept lupin 0.1.48's pin, lupin 0.1.50,
-  0.1.51 and 0.1.52 kept it after that, and the interpreter above has kept
-  it again. Each of them mirrored instead what the compiler had added —
+  whole is eight releases behind the compiler you are installing,
+  __COUNT_speccommits_word__ commits back. At v0.2.30's pin the same tag was
+  two steps nearer: lupin 0.1.49 had kept lupin 0.1.48's pin, lupin 0.1.50,
+  0.1.51, 0.1.52 and 0.1.53 kept it after that, and the interpreter above has
+  kept it again. Each of them mirrored instead what the compiler had added —
   volatile access and the atomics on raw pointers, the kernel's papercuts,
   a child's descriptors and <code>copy region</code> (wolf-interp#185, #194,
   #200), then the unsigned and wrapping integers, a repeated json name,
   <code>env_unset</code> and the calls that change a file, then as much of
-  the shell's signals as it could serve without <code>unsafe</code>, and now
-  a file's owner and the shape rows of the id and terminal calls — which
+  the shell's signals as it could serve without <code>unsafe</code>, then
+  a file's owner and the shape rows of the id and terminal calls, and now
+  the shift rule, the net calls' error number, the shape rows of the group
+  calls and the poll of a program with no child left — which
   is why the programs those releases brought run in the tab, where a page
   has what they need, while the text it reads has fallen further behind. From v0.2.19's pin to v0.2.25's the
   interpreter had re-pinned on the compiler's last tag but one at every
@@ -205,7 +208,7 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   agrees with the compiler's own second
   line: the release above was tested against the interpreter version this
   page names, and the playground serves that interpreter, as it did at
-  v0.2.29's pin, at v0.2.28's, at v0.2.26's, at v0.2.25's, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
+  v0.2.30's pin, at v0.2.29's, at v0.2.28's, at v0.2.26's, at v0.2.25's, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
   tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
@@ -267,35 +270,50 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>Every program the release above brought into the corpus's running set
-  answers here as its header says or is declined for the tab's reason. The
-  <code>corpus/typecheck/straight_line_*.lu</code> programs, the shapes
-  the compiled tiers of the release before it panicked on, print their
-  headers' values, as the interpreter always did.
-  <code>corpus/conc/proc_must_join_legal.lu</code>, the shapes the new
-  must-join check lets through, spawns procs, and the tab declines it with
-  the proc tier. <code>corpus/os/ids_read.lu</code>,
-  <code>corpus/os/ids_rows.lu</code> and
-  <code>corpus/os/term_editor_rows.lu</code> walk who the process runs as, a
-  file's owner, the drop and the terminal's new calls, and the first call
-  each makes is one the page has no process to answer, so the tab declines
-  all three by name with the process tier. It declines each of the
-  release's new calls when a program makes one alone: the id reads,
-  <code>os_set_ids</code> and the three terminal calls with the process
-  tier, and <code>fs_set_owner</code> and <code>fs_set_owner_fd</code> with
-  the filesystem, each answering <code>unsupported</code> and naming the
-  call. Under <code>lupin __LUPIN_VERSION__</code> at a terminal the
-  must-join program, the id and owner rows and the terminal rows print what their
-  headers say, because that interpreter serves the owner calls and answers
-  every shape row; <code>ids_read.lu</code> is refused at its first id read,
-  by name, because the interpreter admits no <code>unsafe</code> and its
-  host library has no call that reads an id. lupin 0.1.52, the interpreter
-  this site served until now, declined the same four programs in the tab
-  and did not know the new names at all. The census counts verdicts; a
-  second walk feeds every running program in the corpus to both modules
-  and compares what each prints. The measurement is four walks, not one —
-  both corpora through both modules — and no program that both corpora
-  carry changed its answer, in its verdict or in its output.</p>
+  <p>Every program the release above and the one before it brought into
+  the corpus's running set answers here as its header says or is declined
+  for the tab's reason. The shift rule's programs answer as their headers
+  say: <code>corpus/typecheck/int_shift_value.lu</code> and
+  <code>corpus/kernels/wrap_lshr_fold.lu</code> print their headers'
+  values, the <code>corpus/typecheck/straight_line_sh*.lu</code> programs,
+  shifts the compiled tiers panicked on before the fix, print theirs, and
+  the <code>int_shift_*</code> programs in <code>corpus/faults/</code> trap
+  <code>overflow</code> where their headers say, as the interpreter's checked
+  arithmetic always did. <code>corpus/comptime/shift_value.lu</code> computes
+  its shifts in a <code>comptime fn</code>, and the interpreter declines
+  compile-time evaluation by name, in the tab and at a terminal.
+  <code>corpus/os/group_rows.lu</code> and
+  <code>corpus/os/job_poll_rows.lu</code> walk the shapes of the group calls
+  and the poll of a program with no child, and the first call each makes is
+  one the page has no process to answer, so the tab declines both by name
+  with the process tier. It declines each of the new calls when a program
+  makes one alone — the send to a group, the send to every process, the move
+  into a group, the host's last signal and its real-time range, a signal's
+  words and the poll — each answering <code>unsupported</code> and naming
+  the call, the poll included, though with no child its answer needs no host.
+  Under <code>lupin __LUPIN_VERSION__</code> at a terminal the group rows
+  and the poll rows print what their headers say, because that interpreter
+  answers every shape row and the poll with no child left; a well-formed
+  group call is refused there by name, because the interpreter admits no
+  <code>unsafe</code> and its host library has no call that signals a group.
+  lupin 0.1.53, the interpreter this site served until now, answered the
+  same in the tab, and did not know the new names at all. The census counts
+  verdicts; a second walk feeds every running program in the corpus to both
+  modules and compares what each prints. The measurement is four walks, not
+  one — both corpora through both modules — and no program that both
+  corpora carry changed its answer, in its verdict or in its output.</p>
+
+  <p>At v0.2.30's pin the additions were the
+  <code>corpus/typecheck/straight_line_*.lu</code> programs, which print
+  their headers' values here; <code>corpus/conc/proc_must_join_legal.lu</code>,
+  which spawns procs and is declined with the proc tier; and
+  <code>corpus/os/ids_read.lu</code>, <code>corpus/os/ids_rows.lu</code> and
+  <code>corpus/os/term_editor_rows.lu</code>, which the tab declines by name
+  at their first call with the process tier, as it declines each of that
+  release's id, drop and terminal calls made alone, and the two owner calls
+  with the filesystem. At a terminal the must-join program and the owner and
+  terminal rows print what their headers say; <code>ids_read.lu</code> is
+  refused at its first id read, by name.</p>
 
   <p>At v0.2.29's pin the addition was one program,
   <code>corpus/os/signal_shell_rows.lu</code>, which walks the shapes of the
