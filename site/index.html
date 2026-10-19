@@ -139,56 +139,106 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises fixes a crash in the compiled
-  tiers, and tells a program who it runs as and what its terminal
-  is.</strong> The release before it panicked in <code>wolf build</code>
+  <p><strong>The release this page advertises keeps a closed standard
+  descriptor closed, and lets the checked machine's waits and writes make
+  way for the tasks they wait on.</strong> At v0.2.31 a program on the dev
+  tier, <code>wolf build</code> and <code>wolf run</code>, that imported
+  <code>std.signal</code> or <code>std.net</code> and was started with
+  descriptor 0, 1 or 2 closed found it open before <code>main</code>: the
+  runtime made its signal hub or its readiness set at start, the host put
+  their pipes on the lowest free numbers, and a program run
+  <code>prog &gt;&amp;-</code> wrote its output into the runtime's pipe where
+  it should have failed (wolf-lang#778). The runtime's own descriptors never
+  take 0, 1 or 2 now, on either tier, so a standard descriptor the program
+  was started without stays closed, and the hub and the set are made only
+  where a program reaches a call that needs one: an import alone makes
+  nothing. On the checked machine, <code>wolf conform-run --checked</code>,
+  <code>net_wait</code> beside other tasks waits a millisecond at a time and
+  lets them run, so a loop waiting on connections from tasks it spawned
+  answers instead of hanging, and a socket write too large for the buffers
+  does the same beside the task that will read it (wolf-lang#720, #777).
+  It adds no call and no prelude name, and the archive's <code>std/</code>
+  and the interpreter this release is tested against are those of the
+  release before it.</p>
+
+  <p><strong>v0.2.31, the release before it, made a shift arithmetic,
+  refused to start a program the runtime could not set up, and let a shell
+  wait for its jobs.</strong> A shift on a plain integer is arithmetic on
+  its value (<code>[type.int.shift]</code>, wolf-lang#736): <code>x &lt;&lt;
+  n</code> is <code>x</code> times two to the <code>n</code> and traps
+  <code>overflow</code> when that leaves the type, <code>x &gt;&gt; n</code>
+  is the floor of <code>x</code> over two to the <code>n</code>, and a
+  negative count traps. Native and release had computed the machine's masked
+  shift, so <code>255 &lt;&lt; 1</code> at <code>u8</code> printed 254;
+  <code>wrapping[T]</code> keeps those bits for code that wants them, and
+  the checked machine answers a plain shift it had refused by name. A
+  program that names a call which can park in the reactor, or listens or
+  waits for a signal, has its readiness set or its signal hub made before
+  <code>main</code>, and when the host refuses one, at a descriptor limit
+  already reached at start, the program does not start: one line on stderr
+  and exit 71, where it had run and ended with <code>SIGABRT</code> at its
+  first park or listen. <code>os_wait_poll</code> asks, without blocking,
+  whether a child the program started has ended or stopped, and reports a
+  stop as <code>256 + N</code> beside an exit code and <code>-N</code> for
+  an end by signal N; <code>os_signal_wait</code> stopped waking on a timer,
+  so an idle wait makes no context switch at all (wolf-lang#680).
+  <code>os_signal_send_group</code> and <code>os_signal_send_all</code>
+  reach a process group and every process, <code>os_set_pgid</code> moves
+  the caller into a group, the sends take a host's own signal number as
+  <code>-N</code>, <code>os_signal_last</code> and
+  <code>os_signal_realtime</code> say how far the host's numbers go, and
+  <code>os_signal_text</code> gives a signal's words: what <code>kill
+  0</code>, <code>kill -1</code>, <code>kill %job</code> and <code>kill
+  -l</code> are made of (wolf-lang#739, #740, #741, #762). The
+  <code>std/</code> in the archive moved on to wrap the release before it:
+  <code>env.uid</code> and the other id reads, <code>fs.set_owner</code>,
+  <code>process.set_ids</code>, <code>term.size</code>,
+  <code>term.chars</code> and <code>signal.wait_fd</code>, with
+  <code>std.os.users</code> to read the user and group files; it wraps none
+  of that release's new calls, so a program calls them as the prelude
+  spells them. The interpreter both releases are tested against mirrors the
+  shift rule, answers the poll with no child left and the shape rows of the
+  group calls, refuses each well-formed group call by name, and released
+  without re-reading the specification, so the gap between the two widened
+  again, and the <a href="/play/">playground</a> counts it.</p>
+
+  <p><strong>v0.2.30 fixed a crash in the compiled tiers, and told a
+  program who it runs as and what its terminal is.</strong> The release
+  before it panicked in <code>wolf build</code>
   and <code>wolf run</code>, on native and on release, at a function with
   no branch, loop, call or index that declared a local, then compared two
   <code>str</code>s, narrowed or changed the sign of an integer with
   <code>as</code>, turned an <code>int</code> into a <code>char</code> or
   took a signed wrapping <code>/</code> or <code>%</code> by a divisor that
   is not a constant, and then read the local (wolf-lang#755). The checked
-  machine and <code>lupin</code> always answered those programs; every
-  compiled tier does now, and nothing else a program can see moved. A
+  machine and <code>lupin</code> always answered those programs, and every
+  compiled tier did from then on. A
   function that spawns a proc handed a parameter's bytes, or its caller's
   region, must meet that proc on every path out — <code>p.join()</code>, an
   exit received from <code>p.monitor()</code>, or <code>p</code> handed to a
   function that does so — and every call to one that may leave it running
-  is <code>E1010</code> at the argument a region block would free under it
-  (wolf-lang#678), where native and release had printed the bytes the next
-  region put there. That is a refusal at compile time, so some programs
-  that compiled before are refused, with the fix-it in the message: join the
-  proc, or build the argument outside the region. <code>os_term_size</code>
+  became <code>E1010</code> at the argument a region block would free under
+  it (wolf-lang#678), where native and release had printed the bytes the
+  next region put there. <code>os_term_size</code>
   reads the window's rows and columns, <code>os_term_chars</code> the
   user's erase, kill and interrupt keys and the rest, and
   <code>os_signal_wait_fd</code> is one wait that a key and a signal both
-  end, which is what a line editor asks of its terminal (wolf-lang#719). A
-  terminal mode gains <code>FLOW</code> and <code>EXTENDED</code>, so a
-  raw mode can turn off flow control and the host's extended input and
-  receive Ctrl-S, Ctrl-Q and Ctrl-V; a mode built by hand without those two
-  bits now turns them off, where it had left them as found. <code>os_uid</code>, <code>os_euid</code>, <code>os_gid</code>,
+  end, which is what a line editor asks of its terminal (wolf-lang#719); a
+  terminal mode gained <code>FLOW</code> and <code>EXTENDED</code>.
+  <code>os_uid</code>, <code>os_euid</code>, <code>os_gid</code>,
   <code>os_egid</code> and <code>os_groups</code> say who the process runs
   as, <code>fs_set_owner</code> and <code>fs_set_owner_fd</code> change a
   file's owner, and <code>os_set_ids</code> becomes another user for good:
   it returns with every id as asked or every id as it was, and ends the
   process rather than leave it in between (wolf-lang#633, #701, #742).
   linux serves the drop and macOS answers <code>unsupported</code> for it;
-  windows answers <code>unsupported</code> for every one of these calls. The
-  <code>std/</code> in the archive moved on: its <code>std.signal</code>
-  names every meaning the release before this one added, with
-  <code>signal.send</code>, <code>signal.number</code>,
-  <code>signal.ignored</code>, <code>env.pid</code> and
-  <code>env.ppid</code>, and its <code>std.term</code> keeps the two new
-  mode bits; it wraps none of this release's new calls, so a program calls
-  them as the prelude spells them. The interpreter this release is tested
-  against serves the owner calls, refuses the id reads, the drop and the
-  terminal calls by name, and released without re-reading the
-  specification once more, so the gap between the two widened again, and
-  the <a href="/play/">playground</a> counts it.</p>
+  windows answers <code>unsupported</code> for every one of these calls.
+  The interpreter it was tested against served the owner calls, refused the
+  id reads, the drop and the terminal calls by name, and released without
+  re-reading the specification, so the gap widened at that release too.</p>
 
-  <p><strong>v0.2.29, the release before it, let a server park a task
-  for every connection, and gave a shell the signals it is made
-  of.</strong> A task parked in a wait — <code>net_read</code>,
+  <p><strong>v0.2.29 let a server park a task for every connection, and
+  gave a shell the signals it is made of.</strong> A task parked in a wait — <code>net_read</code>,
   <code>net_accept</code>, a channel <code>recv</code>, a <code>when</code>
   or a sleep — holds a thread, and the pool adds a worker beside it. That
   had stopped at a fixed number of workers a core, so a program that parked
@@ -197,7 +247,7 @@ fn main() -&gt; !int {
   thread limit is the last word, and a thread the host refuses is one line
   on stderr, never an abort. A parked task costs its thread and no cpu,
   where every parked wait had woken many times a second to look for a
-  cancellation; <code>os_signal_wait</code> still polls. Every signal POSIX
+  cancellation; <code>os_signal_wait</code> still polled then. Every signal POSIX
   names gained a meaning in the signal set, the ones a program may listen
   for, ignore, wait for and poll, and <code>KILL</code>, <code>STOP</code>
   and the fault signals, which it may only send; a set holding a bit that
