@@ -315,9 +315,11 @@
       stderr. A parked task costs its thread and no cpu, a wait in the
       reactor, a channel operation or a <code>when</code> sleeping until its
       completion, its deadline or a cancellation with no system call
-      meanwhile; <code>os_signal_wait</code> is the wait that still polls,
-      and the clause says how often.
-      At v__WOLF_VERSION__ <code>[conc.proc.arg]</code> carries the frame
+      meanwhile. The clause still names <code>os_signal_wait</code> as the
+      wait that polls, and says how often, though since v0.2.31 an idle
+      signal wait makes no context switch at all (wolf-lang#680): that
+      sentence of the document has not caught up with the release.
+      Since v0.2.30 <code>[conc.proc.arg]</code> carries the frame
       rule into a helper: a <code>spawn proc</code> whose arguments can name
       a parameter's bytes, or bytes in the caller's region, must be met on
       every path out of the function — <code>p.join()</code>, an exit
@@ -396,6 +398,15 @@
       <code>[conf.exit.class]</code>, <code>[conf.exit.refused]</code>,
       <code>[conf.exit.static]</code>, <code>[conf.exit.collide]</code> and
       <code>[conf.exit.test]</code> are the clauses under it.
+      At v__WOLF_VERSION__ <code>[exec.checked.task]</code> lists two more
+      host calls the checked machine waits on a millisecond at a time while
+      other tasks exist, letting them run between waits: a readiness wait
+      over a set, <code>net_wait</code>, and a write to a socket whose
+      buffers are full. A wait's own deadline still decides when it answers,
+      a <code>net_wait</code> with deadline <code>0</code> asks once, and
+      alone each is the one blocking call it was, so a loop waiting on
+      connections from tasks it spawned, or a large write to a task that
+      will read it, answers instead of hanging (wolf-lang#720, #777).
       Anchors <code>[conf.*]</code>.</dd>
 
     <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (__KIB_spec/06-differential-protocol.md__ KiB)</dt>
@@ -526,6 +537,17 @@
       <code>1844674407370955161</code>, and an unsigned or wrapping integer
       prints as the value its type holds; the compiled tiers had printed a
       <code>wrapping[u64]</code> as signed and refused or trapped its division.
+      Since v0.2.31 <code>[type.int.shift]</code> makes a shift on a plain
+      integer arithmetic on its value: <code>x &lt;&lt; n</code> is
+      <code>x</code> times two to the <code>n</code> and <code>x &gt;&gt;
+      n</code> the floor of <code>x</code> over two to the <code>n</code>,
+      each of the operand's type, so a <code>&lt;&lt;</code> whose product
+      leaves the type traps <code>overflow</code> as <code>*</code> does, a
+      count at or past the width has shifted every bit out, a negative count
+      traps, and both operands have one type. A constant shift is evaluated
+      by the same rule. <code>wrapping[T]</code> keeps the machine's shift,
+      the count taken modulo the width, and the clause records it as the
+      answer every machine already gave.
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
@@ -622,7 +644,7 @@
       number for a meaning (<code>[os.signal.number]</code>) and names its
       own id and its parent's (<code>[os.proc.self]</code>), and a poll lets
       pending signals be delivered before it answers, so it never trails
-      one (<code>[os.signal.poll]</code>). At v__WOLF_VERSION__ a program
+      one (<code>[os.signal.poll]</code>). Since v0.2.30 a program
       reads who it runs as, its real and effective ids and its groups
       (<code>[os.proc.ids]</code>), changes a file's owner by path or on a
       handle (<code>[os.fs.owner]</code>), and becomes another user for good
@@ -635,8 +657,26 @@
       flow control and the host's extended input as two more switches
       (<code>[os.term.mode]</code>). windows answers
       <code>unsupported</code> for every one of these calls once its shape
-      is judged. Each of the new calls is hosted: the freestanding target
-      refuses it by name. Anchors <code>[os.*]</code>.</dd>
+      is judged. Since v0.2.31 a program signals a process group or every
+      process it may signal (<code>[os.signal.send.group]</code>,
+      <code>[os.signal.send.all]</code>), with group 1 refused so that a
+      group id computed wrong never becomes a broadcast; moves itself into a
+      group (<code>[os.term.group]</code>); sends and names a host's own
+      signal number as <code>-N</code> and reads how far those numbers go
+      (<code>[os.signal.host]</code>); reads a signal's words in the C
+      locale (<code>[os.signal.text]</code>); and polls its children without
+      blocking (<code>[os.proc.poll]</code>), a stop reported as
+      <code>256 + N</code> beside an exit code and <code>-N</code>. A net
+      call leaves the host's number in <code>os_error()</code>
+      (<code>[os.net.error]</code>), and the readiness set and the signal hub
+      are made before <code>main</code> (<code>[os.net.reactor]</code>,
+      <code>[os.signal.hub]</code>): when the host refuses one, the program
+      does not start and exits 71. At v__WOLF_VERSION__ a program makes
+      them only where it reaches a call that needs one, on both compiled
+      tiers, and neither ever takes a standard descriptor, so 0, 1 or 2 left
+      closed at start stays closed. Each of the new calls is hosted: the
+      freestanding target refuses it by name. Anchors
+      <code>[os.*]</code>.</dd>
   </dl>
 </section>
 
