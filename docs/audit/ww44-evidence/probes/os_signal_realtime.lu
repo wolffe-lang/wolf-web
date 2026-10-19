@@ -1,0 +1,12 @@
+//! member: false
+//! ww44 probe: one call of os_signal_realtime, for the tab and for lupin at a terminal (0.2.31's builtins, book §34.5).
+fn main() -> !int {
+    let (lo, hi) = os_signal_realtime() else |e| {
+        print(match e {
+            unsupported => "realtime: unsupported",
+        })
+        return 0
+    }
+    print("realtime: {lo <= hi}")
+    0
+}

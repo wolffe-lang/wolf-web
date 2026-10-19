@@ -1,0 +1,266 @@
+﻿2026-10-19T00:11:13.7082183Z Current runner version: '2.337.0'
+2026-10-19T00:11:13.7111547Z ##[group]Runner Image Provisioner
+2026-10-19T00:11:13.7112450Z Hosted Compute Agent
+2026-10-19T00:11:13.7113115Z Version: 20261002.596
+2026-10-19T00:11:13.7113787Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-19T00:11:13.7114575Z Build Date: 2026-10-02T22:28:27Z
+2026-10-19T00:11:13.7115337Z Worker ID: {e50df4d4-e296-4170-a1eb-34f188da0a24}
+2026-10-19T00:11:13.7116134Z Region: westus2
+2026-10-19T00:11:13.7116814Z Cloud: Azure
+2026-10-19T00:11:13.7117507Z ##[endgroup]
+2026-10-19T00:11:13.7119086Z ##[group]Operating System
+2026-10-19T00:11:13.7119898Z Microsoft Windows Server 2025
+2026-10-19T00:11:13.7120678Z 10.0.26100
+2026-10-19T00:11:13.7121322Z Datacenter
+2026-10-19T00:11:13.7121998Z ##[endgroup]
+2026-10-19T00:11:13.7122745Z ##[group]Runner Image
+2026-10-19T00:11:13.7123524Z Image: windows-2025-vs2026
+2026-10-19T00:11:13.7124298Z Version: 20261007.264.1
+2026-10-19T00:11:13.7125985Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261007.264/images/windows/Windows2025-VS2026-Readme.md
+2026-10-19T00:11:13.7128428Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261007.264
+2026-10-19T00:11:13.7129664Z ##[endgroup]
+2026-10-19T00:11:13.7131119Z ##[group]GITHUB_TOKEN Permissions
+2026-10-19T00:11:13.7133244Z Contents: read
+2026-10-19T00:11:13.7133992Z Metadata: read
+2026-10-19T00:11:13.7134700Z Packages: read
+2026-10-19T00:11:13.7135434Z ##[endgroup]
+2026-10-19T00:11:13.7137708Z Secret source: Actions
+2026-10-19T00:11:13.7138909Z Cache mode: write
+2026-10-19T00:11:13.7139772Z Prepare workflow directory
+2026-10-19T00:11:13.7531411Z Prepare all required actions
+2026-10-19T00:11:13.7582120Z Getting action download info
+2026-10-19T00:11:14.0282069Z Download action repository 'actions/checkout@v5' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+2026-10-19T00:11:15.0421212Z Complete job name: the archive, on a real windows box
+2026-10-19T00:11:15.6811644Z ##[group]Run actions/checkout@v5
+2026-10-19T00:11:15.6812965Z with:
+2026-10-19T00:11:15.6813656Z   submodules: recursive
+2026-10-19T00:11:15.6814529Z   repository: wolffe-lang/wolf-web
+2026-10-19T00:11:15.6823628Z   token: ***
+2026-10-19T00:11:15.6824342Z   ssh-strict: true
+2026-10-19T00:11:15.6825060Z   ssh-user: git
+2026-10-19T00:11:15.6825793Z   persist-credentials: true
+2026-10-19T00:11:15.6826589Z   clean: true
+2026-10-19T00:11:15.6827324Z   sparse-checkout-cone-mode: true
+2026-10-19T00:11:15.6828189Z   fetch-depth: 1
+2026-10-19T00:11:15.6828899Z   fetch-tags: false
+2026-10-19T00:11:15.6829609Z   show-progress: true
+2026-10-19T00:11:15.6830332Z   lfs: false
+2026-10-19T00:11:15.6831022Z   set-safe-directory: true
+2026-10-19T00:11:15.6831867Z   allow-unsafe-pr-checkout: false
+2026-10-19T00:11:15.6833032Z ##[endgroup]
+2026-10-19T00:11:16.1881546Z Syncing repository: wolffe-lang/wolf-web
+2026-10-19T00:11:16.1883338Z ##[group]Getting Git version info
+2026-10-19T00:11:16.1883967Z Working directory is 'D:\a\wolf-web\wolf-web'
+2026-10-19T00:11:16.3095015Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-19T00:11:16.6739934Z git version 2.56.0.windows.2
+2026-10-19T00:11:16.6804274Z ##[endgroup]
+2026-10-19T00:11:16.6827515Z Temporarily overriding HOME='D:\a\_temp\190f0444-19c1-4c6b-8b08-5660e705cf30' before making global git config changes
+2026-10-19T00:11:16.6828826Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-19T00:11:16.6839661Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wolf-web\wolf-web
+2026-10-19T00:11:16.7565480Z Deleting the contents of 'D:\a\wolf-web\wolf-web'
+2026-10-19T00:11:16.7571681Z ##[group]Initializing the repository
+2026-10-19T00:11:16.7581644Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wolf-web\wolf-web
+2026-10-19T00:11:16.8845121Z Initialized empty Git repository in D:/a/wolf-web/wolf-web/.git/
+2026-10-19T00:11:16.8918881Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/wolffe-lang/wolf-web
+2026-10-19T00:11:16.9881154Z ##[endgroup]
+2026-10-19T00:11:16.9882130Z ##[group]Disabling automatic garbage collection
+2026-10-19T00:11:16.9896480Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-19T00:11:17.0502809Z ##[endgroup]
+2026-10-19T00:11:17.0505130Z ##[group]Setting up auth
+2026-10-19T00:11:17.0555124Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-19T00:11:17.1046170Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-19T00:11:23.9141404Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-19T00:11:23.9626808Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-19T00:11:24.5908682Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T00:11:24.6473933Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-19T00:11:25.2194688Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-19T00:11:25.2578841Z ##[endgroup]
+2026-10-19T00:11:25.2591308Z ##[group]Fetching the repository
+2026-10-19T00:11:25.2592262Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d625618b8d7de99e5c9ee6ba6826ececf8b01f4b:refs/remotes/origin/ww44
+2026-10-19T00:11:26.8211320Z From https://github.com/wolffe-lang/wolf-web
+2026-10-19T00:11:26.8212954Z  * [new ref]         d625618b8d7de99e5c9ee6ba6826ececf8b01f4b -> origin/ww44
+2026-10-19T00:11:26.8251277Z ##[endgroup]
+2026-10-19T00:11:26.8251816Z ##[group]Determining the checkout info
+2026-10-19T00:11:26.8254587Z ##[endgroup]
+2026-10-19T00:11:26.8263712Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-19T00:11:26.8797499Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-19T00:11:26.9191552Z ##[group]Checking out the ref
+2026-10-19T00:11:26.9203201Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B ww44 refs/remotes/origin/ww44
+2026-10-19T00:11:27.1096871Z Switched to a new branch 'ww44'
+2026-10-19T00:11:27.1218197Z branch 'ww44' set up to track 'origin/ww44'.
+2026-10-19T00:11:27.1297338Z ##[endgroup]
+2026-10-19T00:11:27.1297734Z ##[group]Setting up auth for fetching submodules
+2026-10-19T00:11:27.1308950Z [command]"C:\Program Files\Git\bin\git.exe" config --global http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-19T00:11:27.1695920Z [command]"C:\Program Files\Git\bin\git.exe" config --global --unset-all url.https://github.com/.insteadOf
+2026-10-19T00:11:27.2072295Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-10-19T00:11:27.2450457Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf org-315637195@github.com:
+2026-10-19T00:11:27.2833403Z ##[endgroup]
+2026-10-19T00:11:27.2833784Z ##[group]Fetching submodules
+2026-10-19T00:11:27.2842403Z [command]"C:\Program Files\Git\bin\git.exe" submodule sync --recursive
+2026-10-19T00:11:27.8331887Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-10-19T00:11:28.3989334Z Submodule 'book' (https://github.com/wolffe-lang/wolf-book.git) registered for path 'upstream/wolf-book'
+2026-10-19T00:11:28.4004774Z Submodule 'interp' (https://github.com/wolffe-lang/wolf-interp.git) registered for path 'upstream/wolf-interp'
+2026-10-19T00:11:28.4030582Z Submodule 'lang' (https://github.com/wolffe-lang/wolf-lang.git) registered for path 'upstream/wolf-lang'
+2026-10-19T00:11:28.4501516Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-book'...
+2026-10-19T00:11:29.2584004Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-interp'...
+2026-10-19T00:11:30.1290589Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-lang'...
+2026-10-19T00:11:31.8961161Z Submodule path 'upstream/wolf-book': checked out 'e9862f6abe6374a759645aa53b52bc7e38603ebd'
+2026-10-19T00:11:32.8468722Z Submodule path 'upstream/wolf-interp': checked out '0e536e8fb4518eaa798ac426901ab81275db5c9f'
+2026-10-19T00:11:32.8619071Z Submodule 'upstream' (https://github.com/wolffe-lang/wolf-lang.git) registered for path 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:32.8969879Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-interp/upstream'...
+2026-10-19T00:11:35.1728319Z From https://github.com/wolffe-lang/wolf-lang
+2026-10-19T00:11:35.1729033Z  * branch            294d626dd596122285d5df954762e3aee3e5db71 -> FETCH_HEAD
+2026-10-19T00:11:36.4027663Z Submodule path 'upstream/wolf-interp/upstream': checked out '294d626dd596122285d5df954762e3aee3e5db71'
+2026-10-19T00:11:37.9986003Z Submodule path 'upstream/wolf-lang': checked out '72de141f624662fdff522e8beba459fab7c5cf66'
+2026-10-19T00:11:38.0247833Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local gc.auto 0"
+2026-10-19T00:11:38.6460033Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:38.6998069Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:38.7505020Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:38.8051977Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:38.8662537Z ##[endgroup]
+2026-10-19T00:11:38.8662946Z ##[group]Persisting credentials for submodules
+2026-10-19T00:11:38.8674304Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :\""
+2026-10-19T00:11:39.4196691Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:39.5009617Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:39.5801454Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:39.6700275Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:39.7605890Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url\""
+2026-10-19T00:11:40.2916600Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:40.3712715Z file:D:/a/wolf-web/wolf-web/.git/modules/book/config	remote.origin.url
+2026-10-19T00:11:40.3906967Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:40.4729757Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/config	remote.origin.url
+2026-10-19T00:11:40.4929913Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:40.5725960Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config	remote.origin.url
+2026-10-19T00:11:40.5934430Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:40.6719278Z file:D:/a/wolf-web/wolf-web/.git/modules/lang/config	remote.origin.url
+2026-10-19T00:11:40.7110178Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'"
+2026-10-19T00:11:41.2762975Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:41.3310953Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:41.3809828Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:41.4355410Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:41.4992384Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'org-315637195@github.com:'"
+2026-10-19T00:11:42.0381503Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:42.0923862Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:42.1425271Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:42.1975252Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:42.2601792Z ##[endgroup]
+2026-10-19T00:11:42.3161353Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-19T00:11:42.3524005Z d625618b8d7de99e5c9ee6ba6826ececf8b01f4b
+2026-10-19T00:11:42.3994089Z ##[group]Run $line = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' | Select-Object -First 1
+2026-10-19T00:11:42.3995459Z [36;1m$line = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' | Select-Object -First 1[0m
+2026-10-19T00:11:42.3996364Z [36;1mif (-not $line) { Write-Output "::error::no release heading in the pinned wolf-lang CHANGELOG.md"; exit 1 }[0m
+2026-10-19T00:11:42.3996995Z [36;1m$ver = $line.Matches[0].Groups[1].Value[0m
+2026-10-19T00:11:42.3997485Z [36;1m"WOLF_VER=$ver" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8[0m
+2026-10-19T00:11:42.3998364Z [36;1m$lup = (Select-String -Path upstream/wolf-interp/Cargo.toml -Pattern '^version\s*=\s*"([^"]+)"' | Select-Object -First 1).Matches[0].Groups[1].Value[0m
+2026-10-19T00:11:42.3999321Z [36;1mif (-not $lup) { Write-Output "::error::no version in the pinned wolf-interp Cargo.toml"; exit 1 }[0m
+2026-10-19T00:11:42.4000047Z [36;1m"LUPIN_VER=$lup" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8[0m
+2026-10-19T00:11:42.4000533Z [36;1m"the pins say wolf $ver, lupin $lup"[0m
+2026-10-19T00:11:42.4713488Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-19T00:11:42.4713979Z ##[endgroup]
+2026-10-19T00:11:42.9263210Z the pins say wolf 0.2.32, lupin 0.1.54
+2026-10-19T00:11:43.0108264Z ##[group]Run if ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {
+2026-10-19T00:11:43.0109041Z [36;1mif ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {[0m
+2026-10-19T00:11:43.0109621Z [36;1m  git -C upstream/wolf-lang fetch --quiet --unshallow --tags origin[0m
+2026-10-19T00:11:43.0110029Z [36;1m} else {[0m
+2026-10-19T00:11:43.0110311Z [36;1m  git -C upstream/wolf-lang fetch --quiet --tags origin[0m
+2026-10-19T00:11:43.0110629Z [36;1m}[0m
+2026-10-19T00:11:43.0110808Z [36;1m[0m
+2026-10-19T00:11:43.0111090Z [36;1m# One implementation of the rule, for this runner and the author's[0m
+2026-10-19T00:11:43.0111552Z [36;1m# machine alike. Its messages go to the log on stderr; --json puts[0m
+2026-10-19T00:11:43.0111963Z [36;1m# the facts on stdout, and only when it is satisfied.[0m
+2026-10-19T00:11:43.0112301Z [36;1m$ErrorActionPreference = 'Continue'[0m
+2026-10-19T00:11:43.0112602Z [36;1mpython --version[0m
+2026-10-19T00:11:43.0112854Z [36;1mpython scripts/check-lag-phrases.py `[0m
+2026-10-19T00:11:43.0113236Z [36;1m  site upstream/wolf-lang upstream/wolf-interp --json > lag.json[0m
+2026-10-19T00:11:43.0113609Z [36;1mif ($LASTEXITCODE -ne 0) {[0m
+2026-10-19T00:11:43.0114519Z [36;1m  Write-Output "::error::scripts/check-lag-phrases.py refused the pages — the reasons are in this step's log, and the same command reds locally: python3 scripts/check-lag-phrases.py site upstream/wolf-lang upstream/wolf-interp"[0m
+2026-10-19T00:11:43.0115434Z [36;1m  exit 1[0m
+2026-10-19T00:11:43.0115612Z [36;1m}[0m
+2026-10-19T00:11:43.0115856Z [36;1m$f = (Get-Content lag.json -Raw | ConvertFrom-Json)[0m
+2026-10-19T00:11:43.0116176Z [36;1mRemove-Item lag.json[0m
+2026-10-19T00:11:43.0116388Z [36;1m[0m
+2026-10-19T00:11:43.0116637Z [36;1m"wolf $env:WOLF_VER is the release this site advertises"[0m
+2026-10-19T00:11:43.0116959Z [36;1mif ($f.tagged) {[0m
+2026-10-19T00:11:43.0117292Z [36;1m  "lupin $env:LUPIN_VER was built at the v$($f.release) tag ($($f.spec))"[0m
+2026-10-19T00:11:43.0117658Z [36;1m} else {[0m
+2026-10-19T00:11:43.0118172Z [36;1m  "lupin $env:LUPIN_VER was built at $($f.spec), a development revision past v$($f.release) — $($f.commits) commits behind the advertised tag"[0m
+2026-10-19T00:11:43.0118958Z [36;1m}[0m
+2026-10-19T00:11:43.0119130Z [36;1m[0m
+2026-10-19T00:11:43.0119407Z [36;1m# The summary is built from the SCRIPT's numbers, not from a second[0m
+2026-10-19T00:11:43.0119876Z [36;1m# walk of the same history. Two walks could disagree; these cannot.[0m
+2026-10-19T00:11:43.0120481Z [36;1m$reads = switch ($f.gap) { 0 { "this release" } 1 { "the release before this one" } default { "$($f.gap) releases back" } }[0m
+2026-10-19T00:11:43.0121575Z [36;1m$spec = if ($f.tagged) { "``$($f.spec)`` — the v$($f.release) tag" } else { "``$($f.spec)`` — a development revision past v$($f.release), $($f.commits) commits back" }[0m
+2026-10-19T00:11:43.0122237Z [36;1m$md = @("", "### The specification pin lag", "",[0m
+2026-10-19T00:11:43.0122707Z [36;1m        "| | release | specification pin |", "|---|---|---|",[0m
+2026-10-19T00:11:43.0123167Z [36;1m        "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",[0m
+2026-10-19T00:11:43.0123674Z [36;1m        "| the interpreter beside it | lupin $env:LUPIN_VER | $spec |", "",[0m
+2026-10-19T00:11:43.0124245Z [36;1m        "A counted gap of $($f.gap) — the interpreter reads $reads, and both pages say '$($f.phrase)'.",[0m
+2026-10-19T00:11:43.0125044Z [36;1m        "", "Measured by ``scripts/check-lag-phrases.py``, which also runs in ``build.sh``.", "")[0m
+2026-10-19T00:11:43.0125756Z [36;1m($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8[0m
+2026-10-19T00:11:43.0126327Z [36;1m"lupin reads $reads — both pages carry '$($f.phrase)' and neither carries another"[0m
+2026-10-19T00:11:43.0197154Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-19T00:11:43.0199086Z env:
+2026-10-19T00:11:43.0199314Z   WOLF_VER: 0.2.32
+2026-10-19T00:11:43.0199521Z   LUPIN_VER: 0.1.54
+2026-10-19T00:11:43.0199718Z ##[endgroup]
+2026-10-19T00:11:48.7959289Z Python 3.12.10
+2026-10-19T00:11:50.6419503Z check-lag-phrases: the interpreter is 8 releases behind and /install/ and /play/ have prose for 0 through 6 only � write the sentence, then add its phrase here
+2026-10-19T00:11:50.7096453Z ##[error]scripts/check-lag-phrases.py refused the pages — the reasons are in this step's log, and the same command reds locally: python3 scripts/check-lag-phrases.py site upstream/wolf-lang upstream/wolf-interp
+2026-10-19T00:11:50.7556641Z ##[error]Process completed with exit code 1.
+2026-10-19T00:11:50.7773672Z ##[group]Run if (-not (Test-Path "$PWD\kitsroot.json")) { "nothing was taken away"; exit 0 }
+2026-10-19T00:11:50.7774380Z [36;1mif (-not (Test-Path "$PWD\kitsroot.json")) { "nothing was taken away"; exit 0 }[0m
+2026-10-19T00:11:50.7774904Z [36;1m$saved = Get-Content "$PWD\kitsroot.json" -Raw | ConvertFrom-Json[0m
+2026-10-19T00:11:50.7775330Z [36;1mforeach ($p in $saved.PSObject.Properties) {[0m
+2026-10-19T00:11:50.7775849Z [36;1m  $now = (Get-ItemProperty -Path $p.Name -Name KitsRoot10 -ErrorAction SilentlyContinue).KitsRoot10[0m
+2026-10-19T00:11:50.7776353Z [36;1m  if ($now -ne $p.Value) {[0m
+2026-10-19T00:11:50.7776715Z [36;1m    Set-ItemProperty -Path $p.Name -Name KitsRoot10 -Value $p.Value[0m
+2026-10-19T00:11:50.7777088Z [36;1m    "restored $($p.Name)"[0m
+2026-10-19T00:11:50.7777317Z [36;1m  } else {[0m
+2026-10-19T00:11:50.7777525Z [36;1m    "$($p.Name) is already back"[0m
+2026-10-19T00:11:50.7777766Z [36;1m  }[0m
+2026-10-19T00:11:50.7777975Z [36;1m}[0m
+2026-10-19T00:11:50.7847032Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-19T00:11:50.7847376Z env:
+2026-10-19T00:11:50.7847548Z   WOLF_VER: 0.2.32
+2026-10-19T00:11:50.7847733Z   LUPIN_VER: 0.1.54
+2026-10-19T00:11:50.7847918Z ##[endgroup]
+2026-10-19T00:11:51.1230086Z nothing was taken away
+2026-10-19T00:11:51.1903912Z Post job cleanup.
+2026-10-19T00:11:51.3983624Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-19T00:11:51.4383733Z git version 2.56.0.windows.2
+2026-10-19T00:11:51.4469608Z Temporarily overriding HOME='D:\a\_temp\ad622500-71b9-40ef-a792-86555d8fb9fc' before making global git config changes
+2026-10-19T00:11:51.4471157Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-19T00:11:51.4481181Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wolf-web\wolf-web
+2026-10-19T00:11:51.4889391Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-19T00:11:51.5400283Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-19T00:11:52.1213897Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:52.2195928Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:52.3050361Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:52.3981426Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:52.5000364Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-19T00:11:52.5362118Z http.https://github.com/.extraheader
+2026-10-19T00:11:52.5419053Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-10-19T00:11:52.5898924Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-19T00:11:53.1982042Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:53.2642515Z http.https://github.com/.extraheader
+2026-10-19T00:11:53.3247130Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:53.3918139Z http.https://github.com/.extraheader
+2026-10-19T00:11:53.4406646Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:53.5054166Z http.https://github.com/.extraheader
+2026-10-19T00:11:53.5584684Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:53.6246027Z http.https://github.com/.extraheader
+2026-10-19T00:11:53.6908184Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T00:11:53.7296688Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-19T00:11:54.3222284Z Entering 'upstream/wolf-book'
+2026-10-19T00:11:54.3600359Z file:D:/a/wolf-web/wolf-web/.git/modules/book/config	remote.origin.url
+2026-10-19T00:11:54.3841449Z Entering 'upstream/wolf-interp'
+2026-10-19T00:11:54.4261237Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/config	remote.origin.url
+2026-10-19T00:11:54.4498442Z Entering 'upstream/wolf-interp/upstream'
+2026-10-19T00:11:54.4893136Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config	remote.origin.url
+2026-10-19T00:11:54.5106907Z Entering 'upstream/wolf-lang'
+2026-10-19T00:11:54.5451818Z file:D:/a/wolf-web/wolf-web/.git/modules/lang/config	remote.origin.url
+2026-10-19T00:11:54.5741876Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/book/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T00:11:54.6128015Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/interp/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T00:11:54.6510159Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T00:11:54.6893310Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/lang/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-19T00:11:54.7476598Z Cleaning up orphan processes

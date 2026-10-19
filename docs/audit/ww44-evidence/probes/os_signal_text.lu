@@ -1,0 +1,14 @@
+//! member: false
+//! ww44 probe: one call of os_signal_text, for the tab and for lupin at a terminal (0.2.31's builtins, book §34.5).
+//! -9 is the host's signal 9; the words are the C library's.
+fn main() -> !int {
+    let t = os_signal_text(-9) else |e| {
+        print(match e {
+            invalid => "text: invalid",
+            unsupported => "text: unsupported",
+        })
+        return 0
+    }
+    print("text: {t.len() > 0}")
+    0
+}

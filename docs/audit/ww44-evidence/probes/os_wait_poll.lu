@@ -1,0 +1,13 @@
+//! member: false
+//! ww44 probe: one call of os_wait_poll, for the tab and for lupin at a terminal (0.2.31's builtins, book §34.5).
+//! No child was started: the answer is (-1, 0) without asking the host.
+fn main() -> !int {
+    let (h, live) = os_wait_poll() else |e| {
+        print(match e {
+            io => "poll: io",
+        })
+        return 0
+    }
+    print("poll: {h}, {live} live")
+    0
+}

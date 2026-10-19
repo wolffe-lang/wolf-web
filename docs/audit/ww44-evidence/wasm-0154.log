@@ -1,0 +1,22 @@
+  staged the interpreter's toolchain pin: 1.97.1
+  applied wasm-portability.patch to the staged copy (submodule untouched)
+  stamping the interpreter commit as 0e536e8
+warning: method `set_last_os_error` is never used
+    --> /home/mfwolffe/lanes/ww44/web/target/wasm-stage/upstream/wolf-interp/src/eval/mod.rs:2506:19
+     |
+ 682 | impl Machine {
+     | ------------ method in this implementation
+...
+2506 |     pub(crate) fn set_last_os_error(&mut self, code: i128) {
+     |                   ^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `fd_map_of` is never used
+    --> /home/mfwolffe/lanes/ww44/web/target/wasm-stage/upstream/wolf-interp/src/eval/builtin.rs:4044:4
+     |
+4044 | fn fd_map_of(flat: &[i128]) -> Option<Vec<(i128, Option<i128>)>> {
+     |    ^^^^^^^^^
+
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1370 KiB raw, 507 KiB gzipped

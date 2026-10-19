@@ -1,0 +1,21 @@
+//! member: false
+//! ww44 probe: one call of os_signal_send_all, for the tab and for lupin at a terminal (0.2.31's builtins, book §34.5).
+//! Meaning 0 sends nothing: kill(-1, 0) asks whether any process may be
+//! signalled and signals none.
+fn row() -> str {
+    os_signal_send_all(0) else |e| {
+        return match e {
+            denied => "denied",
+            invalid => "invalid",
+            io => "io",
+            not_found => "not_found",
+            unsupported => "unsupported",
+        }
+    }
+    "ok"
+}
+
+fn main() -> !int {
+    print("send_all: {row()}")
+    0
+}

@@ -1,0 +1,262 @@
+published lupin sha256:175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd
+published wolf  sha256:4c37f9c5dc3d8830c06810948027d38bdbc375dc5524ab23127b0ada0907d851
+175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd  lupin-0.1.54-x86_64-unknown-linux-gnu.tar.gz
+4c37f9c5dc3d8830c06810948027d38bdbc375dc5524ab23127b0ada0907d851  wolf-0.2.32-x86_64-unknown-linux-gnu.tar.gz
+lupin /home/mfwolffe/lanes/ww44/native/x/lupin-0.1.54-x86_64-unknown-linux-gnu/lupin
+lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+wolf /home/mfwolffe/lanes/ww44/native/x/wolf-0.2.32-x86_64-unknown-linux-gnu/wolf
+wolf 0.2.32 (wolfgang, pin 72de141)
+paired with lupin 0.1.54 (reference interpreter), pin 294d626
+== lupin comptime/shift_value.lu
+comptime/shift_value.lu: unsupported: `wrapped` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+exit=4
+== lupin faults/int_shift_left_overflow.lu
+faults/int_shift_left_overflow.lu: trap(overflow): `<<` produced 510, outside `u8` — checked arithmetic traps in every profile (X3); spell intended overflow `wrapping[u8]` [arith.checked] at 11:5
+exit=3
+== lupin kernels/wrap_lshr_fold.lu
+255 4294967295 1
+exit=0
+== lupin os/group_rows.lu
+group_wide=invalid
+group_two_bits=invalid
+group_past_table=invalid
+all_two_bits=invalid
+all_past_table=invalid
+set_pgid_negative=invalid
+set_pgid_wide=invalid
+text_zero=invalid
+text_two_bits=invalid
+text_past_table=invalid
+far_host_number: true
+exit=0
+== lupin os/job_poll_rows.lu
+no child: (-1, 0)
+again: (-1, 0)
+a spawn the host refused: not_found
+still none: (-1, 0)
+exit=0
+== lupin typecheck/int_shift_value.lu
+8 16 128 64 -128 -4 -4 -1
+4096 1 32768 -2 1073741824 2147483648
+4611686018427387904 9223372036854775808 1 -9223372036854775808
+0 0 0 0 -1 -1 0 0
+40 5 12 3200
+exit=0
+== lupin typecheck/straight_line_shr_var.lu
+81
+exit=0
+== lupin conc/proc_must_join_legal.lu
+child sees: built in pass, 7 uses 1
+child sees: built in pass, 7 uses 2
+child sees: built in pass, 7 uses 3
+child sees: built in pass, 7 uses 4
+child sees: built in pass, 7 uses 5
+child sees: built in pass, 7 uses 6
+1 1 3 9 7
+exit=0
+== lupin os/ids_read.lu
+os/ids_read.lu: unsupported: `os_uid` reads who the process runs as, which is the host's `getuid`, `geteuid`, `getgid`, `getegid` or `getgroups` call; the standard library has none of them and this machine has no `unsafe` to make one, so the call is refused by name ([os.proc.ids], [os.proc.ids.note] R10)
+exit=4
+== lupin os/ids_rows.lu
+set_ids(uid -1)=invalid set_ids(gid 4294967295)=invalid set_ids(group -1)=invalid
+set_owner(uid -2)=invalid set_owner(gid 4294967295)=invalid set_owner_fd(uid -2)=invalid
+os_error=0
+leave=true same=true by_handle=true
+missing=true forged=true
+unchanged=true cleaned=true
+exit=0
+== lupin os/term_editor_rows.lu
+wait_empty=io
+wait_send_only=io
+wait_past_table=io
+mode_bit5=invalid
+mode_negative=invalid
+mode_past_vtime=invalid
+exit=0
+== lupin os/signal_shell_rows.lu
+send_pid_zero=invalid
+send_pid_negative=invalid
+send_two_bits=invalid
+send_past_table=invalid
+send_wide_pid=invalid
+number_two_bits=invalid
+number_zero=invalid
+number_interrupt: true
+number_kill: true
+pid: true
+ppid: true
+exit=0
+== lupin os/job_rows.lu
+group=invalid
+tty=invalid
+defaults=invalid
+map=invalid
+pid=io
+status=io
+poll_empty=io
+poll_none=0
+ignore_empty=io
+default_outside=io
+exit=0
+== lupin grammar/cfg_target_arch.lu
+64
+exit=0
+== lupin conc/atomic_counter.lu
+400000 100000
+exit=0
+== lupin memory/raw_repr_c_layout.lu
+memory/raw_repr_c_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got C3
+exit=4
+== lupin memory/raw_repr_packed_layout.lu
+memory/raw_repr_packed_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got P3
+exit=4
+== lupin memory/raw_repr_align_layout.lu
+memory/raw_repr_align_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got A16
+exit=4
+== lupin membrane/extern_let_image.lu
+membrane/extern_let_image.lu: unsupported: a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not model ([abi.link.extern])
+exit=4
+== lupin membrane/extern_libc.lu
+membrane/extern_libc.lu: unsupported: `strlen` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch
+exit=4
+== lupin os/chdir_relative.lu
+moved=true
+relative_read=found
+cwd_ends_inner=true
+up_sees_inner=true
+back=true
+missing=not_found
+onto_a_file=io
+cleaned=true
+exit=0
+== lupin probes/ch03-rotate.lu
+144 1 200
+exit=0
+== lupin probes/ch03-shift.lu
+100 0
+ch03-shift.lu: trap(overflow): `<<` produced 400, outside `u8` — checked arithmetic traps in every profile (X3); spell intended overflow `wrapping[u8]` [arith.checked] at 6:13
+exit=3
+== lupin probes/ch34-groups.lu
+ch34-groups.lu: unsupported: `os_set_pgid` moves this process into a group: std has no `setpgid` on itself, and this machine admits no `unsafe` ([os.term.group], [os.signal.group.note] R8)
+exit=4
+== lupin probes/ch34-jobs.lu
+ch34-jobs.lu: unsupported: `signal.listen` does not resolve
+exit=4
+== lupin probes/ch34-nochild.lu
+nothing to report: -1, 0 live
+exit=0
+== lupin probes/os_set_pgid.lu
+set_pgid: invalid
+exit=0
+== lupin probes/os_signal_last.lu
+os_signal_last.lu: unsupported: `os_signal_last` reads the C library's signal range: std has no `SIGRTMIN` or `SIGRTMAX`, and this machine admits no `unsafe` ([os.signal.host], [os.signal.group.note] R8)
+exit=4
+== lupin probes/os_signal_realtime.lu
+os_signal_realtime.lu: unsupported: `os_signal_realtime` reads the C library's signal range: std has no `SIGRTMIN` or `SIGRTMAX`, and this machine admits no `unsafe` ([os.signal.host], [os.signal.group.note] R8)
+exit=4
+== lupin probes/os_signal_send_all.lu
+os_signal_send_all.lu: unsupported: `os_signal_send_all` signals every process: std has no `kill(-1, sig)`, and this machine admits no `unsafe` ([os.signal.send.all], [os.signal.group.note] R8)
+exit=4
+== lupin probes/os_signal_send_group.lu
+os_signal_send_group.lu: unsupported: `os_signal_send_group` signals a process group: std has no `kill(-pgid, sig)`, and this machine admits no `unsafe` ([os.signal.send.group], [os.signal.group.note] R8)
+exit=4
+== lupin probes/os_signal_text.lu
+os_signal_text.lu: unsupported: `os_signal_text` reads the C library's words for a signal: std has no `strsignal`, and this machine admits no `unsafe` ([os.signal.text], [os.signal.group.note] R8)
+exit=4
+== lupin probes/os_wait_poll.lu
+poll: -1, 0 live
+exit=0
+== wolf checked probes/ch03-rotate.lu
+{"commit":"72de141","diagnostics":[],"file":"./ch03-rotate.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"144 1 200\n","stdout_sha256":"172b198a8cc601a2160410b5b213e2b980ba0c2d6874ee9393a3815d185248be","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch03-rotate.lu
+144 1 200
+exit=0
+== wolf checked probes/ch03-shift.lu
+{"commit":"72de141","diagnostics":[],"file":"./ch03-shift.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"100 0\n","stdout_sha256":"b3a97b9b2de557418241966da11c89311222d12247168dbfe06bd21d3feae501","verdict":"trap(overflow)","warnings":[],"x-trap-clause":"mem.ub.defined","x-trap-pos":[6,13],"x-trap-span":[233,243]}
+
+exit=0
+== wolf run (native) probes/ch03-shift.lu
+100 0
+wolf-trap: overflow
+  at ./ch03-shift.lu:6:5
+exit=134
+== wolf checked probes/ch34-groups.lu
+{"commit":"72de141","diagnostics":[],"file":"./ch34-groups.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"leads a group of its own: true\nits own group, nothing sent: ok\ngroup 1: invalid\na group nobody leads: not_found\ntwo meanings at once: invalid\nhost numbers past the table's: true\n","stdout_sha256":"0bc3c3a57ba974df3c9224cdc6a32f79c28820f0c49ab23977fa1da2ee61488b","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch34-groups.lu
+leads a group of its own: true
+its own group, nothing sent: ok
+group 1: invalid
+a group nobody leads: not_found
+two meanings at once: invalid
+host numbers past the table's: true
+exit=0
+== wolf checked probes/ch34-jobs.lu
+{"commit":"72de141","diagnostics":[],"file":"./ch34-jobs.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"a stop: true, by stop(): true\nan end: true, by kill(): true\nthen: -1, 0 live\n","stdout_sha256":"d3a1210811a28d86705ae79aad48ca281e87c3c9cae43e5269a423b45459b049","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch34-jobs.lu
+a stop: true, by stop(): true
+an end: true, by kill(): true
+then: -1, 0 live
+exit=0
+== wolf checked probes/ch34-nochild.lu
+{"commit":"72de141","diagnostics":[],"file":"./ch34-nochild.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"nothing to report: -1, 0 live\n","stdout_sha256":"1f87a8b5279f28dcc19045c29bcd8e89336f57713d81175505b21de7353d17cc","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/ch34-nochild.lu
+nothing to report: -1, 0 live
+exit=0
+== wolf checked probes/os_set_pgid.lu
+{"commit":"72de141","diagnostics":[],"file":"./os_set_pgid.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"set_pgid: invalid\n","stdout_sha256":"746fd15c9af82c331c92ce36301d85d762a8826b3b9f6af2741a273d81b52245","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_set_pgid.lu
+set_pgid: invalid
+exit=0
+== wolf checked probes/os_signal_last.lu
+{"commit":"72de141","diagnostics":[],"file":"./os_signal_last.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"last: true\n","stdout_sha256":"41429477fbccd669c37783a93627c3471accbbf7105191d9d97de6c8ff0a2931","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_last.lu
+last: true
+exit=0
+== wolf checked probes/os_signal_realtime.lu
+{"commit":"72de141","diagnostics":[],"file":"./os_signal_realtime.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"realtime: true\n","stdout_sha256":"218577fea95c12af05b9672ed22de86ef7b021523a0a41670899cc1fb563c52a","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_realtime.lu
+realtime: true
+exit=0
+== wolf checked probes/os_signal_send_all.lu
+{"commit":"72de141","diagnostics":[],"file":"./os_signal_send_all.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"send_all: ok\n","stdout_sha256":"da4aa9fa2e315e9272007d73beaf5b763afab4130dab3f2462ef31254aa72b84","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_send_all.lu
+send_all: ok
+exit=0
+== wolf checked probes/os_signal_send_group.lu
+{"commit":"72de141","diagnostics":[],"file":"./os_signal_send_group.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"send_group: not_found\n","stdout_sha256":"d7c7cca81e8f5a6fe7bd45077f9258c567fd286594a608cfbcf4cb49c3f2f1bf","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_send_group.lu
+send_group: not_found
+exit=0
+== wolf checked probes/os_signal_text.lu
+{"commit":"72de141","diagnostics":[],"file":"./os_signal_text.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"text: true\n","stdout_sha256":"06e32ef3dda4980185d38c536cfe6bb24deeffdf1b7b5aa17715b5bd573f9a33","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_signal_text.lu
+text: true
+exit=0
+== wolf checked probes/os_wait_poll.lu
+{"commit":"72de141","diagnostics":[],"file":"./os_wait_poll.lu","impl":"wolfgang","impl_version":"0.2.32","phase_reached":"run","protocol":1,"seeded":false,"stdout_inline":"poll: -1, 0 live\n","stdout_sha256":"bae56fa228bbc83ce1670b745177d528b222b3d38870572fb5d7a10f6e175d6a","verdict":"exit(0)","warnings":[]}
+
+exit=0
+== wolf run (native) probes/os_wait_poll.lu
+poll: -1, 0 live
+exit=0
+NATIVE-DONE

@@ -1,0 +1,24 @@
+archives run 2026-10-19T00:00:42Z on kasumi
+ok   wolf-0.2.32-aarch64-apple-darwin.tar.gz published 061ea7e5ca63449d5d933cdba2f4e3a717e3f8570455a0c31233e31da08cfec6 read1 061ea7e5ca63449d5d933cdba2f4e3a717e3f8570455a0c31233e31da08cfec6 read2 061ea7e5ca63449d5d933cdba2f4e3a717e3f8570455a0c31233e31da08cfec6 (18744597 B)
+ok   wolf-0.2.32-aarch64-unknown-linux-gnu.tar.gz published af27d4260e4e991dc0e44dc29b0e802c468c07da62db7adc17a551e0ffa9f017 read1 af27d4260e4e991dc0e44dc29b0e802c468c07da62db7adc17a551e0ffa9f017 read2 af27d4260e4e991dc0e44dc29b0e802c468c07da62db7adc17a551e0ffa9f017 (75859791 B)
+ok   wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz published 40eb42af49e4c0ab33a18b568b6bd7a69d33ff263438dda8405f2e41699fb4c3 read1 40eb42af49e4c0ab33a18b568b6bd7a69d33ff263438dda8405f2e41699fb4c3 read2 40eb42af49e4c0ab33a18b568b6bd7a69d33ff263438dda8405f2e41699fb4c3 (15834784 B)
+ok   wolf-0.2.32-x86_64-unknown-linux-gnu.tar.gz published 4c37f9c5dc3d8830c06810948027d38bdbc375dc5524ab23127b0ada0907d851 read1 4c37f9c5dc3d8830c06810948027d38bdbc375dc5524ab23127b0ada0907d851 read2 4c37f9c5dc3d8830c06810948027d38bdbc375dc5524ab23127b0ada0907d851 (80092071 B)
+ok   lupin-0.1.54-aarch64-apple-darwin.tar.gz published 9cd14db71e32c277829b5e05cdae27bf60cd6f269a9a24f97a7dba67e28a4093 read1 9cd14db71e32c277829b5e05cdae27bf60cd6f269a9a24f97a7dba67e28a4093 read2 9cd14db71e32c277829b5e05cdae27bf60cd6f269a9a24f97a7dba67e28a4093 (2654405 B)
+ok   lupin-0.1.54-aarch64-unknown-linux-gnu.tar.gz published 5fb15e31289d810129b40a9a0af07417d85d5090e74045f66b1f7f4016d166e7 read1 5fb15e31289d810129b40a9a0af07417d85d5090e74045f66b1f7f4016d166e7 read2 5fb15e31289d810129b40a9a0af07417d85d5090e74045f66b1f7f4016d166e7 (2809793 B)
+ok   lupin-0.1.54-x86_64-pc-windows-msvc.zip published cc0b7b242b8546634b4b6ae64bdea2626b2640152d8fca48dac531276a4c7b90 read1 cc0b7b242b8546634b4b6ae64bdea2626b2640152d8fca48dac531276a4c7b90 read2 cc0b7b242b8546634b4b6ae64bdea2626b2640152d8fca48dac531276a4c7b90 (2592214 B)
+ok   lupin-0.1.54-x86_64-unknown-linux-gnu.tar.gz published 175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd read1 175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd read2 175df23880cd5bb993b778e5c8fdd7d0d96c176696802e640f6fc87d3dab40dd (2971403 B)
+ok   lupin.exe published 4ed2487b2492a5073d14252c4fe6383331a87ce312aaa7715fa42737057d7957 read1 4ed2487b2492a5073d14252c4fe6383331a87ce312aaa7715fa42737057d7957 read2 4ed2487b2492a5073d14252c4fe6383331a87ce312aaa7715fa42737057d7957 (6749184 B)
+ok   wolf-0.2.32-aarch64-apple-darwin: folder libwolf_rt.a libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf wolf.1 wolf.bash wolf-cimport-worker wolf.fish ; std/ 58 files, manifest 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8 (book.yml wants 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8), STD-REV d37c911f12206c4bf5c8d3281a649bf31da3beef
+ok   wolf-0.2.32-aarch64-unknown-linux-gnu: folder libwolf_rt.a libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf wolf.1 wolf.bash wolf-cimport-worker wolf.fish ; std/ 58 files, manifest 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8 (book.yml wants 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8), STD-REV d37c911f12206c4bf5c8d3281a649bf31da3beef
+ok   wolf-0.2.32-x86_64-pc-windows-msvc: folder libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf.1 wolf.bash wolf-cimport-worker.exe wolf.exe wolf.fish wolf_rt.lib ; std/ 58 files, manifest 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8 (book.yml wants 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8), STD-REV d37c911f12206c4bf5c8d3281a649bf31da3beef
+ok   wolf-0.2.32-x86_64-unknown-linux-gnu: folder libwolf_rt.a libwolf_rt_none.a LICENSE LICENSE-EXCEPTION README.md std _wolf wolf wolf.1 wolf.bash wolf-cimport-worker wolf.fish ; std/ 58 files, manifest 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8 (book.yml wants 1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8), STD-REV d37c911f12206c4bf5c8d3281a649bf31da3beef
+linux x86-64 wolf --version:
+wolf 0.2.32 (wolfgang, pin 72de141)
+paired with lupin 0.1.54 (reference interpreter), pin 294d626
+lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+std.process and std.signal in the archive: 24 
+x-x86_64-unknown-linux-gnu/wolf-0.2.32-x86_64-unknown-linux-gnu/std/signal/signal.lu
+(std files declaring poll, send_group or send_all: listed above, none if blank)
+(files under the archive's std/ naming any of the seven 0.2.31 builtins: listed above, none if blank)
+ARCHIVES-FAIL=0
+ARCHIVES-DONE

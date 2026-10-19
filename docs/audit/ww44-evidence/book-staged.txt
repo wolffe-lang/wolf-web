@@ -1,0 +1,80 @@
+book: against http://127.0.0.1:64847/book/ (render served with lupp.us's headers)
+book: chromium phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: chromium phone ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.32 · edition v1"), 0 CSP violations, 0 console errors — ok
+book: chromium phone back/colophon.html: page 200, new sample present ("paired with lupin 0.1.54 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch03.html: page 200, new sample present ("let flags: wrapping[u8] = 200"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch33.html: page 200, new sample present ("wolf: the runtime could not make its readiness set"), 0 CSP violations, 0 console errors — ok
+book: chromium phone ch34.html: page 200, new sample present ("os_signal_send_group(g, meaning) else |e| {"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: chromium desktop ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.32 · edition v1"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop back/colophon.html: page 200, new sample present ("paired with lupin 0.1.54 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch03.html: page 200, new sample present ("let flags: wrapping[u8] = 200"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch33.html: page 200, new sample present ("wolf: the runtime could not make its readiness set"), 0 CSP violations, 0 console errors — ok
+book: chromium desktop ch34.html: page 200, new sample present ("os_signal_send_group(g, meaning) else |e| {"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: firefox phone ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.32 · edition v1"), 0 CSP violations, 0 console errors — ok
+book: firefox phone back/colophon.html: page 200, new sample present ("paired with lupin 0.1.54 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch03.html: page 200, new sample present ("let flags: wrapping[u8] = 200"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch33.html: page 200, new sample present ("wolf: the runtime could not make its readiness set"), 0 CSP violations, 0 console errors — ok
+book: firefox phone ch34.html: page 200, new sample present ("os_signal_send_group(g, meaning) else |e| {"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: firefox desktop ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.32 · edition v1"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop back/colophon.html: page 200, new sample present ("paired with lupin 0.1.54 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch03.html: page 200, new sample present ("let flags: wrapping[u8] = 200"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch33.html: page 200, new sample present ("wolf: the runtime could not make its readiness set"), 0 CSP violations, 0 console errors — ok
+book: firefox desktop ch34.html: page 200, new sample present ("os_signal_send_group(g, meaning) else |e| {"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: webkit phone ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.32 · edition v1"), 0 CSP violations, 0 console errors — ok
+book: webkit phone back/colophon.html: page 200, new sample present ("paired with lupin 0.1.54 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch03.html: page 200, new sample present ("let flags: wrapping[u8] = 200"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch33.html: page 200, new sample present ("wolf: the runtime could not make its readiness set"), 0 CSP violations, 0 console errors — ok
+book: webkit phone ch34.html: page 200, new sample present ("os_signal_send_group(g, meaning) else |e| {"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch07.html: page 200, 6 diagrams, 6 rendered (538x228 448x176 596x176 666x202 485x228 454x228), 6 svg responses, 0 CSP violations, 0 console errors — ok
+  svg 200 image/svg+xml diagrams/ch07/s3-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L5.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L6.svg
+  svg 200 image/svg+xml diagrams/ch07/part-packcopy-L7.svg
+  svg 200 image/svg+xml diagrams/ch07/part-handover-L4.svg
+  svg 200 image/svg+xml diagrams/ch07/s7-L4.svg
+book: webkit desktop ch01.html: page 200, new sample present ("tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch22.html: page 200, new sample present ("wolfi v0 · toolchain 0.2.32 · edition v1"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop back/colophon.html: page 200, new sample present ("paired with lupin 0.1.54 (reference interpreter), pin 294d626"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch03.html: page 200, new sample present ("let flags: wrapping[u8] = 200"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch33.html: page 200, new sample present ("wolf: the runtime could not make its readiness set"), 0 CSP violations, 0 console errors — ok
+book: webkit desktop ch34.html: page 200, new sample present ("os_signal_send_group(g, meaning) else |e| {"), 0 CSP violations, 0 console errors — ok
+book: ok — six diagrams rendered and the six changed blocks served on every cell, no CSP violation

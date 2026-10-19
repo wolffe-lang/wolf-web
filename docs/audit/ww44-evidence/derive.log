@@ -1,0 +1,1959 @@
+derive run 2026-10-18T23:59:00Z on kasumi
+NEW 72de141f624662fdff522e8beba459fab7c5cf66 INEW 0e536e8fb4518eaa798ac426901ab81275db5c9f
+=== tags
+v0.2.24 294d626dd596122285d5df954762e3aee3e5db71
+v0.2.25 6710f9e0cbc3a7264349093751ce7a46a407e473
+v0.2.26 89dc139443da38078df6093568da87bc6d0ee6f9
+v0.2.27 0ddda6b7ab9f899aeeea13a66b3427f8422b8a0f
+v0.2.28 f71ece8e1ad2234940040d300359888932ad67af
+v0.2.29 6ffe7c6056eeb8c661b37e38d99b91166e8c1add
+v0.2.30 1b37f368228db92eca505c8c4cd3c531ea60be48
+v0.2.31 f4faf59d5572cb8026493829a8a1791b5e917914
+v0.2.32 72de141f624662fdff522e8beba459fab7c5cf66
+trunk 72de141f624662fdff522e8beba459fab7c5cf66
+=== interp gitlinks
+7896eddc17fd9e3e015b025b354ccf62a766734b upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+0e536e8fb4518eaa798ac426901ab81275db5c9f upstream: 160000 commit 294d626dd596122285d5df954762e3aee3e5db71	upstream
+version = "0.1.54"
+tag v0.1.53 -> 7896eddc17fd9e3e015b025b354ccf62a766734b; tag v0.1.54 -> 0e536e8fb4518eaa798ac426901ab81275db5c9f
+interp commits IOLD..INEW = 43
+0e536e8 changelog: 0.1.54 — s241's and s242's mirrors and is76 (shifts #251, net os_error #250, a refused run's children #249, the wasm decline #245); rulings #77, #79, #84; the walk entry for entry; no empty Unreleased
+b86ca8a version: 0.1.54
+35fad1b os: the job's group is sent SIGKILL twice, 50 ms apart, before its leader is reaped — a child forked during the first send outlived it on the macOS runner (tier full run 39001823155, shard 2) (#249)
+6a31a84 statics: the initialiser fold stops judging past 64 open items, so a deep chain is the evaluator's to answer and no small stack overflows (#251)
+048e116 tests: shift_is76 — a 2000-item initialiser chain answers a record under a 1 MiB stack (red at c6933ae in a debug build: the fold overflowed, as rulings_is73 did on the windows smoke of run 38975226904)
+21a7e94 Revert the plant (ad8b6d8, 5ea0ec1): the net family sets os_error() again and a right shift by 128 or more is the value's again — its CI run is 38964580788 (macOS smoke job 117191223727: net_error_is76 each_net_row_carries_the_hosts_number_or_zero red on 'refused row=refused errno=0: the host refused this call'; log 1497eeaec94ae038…)
+82d3232 tests: net_error_is76 holds macOS to its own host — the park at the limit is linux's (macOS's fs_open is refused by name there), and off linux a refused call's number is not 0 (macOS smoke of run 38964580788)
+2fb9ebc eval: a literal term's operands are read as operands, not consumed as an initialiser — i = i + 1 leaves no copy event (place_trace's many golden, windows smoke of run 38964580788)
+0787454 PLANT (is76, reverted next): the planted right shift in clippy's shape (its first shape failed question_mark) — shift_is76 and net_error_is76 must go red in CI
+e7a0afc fmt: is76's tests and lint under rustfmt (the plant's run 38962615385 stopped at the rustfmt step on every job)
+e18b7c9 PLANT (is76, reverted next): the net family leaves os_error() at 0 again, and a right shift by 128 or more traps again — net_error_is76 and shift_is76 must go red in CI
+6f6cf8a tests: job_refused_is76 counts a group member left only while it runs; a reaped-late zombie is dead
+bc73b07 changelog: is76 under Unreleased — shifts (#251), net os_error (#250), a refused run's children (#249), the wasm decline (#245)
+9d44c44 manual: x-unsupported-at and x-ended, what a refused run adds to its record (#249)
+7c756c1 tests: the decline may name os_spawn; only the words around the name are held to never spawning
+7846612 tests: the wasm decline's words name the hosted-only process and signal tier, never spawning (#245; the arm is wasm-only, its red is the site's module at 3cc3f9c)
+9ea946f builtin: the wasm build declines the process and signal tier for what it is — no host process — not as the s40 trio with nothing to spawn; the words are one function (#245)
+a8b8a5b run: a run that ends in a refusal ends the processes it started; the record names them (x-ended) and says the refusal came at run (x-unsupported-at), phase_reached unchanged (#249)
+4a15ab2 os: the child table knows the groups its jobs lead and can end what it started and has not reaped, a leader with its group (#249)
+06bada0 tests: job_refused_is76 — nothing of the job's group left after a refusal, the record's x-ended and x-unsupported-at; an exit and a static refusal end nothing (#249, red at 3cc3f9c)
+61e16db fixtures: job_refused_is76 — a job leading its group, then os_signal_send refused by name (s240's shape)
+8283ccc net: every call clears os_error() and leaves the host's number where the host refused; a unix listen asks the bind, not the path ([os.net.error], #250)
+a6913cf tests: net_error_is76 — EMFILE beside the refused accept at the limit; each net row's host number or 0; the unix bind's and dial's numbers (#250, red at 3cc3f9c)
+3defb37 fixtures: net_error_is76 — wolf-lang's park_at_limit.lu (trunk 56929c63) byte for byte; net_rows and unix_rows, each row's number the checked machine's
+f6ec48b eval: a literal term meets its declared integer type before its operators run — bindings, module items, assignments, a function's tail and return (#251)
+57caf41 lint: a shift whose operands' declared integer types differ is E0401 at the count; admission asks it and the initialiser fold (#251)
+307f37c statics: fold a module item's integer initialiser by the shift rule; a fault is E0706 at its operator (#251)
+ba0745c eval: a plain shift is the value's past a count of 127, and a set bit shifted past i128 traps (#251)
+95bd9c0 tests: shift_is76 under rustfmt
+1535b11 tests: shift_is76 — the rows to their headers; a count past 127; a module initialiser's E0706; a literal term at its declared type; a shift's one integer type (#251, red at 3cc3f9c)
+5949096 fixtures: shift_is76 — wolf-lang's six shift corpus rows (trunk 56929c63), byte for byte
+4bcd5a7 notes: is76 contract — lupin catches up (#251 shifts, #250 net os_error, #249 a job after a refusal, #245 the wasm reason), before the first change
+acc7798 fixtures: job_wait_s242's stops.lu as wolf-lang s242 has it now, byte for byte
+e6ac689 changelog: s242's mirror under Unreleased
+2c522f5 tests: job_wait_s242 — the poll with no child as declared; refused by name with a live child; the compiler's listening fixtures stop at os_signal_listen, nothing started
+fd4d792 fixtures: job_wait_s242 — wolf-lang s242's job_poll_rows corpus row and its live.lu, stops.lu and interrupt.lu, byte for byte
+f8e7ec5 builtin: os_wait_poll resolves with its declared row; (-1, 0) with no child left, refused by name with one (std's try_wait sees no stop; [os.proc.wait.note] R9)
+f015ea9 notes: s242 contract — the job wait (wolf-lang#680), lupin's half, before the first change
+3cc3f9c changelog: s241's mirror under Unreleased
+a2c1ee0 tests: group_s241 — the shape rows as declared; -N past the host's last invalid; each well-formed call refused by name, nothing sent; the compiler's fixtures refused at their first call
+aecbefd fixtures: group_s241 — wolf-lang s241's group_rows corpus row and its table.lu and pgid.lu, byte for byte
+4102653 builtin: the six s241 names resolve with their declared rows; -N in os_signal_send's shape; the shape and windows rows answered, each well-formed call refused by name (ruling #79 R8)
+3c676e7 notes: s241 contract — the group send, the move, host numbers and words (wolf-lang#739, #740, #741, #762), lupin's half, before the first change
+=== interp files changed
+ tests/net_error_is76.rs                            | 169 ++++++++++
+ tests/shift_is76.rs                                | 353 +++++++++++++++++++++
+ 39 files changed, 3174 insertions(+), 74 deletions(-)
+=== interp wasm-relevant files changed
+ src/eval/mod.rs | 212 +++++++++++++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 203 insertions(+), 9 deletions(-)
+=== lupin CHANGELOG 0.1.54 entry
+## 0.1.54 — 2026-10-17
+
+THE FIFTY-FOURTH, the lupin half of wolf 0.2.31. **Pin unchanged:
+`294d626d` (wolf-lang v0.2.24).** Forty-one commits since 0.1.53: the
+lupin halves of two wolf-lang lanes, s241 (the group send; 5 commits)
+and s242 (the job wait; 6 commits), and is76 (lupin catches up with
+wolf 0.2.31's s237 and s239 and closes #251, #250, #249, #245; 30
+commits, two planted breaks, `e18b7c9` and `0787454`, and their revert,
+`21a7e94`, among them). Every lane was merged before the release lane
+(r36) began; r36 adds the version.
+
+- **What changes a program's answer here:** a plain shift by 128 or
+  more is the value's (it trapped), a set bit shifted past every bit
+  this machine holds traps (it printed 0), a module `const` whose plain
+  shift leaves its type is E0706 (it printed the wide value), and the
+  net family sets `os_error()` (it stayed 0). A run that ends in this
+  machine's own refusal now ends the processes it started (#249).
+- **The other lanes in wolf 0.2.31 have no lupin half of their own.**
+  wolf-lang's s239 (the readiness set before `main`) and s243 (the
+  signal hub before `main`) are the compiled runtime's start; lupin has
+  no reactor and no signal family, and is76 mirrors s239's
+  `os_error()`. s238 and s240 change no program (a test race; a note).
+- **The walk at this release:** 1002 files, 955 entries, 47 members;
+  760 reach `run`, 721 match, 94 dynamic, 64 conservatism, 72 out of
+  scope, 4 mismatch, every one filed. Unchanged from 0.1.53, entry for
+  entry (the pin did not move; s241's, s242's and is76's rows live in
+  `tests/` until a re-pin brings them into the walk; is76 checked every
+  vendored file's verdict, phase and stdout digest unchanged).
+- **Rulings now made** that the lanes implemented ahead of them, each as
+  implemented: #79 (s241's R1–R9; R8: lupin answers the shape rows and
+  refuses each well-formed call by name), #84 (s242's R1–R9; R9: lupin
+  answers `(-1, 0)` with no live child and refuses the poll by name
+  once one is live) and #77 A (the shift rule, which is76 mirrors).
+- **A row that now finishes:** wolf-std's
+  `tests/x/crypto/sha2/wycheproof_hkdf256_full.lu` runs to `exit(0)`
+  inside the 50,000,000-step budget, where 0.1.53 answered `unsupported`
+  at the budget; wolf-std's ledger records it after this release.
+- **lupin's archive still ships no std** (ruling #59 B(1)): a `lupin`
+  installed alone answers `unsupported` for `use std.…` with nothing
+  set; one placed beside a 0.2.31 `wolf` reads the `std/` wolf ships.
+
+### The mirrors
+
+- **The job wait — the mirror** (wolf-lang s242, #680; `[os.proc.poll]`,
+  `[os.proc.wait.note]` R9, ruling #84). `os_wait_poll` resolves with
+  its declared row (`{io}`). With no child left — none spawned, or every
+  one reaped — it answers `(-1, 0)`, as every compiler machine does,
+  decided without the host; with a child not yet reaped it is **refused
+  by name**: the answer needs `waitpid` with `WUNTRACED`, std's
+  `try_wait` sees an end but never a stop, and this machine admits no
+  `unsafe`. The compiler's witnesses that listen for `CHILD` stop earlier,
+  at `os_signal_listen`, which lupin never serves. `tests/job_wait_s242.rs`
+  (3 tests) holds the compiler's corpus row and three fixtures byte for
+  byte.
+- **The group send, the move, host numbers and a signal's words — the
+  mirror** (wolf-lang s241, #739, #740, #741, #762; ruling #79 R8). The
+  six names resolve with their declared rows: `os_signal_send_group` and
+  `os_signal_send_all` (`{denied, invalid, io, not_found,
+  unsupported}`), `os_set_pgid` (`{denied, invalid, io, unsupported}`),
+  `os_signal_last` and `os_signal_realtime` (`{unsupported}`) and
+  `os_signal_text` (`{invalid, unsupported}`). Each answers its SHAPE
+  rows as every machine (`invalid`: a group not above 1, a group to move
+  into below 0, past a pid's width, a meaning that is neither 0, one of
+  the 28, nor `-N` with `1 <= N <=` the host's last — 64 on linux, 31 on
+  macOS — and a text of 0); windows answers `unsupported` after the shape;
+  a well-formed call on linux and macOS is **refused by name** before any
+  host call — std has no `kill(-pgid)`, no `setpgid` on itself, no
+  `SIGRTMIN` and no `strsignal`, and this machine admits no `unsafe`.
+  `os_signal_send` takes `-N` in its shape too (a well-formed one is
+  refused by name, as before). `tests/group_s241.rs` (4 tests) holds the
+  compiler's corpus row byte for byte and its fixtures' refusals.
+
+- **lupin catches up** (is76; wolf-interp#251, #250, #249, #245).
+  - **Shifts, `[type.int.shift]`** (wolf-lang s237, ruling #77 A; #251).
+    A count of 128 or more on a plain integer is the value's shift, not
+    a trap (`255 >> 200` at `u8` is 0; 0.1.53 ran out of `i128` shift
+    range), and a set bit shifted past every bit this machine holds
+    traps (`2 << 127` at `u64` printed 0). A module `const` or `let`
+    with a plain integer type is folded by the rule at resolve, so
+    `const K: u8 = 200 << 1` is E0706 at the operator, the compiler's
+    span (it printed 400); the fold reads literals, `-`, groups, the
+    arithmetic and bitwise operators and other such items of the same
+    type, and says nothing of any other shape. A literal-only term meets
+    its declared integer type before its operators run — a binding's
+    annotation, a module item's, an integer place assigned or
+    compound-assigned, a function's tail and `return` — so `let r:
+    wrapping[u8] = 1 << 9` is 2 and `255 >> 8` there is 255 (both
+    computed wide and trapped); an argument is not yet such a context.
+    A shift whose two operands' declared types differ (`x << n`, `x:
+    u64`, `n: int`) is E0401 at the count where both are parameters the
+    body never rebinds, or `as` casts; an inferred binding says nothing.
+    Every vendored corpus file answers as at 3cc3f9c (1002 files;
+    verdict, phase and stdout digest, release builds, kasumi).
+    `tests/shift_is76.rs` holds wolf-lang's six shift rows byte for byte.
+  - **The net family sets `os_error()`, `[os.net.error]`** (wolf-lang
+    s239, #751; ruling #80; #250): cleared on entry, the host's number
+    where the host refused (ECONNREFUSED, EADDRINUSE, ENOENT, EPIPE,
+    EMFILE at the descriptor limit), 0 after a success, a failure
+    decided before the host, a fired budget and an end of stream. A
+    unix listen on an existing path now asks the bind (EADDRINUSE beside
+    `exists`) rather than look at the path first. Every number in
+    `tests/net_error_is76.rs` is the checked machine's on linux.
+  - **A refused run ends what it started** (#249). When the run ends in
+    this machine's own refusal (`unsupported`), every process the
+    program started and had not reaped is ended — a job that leads its
+    process group with the group, through `sh`'s `kill -s KILL --
+    -PGID` (std has no `kill(2)`; no `unsafe`), any other child by
+    `Child::kill` — and reaped. The record adds `x-ended` (their ids)
+    and `x-unsupported-at: "run"`; `phase_reached` stays `resolve`, the
+    deepest phase completed (`[proto.record.phase]`; the checked
+    machine answers `mem` for its own run-time refusal). An exit or a
+    trap leaves children alone, as a native process's are.
+  - **The wasm decline** (#245): `os_pid`, `os_ppid`,
+    `os_signal_number` and the rest of the tier are declined as the
+    hosted-only process and signal tier with no host process in a
+    page, not as "the s40 process trio" with "no processes to spawn".
+
+=== spec pins: SPEC_OLD 294d626dd596122285d5df954762e3aee3e5db71 SPEC_NEW 294d626dd596122285d5df954762e3aee3e5db71
+SPEC_NEW is v0.2.24
+=== ancestry
+is-ancestor SPEC_NEW(294d626d) NEW exit=0
+is-ancestor OLD NEW exit=0
+rev-list --count SPEC_NEW..NEW = 913
+rev-list --count SPEC_OLD..OLD = 717
+rev-list --count OLD..NEW = 196
+rev-list --count v0.2.30..v0.2.31 = 170
+rev-list --count v0.2.31..v0.2.32 = 26
+=== CHANGELOG headings at NEW
+## 0.2.32 — 2026-10-18
+## 0.2.31 — 2026-10-17
+## 0.2.30 — 2026-10-15
+## 0.2.29 — 2026-10-12
+## 0.2.28 — 2026-10-11
+## 0.2.27 — 2026-10-11
+## 0.2.26 — 2026-10-09
+## 0.2.25 — 2026-10-07
+## 0.2.24 — 2026-10-06
+=== counts OLD vs NEW
+1b37f368 E=153 W=34 net=18 anchors=648
+72de141f E=153 W=34 net=18 anchors=661
+anchors added 13 ['os.net.error', 'os.net.reactor', 'os.net.reactor.note', 'os.proc.poll', 'os.proc.wait.note', 'os.signal.group.note', 'os.signal.host', 'os.signal.hub', 'os.signal.send.all', 'os.signal.send.group', 'os.signal.text', 'os.term.group', 'type.int.shift']
+anchors dropped 0 []
+=== diagnostics added
+=== warnings added
+grammar.ebnf 67816f8fcb04f096 -> 67816f8fcb04f096
+BYTE-IDENTICAL
+=== platforms.md / README / workflows OLD..NEW
+ .github/workflows/ci.yml | 53 +++++++++++++++++++++++++++++++++++++++++++-----
+ README.md                |  4 ++--
+ 2 files changed, 50 insertions(+), 7 deletions(-)
+=== platforms.md diff
+=== release.yml run gate at NEW (arm lines)
+17:# dist jobs upload BY RELEASE ID, never by tag. `publish` refuses unless
+94:        # tier-1 hosts: linux x86-64, linux aarch64, macOS aarch64, windows
+99:        os: [ubuntu-22.04, ubuntu-22.04-arm, macos-latest, windows-latest]
+148:  # 0.2.15's x86-64 archive printed `--version` and then the native tier
+154:  # compile: the native tier's linker (`lld`) and the release tier's clang
+155:  # (>= 15; 22.04's default is 14). On aarch64 linux the compiled tiers
+156:  # refuse by name and the checked tier is the one that runs.
+163:        os: [ubuntu-22.04, ubuntu-22.04-arm]
+171:      - name: the native linker and the release tier's clang, nothing else
+202:          if [ "$(uname -m)" = "aarch64" ]; then
+203:            # linux aarch64 is served by NEITHER compiled tier yet (D35's
+207:            # defect exactly — and a checked tier that still runs the
+212:            grep -q "this host cannot run the native tier" <<< "$out" && [ "$rc" -eq 2 ] \
+213:              || { echo "::error::native tier on aarch64 linux: exit $rc: $out"; exit 1; }
+214:            echo "native tier: refuses by name, exit $rc"
+216:            grep -q "this host cannot run the release tier" <<< "$out" && [ "$rc" -ne 0 ] \
+217:              || { echo "::error::release tier on aarch64 linux: exit $rc: $out"; exit 1; }
+218:            echo "release tier: refuses by name, exit $rc"
+220:            # native tier (the default, `wolf run`)
+222:            test "$out" = "hello, wolf" || { echo "::error::native tier: $out"; exit 1; }
+223:            echo "native tier: $out"
+224:            # release tier (LLVM, through clang-15)
+226:            test "$out" = "hello, wolf" || { echo "::error::release tier: $out"; exit 1; }
+227:            echo "release tier: $out"
+229:          # checked tier — it answers only through conform-run --checked
+232:            || { echo "::error::checked tier: $rec"; exit 1; }
+233:          echo "checked tier: $(echo "$rec" | jq -r .verdict), $(echo "$rec" | jq -r .stdout_inline | head -1)"
+=== phase:run sets
+  670 /home/mfwolffe/lanes/ww44/run-1b37f36.txt
+  682 /home/mfwolffe/lanes/ww44/run-72de141.txt
+ 1352 total
+--- in:
+corpus/comptime/shift_value.lu
+corpus/faults/int_shift_count_negative.lu
+corpus/faults/int_shift_left_overflow.lu
+corpus/faults/int_shift_left_past_width.lu
+corpus/faults/int_shift_left_sign_bit.lu
+corpus/kernels/wrap_lshr_fold.lu
+corpus/os/group_rows.lu
+corpus/os/job_poll_rows.lu
+corpus/typecheck/int_shift_value.lu
+corpus/typecheck/straight_line_shl_assign.lu
+corpus/typecheck/straight_line_shl_const.lu
+corpus/typecheck/straight_line_shr_var.lu
+--- out:
+=== corpus diff name-status
+A	corpus/comptime/shift_overflow.lu
+A	corpus/comptime/shift_value.lu
+A	corpus/faults/int_shift_count_negative.lu
+A	corpus/faults/int_shift_left_overflow.lu
+A	corpus/faults/int_shift_left_past_width.lu
+A	corpus/faults/int_shift_left_sign_bit.lu
+A	corpus/kernels/wrap_lshr_fold.lu
+M	corpus/memory/raw_lshr_top_bits.lu
+A	corpus/os/group_rows.lu
+A	corpus/os/job_poll_rows.lu
+A	corpus/typecheck/int_shift_value.lu
+A	corpus/typecheck/straight_line_shl_assign.lu
+A	corpus/typecheck/straight_line_shl_const.lu
+A	corpus/typecheck/straight_line_shr_var.lu
+--- pre-existing run programs modified:
+corpus/memory/raw_lshr_top_bits.lu
+=== spec/ docs/ stat
+ docs/diagnostics.md                                |   2 +-
+ docs/s240-the-group-signal.md                      | 444 ++++++++++++++++
+ docs/s240/Containerfile.alpine                     |   3 +
+ docs/s240/Containerfile.ubuntu                     |   9 +
+ docs/s240/ev/linux/dash-im.out                     |  17 +
+ docs/s240/ev/linux/dash-im.trace                   |  54 ++
+ docs/s240/ev/linux/dash-kill.trace                 |  18 +
+ docs/s240/ev/linux/dash-m.out                      |   5 +
+ docs/s240/ev/linux/dash-m.trace                    |  42 ++
+ docs/s240/ev/linux/run-linux.log                   | 446 ++++++++++++++++
+ docs/s240/ev/linux/sigtab-glibc-C.txt              | 107 ++++
+ docs/s240/ev/linux/sigtab-glibc-de-nosetlocale.txt | 107 ++++
+ docs/s240/ev/linux/sigtab-glibc-de-setlocale.txt   | 108 ++++
+ docs/s240/ev/linux/sigtab-musl-C.txt               | 107 ++++
+ docs/s240/ev/linux/sigtab-musl-de-setlocale.txt    | 108 ++++
+ docs/s240/ev/linux/timeout-fg.trace                |   5 +
+ docs/s240/ev/linux/timeout.trace                   |  16 +
+ docs/s240/ev/macos/run-macos.log                   | 264 ++++++++++
+ docs/s240/ev/macos/sigtab-macos-C.txt              |  73 +++
+ docs/s240/ev/macos/sigtab-macos-de-setlocale.txt   |  74 +++
+ docs/s240/grp.c                                    | 342 ++++++++++++
+ docs/s240/run-linux.sh                             |  94 ++++
+ docs/s240/run-macos.sh                             |  23 +
+ docs/s240/sess.c                                   | 359 +++++++++++++
+ docs/s240/shells.sh                                |  53 ++
+ docs/s240/sigtab.c                                 |  81 +++
+ docs/s240/witness.lu                               |  85 +++
+ spec/02-memory-model.md                            |   4 +-
+ spec/05-conformance.md                             |  24 +-
+ spec/10-types.md                                   |  91 +++-
+ spec/11-os.md                                      | 582 ++++++++++++++++++++-
+ spec/anchors.json                                  |  13 +
+ spec/prelude.json                                  |  17 +-
+ 33 files changed, 3738 insertions(+), 39 deletions(-)
+=== new run program headers
+## corpus/comptime/shift_value.lu
+//! check: run(exit=0, stdout="8 0 0 -1 128 2 255\n")
+//! phase: run
+//! conforms: type.int.shift, comptime.arith
+//!
+//! s237 (`[type.int.shift]`): a constant shift is the run time's. A
+//! plain count at or past the width answers the value's floor or
+//! product (`255 >> 8` at `u8` is 0, `0 << 8` is 0, `-8 >> 64` is -1),
+//! and a `wrapping[T]` count masks to the width (`1 << 9` at
+//! `wrapping[u8]` is 2). Until s237 the constant evaluator refused
+//! every count at or past the width (E0706, "shift by 8 exceeds the
+//! width") where the compiled program computed an answer.
+## corpus/faults/int_shift_count_negative.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! s237 (`[type.int.shift]`): a negative count has no value to answer
+//! with (`8 >> -1` is not `8 << 1`): the `overflow` trap, for `>>` and
+//! `<<` alike. At 0.2.29 native and release masked the count to 63 and
+//! printed 0; lupin 0.1.52 trapped.
+## corpus/faults/int_shift_left_overflow.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! s237 (wolf-lang#736, `[type.int.shift]`): `255 << 1` at `u8` is 510,
+//! which leaves the type: the `overflow` trap, as `255 * 2` is. At
+//! 0.2.29 native and release printed 254 (the bit dropped), the checked
+//! machine refused the operator by name, and lupin 0.1.52 trapped.
+## corpus/faults/int_shift_left_past_width.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! s237 (`[type.int.shift]`): `1 << 32` at `u32` is 2^32, which leaves
+//! the type: the `overflow` trap. A count at or past the width is no
+//! rule of its own; the product decides (`0 << 32` is 0). At 0.2.29
+//! native and release masked the count and printed 1; lupin 0.1.52
+//! trapped.
+## corpus/faults/int_shift_left_sign_bit.lu
+//! check: run(exit=trap(overflow))
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! s237 (`[type.int.shift]`): `1 << 63` at `int` is 2^63, one past the
+//! type's maximum: the `overflow` trap. The sign bit of a signed type
+//! is not reached by shifting a positive value into it (`-1 << 63` is
+//! `MIN`, and `1 << 63` at `u64` fits). At 0.2.29 native and release
+//! printed -9223372036854775808; lupin 0.1.52 trapped.
+## corpus/kernels/wrap_lshr_fold.lu
+//! check: run(exit=0, stdout="255 4294967295 1\n")
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! s237: a `wrapping[T]` shift masks its count to the width, so `255
+//! >> 8` at `wrapping[u8]` is `255 >> 0`. With both operands known, the
+//! builder folded the logical shift to the constant 255 in an 8-bit
+//! cell, whose payloads are stored sign-extended (-1): the verifier
+//! refused it and native and release answered an ICE ("lowered WIR
+//! failed verification", `iconst.i8 255`) at 0.2.29, at `wrapping[u8]`
+//! and `wrapping[u32]`. The checked machine and lupin 0.1.52 printed
+//! what this row says.
+## corpus/os/group_rows.lu
+//! check: run(exit=0, stdout="group_one=invalid\ngroup_zero=invalid\ngroup_negative=invalid\ngroup_wide=invalid\ngroup_two_bits=invalid\ngroup_past_table=invalid\nall_two_bits=invalid\nall_past_table=invalid\nset_pgid_negative=invalid\nset_pgid_wide=invalid\ntext_zero=invalid\ntext_two_bits=invalid\ntext_past_table=invalid\nfar_host_number: true")
+//! phase: run
+//! conforms: os.signal.send.group, os.signal.send.all, os.term.group, os.signal.host, os.signal.text, err.union
+//!
+//! s241 (wolf-lang#739, #740, #741, #762; ruling #79) — the rows of the
+//! group send, the move into a group and a signal's words that are
+//! decided by their SHAPE, before any host is asked: one truth on every
+//! host, and nothing is sent or moved. A group is above 1 and fits a
+//! process id (group 1 is `invalid`: `kill`'s -1 is every process, not
+//! group 1); a meaning is 0, one bit of the table, or a host number -N;
+//! a group to move into is 0 or above and fits a process id; a text is
+//! for one meaning or -N, never 0. A host number far past any host's last
+//! signal is `invalid` where the host has numbers and `unsupported` on
+//! windows, which has none. The live witnesses — sends to a group the
+//! test started, `send_all` and the move, in a throwaway container — are
+//! `crates/wolf_driver/tests/group_lanes.rs`.
+## corpus/os/job_poll_rows.lu
+//! check: run(exit=0, stdout="no child: (-1, 0)\nagain: (-1, 0)\na spawn the host refused: not_found\nstill none: (-1, 0)")
+//! phase: run
+//! conforms: os.proc.poll, err.union
+//!
+//! s242 (wolf-lang#680; `[os.proc.poll]`) — the poll of the children
+//! with no child: `(-1, 0)`, "nothing to report, none live", decided
+//! without asking the host to wait — one truth on every host, windows
+//! included, and the one row lupin answers (it refuses the poll by name
+//! once a child is live: the standard library's `try_wait` cannot see a
+//! stop). A spawn the host refused leaves no child behind. The live
+//! witnesses — a job stopped, continued and ended, a `wait` cut short by
+//! a trapped signal, an idle wait's context switches — are
+//! `crates/wolf_driver/tests/job_wait_lanes.rs`.
+## corpus/typecheck/int_shift_value.lu
+//! check: run(exit=0, stdout="8 16 128 64 -128 -4 -4 -1\n4096 1 32768 -2 1073741824 2147483648\n4611686018427387904 9223372036854775808 1 -9223372036854775808\n0 0 0 0 -1 -1 0 0\n40 5 12 3200\n")
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! s237 (wolf-lang#736, `[type.int.shift]`): a shift on a plain integer
+//! is the value's. `x << n` is `x * 2^n` wherever that fits the type
+//! (the top bit of an unsigned type included; `-1 << 7` at `i8` is
+//! `MIN`), `x >> n` is the floor of `x / 2^n` (`-7 >> 1` is -4), and a
+//! count at or past the width has shifted every bit out: 0, or -1 for
+//! a negative value, and `0 << n` is 0. A `byte` widens to `int` first.
+//! At 0.2.29 the checked machine refused every line by name, and
+//! native and release masked the count (`255 >> 8` at `u8` printed 255,
+//! `-8 >> 64` printed -8) where lupin 0.1.52 printed what this row says.
+## corpus/typecheck/straight_line_shl_assign.lu
+//! check: run(exit=0, stdout="321\n")
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! wolf-lang#755 (s237, s755): a function with no `if`, loop, call or
+//! index is lowered as one block, and its locals are kept for that
+//! block alone. A construct that branches in the middle of an
+//! expression ends the block, so a local declared before it and read
+//! after it had no definition: a plain `<<=` by a count that is not a
+//! constant. Native and release panicked here with s237's shift
+//! lowering before the #755 fix (s755) landed, the shift's own branches
+//! being new, "use of a variable with no definition on some path". The
+//! checked machine and lupin 0.1.52 printed what this row says.
+## corpus/typecheck/straight_line_shl_const.lu
+//! check: run(exit=0, stdout="577\n")
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! wolf-lang#755 (s237, s755): a function with no `if`, loop, call or
+//! index is lowered as one block, and its locals are kept for that
+//! block alone. A construct that branches in the middle of an
+//! expression ends the block, so a local declared before it and read
+//! after it had no definition: a plain `<<` by a constant count of a
+//! value that is not one (the round trip's check). Native and release
+//! panicked here with s237's shift lowering before the #755 fix (s755)
+//! landed, the shift's own branches being new, "use of a variable with
+//! no definition on some path". The checked machine and lupin 0.1.52
+//! printed what this row says.
+## corpus/typecheck/straight_line_shr_var.lu
+//! check: run(exit=0, stdout="81\n")
+//! phase: run
+//! conforms: type.int.shift
+//!
+//! wolf-lang#755 (s237, s755): a function with no `if`, loop, call or
+//! index is lowered as one block, and its locals are kept for that
+//! block alone. A construct that branches in the middle of an
+//! expression ends the block, so a local declared before it and read
+//! after it had no definition: a plain `>>` by a count that is not a
+//! constant (the count's check and the slow path past the width).
+//! Native and release panicked here with s237's shift lowering before
+//! the #755 fix (s755) landed, the shift's own branches being new, "use
+//! of a variable with no definition on some path". The checked machine
+//! and lupin 0.1.52 printed what this row says.
+=== modified run program diffs
+diff --git a/corpus/memory/raw_lshr_top_bits.lu b/corpus/memory/raw_lshr_top_bits.lu
+index 2d5d638f..76484dfe 100644
+--- a/corpus/memory/raw_lshr_top_bits.lu
++++ b/corpus/memory/raw_lshr_top_bits.lu
+@@ -8,8 +8,9 @@
+ //! as one `u64` and as its top byte. At wolf 0.2.24 (294d626d) release
+ //! printed `33554304 1 15 0` — every branch deleted by rangeopt's
+ //! signed bound on `>>`. Native and lupin 0.1.47 printed what this row
+-//! says; the checked machine refuses `>>` on a non-wrapping integer by
+-//! name (it has no ruled checked-tier semantics yet).
++//! says; the checked machine refused `>>` on a non-wrapping integer by
++//! name until s237 (wolf-lang#736, `[type.int.shift]`) and prints it
++//! now.
+ 
+ import c "stdlib.h"
+ 
+=== CHANGELOG 0.2.32 and 0.2.31 entries
+# Changelog
+
+## 0.2.32 — 2026-10-18
+
+**Why this release: a 0.2.31 regression (#778).** At 0.2.31 a program
+on the dev tier (`wolf build`, `wolf run`, `conform-run --native`) that
+imports `std.signal` or `std.net` (every boreutils utility imports
+`std.signal`) and is started with descriptor 0, 1 or 2 closed found that
+descriptor open before `main`: the runtime made its signal hub (or its
+readiness set) at start for every function the build held, and the host
+put the hub's pipes on the lowest free numbers. A program run `prog >&-`
+saw `fs_fstat(1)` answer ok and wrote its output into the runtime's
+pipe instead of failing as it should (boreutils' `cat` and `wc` failed
+five dev-tier difftest cases, which held boreutils at 0.2.30). On
+**either tier**, a program that *reached* `os_signal_listen`,
+`os_signal_wait`, `os_signal_wait_fd` or a parking net call with 0, 1
+or 2 closed had the same fault (`wolf build --release` too, at 0.2.31).
+Now (s245, `[os.signal.hub]`, `[os.net.reactor]`):
+
+- **The runtime's own descriptors never take 0, 1 or 2.** The hub's
+  pipes, `os_signal_wait_fd`'s wake pipe and the readiness set's
+  descriptors move to 3 or above when the host places one on a closed
+  standard descriptor, and that descriptor is closed again: a standard
+  descriptor the program was started without stays closed on both
+  tiers.
+- **The hub and the set are made where they are reached, on both
+  tiers.** The entry shim decides from the functions reachable from
+  `main` and the exports (the release tier's walk), so an import alone
+  makes nothing: no pipe, no set, no extra thread. Ruling #80 stands
+  where a call is reached (made before `main`; a refusal is exit 71).
+
+THE THIRTY-SECOND, a point release. Two compiler lanes land, neither
+with a lupin half: the checked machine's `net_wait` hands over (s244,
+#720) and s245's descriptor fix with the checked machine's big writes
+(#778, #777). The pairing stays lupin 0.1.54 and the bundled std stays
+wolf-std `d37c911`. 22 commits since 0.2.31 (s244 6, s245 16), then
+r37's release commits.
+
+### Read this before you bump the pin
+
+**A closed standard descriptor stays closed (s245, #778).** A program
+started with 0, 1 or 2 closed now finds it closed (`fs_fstat` answers
+`io`, a write to it fails) on both tiers, whatever it imports. A
+dev-tier program that imports `std.signal` or `std.net` but reaches no
+call that makes the hub or can park no longer makes either at start: it
+carries no pipe, no readiness set and no drain thread, and it can no
+longer exit 71 at start for them (a program that reaches such a call
+can, as at 0.2.31). Windows is unchanged (no descriptor here: the hub is
+a queue, the set a wake socket).
+
+**The checked machine's waits and writes hand over (s244, s245; only
+`conform-run --checked`).** `net_wait` beside other tasks polls a
+millisecond at a time and lets them run, so a loop waiting on tasks it
+spawned (the book's ex33-7) answers instead of hanging; a `net_wait`
+with deadline 0 asks once. The four net writes do the same when the
+socket is full, so an 8 MiB write to a spawned reader answers in about
+0.1 s instead of hanging. A deadline still decides each answer; with no
+other task each is the blocking call it was.
+
+**The bundled std is unchanged: wolf-std `d37c911`**, as 0.2.31 shipped.
+
+- **Measured under this release** (kasumi, linux x86-64, the
+  release-head archive with lupin 0.1.54 beside `wolf`, no `WOLF_STD`):
+  wolf-std `d37c911`'s 475 tests on lupin, the checked machine and
+  native, and its 497 doc examples: **all green**. The release machine
+  equals native on 474 of the 475 with no std configured; the one
+  (`list/sort_by_tier.lu`) is refused by name on release, as at 0.2.31.
+  Against the published 0.2.31 on the same std, 0 records moved on any
+  tier.
+
+**New prelude names:** none (`cargo xtask prelude-diff v0.2.31 HEAD
+--markdown`, after `git fetch --tags`, run at the release head).
+
+**Capabilities:** unchanged. **Bytes:** `libwolf_rt.a` gains the move
+off 0–2 (no new exported symbol); a dev-tier program that names but
+does not reach a hub or park call loses its start call. Host table,
+prelude and spec anchors (661) unchanged.
+
+**Known:** `region_copyout_lanes::a_loop_keeping_a_scalar_is_flat` can
+exceed its RSS bound under load (#652, open), a test flake.
+`conform-run --native`/`--release` give the program no terminal on
+standard input (#766, open). Filed by s245, open: the checked machine's
+write gate never blocks on windows (#780); a thread can take a low
+descriptor in the window between `pipe` and the move off 0–2 (#781).
+
+**Rulings:** none new; ruling #80 stands as s245 applies it.
+
+**What each downstream does to bump.** 0.2.31's list, now at 0.2.32
+(0.2.31's section below has each line in full):
+
+- **wolf-std, first:** pins to 0.2.32 / 0.1.54; `process.poll` over
+  `os_wait_poll` (`256 + N` a stop) and the group-call wrappers, as
+  0.2.31's list says.
+- **boreutils:** the toolchain digests, now unblocked: its pin stayed
+  at 0.2.30 because 0.2.31's dev tier failed five `>&-` cases (#778);
+  boreutils `792ad31`'s difftest against this release's candidate
+  archive (lupin 0.1.54 beside it) passes 6383, fails 0, skips 262 on
+  both tiers, as s245 measured its branch build. Then `kill`'s groups
+  and `timeout`, as 0.2.31's list says.
+- **pelt:** the toolchain digests; job control on the poll.
+- **lobo:** the toolchain digests; lobo#92 (retire the descriptor
+  workaround).
+- **wolf-book, then the site:** the book pins 0.2.32 / 0.1.54; **ex33-7's
+  checked record** changes from killed to `answered 4 questions on 2
+  connections` (#720, s244); the TONE.md waiver sentence in chapter 34
+  comes out; then wolf-web pins the pair and the book, and deploys.
+- **wolf-lsp and tree-sitter-wolf:** the pin (no new prelude name since
+  0.2.31; 0.2.31's seven if they have not taken them).
+- **muzzle:** the pin.
+- **pax:** the pin (it builds from the archive).
+- **Homebrew and the AUR:** 0.2.32 / 0.1.54 (this release's tap
+  change); the AUR moves from 0.2.30 / 0.1.53 straight to 0.2.32 /
+  0.1.54.
+
+### The pairing: lupin 0.1.54 (unchanged)
+
+`PAIRING` still names **lupin 0.1.54 at pin `294d626`** (wolf-interp
+release 415937354; the linux x86-64 archive's sha256 `175df238…`). The
+spec pin is unchanged (this compiler's v0.2.24 tag). Neither s244 nor
+s245 has a lupin half: lupin already handed over in `net_wait` and the
+writes (the checked machine now does as lupin does), and the descriptor
+fix is the compiled runtime's.
+
+- **Dropped 0, widened 0, carried every pin unchanged**: each
+  version-keyed list already names 0.1.54 (`checked_tasks_lanes`,
+  `region_kept_arg_lanes`, `chan_sent_arg_lanes`, attr_closed_set's
+  control, the racy counter's check) or is keyed by an older release's
+  commit (`shift_lanes`). Against the published 0.1.54, 88 gate targets
+  (the 87 that name lupin, s244's `checked_net_wait` and s245's
+  `checked_net_write` among them, and s245's `stdfd_lanes`) pass 831 of
+  831. The plant (the same head against the published 0.1.53) is red on
+  exactly 0.2.31's four dropped cases.
+- **The ritual against the published 0.2.31** (the same 1154-file
+  corpus, the same lupin 0.1.54, this release's archive `wolf` against
+  0.2.31's): **0 ledger counts moved** on either tier. checked: 792
+  agreements, 95 unsupported, SOUNDNESS 0, hard 19 on both, the two
+  passes byte-identical. native: 777 agreements, 96 unsupported,
+  SOUNDNESS 14, hard 33 on both; three SOUNDNESS rows changed their
+  printed exit status (`conc/atomic_ub_uaf.lu`,
+  `memory/unsafe_ub_uaf.lu`, `memory/volatile_ub_uaf.lu`): each reads
+  freed memory, and 0.2.31 itself gives a different status on each of
+  five runs.
+
+### The checked machine's `net_wait` hands over (s244, #720)
+
+On the checked machine `net_wait` was one host poll for its whole
+deadline on the only thread that runs the tasks, so a loop waiting on
+connections from tasks it had spawned never let those tasks run: the
+book's ex33-7 (a door that spawns two callers, then loops on
+`net_wait([door] + open, 2000)`) was killed at 120 s and 200 s under
+`conform-run --checked` on three hosts, polling `poll(…, 2000) = 0`
+every two seconds with no `connect`. lupin and native answer `answered
+4 questions on 2 connections`. Now, beside other tasks, `net_wait`
+polls the set for at most a millisecond at a time (never past its
+deadline) and hands the baton on between polls, as the socket reads
+already did; the deadline still decides the empty answer; a deadline of
+0 asks once and hands nothing on, as lupin's does; with no other task it
+is the one blocking poll it was (`[exec.checked.task]`). ex33-7 under
+`--checked` now answers lupin's line in 0.06 s. Witnesses
+(`checked_net_wait.rs`): the reduced door loop, ex33-7 verbatim and the
+deadline rows, the checked machine held to lupin and native under a
+30 s kill.
+
+### A closed standard descriptor stays closed; the dev tier makes the hub and the set only where they are reached (s245, #778)
+
+A 0.2.31 regression. On the dev tier a program that imported
+`std.signal`, and so every boreutils utility, made the signal hub (two
+pipes) before `main`, and the host put its pipes on the lowest free
+descriptors: a program started `prog >&-` found descriptor 1 open, a pipe
+of the runtime's, `fs_fstat(1)` answered ok and its output went into the
+pipe. The release tier, and 0.2.30 on either, left 1 closed (boreutils'
+`cat` and `wc` with `>&-` failed five dev-tier difftest cases at 0.2.31).
+Two faults, both fixed (`[os.signal.hub]`, `[os.net.reactor]`):
+
+- **The runtime's own descriptors never take 0, 1 or 2.** The hub's two
+  pipes, `os_signal_wait_fd`'s wake pipe and the readiness set's
+  descriptors (epoll and its eventfd on linux, the kqueue on macOS) are
+  moved to 3 or above when the host places one on a closed standard
+  descriptor, and that descriptor is closed again. A program that
+  reaches `os_signal_listen` with 0, 1 or 2 closed now finds it closed on
+  both tiers (at 0.2.31 the release tier put the hub there too, for a
+  program that reached the listen). The readiness set did the same for a
+  program that reached a parking net call, on both tiers.
+- **"Names a call" is what the program reaches, on both tiers.** The
+  entry shim decides whether to make the hub and the readiness set from
+  the functions reachable from `main` and the exports (the release
+  tier's dead-function walk), not every function the build holds. A
+  dev-tier program that imports `std.signal` or `std.net` and reaches no
+  call that makes the hub or can park now carries no pipe, no set and no
+  extra thread, as on the release tier. Ruling #80 stands: where such a
+  call is reached the hub (or the set) is made before `main`, and a
+  refusal is exit 71.
+
+Windows has no descriptor here (the hub is a queue, the set a wake
+socket) and is unchanged: a program started with a null standard handle
+reads that stream closed and the other two open, before and after
+(measured on the dev tier; windows has no release tier).
+
+### The checked machine's big write no longer hangs beside its reader (s245, #777)
+
+On the checked machine (`conform-run --checked`) `net_write`,
+`net_write_bytes`, `net_writev` and `net_writev_head` were one blocking
+write of everything on the thread that runs the tasks, so a write larger
+than the socket's buffers to a task of the same program that would read
+it waited for ever (an 8 MiB write to a spawned reader was killed at
+30 s; lupin and native answer in about 0.1 s). Beside other tasks a write
+now parks as a read does (s244's construction for `net_wait`): it polls
+for room a millisecond at a time, sends what the socket takes, and lets
+the other tasks run between polls. An armed `net_deadline` still ends a
+write no byte of which can go for that long, with the same `io` row; with
+no other task the write is the blocking call it was
+(`[exec.checked.task]`).
+
+## 0.2.31 — 2026-10-17
+
+**Three things change what a running program does. Read them before you
+bump.**
+
+- **A shift on a plain integer is arithmetic on its value** (s237,
+  `[type.int.shift]`, ruling #77 A). `x << n` is `x * 2^n` and traps
+  `overflow` when that leaves the type; `x >> n` is the floor of `x /
+  2^n`; a negative count traps. On 0.2.30 native and release computed
+  the masked machine shift on plain types (`255 << 1` at `u8` printed
+  254, `1 << 8` printed 1, `255 >> 8` printed 255): a program that
+  shifts a set bit out, shifts by the width or more, or by a negative
+  count now traps `overflow` (or, for `>>` past the width, answers 0 or
+  -1). `wrapping[T]` keeps the old bits.
+- **A program the runtime cannot set up does not start: exit 71** (s239,
+  s243; ruling #80's rule). A program that names a call which can park
+  in the reactor (`net_accept`, the net reads and writes) makes its
+  readiness set before `main`, and one that names `os_signal_listen`,
+  `os_signal_wait` or `os_signal_wait_fd` makes its signal hub there.
+  When the host refuses either (a descriptor limit already reached at
+  start), the program writes one line to standard error, `wolf: the
+  runtime could not make its readiness set (…); the program did not
+  start` (or `… its signal hub …`), and exits **71** (`EX_OSERR`), before
+  any line of `main` runs. On 0.2.30 the same program started, ran, and
+  ended with SIGABRT (134) at its first park or listen. A program that
+  names none of these calls is unchanged.
+- **The poll of the children** (s242, `[os.proc.poll]`, ruling #84):
+  `os_wait_poll() -> (int, int) ! {io}` never blocks and reports a stop
+  as **`256 + N`**, beside an exit code (0..255) and an end by signal
+  (`-N`). And **`os_signal_wait` no longer wakes on a timer**: outside a
+  scope that can be killed it parked on a 5 ms tick at 0.2.30 (about 195
+  context switches a second, idle); now an idle wait makes none.
+
+THE THIRTY-FIRST. Six compiler lanes land, four with a lupin half, and
+the pairing moves to lupin 0.1.54, which mirrors them: the shift rule and
+home-module methods on the checked machine (s237, #736, #745, ruling #77
+A); the readiness set made at start and `os_error()` for the net family
+(s239, #750, #751, ruling #80); the signal hub made at start and two test
+races closed (s243, #763, #765); the group send, the caller's group, host
+signal numbers and a signal's words (s241, #739, #740, #741, #762, ruling
+#79); the job wait (s242, #680, ruling #84); `parked_tasks`' race (s238,
+#733). s240's group-signal note (docs and probes), CI's std checkout at
+`.dist-std/` (tl22) and the windows legs (tl23). The bundled standard
+library moves to wolf-std `d37c911`. 153 commits since 0.2.30
+(s238 5, s239 23, s237 40, tl22 3, s241 24, s240 12, tl23 3, s243 17,
+s242 24, is76's compiler half 2: `shift_lanes` keys its lupin pin by
+version and release commit), then r36's release commits.
+
+### Read this before you bump the pin
+
+**The shift rule (s237, ruling #77 A).** Upgrading from 0.2.29 or 0.2.30:
+
+1. A shift on a plain integer now traps `overflow` where it used to
+   wrap: a set bit shifted out by `<<` (`1 << 63` on `int` included), a
+   `<<` of a non-zero value by the width or more, and a negative count
+   either way. A `>>` by the width or more now answers 0 (-1 for a
+   negative value) instead of the masked shift.
+2. Code that wants the old bits says so with `wrapping[T]` (`(x as
+   wrapping[u64] << n as wrapping[u64]) as u64` with `x`, `n: u64`;
+   both operands of a shift have one type), where the count masks to
+   the width and the bits that leave are dropped, as before.
+3. Measured downstream before the ruling (s237's census, the same
+   programs built by this compiler and by 0.2.29's trunk): wolf-std (100
+   shift sites, all `wrapping`), lobo (95, all `wrapping`), boreutils
+   (7, one plain), pelt (13, eleven plain) and pax (288, all plain) gave
+   no new trap, no changed output and no changed exit status in their
+   own suites. pax's variable-count shifts — signal bits, bitmap bits,
+   retransmit backoff — are where a count of 0 or one past the width
+   would now trap instead of misbehaving quietly.
+4. The release tier's code changes beyond the shifts themselves,
+   through inlining (a checked shift is larger); behaviour does not.
+
+The constant evaluator now computes what the run time does (`const Z:
+u8 = 255 >> 8` is 0; `const K: u8 = 200 << 1` stays E0706). The checked
+machine answers a plain shift and a home-module method call (`m.keys()`)
+it refused by name before (#736, #745).
+
+**Exit 71 at start (s239, s243).** A program that names a parking net
+call, or `os_signal_listen`, `os_signal_wait` or `os_signal_wait_fd`,
+makes the runtime's readiness set or signal hub before `main`; when the
+host refuses, the program does not start: one stderr line and exit 71,
+no `wolf-trap:` line, not 134. A supervisor that reads 134 as "ran out
+of descriptors mid-flight" now sees 71 at once, before the program's
+first line. The cost, only in a program that names such a call: two
+descriptors and one thread for the readiness set and four descriptors
+and one thread for the hub on linux, from the start; about 13–22 µs of
+start-up for the set. No park now asserts on a host resource: a wait
+that finds no set answers its call's `io`.
+
+**`os_wait_poll`'s status (s242, ruling #84).** `(h, status)` for the
+first child of the program's that ended or stopped since it was last
+looked at: **0..255** an exit code, **`-N`** an end by host signal N
+(`os_wait_status`'s spelling), **`256 + N`** a stop by host signal N
+(`STOP`, `SUSPEND`, `BG_READ`, `BG_WRITE`: 19–22 on linux; 17, 18, 21,
+22 on macOS). An end reaps and closes the handle; a stop is reported
+once and the child stays. **A continue is not reported** (512 stays
+free), and **macOS sends no `CHILD` for a continue** (measured; linux
+does). Nothing to report is `(-1, n)`, `n` the children still live, so
+`(-1, 0)` is "none left". One `waitpid(pid, WNOHANG | WUNTRACED)` per
+live child, never `waitpid(-1)`: a child the program did not start is
+never reaped. windows reports ends and `(-1, n)`, never a stop. The
+wait a signal cuts short is a listen for `CHILD` and the trapped set,
+the poll, and `os_signal_wait` (or `os_signal_wait_fd`).
+
+**`os_signal_wait` no longer wakes on a timer (s242).** Outside a scope
+that can be killed it parked on a 5 ms tick, so an idle wait made about
+195 context switches a second at 0.2.30; now it makes none (0 in 5 s on
+native, release and checked, measured by s242). It still returns only
+for a signal in its set. The checked machine's `os_signal_wait` with no other task alive now waits on
+the host for a set a listen armed, instead of refusing by name.
+
+**A negative meaning is now a host signal (s241, ruling #79 R4).**
+`os_signal_send(pid, -N)` was `invalid` and is now a send of host signal
+N, as are `-N` to `os_signal_send_group`, `os_signal_send_all` and
+`os_signal_text`; a program that relied on a negative meaning being
+refused must check it first.
+
+**The bundled std is wolf-std `d37c911`** (sc62: std at 0.2.30 / lupin
+0.1.53 with s236's ids and owners wrappers and the terminal's size and
+characters; sc62b: the descriptor-and-signal wait as `signal.wait_fd`,
+ruling #82; sc63: its ledger records that lupin 0.1.54 runs
+`x/crypto/sha2/wycheproof_hkdf256_full.lu` to the end, and it vendors
+lupin 0.1.54; its `std/` tree is `f50fe73`'s byte for byte), where
+0.2.30 shipped `fd6bcdc`. New: `env.uid`, `euid`,
+`gid`, `egid`, `groups`; `fs.set_owner`, `set_link_owner`,
+`set_file_owner`, `owner_keep`; `process.set_ids` (whole or the process
+ends, ruling #78); `std.os.users` (a pure reader of `passwd(5)` and
+`group(5)` lines); `term.size` and `Size`; `term.chars`, `Chars`,
+`chars_from`, `char_disabled`; `signal.wait_fd(f, set)`. It has **no
+wrappers for this release's seven builtins** (s241's six and s242's
+poll): call them directly; they are in the prelude.
+
+- **Measured under this release** (kasumi, linux x86-64, the
+  release-head archive with lupin 0.1.54 beside `wolf`, no `WOLF_STD`):
+  wolf-std `d37c911`'s 475 tests on lupin, the checked machine and
+  native, and its 497 doc examples: **all green**. The release machine
+  equals native on 474 of the 475 with no std configured; the one
+  (`list/sort_by_tier.lu`) is refused by name on release, as at 0.2.30.
+  Against the published 0.2.30 on the same std, 0 records moved on any
+  tier: the shift rule moves no std row (its 100 shift sites are all
+  `wrapping`).
+
+**New prelude names** (`cargo xtask prelude-diff v0.2.30 HEAD
+--markdown`, after `git fetch --tags`, run at the release head):
+
+> **New prelude names.** HEAD adds `os_signal_send_group`,
+> `os_signal_send_all`, `os_set_pgid`, `os_signal_last`,
+> `os_signal_realtime`, `os_signal_text`, and `os_wait_poll` (all seven:
+> function, `[os.host.sigs]`). A module that declares a function, type
+> or binding named any of them now draws W0304 (it shadows the ambient
+> name), which `--deny-warnings` makes fatal: rename yours.
+
+A grep for the seven in wolf-std `d37c911f`, boreutils `23ea8dd2`, lobo
+`d3f4a385`, pelt `06223a89`, pax `5c36560f`, muzzle `da22e9e9`, the book
+`95d68ad0` and wolf-lsp `eb907a0d` found **no declaration and no use**.
+s237, s238, s239, s243, tl22 and tl23 add no prelude name.
+
+**Capabilities.** The three sends and `os_set_pgid` charge `exec`;
+`os_signal_last`, `os_signal_realtime` and `os_signal_text` are
+uncharged; `os_wait_poll` charges `exec` with `os_wait_status` (it
+reaps). All seven are refused at comptime. A package that calls a
+charged one without the declaration is E1504.
+
+**Every hosted binary's bytes may move:** `libwolf_rt.a` gains the start
+shims and s241's and s242's calls (`RT_SYMBOLS` 214 → 223); a program
+that names a park or a hub call gains its start call; the shift rule
+changes every plain shift's code. Host table 128 → 135 lines, prelude
+135 → 142 functions, spec anchors 648 → 661 (13 added, none dropped).
+
+**Known:** `region_copyout_lanes::a_loop_keeping_a_scalar_is_flat` can
+exceed its RSS bound under load (#652, open), a test flake.
+`parked_tasks`' witness race (#733) is fixed (s238), and two more tests
+of the same shape (#765, s243). `conform-run --native`/`--release` give
+the program no terminal on standard input (#766, open).
+
+**For contributors.** CI's std checkout moved to `.dist-std/<pin>/`
+(tl22, gitignored; the std a build uses is byte-identical); windows'
+build and test runs as two legs, `tests` and `rung`, and caches are
+saved only from trunk (tl23).
+
+**Rulings made, each as implemented:** #77 (s237, A: a shift on a plain
+integer is arithmetic on its value); #79 (s241, R1–R9: two group-send
+builtins, `os_set_pgid` on the caller, rows as the host answers, host
+numbers by −N with no new bits, `os_signal_text` in the C locale, the
+capabilities, windows `unsupported`, lupin refuses by name, the lane
+order); #80 (s239, R1–R6: the readiness set before `main`, exit 71, a
+park finding none answers `io`, `os_signal_wait_fd` answers `io`, the
+net family sets `os_error()`; s243 applies the same rule to the signal
+hub); #84 (s242, R1–R9: `os_wait_poll`, the program's own children,
+`256 + N`, continues not reported, `(-1, n)`, the interruptible wait
+composed, `exec`, windows ends only, lupin `(-1, 0)` then refused by
+name); #82 (wolf-std's terminal wrappers, `signal.wait_fd`).
+
+**What each downstream does to bump.**
+
+- **wolf-std, first:** pins to 0.2.31 / 0.1.54; then `process.poll` over
+  `os_wait_poll` with a status type that reads `256 + N` as a stop
+  (and `-N`, 0..255), and std wrappers for the group calls
+  (`os_signal_send_group`, `os_signal_send_all`, `os_set_pgid`,
+  `os_signal_last`, `os_signal_realtime`, `os_signal_text`; ruling #79
+  R1's `Group` type). A later compiler release bumps `STD-PIN` to carry
+  them.
+- **pelt:** the toolchain digests; job control on the poll: listen for
+  `CHILD` and the trapped set, `os_wait_poll`, `signal.wait` (or
+  `signal.wait_fd` at the prompt); a stopped job's `$?` is `128 + (s −
+  256)`, as dash reports it; `kill %job` through
+  `os_signal_send_group`; the shell's own group by `os_set_pgid(0)`.
+  Its eleven plain shifts gave no new trap (s237's census).
+- **lobo:** the toolchain digests; **lobo#92**: retire the descriptor
+  workaround (one parked read at start, ws64): the reactor is made at
+  start now, so a server at its descriptor limit either starts with its
+  set or exits 71 before serving.
+- **boreutils:** the toolchain digests; `kill` reaches groups
+  (`kill -- -PGID`, `kill 0`, `kill -1`) through
+  `os_signal_send_group`/`os_signal_send_all`, `kill -l` and `-L`
+  through `os_signal_last`, `os_signal_text` and `-N`; then `timeout`
+  (`os_set_pgid(0)`, the group send).
+- **wolf-book, then the site:** the book pins 0.2.31 / 0.1.54; the TONE.md
+  waiver sentence in chapter 34 ("the wrappers ship with the next
+  release") comes out, since this release's std carries them; the
+  shift rule, exit 71 and the poll get their pages. Then wolf-web pins
+  the pair and the book, and deploys.
+- **wolf-lsp and tree-sitter-wolf:** the pin, and the seven names in
+  their vendored `prelude.json`.
+- **muzzle:** the pin; it uses none of the new names.
+- **pax:** the pin (it builds from the archive); its 288 plain shifts
+  gave no new trap in its suites (s237's census), and the seven new
+  builtins are hosted: the freestanding target refuses each by name.
+- **Homebrew and the AUR:** the std beside the binary moves to `d37c911`
+  (this release's tap change).
+
+### The pairing: lupin 0.1.54
+
+`PAIRING` names **lupin 0.1.54 at pin `294d626`** (wolf-interp release
+415937354; the linux x86-64 archive's sha256 `175df238…`). The spec
+pin is unchanged (this compiler's v0.2.24 tag). 0.1.54 carries the lupin
+halves of s241 and s242 and is76, which mirrors s237's shift rule
+(wolf-interp#251) and s239's `os_error()` for the net family (#250);
+s238, s239's start, s240, s243, tl22 and tl23 have none.
+
+- **Dropped 4 cases in four gates**, each green on the published 0.1.54
+  unpinned: `group_lanes` 1 (s241's mirror), `job_wait_lanes` 1 (s242's),
+  `reactor_lanes` 1 (#751's lupin half; its two entries, 0.1.52 and
+  0.1.53) and `pairing` 1. Each pre-mirror list stays, empty, as the
+  gate's machinery.
+- **Carried, measured.** To 0.1.54 (each answers as 0.1.53 on the pinned
+  rows; the issues are open): `checked_tasks_lanes`' two partings
+  (wolf-interp#227, #230), `region_kept_arg_lanes`' seven rows and
+  `chan_sent_arg_lanes`' channel-payload rows (both wolf-interp#232),
+  attr_closed_set's control (lupin still declines its `comptime fn`); the
+  racy counter's `trap(race)` check names 0.1.54 too. `shift_lanes`'
+  list stays keyed by version and release commit (0.1.52 at `025428b`,
+  0.1.53 at `7896edd`); the published 0.1.54 matches neither and answers
+  the rule on every count, past 127 included.
+- **Widened 0.** The plant (these lists against the published 0.1.53)
+  is red on exactly the 4 dropped cases.
+- **The ritual** (#87, with #281's control against the 0.1.53 archive,
+  the same corpus and the same release `wolf`, 1154 files):
+  - checked: **moved 2 ledger counts**. Agreements 785 → 787,
+    unsupported 96 → 94; SOUNDNESS 0 and hard 19 unchanged.
+  - native: **moved 2**. Agreements 769 → 771, unsupported 98 → 96;
+    SOUNDNESS 14 and hard 33 unchanged.
+  - The same two files on both, `os/group_rows.lu` (s241) and
+    `os/job_poll_rows.lu` (s242), from unsupported to agreement.
+  - **One file moved below the ledger**, on both: `comptime/shift_overflow.lu`,
+    whose pin is `fail(E0706)`; lupin answered `exit(0)` printing 400 and
+    now answers `fail(E0706)` (is76's initialiser check). A
+    `fail`-pinned file is a completeness note whatever lupin answers, so
+    no count moved.
+
+### The job wait: a poll of the children that reports stops, and a signal wait with no timer (s242, #680; ruling #84)
+
+A shell could wait for one child to end and nothing else: `os_wait_status`
+blocks through a stop, nothing answered "has any child changed?" without
+blocking, and a `wait` could not be cut short by a trapped signal (#680).
+The surface was ruled by the maintainer, 2026-10-17 (ruling #84,
+`[os.proc.wait.note]` R1–R9), each as recommended; on the checked
+machine, native and release:
+
+- **`os_wait_poll() -> (int, int) ! {io}`** (`[os.proc.poll]`) — never
+  blocks: `(h, status)` for the first child of the program's that ended
+  or stopped since it was last looked at — an exit code (0..255), `-N`
+  for an end by host signal N (`os_wait_status`'s), or **`256 + N` for a
+  stop** by host signal N (`STOP`, `SUSPEND`, `BG_READ`, `BG_WRITE`:
+  19–22 on linux, 17, 18, 21, 22 on macOS). An end reaps and closes the
+  handle; a stop is reported once and the child stays; a continue is not
+  reported. Nothing to report: `(-1, n)`, `n` the children still live.
+  One `waitpid(pid, WNOHANG | WUNTRACED)` per live child, never
+  `waitpid(-1)`. `exec`, refused at comptime; windows answers ends and
+  never a stop.
+- **The wait a signal cuts short** is the poll with `os_signal_wait` (or
+  `os_signal_wait_fd`) on `CHILD` and the trapped set: `CHILD` comes for
+  a stop and an end. **`os_signal_wait` no longer ticks**: outside a
+  scope that can be killed it parked on a 5 ms timer (about 195 context
+  switches a second, measured at 0.2.30); now an idle wait makes none
+  (0 in 5 s on native, release and checked, measured). The checked
+  machine's `os_signal_wait` with no other task alive now waits on the
+  host for a set a listen armed, instead of refusing by name.
+
+lupin answers the poll with no child, `(-1, 0)`, and refuses it by name
+once a child is live (its half: wolf-interp `s242`). Host table 134 → 135
+lines, prelude 141 → 142 functions, RT_SYMBOLS 222 → 223, anchors 659 →
+661 (after s243's hub symbol and anchor). Witnesses (`job_wait_lanes.rs`): a job stopped by each of the four,
+continued and ended, and a `wait` cut short by `TERMINATE`, in a
+throwaway container with no init on linux (podman's init blocks the stop
+signals and its children inherit the block) and on CI's runner on macOS;
+an idle wait's context switches counted from outside.
+
+### The signal hub made before `main`; two test races closed (s243, #763, #765; ruling #80's rule)
+
+A program at its descriptor limit no longer ends at its first
+`os_signal_listen` or `os_signal_wait`. Until now the first of those
+made the signal hub (two pipes and a drain thread) and asserted that the
+host gave it: at the limit the process ended with SIGABRT (134), `the
+signal hub could not be made`, after its own lines had run. Now, by
+ruling #80's rule (`[os.signal.hub]`):
+
+- A program that names `os_signal_listen`, `os_signal_wait` or
+  `os_signal_wait_fd` makes the hub **before `main`** (the entry shim,
+  after the readiness set). A listen, a raise and a wait at a
+  32-descriptor limit answer ok, ok and the meaning on native and
+  release, as the checked machine always did. A program that names none
+  carries no pipe and no thread (D15); one that does carries four
+  descriptors and one thread on linux from its start.
+- **When the host refuses the hub the program does not start**: one
+  stderr line, `wolf: the runtime could not make its signal hub (…); the
+  program did not start`, and exit **71**, as for the readiness set.
+- A caller of the runtime that did not start the hub (no compiled
+  program) gets `io` from `listen` and `wait` instead of an abort.
+- `os_signal_ignore`, `default`, `poll` and `raise` never made the hub
+  on unix and are unchanged. lupin has no signal family.
+
+Tests: `release_determinism` and `bench_hatches` stage each build's
+source in a directory of their own, as `parked_tasks` does since s238
+(#765). Two tests rewrote one witness file while the other built it (a
+guard that does the same thing faster was red 8 of 10 at trunk: the
+build read an empty file, `no main`), and every hatch build read the
+sources the other tests were writing. Neither was ever seen red in CI.
+
+### A signal to a process group and to every process; this process into a group; host signal numbers and a signal's words (s241, #739, #740, #741, #762; ruling #79)
+
+`os_signal_send` reaches one process, so `kill 0`, `kill -1`, `kill --
+-PGID` and a shell's `kill %job` could not be written, and a job's own
+children (a script's `sleep`, a `make`'s compilers) outlived a signal to
+its leader. Six host builtins, each on the checked machine, native and
+release, as ruled (#79):
+
+- **`os_signal_send_group(pgid, meaning) -> () ! {denied, invalid, io,
+  not_found, unsupported}`** (`[os.signal.send.group]`) — `kill(-pgid)`:
+  every member of the group this process may signal. `pgid` must be
+  above **1** (`kill`'s -1 is every process, not group 1, so a group id
+  computed wrong can never become a broadcast). `kill 0` is
+  `os_signal_send_group(os_pgid()?, m)`.
+- **`os_signal_send_all(meaning) -> () ! {denied, invalid, io,
+  not_found, unsupported}`** (`[os.signal.send.all]`) — `kill(-1)`.
+- **`os_set_pgid(pgid) -> () ! {denied, invalid, io, unsupported}`**
+  (`[os.term.group]`) — the CALLING process into a group, 0 to lead one of
+  its own (what an interactive shell does at start and GNU `timeout`
+  before its command); a session leader, a group of another session or
+  none is `denied`.
+- **Host numbers `-N`** (`[os.signal.host]`): `os_signal_send`,
+  `os_signal_send_group`, `os_signal_send_all` and `os_signal_text` take
+  `-N` for the host's signal N, `1 <= N <= os_signal_last()` — the
+  real-time and host-only signals (linux `STKFLT`, `IO`, `PWR`, 32–64;
+  macOS `EMT`, `IO`, `INFO`) with no portability promise and **no new
+  meaning bit**. `-N` is `os_wait_status`'s spelling of "ended by N".
+  **`os_signal_last() -> int ! {unsupported}`** (64 linux, 31 macOS) and
+  **`os_signal_realtime() -> (int, int) ! {unsupported}`** ((34, 64)
+  under glibc, (35, 64) under musl, (0, 0) on macOS).
+- **`os_signal_text(meaning) -> str ! {invalid, unsupported}`**
+  (`[os.signal.text]`) — the C library's `strsignal` words, read in the C
+  locale whatever `LANG` says ("Killed" under glibc, "Killed: 9" on
+  macOS).
+
+The rows are the host's, kept rather than evened out (R3): a group some of
+whose members this process may signal is `ok` and reaches only those; a
+group whose members have all ended unreaped is `ok` on linux and `denied`
+on macOS; a linux `send_all` is `ok` when it finds only processes it may
+not signal and `not_found` when it finds none. The sends and `os_set_pgid`
+charge `exec`; `os_signal_last`, `os_signal_realtime` and
+`os_signal_text` are uncharged; all six are refused at comptime. Windows
+answers `unsupported` after the shape; lupin answers the shape rows and
+refuses each well-formed call by name (its half: wolf-interp `s241`).
+**Upgrade note:** `os_signal_send(pid, -N)` was `invalid` and is now a
+send of host signal N; a program that relied on a negative meaning being
+refused must check it. Host table 128 → 134 lines, prelude 135 → 141
+functions, RT_SYMBOLS 215 → 221, anchors 652 → 658. Witnesses
+(`group_lanes.rs`): the live sends and the move run inside a throwaway
+`--init` container on linux, `send_all` only there; on macOS on CI's
+runner, a program signalling only the groups it started.
+
+### `parked_tasks` no longer races itself (s238, #733)
+
+The gate failed in about one CI test job in five (22 jobs between
+2026-10-12 and 10-14, linux and macOS, trunk too; "the witness starts:
+NotFound", or dsymutil finding `waitwolf_native/w` gone). Two of its
+tests built the same witness into one directory, and each build began by
+deleting it, so one test removed the other's program while that one was
+linking or starting it. Each build now has a directory of its own, and
+`two_builds_of_the_witness_at_once_each_keep_their_own` holds that. On
+kasumi under `taskset -c 0-3` with four busy loops the old gate was red 8
+of 30 times and the fixed one 0 of 30, interleaved run by run. No runtime
+or compiler change; no assertion, timeout or retry changed.
+
+### A process out of descriptors no longer ends at its first park; a failed net call names its reason (s239, #750, #751; ruling #80)
+
+The native runtime made its readiness set (epoll and an `eventfd` on
+linux, a `kqueue` on macOS) at the first call that parked, and asserted
+that the host gave it. A program that had used its descriptors up
+before it first waited for a socket ended there, SIGABRT, after its own
+lines had run; a client could end lobo 0.1.2 and 0.1.3 that way
+(lobo#90). `os_signal_wait_fd` did the same with its wake pipe.
+
+- **The set is made before `main`** (`[os.net.reactor]`), in a program
+  that names a call which can park — `net_accept`, the reads, the
+  writes. The entry shim calls `__wolf_rt_reactor_start` first
+  (RT_SYMBOLS 215). A program that names none makes no set and no
+  reactor thread, as before. Its cost where it is made: two descriptors
+  and one thread from the start (linux), about 13 µs of a 450 µs start
+  natively and 23 µs released.
+- **When the host refuses it, the program does not start**: one line on
+  stderr, `wolf: the runtime could not make its readiness set (Too many
+  open files (os error 24)); the program did not start`, exit status
+  **71** (`EX_OSERR`). Not a trap: no `wolf-trap:` line, not 134.
+- **No park asserts on a host resource.** A wait that finds no set
+  answers its call's `io` and asks again next time; `os_signal_wait_fd`
+  answers `io` when it cannot have its descriptor and wake pipe; the
+  checked machine's descriptor wait no longer remembers a refused pipe
+  (it answered `io` forever after one refusal).
+- **The net family sets `os_error()`** (`[os.net.error]`, #751), as the
+  fs family does: a refused accept at the limit is `io` with 24
+  (EMFILE) or 23 (ENFILE) beside it; a fired budget and an orderly close
+  read 0. Native, release and the checked machine; lupin's half is
+  wolf-interp's.
+- **Measured** (kasumi, a 32-descriptor limit on the program alone): the
+  witness (`fixtures/reactor/park_at_limit.lu`) ends with SIGABRT at
+  `reactor.rs:139` on 0.2.29 and trunk, native and release, and answers
+  the budget's `timeout` now; the checked machine and lupin 0.1.52
+  always answered. lobo 0.1.4 with its workaround removed ends at the
+  8th of 30 slow downloads at trunk and serves on now, 12 of 12
+  downloads whole. Made at the first park instead, with a refusal `io`
+  there (the other design measured), the same lobo stays up but cuts 2
+  of 12 downloads it had begun: ruling #80 (R1–R6,
+  `[os.net.reactor.note]`) takes the start.
+- **Downstream**: lobo's workaround (one parked read at start, ws64) is
+  no longer needed from this release; it costs nothing to keep.
+
+### The checked machine answers shifts on plain integers and home-module methods (s237, #736, #745; ruling #77)
+
+Two ordinary shapes had no record on the reference machine: `x << n` on
+a plain integer ("this operator in checked execution") and `m.keys()`,
+a method that resolves to the receiver's home module ("home-module
+method calls in checked execution"). The second kept pelt off the
+checked machine entirely.
+
+- **A shift on a plain integer is arithmetic on its value**
+  (`[type.int.shift]`, ruled by the maintainer 2026-10-14, ruling #77,
+  option A; the alternatives weighed are a note in the clause). `x << n` is `x * 2^n` and
+  traps `overflow` when that leaves the type; `x >> n` is the floor of
+  `x / 2^n`; a negative count traps. A count at or past the width is no
+  case of its own (`255 >> 8` at `u8` is 0, `0 << 8` is 0, `1 << 8`
+  traps). `wrapping[T]` keeps the masked, bit-dropping shift it has
+  always had, and the clause now says so.
+- **This changes compiled programs. Read it before you bump.** The spec
+  had no clause for a shift, and the machines did not agree: measured
+  on 250 programs (ten types by twenty-five edges), native and release
+  at 0.2.29 computed `wrapping[T]`'s answer on plain types and parted
+  from lupin 0.1.52 on 155. `255 << 1` at `u8` printed 254, `1 << 8`
+  printed 1, `255 >> 8` printed 255, `1 << 63` at `int` printed `MIN`,
+  `8 >> -1` printed 0; lupin trapped or answered the value each time.
+  All four machines agree on the 250 now. A program that shifts a set
+  bit out of a plain integer, or shifts by the width or more, or by a
+  negative count, traps `overflow` where it wrapped (or, for `>>` past
+  the width, answers 0 or -1).
+- **Upgrading from 0.2.29 or 0.2.30, read this.**
+  1. A shift on a plain integer now traps `overflow` where it used to
+     wrap: a set bit shifted out by `<<` (`1 << 63` on `int`
+     included), a `<<` of a non-zero value by the width or more, and
+     a negative count either way. A `>>` by the width or more now
+     answers 0 (-1 for a negative value) instead of the masked shift.
+  2. Code that wants the old bits says so with `wrapping[T]`
+     (`(x as wrapping[u64] << n as wrapping[u64]) as u64` with `x`,
+     `n: u64`; both operands of a shift have one type), where the
+     count masks to the width and the bits that leave are dropped, as
+     before.
+  3. Measured downstream before the ruling, the same programs built by
+     this compiler and by 0.2.29's trunk (s237's census): wolf-std
+     (100 shift sites, all `wrapping`), lobo (95, all `wrapping`),
+     boreutils (7, one plain), pelt (13, eleven plain) and pax (288,
+     all plain) gave no new trap, no changed output and no changed
+     exit status in their own suites (std-test and doc-examples; pelt's
+     difftest and sessions; boreutils' 6,252 differential cases with
+     killtest and roottest in containers; pax's core, net, TCP and UDP
+     suites booted under QEMU). pax's variable-count shifts — signal
+     bits, bitmap bits, retransmit backoff — are where a count of 0 or
+     one past the width would now trap instead of misbehaving quietly.
+  4. The release tier's code changes beyond the shifts themselves,
+     through inlining (a checked shift is larger); behaviour does not.
+- **The constant evaluator computes what the run time does.** It
+  faulted on every count at or past the width (E0706) while the
+  compiled `let` computed an answer; `const Z: u8 = 255 >> 8` is 0 now,
+  and a `wrapping[T]` count masks at comptime as at run time. `const
+  K: u8 = 200 << 1` stays E0706.
+- **An ICE fixed on the way:** `x >> n` at `wrapping[u8]`, `[u16]` or
+  `[u32]` with both operands known and a masked count of 0 folded to a
+  constant the verifier refused ("lowered WIR failed verification",
+  `iconst.i8 255`), on native and release.
+- **A home-module method call runs on the checked machine** (#745): it
+  is the free call with the receiver first (`[type.method.resolve]`),
+  through the one path a free call takes. pelt at `00e15ca` then runs:
+  of its 960 differential cases fed on standard input, none meets a
+  refusal that names a construct. 930 run to an exit status, 7 end at
+  the machine's step or call-depth budget, 22 leave no record (in 18
+  the shell's `exec` replaces the machine's own process; in 4 the
+  shell dies of a signal it sent itself) and 1 passed 120 s.
+- **Measured:** `shift_lanes` (the rule written a second time; ten
+  types, every edge, checked, native, release and lupin 0.1.52) and
+  `home_method_lanes` (method and free spellings over a fixture std
+  tree); eight corpus rows. `shr_range_lanes` row 2, which pinned the
+  shift refusal since s214, asserts the answer on four machines.
+  lupin 0.1.52 and 0.1.53 trap on a count of 128 or more where the
+  rule answers (pinned by version and release commit, measured on both
+  archives) and do not range-check a constant initialiser; lupin 0.1.54
+  answers both (wolf-interp is76, #251).
+
+=== PAIRING at NEW
+# The reference-interpreter pairing (r01 criteria row 7): the lupin
+# release this wolf is differentially tested against, and the
+# conformance pin that lupin release itself declares.
+#
+# `wolf --version` prints this file; nothing else defines the pairing
+# (#87 retired the hardcoded constants that went three releases stale).
+# Update it WITH the differential ritual — the pairing test compares
+# the version below against the sibling lupin binary whenever one is
+# present (and, when that sibling is a release build, the pin too:
+# D57, a release's pin is part of its identity), so a stale stamp
+=== STD-PIN at NEW
+# The standard library this wolf ships (ruling #29, wolf-lang#415):
+# `cargo xtask dist` stages wolf-std's `std/` tree at the commit below
+# into the release archive as `std/`, beside the `wolf` binary, with
+# the commit written to `std/STD-REV` (the 40-hex line boreutils'
+# fetch-toolchain already writes for its own staged tree). The driver's
+# default std root is that directory; `--std-root`, `WOLF_STD` and a
+# `wolf.pkg` `std` dependency still override it.
+#
+# Pinned as PAIRING pins lupin: a deliberate bump in its own commit,
+# with the gauntlet green at the new pin (dist-smoke runs a `use std.…`
+=== book
+book trunk e9862f6abe6374a759645aa53b52bc7e38603ebd
+count BOLD..BNEW = 22
+book ancestry exit=0
+ 103 files changed, 6231 insertions(+), 111 deletions(-)
+ book/back/colophon.md  |  12 +-
+ book/back/solutions.md |   8 +-
+ book/ch01.md           |  24 ++--
+ book/ch03.md           |  74 +++++++++++-
+ book/ch22.md           |  12 +-
+ book/ch33.md           |  35 +++++-
+ book/ch34.md           | 317 ++++++++++++++++++++++++++++++++++++++++++-------
+ 7 files changed, 407 insertions(+), 75 deletions(-)
+SUMMARY sha 404c8c4b7a14aaddd69bec74da09b1c1a11266f0 -> 404c8c4b7a14aaddd69bec74da09b1c1a11266f0
+chapters in SUMMARY: 34
+=== book diagrams changed
+=== ch34 at BNEW
+1:# 34. Signals and the process
+34:## 34.1 A signal is an event
+174:## 34.2 Sending, numbering, and what was ignored
+278:## 34.3 Who this process is, and its terminal
+431:## 34.4 What a call charges, and where it is refused
+496:## 34.5 Groups, and what the children did
+661:## Exercises
+42:- [The serving loop](ch33.md)
+43:- [Signals and the process](ch34.md)
+53:- [Coda: the allocator you never needed](ch32.md)
+=== chapters with new headings BOLD..BNEW
+book/ch34.md 8a9,10
+book/ch34.md > ## 34.5 Groups, and what the children did
+book/ch34.md > ### The children's changes
+=== ch01 Windows block at BNEW
+229:itself, which is the same requirement Rust's own `windows-msvc`
+237:tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz
+238:$env:Path = "C:\tools\wolf-0.2.32-x86_64-pc-windows-msvc;$env:Path"
+703:           inferred: wolf-0.2.3-{aarch64-apple-darwin, aarch64-
+704:           unknown-linux-gnu, x86_64-pc-windows-msvc, x86_64-unknown-
+718:           measured rather than inferred — wolf-0.2.4-{aarch64-apple-
+719:           darwin, aarch64-unknown-linux-gnu, x86_64-pc-windows-msvc,
+735:           wolf-0.2.5-{aarch64-apple-darwin, aarch64-unknown-linux-gnu,
+736:           x86_64-pc-windows-msvc, x86_64-unknown-linux-gnu}.tar.gz,
+745:           rather than inferred: wolf-0.2.6's four archives over the
+=== inline scripts or event handlers in book sources at BNEW
+e9862f6abe6374a759645aa53b52bc7e38603ebd:book/wolf-boot.js:5:// This was three inline <script>s in theme/index.hbs. lupp.us serves
+e9862f6abe6374a759645aa53b52bc7e38603ebd:theme/index.hbs:52:        <script src="{{ resource "toc.js" }}"></script>
+e9862f6abe6374a759645aa53b52bc7e38603ebd:theme/index.hbs:60:        <script src="{{ path_to_root }}wolf-boot.js"></script>
+e9862f6abe6374a759645aa53b52bc7e38603ebd:theme/index.hbs:141:        <script src="{{ resource "elasticlunr.min.js" }}"></script>
+e9862f6abe6374a759645aa53b52bc7e38603ebd:theme/index.hbs:142:        <script src="{{ resource "mark.min.js" }}"></script>
+e9862f6abe6374a759645aa53b52bc7e38603ebd:theme/index.hbs:143:        <script src="{{ resource "searcher.js" }}"></script>
+e9862f6abe6374a759645aa53b52bc7e38603ebd:theme/index.hbs:146:        <script src="{{ resource "book.js" }}"></script>
+e9862f6abe6374a759645aa53b52bc7e38603ebd:theme/index.hbs:149:        <script src="{{ resource this}}"></script>
+(end)
+=== book render path: external commands
+e9862f6abe6374a759645aa53b52bc7e38603ebd:xtask/src/highlight.rs:346:    let out = std::process::Command::new("git")
+e9862f6abe6374a759645aa53b52bc7e38603ebd:xtask/src/render.rs:522:    let status = std::process::Command::new(&typst)
+=== site grep
+site/index.html:611:  wolf ecosystem. CI builds and tests linux x86-64, macOS aarch64 and windows
+site/index.html:613:  generation serves; linux aarch64 is tier-1 in the matrix with no compiled
+site/index.html:618:  the program (<code>wolf conform-run --checked</code>). So on linux aarch64
+site/install/index.html:126:  own <code>windows-msvc</code> toolchain carries. Without it wolf refuses
+site/install/index.html:144:  <a href="https://github.com/wolffe-lang/wolf-lang/releases/download/v__WOLF_VERSION__/wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz"><code>wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.
+site/install/index.html:149:<pre><code>tar -xzf wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc.tar.gz</code></pre>
+site/install/index.html:161:<pre><code>$env:Path = "C:\tools\wolf-__WOLF_VERSION__-x86_64-pc-windows-msvc;$env:Path"</code></pre>
+site/install/index.html:601:tier targets linux/x86-64 and macOS/aarch64 (s41 + s127; c13 owns the
+site/install/index.html:810:  <p>linux x86-64 and macOS aarch64 are the two hosts the whole toolchain is
+site/install/index.html:819:  two, windows x86-64, and linux aarch64. That last one has no compiled tier
+(end site grep)
+=== 0.2.31's seven new hosted builtins in lupin at INEW
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:260:    "os_signal_send_group",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:261:    "os_signal_send_all",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:262:    "os_set_pgid",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:263:    "os_signal_last",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:264:    "os_signal_realtime",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:265:    "os_signal_text",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:271:    "os_wait_poll",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:746:        | "os_signal_send_group"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:747:        | "os_signal_send_all"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:748:        | "os_set_pgid"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:749:        | "os_signal_last"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:750:        | "os_signal_realtime"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:751:        | "os_signal_text"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:752:        | "os_wait_poll" => unsupported(hosted_tier_decline(name)),
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1132:        "os_signal_send_group"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1133:        | "os_signal_send_all"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1134:        | "os_set_pgid"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1135:        | "os_signal_last"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1136:        | "os_signal_realtime"
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1137:        | "os_signal_text" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1144:                "os_signal_send_group" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1147:                            "`os_signal_send_group` takes a group and a meaning".to_owned(),
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1152:                "os_signal_send_all" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1154:                        return unsupported("`os_signal_send_all` takes a meaning".to_owned());
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1158:                "os_set_pgid" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1160:                        return unsupported("`os_set_pgid` takes a group id".to_owned());
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1164:                "os_signal_text" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1166:                        return unsupported("`os_signal_text` takes a meaning".to_owned());
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1189:                "os_signal_send_group" => "signals a process group: std has no `kill(-pgid, sig)`",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1190:                "os_signal_send_all" => "signals every process: std has no `kill(-1, sig)`",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1191:                "os_set_pgid" => "moves this process into a group: std has no `setpgid` on itself",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1192:                "os_signal_last" | "os_signal_realtime" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1198:                "os_signal_send_group" => "[os.signal.send.group]",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1199:                "os_signal_send_all" => "[os.signal.send.all]",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1200:                "os_set_pgid" => "[os.term.group]",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1201:                "os_signal_text" => "[os.signal.text]",
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1251:        "os_wait_poll" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1253:                return unsupported("`os_wait_poll` takes no argument".to_owned());
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1262:                "`os_wait_poll` with a live child asks the host for a stop: std's `try_wait` \
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:3625:        "os_wait_poll" => &["io"],
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:3637:        "os_signal_send_group" | "os_signal_send_all" => {
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:3640:        "os_set_pgid" => &["denied", "invalid", "unsupported", "io"],
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:3641:        "os_signal_last" | "os_signal_realtime" => &["unsupported"],
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:3642:        "os_signal_text" => &["unsupported", "invalid"],
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:4078:/// call's meaning (and, with `zero` false, `os_signal_text`'s): 0 where
+=== and at IOLD (expect none)
+(end)
+=== wasm cfg gates near them
+87
+=== book CI std staging step at BNEW
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:157:      # The release archive carries the standard library as `std/` beside
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:164:      # stages: wolf-std's `std/` tree at the commit wolf-lang's
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:166:      # `STD-REV`. The manifest below is the archive's own, measured from
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:169:      # `d37c911`, where 0.2.30's `fd6bcdc` read `ab2576df…`); a STD-PIN
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:173:      - name: stage std/ beside wolf, as the release archive does
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:178:          sha() { if command -v sha256sum >/dev/null; then sha256sum "$@"; else shasum -a 256 "$@"; fi; }
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:186:          cp -R wolf-std/std "${dest}"
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:187:          cp wolf-std/LICENSE wolf-std/LICENSE-EXCEPTION "${dest}/"
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:188:          printf '%s\n' "${pin}" > "${dest}/STD-REV"
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:189:          # Each line written as `<hash>  <path>` by hand: windows' sha256sum
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:190:          # marks binary mode (`*path`), which would move the manifest and
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:193:          want=1f7389b7a666f9915df3e8ba68881437cf2b81ebc81184c043e5155dd1bba4a8
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:194:          echo "staged std/: $(cd wolf-lang/target/release && find std -type f | wc -l) files, manifest ${got}"
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:195:          if [ "${got}" != "${want}" ]; then echo "::error::staged std/ manifest ${got} is not the 0.2.32 archive's ${want}"; exit 1; fi
+=== book pins at BNEW
+2:# The canonical build path is `cargo xtask render` (web + wolf-book.md +
+3:# wolf-book.pdf). A bare `mdbook build` also works because the wolf
+8:authors = ["The wolf-book authors"]
+19:[preprocessor.wolf]
+30:default-theme = "wolf"
+31:preferred-dark-theme = "wolf" # no dark mode at v1 (DESIGN.md §1)
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:167:      # the 0.2.32 release archive (bs68,
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:169:      # `d37c911`, where 0.2.30's `fd6bcdc` read `ab2576df…`); a STD-PIN
+e9862f6abe6374a759645aa53b52bc7e38603ebd:.github/workflows/book.yml:195:          if [ "${got}" != "${want}" ]; then echo "::error::staged std/ manifest ${got} is not the 0.2.32 archive's ${want}"; exit 1; fi
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:57:book/ch01.md 0.2.32+dev.unknown 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:58:book/ch01.md 0.2.32 3 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:59:book/ch22.md 0.2.32 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:66:book/ch05.md 0.2.15 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:67:book/ch13.md 0.2.15 5 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:76:book/ch13.md 0.2.27 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:77:book/ch13.md 0.2.30 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:78:book/ch33.md 0.2.6 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:79:book/ch33.md 0.2.8 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:85:book/ch33.md 0.2.31 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:92:book/back/appendix-e.md 0.2.11 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:93:book/back/appendix-e.md 0.2.12 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:253:# bs68 (wolf 0.2.32 / lupin 0.1.54) re-read every entry stamped at
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:257:# methods on the checked machine; 0.2.32: the runtime's descriptors off
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:259:# lupin 0.1.54 (the shift rule, net `os_error()`, a refused run's
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:268:# numbers: the compiler names 0.1.54, and the interpreter's half is
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:270:book/ch01.md 0.1.54 1 audited-at-wolf=0.2.32 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:271:book/back/colophon.md 0.1.54 1 audited-at-wolf=0.2.32 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:272:book/ch09.md 0.2.22 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:273:book/ch09.md 0.1.46 1 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:274:book/ch32.md 0.2.22 1 audited-at-wolf=0.2.32
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:275:book/ch04.md 0.1.36 1 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:276:book/ch06.md 0.1.36 1 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:277:book/ch27.md 0.1.36 1 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:278:book/ch30.md 0.1.36 1 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:audit/version-literals.txt:282:book/ch05.md 0.1.37 1 audited-at-wolf=0.2.32 audited-at-lupin=0.1.54
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/anchors-diff.txt:1:spec/anchors.json, wolf-lang v0.2.30 (1b37f368) -> v0.2.32 (72de141f): 648 -> 661 anchors, key sets diffed both ways
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:5:wolf-lang v0.2.32 -> 72de141f624662fdff522e8beba459fab7c5cf66 (tag object d21c4b28, tag)
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:7:wolf-interp v0.1.54 -> 0e536e8fb4518eaa798ac426901ab81275db5c9f (tag)
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:10:v0.2.31: lupin-version = 0.1.54 lupin-pin = 294d626  wolf-std-commit = d37c911f12206c4bf5c8d3281a649bf31da3beef
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:11:v0.2.32: lupin-version = 0.1.54 lupin-pin = 294d626  wolf-std-commit = d37c911f12206c4bf5c8d3281a649bf31da3beef
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:13:v0.2.30..v0.2.32 196; v0.2.30..v0.2.31 170; v0.2.31..v0.2.32 26
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:14:294d626..v0.2.32 913; 294d626..v0.2.30 717
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:15:releases after 294d626 (v0.2.24): v0.2.25 v0.2.26 v0.2.27 v0.2.28 v0.2.29 v0.2.30 v0.2.31 v0.2.32 
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:16:v0.1.53..v0.1.54 43
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:17:placetrace.rs v0.1.53..v0.1.54: (empty = byte-identical)
+e9862f6abe6374a759645aa53b52bc7e38603ebd:docs/audit/bs68-evidence/inputs.txt:18:lupin vendor/upstream/PIN at v0.1.54: 294d626dd596122285d5df954762e3aee3e5db71
+=== book file diff BOLD..BNEW
+ .github/workflows/book.yml                         |  10 +-
+ audit/version-literals.txt                         |  65 ++-
+ book/back/colophon.md                              |  12 +-
+ book/back/solutions.md                             |   8 +-
+ book/ch01.md                                       |  24 +-
+ book/ch03.md                                       |  74 ++-
+ book/ch22.md                                       |  12 +-
+ book/ch33.md                                       |  35 +-
+ book/ch34.md                                       | 317 +++++++++--
+ docs/audit/bs68-evidence/allprogs.py               |  41 ++
+ docs/audit/bs68-evidence/anchors-diff.txt          |   4 +
+ docs/audit/bs68-evidence/bless.sh                  |  10 +
+ docs/audit/bs68-evidence/cmp.py                    |  21 +
+ docs/audit/bs68-evidence/control.sh                |  20 +
+ docs/audit/bs68-evidence/ctr.sh                    |  13 +
+ docs/audit/bs68-evidence/draft/groups.lu           |  25 +
+ docs/audit/bs68-evidence/draft/hublimit.lu         |   9 +
+ docs/audit/bs68-evidence/draft/jobs.lu             |  28 +
+ docs/audit/bs68-evidence/draft/limit.lu            |   7 +
+ docs/audit/bs68-evidence/draft/nochild.lu          |   5 +
+ docs/audit/bs68-evidence/draft/rotate.lu           |   5 +
+ docs/audit/bs68-evidence/draft/shift.lu            |   6 +
+ docs/audit/bs68-evidence/fetch.sh                  |  21 +
+ docs/audit/bs68-evidence/gate-host.sh              |   7 +
+ docs/audit/bs68-evidence/gate.sh                   |  24 +
+ docs/audit/bs68-evidence/inputs.sh                 |  28 +
+ docs/audit/bs68-evidence/inputs.txt                |  53 ++
+ docs/audit/bs68-evidence/kasumi/allprogs.log       |   1 +
+ .../kasumi/control-c30-diagramscheck.log           |   3 +
+ .../kasumi/control-c30-ledgercheck.log             |  35 ++
+ .../bs68-evidence/kasumi/control-c30-samples.log   |  68 +++
+ .../bs68-evidence/kasumi/control-c30-status.txt    |   0
+ .../kasumi/control-c30-verifydocs.log              |   8 +
+ docs/audit/bs68-evidence/kasumi/control-head.txt   |   1 +
+ .../kasumi/gate-3b40fde/gate-backmattercheck.log   |   5 +
+ .../kasumi/gate-3b40fde/gate-contrast.log          |  13 +
+ .../kasumi/gate-3b40fde/gate-diagramscheck.log     |   3 +
+ .../kasumi/gate-3b40fde/gate-head.txt              |   1 +
+ .../kasumi/gate-3b40fde/gate-ledgercheck.log       |  35 ++
+ .../kasumi/gate-3b40fde/gate-renderweb.log         |   4 +
+ .../kasumi/gate-3b40fde/gate-samples-bare.log      | 402 ++++++++++++++
+ .../kasumi/gate-3b40fde/gate-samples-taskset4.log  |  68 +++
+ .../kasumi/gate-3b40fde/gate-samples.log           |  68 +++
+ .../kasumi/gate-3b40fde/gate-samplesselftest.log   |  36 ++
+ .../kasumi/gate-3b40fde/gate-status-before.txt     |   0
+ .../kasumi/gate-3b40fde/gate-status.txt            |   0
+ .../kasumi/gate-3b40fde/gate-summary.txt           |  12 +
+ .../kasumi/gate-3b40fde/gate-tierscheck.log        |   2 +
+ .../kasumi/gate-3b40fde/gate-verifydocs.log        |   8 +
+ .../kasumi/gate-3b40fde/gate-xtasktest.log         | 214 ++++++++
+ .../bs68-evidence/kasumi/gate-3b40fde/gate.done    |   1 +
+ docs/audit/bs68-evidence/kasumi/limits-new.txt     |  72 +++
+ docs/audit/bs68-evidence/kasumi/pgid.txt           |  16 +
+ docs/audit/bs68-evidence/kasumi/probes-new.txt     | 208 ++++++++
+ docs/audit/bs68-evidence/kasumi/setup.log          |  13 +
+ .../bs68-evidence/kasumi/subject-diagramscheck.log |   3 +
+ .../kasumi/subject-download-twice.log              |   5 +
+ .../bs68-evidence/kasumi/subject-download.log      |   4 +
+ docs/audit/bs68-evidence/kasumi/subject-head.txt   |   1 +
+ .../bs68-evidence/kasumi/subject-ledgercheck.log   |  35 ++
+ .../audit/bs68-evidence/kasumi/subject-members.txt |  48 ++
+ .../bs68-evidence/kasumi/subject-samples-bare.log  | 356 +++++++++++++
+ .../audit/bs68-evidence/kasumi/subject-samples.log | 161 ++++++
+ docs/audit/bs68-evidence/kasumi/subject-status.txt |   0
+ .../bs68-evidence/kasumi/subject-verifydocs.log    |   8 +
+ .../audit/bs68-evidence/kasumi/sweep-c30-noise.txt |  16 +
+ .../bs68-evidence/kasumi/sweep-c30-vs-new.txt      |  28 +
+ docs/audit/bs68-evidence/kasumi/sweep-c30a.jsonl   | 589 +++++++++++++++++++++
+ docs/audit/bs68-evidence/kasumi/sweep-c30b.jsonl   | 589 +++++++++++++++++++++
+ .../audit/bs68-evidence/kasumi/sweep-new-noise.txt |  19 +
+ docs/audit/bs68-evidence/kasumi/sweep-newa.jsonl   | 589 +++++++++++++++++++++
+ docs/audit/bs68-evidence/kasumi/sweep-newb.jsonl   | 589 +++++++++++++++++++++
+ docs/audit/bs68-evidence/kasumi/work-bless.log     |  71 +++
+ docs/audit/bs68-evidence/kasumi/work-samples.log   |  68 +++
+ docs/audit/bs68-evidence/limit/hublimit.lu         |   9 +
+ docs/audit/bs68-evidence/limit/limit.lu            |  11 +
+ docs/audit/bs68-evidence/limits.sh                 |  26 +
+ docs/audit/bs68-evidence/new/groups.lu             |  28 +
+ docs/audit/bs68-evidence/new/jobs.lu               |  28 +
+ docs/audit/bs68-evidence/new/nochild.lu            |   5 +
+ docs/audit/bs68-evidence/new/rotate.lu             |   5 +
+ docs/audit/bs68-evidence/new/shift.lu              |   6 +
+ docs/audit/bs68-evidence/pgid.sh                   |  14 +
+ docs/audit/bs68-evidence/pgid/pg.lu                |   4 +
+ docs/audit/bs68-evidence/probe-all.sh              |   7 +
+ docs/audit/bs68-evidence/probes.sh                 |  24 +
+ docs/audit/bs68-evidence/red-39174239570.txt       |  36 ++
+ docs/audit/bs68-evidence/setup.sh                  |  17 +
+ docs/audit/bs68-evidence/splice.py                 |  58 ++
+ docs/audit/bs68-evidence/subject-host.sh           |  28 +
+ docs/audit/bs68-evidence/subject.sh                |  21 +
+ docs/audit/bs68-evidence/sweep.sh                  |   8 +
+ docs/audit/bs68-evidence/sweep1.sh                 |  29 +
+ docs/audit/bs68-evidence/windows-rows.txt          |  17 +
+ docs/audit/bs68-evidence/work.sh                   |  12 +
+ docs/audit/bs68-prediction.md                      | 235 ++++++++
+ docs/audit/bs68-results.md                         | 190 +++++++
+ principles/TOC.md                                  |  24 +-
+ principles/exercises/ch22/EXERCISES.md             |   2 +-
+ samples-os.toml                                    |  29 +-
+ .../{book__ch03__s16.txt => book__ch03__s18.txt}   |   2 +-
+ vendor/spec/anchors.json                           |  13 +
+ wolf-toolchain.toml                                |  94 +++-
+ 103 files changed, 6231 insertions(+), 111 deletions(-)
+=== book/ prose diff
+diff --git a/book/back/colophon.md b/book/back/colophon.md
+index 57a99a1..da4dc0e 100644
+--- a/book/back/colophon.md
++++ b/book/back/colophon.md
+@@ -6,20 +6,20 @@ against:
+ 
+ ```console
+ $ wolf --version
+-wolf 0.2.30 (wolfgang, pin 1b37f36)
+-paired with lupin 0.1.53 (reference interpreter), pin 294d626
++wolf 0.2.32 (wolfgang, pin 72de141)
++paired with lupin 0.1.54 (reference interpreter), pin 294d626
+ $ lupin --version
+-lupin 0.1.53 (wolf-interp, reference interpreter at pin 294d626)
++lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+ ```
+ 
+ The two lines name each other, and this printing both names are
+ readable. Each tool reports the revision of the other it was
+ differentially tested against, and the two projects are cut on their
+-own schedules. The compiler names `lupin 0.1.53`, the interpreter
++own schedules. The compiler names `lupin 0.1.54`, the interpreter
+ under it and not a release older. The interpreter names `294d626`,
+-a release tag of the compiler's from six releases back — reachable, on
++a release tag of the compiler's from eight releases back — reachable, on
+ the branch, and an ancestor of the compiler's own revision, so the two
+-clauses are a distance this printing: 717 commits, six releases. An
++clauses are a distance this printing: 913 commits, eight releases. An
+ earlier printing was the other case, where the interpreter's
+ clause named a rebased-away development head and no count between the
+ two meant anything. §1.2 teaches the reader to check which case a pair
+diff --git a/book/back/solutions.md b/book/back/solutions.md
+index cb690d0..1fca306 100644
+--- a/book/back/solutions.md
++++ b/book/back/solutions.md
+@@ -9967,7 +9967,7 @@ Solution. Both runs, one item and one number between them:
+ ```console
+ $ wolf interface ./wordcount/tokens/tokens.lu
+ module pkg :: (root)
+-  wolfi v0 · toolchain 0.2.30 · edition v1
++  wolfi v0 · toolchain 0.2.32 · edition v1
+   export_hash 05a012a2ca47c85fc47f13e7e2c80930951ae8c59a84d1631ca8844e71669f3c
+   pkg_hash    05a012a2ca47c85fc47f13e7e2c80930951ae8c59a84d1631ca8844e71669f3c
+   deps: (none)
+@@ -11562,7 +11562,7 @@ that only reads who it is should not also be able to stop someone else.
+ </details>
+ 
+ <details>
+-<summary>Exercise 34-5. <a href="../ch34.md#34.4">§34.4</a></summary>
++<summary>Exercise 34-5. <a href="../ch34.md#34.5">§34.5</a></summary>
+ 
+ **Exercise 34-5** *(spelunking · prose)*. Read `[os.signal.set.stable]`
+ in the specification. Say what it promises a program that stores a set
+@@ -11583,7 +11583,7 @@ signal number.
+ </details>
+ 
+ <details>
+-<summary>Exercise 34-6. <a href="../ch34.md#34.4">§34.4</a></summary>
++<summary>Exercise 34-6. <a href="../ch34.md#34.5">§34.5</a></summary>
+ 
+ **Exercise 34-6** *(design)*. A long-running program is started by a
+ user who means it to survive the terminal closing. Write down the first
+@@ -11604,7 +11604,7 @@ choice rather than how it was started.
+ </details>
+ 
+ <details>
+-<summary>Exercise 34-7. <a href="../ch34.md#34.4">§34.4</a></summary>
++<summary>Exercise 34-7. <a href="../ch34.md#34.5">§34.5</a></summary>
+ 
+ **Exercise 34-7** *(extension · wolf)*. Put all twenty-eight names in a
+ list. For each, ask the host for its number and try a listen (then reset
+diff --git a/book/ch01.md b/book/ch01.md
+index 9e2ed89..cbdba9f 100644
+--- a/book/ch01.md
++++ b/book/ch01.md
+@@ -152,10 +152,10 @@ Ask either who it is and it tells you:
+ 
+ ```console
+ $ wolf --version
+-wolf 0.2.30 (wolfgang, pin 1b37f36)
+-paired with lupin 0.1.53 (reference interpreter), pin 294d626
++wolf 0.2.32 (wolfgang, pin 72de141)
++paired with lupin 0.1.54 (reference interpreter), pin 294d626
+ $ lupin --version
+-lupin 0.1.53 (wolf-interp, reference interpreter at pin 294d626)
++lupin 0.1.54 (wolf-interp, reference interpreter at pin 294d626)
+ ```
+ 
+ Each names the other for a reason. The compiler's second
+@@ -164,21 +164,21 @@ interpreter's is the compiler revision it was tested against. Two
+ implementations agreeing is worth something only when you can find out
+ *which* two agreed.
+ 
+-Read the compiler's own version first. `0.2.30` is bare, and a bare
++Read the compiler's own version first. `0.2.32` is bare, and a bare
+ number belongs to one kind of build and to nothing else: one made
+ exactly at a release tag. Every other build prints the commit it came
+ from after the number and claims no release. This printing's compiler
+-is the first kind, and the `pin 1b37f36` clause beside it is that tag's
++is the first kind, and the `pin 72de141` clause beside it is that tag's
+ revision, abbreviated to seven characters — a width the toolchain
+ chooses on purpose, so that two people who clone the project on
+ different days read the same stamp.
+ 
+ Both halves of the pair are readable this printing. The compiler names
+-`lupin 0.1.53`, the interpreter printed under it and not a release
++`lupin 0.1.54`, the interpreter printed under it and not a release
+ older. And the interpreter names `294d626`, a release tag of the
+-compiler's from six releases back: a revision you can check out, on the
++compiler's from eight releases back: a revision you can check out, on the
+ branch, behind the compiler above it. Count the commits between the two
+-and you get 717, which is worth knowing before you trust the number,
++and you get 913, which is worth knowing before you trust the number,
+ because a count is only a distance when one revision is an ancestor of
+ the other.
+ 
+@@ -234,8 +234,8 @@ in PowerShell (`tar` has shipped with Windows since Windows 10 build
+ your path for the session:
+ 
+ ```text
+-tar -xzf wolf-0.2.30-x86_64-pc-windows-msvc.tar.gz
+-$env:Path = "C:\tools\wolf-0.2.30-x86_64-pc-windows-msvc;$env:Path"
++tar -xzf wolf-0.2.32-x86_64-pc-windows-msvc.tar.gz
++$env:Path = "C:\tools\wolf-0.2.32-x86_64-pc-windows-msvc;$env:Path"
+ ```
+ 
+ From a folder holding one `hello.lu`, the greeting compiles and runs
+@@ -328,11 +328,11 @@ $ (cd wolf-interp && cargo build --release --bin lupin)
+ The first command is wolf's own release builder: it compiles the
+ compiler and the runtime library it links programs against, stages the
+ standard library beside them as the archive does, and stamps the build
+-with the commit it was made from — the stamp is what the `pin 1b37f36`
++with the commit it was made from — the stamp is what the `pin 72de141`
+ clause above is. A plain `cargo build` compiles the same compiler and
+ runs everything in this book, but with no `std/` beside it (chapter 22's
+ `wolf interface` listing is one place that shows), and its first line
+-reads `wolf 0.2.30+dev.unknown`: a build the release machinery did not
++reads `wolf 0.2.32+dev.unknown`: a build the release machinery did not
+ stamp cannot name its own commit, let alone claim a release. Cargo
+ leaves `wolf` under `wolf-lang/target/release/` and `lupin` under
+ `wolf-interp/target/release/`. Put both on your `PATH`, run the two
+diff --git a/book/ch03.md b/book/ch03.md
+index 02f1f40..819980f 100644
+--- a/book/ch03.md
++++ b/book/ch03.md
+@@ -571,6 +571,54 @@ of `checksum += 1` can look up what that line meant. A hash function
+ wants `wrapping`. A gauge wants `saturating`. A receipt total wants
+ neither, which is why the trap above is the right answer.
+ 
++A shift is arithmetic too, and it keeps the same rule. On a plain
++integer type, `x << n` is `x` times two to the `n` and `x >> n` is `x`
++divided by two to the `n`, rounded down, both computed on the values, so
++a `<<` that leaves the type traps exactly as `*` does:
++
++```wolf,run(exit=trap(overflow))
++fn main() -> !int {
++    let flags: u8 = 200
++    print("{flags >> 1} {flags >> 8}")
++    print("{flags << 1}")
++    0
++}
++```
++
++```console
++$ lupin shift.lu
++100 0
++shift.lu: trap(overflow): `<<` produced 400, outside `u8` — checked arithmetic traps in every profile (X3); spell intended overflow `wrapping[u8]` [arith.checked] at 4:13
++$ echo $?
++3
++```
++
++The first line is the half of the rule that never traps. `>>` rounds
++toward negative infinity, so it cannot leave the type, and a count at or
++past the width is not a case of its own: every bit has gone, and `200 >>
++8` at `u8` is 0. The second line is the half that does. 400 does not fit
++in eight bits, and a bit shifted off the top is a value lost, which is
++what an overflow is. A negative count traps as well, for either operator.
++Both operands of a shift have one type, so the count here is a `u8` too,
++and a literal count takes the type of the value it shifts.
++
++The shift a processor does, which drops what falls off and takes the
++count modulo the width, is `wrapping[T]`'s, for code that wants bits
++rather than a number:
++
++```wolf,run(exit=0, stdout="144 1 200")
++fn main() -> !int {
++    let flags: wrapping[u8] = 200
++    print("{flags << 1} {flags >> 7} {flags << 8}")
++    0
++}
++```
++
++`200 << 1` drops the top bit and keeps 144, `>> 7` keeps the one bit
++left, and `<< 8` shifts by nothing at all, because 8 modulo the width is
++0. A hash, a checksum or a set of flags packed into a word wants this. A
++quantity never does.
++
+ > **The bill for checking.** Every arithmetic operation in wolf carries
+ > a test the C version does not: compute, check the flag the hardware
+ > already set, branch to the trap on failure. The branch is never taken
+@@ -652,9 +700,9 @@ fn main() -> !int {
+ }
+ ```
+ 
+-```diagnostic,from(book/ch03/s16)
++```diagnostic,from(book/ch03/s18)
+ error[E0801]: this `match` does not cover `1`
+-  --> ./s16.lu:5:5
++  --> ./s18.lu:5:5
+    |
+  5 |     match code {
+    |     ^^^^^^^^^^^^
+@@ -1187,4 +1235,26 @@ again, and say what is different this time about being wrong.
+            lead-in no longer names a machine. The waiver retires with
+            the row; the FLIP is what closed it, exactly as this row
+            said it would. CLOSED.
++     - [ ] Recorded (bs68): §3.3's shift paragraph and its two programs
++           (`shift.lu`, `rotate.lu`) teach `[type.int.shift]` as the
++           release has it (wolf 0.2.31 on, the maintainer's ruling of
++           2026-10-14, option A): a plain shift is arithmetic on its
++           value and traps `overflow` where the product leaves the type,
++           `wrapping[T]` keeps the machine's bits. Both are `run(…)`
++           blocks: lupin 0.1.54 mirrors the rule, and both programs were
++           run on lupin, `wolf run`, `conform-run --json` (native),
++           `conform-run --json --checked` and a `--release` build, also
++           under `taskset -c 0-3` (docs/audit/bs68-evidence/kasumi/
++           probes-new.txt). lupin's trap line cites `[arith.checked]`,
++           the clause every overflow trap cites; the console is copied
++           from that probe's log, not typed, and the samples gate
++           replays it. No other book program shifts (a grep of
++           every `.lu` and every wolf fence, docs/audit/bs68-prediction.md
++           §5). The two fences move every later positional sample id in
++           this chapter by two: the E0801 block's `book/ch03/s16` is
++           `s18`, its snapshot renamed and re-captured by `samples
++           --bless` from the 0.2.32 run (the path line `./s16.lu` ->
++           `./s18.lu` and nothing else,
++           docs/audit/bs68-evidence/kasumi/work-bless.log), and the block
++           spliced from the snapshot.
+ -->
+diff --git a/book/ch22.md b/book/ch22.md
+index dadcce5..5f63596 100644
+--- a/book/ch22.md
++++ b/book/ch22.md
+@@ -288,7 +288,7 @@ that surface is and hash it:
+ ```console,in(pkg/mods-iface)
+ $ wolf interface ./summary.lu
+ module pkg :: std.range
+-  wolfi v0 · toolchain 0.2.30 · edition v1
++  wolfi v0 · toolchain 0.2.32 · edition v1
+   export_hash d7c8e2cafbb418b680a777f06602e91128373f7ed3b341a20edccaa108e513bf
+   pkg_hash    d7c8e2cafbb418b680a777f06602e91128373f7ed3b341a20edccaa108e513bf
+   deps: (none)
+@@ -300,7 +300,7 @@ module pkg :: std.range
+     [4] pub len — fn len(r: prelude.range[int]) -> int · regions (ρ1) -> -
+ 
+ module pkg :: (root)
+-  wolfi v0 · toolchain 0.2.30 · edition v1
++  wolfi v0 · toolchain 0.2.32 · edition v1
+   export_hash c8e04b6da198d815eeb6be3fabd7eb6e3ca36b0cb85d505e4f29e9c33f0b78a6
+   pkg_hash    c8e04b6da198d815eeb6be3fabd7eb6e3ca36b0cb85d505e4f29e9c33f0b78a6
+   deps:
+@@ -325,7 +325,7 @@ helper does not move it. Chapter 25 spends that fact on semantic
+ versioning, where a hash that did not move is the difference between a
+ patch and a lie.
+ 
+-Read the line above the hash while you are here. `toolchain 0.2.30` is
++Read the line above the hash while you are here. `toolchain 0.2.32` is
+ which compiler printed the page, and it is *not* part of what was
+ hashed. The distinction is worth a sentence because the alternative was
+ tried: while the compiler's own version went into the digest, upgrading
+@@ -712,6 +712,12 @@ helpers too, since a future caller might want them? Name what every
+            `d7c2968` -> `fd6bcdc`, in `env.lu`, `signal.lu` and
+            `term.lu`); `std/range` did not
+            (docs/audit/bs67-evidence/kasumi/subject-samples.log).
++           bs68 re-measure (wolf 0.2.32 / lupin 0.1.54, the archive
++           whole): every hash on the page HOLDS again and only
++           `toolchain 0.2.32` moves. The archive's std moved (wolf-std
++           `fd6bcdc` -> `d37c911`, in `env.lu`, `fs.lu`, `process.lu`,
++           `signal.lu`, `term.lu` and the new `os/users`); `std/range`
++           did not (docs/audit/bs68-evidence/kasumi/subject-samples.log).
+      - [ ] ba:blocker (rig) — AND A THIRD TRANSCRIPT WAS WRONG AND NO
+            GATE SAID SO. Exercise 22-13's solution prints a `wolf
+            interface` run, and at this pin all three of its moving
+diff --git a/book/ch33.md b/book/ch33.md
+index b1b11a2..a67070e 100644
+--- a/book/ch33.md
++++ b/book/ch33.md
+@@ -260,8 +260,26 @@ minutes apart:
+ 53.3 microseconds per request before, 21.2 after, and 18,766 requests per
+ second becoming 47,162. The share of the serving thread's time parked in
+ a condvar fell from 40.7% to 1.1%, and in the second run the reactor
+-thread never started at all, because the reactor is lazy and a loop that
+-never parks never asks for one.
++thread never started at all: at that release the reactor was made at a
++program's first park, and that loop never parked.
++
++Since wolf 0.2.31 it is made sooner. A program that can park, which is
++any program that calls `net_accept` or a net read or write, makes the
++runtime's readiness set and the thread that waits in it before `main`
++runs, so no park has to ask the host for a descriptor in the middle of
++serving. When the host has none to give, because the program was
++started at its descriptor limit, the program does not start. No line of
++`main` runs, standard error gets one line,
++
++```text
++wolf: the runtime could not make its readiness set (Too many open files (os error 24)); the program did not start
++```
++
++and the exit status is 71, the number `sysexits(3)` gives an
++operating-system error. It is not a trap: nothing the program did is at
++fault, and a supervisor that reads 71 knows to look at the limit before
++it looks at the code. A program that cannot park makes no set at all,
++and neither the interpreter nor the checked machine has one to make.
+ 
+ The other thing to notice is what this loop is not. Chapter 12's `select`
+ waits on channels, and §12.2 costed an idle connection in the concurrency
+@@ -580,4 +598,17 @@ which did not?
+            own measurement would make the claim less checkable, not
+            more. The prose names the host and the interval so a reader
+            knows what kind of number it is.
++     - [ ] Recorded (bs68): §33.3's reactor sentence was present tense
++           about a lazy reactor ("the reactor is lazy and a loop that
++           never parks never asks for one"), false since wolf 0.2.31
++           (`[os.net.reactor]`, the maintainer's ruling of 2026-10-15):
++           the set is made before `main` wherever a park is reached. It
++           is in the past now, dated to the release measured, and the
++           new paragraph after it is the start-up refusal, exit 71,
++           measured on the 0.2.32 archive inside the container on both
++           compiled tiers at a four-descriptor limit (`limit.lu`,
++           docs/audit/bs68-evidence/kasumi/limits-new.txt): no line of
++           `main`, the one stderr line printed here, exit 71, also under
++           `taskset -c 0-3`. A `text` block, not a sample: the runner
++           cannot start a program at a descriptor limit.
+ -->
+diff --git a/book/ch34.md b/book/ch34.md
+index 57f4ee8..4ad6053 100644
+--- a/book/ch34.md
++++ b/book/ch34.md
+@@ -26,9 +26,10 @@ signals it hears and sends, the ids it runs as, and the terminal it
+ reads from. It also covers what each of those questions costs in a
+ manifest, and which machines decline to answer.
+ 
+-Every program in this chapter imports the standard library or calls a
+-builtin the interpreter declines, so every one of them runs under the
+-compiler: `wolf run`, or a build and its binary.
++Every program in this chapter but one imports the standard library or
++calls a builtin the interpreter declines, so they run under the
++compiler: `wolf run`, or a build and its binary. The one both machines
++run is in §34.5.
+ 
+ ## 34.1 A signal is an event
+ 
+@@ -46,6 +47,14 @@ with `signal.wait`, which parks the calling task until one comes, or
+ `signal.poll`, which never waits and answers 0 when the queue is empty.
+ No wolf code ever runs in the handler, because the handler is not yours.
+ 
++The pipe and the thread are made before `main`, in any program that
++listens or waits, so that no listen has to ask the host for a
++descriptor once the program is running. A program started at its
++descriptor limit therefore finds out before its first line: it does not
++start, standard error gets one line, `wolf: the runtime could not make
++its signal hub (Too many open files (os error 24)); the program did not
++start`, and the exit status is 71, as for the readiness set of §33.3.
++
+ So the program above has three steps. `signal.listen(signal.reload())`
+ registers interest. Nothing is heard without it, and a program that never
+ listens carries no signal machinery at all. `signal.raise` delivers the
+@@ -274,19 +283,19 @@ parent's id **now**: a process whose parent has ended answers the id of
+ whatever adopted it, so a program that wants the parent it was started by
+ reads it once, at start.
+ 
+-The ids a process runs as are four builtins and a list. The standard
+-library this toolchain ships does not wrap them; the wrappers ship with
+-the next release, and until then a program calls the builtins, which are
+-in the prelude. `os_uid()` and `os_euid()` are the real and effective
+-user ids, and `os_gid()` and `os_egid()` the group ids, each `int !
+-{unsupported}`. The real id is who started the process. The effective id
++The ids a process runs as are four numbers and a list, and `std.env`
++reads them: `env.uid()` and `env.euid()` are the real and effective user
++ids, and `env.gid()` and `env.egid()` the group ids, each `int !
++{unsupported}`. Each is a builtin underneath, the same name with `os_`
++in front (`os_uid()` and so on, in the prelude), and the program below
++calls the builtins directly. The real id is who started the process. The effective id
+ is the one the host checks when the process opens a file, signals another
+-process or changes an owner, so "am I the super-user?" is `os_euid()? ==
++process or changes an owner, so "am I the super-user?" is `env.euid()? ==
+ 0`. The two differ only in a program started set-user-id.
+-`os_groups()` is the supplementary groups, exactly as the host lists
++`env.groups()` is the supplementary groups, exactly as the host lists
+ them; whether the effective group is in that list is the host's choice
+ (Linux lists it only if the list was set so, macOS puts it first), so a
+-program that wants every group it is in takes `os_egid()` and then the
++program that wants every group it is in takes `env.egid()` and then the
+ list, and drops a repeat.
+ 
+ ```wolf,wolf-run(exit=0)
+@@ -307,13 +316,14 @@ started set-user-id: false
+ started set-group-id: false
+ ```
+ 
+=== std trunk wrappers (process.poll, group wrappers) and 0.2.31 names on the site (must not be shown as available)
+(end)
+=== lupin wasm declines for the seven
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:446:        #[cfg(target_family = "wasm")]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:492:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:644:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:652:        #[cfg(target_family = "wasm")]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:710:        #[cfg(target_family = "wasm")]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:767:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:815:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:817:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:825:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:842:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:868:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:934:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:975:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:999:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1050:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1052:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1074:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1095:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1131:        #[cfg(not(target_family = "wasm"))]
+0e536e8fb4518eaa798ac426901ab81275db5c9f:src/eval/builtin.rs:1213:        #[cfg(not(target_family = "wasm"))]
+DERIVE-DONE

@@ -1,0 +1,19 @@
+//! member: false
+//! ww44 probe: one call of os_set_pgid, for the tab and for lupin at a terminal (0.2.31's builtins, book §34.5).
+//! A group below 0 is `invalid` before the host is asked: nothing moves.
+fn row() -> str {
+    os_set_pgid(-1) else |e| {
+        return match e {
+            denied => "denied",
+            invalid => "invalid",
+            io => "io",
+            unsupported => "unsupported",
+        }
+    }
+    "ok"
+}
+
+fn main() -> !int {
+    print("set_pgid: {row()}")
+    0
+}
