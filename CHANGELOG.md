@@ -20,6 +20,62 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww45 (the site at 0.2.33, one signal at a time, and an end by one) — 2026-10-19
+
+Two of the three gitlinks move: the book to bs69's merge and the compiler to
+wolf 0.2.33. The interpreter stays where it was: the compiler was tested
+against lupin 0.1.54 again, and lupin has not released since.
+
+**The book gains §34.6, One signal at a time, and an end by one,** at the
+anchor `#34.6`: the new calls and two programs. §34.5's programs go through
+the standard library's process and signal surface now, and the chapter's
+waiver sentence is gone. ch01's Windows block names the 0.2.33 archive, as
+/install/ does. /play/ links §34.6.
+
+**The lag widens by one release; the distance is 955 commits.** The compiler
+tagged 0.2.33 and lupin did not release, so the same interpreter on the same
+v0.2.24 tag is a step further behind: the ancestry guard answers `gap 9`,
+`tagged true`, 955 commits, where it counted 913 at the last bump. Its
+closed set of phrases stopped a step short, so at the compiler's pin it
+stopped, naming the gap no page had. Both pages' sentences were written
+first, then that gap's phrase joined the set.
+
+**The tab still refuses nothing the compiler runs.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes
+and the one lupp.us served until now, both corpora through both: 683
+programs, 499 exit, 51 trap, 133 unsupported, 0 fail, 550 candidates, and no
+instance killed, as a prediction made by machine before any of it ran had
+said. The one arrival, `os/signal_one_rows.lu`, is declined at its first
+call, which this interpreter does not resolve. All 683 print the same under
+the two modules, which are the same interpreter release built on two hosts.
+
+**What the tab answers for §34.6's calls.** Each of `os_signal_ignore_one`,
+`os_signal_default_one`, `os_exit_signal`, `os_wait_status_core` and
+`os_wait_poll_core`, made alone, is answered `unsupported`, naming the call
+as one that does not resolve: lupin 0.1.54 has not mirrored them
+(wolf-interp#261, #262, #263), in the tab or at a terminal. The section's
+two programs stop at their first call into the standard library, which the
+tab does not have. `os_signal_text(0)`, which the compiler now answers with
+the host's words, is declined with the process tier, as every
+`os_signal_text` call is in the tab.
+
+**lupin 0.1.54 still does not compile to WebAssembly as released**
+(wolf-interp#222, open). The portability patch applies unchanged, and the
+module builds with no imports. Its bytes depend on where it is built: the
+same release, patch and toolchain built in two directories of one host
+differ in their data offsets, and the module lupp.us serves is the deploy
+host's own build.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.33 changed (one signal's disposition at a time, an end by a signal, a
+core through new siblings of the wait and the poll, signal 0's words, a sent
+fault ending the program, and the archive's standard library wrapping the
+group sends, the poll and a signal's numbers and words); 0.2.32's story
+moves into the history. /spec/ says 03's signal-wait sentence caught up,
+dates 0.2.32's clauses and binds 11's new ones to the stamp. linux aarch64
+holds as written: the 0.2.33 release's arm gate asserts the same refusals
+and the same checked run.
+
 ## ww44 (the site at 0.2.32, the shift rule, and a process's groups and children) — 2026-10-18
 
 All three gitlinks move: the book to bs68's merge, the compiler to wolf 0.2.32,
