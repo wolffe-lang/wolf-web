@@ -20,6 +20,62 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww44 (the site at 0.2.32, the shift rule, and a process's groups and children) — 2026-10-18
+
+All three gitlinks move: the book to bs68's merge, the compiler to wolf 0.2.32,
+and the interpreter to lupin 0.1.54. The site skipped 0.2.31; both releases
+arrive at once.
+
+**The book gains §34.5, Groups, and what the children did,** at the anchor
+`#34.5`, and §3.3 teaches the shift rule with two programs; §33.3 says what a
+program the runtime cannot set up does at start. ch01's Windows block names
+the 0.2.32 archive, as /install/ does. /play/ links §34.5 and §3.3.
+
+**The lag widens by two releases; the distance is 913 commits.** lupin 0.1.54
+kept the specification pin lupin 0.1.48 first took, the v0.2.24 tag, while
+the compiler tagged 0.2.31 and 0.2.32, so the ancestry guard answers `gap 8`,
+`tagged true`, 913 commits, where it counted 717 at the last bump. Its closed
+set of phrases stopped two short, so at the compiler's pin and at the
+interpreter's it stopped, naming the gap no page had. Both pages' sentences
+were written first, then the phrase for eight joined the set, with the one
+for seven beside it so that no page can be left saying seven.
+
+**The tab still refuses nothing the compiler runs.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes,
+both corpora through both modules: 682 programs, 499 exit, 51 trap, 132
+unsupported, 0 fail, 550 candidates, and no instance killed. The shift
+rule's programs print their headers or trap `overflow` where their headers
+say; `comptime/shift_value.lu` is declined at its `comptime fn`, and
+`os/group_rows.lu` and `os/job_poll_rows.lu` at their first new call with
+the process tier. No program both corpora carry changed its verdict, and all
+682 print the same under lupin 0.1.53's module and lupin 0.1.54's.
+
+**What the tab answers for §34.5's builtins.** The new calls are hosted, and a
+program that makes any one of them here is answered `unsupported`, naming the
+call, with the process and signal tier: the group sends, the move into a
+group, the host's signal range, a signal's words and the poll, even the poll
+with no child, which lupin 0.1.54 answers `(-1, 0)` at a terminal. Under
+lupin 0.1.53's module each was a name that does not resolve. The tier's reason
+now names what it is, a page with no host process (wolf-interp#245), where it
+had called those calls the process trio. §3.3's two programs answer in the
+tab as the chapter prints them.
+
+**lupin 0.1.54 still does not compile to WebAssembly as released**
+(wolf-interp#222, open). The portability patch applies unchanged to the
+staged copy, and the module builds with no imports.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.32 changed (a closed standard descriptor stays closed, and the checked
+machine's waits and writes make way for the tasks they wait on), then what
+0.2.31 changed (the shift rule, exit 71 when the runtime cannot set up, the
+poll of the children, the group sends and a signal's words, and the
+archive's standard library wrapping the release before it); 0.2.30's story
+moves into the history. /spec/ binds 05's checked waits and 11's descriptor
+rule to the stamp, dates 0.2.30's and 0.2.31's clauses, and says that 03
+still calls the signal wait the one that polls. linux aarch64 holds as
+written: the 0.2.32 release's arm gate asserts the same refusals and the same
+checked run.
+
 ## ww43 (the site at 0.2.30, chapter 34, and a process's ids and terminal) — 2026-10-16
 
 All three gitlinks move: the book to bs67's merge, the compiler to wolf 0.2.30,
