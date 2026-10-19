@@ -86,6 +86,7 @@ PHRASES = {
     # page left saying seven is refused rather than passed — no sentence on
     # either page ever carried it.
     7: "seven releases",
+    8: "eight releases",
 }
 DEVREV = "a development revision"
 SPECREV = "__PIN_specrev_short__"
