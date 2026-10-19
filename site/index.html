@@ -139,8 +139,47 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises keeps a closed standard
-  descriptor closed, and lets the checked machine's waits and writes make
+  <p><strong>The release this page advertises lets a program choose for
+  one signal at a time, end itself by a signal, and learn that a child
+  dumped core.</strong> <code>os_signal_ignore_one</code> and
+  <code>os_signal_default_one</code> set one meaning's signal ignored, or
+  back to what the host does by default, in the shape the sending calls
+  take — a meaning only sent, such as a fault, or a host's own number as
+  <code>-N</code> — which a set cannot hold, so a program can ignore the
+  signal it is about to send its own group and live through it, as GNU
+  <code>timeout -s SEGV</code> does; 0, <code>KILL</code> and
+  <code>STOP</code> are <code>invalid</code> (wolf-lang#783).
+  <code>os_exit_signal</code> ends the process by a signal, so that its
+  parent reads the end as that signal's and a shell reports <code>128 +
+  N</code>, and exits with <code>128 + N</code> if the process lives on
+  (wolf-lang#784). <code>os_wait_status_core</code> and
+  <code>os_wait_poll_core</code> are the wait and the poll of the children
+  again, with an end that dumped core answered <code>-(256 + N)</code>; the
+  wait and the poll a program already calls still answer <code>-N</code>,
+  core or not, so code that compares a status with <code>-N</code> reads
+  what it read before (wolf-lang#785). Three answers a running program can
+  see moved: <code>os_signal_text(0)</code> gives the host's words where it
+  answered <code>invalid</code> (wolf-lang#787); a SEGV or BUS another
+  process sends ends the program under the default disposition, where a
+  program that had run a task lived through the first one, while a real
+  fault is still the runtime's own (wolf-lang#784); and a program that names
+  <code>os_signal_wait_fd</code> starts with two more descriptors, one wake
+  pipe every descriptor wait shares, made before <code>main</code>
+  (wolf-lang#781). The <code>std/</code> in the archive moved on to wrap the
+  group sends, the poll and a signal's numbers and words:
+  <code>process.poll</code> and <code>process.Status</code>,
+  <code>process.Group</code> with <code>lead_group</code> and
+  <code>join_group</code>, and <code>signal.send_group</code>,
+  <code>signal.send_all</code>, <code>signal.last</code>,
+  <code>signal.realtime</code>, <code>signal.text</code> and
+  <code>signal.host</code>. It wraps none of this release's new calls, so a
+  program calls them as the prelude spells them. The interpreter this
+  release is tested against is the one the release before it was tested
+  against, and it does not know the new names yet, so the gap between the
+  two widened again, and the <a href="/play/">playground</a> counts it.</p>
+
+  <p><strong>v0.2.32, the release before it, kept a closed standard
+  descriptor closed, and let the checked machine's waits and writes make
   way for the tasks they wait on.</strong> At v0.2.31 a program on the dev
   tier, <code>wolf build</code> and <code>wolf run</code>, that imported
   <code>std.signal</code> or <code>std.net</code> and was started with
@@ -148,22 +187,21 @@ fn main() -&gt; !int {
   runtime made its signal hub or its readiness set at start, the host put
   their pipes on the lowest free numbers, and a program run
   <code>prog &gt;&amp;-</code> wrote its output into the runtime's pipe where
-  it should have failed (wolf-lang#778). The runtime's own descriptors never
-  take 0, 1 or 2 now, on either tier, so a standard descriptor the program
-  was started without stays closed, and the hub and the set are made only
-  where a program reaches a call that needs one: an import alone makes
+  it should have failed (wolf-lang#778). The runtime's own descriptors have
+  never taken 0, 1 or 2 since, on either tier, so a standard descriptor the
+  program was started without stays closed, and the hub and the set are made
+  only where a program reaches a call that needs one: an import alone makes
   nothing. On the checked machine, <code>wolf conform-run --checked</code>,
   <code>net_wait</code> beside other tasks waits a millisecond at a time and
   lets them run, so a loop waiting on connections from tasks it spawned
   answers instead of hanging, and a socket write too large for the buffers
   does the same beside the task that will read it (wolf-lang#720, #777).
-  It adds no call and no prelude name, and the archive's <code>std/</code>
-  and the interpreter this release is tested against are those of the
-  release before it.</p>
+  It added no call and no prelude name, and the archive's <code>std/</code>
+  and the interpreter it was tested against were those of the release
+  before it.</p>
 
-  <p><strong>v0.2.31, the release before it, made a shift arithmetic,
-  refused to start a program the runtime could not set up, and let a shell
-  wait for its jobs.</strong> A shift on a plain integer is arithmetic on
+  <p><strong>v0.2.31 made a shift arithmetic, refused to start a program
+  the runtime could not set up, and let a shell wait for its jobs.</strong> A shift on a plain integer is arithmetic on
   its value (<code>[type.int.shift]</code>, wolf-lang#736): <code>x &lt;&lt;
   n</code> is <code>x</code> times two to the <code>n</code> and traps
   <code>overflow</code> when that leaves the type, <code>x &gt;&gt; n</code>
@@ -190,17 +228,17 @@ fn main() -&gt; !int {
   <code>os_signal_text</code> gives a signal's words: what <code>kill
   0</code>, <code>kill -1</code>, <code>kill %job</code> and <code>kill
   -l</code> are made of (wolf-lang#739, #740, #741, #762). The
-  <code>std/</code> in the archive moved on to wrap the release before it:
-  <code>env.uid</code> and the other id reads, <code>fs.set_owner</code>,
-  <code>process.set_ids</code>, <code>term.size</code>,
-  <code>term.chars</code> and <code>signal.wait_fd</code>, with
-  <code>std.os.users</code> to read the user and group files; it wraps none
-  of that release's new calls, so a program calls them as the prelude
-  spells them. The interpreter both releases are tested against mirrors the
-  shift rule, answers the poll with no child left and the shape rows of the
-  group calls, refuses each well-formed group call by name, and released
-  without re-reading the specification, so the gap between the two widened
-  again, and the <a href="/play/">playground</a> counts it.</p>
+  <code>std/</code> in that archive had moved on to wrap the release before
+  it: <code>env.uid</code> and the other id reads,
+  <code>fs.set_owner</code>, <code>process.set_ids</code>,
+  <code>term.size</code>, <code>term.chars</code> and
+  <code>signal.wait_fd</code>, with <code>std.os.users</code> to read the
+  user and group files; it wrapped none of that release's new calls. The
+  interpreter it was tested against, the one the two releases after it
+  were tested against too, mirrors the shift rule, answers the poll with no
+  child left and the shape rows of the group calls, refuses each
+  well-formed group call by name, and had released without re-reading the
+  specification, so the gap widened at that release too.</p>
 
   <p><strong>v0.2.30 fixed a crash in the compiled tiers, and told a
   program who it runs as and what its terminal is.</strong> The release
