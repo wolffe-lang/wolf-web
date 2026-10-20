@@ -91,7 +91,6 @@ PHRASES = {
     # the same 0.1.54 on the same v0.2.24 pin is a step further behind and
     # the gap reached nine; written after both pages' sentences, as at ww41
     # to ww44.
-    9: "nine releases",
 }
 DEVREV = "a development revision"
 SPECREV = "__PIN_specrev_short__"
