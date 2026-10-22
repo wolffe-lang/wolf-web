@@ -677,7 +677,7 @@
       does not start and exits 71. Since v0.2.32 a program makes
       them only where it reaches a call that needs one, on both compiled
       tiers, and neither ever takes a standard descriptor, so 0, 1 or 2 left
-      closed at start stays closed. At v__WOLF_VERSION__ a program sets one
+      closed at start stays closed. Since v0.2.33 a program sets one
       meaning's signal ignored or back to the host's default in the shape
       the sending calls take, a meaning only sent or a host number
       <code>-N</code> included, with 0, <code>KILL</code> and
@@ -695,8 +695,27 @@
       <code>[os.signal.gaps.note]</code> records the three rulings behind
       them. windows answers <code>unsupported</code> for the disposition and
       the end by a signal once their shape is judged. Each of the new calls
-      is hosted: the freestanding target refuses it by name. Anchors
-      <code>[os.*]</code>.</dd>
+      is hosted: the freestanding target refuses it by name. At
+      v__WOLF_VERSION__ a program forks a child that keeps running wolf code
+      (<code>[os.proc.fork]</code>): the fork answers <code>busy</code>,
+      before the host is asked, while any task is live, from a task or a
+      proc handler, or under the deterministic scheduler, and
+      <code>[os.proc.fork.note]</code> records the rulings behind its shape;
+      the checked machine answers <code>unsupported</code>. The runtime
+      restores a registered terminal mode, and writes the bytes registered
+      with it, at every exit it owns (<code>[os.term.restore]</code>); one
+      wait covers several descriptors, a signal set and a deadline
+      (<code>[os.signal.wait.fds]</code>); a file and a directory sync
+      (<code>[os.fs.sync]</code>), a path resolves to its canonical form
+      (<code>[os.fs.realpath]</code>) and the monotonic clock reads in
+      nanoseconds (<code>[os.clock.ns]</code>). A terminal mode's bits 5 to
+      7 are fields, 0 in each the usual setting
+      (<code>[os.term.mode]</code>), and
+      <code>[os.editor.calls.note]</code> records the rulings behind these
+      calls. windows answers <code>unsupported</code> for the fork, the
+      restore, the wait over several descriptors and the directory sync;
+      each of the new calls is hosted, and the freestanding target refuses
+      it by name. Anchors <code>[os.*]</code>.</dd>
   </dl>
 </section>
 
