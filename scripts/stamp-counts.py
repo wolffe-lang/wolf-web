@@ -97,10 +97,18 @@ def word(n: int) -> str:
     specification distance reached 234, which is the first three-digit number
     this site has had to say out loud. The style is the one the changelog
     already uses — "a hundred and thirty" — with the leading article spelled
-    as the digit's own word.
+    as the digit's own word. ww46 crossed a thousand; use the same
+    conjunction below a hundred and keep each larger group's own spelling.
     """
-    if n < 0 or n > 999:
+    if n < 0 or n > 999999:
         raise ValueError(f"no prose spelling for {n}")
+    if n >= 1000:
+        thousands, rest = divmod(n, 1000)
+        prefix = f"{word(thousands)} thousand"
+        if not rest:
+            return prefix
+        joiner = " and " if rest < 100 else " "
+        return f"{prefix}{joiner}{word(rest)}"
     if n < 20:
         return ONES[n]
     if n < 100:
