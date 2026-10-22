@@ -20,6 +20,74 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww46 (the site at 0.2.34, the fork, and what an editor asks of the host) — 2026-10-22
+
+All three gitlinks move: the book to bs70's merge, the compiler to wolf
+0.2.34, and the interpreter to lupin 0.1.55, the release the compiler was
+tested against this time.
+
+**The book gains §34.7, A child that keeps running, and §34.8, What an
+editor asks of the host,** at the anchors `#34.7` and `#34.8`. ch01's
+Windows block names the 0.2.34 archive, as /install/ does. /play/ links
+both sections.
+
+**The lag widens by a release, and the distance passes a thousand
+commits.** lupin 0.1.55 released beside the compiler and kept the v0.2.24
+pin, so the interpreter is a step further behind: the ancestry guard
+answers `gap 10`, `tagged true`, 1,067 commits, where it counted 955 at
+the last bump. The stamp that spells the distance in words stopped at 999,
+so the build would have refused the page; it now spells through 999,999 in
+the site's own style, with tests at 999, 1,000, 1,067, 999,999 and the
+first value it refuses. The guard's closed set stopped a step short again,
+so at the compiler's pin it stopped, naming the gap no page had. Both
+pages' sentences were written first, then that gap's phrase joined the
+set.
+
+**The tab still refuses nothing the compiler runs.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes
+and the one lupp.us served until now, both corpora through both: 683
+programs, 499 exit, 51 trap, 133 unsupported, 0 fail, 550 candidates, and
+no instance killed, as a prediction made by machine before any of it ran
+had said. 0.2.34 adds no running program; it takes a row out of
+`os/term_editor_rows.lu`, which the tab declines with the process tier as
+before. All 683 print the same under lupin 0.1.54's module and 0.1.55's,
+and 3 changed the reason they are declined for: `os/signal_one_rows.lu`,
+`os/signal_loopback.lu` and `os/signal_supervisor.lu`, whose first calls
+0.1.54 did not resolve and 0.1.55 declines with the process tier.
+
+**What the tab answers for §34.7's and §34.8's calls.** Each of
+`os_fork`, `os_term_restore_at_exit`, `os_signal_wait_fds`, `fs_sync`,
+`fs_sync_dir`, `fs_realpath` and `os_clock_ns`, made alone, is answered
+`unsupported`, naming the call as one that does not resolve, under both
+modules and under lupin 0.1.55 at a terminal: the released interpreter
+mirrors none of them (wolf-interp#268, #269). The sections' programs stop
+sooner in the tab, at `os_pipe` with the process tier, at the task tier,
+at `signal.listen` (the tab has no standard library) and at `fs_exists`
+(it has no filesystem). 0.2.33's calls, which 0.1.54 did not resolve, are
+declined in the tab with the process tier now, and at a terminal 0.1.55
+answers their shapes and the core siblings and refuses the rest by name;
+`os_signal_text(0)` is refused by name there, where 0.1.54 answered
+`invalid`.
+
+**A count that was false at this pin.** /play/ counted 8 tiers that the
+tab declines and a terminal serves. Two of them a terminal declines as
+well under lupin 0.1.55: `os_signal_listen`, which the tab now declines
+with the process tier and a terminal refuses by name, and `os_random`,
+which lupin resolves in no build. The page counts six and names the two.
+
+**lupin 0.1.55 still does not compile to WebAssembly as released**
+(wolf-interp#222, open). The portability patch applies unchanged, and the
+module builds with no imports.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.34 changed (the fork and its `busy` rule, the editor's calls, a
+terminal mode's bits 5 to 7, `wolf test` running a test file's own tests,
+and the archive's standard library wrapping 0.2.33's calls and none of
+these); 0.2.33's story moves into the history. /spec/ binds the eight new
+anchors of 11 to the stamp and dates 0.2.33's. linux aarch64 holds as
+written: the 0.2.34 release's arm gate asserts the same refusals and the
+same checked run.
+
 ## ww45 (the site at 0.2.33, one signal at a time, and an end by one) — 2026-10-19
 
 Two of the three gitlinks move: the book to bs69's merge and the compiler to

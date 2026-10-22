@@ -258,7 +258,7 @@ CHANGELOG.md 0.2.25 5 frozen
 CHANGELOG.md 0.2.24 2 frozen
 CHANGELOG.md 0.1.48 6 frozen
 CHANGELOG.md 0.1.47 1 frozen
-CHANGELOG.md v0.2.24 7 frozen
+CHANGELOG.md v0.2.24 8 frozen
 CHANGELOG.md v0.2.23 1 frozen
 CHANGELOG.md 0.2.23 4 frozen
 CHANGELOG.md 0.1.46 3 frozen
@@ -336,7 +336,9 @@ CHANGELOG.md 0.1.52 8 frozen
 CHANGELOG.md 0.2.29 8 frozen
 CHANGELOG.md 0.1.53 7 frozen
 CHANGELOG.md 0.2.30 8 frozen
-CHANGELOG.md 0.1.54 8 frozen
+CHANGELOG.md 0.1.54 12 frozen
 CHANGELOG.md 0.2.31 4 frozen
 CHANGELOG.md 0.2.32 8 frozen
-CHANGELOG.md 0.2.33 6 frozen
+CHANGELOG.md 0.2.33 10 frozen
+CHANGELOG.md 0.1.55 8 frozen
+CHANGELOG.md 0.2.34 6 frozen
