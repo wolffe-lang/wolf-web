@@ -291,14 +291,22 @@ install/index.html six 1 counted=0
 install/index.html sixteen 1 counted=0
 install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.34
 install/index.html twenty-one 1 counted=0
-play/index.html Eight 1 counted=1 audited-at-lupin=0.1.55
 # ww43: /play/'s second `six` is the lag phrase, held page-wide by
 # check-lag-phrases.py and not by this clock; the one counted here is the
 # six programs a release brought, as before.
 play/index.html six 1 counted=1 audited-at-wolf=0.2.34
 play/index.html Twenty-two 1 counted=0
 play/index.html twenty-two 2 counted=0
-play/index.html Six 1 counted=1 audited-at-lupin=0.1.55
+# ww46: `Eight tiers` re-read at lupin 0.1.55 and found false for two of the
+# eight: os_signal_listen, which the module now declines with the process
+# tier and lupin at a terminal refuses by name, and os_random, which lupin
+# resolves in no build (its terminal answer is "does not resolve"). The tab's
+# own reason strings at this pin are six tiers that a terminal serves: tasks,
+# procs, time, the process and signal tier, net, and the filesystem. So the
+# sentence says `Six tiers` and names the two; the second `Six` is that count,
+# on the lupin clock beside the first (the six programs that changed which word
+# they are refused with).
+play/index.html Six 2 counted=2 audited-at-lupin=0.1.55
 # ww43: /play/'s lag-phrase `five` left with `five releases`; the five
 # counted here are the ones ww42 counted, and the sixth is frozen as before.
 play/index.html five 6 counted=5 audited-at-lupin=0.1.55
@@ -306,7 +314,11 @@ play/index.html five 6 counted=5 audited-at-lupin=0.1.55
 # second `nine` is `nine releases`, held page-wide by check-lag-phrases.py
 # and not by this clock; the one counted here is the nine running `if_then`
 # witnesses, as before.
-play/index.html nine 2 counted=1 audited-at-lupin=0.1.55
+# ww46: `nine releases` left with the lag's step to ten, so the one `nine` is
+# the `if_then` witnesses, counted as before, and the lag phrase's `ten`
+# arrives, held by check-lag-phrases.py and frozen here.
+play/index.html nine 1 counted=1 audited-at-lupin=0.1.55
+play/index.html ten 1 counted=0
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 spec/index.html ten 1 counted=1 audited-at-wolf=0.2.34

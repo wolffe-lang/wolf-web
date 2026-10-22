@@ -128,25 +128,27 @@
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
   a release tag and not a revision of the compiler's trunk; the compiler has
   tagged release after release since while the interpreter kept that pin, so
-  the text this tab reads is nine releases behind the one
+  the text this tab reads is ten releases behind the one
   <a href="/install/">install</a> advertises,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap is a step wider than at v0.2.32's pin, when this same interpreter read
-  the same tag a step nearer: the compiler tagged once more and the
-  interpreter did not release. Before that it had released again and again
-  without re-pinning, and mirrored instead what the compiler had added — at
+  gap is a step wider than at v0.2.33's pin, when lupin 0.1.54 read the same
+  tag a step nearer: the compiler tagged once more and the interpreter
+  released beside it, on that pin again. The interpreter has released again
+  and again without re-pinning, and mirrored instead what the compiler had added — at
   v0.2.26's pin volatile access and the atomics on raw pointers, the
   kernel's papercuts, a child's descriptors and <code>copy region</code>
   (wolf-interp#185, #194, #200), at v0.2.28's the unsigned and wrapping
   integers, a repeated json name, <code>env_unset</code> and the calls that
   change a file, at v0.2.29's as much of the shell's signals as it could
   serve without <code>unsafe</code>, at v0.2.30's a file's owner and the
-  shape rows of the id and terminal calls, and at v0.2.32's the shift rule,
+  shape rows of the id and terminal calls, at v0.2.32's the shift rule,
   the net calls' error number, the shape rows of the group calls and the
-  poll of a program with no child left — so the programs those releases
-  brought run here, where a page has what they need, while the text the tab
-  reads has fallen further behind. The calls the newest release adds it has
-  not mirrored at all, and none of them resolves here. From v0.2.19's pin to
+  poll of a program with no child left, and at these pins v0.2.33's calls,
+  one meaning's disposition, the end by a signal and the core siblings of
+  the wait and the poll — so the programs those releases brought run here,
+  where a page has what they need, while the text the tab reads has fallen
+  further behind. The calls the newest release adds it has not mirrored at
+  all, and none of them resolves here. From v0.2.19's pin to
   v0.2.25's the gap was a single step at every pair this site served. The
   compiler's own second line names the interpreter in this tab: the release
   <a href="/install/">install</a> advertises was tested against the
@@ -185,9 +187,11 @@
   a step wider at v0.2.29's, the same once more, so it was a step wider
   again at v0.2.30's, then the compiler tagging twice with the mirror
   releasing once between, still on that pin, so the gap was two steps wider
-  still at v0.2.32's — and now the compiler tagging once more with no mirror
-  release at all, so the gap this page shows is a step wider again, the
-  widest the check that holds these sentences has counted. The two
+  still at v0.2.32's, then the compiler tagging once more with no mirror
+  release at all, so it was a step wider again at v0.2.33's — and now the
+  compiler tagging once more with the mirror releasing beside it, still on
+  that pin, so the gap this page shows is a step wider again, the widest
+  the check that holds these sentences has counted. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
@@ -287,45 +291,77 @@
   specification makes it and prints what the compiler prints.</p>
 
   <p><strong>The compiler's newest calls do not resolve here yet.</strong>
-  Besides the programs above, every program the release
-  <a href="/install/">install</a> advertises brought into the corpus's
-  running set answers here as its header says or is declined, and it
-  brought one: <code>corpus/os/signal_one_rows.lu</code>, which walks the
-  shapes of one meaning's disposition and of the end by a signal. Its first
-  call, <code>os_signal_ignore_one</code>, is one this interpreter has not
-  mirrored, and the tab declines the program there, naming the call as one
-  that does not resolve; so does this interpreter at a terminal. Those calls
-  — the ones <a href="/book/ch34.html#34.6">§34.6 of the book</a> teaches —
-  answer the same way when a program makes one alone:
+  The release <a href="/install/">install</a> advertises brought no program
+  into the corpus's running set. It took one row out of
+  <code>corpus/os/term_editor_rows.lu</code>, a terminal mode with bit 5
+  set, which that release made a field where it had been
+  <code>invalid</code>, and the tab declines the program at its first call
+  with the process tier, as before. Its new calls are the fork
+  <a href="/book/ch34.html#34.7">§34.7 of the book</a> teaches and the
+  editor's calls of <a href="/book/ch34.html#34.8">§34.8</a>, and this
+  interpreter has mirrored none of them: <code>os_fork</code>,
+  <code>os_term_restore_at_exit</code>, <code>os_signal_wait_fds</code>,
+  <code>fs_sync</code>, <code>fs_sync_dir</code>, <code>fs_realpath</code>
+  and <code>os_clock_ns</code> each report <code>unsupported</code> when a
+  program makes one alone, naming the call, which does not resolve; nothing
+  runs, nothing traps, and the tab is ready for the next program. So does
+  this interpreter at a terminal, until a later lupin release mirrors them
+  (wolf-interp#268, #269). The sections' four programs stop sooner, each at
+  a call the tab declines for its own reason before a new name is reached:
+  the fork program at <code>os_pipe</code>, with the process tier; the one
+  that forks beside a live task at the task tier, since a page has no
+  thread to spawn one on; the editor's wait at <code>signal.listen</code>,
+  its first call into the standard library, which this tab does not have;
+  and its save at <code>fs_exists</code>, with the filesystem tier. At a terminal this
+  interpreter, installed alone, stops both fork programs at
+  <code>os_fork</code>, the wait at the same call into the standard library
+  and the save at <code>fs_sync</code>, each naming the call as one that
+  does not resolve.</p>
+
+  <p>At v0.2.33's pin the addition was one program,
+  <code>corpus/os/signal_one_rows.lu</code>, which walks the shapes of one
+  meaning's disposition and of the end by a signal. Its first call,
+  <code>os_signal_ignore_one</code>, did not resolve in lupin 0.1.54, the
+  interpreter this page served before these pins, and the tab declined the
+  program there, naming the call; this interpreter has mirrored that
+  release's calls, so the tab declines the program at the same call with
+  the process tier, and at a terminal this interpreter prints its header's
+  rows. Those calls — the ones <a href="/book/ch34.html#34.6">§34.6 of the
+  book</a> teaches — answer the same way when a program makes one alone:
   <code>os_signal_ignore_one</code>, <code>os_signal_default_one</code>,
   <code>os_exit_signal</code>, <code>os_wait_status_core</code> and
-  <code>os_wait_poll_core</code> each report <code>unsupported</code>,
-  naming the call, which does not resolve; nothing runs, nothing traps, and
-  the tab is ready for the next program. The section's two programs stop
-  sooner, at their first call into the standard library, which this tab
-  does not have: one at <code>signal.kill</code>, the other at
-  <code>env.args</code>. That is not the process tier's reason. The tier's
-  calls this interpreter knows, and this build declines them because a page
-  has no process; these it does not know yet, and its own tracker carries
-  the mirror (wolf-interp#261, #262, #263).
-  <code>os_signal_text(0)</code>, which the release now answers with the
-  host's words where it answered <code>invalid</code>, is declined here with
-  the process tier, as every <code>os_signal_text</code> call is; at a
-  terminal this interpreter still answers <code>invalid</code>.
-  <code>corpus/os/group_rows.lu</code> lost its row for signal 0 and is
-  declined at its first call with the process tier, as before. The programs
-  of <a href="/book/ch34.html#34.5">§34.5</a> go through the standard
-  library's process and signal surface now, and the tab stops two of them at
-  their first call into it, <code>process.lead_group</code> and
+  <code>os_wait_poll_core</code> each report <code>unsupported</code> with
+  the process tier, where lupin 0.1.54 answered that each does not resolve.
+  At a terminal this interpreter answers their shape rows and the core
+  siblings' answers, and refuses a well-formed disposition or end by name.
+  The section's two programs stop sooner, at their first call into the
+  standard library: one at <code>signal.kill</code>, the other at
+  <code>env.args</code>. <code>os_signal_text(0)</code>, which that release
+  answers with the host's words where it answered <code>invalid</code>, is
+  declined here with the process tier, as every <code>os_signal_text</code>
+  call is; at a terminal this interpreter refuses it by name, since the
+  words are the C library's, where lupin 0.1.54 answered
+  <code>invalid</code>. <code>corpus/os/group_rows.lu</code> lost its row
+  for signal 0 at that pin and is declined at its first call with the
+  process tier, as before. The programs of
+  <a href="/book/ch34.html#34.5">§34.5</a> go through the standard library's
+  process and signal surface, and the tab stops two of them at their first
+  call into it, <code>process.lead_group</code> and
   <code>signal.listen</code>; the third, the one program of that section the
   book runs on the interpreter, polls with no child, and this build declines
   the poll with the process tier: at a terminal it answers <code>(-1,
   0)</code> without asking the host, and in this build the whole tier is
   declined before that answer is reached. The module this page served until
-  now and the one this build publishes are the same interpreter release,
-  built in two places. The measurement is four walks: both corpora through
-  both modules, and no program both corpora carry changed its answer in any
-  of them. At v0.2.32's pin the additions were v0.2.31's and v0.2.32's. The
+  now is lupin 0.1.54's, and the one this build publishes is this
+  interpreter's. The measurement is four walks: both corpora through both
+  modules, and no program both corpora carry changed its class in any of
+  them, nor what it prints. Three reasons moved:
+  <code>corpus/os/signal_one_rows.lu</code>'s, and those of
+  <code>corpus/os/signal_loopback.lu</code> and
+  <code>signal_supervisor.lu</code>, whose first call,
+  <code>os_signal_listen</code>, lupin 0.1.54 did not resolve either; all
+  three are declined with the process tier now. At v0.2.32's pin the
+  additions were v0.2.31's and v0.2.32's. The
   shift rule's programs, <code>corpus/typecheck/int_shift_value.lu</code>,
   <code>corpus/kernels/wrap_lshr_fold.lu</code> and the
   <code>corpus/typecheck/straight_line_sh*.lu</code> programs, print their
@@ -605,7 +641,7 @@
   reason says which tier declined.</p>
 
   <h3>What this build declines</h3>
-  <p>Eight tiers report <code>unsupported</code> here that work when you run
+  <p>Six tiers report <code>unsupported</code> here that work when you run
   <code>lupin</code> at a terminal. Tasks and procs each need an operating
   system thread, and a WebAssembly module in a page has none to spawn. The
   <code>time</code> builtins need a clock the module cannot read, the
@@ -615,17 +651,20 @@
   another process, to a group or to every process, the move into a group,
   the set of meanings a program ignores, who the process runs as, the drop
   to another user, the terminal's size, keys and wait, and the poll of the
-  children are all declined with it
-  — the net tier needs sockets the page cannot open, <code>os_random</code> needs an entropy source the module
-  has no way to ask for, <code>os_signal_listen</code> needs signals nothing
-  in a tab can send, and the filesystem tier, a file's owner with it, needs
-  files a module in a page has no way to open. That last one is the newest of them: through lupin
+  children are all declined with it — the net tier needs sockets the page
+  cannot open, and the filesystem tier, a file's owner with it, needs files
+  a module in a page has no way to open. That last one is the newest of them: through lupin
   0.1.35 the interpreter declined the filesystem in every build, by design,
   and the terminal build serves it now — real files, at the paths the program
   names — so only this build is left declining it, for the tab's reason and
   not the interpreter's. A program whose module graph names sibling files is
   likewise <code>unsupported</code>: the editor is one buffer, and there is
-  no directory beside it.</p>
+  no directory beside it. Two names this paragraph used to count among
+  those tiers are declined at a terminal too, so they are not counted:
+  <code>os_random</code>, which this interpreter resolves in no build, and
+  <code>os_signal_listen</code>, which this build declines with the process
+  tier and the interpreter at a terminal refuses by name, since it never
+  listens.</p>
   <p><code>os_cpus()</code> is the near miss, and it is worth a sentence
   because the census caught it. This build answers the call now rather than
   declining it — but what it answers is the <code>io</code> row, because a
