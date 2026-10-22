@@ -1,0 +1,10 @@
+tree 15e9fac; pins: upstream/wolf-book=f1fd8247 upstream/wolf-interp=e642f263 upstream/wolf-lang=9da7bdcf 
+wolf-lang checkout 9da7bdcf
+wolf-interp checkout e642f263
+wolf-book checkout f1fd8247
+LAG-EXIT=1
+VP-EXIT=1 (122 clocked lines red)
+CC-EXIT=0
+counts: 260 number word(s) in 81 entries, 25 of them live and re-read at this bump (wolf 0.2.34, lupin 0.1.55, book f1fd824)
+word(1067) at 15e9fac: no prose spelling for 1067
+GUARD-AT-PIN-DONE

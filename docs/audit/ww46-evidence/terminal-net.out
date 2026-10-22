@@ -1,0 +1,26 @@
+net namespace: lo UNKNOWN 127.0.0.1/8 ::1/128 
+namespace: pid 1 procs 4 uid 0 core 0/0
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+lupin 0.1.55 (wolf-interp, reference interpreter at pin 294d626)
+programs: 18
+corpus/net/accept_posture.lu: AS HEADER
+corpus/net/accept_race.lu: declined: net/accept_race.lu: unsupported: fd inheritance across os_spawn_with in checked execution
+corpus/net/byte_roundtrip.lu: AS HEADER
+corpus/net/echo_bytes.lu: AS HEADER
+corpus/net/echo_roundtrip.lu: AS HEADER
+corpus/net/inherit_listener.lu: declined: net/inherit_listener.lu: unsupported: fd inheritance across os_spawn_with in checked execution
+corpus/net/line_reader_bytes.lu: AS HEADER
+corpus/net/nodelay.lu: AS HEADER
+corpus/net/peer_close_after_serve.lu: AS HEADER
+corpus/net/read_deadline.lu: AS HEADER
+corpus/net/refused_row.lu: AS HEADER
+corpus/net/reuse_port.lu: AS HEADER
+corpus/net/spawn_accept.lu: AS HEADER
+corpus/net/syscall_first.lu: AS HEADER
+corpus/net/unix_echo.lu: DIFFERS: exit 3 want 0; stdout 'bind failed with a path row on a host that serves the family' want 'unix sockets | served_or_named true | echo true | port_is_io true | cleaned true'
+corpus/net/wait_readiness.lu: AS HEADER
+corpus/net/writev_gather.lu: AS HEADER
+corpus/net/writev_head_gather.lu: AS HEADER
+TERMINAL (net): 18 programs, 15 as their headers say, 2 declined by name (exit 4), 1 other
+TERMINAL-DONE

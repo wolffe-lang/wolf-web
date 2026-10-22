@@ -1,0 +1,4 @@
+fn main() -> !int {
+    fs_sync_dir("")?
+    0
+}

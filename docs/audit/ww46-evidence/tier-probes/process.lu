@@ -1,0 +1,4 @@
+fn main() -> !int {
+    print("{os_pid()}")
+    0
+}

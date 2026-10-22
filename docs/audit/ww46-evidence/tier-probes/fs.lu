@@ -1,0 +1,5 @@
+fn main() -> !int {
+    let e = fs_exists("x")
+    print("{e}")
+    0
+}

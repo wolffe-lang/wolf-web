@@ -1,0 +1,7 @@
+{
+  "built": "2026-10-20T00:40:24Z",
+  "lupin": "0.1.54",
+  "pins": { "wolf-lang": "85dab5d", "wolf-interp": "0e536e8", "wolf-book": "3ac6fa9" },
+  "spec-pin": "294d626",
+  "missing": []
+}

@@ -1,0 +1,14 @@
+lobo-bin 0.1.5-1 espadon
+lupin 0.1.55-1 espadon
+lupin-bin 0.1.55-1 espadon
+wolf-lang 0.2.34-1 espadon
+wolf-lang-bin 0.2.34-1 espadon
+  url "https://github.com/wolffe-lang/wolf-lang.git",
+      tag:      "v0.2.34",
+      revision: "9da7bdcf2aea9adf48df6570bedc58e16e9ef853"
+    url "https://github.com/wolffe-lang/wolf-std.git",
+        revision: "e036bec318ad81ecd5a025612bc2c2adb17527f3"
+  url "https://github.com/wolffe-lang/wolf-interp.git",
+      tag:      "v0.1.55",
+      revision: "e642f2630ad4c7f53740428d5cca705f2e0d295b"
+read 2026-10-22T01:54:44Z on nomad-1: AUR RPC v5 search by maintainer, filtered to the five project packages (every other result is the maintainer's unrelated work); homebrew-wolf trunk 69f72d1 Formula/wolf.rb and lupin.rb

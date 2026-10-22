@@ -1,0 +1,16 @@
+bf9877a521af53b3d0976fb202a348ec7efa6d2d04e3b658f3ff311e9646ec17  /home/mfwolffe/lanes/ww46/lupin-0.1.54-live.wasm
+1fc52ce98cb8e19bcb491a1235a297d054cecafb242d6dcde6618a6896e0f747  /home/mfwolffe/lanes/ww46/lupin-0.1.55-control.wasm
+CENSUS 85dab5d7 live finished 2026-10-22T01:19:22Z
+CENSUS 85dab5d7 control finished 2026-10-22T01:19:26Z
+CENSUS 9da7bdcf live finished 2026-10-22T01:19:30Z
+CENSUS 9da7bdcf control finished 2026-10-22T01:19:34Z
+census-0234-predicted.json {}
+census-85dab5d7-control.json {'wasm': '/home/mfwolffe/lanes/ww46/lupin-0.1.55-control.wasm', 'corpus': 'upstream/wolf-lang/corpus', 'programs': 683, 'classes': {'unsupported': 133, 'exit': 499, 'trap': 51}, 'candidates': 550}
+class moves vs prediction []
+census-85dab5d7-live.json {'wasm': '/home/mfwolffe/lanes/ww46/lupin-0.1.54-live.wasm', 'corpus': 'upstream/wolf-lang/corpus', 'programs': 683, 'classes': {'unsupported': 133, 'exit': 499, 'trap': 51}, 'candidates': 550}
+class moves vs prediction []
+census-9da7bdcf-control.json {'wasm': '/home/mfwolffe/lanes/ww46/lupin-0.1.55-control.wasm', 'corpus': 'upstream/wolf-lang/corpus', 'programs': 683, 'classes': {'unsupported': 133, 'exit': 499, 'trap': 51}, 'candidates': 550}
+class moves vs prediction []
+census-9da7bdcf-live.json {'wasm': '/home/mfwolffe/lanes/ww46/lupin-0.1.54-live.wasm', 'corpus': 'upstream/wolf-lang/corpus', 'programs': 683, 'classes': {'unsupported': 133, 'exit': 499, 'trap': 51}, 'candidates': 550}
+class moves vs prediction []
+MEASURE-DONE

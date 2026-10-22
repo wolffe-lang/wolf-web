@@ -1,0 +1,270 @@
+the archive, on a real windows box	Set up job	﻿2026-10-22T01:17:04.3370715Z Current runner version: '2.338.0'
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3759261Z ##[group]Runner Image Provisioner
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3759957Z Hosted Compute Agent
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3760436Z Version: 20261015.610
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3761162Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3761739Z Build Date: 2026-10-14T17:06:54Z
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3762271Z Worker ID: {1b1663c3-71ff-4e6b-8ccd-f574d863616b}
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3762837Z Region: westus3
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3763223Z Cloud: Azure
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3763826Z ##[endgroup]
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3764949Z ##[group]Operating System
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3765432Z Microsoft Windows Server 2025
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3765926Z 10.0.26100
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3766366Z Datacenter
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3766829Z ##[endgroup]
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3767230Z ##[group]Runner Image
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3767709Z Image: windows-2025-vs2026
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3768312Z Version: 20261018.275.1
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3769207Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261018.275/images/windows/Windows2025-VS2026-Readme.md
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3770805Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261018.275
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3771539Z ##[endgroup]
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3772460Z ##[group]GITHUB_TOKEN Permissions
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3773936Z Contents: read
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3774388Z Metadata: read
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3774795Z Packages: read
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3775229Z ##[endgroup]
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3776947Z Secret source: Actions
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3777638Z Cache mode: write
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.3778154Z Prepare workflow directory
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.4141073Z Prepare all required actions
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.4180890Z Getting action download info
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.6919798Z Download action repository 'actions/checkout@v5' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+the archive, on a real windows box	Set up job	2026-10-22T01:17:04.9804165Z Complete job name: the archive, on a real windows box
+the archive, on a real windows box	Run actions/checkout@v5	﻿2026-10-22T01:17:05.2435735Z ##[group]Run actions/checkout@v5
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2436704Z with:
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2437039Z   submodules: recursive
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2437433Z   repository: wolffe-lang/wolf-web
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2440646Z   token: ***
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2440985Z   ssh-strict: true
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2441321Z   ssh-user: git
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2441659Z   persist-credentials: true
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2442039Z   clean: true
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2442381Z   sparse-checkout-cone-mode: true
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2442789Z   fetch-depth: 1
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2443114Z   fetch-tags: false
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2443455Z   show-progress: true
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2443806Z   lfs: false
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2444135Z   set-safe-directory: true
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2444588Z   allow-unsafe-pr-checkout: false
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.2445159Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.3648100Z Syncing repository: wolffe-lang/wolf-web
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.3651060Z ##[group]Getting Git version info
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.3652497Z Working directory is 'D:\a\wolf-web\wolf-web'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:05.4427934Z [command]"C:\Program Files\Git\bin\git.exe" version
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.2262014Z git version 2.56.0.windows.2
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.2303971Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.2321501Z Temporarily overriding HOME='D:\a\_temp\513b6df2-d4bb-4791-bc7a-b9775f8ccfb0' before making global git config changes
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.2331132Z Adding repository directory to the temporary git global config as a safe directory
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.2333052Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wolf-web\wolf-web
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.3625379Z Deleting the contents of 'D:\a\wolf-web\wolf-web'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.3630187Z ##[group]Initializing the repository
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.3637254Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wolf-web\wolf-web
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.5842928Z Initialized empty Git repository in D:/a/wolf-web/wolf-web/.git/
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.5883675Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/wolffe-lang/wolf-web
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.9517698Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.9518300Z ##[group]Disabling automatic garbage collection
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.9525655Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.9824757Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.9825112Z ##[group]Setting up auth
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:06.9825556Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:07.0109354Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:10.0274051Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:10.0571488Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:10.5344569Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:10.5643211Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:10.9939526Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:11.0275772Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:11.0276339Z ##[group]Fetching the repository
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:11.0286367Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +15e9fac82dcd49072459a9734b2e48f65d7f9579:refs/remotes/origin/ww46
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.4810507Z From https://github.com/wolffe-lang/wolf-web
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.4813915Z  * [new ref]         15e9fac82dcd49072459a9734b2e48f65d7f9579 -> origin/ww46
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.4846593Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.4847086Z ##[group]Determining the checkout info
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.4848922Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.4857328Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.6283214Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.6581686Z ##[group]Checking out the ref
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.6592976Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B ww46 refs/remotes/origin/ww46
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.8739527Z Switched to a new branch 'ww46'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.8900173Z branch 'ww46' set up to track 'origin/ww46'.
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.8950082Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.8950560Z ##[group]Setting up auth for fetching submodules
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.8951332Z [command]"C:\Program Files\Git\bin\git.exe" config --global http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.9284193Z [command]"C:\Program Files\Git\bin\git.exe" config --global --unset-all url.https://github.com/.insteadOf
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.9580852Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf git@github.com:
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:13.9872381Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf org-315637195@github.com:
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.0155902Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.0156209Z ##[group]Fetching submodules
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.0163863Z [command]"C:\Program Files\Git\bin\git.exe" submodule sync --recursive
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.4908525Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.9369044Z Submodule 'book' (https://github.com/wolffe-lang/wolf-book.git) registered for path 'upstream/wolf-book'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.9382177Z Submodule 'interp' (https://github.com/wolffe-lang/wolf-interp.git) registered for path 'upstream/wolf-interp'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.9395397Z Submodule 'lang' (https://github.com/wolffe-lang/wolf-lang.git) registered for path 'upstream/wolf-lang'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:14.9990575Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-book'...
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:16.4301964Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-interp'...
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:17.6179010Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-lang'...
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:19.5755720Z Submodule path 'upstream/wolf-book': checked out 'f1fd824711b8949d6d4400c5ce5e8d61b328fe0f'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:21.0158450Z From https://github.com/wolffe-lang/wolf-interp
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:21.0159055Z  * branch            e642f2630ad4c7f53740428d5cca705f2e0d295b -> FETCH_HEAD
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:21.7402273Z Submodule path 'upstream/wolf-interp': checked out 'e642f2630ad4c7f53740428d5cca705f2e0d295b'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:21.7525578Z Submodule 'upstream' (https://github.com/wolffe-lang/wolf-lang.git) registered for path 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:21.7726022Z Cloning into 'D:/a/wolf-web/wolf-web/upstream/wolf-interp/upstream'...
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:25.0776446Z From https://github.com/wolffe-lang/wolf-lang
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:25.0776847Z  * branch            294d626dd596122285d5df954762e3aee3e5db71 -> FETCH_HEAD
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:26.1319347Z Submodule path 'upstream/wolf-interp/upstream': checked out '294d626dd596122285d5df954762e3aee3e5db71'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:27.7181918Z From https://github.com/wolffe-lang/wolf-lang
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:27.7182329Z  * branch            9da7bdcf2aea9adf48df6570bedc58e16e9ef853 -> FETCH_HEAD
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:28.9578784Z Submodule path 'upstream/wolf-lang': checked out '9da7bdcf2aea9adf48df6570bedc58e16e9ef853'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:28.9781377Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local gc.auto 0"
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:29.4252461Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:29.4709689Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:29.5107938Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:29.5531446Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:29.5998220Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:29.5998559Z ##[group]Persisting credentials for submodules
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:29.6008554Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :\""
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.0473794Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.1114202Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.1741678Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.2414079Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.3134345Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url\""
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.7264468Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.7895220Z file:D:/a/wolf-web/wolf-web/.git/modules/book/config	remote.origin.url
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.8037130Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.8667568Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/config	remote.origin.url
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.8968786Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.9604704Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config	remote.origin.url
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:30.9762322Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:31.0384713Z file:D:/a/wolf-web/wolf-web/.git/modules/lang/config	remote.origin.url
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:31.0631501Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'"
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:31.4886566Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:31.5302719Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:31.5703354Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:31.6126023Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:31.6637987Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'org-315637195@github.com:'"
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:32.0901393Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:32.1484655Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:32.1899125Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:32.2324901Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:32.2793900Z ##[endgroup]
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:32.3688387Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+the archive, on a real windows box	Run actions/checkout@v5	2026-10-22T01:17:32.4530575Z 15e9fac82dcd49072459a9734b2e48f65d7f9579
+the archive, on a real windows box	the versions the site advertises	﻿2026-10-22T01:17:32.4867060Z ##[group]Run $line = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' | Select-Object -First 1
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4868055Z ^[[36;1m$line = Select-String -Path upstream/wolf-lang/CHANGELOG.md -Pattern '^## (\d[\d.]*) ' | Select-Object -First 1^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4868652Z ^[[36;1mif (-not $line) { Write-Output "::error::no release heading in the pinned wolf-lang CHANGELOG.md"; exit 1 }^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4869050Z ^[[36;1m$ver = $line.Matches[0].Groups[1].Value^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4869379Z ^[[36;1m"WOLF_VER=$ver" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4869963Z ^[[36;1m$lup = (Select-String -Path upstream/wolf-interp/Cargo.toml -Pattern '^version\s*=\s*"([^"]+)"' | Select-Object -First 1).Matches[0].Groups[1].Value^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4870746Z ^[[36;1mif (-not $lup) { Write-Output "::error::no version in the pinned wolf-interp Cargo.toml"; exit 1 }^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4871179Z ^[[36;1m"LUPIN_VER=$lup" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.4871524Z ^[[36;1m"the pins say wolf $ver, lupin $lup"^[[0m
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.9604677Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:32.9604996Z ##[endgroup]
+the archive, on a real windows box	the versions the site advertises	2026-10-22T01:17:33.3253808Z the pins say wolf 0.2.34, lupin 0.1.55
+the archive, on a real windows box	the specification pin lag the site records	﻿2026-10-22T01:17:33.3946492Z ##[group]Run if ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3947160Z ^[[36;1mif ((git -C upstream/wolf-lang rev-parse --is-shallow-repository) -eq 'true') {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3947576Z ^[[36;1m  git -C upstream/wolf-lang fetch --quiet --unshallow --tags origin^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3947850Z ^[[36;1m} else {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3948049Z ^[[36;1m  git -C upstream/wolf-lang fetch --quiet --tags origin^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3948280Z ^[[36;1m}^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3948409Z ^[[36;1m^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3948628Z ^[[36;1m# One implementation of the rule, for this runner and the author's^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3948983Z ^[[36;1m# machine alike. Its messages go to the log on stderr; --json puts^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3949287Z ^[[36;1m# the facts on stdout, and only when it is satisfied.^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3949563Z ^[[36;1m$ErrorActionPreference = 'Continue'^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3949770Z ^[[36;1mpython --version^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3950004Z ^[[36;1mpython scripts/check-lag-phrases.py `^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3950289Z ^[[36;1m  site upstream/wolf-lang upstream/wolf-interp --json > lag.json^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3950561Z ^[[36;1mif ($LASTEXITCODE -ne 0) {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3951262Z ^[[36;1m  Write-Output "::error::scripts/check-lag-phrases.py refused the pages — the reasons are in this step's log, and the same command reds locally: python3 scripts/check-lag-phrases.py site upstream/wolf-lang upstream/wolf-interp"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3951944Z ^[[36;1m  exit 1^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3952092Z ^[[36;1m}^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3952270Z ^[[36;1m$f = (Get-Content lag.json -Raw | ConvertFrom-Json)^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3952510Z ^[[36;1mRemove-Item lag.json^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3952673Z ^[[36;1m^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3953054Z ^[[36;1m"wolf $env:WOLF_VER is the release this site advertises"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3953290Z ^[[36;1mif ($f.tagged) {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3953538Z ^[[36;1m  "lupin $env:LUPIN_VER was built at the v$($f.release) tag ($($f.spec))"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3953817Z ^[[36;1m} else {^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3954200Z ^[[36;1m  "lupin $env:LUPIN_VER was built at $($f.spec), a development revision past v$($f.release) — $($f.commits) commits behind the advertised tag"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3954618Z ^[[36;1m}^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3954740Z ^[[36;1m^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3954946Z ^[[36;1m# The summary is built from the SCRIPT's numbers, not from a second^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3955292Z ^[[36;1m# walk of the same history. Two walks could disagree; these cannot.^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3955729Z ^[[36;1m$reads = switch ($f.gap) { 0 { "this release" } 1 { "the release before this one" } default { "$($f.gap) releases back" } }^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3956352Z ^[[36;1m$spec = if ($f.tagged) { "``$($f.spec)`` — the v$($f.release) tag" } else { "``$($f.spec)`` — a development revision past v$($f.release), $($f.commits) commits back" }^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3956833Z ^[[36;1m$md = @("", "### The specification pin lag", "",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3957170Z ^[[36;1m        "| | release | specification pin |", "|---|---|---|",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3957536Z ^[[36;1m        "| the compiler this site advertises | wolf $env:WOLF_VER | its own tag |",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3957905Z ^[[36;1m        "| the interpreter beside it | lupin $env:LUPIN_VER | $spec |", "",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3958317Z ^[[36;1m        "A counted gap of $($f.gap) — the interpreter reads $reads, and both pages say '$($f.phrase)'.",^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3958787Z ^[[36;1m        "", "Measured by ``scripts/check-lag-phrases.py``, which also runs in ``build.sh``.", "")^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3959231Z ^[[36;1m($md -join "`n") | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.3959645Z ^[[36;1m"lupin reads $reads — both pages carry '$($f.phrase)' and neither carries another"^[[0m
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.4014872Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.4015139Z env:
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.4016586Z   WOLF_VER: 0.2.34
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.4016740Z   LUPIN_VER: 0.1.55
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:33.4016887Z ##[endgroup]
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:39.4185576Z Python 3.12.10
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:43.1143889Z check-lag-phrases: the interpreter is 10 releases behind and /install/ and /play/ have prose for 0 through 9 only � write the sentence, then add its phrase here
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:43.1679627Z ##[error]scripts/check-lag-phrases.py refused the pages — the reasons are in this step's log, and the same command reds locally: python3 scripts/check-lag-phrases.py site upstream/wolf-lang upstream/wolf-interp
+the archive, on a real windows box	the specification pin lag the site records	2026-10-22T01:17:43.2045474Z ##[error]Process completed with exit code 1.
+the archive, on a real windows box	put the Windows SDK root back	﻿2026-10-22T01:17:43.2205344Z ##[group]Run if (-not (Test-Path "$PWD\kitsroot.json")) { "nothing was taken away"; exit 0 }
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2205908Z ^[[36;1mif (-not (Test-Path "$PWD\kitsroot.json")) { "nothing was taken away"; exit 0 }^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2206309Z ^[[36;1m$saved = Get-Content "$PWD\kitsroot.json" -Raw | ConvertFrom-Json^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2206629Z ^[[36;1mforeach ($p in $saved.PSObject.Properties) {^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2207028Z ^[[36;1m  $now = (Get-ItemProperty -Path $p.Name -Name KitsRoot10 -ErrorAction SilentlyContinue).KitsRoot10^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2207397Z ^[[36;1m  if ($now -ne $p.Value) {^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2207680Z ^[[36;1m    Set-ItemProperty -Path $p.Name -Name KitsRoot10 -Value $p.Value^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2207963Z ^[[36;1m    "restored $($p.Name)"^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2208146Z ^[[36;1m  } else {^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2208308Z ^[[36;1m    "$($p.Name) is already back"^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2208495Z ^[[36;1m  }^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2208625Z ^[[36;1m}^[[0m
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2261047Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2261886Z env:
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2262027Z   WOLF_VER: 0.2.34
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2262172Z   LUPIN_VER: 0.1.55
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.2262321Z ##[endgroup]
+the archive, on a real windows box	put the Windows SDK root back	2026-10-22T01:17:43.4898110Z nothing was taken away
+the archive, on a real windows box	Post Run actions/checkout@v5	﻿2026-10-22T01:17:43.5521553Z Post job cleanup.
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:43.6837278Z [command]"C:\Program Files\Git\bin\git.exe" version
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:43.7128639Z git version 2.56.0.windows.2
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:43.7185380Z Temporarily overriding HOME='D:\a\_temp\0ed7cad3-d4e5-446d-b8f7-1daa2350abdd' before making global git config changes
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:43.7186256Z Adding repository directory to the temporary git global config as a safe directory
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:43.7194320Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wolf-web\wolf-web
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:43.7518794Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:43.7842701Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.5414368Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.6090568Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.6738590Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.7421453Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.8131914Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.8393959Z http.https://github.com/.extraheader
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.8432131Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:44.8739383Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.3177007Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.3682477Z http.https://github.com/.extraheader
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.4046903Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.4548088Z http.https://github.com/.extraheader
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.4905874Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.5402954Z http.https://github.com/.extraheader
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.5770472Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.6257238Z http.https://github.com/.extraheader
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.6692953Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:45.6994221Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.1752912Z Entering 'upstream/wolf-book'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.2045796Z file:D:/a/wolf-web/wolf-web/.git/modules/book/config	remote.origin.url
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.2203475Z Entering 'upstream/wolf-interp'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.2496218Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/config	remote.origin.url
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.2632909Z Entering 'upstream/wolf-interp/upstream'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.2918651Z file:D:/a/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config	remote.origin.url
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.3122127Z Entering 'upstream/wolf-lang'
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.3397187Z file:D:/a/wolf-web/wolf-web/.git/modules/lang/config	remote.origin.url
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.3610402Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/book/config --name-only --get-regexp ^includeIf\.gitdir:
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.3901348Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/interp/config --name-only --get-regexp ^includeIf\.gitdir:
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.4184602Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config --name-only --get-regexp ^includeIf\.gitdir:
+the archive, on a real windows box	Post Run actions/checkout@v5	2026-10-22T01:17:46.4467348Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/wolf-web/wolf-web/.git/modules/lang/config --name-only --get-regexp ^includeIf\.gitdir:
+the archive, on a real windows box	Complete job	﻿2026-10-22T01:17:46.4959442Z Cleaning up orphan processes

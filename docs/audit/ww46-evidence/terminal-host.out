@@ -1,0 +1,93 @@
+namespace: pid 1 procs 4 uid 1000 core 0/0
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+lupin 0.1.55 (wolf-interp, reference interpreter at pin 294d626)
+programs: 86
+corpus/conc/atomic_counter.lu: AS HEADER
+corpus/conc/atomic_fence.lu: AS HEADER
+corpus/conc/atomic_orders.lu: AS HEADER
+corpus/conc/atomic_widths.lu: AS HEADER
+corpus/conc/cancel_sibling.lu: AS HEADER
+corpus/conc/chan_closed_row.lu: AS HEADER
+corpus/conc/chan_default_rendezvous.lu: AS HEADER
+corpus/conc/chan_drain_after_inclusive_loop.lu: AS HEADER
+corpus/conc/chan_param_for.lu: AS HEADER
+corpus/conc/chan_payload_proc_param.lu: AS HEADER
+corpus/conc/chan_root_task.lu: AS HEADER
+corpus/conc/chan_send_closed_row.lu: AS HEADER
+corpus/conc/chan_sent_arg_legal.lu: AS HEADER
+corpus/conc/chan_sent_arg_legal_tasks.lu: AS HEADER
+corpus/conc/chan_struct_payload.lu: AS HEADER
+corpus/conc/freeze_proc_snapshot.lu: AS HEADER
+corpus/conc/freeze_publish.lu: AS HEADER
+corpus/conc/message_passing.lu: AS HEADER
+corpus/conc/par_fail_reraises.lu: AS HEADER
+corpus/conc/par_order.lu: AS HEADER
+corpus/conc/proc_cancel_defers.lu: AS HEADER
+corpus/conc/proc_cap_fault_join.lu: AS HEADER
+corpus/conc/proc_cross_module/main.lu: AS HEADER
+corpus/conc/proc_join_param.lu: AS HEADER
+corpus/conc/proc_join_value.lu: AS HEADER
+corpus/conc/proc_kill_defers.lu: AS HEADER
+corpus/conc/proc_link.lu: AS HEADER
+corpus/conc/proc_link_root_death.lu: exit 1 (header names no exit)
+corpus/conc/proc_link_root.lu: AS HEADER
+corpus/conc/proc_must_join_legal.lu: AS HEADER
+corpus/conc/proc_spawn_loop.lu: AS HEADER
+corpus/conc/reason_interp.lu: AS HEADER
+corpus/conc/select_seeded.lu: AS HEADER
+corpus/conc/select_single_arm_loop.lu: AS HEADER
+corpus/conc/select_two_timeouts.lu: AS HEADER
+corpus/conc/spawn_cluster_split.lu: AS HEADER
+corpus/conc/spawn_fanout_loop.lu: AS HEADER
+corpus/conc/spawn_tail_send_raised_row.lu: AS HEADER
+corpus/conc/when_multi.lu: AS HEADER
+corpus/fs/bytes_dirs.lu: AS HEADER
+corpus/fs/change_rows.lu: AS HEADER
+corpus/fs/copy_chunk.lu: AS HEADER
+corpus/fs/error_row.lu: AS HEADER
+corpus/fs/fstat.lu: AS HEADER
+corpus/fs/hard_link.lu: AS HEADER
+corpus/fs/mode_symlink.lu: AS HEADER
+corpus/fs/open_nonblock.lu: AS HEADER
+corpus/fs/os_error.lu: AS HEADER
+corpus/fs/read_at.lu: AS HEADER
+corpus/fs/remove_dir_refused.lu: AS HEADER
+corpus/fs/roundtrip.lu: AS HEADER
+corpus/fs/seek_tell.lu: AS HEADER
+corpus/fs/set_times.lu: AS HEADER
+corpus/fs/std_write_bytes.lu: AS HEADER
+corpus/fs/truncate.lu: AS HEADER
+corpus/grammar/cfg_target_arch.lu: AS HEADER
+corpus/membrane/extern_let_image.lu: declined: membrane/extern_let_image.lu: unsupported: a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's lin
+corpus/membrane/extern_libc.lu: declined: membrane/extern_libc.lu: unsupported: `strlen` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch
+corpus/memory/raw_repr_align_layout.lu: declined: memory/raw_repr_align_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got A16
+corpus/memory/raw_repr_c_layout.lu: declined: memory/raw_repr_c_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got C3
+corpus/memory/raw_repr_packed_layout.lu: declined: memory/raw_repr_packed_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got P3
+corpus/os/args_cwd.lu: AS HEADER
+corpus/os/chdir_relative.lu: AS HEADER
+corpus/os/cpus.lu: AS HEADER
+corpus/os/env_roundtrip.lu: AS HEADER
+corpus/os/env_unset.lu: AS HEADER
+corpus/os/exec_rows.lu: AS HEADER
+corpus/os/exit_code.lu: AS HEADER
+corpus/os/group_rows.lu: AS HEADER
+corpus/os/ids_read.lu: declined: os/ids_read.lu: unsupported: `os_uid` reads who the process runs as, which is the host's `getuid`, `geteuid`, `getgid`, `getegid` or `getgroups` call; the stand
+corpus/os/ids_rows.lu: AS HEADER
+corpus/os/job_poll_rows.lu: AS HEADER
+corpus/os/job_rows.lu: AS HEADER
+corpus/os/pipe_round_trip.lu: AS HEADER
+corpus/os/random_differs.lu: declined: os/random_differs.lu: unsupported: `os_random` does not resolve
+corpus/os/random_edges.lu: declined: os/random_edges.lu: unsupported: `os_random` does not resolve
+corpus/os/random_negative_trap.lu: declined: os/random_negative_trap.lu: unsupported: `os_random` does not resolve
+corpus/os/signal_loopback.lu: declined: os/signal_loopback.lu: unsupported: `os_signal_listen` arms a signal's trampoline, which is `sigaction`: std has none, and this machine admits no `unsafe` ([os.
+corpus/os/signal_one_rows.lu: AS HEADER
+corpus/os/signal_shell_rows.lu: AS HEADER
+corpus/os/signal_supervisor.lu: declined: os/signal_supervisor.lu: unsupported: `os_signal_listen` arms a signal's trampoline, which is `sigaction`: std has none, and this machine admits no `unsafe` ([o
+corpus/os/spawn_fds_rows.lu: AS HEADER
+corpus/os/spawn_rows.lu: AS HEADER
+corpus/os/term_editor_rows.lu: AS HEADER
+corpus/os/umask.lu: declined: os/umask.lu: unsupported: `os_umask` sets the process's file mode creation mask, which is the host's `umask` call; the standard library has none and this machin
+corpus/time/monotonic.lu: AS HEADER
+TERMINAL (host): 86 programs, 73 as their headers say, 12 declined by name (exit 4), 1 other
+TERMINAL-DONE

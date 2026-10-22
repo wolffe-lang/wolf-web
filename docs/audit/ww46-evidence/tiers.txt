@@ -1,0 +1,42 @@
+== 0.1.54-live
+  29  `NAME` does not resolve  e.g. conc/proc_cross_module/main.lu
+  20  `NAME` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked  e.g. fs/bytes_dirs.lu
+  18  `NAME` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked  e.g. memory/region_net_read_charged.lu
+  16  the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs  e.g. conc/atomic_counter.lu
+  14  the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs  e.g. conc/chan_param_for.lu
+  12  `NAME` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to…  e.g. os/exec_rows.lu
+   6  `NAME` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DI…  e.g. methods/comb_map_filter_fold.lu
+   4  `NAME` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `…  e.g. comptime/fold_reaches_lane.lu
+   4  handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)  e.g. memory/elem_header_methods_after_move_pool.lu
+   1  a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not mo…  e.g. membrane/extern_let_image.lu
+   1  `NAME` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch  e.g. membrane/extern_libc.lu
+   1  `NAME` has no method `is_empty` in this machine's std subset  e.g. memory/pool_accessors.lu
+   1  a raw store writes an integer-shaped pointee, got A16  e.g. memory/raw_repr_align_layout.lu
+   1  a raw store writes an integer-shaped pointee, got C3  e.g. memory/raw_repr_c_layout.lu
+   1  a raw store writes an integer-shaped pointee, got P3  e.g. memory/raw_repr_packed_layout.lu
+   1  `NAME` is not defined on error limits.WIDTH and i32; operand types are the checker's  e.g. memory/static_qualified_let/main.lu
+   1  `NAME` is not a local place  e.g. memory/static_qualified_var/main.lu
+   1  `NAME` is no builtin, so it reaches `range`'s home module `std.range` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root …  e.g. methods/home_range_str_map.lu
+   1  `NAME` is s40's time v0; this wasm build has no clock to read and no way to block, so the tier is declined rather than mocked  e.g. time/monotonic.lu
+133 unsupported, 19 distinct reasons
+== 0.1.55-control
+  26  `NAME` does not resolve  e.g. conc/proc_cross_module/main.lu
+  20  `NAME` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked  e.g. fs/bytes_dirs.lu
+  18  `NAME` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked  e.g. memory/region_net_read_charged.lu
+  16  the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs  e.g. conc/atomic_counter.lu
+  15  `NAME` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to…  e.g. os/exec_rows.lu
+  14  the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs  e.g. conc/chan_param_for.lu
+   6  `NAME` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DI…  e.g. methods/comb_map_filter_fold.lu
+   4  `NAME` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `…  e.g. comptime/fold_reaches_lane.lu
+   4  handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)  e.g. memory/elem_header_methods_after_move_pool.lu
+   1  a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not mo…  e.g. membrane/extern_let_image.lu
+   1  `NAME` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch  e.g. membrane/extern_libc.lu
+   1  `NAME` has no method `is_empty` in this machine's std subset  e.g. memory/pool_accessors.lu
+   1  a raw store writes an integer-shaped pointee, got A16  e.g. memory/raw_repr_align_layout.lu
+   1  a raw store writes an integer-shaped pointee, got C3  e.g. memory/raw_repr_c_layout.lu
+   1  a raw store writes an integer-shaped pointee, got P3  e.g. memory/raw_repr_packed_layout.lu
+   1  `NAME` is not defined on error limits.WIDTH and i32; operand types are the checker's  e.g. memory/static_qualified_let/main.lu
+   1  `NAME` is not a local place  e.g. memory/static_qualified_var/main.lu
+   1  `NAME` is no builtin, so it reaches `range`'s home module `std.range` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root …  e.g. methods/home_range_str_map.lu
+   1  `NAME` is s40's time v0; this wasm build has no clock to read and no way to block, so the tier is declined rather than mocked  e.g. time/monotonic.lu
+133 unsupported, 19 distinct reasons

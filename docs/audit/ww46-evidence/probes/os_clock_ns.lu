@@ -1,0 +1,4 @@
+fn main() -> !int {
+    os_clock_ns()
+    0
+}

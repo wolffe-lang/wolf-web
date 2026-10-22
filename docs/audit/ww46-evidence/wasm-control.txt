@@ -1,0 +1,10 @@
+web 15e9fac82dcd49072459a9734b2e48f65d7f9579
+interp e642f2630ad4c7f53740428d5cca705f2e0d295b version = "0.1.55"; its spec 294d626dd596122285d5df954762e3aee3e5db71
+2cc2b8a3e4580c5a60a63d15bccb5f5647d30f5a4bb1216af0963ae313b5cc3b  crates/lupin-wasm/wasm-portability.patch
+PATCHED-EXIT=0
+1fc52ce98cb8e19bcb491a1235a297d054cecafb242d6dcde6618a6896e0f747  dist/play/lupin.wasm
+UNPATCHED-EXIT=1
+error[E0433]: cannot find `fs` in `super`
+error: could not compile `wolf-interp` (lib) due to 1 previous error
+  wasm: imports 0 (the module is self-contained)
+WASM-CONTROL-DONE

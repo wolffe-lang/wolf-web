@@ -1,0 +1,4 @@
+fn main() -> !int {
+    os_signal_listen(1)?
+    0
+}

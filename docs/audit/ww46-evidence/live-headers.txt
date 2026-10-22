@@ -1,0 +1,13 @@
+HTTP/2 200 
+server: nginx/1.20.1
+date: Thu, 22 Oct 2026 01:54:44 GMT
+content-type: text/html
+content-length: 47190
+last-modified: Tue, 20 Oct 2026 00:40:24 GMT
+etag: "6ad6b878-b856"
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+x-frame-options: SAMEORIGIN
+content-security-policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'
+accept-ranges: bytes
+

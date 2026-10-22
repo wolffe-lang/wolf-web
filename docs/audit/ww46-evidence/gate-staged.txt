@@ -1,0 +1,44 @@
+# STAGED gates: kasumi's dist at ww46 a67442766cb2089f8a167d24b47d842226a34198 (every book script ?v=f1fd824); the book served by wolf-book f1fd824 tests/contents/serve.mjs under lupp.us's headers, --unversioned; contents.mjs sha256 f0a6c7a5…; the site served by ww42-serve.mjs on 127.0.0.1:8754 (pid 9357) with nginx/lupp.us.conf's headers; playwright-core 1.63.0, nomad-1
+started 2026-10-22T02:32:39Z
+PLAY-EXIT=0
+play: ok
+COMPARE-EXIT=0
+compare: https://lupp.us -> http://127.0.0.1:8754: 216 menu runs over 6 cells, 0 verdicts moved, 0 served before and refused or missing now
+BOOK-EXIT=0
+book: ok — six diagrams rendered and the changed blocks served on every cell, no CSP violation
+LINKS-EXIT=0
+links: against http://127.0.0.1:8754/
+links: chromium phone: hop 1 7/7 landed (7 clicked), hop 2 40/40 landed, 0 faults — ok
+  in the two-hop set: {"/book/ch34.html":true,"/book/ch03.html":true}; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"; #34.5 200 found scrolled "34.5 Groups, and what the children did"; #34.6 200 found scrolled "34.6 One signal at a time, and an end by one"; #34.7 200 found scrolled "34.7 A child that keeps running"; #34.8 200 found scrolled "34.8 What an editor asks of the host"; #3.3 200 found scrolled "3.3 Arithmetic that traps"
+links: chromium desktop: hop 1 7/7 landed (7 clicked), hop 2 40/40 landed, 0 faults — ok
+  in the two-hop set: {"/book/ch34.html":true,"/book/ch03.html":true}; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"; #34.5 200 found scrolled "34.5 Groups, and what the children did"; #34.6 200 found scrolled "34.6 One signal at a time, and an end by one"; #34.7 200 found scrolled "34.7 A child that keeps running"; #34.8 200 found scrolled "34.8 What an editor asks of the host"; #3.3 200 found scrolled "3.3 Arithmetic that traps"
+links: firefox phone: hop 1 7/7 landed (7 clicked), hop 2 40/40 landed, 0 faults — ok
+  in the two-hop set: {"/book/ch34.html":true,"/book/ch03.html":true}; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"; #34.5 200 found scrolled "34.5 Groups, and what the children did"; #34.6 200 found scrolled "34.6 One signal at a time, and an end by one"; #34.7 200 found scrolled "34.7 A child that keeps running"; #34.8 200 found scrolled "34.8 What an editor asks of the host"; #3.3 200 found scrolled "3.3 Arithmetic that traps"
+links: firefox desktop: hop 1 7/7 landed (7 clicked), hop 2 40/40 landed, 0 faults — ok
+  in the two-hop set: {"/book/ch34.html":true,"/book/ch03.html":true}; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"; #34.5 200 found scrolled "34.5 Groups, and what the children did"; #34.6 200 found scrolled "34.6 One signal at a time, and an end by one"; #34.7 200 found scrolled "34.7 A child that keeps running"; #34.8 200 found scrolled "34.8 What an editor asks of the host"; #3.3 200 found scrolled "3.3 Arithmetic that traps"
+links: webkit phone: hop 1 7/7 landed (7 clicked), hop 2 40/40 landed, 0 faults — ok
+  in the two-hop set: {"/book/ch34.html":true,"/book/ch03.html":true}; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"; #34.5 200 found scrolled "34.5 Groups, and what the children did"; #34.6 200 found scrolled "34.6 One signal at a time, and an end by one"; #34.7 200 found scrolled "34.7 A child that keeps running"; #34.8 200 found scrolled "34.8 What an editor asks of the host"; #3.3 200 found scrolled "3.3 Arithmetic that traps"
+links: webkit desktop: hop 1 7/7 landed (7 clicked), hop 2 40/40 landed, 0 faults — ok
+  in the two-hop set: {"/book/ch34.html":true,"/book/ch03.html":true}; anchors #34.1 200 found scrolled "34.1 A signal is an event"; #34.2 200 found scrolled "34.2 Sending, numbering, and what was ignored"; #34.3 200 found scrolled "34.3 Who this process is, and its terminal"; #34.4 200 found scrolled "34.4 What a call charges, and where it is refused"; #34.5 200 found scrolled "34.5 Groups, and what the children did"; #34.6 200 found scrolled "34.6 One signal at a time, and an end by one"; #34.7 200 found scrolled "34.7 A child that keeps running"; #34.8 200 found scrolled "34.8 What an editor asks of the host"; #3.3 200 found scrolled "3.3 Arithmetic that traps"
+links: ok — every link two hops from the front page lands, no CSP violation, no console error
+contents: gate against http://127.0.0.1:64216/book/ (render served with lupp.us's headers, unversioned)
+contents: chromium phone: 50 pages, 46 entries, 2300 clicks, 2300 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 158s
+contents: chromium desktop: 50 pages, 46 entries, 2300 clicks, 2300 at 200, 0 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 46s
+contents: firefox phone: 50 pages, 46 entries, 2300 clicks, 170 at 200, 2130 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 195s
+contents: firefox desktop: 50 pages, 46 entries, 2300 clicks, 172 at 200, 2128 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 134s
+contents: webkit phone: 50 pages, 46 entries, 2300 clicks, 397 at 200, 1903 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 181s
+contents: webkit desktop: 50 pages, 46 entries, 2300 clicks, 392 at 200, 1908 at 304 — ok {"status":0,"title":0,"number":0,"click":0,"load":0,"entries":0,"state":0,"search":0} in 78s
+contents: ok — every entry from every page lands where its label says
+GATE-EXIT=0
+contents: retry against http://127.0.0.1:50538/book/ (render served with lupp.us's headers, unversioned)
+# chromium phone: hop1 92/92 landed, 0 at 304 (0 number mismatches); hop2 92/92 landed, 0 at 304
+# chromium desktop: hop1 92/92 landed, 0 at 304 (0 number mismatches); hop2 92/92 landed, 0 at 304
+# firefox phone: hop1 92/92 landed, 48 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+# firefox desktop: hop1 92/92 landed, 48 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+# webkit phone: hop1 92/92 landed, 46 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+# webkit desktop: hop1 92/92 landed, 46 at 304 (0 number mismatches); hop2 92/92 landed, 91 at 304
+contents: ok — every entry from every page lands where its label says
+RETRY-EXIT=0
+retry log:     1116 lines, 0 'HTTP 404', 0 ERROR
+finished 2026-10-22T02:50:24Z
+STAGED-DONE

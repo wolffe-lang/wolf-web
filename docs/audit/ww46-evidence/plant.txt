@@ -1,0 +1,11 @@
+started 2026-10-22T02:52:26Z
+PLANT-BOOK-EXIT=1
+19
+PLANT-PLAY-EXIT=1
+7
+PLANT-COMPARE-EXIT=1
+compare: https://lupp.us -> http://127.0.0.1:8755: 216 menu runs over 6 cells, 6 verdicts moved, 12 served before and refused or missing now
+PLANT-LINKS-EXIT=1
+7
+finished 2026-10-22T02:53:27Z
+PLANT-DONE

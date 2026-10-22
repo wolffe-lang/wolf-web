@@ -1,0 +1,27 @@
+bf9877a521af53b3d0976fb202a348ec7efa6d2d04e3b658f3ff311e9646ec17  /home/mfwolffe/lanes/ww46/lupin-0.1.54-live.wasm
+1fc52ce98cb8e19bcb491a1235a297d054cecafb242d6dcde6618a6896e0f747  /home/mfwolffe/lanes/ww46/lupin-0.1.55-control.wasm
+live: 11 programs; instance deaths: 0; ww45 probes 11 programs; instance deaths: 0
+control: 11 programs; instance deaths: 0; ww45 probes 11 programs; instance deaths: 0
+builtins ch34-editor-0.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `signal.listen` does not resolve
+builtins ch34-editor-1.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `fs_exists` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+builtins ch34-fork-0.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `os_pipe` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+builtins ch34-fork-1.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+builtins fs_realpath.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `fs_realpath` does not resolve
+builtins fs_sync.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `fs_sync` does not resolve
+builtins fs_sync_dir.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `fs_sync_dir` does not resolve
+builtins os_clock_ns.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `os_clock_ns` does not resolve
+builtins os_fork.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `os_fork` does not resolve
+builtins os_signal_wait_fds.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `os_signal_wait_fds` does not resolve
+builtins os_term_restore_at_exit.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `os_term_restore_at_exit` does not resolve
+builtins-ww45 ch34-again.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `env.args` does not resolve
+builtins-ww45 ch34-groups.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `process.lead_group` does not resolve
+builtins-ww45 ch34-jobs.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `signal.listen` does not resolve
+builtins-ww45 ch34-nochild.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+builtins-ww45 ch34-one.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `signal.kill` does not resolve
+builtins-ww45 os_exit_signal.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [MOVES] :: `os_exit_signal` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+builtins-ww45 os_signal_default_one.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [MOVES] :: `os_signal_default_one` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+builtins-ww45 os_signal_ignore_one.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [MOVES] :: `os_signal_ignore_one` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+builtins-ww45 os_signal_text_zero.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [same] :: `os_signal_text` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+builtins-ww45 os_wait_poll_core.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [MOVES] :: `os_wait_poll_core` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+builtins-ww45 os_wait_status_core.lu: live unsupported/resolve/4 | 0.1.55 unsupported/resolve/4 [MOVES] :: `os_wait_status_core` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+BUILTINS-DONE

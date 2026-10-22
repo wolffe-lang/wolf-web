@@ -1,0 +1,27 @@
+conc/proc_cross_module/main.lu: work.run
+link/module_c.lu: c.go
+lints/ancestor_import/main.lu: outer.base
+lints/one_item_module/main.lu: solo.only
+lints/pkg_item_unused/main.lu: store.used
+membrane/export_child.lu: geo.kx_area
+memory/static_qualified/main.lu: limits.width
+memory/versioned_loop_cross_module/main.lu: ring.ring_at
+os/random_differs.lu: os_random
+os/random_edges.lu: os_random
+os/random_negative_trap.lu: os_random
+resolve/bare_sibling/pair.lu: helper
+resolve/forward/main.lu: later
+resolve/leaf_twins/main.lu: float.probe
+resolve/pkgvis/main.lu: store.limit
+resolve/plain_subdir/main.lu: sub.seven
+resolve/same_name/main.lu: lista.len
+resolve/two_mod/main.lu: geometry.area
+rows/cross_module_arms/main.lu: scan.miss
+rows/error_alias_qualified/main.lu: disk.size
+rows/propagate/main.lu: parse.pair
+traits/op_eq_imported/main.lu: cmp.total_cmp
+traits/op_eq_item_import/main.lu: cmp.total_cmp
+typecheck/fn_param_shadows_import/main.lu: cmp.apply
+typecheck/fn_value_import/main.lu: txt.is_wolf
+typecheck/variant_value/main.lu: paint.favorite
+26 programs answer that a name does not resolve

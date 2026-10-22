@@ -1,0 +1,5 @@
+Prediction before pins or new-module census: 683 {'unsupported': 133, 'exit': 499, 'trap': 51}
+Candidates 550 fail 0
+Rule: carry baseline classes; same run set, one edit removing a row after an already declined call; interpreter wasm process-tier decline remains.
+Prediction across both corpora and both modules: zero class moves; reason words may move for the five names learned in 0.1.55.
+New seven probes: unsupported, resolve, exit 4, each name does not resolve. Menu: none newly refused.

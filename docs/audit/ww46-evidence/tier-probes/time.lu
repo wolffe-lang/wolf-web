@@ -1,0 +1,4 @@
+fn main() -> !int {
+    print("{time_now_ms() >= 0}")
+    0
+}

@@ -1,0 +1,10 @@
+os/signal_loopback.lu
+  A ["unsupported","","resolve",4,"`os_signal_listen` does not resolve"]
+  B ["unsupported","","resolve",4,"`os_signal_listen` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"]
+os/signal_one_rows.lu
+  A ["unsupported","","resolve",4,"`os_signal_ignore_one` does not resolve"]
+  B ["unsupported","","resolve",4,"`os_signal_ignore_one` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"]
+os/signal_supervisor.lu
+  A ["unsupported","","resolve",4,"`os_signal_listen` does not resolve"]
+  B ["unsupported","","resolve",4,"`os_signal_listen` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked"]
+reasons-all: 683 programs, 680 identical in verdict, stdout, phase, exit and reason, 3 differ

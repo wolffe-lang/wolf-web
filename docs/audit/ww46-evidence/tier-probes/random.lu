@@ -1,0 +1,5 @@
+fn main() -> !int {
+    let r = os_random(4)
+    print("{r.len()}")
+    0
+}
