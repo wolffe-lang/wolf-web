@@ -177,32 +177,35 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it has not: the compiler tagged once more and the interpreter
-  did not release at all, so the line names the interpreter the release
-  before this one named, and the gap widened by one more step.
+  these pins it has: the interpreter released beside the compiler, so the
+  line names a newer interpreter than the lupin 0.1.54 the release before
+  this one named, and still the gap widened by one more step, because the
+  new interpreter kept the old pin.
   <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a release tag rather than a revision of the compiler's trunk, and
   the compiler has tagged release after release since while the interpreter
   kept that pin, so the newest release whose text the interpreter carries
-  whole is nine releases behind the compiler you are installing,
-  __COUNT_speccommits_word__ commits back. At v0.2.32's pin the same tag was
-  a step nearer, read by this same interpreter: lupin 0.1.49 had kept lupin
-  0.1.48's pin, lupin 0.1.50, 0.1.51, 0.1.52 and 0.1.53 kept it after that,
-  and the interpreter above kept it again and has not released since. Each
-  of them mirrored instead what the compiler had added —
+  whole is ten releases behind the compiler you are installing,
+  __COUNT_speccommits_word__ commits back. At v0.2.33's pin the same tag was
+  a step nearer, read by lupin 0.1.54: lupin 0.1.49 had kept lupin 0.1.48's
+  pin, lupin 0.1.50, 0.1.51, 0.1.52, 0.1.53 and 0.1.54 kept it after that,
+  and the interpreter above keeps it again. Each of them mirrored instead
+  what the compiler had added —
   volatile access and the atomics on raw pointers, the kernel's papercuts,
   a child's descriptors and <code>copy region</code> (wolf-interp#185, #194,
   #200), then the unsigned and wrapping integers, a repeated json name,
   <code>env_unset</code> and the calls that change a file, then as much of
   the shell's signals as it could serve without <code>unsafe</code>, then
-  a file's owner and the shape rows of the id and terminal calls, and last
+  a file's owner and the shape rows of the id and terminal calls, then
   the shift rule, the net calls' error number, the shape rows of the group
-  calls and the poll of a program with no child left — which
-  is why the programs those releases brought run in the tab, where a page
-  has what they need, while the text it reads has fallen further behind.
-  The release above is the first in that run whose new calls the
-  interpreter has not mirrored at all: none of them resolves in it yet. From v0.2.19's pin to v0.2.25's the
+  calls and the poll of a program with no child left, and last v0.2.33's
+  calls, one meaning's disposition, the end by a signal and the core
+  siblings of the wait and the poll — which is why the programs those
+  releases brought run in the tab, where a page has what they need, while
+  the text it reads has fallen further behind. As at v0.2.33's pin, the
+  release above brought calls the interpreter beside it has not mirrored
+  at all: none of the fork's or the editor's calls resolves in it yet. From v0.2.19's pin to v0.2.25's the
   interpreter had re-pinned on the compiler's last tag but one at every
   pair this site served; lupin 0.1.47 shipped beside v0.2.24 reading
   v0.2.22's text, two tags back, and this site never served that pair;
@@ -211,7 +214,7 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   agrees with the compiler's own second
   line: the release above was tested against the interpreter version this
   page names, and the playground serves that interpreter, as it did at
-  v0.2.32's pin, at v0.2.30's, at v0.2.29's, at v0.2.28's, at v0.2.26's, at v0.2.25's, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
+  v0.2.33's pin, at v0.2.32's, at v0.2.30's, at v0.2.29's, at v0.2.28's, at v0.2.26's, at v0.2.25's, at v0.2.23's, at v0.2.22's, at v0.2.21's, at v0.2.19's, and at v0.2.18's, when the interpreter had just narrowed the gap from the two
   tags it had fallen behind. At v0.2.15's pin it was not, and the reason is worth
   keeping: the interpreter release the compiler had been tested against
   declared, as the specification checkout it was built to, a compiler
@@ -273,32 +276,50 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>Every program the release above brought into the corpus's running set
-  answers here as its header says or is declined for the tab's reason, and
-  it brought one. <code>corpus/os/signal_one_rows.lu</code> walks the shapes
-  of one meaning's disposition and of the end by a signal, and its first
-  call, <code>os_signal_ignore_one</code>, does not resolve in this
-  interpreter, which has not mirrored the release's new calls: the tab
-  declines the program there, naming the call, and <code>lupin
-  __LUPIN_VERSION__</code> at a terminal does the same. Each of the new calls
-  made alone — <code>os_signal_ignore_one</code>,
+  <p>The release above brought no program into the corpus's running set.
+  It took one row out of <code>corpus/os/term_editor_rows.lu</code>, a
+  terminal mode with bit 5 set, which it made a field where it had been
+  <code>invalid</code>; the tab declines the program at its first call with
+  the process tier, as it did, and at a terminal the interpreter above
+  prints what the header now says. Its new calls —
+  <code>os_fork</code>, <code>os_term_restore_at_exit</code>,
+  <code>os_signal_wait_fds</code>, <code>fs_sync</code>,
+  <code>fs_sync_dir</code>, <code>fs_realpath</code> and
+  <code>os_clock_ns</code> — each answer <code>unsupported</code> here when
+  a program makes one alone, naming the call as one that does not resolve,
+  and none of them runs at a terminal either until a later lupin release
+  mirrors it (wolf-interp#268, #269).</p>
+
+  <p>At v0.2.33's pin the addition was one program.
+  <code>corpus/os/signal_one_rows.lu</code> walks the shapes of one
+  meaning's disposition and of the end by a signal, and its first call,
+  <code>os_signal_ignore_one</code>, did not resolve in lupin 0.1.54; the
+  interpreter above mirrors that release's calls, so the tab declines the
+  program at that call with the process tier instead, and at a terminal
+  <code>lupin __LUPIN_VERSION__</code> prints the header's rows. Each of
+  those calls made alone — <code>os_signal_ignore_one</code>,
   <code>os_signal_default_one</code>, <code>os_exit_signal</code>,
-  <code>os_wait_status_core</code> and <code>os_wait_poll_core</code> —
-  answers <code>unsupported</code> here, naming the call as one that does not
-  resolve, and none of them runs at a terminal either until the interpreter
-  mirrors it. <code>corpus/os/group_rows.lu</code> lost its row for
-  <code>os_signal_text(0)</code>, which the release above answers with the
+  <code>os_wait_status_core</code> and <code>os_wait_poll_core</code> — is
+  declined here with the process tier, where under the interpreter before
+  it each answered as a name that does not resolve; at a terminal the interpreter answers their shape rows
+  and the core siblings' answers, and refuses a well-formed disposition or
+  end by name. <code>corpus/os/group_rows.lu</code> lost its row for
+  <code>os_signal_text(0)</code>, which that release answers with the
   host's words where it answered <code>invalid</code>, and the tab declines
   the program at its first call with the process tier, as it did;
-  <code>os_signal_text</code> made alone is declined with that tier too, so
-  the tab gives signal 0 neither the host's words nor the
-  <code>invalid</code> this interpreter still answers for it at a terminal. The
-  census counts verdicts; a second walk feeds every running program in the
-  corpus to both modules — the one this site served until now and the one
-  this build publishes, the same interpreter release built in two places —
-  and compares what each prints. The measurement is four walks, not one —
-  both corpora through both modules — and no program that both corpora
-  carry changed its answer, in its verdict or in its output.</p>
+  <code>os_signal_text</code> made alone is declined with that tier too, and
+  at a terminal this interpreter refuses signal 0's words by name, where
+  lupin 0.1.54 answered <code>invalid</code>. The census counts verdicts; a
+  second walk feeds every running program in the corpus to both modules —
+  the one this site served until now, lupin 0.1.54's, and the one this
+  build publishes — and compares what each prints. The measurement is four
+  walks, not one — both corpora through both modules — and no program that
+  both corpora carry changed its answer, in its verdict or in its output.
+  Three changed the reason they are declined for: the program above, and
+  <code>corpus/os/signal_loopback.lu</code> and
+  <code>signal_supervisor.lu</code>, whose first call,
+  <code>os_signal_listen</code>, lupin 0.1.54 did not resolve and this build
+  declines with the process tier.</p>
 
   <p>At v0.2.32's pin the additions were v0.2.31's and v0.2.32's together.
   The shift rule's programs answer as their headers say:
