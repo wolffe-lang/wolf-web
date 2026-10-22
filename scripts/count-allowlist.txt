@@ -269,7 +269,7 @@ index.html eighteen 1 counted=1 audited-at-book=f1fd824
 index.html seven 1 counted=1 audited-at-wolf=0.2.34
 index.html twenty 1 counted=0
 install/index.html Five 1 counted=1 audited-at-wolf=0.2.34
-install/index.html Six 1 counted=1 audited-at-lupin=0.1.54
+install/index.html Six 1 counted=1 audited-at-lupin=0.1.55
 install/index.html eight 2 counted=0
 # ww45: the lag phrase moved from `eight releases` to `nine releases`, so
 # /install/'s third `eight` left (the two left are the low eight bits of a
@@ -287,22 +287,22 @@ install/index.html six 1 counted=0
 install/index.html sixteen 1 counted=0
 install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.34
 install/index.html twenty-one 1 counted=0
-play/index.html Eight 1 counted=1 audited-at-lupin=0.1.54
+play/index.html Eight 1 counted=1 audited-at-lupin=0.1.55
 # ww43: /play/'s second `six` is the lag phrase, held page-wide by
 # check-lag-phrases.py and not by this clock; the one counted here is the
 # six programs a release brought, as before.
 play/index.html six 1 counted=1 audited-at-wolf=0.2.34
 play/index.html Twenty-two 1 counted=0
 play/index.html twenty-two 2 counted=0
-play/index.html Six 1 counted=1 audited-at-lupin=0.1.54
+play/index.html Six 1 counted=1 audited-at-lupin=0.1.55
 # ww43: /play/'s lag-phrase `five` left with `five releases`; the five
 # counted here are the ones ww42 counted, and the sixth is frozen as before.
-play/index.html five 6 counted=5 audited-at-lupin=0.1.54
+play/index.html five 6 counted=5 audited-at-lupin=0.1.55
 # ww45: /play/'s lag-phrase `eight` left with `eight releases` and its
 # second `nine` is `nine releases`, held page-wide by check-lag-phrases.py
 # and not by this clock; the one counted here is the nine running `if_then`
 # witnesses, as before.
-play/index.html nine 2 counted=1 audited-at-lupin=0.1.54
+play/index.html nine 2 counted=1 audited-at-lupin=0.1.55
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
 spec/index.html ten 1 counted=1 audited-at-wolf=0.2.34
