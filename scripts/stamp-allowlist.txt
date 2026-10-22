@@ -82,7 +82,7 @@
 # windows job's phrase check, which is page-wide and reads the two gitlinks
 # rather than the prose — a stronger gate than this file's, not a weaker one.
 # The trade belongs written down where the count drops.
-index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.33
+index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.34
 install/index.html __WOLF_VERSION__ 11 bound=2 audited-at-wolf=0.2.33
 install/index.html __LUPIN_VERSION__ 8 bound=4 audited-at-lupin=0.1.54
 spec/index.html __WOLF_VERSION__ 4 bound=4 audited-at-wolf=0.2.33

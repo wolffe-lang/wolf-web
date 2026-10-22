@@ -139,7 +139,42 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises lets a program choose for
+  <p><strong>The release this page advertises lets a forked child keep
+  running wolf code, and gives an editor the calls it asks of the
+  host.</strong> <code>os_fork</code> answers the parent the child's
+  process id and a handle the waits and polls serve, and answers the child
+  <code>(0, -1)</code>; the child is one thread, the caller's, with the
+  program's memory as it was. It answers <code>busy</code>, before the host
+  is asked, while any task is live, from a task or a proc handler, or under
+  the deterministic scheduler, so a fork never copies a lock another thread
+  holds; the checked machine and windows answer <code>unsupported</code>
+  (wolf-lang#803). An editor can have the runtime restore its terminal at
+  every exit the runtime owns (<code>os_term_restore_at_exit</code>,
+  wolf-lang#794), wait over several descriptors, a signal set and a
+  deadline at once (<code>os_signal_wait_fds</code>, #795), sync a file and
+  its directory for an atomic save (<code>fs_sync</code>,
+  <code>fs_sync_dir</code>, #796), resolve a canonical path
+  (<code>fs_realpath</code>, #797) and read a clock in nanoseconds
+  (<code>os_clock_ns</code>, #798). Three answers a running program can see
+  moved: a terminal mode's bits 5 to 7 are fields now, the raw carriage
+  return, raw output and stripped input, so a mode without them writes the
+  usual setting where the release before left each as found (#802);
+  <code>wolf test</code> runs a test file's own <code>test_*</code>, never
+  those of a plain file that sorted before it (#799); and a program that
+  names <code>os_signal_wait_fds</code> makes the signal hub and its wake
+  pipe before <code>main</code>, as one that names
+  <code>os_signal_wait_fd</code> does. The <code>std/</code> in the archive
+  moved on to wrap the previous release's calls —
+  <code>signal.ignore_one</code> and <code>signal.reset_one</code>,
+  <code>process.exit_signal</code>, and the core read beside
+  <code>process.Status</code>, never inside it — with
+  <code>net.Addr</code> beside them. It wraps none of this release's calls
+  yet, so a program calls them as the prelude spells them. The interpreter
+  tested beside this release has learned the previous release's calls and
+  none of these: the <a href="/play/">playground</a> measures the
+  difference.</p>
+
+  <p><strong>v0.2.33 let a program choose for
   one signal at a time, end itself by a signal, and learn that a child
   dumped core.</strong> <code>os_signal_ignore_one</code> and
   <code>os_signal_default_one</code> set one meaning's signal ignored, or
@@ -172,13 +207,13 @@ fn main() -&gt; !int {
   <code>join_group</code>, and <code>signal.send_group</code>,
   <code>signal.send_all</code>, <code>signal.last</code>,
   <code>signal.realtime</code>, <code>signal.text</code> and
-  <code>signal.host</code>. It wraps none of this release's new calls, so a
-  program calls them as the prelude spells them. The interpreter this
-  release is tested against is the one the release before it was tested
-  against, and it does not know the new names yet, so the gap between the
-  two widened again, and the <a href="/play/">playground</a> counts it.</p>
+  <code>signal.host</code>. It wraps none of that release's new calls, so a
+  program calls them as the prelude spells them. The interpreter tested
+  beside that release did not know its new names; the one beside the
+  release above answers their shapes and the core siblings, and refuses the
+  rest by name.</p>
 
-  <p><strong>v0.2.32, the release before it, kept a closed standard
+  <p><strong>v0.2.32 kept a closed standard
   descriptor closed, and let the checked machine's waits and writes make
   way for the tasks they wait on.</strong> At v0.2.31 a program on the dev
   tier, <code>wolf build</code> and <code>wolf run</code>, that imported
