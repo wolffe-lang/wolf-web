@@ -214,7 +214,8 @@ under `docs/audit/ww46-evidence/`.
 | staged contents gate | `gate-staged.txt` / `.json.gz`: 50 pages, 46 entries, 2,300 clicks and 0 faults on all six cells; retry from ch07 hop 1 and hop 2 at 0 `HTTP 404` and 0 `ERROR` in 1,116 lines (`retry-staged.log`) |
 | every staged checker on a plant | `stage-plant.txt` (script `ww46-stage-plant.sh`): an inline script on the front page and /play/, /play/'s §34.7 link removed, ch34's `id="34.8"` renamed, one ch07 SVG removed, ch01's archive name set back to 0.2.33, §34.7's `fork.lu` call renamed, the menu's last entry removed, `hello.lu` replaced by the `os_fork` probe; served on 127.0.0.1:8755 (`ww46-plant.sh`, `plant.txt`): `book-plant.txt` 19 FAIL lines, exit 1; `play-plant.txt` 7 FAIL lines, exit 1; `play-compare-plant.txt` 6 verdicts moved and 12 served before and refused or missing now, exit 1; `links-plant.txt` 7 FAIL lines, exit 1 |
 | the prose audits between commits | `ww46-chk.sh`: ships the worktree's `site/`, `scripts/`, `tests/` and `CHANGELOG.md` to kasumi's build clone and runs the lag, version and count audits and the node suites there, never a build on nomad-1 |
-| CI at head, and the plant | in the PR body |
+| the plant in CI (RULES.md §7) | `02af5c4` took `ten releases` out of the closed set and put the word stamp's 999 ceiling back; this PR's CI run 39714360631 went red (job 119612822785, step "editor core and CSP gates", 124 pass / 7 fail: `tests/count-words.test.mjs` at 1,000, 1,067, 1,100, 1,101 and 999,999, `no prose spelling for 1000`, and two of `tests/lag-phrases.test.mjs`, `the interpreter is 10 releases behind … for 0 through 9 only`; `plant-ci-119612822785.log`) and the windows push run 39714357669 went red (job 119612813771, step "the specification pin lag the site records", the same line, `plant-windows-119612813771.log`; job 119612813563, the editor suites, the five count-stamp tests, `plant-windows-editor-119612813563.log`). `1813283` reverts it, its tree identical to `1419f4b`'s |
+| CI at the final head | in the PR body |
 
 **Prediction vs measurement**
 
@@ -236,7 +237,7 @@ under `docs/audit/ww46-evidence/`.
 | ch34 | #34.7 and #34.8 | both, and two hops from the front page |
 | browser gates | 3 × 2, production CSP, two-hop links | all green; every checker red on its plant |
 | the word stamp | one thousand and sixty-seven | identical, once per page |
-| the plant | ten out and the 999 ceiling back: node tests and the windows lag gate red; the revert's tree identical | in the PR body |
+| the plant | ten out and the 999 ceiling back: node tests and the windows lag gate red; the revert's tree identical | identical: CI 39714360631 and windows 39714357669 red, as named above; the windows editor suites red too (the count stamp), not named; revert tree = `1419f4b`'s |
 | the lupin module | — | `1fc52ce9…` in the control and the build (same directory) |
 
 **Found, not predicted.**
@@ -279,7 +280,9 @@ under `docs/audit/ww46-evidence/`.
 - [x] What the tab answers for §34.7's and §34.8's calls, measured in the
       module, in the engines and at a terminal.
 - [x] CHANGELOG entry naming what moved, in words.
-- [ ] The plant (lag phrase and word ceiling) seen red in CI, reverted.
+- [x] The plant (lag phrase and word ceiling) seen red in CI, reverted: `02af5c4`,
+      CI 39714360631 (job 119612822785), windows 39714357669 (jobs
+      119612813771, 119612813563); revert `1813283`.
 - [ ] The final head's PR run and windows run green, handed back with ids
       (RULES.md §6).
 - [ ] After the merge (the orchestrator's): the deploy job's run id, the live

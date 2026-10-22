@@ -1,0 +1,1611 @@
+build the site	Set up job	﻿2026-10-22T02:59:19.8398930Z Current runner version: '2.338.0'
+build the site	Set up job	2026-10-22T02:59:19.8424972Z ##[group]Runner Image Provisioner
+build the site	Set up job	2026-10-22T02:59:19.8425930Z Hosted Compute Agent
+build the site	Set up job	2026-10-22T02:59:19.8426535Z Version: 20261012.601
+build the site	Set up job	2026-10-22T02:59:19.8427237Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+build the site	Set up job	2026-10-22T02:59:19.8428033Z Build Date: 2026-10-12T17:48:21Z
+build the site	Set up job	2026-10-22T02:59:19.8428736Z Worker ID: {bd9dfa9c-0c7b-4ccc-8726-bb008a768621}
+build the site	Set up job	2026-10-22T02:59:19.8429524Z Region: centralus
+build the site	Set up job	2026-10-22T02:59:19.8430456Z Cloud: Azure
+build the site	Set up job	2026-10-22T02:59:19.8431074Z ##[endgroup]
+build the site	Set up job	2026-10-22T02:59:19.8432767Z ##[group]Operating System
+build the site	Set up job	2026-10-22T02:59:19.8433457Z Ubuntu
+build the site	Set up job	2026-10-22T02:59:19.8434075Z 24.04.5
+build the site	Set up job	2026-10-22T02:59:19.8434653Z LTS
+build the site	Set up job	2026-10-22T02:59:19.8435203Z ##[endgroup]
+build the site	Set up job	2026-10-22T02:59:19.8435864Z ##[group]Runner Image
+build the site	Set up job	2026-10-22T02:59:19.8436487Z Image: ubuntu-24.04
+build the site	Set up job	2026-10-22T02:59:19.8437092Z Version: 20261012.334.1
+build the site	Set up job	2026-10-22T02:59:19.8438187Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+build the site	Set up job	2026-10-22T02:59:19.8440296Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+build the site	Set up job	2026-10-22T02:59:19.8441320Z ##[endgroup]
+build the site	Set up job	2026-10-22T02:59:19.8442624Z ##[group]GITHUB_TOKEN Permissions
+build the site	Set up job	2026-10-22T02:59:19.8444529Z Contents: read
+build the site	Set up job	2026-10-22T02:59:19.8445259Z Metadata: read
+build the site	Set up job	2026-10-22T02:59:19.8445892Z Packages: read
+build the site	Set up job	2026-10-22T02:59:19.8446481Z ##[endgroup]
+build the site	Set up job	2026-10-22T02:59:19.8448601Z Secret source: Actions
+build the site	Set up job	2026-10-22T02:59:19.8449533Z Cache mode: write
+build the site	Set up job	2026-10-22T02:59:19.8450644Z Prepare workflow directory
+build the site	Set up job	2026-10-22T02:59:19.8878599Z Prepare all required actions
+build the site	Set up job	2026-10-22T02:59:19.8949438Z Getting action download info
+build the site	Set up job	2026-10-22T02:59:20.1411564Z Download action repository 'actions/checkout@v5' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+build the site	Set up job	2026-10-22T02:59:20.2394092Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+build the site	Set up job	2026-10-22T02:59:20.3291884Z Download action repository 'dtolnay/rust-toolchain@stable' (SHA:b725eda525362e7cf34af9a7243cac1e3f01a7ec)
+build the site	Set up job	2026-10-22T02:59:20.6118221Z Complete job name: build the site
+build the site	Run actions/checkout@v5	﻿2026-10-22T02:59:20.6963045Z ##[group]Run actions/checkout@v5
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6963942Z with:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6964395Z   submodules: recursive
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6964898Z   repository: wolffe-lang/wolf-web
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6968856Z   token: ***
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6969299Z   ssh-strict: true
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6969741Z   ssh-user: git
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6970434Z   persist-credentials: true
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6970950Z   clean: true
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6971419Z   sparse-checkout-cone-mode: true
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6971958Z   fetch-depth: 1
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6972406Z   fetch-tags: false
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6972868Z   show-progress: true
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6973337Z   lfs: false
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6973767Z   set-safe-directory: true
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6974289Z   allow-unsafe-pr-checkout: false
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.6975073Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8138384Z Syncing repository: wolffe-lang/wolf-web
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8141186Z ##[group]Getting Git version info
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8142285Z Working directory is '/home/runner/work/wolf-web/wolf-web'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8143877Z [command]/usr/bin/git version
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8151299Z git version 2.55.0
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8239421Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8245667Z Temporarily overriding HOME='/home/runner/work/_temp/6e80efe0-7e4a-452b-bbb2-912ae3b54dbe' before making global git config changes
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8247645Z Adding repository directory to the temporary git global config as a safe directory
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8248811Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wolf-web/wolf-web
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8273445Z Deleting the contents of '/home/runner/work/wolf-web/wolf-web'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8278089Z ##[group]Initializing the repository
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8293210Z [command]/usr/bin/git init /home/runner/work/wolf-web/wolf-web
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8428506Z hint: Using 'master' as the name for the initial branch. This default branch name
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8430789Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8433842Z hint: to use in all of your new repositories, which will suppress this warning,
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8435375Z hint: call:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8436080Z hint:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8436923Z hint: 	git config --global init.defaultBranch <name>
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8437985Z hint:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8438897Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8440858Z hint: 'development'. The just-created branch can be renamed via this command:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8442408Z hint:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8443359Z hint: 	git branch -m <name>
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8445368Z hint:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8446641Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8448296Z Initialized empty Git repository in /home/runner/work/wolf-web/wolf-web/.git/
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8451075Z [command]/usr/bin/git remote add origin https://github.com/wolffe-lang/wolf-web
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8502228Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8503573Z ##[group]Disabling automatic garbage collection
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8507348Z [command]/usr/bin/git config --local gc.auto 0
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8545601Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8547299Z ##[group]Setting up auth
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8561261Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.8596935Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9111446Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9151788Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9400206Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9438732Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9664472Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9707584Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9708506Z ##[group]Fetching the repository
+build the site	Run actions/checkout@v5	2026-10-22T02:59:20.9717779Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +10534246a8bb27fb876ca4d8c8d64d1d730e6382:refs/remotes/pull/66/merge
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6240901Z From https://github.com/wolffe-lang/wolf-web
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6242933Z  * [new ref]         10534246a8bb27fb876ca4d8c8d64d1d730e6382 -> pull/66/merge
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6247685Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6249813Z ##[group]Determining the checkout info
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6252393Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6255896Z [command]/usr/bin/git sparse-checkout disable
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6322586Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6352030Z ##[group]Checking out the ref
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6356417Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/66/merge
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6879097Z Note: switching to 'refs/remotes/pull/66/merge'.
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6880419Z 
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6881454Z You are in 'detached HEAD' state. You can look around, make experimental
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6883969Z changes and commit them, and you can discard any commits you make in this
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6886300Z state without impacting any branches by switching back to a branch.
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6887622Z 
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6888653Z If you want to create a new branch to retain commits you create, you may
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6891052Z do so (now or later) by using -c with the switch command. Example:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6892320Z 
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6892707Z   git switch -c <new-branch-name>
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6893313Z 
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6893699Z Or undo this operation with:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6894266Z 
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6894612Z   git switch -
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6895403Z 
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6896510Z Turn off this advice by setting config variable advice.detachedHead to false
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6897587Z 
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6898793Z HEAD is now at 1053424 Merge 02af5c42168c15f683540d0d48495d349f7b94ed into 0a5306a9b4a1ee356ea21f64b1688c2cdf376eb5
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6903409Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6905080Z ##[group]Setting up auth for fetching submodules
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6907010Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6948173Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.6980601Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7022100Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-315637195@github.com:
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7067380Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7071505Z ##[group]Fetching submodules
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7073837Z [command]/usr/bin/git submodule sync --recursive
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7319113Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7545220Z Submodule 'book' (https://github.com/wolffe-lang/wolf-book.git) registered for path 'upstream/wolf-book'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7550687Z Submodule 'interp' (https://github.com/wolffe-lang/wolf-interp.git) registered for path 'upstream/wolf-interp'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7555926Z Submodule 'lang' (https://github.com/wolffe-lang/wolf-lang.git) registered for path 'upstream/wolf-lang'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:21.7582067Z Cloning into '/home/runner/work/wolf-web/wolf-web/upstream/wolf-book'...
+build the site	Run actions/checkout@v5	2026-10-22T02:59:22.6241528Z Cloning into '/home/runner/work/wolf-web/wolf-web/upstream/wolf-interp'...
+build the site	Run actions/checkout@v5	2026-10-22T02:59:23.4037189Z Cloning into '/home/runner/work/wolf-web/wolf-web/upstream/wolf-lang'...
+build the site	Run actions/checkout@v5	2026-10-22T02:59:24.7913874Z Submodule path 'upstream/wolf-book': checked out 'f1fd824711b8949d6d4400c5ce5e8d61b328fe0f'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:25.6335899Z From https://github.com/wolffe-lang/wolf-interp
+build the site	Run actions/checkout@v5	2026-10-22T02:59:25.6336516Z  * branch            e642f2630ad4c7f53740428d5cca705f2e0d295b -> FETCH_HEAD
+build the site	Run actions/checkout@v5	2026-10-22T02:59:25.8149748Z Submodule path 'upstream/wolf-interp': checked out 'e642f2630ad4c7f53740428d5cca705f2e0d295b'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:25.8176002Z Submodule 'upstream' (https://github.com/wolffe-lang/wolf-lang.git) registered for path 'upstream/wolf-interp/upstream'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:25.8203118Z Cloning into '/home/runner/work/wolf-web/wolf-web/upstream/wolf-interp/upstream'...
+build the site	Run actions/checkout@v5	2026-10-22T02:59:28.2160925Z From https://github.com/wolffe-lang/wolf-lang
+build the site	Run actions/checkout@v5	2026-10-22T02:59:28.2162021Z  * branch            294d626dd596122285d5df954762e3aee3e5db71 -> FETCH_HEAD
+build the site	Run actions/checkout@v5	2026-10-22T02:59:28.5003296Z Submodule path 'upstream/wolf-interp/upstream': checked out '294d626dd596122285d5df954762e3aee3e5db71'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.5312636Z From https://github.com/wolffe-lang/wolf-lang
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.5313515Z  * branch            9da7bdcf2aea9adf48df6570bedc58e16e9ef853 -> FETCH_HEAD
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.8612845Z Submodule path 'upstream/wolf-lang': checked out '9da7bdcf2aea9adf48df6570bedc58e16e9ef853'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.8661225Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.8898725Z Entering 'upstream/wolf-book'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.8948035Z Entering 'upstream/wolf-interp'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.8991713Z Entering 'upstream/wolf-interp/upstream'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9039030Z Entering 'upstream/wolf-lang'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9097554Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9098459Z ##[group]Persisting credentials for submodules
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9104670Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9318266Z Entering 'upstream/wolf-book'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9363804Z Entering 'upstream/wolf-interp'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9409488Z Entering 'upstream/wolf-interp/upstream'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9462204Z Entering 'upstream/wolf-lang'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9526414Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9739883Z Entering 'upstream/wolf-book'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9782428Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/book/config	remote.origin.url
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9804137Z Entering 'upstream/wolf-interp'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9842887Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/interp/config	remote.origin.url
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9865873Z Entering 'upstream/wolf-interp/upstream'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9904893Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config	remote.origin.url
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9932589Z Entering 'upstream/wolf-lang'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:29.9971379Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/lang/config	remote.origin.url
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0036126Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0270972Z Entering 'upstream/wolf-book'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0307949Z Entering 'upstream/wolf-interp'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0353287Z Entering 'upstream/wolf-interp/upstream'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0403096Z Entering 'upstream/wolf-lang'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0468000Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-315637195@github.com:'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0704176Z Entering 'upstream/wolf-book'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0747598Z Entering 'upstream/wolf-interp'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0792327Z Entering 'upstream/wolf-interp/upstream'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0840503Z Entering 'upstream/wolf-lang'
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0895767Z ##[endgroup]
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0943220Z [command]/usr/bin/git log -1 --format=%H
+build the site	Run actions/checkout@v5	2026-10-22T02:59:30.0971294Z 10534246a8bb27fb876ca4d8c8d64d1d730e6382
+build the site	submodule pins match their gitlinks	﻿2026-10-22T02:59:30.1242921Z ##[group]Run for m in wolf-book wolf-interp wolf-lang; do
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1243429Z ^[[36;1mfor m in wolf-book wolf-interp wolf-lang; do^[[0m
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1243844Z ^[[36;1m  want=$(git ls-tree HEAD "upstream/$m" | awk '{print $3}')^[[0m
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1244249Z ^[[36;1m  have=$(git -C "upstream/$m" rev-parse HEAD)^[[0m
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1244741Z ^[[36;1m  test "$want" = "$have" || { echo "::error::upstream/$m is $have, the pin says $want"; exit 1; }^[[0m
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1245198Z ^[[36;1m  echo "$m ${have:0:7}"^[[0m
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1245435Z ^[[36;1mdone^[[0m
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1538525Z shell: /usr/bin/bash -e {0}
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1538885Z ##[endgroup]
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1693964Z wolf-book f1fd824
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1735346Z wolf-interp e642f26
+build the site	submodule pins match their gitlinks	2026-10-22T02:59:30.1775365Z wolf-lang 9da7bdc
+build the site	the python the deploy host runs	﻿2026-10-22T02:59:30.1819310Z ##[group]Run want=$(grep -v '^#' scripts/deploy-python.txt | tr -d '[:space:]')
+build the site	the python the deploy host runs	2026-10-22T02:59:30.1819874Z ^[[36;1mwant=$(grep -v '^#' scripts/deploy-python.txt | tr -d '[:space:]')^[[0m
+build the site	the python the deploy host runs	2026-10-22T02:59:30.1820745Z ^[[36;1mtest -n "$want" || { echo "::error::scripts/deploy-python.txt names no version"; exit 1; }^[[0m
+build the site	the python the deploy host runs	2026-10-22T02:59:30.1821217Z ^[[36;1mecho "version=$want" >> "$GITHUB_OUTPUT"^[[0m
+build the site	the python the deploy host runs	2026-10-22T02:59:30.1821594Z ^[[36;1mecho "the deploy host runs python3 $want; this job will too"^[[0m
+build the site	the python the deploy host runs	2026-10-22T02:59:30.1885712Z shell: /usr/bin/bash -e {0}
+build the site	the python the deploy host runs	2026-10-22T02:59:30.1885974Z ##[endgroup]
+build the site	the python the deploy host runs	2026-10-22T02:59:30.1984066Z the deploy host runs python3 3.9; this job will too
+build the site	Run actions/setup-python@v5	﻿2026-10-22T02:59:30.2107820Z ##[group]Run actions/setup-python@v5
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2108136Z with:
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2108544Z   python-version: 3.9
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2108774Z   check-latest: false
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2111615Z   token: ***
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2111846Z   update-environment: true
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2112090Z   allow-prereleases: false
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2112317Z   freethreaded: false
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.2112523Z ##[endgroup]
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.3426792Z ##[group]Installed versions
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.3514385Z Version 3.9 was not found in the local cache
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.3670255Z (node:2709) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:30.3671622Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:31.1415457Z Version 3.9 is available for downloading
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:31.1416303Z Download from "https://github.com/actions/python-versions/releases/download/3.9.25-19039189640/python-3.9.25-linux-24.04-x64.tar.gz"
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:31.7688016Z Extract downloaded archive
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:31.7808924Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/54afbb8a-e9b6-42db-ae56-af9196a228a3 -f /home/runner/work/_temp/a652995e-f2a9-4fc2-bb7c-54b9be34b00a
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:33.1716924Z Execute installation script
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:33.1812745Z Check if Python hostedtoolcache folder exist...
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:33.1813571Z Create Python 3.9.25 folder
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:33.1827183Z Copy Python binaries to hostedtoolcache folder
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:33.6465331Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:33.6507497Z Upgrading pip...
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:35.8997304Z Looking in links: /tmp/tmpvxzuwxy5
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:35.9002695Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages (79.0.1)
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:35.9007682Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages (23.0.1)
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.1384270Z Collecting pip
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.1940483Z Downloading pip-26.0.1-py3-none-any.whl (1.8 MB)
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.2822990Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 20.9 MB/s eta 0:00:00
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.2823648Z 
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.3440866Z Installing collected packages: pip
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.3443336Z Attempting uninstall: pip
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.3450361Z Found existing installation: pip 23.0.1
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.5298631Z Uninstalling pip-23.0.1:
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:37.5374401Z Successfully uninstalled pip-23.0.1
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:38.4043658Z Successfully installed pip-26.0.1
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:38.4596906Z Create complete file
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:38.4643868Z Successfully set up CPython (3.9.25)
+build the site	Run actions/setup-python@v5	2026-10-22T02:59:38.4645171Z ##[endgroup]
+build the site	and this job actually got it	﻿2026-10-22T02:59:38.4928994Z ##[group]Run have=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
+build the site	and this job actually got it	2026-10-22T02:59:38.4929630Z ^[[36;1mhave=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')^[[0m
+build the site	and this job actually got it	2026-10-22T02:59:38.4930268Z ^[[36;1mwant='3.9'^[[0m
+build the site	and this job actually got it	2026-10-22T02:59:38.4930786Z ^[[36;1mtest "$have" = "$want" || { echo "::error::asked for python $want, this job has $have — the rehearsal would not be one"; exit 1; }^[[0m
+build the site	and this job actually got it	2026-10-22T02:59:38.4931366Z ^[[36;1mpython3 --version^[[0m
+build the site	and this job actually got it	2026-10-22T02:59:38.5000529Z shell: /usr/bin/bash -e {0}
+build the site	and this job actually got it	2026-10-22T02:59:38.5000793Z env:
+build the site	and this job actually got it	2026-10-22T02:59:38.5001073Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	and this job actually got it	2026-10-22T02:59:38.5001535Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	and this job actually got it	2026-10-22T02:59:38.5001973Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	and this job actually got it	2026-10-22T02:59:38.5002366Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	and this job actually got it	2026-10-22T02:59:38.5002739Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	and this job actually got it	2026-10-22T02:59:38.5003154Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	and this job actually got it	2026-10-22T02:59:38.5003468Z ##[endgroup]
+build the site	and this job actually got it	2026-10-22T02:59:38.5217472Z Python 3.9.25
+build the site	the pinned compiler checkout gets its history	﻿2026-10-22T02:59:38.5259001Z ##[group]Run if [ "$(git -C upstream/wolf-lang rev-parse --is-shallow-repository)" = true ]; then
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5259854Z ^[[36;1mif [ "$(git -C upstream/wolf-lang rev-parse --is-shallow-repository)" = true ]; then^[[0m
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5260619Z ^[[36;1m  git -C upstream/wolf-lang fetch --quiet --unshallow --tags origin^[[0m
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5260999Z ^[[36;1mfi^[[0m
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5261407Z ^[[36;1mecho "upstream/wolf-lang carries $(git -C upstream/wolf-lang rev-list --count HEAD) commits"^[[0m
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5323968Z shell: /usr/bin/bash -e {0}
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5324229Z env:
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5324501Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5324954Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5325407Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5325797Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5326206Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5326637Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:38.5326961Z ##[endgroup]
+build the site	the pinned compiler checkout gets its history	2026-10-22T02:59:43.7899740Z upstream/wolf-lang carries 3788 commits
+build the site	Run dtolnay/rust-toolchain@stable	﻿2026-10-22T02:59:43.8096935Z ##[group]Run dtolnay/rust-toolchain@stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8097258Z with:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8097447Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8097644Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8097894Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8098316Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8098745Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8099118Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8099485Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8099864Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8100505Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8170950Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8198076Z ##[group]Run if [[ -z $toolchain ]]; then
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8198417Z ^[[36;1mif [[ -z $toolchain ]]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8198957Z ^[[36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8199521Z ^[[36;1m  echo "'toolchain' is a required input" >&2^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8199818Z ^[[36;1m  exit 1^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8200437Z ^[[36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8200855Z ^[[36;1m  if [[ Linux == macOS ]]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8201386Z ^[[36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8201903Z ^[[36;1m  else^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8202306Z ^[[36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8202782Z ^[[36;1m  fi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8203080Z ^[[36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8203616Z ^[[36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8204080Z ^[[36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8204603Z ^[[36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8205109Z ^[[36;1melse^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8205306Z ^[[36;1m  delimiter=EOF^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8205611Z ^[[36;1m  while [[ $toolchain == *$delimiter* ]]; do delimiter+=_; done^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8206139Z ^[[36;1m  printf 'toolchain<<%s\n%s\n%s\n' "$delimiter" "$toolchain" "$delimiter" >> $GITHUB_OUTPUT^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8206562Z ^[[36;1mfi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8270962Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8271482Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8271745Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8272187Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8272641Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8273021Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8273394Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8273766Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8274084Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8274282Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8375395Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=20]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8377634Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8396952Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8397430Z ^[[36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8457977Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8458314Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8458764Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8459209Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8459647Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8460315Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8460711Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8461083Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8461401Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8547183Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=16]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8549221Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8572206Z ##[group]Run if ! command -v rustup &>/dev/null; then
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8572572Z ^[[36;1mif ! command -v rustup &>/dev/null; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8573320Z ^[[36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8574064Z ^[[36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8574345Z ^[[36;1mfi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8630715Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8631053Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8631332Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8631814Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8632230Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8632716Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8633178Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8633745Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8634184Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8634518Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8736264Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=success;conclusion=success;duration_ms=18]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8738379Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8743938Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8756553Z ##[start-action display=rustup toolchain install stable;id=__dtolnay_rust-toolchain.__run_4]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8775275Z ##[group]Run set -f  # split targets and components on commas and whitespace, without glob expansion
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8775951Z ^[[36;1mset -f  # split targets and components on commas and whitespace, without glob expansion^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8776532Z ^[[36;1mflags=()^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8776815Z ^[[36;1mfor t in ${targets//,/ }; do flags+=(--target "$t"); done^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8777225Z ^[[36;1mfor c in ${components//,/ }; do flags+=(--component "$c"); done^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8777734Z ^[[36;1mif [[ $toolchain == nightly && -n $components ]]; then flags+=(--allow-downgrade); fi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8778150Z ^[[36;1mlog=$(mktemp)^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8778374Z ^[[36;1mtrap 'rm -f "$log"' EXIT^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8778642Z ^[[36;1mfor attempt in 1 2 3 4 5; do^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8779226Z ^[[36;1m  if rustup toolchain install "$toolchain" "${flags[@]}" --profile minimal --no-self-update --force-non-host 2>&1 | tee "$log"; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8779795Z ^[[36;1m    break^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8780253Z ^[[36;1m  else^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8780504Z ^[[36;1m    status=$?^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8780713Z ^[[36;1m  fi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8781005Z ^[[36;1m  if [[ $attempt == 5 ]] || ! grep -Fq 'checksum failed for ' "$log" \^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8781571Z ^[[36;1m      || ! grep -Fq 'this is likely due to an ongoing update of the official release server' "$log"; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8782035Z ^[[36;1m    exit "$status"^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8782408Z ^[[36;1m  fi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8782758Z ^[[36;1m  echo "Retrying rustup toolchain install in 30 seconds (retry $attempt of 4)" >&2^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8783173Z ^[[36;1m  sleep 30^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8783367Z ^[[36;1mdone^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8839349Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8839700Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8840178Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8840638Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8841079Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8841466Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8841848Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8842227Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8842559Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8842808Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8843010Z   targets: 
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8843193Z   components: 
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8843398Z   RUSTUP_PERMIT_COPY_RENAME: 1
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.8843630Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:43.9471352Z info: syncing channel updates for stable-x86_64-unknown-linux-gnu
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:44.2150582Z info: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:44.2385936Z info: removing previous version of component rustfmt
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:44.2407993Z info: removing previous version of component clippy
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:44.2421546Z info: removing previous version of component cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:44.2477431Z info: removing previous version of component rust-std
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:44.2527797Z info: removing previous version of component rustc
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:44.2583992Z info: downloading 5 components
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6211766Z 
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6280377Z   stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6281012Z 
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6355425Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=8759]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6362609Z ##[start-action display=rustup default stable;id=__dtolnay_rust-toolchain.__run_5]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6382555Z ##[group]Run rustup default "$toolchain" --force-non-host
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6382962Z ^[[36;1mrustup default "$toolchain" --force-non-host^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6447402Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6447764Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6448028Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6448475Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6449087Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6449456Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6449826Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6450729Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6451065Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6451314Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6451513Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6581228Z info: using existing install for stable-x86_64-unknown-linux-gnu
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6586772Z info: default toolchain set to stable-x86_64-unknown-linux-gnu
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6587099Z 
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6650450Z   stable-x86_64-unknown-linux-gnu unchanged - rustc 1.99.1 (58cf8f9c3 2026-10-13)
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6650908Z 
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6666590Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=30]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6669842Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6688505Z ##[group]Run DATE=$(rustc +"$toolchain" --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6689589Z ^[[36;1mDATE=$(rustc +"$toolchain" --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6690556Z ^[[36;1mHASH=$(rustc +"$toolchain" --version --verbose | sed -ne 's/^commit-hash: //p')^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6691097Z ^[[36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6752330Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6752686Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6752952Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6753411Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6753866Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6754265Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6754648Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6755028Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6755366Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6755620Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.6755818Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7087702Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=41]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7090384Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7108824Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7109209Z ^[[36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7109542Z ^[[36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7109827Z ^[[36;1mfi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7171780Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7172128Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7172390Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7172818Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7173246Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7173609Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7173995Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7174384Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7174721Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7174964Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7263163Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=17]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7265320Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7283799Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7284168Z ^[[36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7284527Z ^[[36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7284826Z ^[[36;1mfi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7344614Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7344973Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7345242Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7345698Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7346141Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7346535Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7346909Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7347290Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7347628Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7347876Z   CARGO_INCREMENTAL: 0
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7348102Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7434904Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=16]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7437784Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7456782Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7457294Z ^[[36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7458019Z ^[[36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7458769Z ^[[36;1m  if rustc +"$toolchain" --version --verbose | grep -q '^release: 1\.6[89]\.'; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7459373Z ^[[36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7459928Z ^[[36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7460812Z ^[[36;1m  elif rustc +"$toolchain" --version --verbose | grep -q '^release: 1\.6[67]\.'; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7461424Z ^[[36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7461971Z ^[[36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7462323Z ^[[36;1m  fi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7462513Z ^[[36;1mfi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7520767Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7521119Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7521383Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7521834Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7522281Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7522671Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7523066Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7523464Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7523802Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7524056Z   CARGO_INCREMENTAL: 0
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7524284Z   CARGO_TERM_COLOR: always
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7524503Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7524703Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7827869Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=38]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7831824Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7850406Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7851240Z ^[[36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7851895Z ^[[36;1mif rustc +"$toolchain" --version --verbose | grep -q '^release: 1\.7[01]\.'; then^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7852604Z ^[[36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7852926Z ^[[36;1mfi^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7913048Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7913601Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7913980Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7914515Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7915085Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7915599Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7916048Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7916590Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7917027Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7934809Z   CARGO_INCREMENTAL: 0
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7935078Z   CARGO_TERM_COLOR: always
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7935320Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.7935550Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8131321Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=29]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8135321Z ##[start-action display=rustc +stable --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8153860Z ##[group]Run rustc +"$toolchain" --version --verbose
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8154226Z ^[[36;1mrustc +"$toolchain" --version --verbose^[[0m
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8214660Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8215037Z env:
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8215303Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8215748Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8216176Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8216560Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8216930Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8217318Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8217654Z   CARGO_HOME: /home/runner/.cargo
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8217898Z   CARGO_INCREMENTAL: 0
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8218121Z   CARGO_TERM_COLOR: always
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8218336Z   toolchain: stable
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8218537Z ##[endgroup]
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8403919Z rustc 1.99.1 (58cf8f9c3 2026-10-13)
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8404715Z binary: rustc
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8405419Z commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8405865Z commit-date: 2026-10-13
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8406187Z host: x86_64-unknown-linux-gnu
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8406477Z release: 1.99.1
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8406871Z LLVM version: 23.1.1
+build the site	Run dtolnay/rust-toolchain@stable	2026-10-22T02:59:52.8420942Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=28]
+build the site	the wasm target	﻿2026-10-22T02:59:52.8479073Z ##[group]Run rustup target add wasm32-unknown-unknown
+build the site	the wasm target	2026-10-22T02:59:52.8479502Z ^[[36;1mrustup target add wasm32-unknown-unknown^[[0m
+build the site	the wasm target	2026-10-22T02:59:52.8542227Z shell: /usr/bin/bash -e {0}
+build the site	the wasm target	2026-10-22T02:59:52.8542489Z env:
+build the site	the wasm target	2026-10-22T02:59:52.8542759Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the wasm target	2026-10-22T02:59:52.8543204Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	the wasm target	2026-10-22T02:59:52.8543646Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the wasm target	2026-10-22T02:59:52.8544028Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the wasm target	2026-10-22T02:59:52.8544411Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	the wasm target	2026-10-22T02:59:52.8544790Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	the wasm target	2026-10-22T02:59:52.8545128Z   CARGO_HOME: /home/runner/.cargo
+build the site	the wasm target	2026-10-22T02:59:52.8545380Z   CARGO_INCREMENTAL: 0
+build the site	the wasm target	2026-10-22T02:59:52.8545598Z   CARGO_TERM_COLOR: always
+build the site	the wasm target	2026-10-22T02:59:52.8545814Z ##[endgroup]
+build the site	the wasm target	2026-10-22T02:59:52.9113476Z info: downloading component rust-std
+build the site	typst (sets the book PDF)	﻿2026-10-22T02:59:55.3474049Z ##[group]Run curl -sSL https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz \
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3475490Z ^[[36;1mcurl -sSL https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz \^[[0m
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3476469Z ^[[36;1m  | tar -xJ -C "$RUNNER_TEMP"^[[0m
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3477129Z ^[[36;1mecho "$RUNNER_TEMP/typst-x86_64-unknown-linux-musl" >> "$GITHUB_PATH"^[[0m
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3556389Z shell: /usr/bin/bash -e {0}
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3556790Z env:
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3557204Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3558133Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3558864Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3559521Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3560356Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3560875Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3561248Z   CARGO_HOME: /home/runner/.cargo
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3561491Z   CARGO_INCREMENTAL: 0
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3561702Z   CARGO_TERM_COLOR: always
+build the site	typst (sets the book PDF)	2026-10-22T02:59:55.3562040Z ##[endgroup]
+build the site	shell scripts parse	﻿2026-10-22T02:59:56.7481614Z ##[group]Run for f in scripts/*.sh; do bash -n "$f"; done
+build the site	shell scripts parse	2026-10-22T02:59:56.7482064Z ^[[36;1mfor f in scripts/*.sh; do bash -n "$f"; done^[[0m
+build the site	shell scripts parse	2026-10-22T02:59:56.7545450Z shell: /usr/bin/bash -e {0}
+build the site	shell scripts parse	2026-10-22T02:59:56.7545721Z env:
+build the site	shell scripts parse	2026-10-22T02:59:56.7545987Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	shell scripts parse	2026-10-22T02:59:56.7546421Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	shell scripts parse	2026-10-22T02:59:56.7546873Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	shell scripts parse	2026-10-22T02:59:56.7547258Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	shell scripts parse	2026-10-22T02:59:56.7547636Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	shell scripts parse	2026-10-22T02:59:56.7548019Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	shell scripts parse	2026-10-22T02:59:56.7548573Z   CARGO_HOME: /home/runner/.cargo
+build the site	shell scripts parse	2026-10-22T02:59:56.7548822Z   CARGO_INCREMENTAL: 0
+build the site	shell scripts parse	2026-10-22T02:59:56.7549036Z   CARGO_TERM_COLOR: always
+build the site	shell scripts parse	2026-10-22T02:59:56.7549711Z ##[endgroup]
+build the site	editor core and CSP gates	﻿2026-10-22T02:59:56.7734154Z ##[group]Run node --test tests/*.test.mjs
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7734524Z ^[[36;1mnode --test tests/*.test.mjs^[[0m
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7793069Z shell: /usr/bin/bash -e {0}
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7793334Z env:
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7793605Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7794057Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7794511Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7794908Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7795290Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7795674Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7796044Z   CARGO_HOME: /home/runner/.cargo
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7796302Z   CARGO_INCREMENTAL: 0
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7796521Z   CARGO_TERM_COLOR: always
+build the site	editor core and CSP gates	2026-10-22T02:59:56.7796737Z ##[endgroup]
+build the site	editor core and CSP gates	2026-10-22T02:59:57.0861020Z TAP version 13
+build the site	editor core and CSP gates	2026-10-22T02:59:57.1376172Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.1430956Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.1445284Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.1447536Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.1448311Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.1771394Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2191087Z # Subtest: the invocation CI makes is green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2192240Z ok 1 - the invocation CI makes is green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2220847Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2240925Z   duration_ms: 6.104361
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2241745Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2242403Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2243688Z # Subtest: the first witness runs on both sides now — it closed at v0.2.11
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2245080Z ok 2 - the first witness runs on both sides now — it closed at v0.2.11
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2245943Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2246466Z   duration_ms: 0.281825
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2247066Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2247567Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2248341Z # Subtest: a program the module runs against a clause the release does not declare reds
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2249648Z ok 3 - a program the module runs against a clause the release does not declare reds
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2250949Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2251517Z   duration_ms: 0.324916
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2252198Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2252711Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2253698Z # Subtest: a witness the module refuses is not a failure — the tab is simply not ahead
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2255096Z ok 4 - a witness the module refuses is not a failure — the tab is simply not ahead
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2256031Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2256582Z   duration_ms: 0.296012
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2257173Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2257701Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2258601Z # Subtest: a witness that runs but answers differently reds — 'it runs' is a claim
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2259904Z ok 5 - a witness that runs but answers differently reds — 'it runs' is a claim
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2268597Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2269185Z   duration_ms: 1.025843
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2269788Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2270571Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2271040Z # Subtest: --witnesses with no file named is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2271662Z ok 6 - --witnesses with no file named is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2272158Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2272462Z   duration_ms: 34.535279
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2272827Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2273135Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2273597Z # Subtest: --witnesses naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2274372Z ok 7 - --witnesses naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2274935Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2275236Z   duration_ms: 0.731964
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2275880Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2276185Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2276603Z # Subtest: a missing module is a refusal, not a silent pass
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2277256Z ok 8 - a missing module is a refusal, not a silent pass
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2277758Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2278055Z   duration_ms: 31.774141
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2278413Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.2278713Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3153762Z # Subtest: every local script and stylesheet reference gains ?v=<pin>, nothing else moves
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3191201Z ok 9 - every local script and stylesheet reference gains ?v=<pin>, nothing else moves
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3192288Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3220710Z   duration_ms: 44.411794
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3221146Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3221497Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3222033Z # Subtest: wolf-boot.js one directory down and under /book/ is versioned too
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3222612Z ok 10 - wolf-boot.js one directory down and under /book/ is versioned too
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3223009Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3223203Z   duration_ms: 34.040827
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3223436Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3223632Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3223933Z # Subtest: a second pass versions nothing twice, and so refuses the zero
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3224401Z ok 11 - a second pass versions nothing twice, and so refuses the zero
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3224741Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3224921Z   duration_ms: 35.612127
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3225136Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3225320Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3225606Z # Subtest: a book with no assets to version is refused, not reported as done
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3226081Z ok 12 - a book with no assets to version is refused, not reported as done
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3226428Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3226878Z   duration_ms: 37.198805
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3227094Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3227272Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3227471Z # Subtest: the pin is seven hex characters
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3227760Z ok 13 - the pin is seven hex characters
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3228026Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3228210Z   duration_ms: 28.031619
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3228429Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.3228613Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8531186Z # Subtest: the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8541224Z ok 14 - the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8542026Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8542605Z   duration_ms: 133.711918
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8543166Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8543635Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8544328Z # Subtest: a number word in an --also file that the allowlist does not carry reds
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8567430Z ok 15 - a number word in an --also file that the allowlist does not carry reds
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8568521Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8569219Z   duration_ms: 139.648847
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8569898Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8570753Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8571503Z # Subtest: an --also file that counts nothing is no trouble
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8572478Z ok 16 - an --also file that counts nothing is no trouble
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8573365Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8573982Z   duration_ms: 143.218272
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8574682Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8575294Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8576246Z # Subtest: --also is what carries the CHANGELOG.md block: without it the allowlist is stale
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8577637Z ok 17 - --also is what carries the CHANGELOG.md block: without it the allowlist is stale
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8578683Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8579278Z   duration_ms: 88.153057
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8579934Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8580827Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8581625Z # Subtest: the key is the path as written, not the file it resolves to
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8582725Z ok 18 - the key is the path as written, not the file it resolves to
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8583617Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8584124Z   duration_ms: 123.379043
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8584687Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8585236Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8605647Z # Subtest: --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8607152Z ok 19 - --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8608114Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8609547Z   duration_ms: 36.346837
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8609947Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8610554Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8611002Z # Subtest: --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8611573Z ok 20 - --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8612024Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8612351Z   duration_ms: 42.620994
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8612708Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8613057Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8749099Z # Subtest: the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8780799Z ok 21 - the invocation build.sh makes is green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8788475Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8808675Z   duration_ms: 69.57346
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8810390Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8841338Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8869429Z # Subtest: the copy the mutation tests are built on is itself green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8870808Z ok 22 - the copy the mutation tests are built on is itself green
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8871595Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8872111Z   duration_ms: 61.885372
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8872690Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8873203Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8873893Z # Subtest: a frozen literal edited to a version that never existed reds
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8874904Z ok 23 - a frozen literal edited to a version that never existed reds
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8875697Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8876205Z   duration_ms: 47.830337
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8876845Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8877355Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8877977Z # Subtest: a frozen literal that simply disappears reds too
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8879249Z ok 24 - a frozen literal that simply disappears reds too
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8879950Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8880695Z   duration_ms: 45.698382
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8881257Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8881775Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8882355Z # Subtest: --also is what carries the CHANGELOG.md block
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8883143Z ok 25 - --also is what carries the CHANGELOG.md block
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8883821Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8884309Z   duration_ms: 36.202668
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8884852Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8885340Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8885888Z # Subtest: frozen is refused on a living site page
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8886640Z ok 26 - frozen is refused on a living site page
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8887285Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8887781Z   duration_ms: 47.363081
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8888326Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8888842Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8889510Z # Subtest: --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8890652Z ok 27 - --also with no file named is a refusal, not a silent skip
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8891404Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8891897Z   duration_ms: 25.419052
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8892450Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8892958Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8893572Z # Subtest: --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8894435Z ok 28 - --also naming a file that is not there is a refusal
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8895138Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8895646Z   duration_ms: 32.681421
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8896274Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.8896825Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9499122Z # Subtest: the count stamp spells 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9499743Z ok 29 - the count stamp spells 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9500440Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9500797Z   duration_ms: 51.089698
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9501208Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9501560Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9501912Z # Subtest: the count stamp spells 99
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9502413Z ok 30 - the count stamp spells 99
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9502887Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9503217Z   duration_ms: 51.149555
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9503606Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9503938Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9504284Z # Subtest: the count stamp spells 100
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9505217Z ok 31 - the count stamp spells 100
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9505671Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9506006Z   duration_ms: 48.796408
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9506415Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9506755Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9507105Z # Subtest: the count stamp spells 999
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9507614Z ok 32 - the count stamp spells 999
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9508063Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9508395Z   duration_ms: 52.557991
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9508798Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9509133Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9556484Z # Subtest: the count stamp spells 1000
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9557443Z not ok 33 - the count stamp spells 1000
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9557940Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9558256Z   duration_ms: 53.413086
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9558645Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9559236Z   location: '/home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:22:3'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9559960Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9560636Z   error: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9560983Z     Traceback (most recent call last):
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9568752Z       File "<string>", line 1, in <module>
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9569647Z       File "/home/runner/work/wolf-web/wolf-web/scripts/stamp-counts.py", line 104, in word
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9600874Z         raise ValueError(f"no prose spelling for {n}")
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9601479Z     ValueError: no prose spelling for 1000
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9601930Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9602201Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9602470Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9602755Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9603044Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9603413Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9603770Z   expected: 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9604076Z   actual: 1
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9604689Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9605059Z   stack: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9605783Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9606785Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9607445Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9608234Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9609029Z     Test.postRun (node:internal/test_runner/test:1173:19)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9609660Z     Test.run (node:internal/test_runner/test:1101:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9610684Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9611407Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9611767Z # Subtest: the count stamp spells 1067
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9612269Z not ok 34 - the count stamp spells 1067
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9612717Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9613040Z   duration_ms: 55.186818
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9613546Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9614169Z   location: '/home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:22:3'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9614939Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9615395Z   error: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9615767Z     Traceback (most recent call last):
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9616344Z       File "<string>", line 1, in <module>
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9617281Z       File "/home/runner/work/wolf-web/wolf-web/scripts/stamp-counts.py", line 104, in word
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9618255Z         raise ValueError(f"no prose spelling for {n}")
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9618850Z     ValueError: no prose spelling for 1067
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9619389Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9619655Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9619950Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9637262Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9637671Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9638081Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9638459Z   expected: 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9638767Z   actual: 1
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9639080Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9639454Z   stack: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9640373Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9641346Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9642199Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9642902Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9643635Z     Test.postRun (node:internal/test_runner/test:1173:19)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9644268Z     Test.run (node:internal/test_runner/test:1101:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9645010Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9645701Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9646039Z # Subtest: the count stamp spells 1100
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9646528Z not ok 35 - the count stamp spells 1100
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9646960Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9647257Z   duration_ms: 37.452047
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9647626Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9648201Z   location: '/home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:22:3'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9648908Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9649306Z   error: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9649645Z     Traceback (most recent call last):
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9650894Z       File "<string>", line 1, in <module>
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9651715Z       File "/home/runner/work/wolf-web/wolf-web/scripts/stamp-counts.py", line 104, in word
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9652591Z         raise ValueError(f"no prose spelling for {n}")
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9653131Z     ValueError: no prose spelling for 1100
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9653564Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9653835Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9654106Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9654387Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9654674Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9655038Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9655396Z   expected: 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9655694Z   actual: 1
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9656009Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9656598Z   stack: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9657290Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9658193Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9658810Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9659549Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9660545Z     Test.postRun (node:internal/test_runner/test:1173:19)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9661137Z     Test.run (node:internal/test_runner/test:1101:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9661843Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9662643Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9663121Z # Subtest: the count stamp spells 1101
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9663644Z not ok 36 - the count stamp spells 1101
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9664105Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9664441Z   duration_ms: 43.500568
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9664844Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9665464Z   location: '/home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:22:3'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9666235Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9666676Z   error: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9667056Z     Traceback (most recent call last):
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9667616Z       File "<string>", line 1, in <module>
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9668436Z       File "/home/runner/work/wolf-web/wolf-web/scripts/stamp-counts.py", line 104, in word
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9669286Z         raise ValueError(f"no prose spelling for {n}")
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9669835Z     ValueError: no prose spelling for 1101
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9670496Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9670781Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9671040Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9671276Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9671525Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9671897Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9672262Z   expected: 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9672570Z   actual: 1
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9672872Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9673237Z   stack: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9673913Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9674818Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9675651Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9676364Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9677110Z     Test.postRun (node:internal/test_runner/test:1173:19)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9677731Z     Test.run (node:internal/test_runner/test:1101:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9678590Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9679263Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9679604Z # Subtest: the count stamp spells 999999
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9687715Z not ok 37 - the count stamp spells 999999
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9688246Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9688577Z   duration_ms: 55.017892
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9688963Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9689560Z   location: '/home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:22:3'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9690546Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9690974Z   error: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9691310Z     Traceback (most recent call last):
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9691847Z       File "<string>", line 1, in <module>
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9692673Z       File "/home/runner/work/wolf-web/wolf-web/scripts/stamp-counts.py", line 104, in word
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9693555Z         raise ValueError(f"no prose spelling for {n}")
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9694136Z     ValueError: no prose spelling for 999999
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9694602Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9694893Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9695175Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9695476Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9695808Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9696203Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9696584Z   expected: 0
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9696896Z   actual: 1
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9697216Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9697845Z   stack: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9698572Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9699526Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9700382Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9701129Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9701889Z     Test.postRun (node:internal/test_runner/test:1173:19)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9702509Z     Test.run (node:internal/test_runner/test:1101:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9703262Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9703935Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9704318Z # Subtest: the count stamp refuses -1
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9704842Z ok 38 - the count stamp refuses -1
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9705262Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9705580Z   duration_ms: 56.811071
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9705995Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9706321Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9706669Z # Subtest: the count stamp refuses 1000000
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9707205Z ok 39 - the count stamp refuses 1000000
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9707642Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9707961Z   duration_ms: 60.126464
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9708338Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9708643Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9709140Z # Subtest: nginx CSP: script-src is 'self' 'wasm-unsafe-eval', exactly
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9709929Z ok 40 - nginx CSP: script-src is 'self' 'wasm-unsafe-eval', exactly
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9711111Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9711434Z   duration_ms: 1.452038
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9711808Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9712127Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9712639Z # Subtest: site pages: no inline scripts, no inline styles, no foreign sources
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9713479Z ok 41 - site pages: no inline scripts, no inline styles, no foreign sources
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9714095Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9714406Z   duration_ms: 4.709189
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9714777Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9715090Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9715606Z # Subtest: the editor is dependency-free: its modules import only each other
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9716435Z ok 42 - the editor is dependency-free: its modules import only each other
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9717296Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9717584Z   duration_ms: 1.611635
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9717880Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9718161Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9731583Z # Subtest: scan: code is code
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9733745Z ok 43 - scan: code is code
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9734145Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9734466Z   duration_ms: 2.351073
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9734829Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9735201Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9735545Z # Subtest: scan: inside a plain string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9736027Z ok 44 - scan: inside a plain string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9736450Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9736759Z   duration_ms: 0.240839
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9737120Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9737436Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9737843Z # Subtest: scan: interpolation braces re-enter code
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9738457Z ok 45 - scan: interpolation braces re-enter code
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9738961Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9739278Z   duration_ms: 0.229999
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9739666Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9740231Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9740827Z # Subtest: scan: {{ is a literal brace, not an interpolation
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9741517Z ok 46 - scan: {{ is a literal brace, not an interpolation
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9742061Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9742379Z   duration_ms: 0.141023
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9742736Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9743044Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9743438Z # Subtest: scan: a nested string inside an interpolation
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9821018Z ok 47 - scan: a nested string inside an interpolation
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9851178Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9851892Z   duration_ms: 0.194021
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9870917Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9871401Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9872145Z # Subtest: scan: line comments
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9872700Z ok 48 - scan: line comments
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9873181Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9873582Z   duration_ms: 0.142205
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9874040Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9874468Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9874875Z # Subtest: scan: char literals
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9875387Z ok 49 - scan: char literals
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9875926Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9876322Z   duration_ms: 0.126665
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9876775Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9877172Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9877627Z # Subtest: scan: raw strings do not interpolate
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9878277Z ok 50 - scan: raw strings do not interpolate
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9878834Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9879264Z   duration_ms: 0.226923
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9879718Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9880342Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9880856Z # Subtest: scan: multiline strings
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9881402Z ok 51 - scan: multiline strings
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9881893Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9882307Z   duration_ms: 0.365671
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9882762Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9883175Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9883690Z # Subtest: scan: an escaped quote does not close the string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9884443Z ok 52 - scan: an escaped quote does not close the string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9885067Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9885464Z   duration_ms: 0.374808
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9886117Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9888483Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9889011Z # Subtest: scan: open brackets carry their positions
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9889713Z ok 53 - scan: open brackets carry their positions
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9890539Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9890955Z   duration_ms: 0.186477
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9891422Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9891890Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9892412Z # Subtest: type: an opener inserts its pair, caret inside
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9893151Z ok 54 - type: an opener inserts its pair, caret inside
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9897561Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9902016Z   duration_ms: 1.148432
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9902554Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9902985Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9903442Z # Subtest: type: a closer types over its twin
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9904075Z ok 55 - type: a closer types over its twin
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9904924Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9905335Z   duration_ms: 0.20393
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9905790Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9906235Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9906790Z # Subtest: type: a quote pairs in code and types over itself
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9907590Z ok 56 - type: a quote pairs in code and types over itself
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9908218Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9908634Z   duration_ms: 0.349802
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9909099Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9909500Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9909935Z # Subtest: type: no pairing against a word
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9910939Z ok 57 - type: no pairing against a word
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9911482Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9911889Z   duration_ms: 0.211184
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9912354Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9912751Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9913269Z # Subtest: type: a selection is wrapped, and stays selected
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9914020Z ok 58 - type: a selection is wrapped, and stays selected
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9914881Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9915283Z   duration_ms: 0.266226
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9915735Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9916138Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9916612Z # Subtest: type: parens do not pair inside a string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9917296Z ok 59 - type: parens do not pair inside a string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9917873Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9918278Z   duration_ms: 0.182831
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9918753Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9919161Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9919691Z # Subtest: type: interpolation braces DO pair inside a string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9920874Z ok 60 - type: interpolation braces DO pair inside a string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9921488Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9921824Z   duration_ms: 0.248603
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9922531Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9922867Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9923333Z # Subtest: type: the interpolation's closing brace types over
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9924040Z ok 61 - type: the interpolation's closing brace types over
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9924590Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9924911Z   duration_ms: 0.184845
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9925277Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9925636Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9925990Z # Subtest: type: nothing pairs in a comment
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9926524Z ok 62 - type: nothing pairs in a comment
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9926980Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9927293Z   duration_ms: 0.137536
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9927658Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9927966Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9928322Z # Subtest: type: nothing pairs in a raw string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9928848Z ok 63 - type: nothing pairs in a raw string
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9929352Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9929650Z   duration_ms: 0.19828
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9930005Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9930618Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9931014Z # Subtest: type: a lone } dedents to its opener's line
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9931611Z ok 64 - type: a lone } dedents to its opener's line
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9932106Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9932406Z   duration_ms: 0.227214
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9932767Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9933072Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9933428Z # Subtest: enter: carries the leading whitespace
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9933971Z ok 65 - enter: carries the leading whitespace
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9934429Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9934723Z   duration_ms: 0.253002
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9935076Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9935379Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9935785Z # Subtest: enter: a {-suffixed line indents one step
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9936370Z ok 66 - enter: a {-suffixed line indents one step
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9936841Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9937138Z   duration_ms: 0.189103
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9937488Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9937789Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9938159Z # Subtest: enter: between the braces, the pair splits
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9938747Z ok 67 - enter: between the braces, the pair splits
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9939223Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9939517Z   duration_ms: 0.141834
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9939867Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9940658Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9941065Z # Subtest: enter: a { inside a string does not indent
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9941646Z ok 68 - enter: a { inside a string does not indent
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9942125Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9942423Z   duration_ms: 0.131856
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9942787Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9943091Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9943454Z # Subtest: backspace: an empty pair goes together
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9944005Z ok 69 - backspace: an empty pair goes together
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9944478Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9944780Z   duration_ms: 0.196836
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9945132Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9945439Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9945841Z # Subtest: backspace: leading whitespace backs up one stop
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9946500Z ok 70 - backspace: leading whitespace backs up one stop
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9946996Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9947290Z   duration_ms: 0.138057
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9947633Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9947935Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9948331Z # Subtest: backspace: one code point, even an astral one
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9948937Z ok 71 - backspace: one code point, even an astral one
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9949424Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9949728Z   duration_ms: 0.188251
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9950385Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9950710Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9951107Z # Subtest: delete forward: a selection or one code point
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9951705Z ok 72 - delete forward: a selection or one code point
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9952183Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9952471Z   duration_ms: 0.17154
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9952815Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9953121Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9967617Z # Subtest: goal columns: a short line does not forget the target
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9968588Z ok 73 - goal columns: a short line does not forget the target
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9969271Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9969696Z   duration_ms: 0.276285
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9970294Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9970610Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9971063Z # Subtest: goal columns: up from the first line goes to the start
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9971749Z ok 74 - goal columns: up from the first line goes to the start
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9972282Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9972598Z   duration_ms: 0.10185
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9972956Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9973255Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9973615Z # Subtest: visual columns treat a tab as a 4-stop
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9974201Z ok 75 - visual columns treat a tab as a 4-stop
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9974884Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9975345Z   duration_ms: 0.771128
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9975844Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9976301Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9976794Z # Subtest: home: first ink, then column zero
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9977513Z ok 76 - home: first ink, then column zero
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9978131Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9978540Z   duration_ms: 0.17698
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9979037Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9979469Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9979930Z # Subtest: end: end of line for every cursor
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9990847Z ok 77 - end: end of line for every cursor
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9991345Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9991686Z   duration_ms: 0.234106
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9992070Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9992405Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9992793Z # Subtest: add cursor below, then typing lands at both
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9993416Z ok 78 - add cursor below, then typing lands at both
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9993924Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9994233Z   duration_ms: 0.379106
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9994595Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9994897Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9995308Z # Subtest: add cursor above mirrors, with the goal column
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9995975Z ok 79 - add cursor above mirrors, with the goal column
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9996495Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9996817Z   duration_ms: 0.135373
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9997180Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9997502Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9997919Z # Subtest: add cursor below at the last line adds nothing
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9998829Z ok 80 - add cursor below at the last line adds nothing
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9999371Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:57.9999699Z   duration_ms: 0.108532
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0010534Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0010947Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0011384Z # Subtest: backspace applies at every cursor as one edit
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0012127Z ok 81 - backspace applies at every cursor as one edit
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0012651Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0012992Z   duration_ms: 0.163986
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0013378Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0013707Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0014064Z # Subtest: escape collapses to the primary
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0014616Z ok 82 - escape collapses to the primary
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0015103Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0015449Z   duration_ms: 0.111347
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0015832Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0016154Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0016573Z # Subtest: paste: line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0017227Z ok 83 - paste: line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0017792Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0018131Z   duration_ms: 0.258992
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0018506Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0018861Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0019348Z # Subtest: paste: whole clipboard at each cursor when they do not
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0020393Z ok 84 - paste: whole clipboard at each cursor when they do not
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0020991Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0021340Z   duration_ms: 0.164155
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0021730Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0022065Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0022501Z # Subtest: paste: a single cursor takes the whole clipboard
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0023211Z ok 85 - paste: a single cursor takes the whole clipboard
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0023765Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0024438Z   duration_ms: 0.127879
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0024831Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0025167Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0025573Z # Subtest: ctrl+d: word first, then the next occurrence
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0026190Z ok 86 - ctrl+d: word first, then the next occurrence
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0026701Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0027029Z   duration_ms: 0.251669
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0027401Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0027718Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0028177Z # Subtest: normalize: overlapping cursors merge, duplicates drop
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0028915Z ok 87 - normalize: overlapping cursors merge, duplicates drop
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0029479Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0029861Z   duration_ms: 0.112009
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0030503Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0030850Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0031310Z # Subtest: tab: a bare caret pads to the next 4-stop
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0031938Z ok 88 - tab: a bare caret pads to the next 4-stop
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0032464Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0032819Z   duration_ms: 0.349171
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0033210Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0033544Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0033936Z # Subtest: indent and dedent every touched line
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0034518Z ok 89 - indent and dedent every touched line
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0035022Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0035365Z   duration_ms: 0.42883
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0035754Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0036088Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0036561Z # Subtest: indent with two cursors touches both lines once each
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0037318Z ok 90 - indent with two cursors touches both lines once each
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0037881Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0038206Z   duration_ms: 0.124202
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0038592Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0038943Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0039460Z # Subtest: ctrl+/: comments align at the shallowest indent, and back
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0070683Z ok 91 - ctrl+/: comments align at the shallowest indent, and back
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0071327Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0071677Z   duration_ms: 0.452794
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0072061Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0072401Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0072785Z # Subtest: ctrl+/: mixed lines all gain comments
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0073346Z ok 92 - ctrl+/: mixed lines all gain comments
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0074180Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0074508Z   duration_ms: 0.132226
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0074898Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0075230Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0075766Z # Subtest: coalescing: a typed word is one step, the space after it is not
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0076638Z ok 93 - coalescing: a typed word is one step, the space after it is not
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0077257Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0077583Z   duration_ms: 0.189563
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0077966Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0078298Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0078763Z # Subtest: coalescing: backspaces run together, kinds never mix
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0079501Z ok 94 - coalescing: backspaces run together, kinds never mix
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0080355Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0080709Z   duration_ms: 0.13932
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0081078Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0081405Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0081839Z # Subtest: coalescing: a cursor-count change breaks the run
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0082543Z ok 95 - coalescing: a cursor-count change breaks the run
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0083093Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0083411Z   duration_ms: 0.094296
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0083790Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0084115Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0084573Z # Subtest: session: typing a wolf function with the manners on
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0085328Z ok 96 - session: typing a wolf function with the manners on
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0085883Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0086213Z   duration_ms: 0.388874
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0086585Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0086913Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0087442Z # Subtest: typed keys route through the core: pairs appear in the textarea
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0088339Z ok 97 - typed keys route through the core: pairs appear in the textarea
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0089286Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0089629Z   duration_ms: 4.669917
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0090276Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0093177Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0093578Z # Subtest: the gutter counts the lines
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0094112Z ok 98 - the gutter counts the lines
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0094700Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0095117Z   duration_ms: 0.292946
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0095544Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0095877Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0096235Z # Subtest: mod+Enter runs and edits nothing
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0096762Z ok 99 - mod+Enter runs and edits nothing
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0097229Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0097545Z   duration_ms: 0.307253
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0097913Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0098243Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0098771Z # Subtest: ctrl+alt+down grows a column; typing lands at each; Esc collapses
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0099683Z ok 100 - ctrl+alt+down grows a column; typing lands at each; Esc collapses
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0100649Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0100992Z   duration_ms: 8.664534
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0101374Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0101696Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0102175Z # Subtest: paste distributes line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0102942Z ok 101 - paste distributes line-per-cursor when the counts match
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0105474Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0105823Z   duration_ms: 2.311159
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0106494Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0106851Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0107343Z # Subtest: a typed word undoes as one step; the next word is its own
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0108137Z ok 102 - a typed word undoes as one step; the next word is its own
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0108709Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0109032Z   duration_ms: 0.3912
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0109393Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0109707Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0110364Z # Subtest: a multi-cursor edit undoes as ONE step
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0110985Z ok 103 - a multi-cursor edit undoes as ONE step
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0111505Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0111813Z   duration_ms: 1.597789
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0112174Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0112551Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0112895Z # Subtest: redo brings a step back
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0113381Z ok 104 - redo brings a step back
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0114047Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0114382Z   duration_ms: 0.750008
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0114765Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0115112Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0115685Z # Subtest: tab indents the caret to the next stop; shift+tab dedents the line
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0116584Z ok 105 - tab indents the caret to the next stop; shift+tab dedents the line
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0117213Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0117519Z   duration_ms: 4.30146
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0117883Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0118193Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0118525Z # Subtest: mod+/ comments and uncomments
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0119020Z ok 106 - mod+/ comments and uncomments
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0119445Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0119758Z   duration_ms: 1.17415
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0120438Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0120776Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0121246Z # Subtest: mod+d selects the word, then adds the next occurrence
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0122006Z ok 107 - mod+d selects the word, then adds the next occurrence
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0122598Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0122930Z   duration_ms: 0.673496
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0123303Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0123632Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0124107Z # Subtest: goal columns survive keyboard travel over a short line
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0124893Z ok 108 - goal columns survive keyboard travel over a short line
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0125454Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0125763Z   duration_ms: 3.360175
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0126138Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.0126462Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.3471218Z #   (skipped: upstream/ is not checked out)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.5221079Z #   (skipped: upstream/ is not checked out)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.8742186Z #   (skipped: upstream/ is not checked out)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9106158Z # Subtest: the site as it stands passes, and says what it measured
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9111434Z not ok 109 - the site as it stands passes, and says what it measured
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9112059Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9112399Z   duration_ms: 245.688542
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9112785Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9113163Z   location: '/home/runner/work/wolf-web/wolf-web/tests/lag-phrases.test.mjs:74:1'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9113619Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9113869Z   error: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9115181Z     check-lag-phrases: the interpreter is 10 releases behind and /install/ and /play/ have prose for 0 through 9 only — write the sentence, then add its phrase here
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9116100Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9116322Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9116617Z     1 !== 0
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9116910Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9117209Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9117594Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9117985Z   expected: 0
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9118304Z   actual: 1
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9118626Z   operator: 'strictEqual'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9118895Z   stack: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9119339Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/lag-phrases.test.mjs:77:10)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9119895Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9120597Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9121215Z     Test.start (node:internal/test_runner/test:944:17)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9121945Z     startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9122356Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9123059Z # Subtest: ww27's own paragraph reds — the phrase for another gap, quoted
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9123902Z ok 110 - ww27's own paragraph reds — the phrase for another gap, quoted
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9124266Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9124578Z   duration_ms: 187.412991
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9124947Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9125264Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9125651Z # Subtest: a page that drops the phrase for the counted gap reds
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9126092Z ok 111 - a page that drops the phrase for the counted gap reds
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9126412Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9126809Z   duration_ms: 174.60969
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9127026Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9127214Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9129365Z # Subtest: the revision written by hand reds, even when it is correct
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9134702Z not ok 112 - the revision written by hand reds, even when it is correct
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9135354Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9135665Z   duration_ms: 178.453746
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9135948Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9136314Z   location: '/home/runner/work/wolf-web/wolf-web/tests/lag-phrases.test.mjs:140:1'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9136762Z   failureType: 'testCodeFailure'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9137009Z   error: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9137288Z     The input did not match the regular expression /by hand/. Input:
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9137642Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9138485Z     'check-lag-phrases: the interpreter is 10 releases behind and /install/ and /play/ have prose for 0 through 9 only — write the sentence, then add its phrase here\n'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9139183Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9139372Z   code: 'ERR_ASSERTION'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9139794Z   name: 'AssertionError'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9140425Z   expected:
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9140736Z   actual: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9141948Z     check-lag-phrases: the interpreter is 10 releases behind and /install/ and /play/ have prose for 0 through 9 only — write the sentence, then add its phrase here
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9143185Z     
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9143498Z   operator: 'match'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9143836Z   stack: |-
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9144572Z     TestContext.<anonymous> (file:///home/runner/work/wolf-web/wolf-web/tests/lag-phrases.test.mjs:153:10)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9145557Z     Test.runInAsyncScope (node:async_hooks:214:14)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9146174Z     Test.run (node:internal/test_runner/test:1047:25)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9147252Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9148049Z     Test.postRun (node:internal/test_runner/test:1173:19)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9148702Z     Test.run (node:internal/test_runner/test:1101:12)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9149471Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9154825Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9155427Z # Subtest: the distance stamp is required exactly when there is a distance
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9156320Z ok 113 - the distance stamp is required exactly when there is a distance
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9157032Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9162779Z   duration_ms: 173.273433
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9163327Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9163690Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9164191Z # Subtest: no arguments is a usage error, on any checkout
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9164852Z ok 114 - no arguments is a usage error, on any checkout
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9165381Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9165705Z   duration_ms: 31.421133
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9166079Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9166390Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9166938Z # Subtest: the closed set runs from zero with no hole, every entry a phrase in words
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9167862Z ok 115 - the closed set runs from zero with no hole, every entry a phrase in words
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9168518Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9168836Z   duration_ms: 1.301517
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9169204Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9169516Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9240974Z # Subtest: the site's server block is found
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9241628Z ok 116 - the site's server block is found
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9242145Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9242508Z   duration_ms: 2.691939
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9242917Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9243269Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9243977Z # Subtest: CSP: every Content-Security-Policy line is the server's, byte for byte, and strict
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9245174Z ok 117 - CSP: every Content-Security-Policy line is the server's, byte for byte, and strict
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9246002Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9246342Z   duration_ms: 0.461761
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9246744Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9247086Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9248096Z # Subtest: every location that sets a header repeats all four security headers
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9249088Z ok 118 - every location that sets a header repeats all four security headers
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9249783Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9250389Z   duration_ms: 0.44544
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9250792Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9251133Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9251588Z # Subtest: a miss under /book/ answers the book's 404 page
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9252281Z ok 119 - a miss under /book/ answers the book's 404 page
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9252851Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9253193Z   duration_ms: 0.315839
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9253575Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9253909Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9254484Z # Subtest: the book revalidates: its unfingerprinted files are never cached blind
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9255493Z ok 120 - the book revalidates: its unfingerprinted files are never cached blind
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9256227Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9256571Z   duration_ms: 0.425924
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9256975Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9257314Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9257796Z # Subtest: a stale revision planted in a page reds the build
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9258533Z ok 121 - a stale revision planted in a page reds the build
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9259100Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9259441Z   duration_ms: 49.3662
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9259832Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9260442Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9260909Z # Subtest: the correct revision, written by hand, reds too
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9261594Z ok 122 - the correct revision, written by hand, reds too
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9262135Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9262475Z   duration_ms: 41.507094
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9262869Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9263219Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9264049Z # Subtest: a placeholder naming no source reds rather than stamping nothing
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9265019Z ok 123 - a placeholder naming no source reds rather than stamping nothing
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9265689Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9266045Z   duration_ms: 35.572803
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9266439Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9266772Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9267194Z # Subtest: the stamp is the interpreter's own gitlink
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9267827Z ok 124 - the stamp is the interpreter's own gitlink
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9268334Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9268640Z   duration_ms: 40.666861
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9268873Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9269063Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9269265Z # Subtest: english prose is not a revision
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9269565Z ok 125 - english prose is not a revision
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9269823Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9270582Z   duration_ms: 31.903052
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9270882Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9271196Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9271547Z # Subtest: both pages carry the stamp and neither carries a literal
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9272175Z ok 126 - both pages carry the stamp and neither carries a literal
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9272585Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9272770Z   duration_ms: 1.422031
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9272991Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9273174Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9273450Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9273893Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9274317Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9274726Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9275174Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9275820Z # Subtest: cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9276721Z ok 127 - cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9277387Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9277726Z   duration_ms: 2.217224
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9278122Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9278455Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9278854Z # Subtest: the record the tab shows says the same
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9279754Z ok 128 - the record the tab shows says the same
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9280538Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9280873Z   duration_ms: 0.290071
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9281256Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9281593Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9282023Z # Subtest: the freestanding target is still not this one
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9282704Z ok 129 - the freestanding target is still not this one
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9283168Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9283356Z   duration_ms: 1.269677
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9283568Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9283752Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9284045Z # Subtest: a gate on the other architecture is dropped, as on an x86-64 host
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9284531Z ok 130 - a gate on the other architecture is dropped, as on an x86-64 host
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9284886Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9285063Z   duration_ms: 0.376542
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9285267Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9285443Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9285665Z # Subtest: the module states the target it reads cfg as
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9286029Z ok 131 - the module states the target it reads cfg as
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9286319Z   ---
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9286495Z   duration_ms: 0.378035
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9286699Z   type: 'test'
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9286877Z   ...
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9287038Z 1..131
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9287207Z # tests 131
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9287397Z # suites 0
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9287570Z # pass 124
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9287741Z # fail 7
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9287911Z # cancelled 0
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9288095Z # skipped 0
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9288279Z # todo 0
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9288460Z # duration_ms 1896.688035
+build the site	editor core and CSP gates	2026-10-22T02:59:58.9359417Z ##[error]Process completed with exit code 1.
+build the site	Post Run actions/checkout@v5	﻿2026-10-22T02:59:58.9497092Z Post job cleanup.
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0387809Z [command]/usr/bin/git version
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0432003Z git version 2.55.0
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0470893Z Temporarily overriding HOME='/home/runner/work/_temp/3844a8ea-c155-45b1-84f5-22b5a01d46a0' before making global git config changes
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0472345Z Adding repository directory to the temporary git global config as a safe directory
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0477241Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wolf-web/wolf-web
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0518716Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0562142Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0796127Z Entering 'upstream/wolf-book'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0845235Z Entering 'upstream/wolf-interp'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0892571Z Entering 'upstream/wolf-interp/upstream'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.0951534Z Entering 'upstream/wolf-lang'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1034787Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1067058Z http.https://github.com/.extraheader
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1081573Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1130902Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1366004Z Entering 'upstream/wolf-book'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1395779Z http.https://github.com/.extraheader
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1434184Z Entering 'upstream/wolf-interp'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1461663Z http.https://github.com/.extraheader
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1500232Z Entering 'upstream/wolf-interp/upstream'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1526542Z http.https://github.com/.extraheader
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1570834Z Entering 'upstream/wolf-lang'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1596036Z http.https://github.com/.extraheader
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1658777Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1698325Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1917359Z Entering 'upstream/wolf-book'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1937483Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/book/config	remote.origin.url
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1958346Z Entering 'upstream/wolf-interp'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.1978492Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/interp/config	remote.origin.url
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2000482Z Entering 'upstream/wolf-interp/upstream'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2020140Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config	remote.origin.url
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2047352Z Entering 'upstream/wolf-lang'
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2066709Z file:/home/runner/work/wolf-web/wolf-web/.git/modules/lang/config	remote.origin.url
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2108939Z [command]/usr/bin/git config --file /home/runner/work/wolf-web/wolf-web/.git/modules/book/config --name-only --get-regexp ^includeIf\.gitdir:
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2146707Z [command]/usr/bin/git config --file /home/runner/work/wolf-web/wolf-web/.git/modules/interp/config --name-only --get-regexp ^includeIf\.gitdir:
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2180752Z [command]/usr/bin/git config --file /home/runner/work/wolf-web/wolf-web/.git/modules/interp/modules/upstream/config --name-only --get-regexp ^includeIf\.gitdir:
+build the site	Post Run actions/checkout@v5	2026-10-22T02:59:59.2214461Z [command]/usr/bin/git config --file /home/runner/work/wolf-web/wolf-web/.git/modules/lang/config --name-only --get-regexp ^includeIf\.gitdir:
+build the site	Complete job	﻿2026-10-22T02:59:59.2385356Z Cleaning up orphan processes
+build the site	Complete job	2026-10-22T02:59:59.2664077Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

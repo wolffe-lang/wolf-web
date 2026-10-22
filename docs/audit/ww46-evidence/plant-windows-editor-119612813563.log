@@ -1,0 +1,1085 @@
+the editor's windows key spelling	Set up job	﻿2026-10-22T02:59:17.4796043Z Current runner version: '2.338.0'
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4905921Z ##[group]Runner Image Provisioner
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4906967Z Hosted Compute Agent
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4907625Z Version: 20261002.596
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4908360Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4909330Z Build Date: 2026-10-02T22:28:27Z
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4910140Z Worker ID: {611e9670-4784-4210-882d-6e923171f0cb}
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4911028Z Region: eastus
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4911642Z Cloud: Azure
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4912249Z ##[endgroup]
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4913919Z ##[group]Operating System
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4914759Z Microsoft Windows Server 2025
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4915520Z 10.0.26100
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4916334Z Datacenter
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4916922Z ##[endgroup]
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4917554Z ##[group]Runner Image
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4918239Z Image: windows-2025-vs2026
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4918930Z Version: 20261007.264.1
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4920475Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261007.264/images/windows/Windows2025-VS2026-Readme.md
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4924144Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261007.264
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4925477Z ##[endgroup]
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4927033Z ##[group]GITHUB_TOKEN Permissions
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4929114Z Contents: read
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4929775Z Metadata: read
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4930435Z Packages: read
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4931149Z ##[endgroup]
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4933611Z Secret source: Actions
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4934644Z Cache mode: write
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.4935462Z Prepare workflow directory
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.5278844Z Prepare all required actions
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.5322075Z Getting action download info
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.6885768Z Download action repository 'actions/checkout@v5' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+the editor's windows key spelling	Set up job	2026-10-22T02:59:17.8048443Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+the editor's windows key spelling	Set up job	2026-10-22T02:59:18.0757589Z Complete job name: the editor's windows key spelling
+the editor's windows key spelling	Run actions/checkout@v5	﻿2026-10-22T02:59:18.2300735Z ##[group]Run actions/checkout@v5
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2301813Z with:
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2302199Z   repository: wolffe-lang/wolf-web
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2305715Z   token: ***
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2306080Z   ssh-strict: true
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2306458Z   ssh-user: git
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2306835Z   persist-credentials: true
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2307245Z   clean: true
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2307612Z   sparse-checkout-cone-mode: true
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2308052Z   fetch-depth: 1
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2308416Z   fetch-tags: false
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2308852Z   show-progress: true
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2309233Z   lfs: false
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2309598Z   submodules: false
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2310013Z   set-safe-directory: true
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2310449Z   allow-unsafe-pr-checkout: false
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.2311081Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.3648804Z Syncing repository: wolffe-lang/wolf-web
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.3650553Z ##[group]Getting Git version info
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.3651104Z Working directory is 'D:\a\wolf-web\wolf-web'
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.4337017Z [command]"C:\Program Files\Git\bin\git.exe" version
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.9483737Z git version 2.56.0.windows.2
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.9527036Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.9544614Z Temporarily overriding HOME='D:\a\_temp\7a7e4672-3efa-4b4c-9c4e-0e67313c2b31' before making global git config changes
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.9547043Z Adding repository directory to the temporary git global config as a safe directory
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:18.9553919Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wolf-web\wolf-web
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.0524793Z Deleting the contents of 'D:\a\wolf-web\wolf-web'
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.0530449Z ##[group]Initializing the repository
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.0538861Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wolf-web\wolf-web
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.2127735Z Initialized empty Git repository in D:/a/wolf-web/wolf-web/.git/
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.2171377Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/wolffe-lang/wolf-web
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.3103379Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.3104675Z ##[group]Disabling automatic garbage collection
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.3112359Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.3454090Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.3456119Z ##[group]Setting up auth
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.3466338Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:19.3850436Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:21.3899007Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:21.4246706Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:21.9073659Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:21.9426249Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:22.4144283Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:22.4484144Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:22.4504117Z ##[group]Fetching the repository
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:22.4505856Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +02af5c42168c15f683540d0d48495d349f7b94ed:refs/remotes/origin/ww46
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.1179733Z From https://github.com/wolffe-lang/wolf-web
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.1183207Z  * [new ref]         02af5c42168c15f683540d0d48495d349f7b94ed -> origin/ww46
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.1217259Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.1217712Z ##[group]Determining the checkout info
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.1220317Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.1233349Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.1790391Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.2131465Z ##[group]Checking out the ref
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.2141876Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B ww46 refs/remotes/origin/ww46
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.4374594Z Switched to a new branch 'ww46'
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.4482007Z branch 'ww46' set up to track 'origin/ww46'.
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.4525388Z ##[endgroup]
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.5254931Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+the editor's windows key spelling	Run actions/checkout@v5	2026-10-22T02:59:24.5605441Z 02af5c42168c15f683540d0d48495d349f7b94ed
+the editor's windows key spelling	Run actions/setup-node@v4	﻿2026-10-22T02:59:24.6115841Z ##[group]Run actions/setup-node@v4
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.6116481Z with:
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.6116653Z   node-version: 22
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.6116856Z   always-auth: false
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.6117033Z   check-latest: false
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.6119066Z   token: ***
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.6119235Z ##[endgroup]
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.7553152Z Found in cache @ C:\hostedtoolcache\windows\node\22.23.3\x64
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.7559548Z (node:8724) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.7560178Z (Use `node --trace-deprecation ...` to show where the warning was created)
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:24.7562407Z ##[group]Environment details
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:33.6010158Z node: v22.23.3
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:33.6010591Z npm: 10.9.9
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:33.6010946Z yarn: 1.22.22
+the editor's windows key spelling	Run actions/setup-node@v4	2026-10-22T02:59:33.6013002Z ##[endgroup]
+the editor's windows key spelling	node reports a windows platform	﻿2026-10-22T02:59:33.6352855Z ##[group]Run node -e "console.log(navigator.platform, process.platform)"
+the editor's windows key spelling	node reports a windows platform	2026-10-22T02:59:33.6353474Z ^[[36;1mnode -e "console.log(navigator.platform, process.platform)"^[[0m
+the editor's windows key spelling	node reports a windows platform	2026-10-22T02:59:33.7086794Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+the editor's windows key spelling	node reports a windows platform	2026-10-22T02:59:33.7087148Z ##[endgroup]
+the editor's windows key spelling	node reports a windows platform	2026-10-22T02:59:34.2443381Z Win32 win32
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	﻿2026-10-22T02:59:34.3717224Z ##[group]Run node --test @((Get-ChildItem tests/*.test.mjs).FullName)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:34.3717733Z ^[[36;1mnode --test @((Get-ChildItem tests/*.test.mjs).FullName)^[[0m
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:34.3780182Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:34.3780492Z ##[endgroup]
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.4147446Z TAP version 13
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.4721226Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.4746362Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.4759062Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.4762315Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.4765214Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5328106Z #   (skipped: dist/play/lupin.wasm or the pinned anchors are not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5860523Z # Subtest: the invocation CI makes is green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5866958Z ok 1 - the invocation CI makes is green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5867691Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5868223Z   duration_ms: 4.5653
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5868692Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5869161Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5875698Z # Subtest: the first witness runs on both sides now — it closed at v0.2.11
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5877196Z ok 2 - the first witness runs on both sides now — it closed at v0.2.11
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5877910Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5878314Z   duration_ms: 0.6191
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5878794Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5879202Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5879962Z # Subtest: a program the module runs against a clause the release does not declare reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5881443Z ok 3 - a program the module runs against a clause the release does not declare reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5882184Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5882576Z   duration_ms: 0.6111
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5884116Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5884490Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5895073Z # Subtest: a witness the module refuses is not a failure — the tab is simply not ahead
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5896484Z ok 4 - a witness the module refuses is not a failure — the tab is simply not ahead
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5897219Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5897645Z   duration_ms: 0.5368
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5898154Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5898556Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5903163Z # Subtest: a witness that runs but answers differently reds — 'it runs' is a claim
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5904568Z ok 5 - a witness that runs but answers differently reds — 'it runs' is a claim
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5905470Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5905761Z   duration_ms: 0.2248
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5906039Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5906294Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5906702Z # Subtest: --witnesses with no file named is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5907212Z ok 6 - --witnesses with no file named is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5907583Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5907805Z   duration_ms: 56.4809
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5908049Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5908268Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5908674Z # Subtest: --witnesses naming a file that is not there is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5909136Z ok 7 - --witnesses naming a file that is not there is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5909416Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5909593Z   duration_ms: 0.2577
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5909770Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5909938Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5910200Z # Subtest: a missing module is a refusal, not a silent pass
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5910947Z ok 8 - a missing module is a refusal, not a silent pass
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5911195Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5911351Z   duration_ms: 48.704
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5911523Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:35.5911677Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2074781Z # Subtest: every local script and stylesheet reference gains ?v=<pin>, nothing else moves
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2076506Z ok 9 - every local script and stylesheet reference gains ?v=<pin>, nothing else moves
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2080815Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2081114Z   duration_ms: 1531.1633
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2081423Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2083954Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2084616Z # Subtest: wolf-boot.js one directory down and under /book/ is versioned too
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2085586Z ok 10 - wolf-boot.js one directory down and under /book/ is versioned too
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2086261Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2086614Z   duration_ms: 61.4087
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2086993Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2087362Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2087934Z # Subtest: a second pass versions nothing twice, and so refuses the zero
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2088793Z ok 11 - a second pass versions nothing twice, and so refuses the zero
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2089350Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2089666Z   duration_ms: 48.7809
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2090001Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2090298Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2090921Z # Subtest: a book with no assets to version is refused, not reported as done
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2091752Z ok 12 - a book with no assets to version is refused, not reported as done
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2092794Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2093047Z   duration_ms: 53.9921
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2093329Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2093592Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2095008Z # Subtest: the pin is seven hex characters
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2095743Z ok 13 - the pin is seven hex characters
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2096165Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2096433Z   duration_ms: 43.4125
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2096658Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2097040Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2258825Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2260858Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2262155Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2262624Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2263202Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2263721Z # Subtest: the invocation build.sh makes is green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2264363Z ok 14 - the invocation build.sh makes is green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2264784Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2265090Z   duration_ms: 2.7768
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2265429Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2265723Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2266277Z # Subtest: a number word in an --also file that the allowlist does not carry reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2267096Z ok 15 - a number word in an --also file that the allowlist does not carry reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2267633Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2267988Z   duration_ms: 0.2615
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2268340Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2268635Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2269079Z # Subtest: an --also file that counts nothing is no trouble
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2269710Z ok 16 - an --also file that counts nothing is no trouble
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2288586Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2295736Z   duration_ms: 0.2236
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2298368Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2298777Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2300364Z # Subtest: --also is what carries the CHANGELOG.md block: without it the allowlist is stale
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2308518Z ok 17 - --also is what carries the CHANGELOG.md block: without it the allowlist is stale
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2309191Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2309503Z   duration_ms: 0.2473
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2309849Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2310185Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2311328Z # Subtest: the key is the path as written, not the file it resolves to
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2312454Z ok 18 - the key is the path as written, not the file it resolves to
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2313344Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2313650Z   duration_ms: 0.3275
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2314003Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2314333Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2314895Z # Subtest: --also with no file named is a refusal, not a silent skip
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2315657Z ok 19 - --also with no file named is a refusal, not a silent skip
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2316188Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2317434Z   duration_ms: 1505.2454
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2317796Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2318111Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2318613Z # Subtest: --also naming a file that is not there is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2319366Z ok 20 - --also naming a file that is not there is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2319872Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2320182Z   duration_ms: 53.5721
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2320541Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2320864Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2321256Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2321815Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2322337Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2322850Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2323342Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2323856Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2324422Z # Subtest: the invocation build.sh makes is green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2324998Z ok 21 - the invocation build.sh makes is green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2325407Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2325726Z   duration_ms: 1.9846
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2326072Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2326386Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2326926Z # Subtest: the copy the mutation tests are built on is itself green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2327643Z ok 22 - the copy the mutation tests are built on is itself green
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2328143Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2328475Z   duration_ms: 0.2445
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2328837Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2329158Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2329713Z # Subtest: a frozen literal edited to a version that never existed reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2330475Z ok 23 - a frozen literal edited to a version that never existed reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2331344Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2331662Z   duration_ms: 0.1805
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2332004Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2332320Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2332783Z # Subtest: a frozen literal that simply disappears reds too
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2333461Z ok 24 - a frozen literal that simply disappears reds too
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2333928Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2334231Z   duration_ms: 0.182
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2334589Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2334912Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2335419Z # Subtest: --also is what carries the CHANGELOG.md block
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2336046Z ok 25 - --also is what carries the CHANGELOG.md block
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2337820Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2338154Z   duration_ms: 0.193
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2338513Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2338836Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2339273Z # Subtest: frozen is refused on a living site page
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2339863Z ok 26 - frozen is refused on a living site page
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2340290Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2340605Z   duration_ms: 0.1894
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2343289Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2343615Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2344074Z # Subtest: --also with no file named is a refusal, not a silent skip
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2345137Z ok 27 - --also with no file named is a refusal, not a silent skip
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2345571Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2345843Z   duration_ms: 1314.6604
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2346144Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2346406Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2346794Z # Subtest: --also naming a file that is not there is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2347332Z ok 28 - --also naming a file that is not there is a refusal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2347715Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2347952Z   duration_ms: 46.5934
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2349188Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.2349420Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9952927Z # Subtest: the count stamp spells 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9954091Z ok 29 - the count stamp spells 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9954939Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9955591Z   duration_ms: 252.7814
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9956156Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9956569Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9957724Z # Subtest: the count stamp spells 99
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9958691Z ok 30 - the count stamp spells 99
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9959234Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9959633Z   duration_ms: 72.2794
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9967616Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9968132Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9969454Z # Subtest: the count stamp spells 100
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9970091Z ok 31 - the count stamp spells 100
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9970587Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9975658Z   duration_ms: 73.0364
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9977642Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9978073Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9978560Z # Subtest: the count stamp spells 999
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9979153Z ok 32 - the count stamp spells 999
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9979637Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9980024Z   duration_ms: 67.1036
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9980445Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9980836Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9981329Z # Subtest: the count stamp spells 1000
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9985735Z not ok 33 - the count stamp spells 1000
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9986133Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9986415Z   duration_ms: 76.4773
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9986718Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9987183Z   location: 'D:\\a\\wolf-web\\wolf-web\\tests\\count-words.test.mjs:22:3'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9987741Z   failureType: 'testCodeFailure'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9988099Z   error: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9988403Z     Traceback (most recent call last):
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9988793Z       File "<string>", line 1, in <module>
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9989336Z       File "D:\a\wolf-web\wolf-web\scripts\stamp-counts.py", line 104, in word
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9989909Z         raise ValueError(f"no prose spelling for {n}")
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9990362Z     ValueError: no prose spelling for 1000
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9990680Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9990883Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9991078Z     1 !== 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9991290Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9991522Z   code: 'ERR_ASSERTION'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9991832Z   name: 'AssertionError'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9992110Z   expected: 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9992758Z   actual: 1
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9994226Z   operator: 'strictEqual'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9994524Z   stack: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9995079Z     TestContext.<anonymous> (file:///D:/a/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9995993Z     Test.runInAsyncScope (node:async_hooks:214:14)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9996487Z     Test.run (node:internal/test_runner/test:1047:25)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9997052Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9997681Z     Test.postRun (node:internal/test_runner/test:1173:19)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9998200Z     Test.run (node:internal/test_runner/test:1101:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9998827Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9999350Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:37.9999690Z # Subtest: the count stamp spells 1067
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0000113Z not ok 34 - the count stamp spells 1067
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0000456Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0000697Z   duration_ms: 63.7149
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0000991Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0001436Z   location: 'D:\\a\\wolf-web\\wolf-web\\tests\\count-words.test.mjs:22:3'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0001984Z   failureType: 'testCodeFailure'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0002304Z   error: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0002606Z     Traceback (most recent call last):
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0002987Z       File "<string>", line 1, in <module>
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0003536Z       File "D:\a\wolf-web\wolf-web\scripts\stamp-counts.py", line 104, in word
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0004130Z         raise ValueError(f"no prose spelling for {n}")
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0005240Z     ValueError: no prose spelling for 1067
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0005626Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0005840Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0006067Z     1 !== 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0006287Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0006530Z   code: 'ERR_ASSERTION'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0006833Z   name: 'AssertionError'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0007114Z   expected: 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0007356Z   actual: 1
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0007847Z   operator: 'strictEqual'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0008143Z   stack: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0008685Z     TestContext.<anonymous> (file:///D:/a/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0009371Z     Test.runInAsyncScope (node:async_hooks:214:14)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0009866Z     Test.run (node:internal/test_runner/test:1047:25)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0010751Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0012312Z     Test.postRun (node:internal/test_runner/test:1173:19)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0012910Z     Test.run (node:internal/test_runner/test:1101:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0013550Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0014097Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0014417Z # Subtest: the count stamp spells 1100
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0015164Z not ok 35 - the count stamp spells 1100
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0015519Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0015755Z   duration_ms: 54.5217
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0016053Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0016746Z   location: 'D:\\a\\wolf-web\\wolf-web\\tests\\count-words.test.mjs:22:3'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0030020Z   failureType: 'testCodeFailure'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0030391Z   error: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0030698Z     Traceback (most recent call last):
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0031102Z       File "<string>", line 1, in <module>
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0034517Z       File "D:\a\wolf-web\wolf-web\scripts\stamp-counts.py", line 104, in word
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0035496Z         raise ValueError(f"no prose spelling for {n}")
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0035995Z     ValueError: no prose spelling for 1100
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0036360Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0036574Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0036791Z     1 !== 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0037012Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0037240Z   code: 'ERR_ASSERTION'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0037537Z   name: 'AssertionError'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0037829Z   expected: 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0038070Z   actual: 1
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0038345Z   operator: 'strictEqual'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0038639Z   stack: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0039181Z     TestContext.<anonymous> (file:///D:/a/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0039883Z     Test.runInAsyncScope (node:async_hooks:214:14)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0040373Z     Test.run (node:internal/test_runner/test:1047:25)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0040948Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0041339Z     Test.postRun (node:internal/test_runner/test:1173:19)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0041645Z     Test.run (node:internal/test_runner/test:1101:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0041998Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0042310Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0042565Z # Subtest: the count stamp spells 1101
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0042829Z not ok 36 - the count stamp spells 1101
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0043038Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0043206Z   duration_ms: 52.9045
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0043398Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0043691Z   location: 'D:\\a\\wolf-web\\wolf-web\\tests\\count-words.test.mjs:22:3'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0044024Z   failureType: 'testCodeFailure'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0044226Z   error: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0044408Z     Traceback (most recent call last):
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0044652Z       File "<string>", line 1, in <module>
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0044984Z       File "D:\a\wolf-web\wolf-web\scripts\stamp-counts.py", line 104, in word
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0045339Z         raise ValueError(f"no prose spelling for {n}")
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0045862Z     ValueError: no prose spelling for 1101
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0046079Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0046221Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0046360Z     1 !== 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0046511Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0046658Z   code: 'ERR_ASSERTION'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0046841Z   name: 'AssertionError'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0047020Z   expected: 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0047172Z   actual: 1
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0048456Z   operator: 'strictEqual'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0048647Z   stack: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0048996Z     TestContext.<anonymous> (file:///D:/a/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0049408Z     Test.runInAsyncScope (node:async_hooks:214:14)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0049713Z     Test.run (node:internal/test_runner/test:1047:25)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0050081Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0050445Z     Test.postRun (node:internal/test_runner/test:1173:19)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0050747Z     Test.run (node:internal/test_runner/test:1101:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0051109Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0051415Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0051621Z # Subtest: the count stamp spells 999999
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0051890Z not ok 37 - the count stamp spells 999999
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0052099Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0052252Z   duration_ms: 52.4084
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0052429Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0052690Z   location: 'D:\\a\\wolf-web\\wolf-web\\tests\\count-words.test.mjs:22:3'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0053008Z   failureType: 'testCodeFailure'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0053214Z   error: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0053397Z     Traceback (most recent call last):
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0053641Z       File "<string>", line 1, in <module>
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0053971Z       File "D:\a\wolf-web\wolf-web\scripts\stamp-counts.py", line 104, in word
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0054321Z         raise ValueError(f"no prose spelling for {n}")
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0054608Z     ValueError: no prose spelling for 999999
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0054827Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0054967Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0055441Z     1 !== 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0055589Z     
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0055740Z   code: 'ERR_ASSERTION'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0055935Z   name: 'AssertionError'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0056122Z   expected: 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0056285Z   actual: 1
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0056444Z   operator: 'strictEqual'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0056629Z   stack: |-
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0056954Z     TestContext.<anonymous> (file:///D:/a/wolf-web/wolf-web/tests/count-words.test.mjs:24:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0057351Z     Test.runInAsyncScope (node:async_hooks:214:14)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0057650Z     Test.run (node:internal/test_runner/test:1047:25)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0058003Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0058359Z     Test.postRun (node:internal/test_runner/test:1173:19)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0058653Z     Test.run (node:internal/test_runner/test:1101:12)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0059006Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0059312Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0059513Z # Subtest: the count stamp refuses -1
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0059761Z ok 38 - the count stamp refuses -1
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0059958Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0060105Z   duration_ms: 51.2218
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0060286Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0060450Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0060649Z # Subtest: the count stamp refuses 1000000
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0060908Z ok 39 - the count stamp refuses 1000000
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0061117Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0061268Z   duration_ms: 51.2959
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0061438Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0061588Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0133941Z # Subtest: nginx CSP: script-src is 'self' 'wasm-unsafe-eval', exactly
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0134934Z ok 40 - nginx CSP: script-src is 'self' 'wasm-unsafe-eval', exactly
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0135888Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0136154Z   duration_ms: 2.4374
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0136442Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0136922Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0137655Z # Subtest: site pages: no inline scripts, no inline styles, no foreign sources
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0138739Z ok 41 - site pages: no inline scripts, no inline styles, no foreign sources
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0139264Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0139514Z   duration_ms: 7.2937
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0140062Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0140310Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0140820Z # Subtest: the editor is dependency-free: its modules import only each other
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0141556Z ok 42 - the editor is dependency-free: its modules import only each other
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0142025Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0142265Z   duration_ms: 3.2743
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0142546Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0142791Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0146078Z # Subtest: scan: code is code
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0146439Z ok 43 - scan: code is code
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0146638Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0146866Z   duration_ms: 2.3825
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0147469Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0147774Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0148138Z # Subtest: scan: inside a plain string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0148583Z ok 44 - scan: inside a plain string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0148918Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0149167Z   duration_ms: 0.3401
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0149459Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0149723Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0150108Z # Subtest: scan: interpolation braces re-enter code
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0150636Z ok 45 - scan: interpolation braces re-enter code
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0151024Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0151263Z   duration_ms: 0.2326
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0151557Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0151791Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0152203Z # Subtest: scan: {{ is a literal brace, not an interpolation
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0152794Z ok 46 - scan: {{ is a literal brace, not an interpolation
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0153215Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0153468Z   duration_ms: 0.1998
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0153748Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0153999Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0154617Z # Subtest: scan: a nested string inside an interpolation
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0155191Z ok 47 - scan: a nested string inside an interpolation
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0155577Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0155821Z   duration_ms: 0.2842
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0156065Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0156315Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0156620Z # Subtest: scan: line comments
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0156969Z ok 48 - scan: line comments
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0157262Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0157502Z   duration_ms: 0.2151
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0157777Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0158268Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0158586Z # Subtest: scan: char literals
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0159114Z ok 49 - scan: char literals
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0159406Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0159643Z   duration_ms: 0.3167
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0159913Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0160169Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0160512Z # Subtest: scan: raw strings do not interpolate
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0161006Z ok 50 - scan: raw strings do not interpolate
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0161362Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0161598Z   duration_ms: 0.2098
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0161868Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0162106Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0162454Z # Subtest: scan: multiline strings
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0163034Z ok 51 - scan: multiline strings
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0163538Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0163793Z   duration_ms: 0.5327
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0164081Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0164336Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0164746Z # Subtest: scan: an escaped quote does not close the string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0165340Z ok 52 - scan: an escaped quote does not close the string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0165733Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0165968Z   duration_ms: 0.5436
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0166245Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0166486Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0168025Z # Subtest: scan: open brackets carry their positions
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0168585Z ok 53 - scan: open brackets carry their positions
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0168977Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0169213Z   duration_ms: 0.2436
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0169481Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0169732Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0170136Z # Subtest: type: an opener inserts its pair, caret inside
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0170718Z ok 54 - type: an opener inserts its pair, caret inside
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0195786Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0196151Z   duration_ms: 31.552
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0196437Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0196689Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0197031Z # Subtest: type: a closer types over its twin
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0197506Z ok 55 - type: a closer types over its twin
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0197848Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0198077Z   duration_ms: 0.2166
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0198716Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0198976Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0199590Z # Subtest: type: a quote pairs in code and types over itself
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0200259Z ok 56 - type: a quote pairs in code and types over itself
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0200709Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0200966Z   duration_ms: 0.2644
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0201258Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0201508Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0201833Z # Subtest: type: no pairing against a word
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0202288Z ok 57 - type: no pairing against a word
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0202669Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0202906Z   duration_ms: 0.2089
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0203190Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0203435Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0203834Z # Subtest: type: a selection is wrapped, and stays selected
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0204428Z ok 58 - type: a selection is wrapped, and stays selected
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0204843Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0205076Z   duration_ms: 0.2053
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0205354Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0205600Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0205950Z # Subtest: type: parens do not pair inside a string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0206478Z ok 59 - type: parens do not pair inside a string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0206883Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0207127Z   duration_ms: 0.1189
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0207367Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0207603Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0208055Z # Subtest: type: interpolation braces DO pair inside a string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0208648Z ok 60 - type: interpolation braces DO pair inside a string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0209054Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0209283Z   duration_ms: 0.1548
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0209560Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0209782Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0210149Z # Subtest: type: the interpolation's closing brace types over
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0210686Z ok 61 - type: the interpolation's closing brace types over
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0211079Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0211332Z   duration_ms: 0.1247
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0211590Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0211804Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0212084Z # Subtest: type: nothing pairs in a comment
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0212491Z ok 62 - type: nothing pairs in a comment
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0212819Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0213047Z   duration_ms: 0.1169
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0213316Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0213572Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0213907Z # Subtest: type: nothing pairs in a raw string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0214355Z ok 63 - type: nothing pairs in a raw string
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0214700Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0215282Z   duration_ms: 0.2007
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0215599Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0215869Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0216263Z # Subtest: type: a lone } dedents to its opener's line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0216827Z ok 64 - type: a lone } dedents to its opener's line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0217237Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0217500Z   duration_ms: 0.2069
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0217812Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0218083Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0218455Z # Subtest: enter: carries the leading whitespace
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0218967Z ok 65 - enter: carries the leading whitespace
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0219608Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0219856Z   duration_ms: 0.2647
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0220144Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0220396Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0220783Z # Subtest: enter: a {-suffixed line indents one step
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0221308Z ok 66 - enter: a {-suffixed line indents one step
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0221703Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0221950Z   duration_ms: 0.1451
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0222439Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0222706Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0223079Z # Subtest: enter: between the braces, the pair splits
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0223773Z ok 67 - enter: between the braces, the pair splits
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0224390Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0224770Z   duration_ms: 0.1557
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0225070Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0225435Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0225826Z # Subtest: enter: a { inside a string does not indent
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0226584Z ok 68 - enter: a { inside a string does not indent
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0227028Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0227296Z   duration_ms: 0.1293
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0227584Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0227840Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0228223Z # Subtest: backspace: an empty pair goes together
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0228738Z ok 69 - backspace: an empty pair goes together
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0229103Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0229351Z   duration_ms: 0.1892
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0229641Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0229893Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0230321Z # Subtest: backspace: leading whitespace backs up one stop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0230897Z ok 70 - backspace: leading whitespace backs up one stop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0231301Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0231547Z   duration_ms: 0.2721
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0231814Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0262915Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0277850Z # Subtest: backspace: one code point, even an astral one
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0278402Z ok 71 - backspace: one code point, even an astral one
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0278797Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0291531Z   duration_ms: 0.2214
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0291913Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0292164Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0292555Z # Subtest: delete forward: a selection or one code point
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0293399Z ok 72 - delete forward: a selection or one code point
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0293839Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0294386Z   duration_ms: 0.2316
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0294844Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0295106Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0295695Z # Subtest: goal columns: a short line does not forget the target
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0296654Z ok 73 - goal columns: a short line does not forget the target
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0297231Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0297751Z   duration_ms: 0.9863
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0298044Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0298433Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0299135Z # Subtest: goal columns: up from the first line goes to the start
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0300063Z ok 74 - goal columns: up from the first line goes to the start
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0300511Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0300753Z   duration_ms: 0.1115
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0301185Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0301577Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0302139Z # Subtest: visual columns treat a tab as a 4-stop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0302777Z ok 75 - visual columns treat a tab as a 4-stop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0303437Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0303692Z   duration_ms: 0.0845
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0304122Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0304519Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0304973Z # Subtest: home: first ink, then column zero
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0305572Z ok 76 - home: first ink, then column zero
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0307348Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0308857Z   duration_ms: 0.2176
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0309310Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0309581Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0310065Z # Subtest: end: end of line for every cursor
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0310631Z ok 77 - end: end of line for every cursor
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0311136Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0311895Z   duration_ms: 0.2494
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0312310Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0312568Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0312955Z # Subtest: add cursor below, then typing lands at both
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0313494Z ok 78 - add cursor below, then typing lands at both
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0313884Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0314140Z   duration_ms: 0.3099
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0314605Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0315721Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0316132Z # Subtest: add cursor above mirrors, with the goal column
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0316697Z ok 79 - add cursor above mirrors, with the goal column
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0317097Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0317330Z   duration_ms: 0.1047
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0317612Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0317850Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0318289Z # Subtest: add cursor below at the last line adds nothing
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0318828Z ok 80 - add cursor below at the last line adds nothing
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0319437Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0319716Z   duration_ms: 0.0872
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0320004Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0320243Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0320630Z # Subtest: backspace applies at every cursor as one edit
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0321164Z ok 81 - backspace applies at every cursor as one edit
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0321530Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0321746Z   duration_ms: 0.1493
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0322021Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0322268Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0322607Z # Subtest: escape collapses to the primary
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0323041Z ok 82 - escape collapses to the primary
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0323370Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0323602Z   duration_ms: 0.102
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0323876Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0324129Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0324522Z # Subtest: paste: line-per-cursor when the counts match
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0325063Z ok 83 - paste: line-per-cursor when the counts match
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0325444Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0325704Z   duration_ms: 0.2249
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0325993Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0326265Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0327000Z # Subtest: paste: whole clipboard at each cursor when they do not
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0327862Z ok 84 - paste: whole clipboard at each cursor when they do not
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0328261Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0328513Z   duration_ms: 0.158
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0328778Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0329054Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0329468Z # Subtest: paste: a single cursor takes the whole clipboard
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0330033Z ok 85 - paste: a single cursor takes the whole clipboard
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0330421Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0330678Z   duration_ms: 0.0932
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0330968Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0331225Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0331578Z # Subtest: ctrl+d: word first, then the next occurrence
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0332069Z ok 86 - ctrl+d: word first, then the next occurrence
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0332446Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0332695Z   duration_ms: 0.3763
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0332972Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0333209Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0333953Z # Subtest: normalize: overlapping cursors merge, duplicates drop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0334529Z ok 87 - normalize: overlapping cursors merge, duplicates drop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0334912Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0335123Z   duration_ms: 0.1006
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0335386Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0335634Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0335965Z # Subtest: tab: a bare caret pads to the next 4-stop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0336454Z ok 88 - tab: a bare caret pads to the next 4-stop
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0336817Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0337039Z   duration_ms: 0.3649
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0337301Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0337534Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0337858Z # Subtest: indent and dedent every touched line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0338306Z ok 89 - indent and dedent every touched line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0338655Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0338884Z   duration_ms: 0.6616
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0339368Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0339598Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0339996Z # Subtest: indent with two cursors touches both lines once each
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0340581Z ok 90 - indent with two cursors touches both lines once each
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0340978Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0341203Z   duration_ms: 0.1637
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0341460Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0341693Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0342262Z # Subtest: ctrl+/: comments align at the shallowest indent, and back
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0342906Z ok 91 - ctrl+/: comments align at the shallowest indent, and back
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0343322Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0343552Z   duration_ms: 0.4964
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0343812Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0344042Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0344356Z # Subtest: ctrl+/: mixed lines all gain comments
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0344821Z ok 92 - ctrl+/: mixed lines all gain comments
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0345175Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0345405Z   duration_ms: 0.1392
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0345670Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0345889Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0346343Z # Subtest: coalescing: a typed word is one step, the space after it is not
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0347052Z ok 93 - coalescing: a typed word is one step, the space after it is not
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0347498Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0347719Z   duration_ms: 0.1896
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0347977Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0348210Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0348608Z # Subtest: coalescing: backspaces run together, kinds never mix
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0349194Z ok 94 - coalescing: backspaces run together, kinds never mix
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0349588Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0349817Z   duration_ms: 0.0963
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0350078Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0350307Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0350678Z # Subtest: coalescing: a cursor-count change breaks the run
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0351230Z ok 95 - coalescing: a cursor-count change breaks the run
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0351921Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0352097Z   duration_ms: 0.0727
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0352355Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0353178Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0353959Z # Subtest: session: typing a wolf function with the manners on
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0354708Z ok 96 - session: typing a wolf function with the manners on
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0354999Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0355163Z   duration_ms: 0.353
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0355374Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0355536Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0355850Z # Subtest: typed keys route through the core: pairs appear in the textarea
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0356289Z ok 97 - typed keys route through the core: pairs appear in the textarea
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0356573Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0356734Z   duration_ms: 3.3963
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0356908Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0357069Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0357266Z # Subtest: the gutter counts the lines
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0357513Z ok 98 - the gutter counts the lines
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0357722Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0357891Z   duration_ms: 0.6132
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0358066Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0358240Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0358455Z # Subtest: mod+Enter runs and edits nothing
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0358742Z ok 99 - mod+Enter runs and edits nothing
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0358977Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0359157Z   duration_ms: 0.2673
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0359348Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0359525Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0359852Z # Subtest: ctrl+alt+down grows a column; typing lands at each; Esc collapses
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0360312Z ok 100 - ctrl+alt+down grows a column; typing lands at each; Esc collapses
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0360629Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0360801Z   duration_ms: 18.5001
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0361008Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0361177Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0361454Z # Subtest: paste distributes line-per-cursor when the counts match
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0361856Z ok 101 - paste distributes line-per-cursor when the counts match
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0362302Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0362460Z   duration_ms: 1.5526
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0362642Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0362795Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0363067Z # Subtest: a typed word undoes as one step; the next word is its own
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0363465Z ok 102 - a typed word undoes as one step; the next word is its own
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0363724Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0363962Z   duration_ms: 0.43
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0364141Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0364293Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0364521Z # Subtest: a multi-cursor edit undoes as ONE step
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0364823Z ok 103 - a multi-cursor edit undoes as ONE step
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0365140Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0365390Z   duration_ms: 1.2921
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0366294Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0366762Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0367055Z # Subtest: redo brings a step back
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0367427Z ok 104 - redo brings a step back
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0367724Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0367945Z   duration_ms: 1.0576
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0368199Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0368436Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0368874Z # Subtest: tab indents the caret to the next stop; shift+tab dedents the line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0369566Z ok 105 - tab indents the caret to the next stop; shift+tab dedents the line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0370007Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0370238Z   duration_ms: 4.3725
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0370501Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0370716Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0371000Z # Subtest: mod+/ comments and uncomments
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0371377Z ok 106 - mod+/ comments and uncomments
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0371662Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0371864Z   duration_ms: 1.1263
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0372120Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0372649Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0373039Z # Subtest: mod+d selects the word, then adds the next occurrence
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0373609Z ok 107 - mod+d selects the word, then adds the next occurrence
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0374021Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0374226Z   duration_ms: 0.5282
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0374481Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0374703Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0375132Z # Subtest: goal columns survive keyboard travel over a short line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0375730Z ok 108 - goal columns survive keyboard travel over a short line
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0376131Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0376342Z   duration_ms: 1.9061
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0376612Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0376825Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0377095Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0377475Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0377851Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0378243Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0378657Z #   (skipped: upstream/ is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0379156Z # Subtest: the site as it stands passes, and says what it measured
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0379776Z ok 109 - the site as it stands passes, and says what it measured
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0380184Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0380411Z   duration_ms: 2.8727
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0380649Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0380898Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0381688Z # Subtest: ww27's own paragraph reds — the phrase for another gap, quoted
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0382496Z ok 110 - ww27's own paragraph reds — the phrase for another gap, quoted
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0382979Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0383215Z   duration_ms: 0.3208
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0383459Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0383692Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0384083Z # Subtest: a page that drops the phrase for the counted gap reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0384701Z ok 111 - a page that drops the phrase for the counted gap reds
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0385125Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0385352Z   duration_ms: 0.2933
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0385618Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0385852Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0386501Z # Subtest: the revision written by hand reds, even when it is correct
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0387170Z ok 112 - the revision written by hand reds, even when it is correct
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0387591Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0387787Z   duration_ms: 0.2729
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0388044Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0388275Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0388753Z # Subtest: the distance stamp is required exactly when there is a distance
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0389529Z ok 113 - the distance stamp is required exactly when there is a distance
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0390405Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0390625Z   duration_ms: 0.2741
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0390875Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0391111Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0391487Z # Subtest: no arguments is a usage error, on any checkout
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0392029Z ok 114 - no arguments is a usage error, on any checkout
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0392545Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0392762Z   duration_ms: 60.5405
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0393024Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0393269Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0394064Z # Subtest: the closed set runs from zero with no hole, every entry a phrase in words
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0394815Z ok 115 - the closed set runs from zero with no hole, every entry a phrase in words
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0395324Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0395560Z   duration_ms: 1.9849
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0395829Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0396067Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0396385Z # Subtest: the site's server block is found
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0396806Z ok 116 - the site's server block is found
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0397145Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0397366Z   duration_ms: 1.9706
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0397627Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0397859Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0398453Z # Subtest: CSP: every Content-Security-Policy line is the server's, byte for byte, and strict
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0399731Z ok 117 - CSP: every Content-Security-Policy line is the server's, byte for byte, and strict
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0400387Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0400596Z   duration_ms: 0.3605
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0400785Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0400945Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0401268Z # Subtest: every location that sets a header repeats all four security headers
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0401737Z ok 118 - every location that sets a header repeats all four security headers
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0402039Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0402193Z   duration_ms: 0.3101
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0402380Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0402529Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0402779Z # Subtest: a miss under /book/ answers the book's 404 page
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0403145Z ok 119 - a miss under /book/ answers the book's 404 page
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0403398Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0403556Z   duration_ms: 0.15
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0403721Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0403874Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0404193Z # Subtest: the book revalidates: its unfingerprinted files are never cached blind
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0404669Z ok 120 - the book revalidates: its unfingerprinted files are never cached blind
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0404974Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0405124Z   duration_ms: 0.1907
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0405302Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0405453Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0405692Z #   (no gitlink: upstream/wolf-interp is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0406037Z #   (no gitlink: upstream/wolf-interp is not checked out)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0406379Z # Subtest: a stale revision planted in a page reds the build
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0406738Z ok 121 - a stale revision planted in a page reds the build
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0406982Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0407144Z   duration_ms: 62.1331
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0407323Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0407483Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0407722Z # Subtest: the correct revision, written by hand, reds too
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0408062Z ok 122 - the correct revision, written by hand, reds too
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0408303Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0408451Z   duration_ms: 51.2175
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0408792Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0408952Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0409250Z # Subtest: a placeholder naming no source reds rather than stamping nothing
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0409683Z ok 123 - a placeholder naming no source reds rather than stamping nothing
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0409965Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0410116Z   duration_ms: 56.5938
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0410290Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0410444Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0410753Z # Subtest: the stamp is the interpreter's own gitlink
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0411068Z ok 124 - the stamp is the interpreter's own gitlink
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0411653Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0411845Z   duration_ms: 42.9945
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0412021Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0412168Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0412374Z # Subtest: english prose is not a revision
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0412637Z ok 125 - english prose is not a revision
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0412846Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0412997Z   duration_ms: 50.2876
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0413196Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0413349Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0413617Z # Subtest: both pages carry the stamp and neither carries a literal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0414003Z ok 126 - both pages carry the stamp and neither carries a literal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0414261Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0414409Z   duration_ms: 1.6576
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0414575Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0414724Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0415006Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0415399Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0415778Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0416154Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0416527Z #   (skipped: dist/play/lupin.wasm or the pinned corpus is not there)
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0416950Z # Subtest: cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0417403Z ok 127 - cfg_target_arch.lu prints 64 in the tab, as it does at a terminal
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0417688Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0417838Z   duration_ms: 1.938
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0418004Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0418156Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0418369Z # Subtest: the record the tab shows says the same
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0418672Z ok 128 - the record the tab shows says the same
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0418900Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0419048Z   duration_ms: 0.2744
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0419217Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0419357Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0419584Z # Subtest: the freestanding target is still not this one
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0419911Z ok 129 - the freestanding target is still not this one
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0420141Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0420289Z   duration_ms: 1.0894
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0420454Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0420600Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0420898Z # Subtest: a gate on the other architecture is dropped, as on an x86-64 host
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0421326Z ok 130 - a gate on the other architecture is dropped, as on an x86-64 host
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0421619Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0421857Z   duration_ms: 0.2853
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0422076Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0422224Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0422463Z # Subtest: the module states the target it reads cfg as
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0422785Z ok 131 - the module states the target it reads cfg as
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0423032Z   ---
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0423192Z   duration_ms: 0.3305
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0423368Z   type: 'test'
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0423519Z   ...
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0423668Z 1..131
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0423818Z # tests 131
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0423980Z # suites 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0424128Z # pass 126
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0424272Z # fail 5
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0424423Z # cancelled 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0424578Z # skipped 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0424722Z # todo 0
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0425005Z # duration_ms 2784.7101
+the editor's windows key spelling	the editor suites, with Ctrl as the modifier	2026-10-22T02:59:38.0871012Z ##[error]Process completed with exit code 1.
+the editor's windows key spelling	Post Run actions/checkout@v5	﻿2026-10-22T02:59:38.1094055Z Post job cleanup.
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.2750016Z [command]"C:\Program Files\Git\bin\git.exe" version
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.3069593Z git version 2.56.0.windows.2
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.3130849Z Temporarily overriding HOME='D:\a\_temp\ffccdd13-87f9-4606-ac95-bf1cc4a07a8f' before making global git config changes
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.3131570Z Adding repository directory to the temporary git global config as a safe directory
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.3140424Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wolf-web\wolf-web
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.3467069Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.3789920Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.9082928Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.9381686Z http.https://github.com/.extraheader
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.9422108Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:38.9764017Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:39.5016966Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+the editor's windows key spelling	Post Run actions/checkout@v5	2026-10-22T02:59:39.5339408Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+the editor's windows key spelling	Complete job	﻿2026-10-22T02:59:40.0271588Z Cleaning up orphan processes
+the editor's windows key spelling	Complete job	2026-10-22T02:59:40.0306767Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
