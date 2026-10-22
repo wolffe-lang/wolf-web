@@ -100,7 +100,7 @@ def word(n: int) -> str:
     as the digit's own word. ww46 crossed a thousand; use the same
     conjunction below a hundred and keep each larger group's own spelling.
     """
-    if n < 0 or n > 999:
+    if n < 0 or n > 999999:
         raise ValueError(f"no prose spelling for {n}")
     if n >= 1000:
         thousands, rest = divmod(n, 1000)

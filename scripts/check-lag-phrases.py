@@ -95,6 +95,7 @@ PHRASES = {
     # ww46: the compiler tagged 0.2.34 and lupin 0.1.55 released beside it,
     # still on the v0.2.24 pin, so the gap reached ten; written after both
     # pages' sentences, as at ww41 to ww45.
+    10: "ten releases",
 }
 DEVREV = "a development revision"
 SPECREV = "__PIN_specrev_short__"
