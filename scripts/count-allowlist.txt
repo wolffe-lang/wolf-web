@@ -306,7 +306,7 @@ play/index.html twenty-two 2 counted=0
 # replaces `Six tiers`; the remaining `Six` is the six programs that changed
 # which word they are refused with.
 play/index.html Six 1 counted=1 audited-at-lupin=0.1.56
-play/index.html Seven 1 counted=1 audited-at-lupin=0.1.56
+play/index.html Seven 2 counted=2 audited-at-lupin=0.1.56
 # ww43: /play/'s lag-phrase `five` left with `five releases`; the five
 # counted here are the ones ww42 counted, and the sixth is frozen as before.
 play/index.html five 6 counted=5 audited-at-lupin=0.1.56
