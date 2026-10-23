@@ -652,19 +652,21 @@
   the set of meanings a program ignores, who the process runs as, the drop
   to another user, the terminal's size, keys and wait, and the poll of the
   children are all declined with it — the net tier needs sockets the page
-  cannot open, and the filesystem tier, a file's owner with it, needs files
+  cannot open, <code>os_random</code> needs OS entropy a module in a page
+  cannot ask for, and the filesystem tier, a file's owner with it, needs files
   a module in a page has no way to open. That last one is the newest of them: through lupin
   0.1.35 the interpreter declined the filesystem in every build, by design,
   and the terminal build serves it now — real files, at the paths the program
   names — so only this build is left declining it, for the tab's reason and
   not the interpreter's. A program whose module graph names sibling files is
   likewise <code>unsupported</code>: the editor is one buffer, and there is
-  no directory beside it. Two names this paragraph used to count among
-  those tiers are declined at a terminal too, so they are not counted:
-  <code>os_random</code>, which this interpreter resolves in no build, and
-  <code>os_signal_listen</code>, which this build declines with the process
-  tier and the interpreter at a terminal refuses by name, since it never
-  listens.</p>
+  no directory beside it. <code>os_random</code> reads OS entropy at a
+  terminal, even under a schedule seed; it is never virtualized. This module
+  declines it rather than make bytes without a host entropy shim. One name
+  this paragraph used to count among those tiers is declined at a terminal
+  too, so it is not counted: <code>os_signal_listen</code>, which this build
+  declines with the process tier and the interpreter at a terminal refuses by
+  name, since it never listens.</p>
   <p><code>os_cpus()</code> is the near miss, and it is worth a sentence
   because the census caught it. This build answers the call now rather than
   declining it — but what it answers is the <code>io</code> row, because a
