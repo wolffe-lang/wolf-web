@@ -262,13 +262,13 @@ CHANGELOG.md Twenty-two 1 counted=0
 CHANGELOG.md sixty-one 1 counted=0
 CHANGELOG.md twenty-six 1 counted=0
 CHANGELOG.md Forty 1 counted=0
-docs/index.html seven 1 counted=1 audited-at-wolf=0.2.34
-index.html five 3 counted=3 audited-at-wolf=0.2.34
-index.html ten 1 counted=1 audited-at-wolf=0.2.34
+docs/index.html seven 1 counted=1 audited-at-wolf=0.2.35
+index.html five 3 counted=3 audited-at-wolf=0.2.35
+index.html ten 1 counted=1 audited-at-wolf=0.2.35
 index.html eighteen 1 counted=1 audited-at-book=f1fd824
-index.html seven 1 counted=1 audited-at-wolf=0.2.34
+index.html seven 1 counted=1 audited-at-wolf=0.2.35
 index.html twenty 1 counted=0
-install/index.html Five 1 counted=1 audited-at-wolf=0.2.34
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.35
 install/index.html Six 1 counted=1 audited-at-lupin=0.1.55
 install/index.html eight 2 counted=0
 # ww45: the lag phrase moved from `eight releases` to `nine releases`, so
@@ -286,15 +286,15 @@ install/index.html ten 1 counted=0
 # counted here is the AUR's packages; the new `six` is the lag phrase, held
 # page-wide by check-lag-phrases.py against the two gitlinks and not by any
 # clock here, so it is frozen beside v0.2.22's six programs.
-install/index.html five 1 counted=1 audited-at-wolf=0.2.34
+install/index.html five 1 counted=1 audited-at-wolf=0.2.35
 install/index.html six 1 counted=0
 install/index.html sixteen 1 counted=0
-install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.34
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.35
 install/index.html twenty-one 1 counted=0
 # ww43: /play/'s second `six` is the lag phrase, held page-wide by
 # check-lag-phrases.py and not by this clock; the one counted here is the
 # six programs a release brought, as before.
-play/index.html six 1 counted=1 audited-at-wolf=0.2.34
+play/index.html six 1 counted=1 audited-at-wolf=0.2.35
 play/index.html Twenty-two 1 counted=0
 play/index.html twenty-two 2 counted=0
 # ww46: `Eight tiers` re-read at lupin 0.1.55 and found false for two of the
@@ -321,7 +321,7 @@ play/index.html nine 1 counted=1 audited-at-lupin=0.1.55
 play/index.html ten 1 counted=0
 play/index.html thirteen 1 counted=0
 play/index.html twelve 1 counted=0
-spec/index.html ten 1 counted=1 audited-at-wolf=0.2.34
+spec/index.html ten 1 counted=1 audited-at-wolf=0.2.35
 reading/index.html Six 1 counted=1 audited-at-book=f1fd824
 reading/index.html Thirty-two 1 counted=1 audited-at-book=f1fd824
 reading/index.html five 1 counted=1 audited-at-book=f1fd824
