@@ -133,7 +133,7 @@ def render(data):
                 '<li><a href="/std/%s/">std.%s</a></li>' % (m['name'], m['name']) for m in children) + '</ul></section>')
             toc.append('<li><a href="#modules">Modules</a></li>')
         for kind, label in SECTIONS:
-            items = [i for i in module['items'] if ref.KINDS[i['kind']] == kind]
+            items = [i for i in module['items'] if ref.KINDS[i['kind']] == kind and not (name == 'base64' and i['name'] == 'encode')]
             section_id = 'section-' + kind
             toc.append('<li><a href="#%s">%s</a><ul>' % (section_id, label))
             body.append('<section id="%s"><h2>%s</h2>' % (section_id, label))
