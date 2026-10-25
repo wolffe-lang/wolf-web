@@ -7,3 +7,6 @@
 [submodule "lang"]
 	path = upstream/wolf-lang
 	url = https://github.com/wolffe-lang/wolf-lang.git
+[submodule "upstream/wolf-std"]
+	path = upstream/wolf-std
+	url = https://github.com/wolffe-lang/wolf-std.git
