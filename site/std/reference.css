@@ -1,0 +1,35 @@
+/* The site's palette and Charter measure, with a quiet contents margin. */
+.std-reference { max-width: 50rem; padding-inline: 1rem; overflow-wrap: anywhere; }
+.std-reference [hidden] { display: none; }
+.std-reference :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+.std-reference article { border-top: 1px solid var(--rule); padding-top: .4rem; margin-top: 2rem; }
+.std-reference article:target { border-top-color: var(--link); }
+.std-reference article, .std-reference section { scroll-margin-top: 1rem; }
+.std-reference .std-signature { white-space: pre-wrap; overflow-wrap: anywhere; }
+.std-tier { color: var(--muted); font-weight: normal; font-size: .85em; }
+.std-skip { position: absolute; top: -10rem; }
+.std-skip:focus { top: .25rem; background: var(--paper); }
+#std-toc { border-block: 1px solid var(--rule); padding-block: .5rem; }
+#std-toc h2 { margin-top: .5rem; }
+#std-toc ul { list-style: none; padding-left: 0; }
+#std-toc ul ul { padding-left: 1rem; font: .85rem/1.5 ui-monospace, monospace; }
+#std-toc a { text-decoration: none; }
+#std-toc a:hover { text-decoration: underline; }
+#std-toc a[aria-current] { font-weight: bold; text-decoration: underline; }
+.std-enhanced #std-toggle { display: block; margin-top: 1rem; }
+.std-enhanced #std-toc {
+  position: fixed; inset: 0 auto 0 0; width: min(22rem, 90vw);
+  padding: 1rem 1.25rem; background: var(--paper); overflow-y: auto;
+  border-right: 1px solid var(--rule); z-index: 10; visibility: hidden;
+  transform: translateX(-100%);
+}
+.std-enhanced.std-open #std-toc { visibility: visible; transform: none; }
+.std-open { overflow: hidden; }
+@media (min-width: 75.001rem) {
+  .std-enhanced #std-toc { width: calc((100vw - 50rem) / 2); max-width: 22rem; visibility: visible; transform: none; }
+  .std-enhanced #std-toggle, .std-enhanced #std-close { display: none; }
+}
+@media print {
+  .std-enhanced #std-toc { position: static; width: auto; max-width: none; visibility: visible; transform: none; }
+  .std-enhanced #std-toggle, .std-enhanced #std-close { display: none; }
+}

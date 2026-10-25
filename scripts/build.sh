@@ -41,7 +41,7 @@ git submodule update --init --recursive --quiet || {
   echo "could not sync submodules" >&2
   exit 1
 }
-for m in wolf-book wolf-interp wolf-lang; do
+for m in wolf-book wolf-interp wolf-lang wolf-std; do
   want=$(git ls-tree HEAD "upstream/$m" | awk '{print $3}')
   have=$(git -C "upstream/$m" rev-parse HEAD 2>/dev/null || echo none)
   if [[ "$want" != "$have" ]]; then
@@ -166,6 +166,11 @@ python3 scripts/stamp-sizes.py "$DIST" upstream/wolf-lang
 # alone: the rendered changelogs below are full of revisions and every one of
 # them is history.
 python3 scripts/stamp-revisions.py "$DIST" upstream/wolf-lang upstream/wolf-interp
+
+step "The standard library reference"
+python3 scripts/std-reference.py
+python3 scripts/std-reference.py --check
+python3 scripts/render-std.py dist/std/reference.json dist/std
 
 step "The book (web edition)"
 if (cd upstream/wolf-book && cargo run -p xtask --quiet -- render web >/dev/null 2>&1); then
@@ -337,7 +342,7 @@ cat > "$DIST/version.json" <<EOF
 {
   "built": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "lupin": "$LUPIN_VER",
-  "pins": { "wolf-lang": "$LANG_SHA", "wolf-interp": "$INTERP_SHA", "wolf-book": "$BOOK_SHA" },
+  "pins": { "wolf-lang": "$LANG_SHA", "wolf-interp": "$INTERP_SHA", "wolf-book": "$BOOK_SHA", "wolf-std": "$(git -C upstream/wolf-std rev-parse --short=7 HEAD)" },
   "spec-pin": "$SPEC_SHA",
   "missing": [$WAIVED_JSON]
 }

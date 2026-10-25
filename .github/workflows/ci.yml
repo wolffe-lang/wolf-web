@@ -16,7 +16,7 @@ jobs:
       # else, because everything else is generated from them.
       - name: submodule pins match their gitlinks
         run: |
-          for m in wolf-book wolf-interp wolf-lang; do
+          for m in wolf-book wolf-interp wolf-lang wolf-std; do
             want=$(git ls-tree HEAD "upstream/$m" | awk '{print $3}')
             have=$(git -C "upstream/$m" rev-parse HEAD)
             test "$want" = "$have" || { echo "::error::upstream/$m is $have, the pin says $want"; exit 1; }
@@ -81,6 +81,9 @@ jobs:
       # anything, no dependency creeping into the playground.
       - name: editor core and CSP gates
         run: node --test tests/*.test.mjs
+
+      - name: std extractor controls
+        run: python3 -m unittest discover -s tests -p '*_test.py'
 
       - name: build
         run: ./scripts/build.sh
