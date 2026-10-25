@@ -72,7 +72,8 @@ class Integration(unittest.TestCase):
             temp = Path(temp)
             checkout = temp / 'std'
             subprocess.run(['git', 'clone', '--shared', '--quiet', str(ROOT / 'upstream/wolf-std'), str(checkout)], check=True)
-            subprocess.run(['git', '-C', str(checkout), 'checkout', '--quiet', 'HEAD^'], check=True)
+            subprocess.run(['git', '-C', str(checkout), 'checkout', '--quiet', '-b', 'std-drift-test'], check=True)
+            subprocess.run(['git', '-C', str(checkout), '-c', 'user.name=Std test', '-c', 'user.email=std-test@example.invalid', 'commit', '--allow-empty', '--no-gpg-sign', '--quiet', '-m', 'Change fixture pin'], check=True)
             out = temp / 'reference.json'
             out.write_text(ref.json_text(self.data))
             failed = subprocess.run(['python3', str(ROOT / 'scripts/std-reference.py'), '--std', str(checkout), '--out', str(out), '--check'], capture_output=True, text=True)
