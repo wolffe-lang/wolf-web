@@ -116,7 +116,8 @@ def declarations(source, path):
         # Strip comments, not strings, from signatures; constants keep values.
         sig = re.sub(r'"(?:\\[\s\S]|[^"\\])*"|//[^\n]*|/\*[\s\S]*?\*/',
                      lambda m: m[0] if m[0].startswith('"') else '', source[start:pos]).strip()
-        sig = re.sub(r'\s+', ' ', sig)
+        sig = ''.join(part if part.startswith('"') else re.sub(r'\s+', ' ', part)
+                      for part in re.split(r'("(?:\\[\s\S]|[^"\\])*")', sig))
         items.append(dict(name=name, kind=kind, signature=sig,
                           doc=docs_before(source, start), source=path,
                           line=source.count('\n', 0, start) + 1))

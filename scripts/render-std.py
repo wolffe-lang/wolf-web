@@ -14,7 +14,7 @@ ref = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ref)
 E = html.escape
 SECTIONS = [('types', 'Types and traits'), ('functions', 'Functions and methods'),
-            ('constants', 'Constants'), ('errors', 'Errors and row aliases')]
+            ('constants', 'Constants'), ('errors', 'Errors and row tags')]
 
 
 def inline(text):
@@ -137,6 +137,13 @@ def render(data):
             section_id = 'section-' + kind
             toc.append('<li><a href="#%s">%s</a><ul>' % (section_id, label))
             body.append('<section id="%s"><h2>%s</h2>' % (section_id, label))
+            if kind == 'errors':
+                rows = set()
+                for item in module['items']:
+                    for row in re.findall(r'!\s*\{([^}]+)\}', item['signature']):
+                        rows.update(re.findall(r'(?:^|,)\s*([A-Za-z_]\w*)', row))
+                if rows:
+                    body.append('<p>Tags named by public signatures: ' + ', '.join('<code>' + E(tag) + '</code>' for tag in sorted(rows)) + '. Their conditions are documented on the functions that return them.</p>')
             if not items:
                 body.append('<p class="note">No public declarations in this section.</p>')
             for item in items:

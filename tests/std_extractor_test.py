@@ -44,6 +44,10 @@ impl File {
         self.assertEqual(items[3]['signature'], 'pub error Io = {io, eof}')
         self.assertEqual(items[4]['signature'], 'pub const FLAG: int = 16')
 
+    def test_constant_strings_keep_spaces_and_comment_like_text(self):
+        items = ref.declarations('pub const TEXT: str = "a  b // {x}"', 'fixture')
+        self.assertEqual(items[0]['signature'], 'pub const TEXT: str = "a  b // {x}"')
+
     def test_no_doc_leaks_from_private_item(self):
         items = ref.declarations('/// Private.\nfn hidden() {}\n\npub fn visible() {}', 'fixture')
         self.assertEqual(items[0]['doc'], '')
