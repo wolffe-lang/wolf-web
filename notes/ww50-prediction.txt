@@ -1,0 +1,18 @@
+ww50 prediction, before implementation
+
+The pinned wolf doc --json --std-root std can enumerate immediate modules,
+but will omit nested modules and refuse newer std source at the site's older
+compiler pin. Expect a source extractor to be necessary, without a claim of
+compiler verification. Expect every pub declaration, not private helpers.
+
+Predicted direct-module counts (source-line census, not extractor output):
+base64 5; bytes 10; cmp 7; deque 0; env 19; errors 7; fmt 18; fs 83;
+hex 5; io 8; iter 6; json 27; list 36; map 13; math 18; mem 0;
+net 27; ops 7; option 4; os 3; pool 2; prelude 3; process 56; rand 8;
+range 5; search 11; set 0; signal 50; sort 11; str 40; strbuf 10;
+term 17; testing 12; time 33 (includes a member file); unicode 10;
+x 0 (namespace only). Nested modules add their own pages and counts.
+Largest page predicted: fs, 120–180 KiB uncompressed including documentation.
+
+Forbidden: deployment; changes to almanta, DNS, tunnels, the planning repo,
+or ~/.claude; new frontend dependencies; inline script/style; PR labels.
