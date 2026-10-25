@@ -13,10 +13,13 @@ class Page(HTMLParser):
         super().__init__()
         self.items, self.ids, self.links, self.scripts = [], [], [], []
         self.inline = False
+        self.signatures, self.signature = [], None
         self.feed(source)
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == 'pre' and attrs.get('class') == 'std-signature':
+            self.signature = []
         if 'data-std-item' in attrs:
             self.items.append(attrs['data-std-item'])
         if 'id' in attrs:
@@ -27,6 +30,15 @@ class Page(HTMLParser):
             self.scripts.append(attrs.get('src', ''))
         if tag == 'style' or 'style' in attrs or any(k.startswith('on') for k in attrs):
             self.inline = True
+
+    def handle_data(self, data):
+        if self.signature is not None:
+            self.signature.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == 'pre' and self.signature is not None:
+            self.signatures.append(''.join(self.signature))
+            self.signature = None
 
 
 def check(root):
@@ -43,7 +55,13 @@ def check(root):
         expected = Counter(i['name'] for i in module['items'])
         if Counter(page.items) != expected:
             raise ValueError('std-public-items: std.%s expected %s, got %s' % (name, expected, Counter(page.items)))
+        if Counter(page.signatures) != Counter(i['signature'] for i in module['items']):
+            raise ValueError('std-public-signatures: HTML signatures differ for ' + name)
         lines = (root / (name + '.txt')).read_text().splitlines()
+        for item in module['items']:
+            prefix = 'std.%s.%s %s — ' % (name, item['name'], item['signature'])
+            if sum(line.startswith(prefix) for line in lines) != 1 or sum(line.startswith(prefix) for line in whole) != 1:
+                raise ValueError('std-public-signatures: text signature differs for ' + name + '.' + item['name'])
         text_names = [line.split(' ', 1)[0] for line in lines if line.startswith('std.' + name + '.')]
         wanted = ['std.' + name + '.' + i['name'] for i in module['items']]
         if Counter(text_names) != Counter(wanted):

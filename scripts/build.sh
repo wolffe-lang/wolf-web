@@ -8,6 +8,7 @@
 #   upstream/wolf-book    -> the book's web edition        -> dist/book/
 #   upstream/wolf-interp  -> lupin compiled to wasm        -> dist/play/
 #   upstream/wolf-lang    -> spec, diagnostics, samples    -> dist/spec/, dist/docs/
+#   upstream/wolf-std     -> source reference and text       -> dist/std/
 #
 # Run from the repo root:  ./scripts/build.sh
 # ------------------------------------------------------------------
@@ -330,6 +331,7 @@ LANG_SHA=$(git -C upstream/wolf-lang rev-parse --short=7 HEAD 2>/dev/null || ech
 # gitlink /install/ and /play/ now carry as a stamp, written here as well so
 # that what the pages say can be held against what the build measured without
 # asking git anything — which is what the post-deploy checks do.
+STD_SHA=$(git -C upstream/wolf-std rev-parse --short=7 HEAD)
 SPEC_SHA=$(git -C upstream/wolf-interp ls-tree HEAD upstream | awk '{print substr($3, 1, 7)}')
 [[ -n "$SPEC_SHA" ]] || SPEC_SHA=unknown
 # A waived build is still a build that is missing something. Say so in
@@ -342,7 +344,7 @@ cat > "$DIST/version.json" <<EOF
 {
   "built": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "lupin": "$LUPIN_VER",
-  "pins": { "wolf-lang": "$LANG_SHA", "wolf-interp": "$INTERP_SHA", "wolf-book": "$BOOK_SHA", "wolf-std": "$(git -C upstream/wolf-std rev-parse --short=7 HEAD)" },
+  "pins": { "wolf-lang": "$LANG_SHA", "wolf-interp": "$INTERP_SHA", "wolf-book": "$BOOK_SHA", "wolf-std": "$STD_SHA" },
   "spec-pin": "$SPEC_SHA",
   "missing": [$WAIVED_JSON]
 }
@@ -351,7 +353,7 @@ EOF
 # revision published here is seven hex characters; a build that would serve
 # any other number stops, rather than leaving the next post-deploy check to
 # discover it by comparing a seven against an eight and going red over nothing.
-for pin in "$LANG_SHA" "$INTERP_SHA" "$BOOK_SHA" "$SPEC_SHA"; do
+for pin in "$LANG_SHA" "$INTERP_SHA" "$BOOK_SHA" "$SPEC_SHA" "$STD_SHA"; do
   [[ "$pin" == unknown || "$pin" =~ ^[0-9a-f]{7}$ ]] || {
     echo "version.json would publish the revision '$pin'; pins are seven hex characters" >&2
     exit 1

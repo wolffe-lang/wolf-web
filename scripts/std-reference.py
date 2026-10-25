@@ -114,7 +114,8 @@ def declarations(source, path):
                 raise ValueError('%s: unsupported public impl scope %s' % (path, owner))
             name = owner.split('[')[0] + '.' + name
         # Strip comments, not strings, from signatures; constants keep values.
-        sig = re.sub(r'//[^\n]*|/\*[\s\S]*?\*/', '', source[start:pos]).strip()
+        sig = re.sub(r'"(?:\\[\s\S]|[^"\\])*"|//[^\n]*|/\*[\s\S]*?\*/',
+                     lambda m: m[0] if m[0].startswith('"') else '', source[start:pos]).strip()
         sig = re.sub(r'\s+', ' ', sig)
         items.append(dict(name=name, kind=kind, signature=sig,
                           doc=docs_before(source, start), source=path,
