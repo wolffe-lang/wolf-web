@@ -67,6 +67,18 @@ class Integration(unittest.TestCase):
             self.assertNotEqual(failed.returncode, 0)
             self.assertIn('std reference drift', failed.stderr)
 
+    def test_changed_std_checkout_pin_is_rejected(self):
+        with tempfile.TemporaryDirectory(dir=ROOT / 'target') as temp:
+            temp = Path(temp)
+            checkout = temp / 'std'
+            subprocess.run(['git', 'clone', '--shared', '--quiet', str(ROOT / 'upstream/wolf-std'), str(checkout)], check=True)
+            subprocess.run(['git', '-C', str(checkout), 'checkout', '--quiet', 'HEAD^'], check=True)
+            out = temp / 'reference.json'
+            out.write_text(ref.json_text(self.data))
+            failed = subprocess.run(['python3', str(ROOT / 'scripts/std-reference.py'), '--std', str(checkout), '--out', str(out), '--check'], capture_output=True, text=True)
+            self.assertNotEqual(failed.returncode, 0)
+            self.assertRegex(failed.stderr, 'std reference drift|toolchain pin differs')
+
     def test_html_escaping(self):
         self.assertNotIn('<script>', renderer.prose('A <script>bad()</script>.'))
         self.assertIn('&lt;script&gt;', renderer.prose('A <script>bad()</script>.'))

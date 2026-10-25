@@ -68,3 +68,11 @@ test("the editor is dependency-free: its modules import only each other", () => 
     assert.ok(!source.includes("innerHTML"), `${file}: no markup injection`);
   }
 });
+
+
+test("std contents: external dependency-free script under the unchanged CSP", () => {
+  const source = readFileSync(join(root, "site/std/toc.js"), "utf-8");
+  assert.ok(!/\b(?:import|eval)\s*\(/.test(source), "no dynamic import or eval");
+  assert.ok(!source.includes("innerHTML"), "no markup injection");
+  assert.ok(!/\.style[.\[]/.test(source), "no inline styles");
+});

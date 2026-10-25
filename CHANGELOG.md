@@ -20,6 +20,24 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## ww50 (the standard-library reference) — 2026-10-25
+
+**The standard library has a reference at /std/.** Browse modules by subject,
+then read types, functions, constants and error aliases with their signatures,
+documentation and pinned source links. The contents list follows the current
+section and opens as a panel on narrow screens. With JavaScript off it stays
+inline; the site's content-security policy is unchanged.
+
+**A text edition for tools.** `/std/index.txt` lists the complete public
+surface; `/std/<module>.txt` provides a module at a time. Nested modules and
+public inherent methods are included. `/std/reference.json` carries the
+same extraction with source lines.
+
+**The library is a pinned build input.** Its compiler pin must match the
+site's. Generation checks reject drift, missing items and broken anchors;
+a browser gate exercises navigation under the production security headers.
+The toolchain banner verifies the pin pairing, not execution of every API.
+
 ## ww46 (the site at 0.2.34, the fork, and what an editor asks of the host) — 2026-10-22
 
 All three gitlinks move: the book to bs70's merge, the compiler to wolf

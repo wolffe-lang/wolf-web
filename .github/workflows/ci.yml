@@ -186,7 +186,7 @@ jobs:
 
   deploy:
     name: deploy to lupp.us
-    needs: build
+    needs: [build, std-reference]
     if: github.ref == 'refs/heads/trunk' && github.event_name == 'push'
     runs-on: ubuntu-latest
     concurrency: {group: deploy-lupp-us, cancel-in-progress: false}
