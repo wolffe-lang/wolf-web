@@ -4,6 +4,32 @@ on:
   pull_request:
 
 jobs:
+  std-reference:
+    name: std reference gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with: {submodules: recursive}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.9'}
+      - name: std extractor and drift controls
+        run: python3 -m unittest discover -s tests -p '*_test.py' -v
+      - name: generate std reference
+        run: |
+          mkdir -p dist
+          cp -R site/. dist/
+          python3 scripts/std-reference.py
+          python3 scripts/render-std.py dist/std/reference.json dist/std
+      - name: std public item completeness
+        run: |
+          python3 scripts/check-std.py
+          python3 scripts/std-reference.py --check
+          python3 scripts/render-std.py dist/std/reference.json dist/std --check
+      - name: std two hops under production CSP and JavaScript off
+        env:
+          CHROMIUM: google-chrome
+        run: node scripts/check-std-browser.mjs
+
   build:
     name: build the site
     runs-on: ubuntu-latest
@@ -114,6 +140,9 @@ jobs:
           head -c 5 dist/book/wolf-book.pdf | grep -q '%PDF-'
           grep -q '/book/wolf-book.pdf' dist/reading/index.html
           python3 scripts/check-links.py dist
+          python3 scripts/check-std.py
+          python3 scripts/std-reference.py --check
+          python3 scripts/render-std.py dist/std/reference.json dist/std --check
 
       # The menu is a promise. collect-samples.py can only read the corpus
       # header, which is the COMPILER's claim about a program; this feeds
