@@ -262,7 +262,6 @@ CHANGELOG.md Twenty-two 1 counted=0
 CHANGELOG.md sixty-one 1 counted=0
 CHANGELOG.md twenty-six 1 counted=0
 CHANGELOG.md Forty 1 counted=0
-docs/index.html seven 1 counted=1 audited-at-wolf=0.2.35
 index.html five 3 counted=3 audited-at-wolf=0.2.35
 index.html ten 1 counted=1 audited-at-wolf=0.2.35
 index.html eighteen 1 counted=1 audited-at-book=591cd5d

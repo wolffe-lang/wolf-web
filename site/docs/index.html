@@ -17,6 +17,7 @@
     <a href="/install/">install</a>
     <a href="/play/">playground</a>
     <a href="/reading/">the book</a>
+    <a href="/std/">std</a>
     <a href="/docs/">docs</a>
     <a href="/spec/">spec</a>
     <a href="/changelog/">changelog</a>
@@ -56,17 +57,11 @@
 
 <section>
   <h2>Standard library reference</h2>
-  <p>There is no generated reference for the standard library on this site yet.
-  The compiler ships <code>wolf doc</code>, which produces static HTML and a
-  stable JSON index from doc comments and the signatures the compiler resolved,
-  and what the compiler repository has committed under
-  <code>docs/api/</code> is that tool's test fixture: a two-module package
-  called <code>demo/doc</code> with seven items in it. The build copies it to
-  <a href="/docs/api/">/docs/api/</a> because it is what exists. Read it as a
-  sample of the output format.</p>
-  <p>For the library surface as it stands, the book's chapters and the
-  <a href="/spec/">specification</a> are the reference, and
-  <code>wolf doc</code> run against a checkout is the way to get the rest.</p>
+  <p><a href="/std/">Browse the standard library</a> by module, with
+  signatures, documentation, source links and a contents list. The reference
+  follows a pinned library checkout paired with the site's compiler.</p>
+  <p><a href="/std/index.txt">The plain-text edition</a> lists the complete
+  public surface for tools and agents. Each module also has a text download.</p>
 </section>
 
 <section>

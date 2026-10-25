@@ -154,6 +154,7 @@ page = f"""<!doctype html>
     <a href="/">wolf</a>
     <a href="/play/">playground</a>
     <a href="/reading/">the book</a>
+    <a href="/std/">std</a>
     <a href="/docs/">docs</a>
     <a href="/spec/">spec</a>
     <a href="/changelog/">changelog</a>
