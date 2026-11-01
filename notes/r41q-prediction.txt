@@ -1,0 +1,51 @@
+r41q — prediction for wolf-web before the pins move (2026-11-01)
+
+Base: wolf-web trunk b5f5ac3d (ww50's record). Contract:
+wolf/sprints/release/r41q-the-app-pins.md (the site's pins to the published
+pair and the book's new trunk; a merge to trunk deploys lupp.us, and the PR
+states what the deploy changes). The live site read before the change
+(curl -sS https://lupp.us/version.json, 2026-11-01T20:39Z):
+  built 2026-10-25T22:06:56Z, lupin 0.1.56,
+  pins wolf-lang cf0c13d, wolf-interp 28547b4, wolf-book 591cd5d,
+  wolf-std 5f49efd, spec-pin 294d626, missing [].
+
+The pins, each read twice:
+  upstream/wolf-lang   cf0c13d -> 5adf3d91 (v0.2.36, tag object 86d61559)
+  upstream/wolf-interp 28547b4 -> 6240efe5 (v0.1.58, tag object dc4689e3)
+  upstream/wolf-book   591cd5d -> 64bb3c76 (r41q's wolf-book#100 head: the
+                       book's trunk once it merges by fast-forward; if the
+                       book's merge head differs, this pin moves to it first)
+  upstream/wolf-std    5f49efd -> dee6206f (wolf-std trunk after sc75; its
+                       own compiler gitlink is 5adf3d91, the pairing the std
+                       reference requires, R-ww50-4)
+
+Predicted, per page:
+- version.json after the deploy: lupin "0.1.58"; pins wolf-lang "5adf3d9",
+  wolf-interp "6240efe", wolf-book "64bb3c7", wolf-std "dee6206";
+  spec-pin "a5378e3"; built = the deploy's time; missing [].
+- The stamped versions: "This is version 0.2.36" (the pinned CHANGELOG's
+  first release heading) and lupin 0.1.58 wherever __WOLF_VERSION__ and
+  __LUPIN_VERSION__ stand.
+- The lag (/install/, /play/): lupin 0.1.56 was built to 294d626, the
+  v0.2.24 tag, eleven releases behind 0.2.35. lupin 0.1.58 is built to
+  a5378e3, a development revision of the compiler's trunk (no tag) whose
+  newest release ancestor is v0.2.35: ONE release behind 0.2.36, 123
+  commits back. check-lag-phrases.py will refuse the pages until they
+  carry "one release" and "a development revision" and none of the other
+  phrases, so both paragraphs are rewritten (the old story, an interpreter
+  keeping one tag while the compiler released eleven times, is over), and
+  /install/'s second statement of the pin ("a release tag on the
+  compiler's own line"), which no check holds, is corrected by hand.
+- version-allowlist.txt: 96 entries audited-at-wolf=0.2.35 and 32
+  audited-at-lupin=0.1.56, each sentence re-read; count-allowlist.txt and
+  stamp-allowlist.txt entries as their checks demand at the new pins.
+- /play/: lupin 0.1.58 compiled to wasm; its tier count and entropy
+  sentences re-read against the new interpreter (ww47's shape).
+- The book: the web edition and the PDF at 64bb3c76 (the 0.2.36 consoles,
+  Appendix A's variadic params rule, Appendix C's 192 codes).
+- The std reference at dee6206f: what sc75 added since 5f49efd.
+
+How it is checked: build.sh at trunk and at the head on hasu, wasm and PDF
+waived by name (CI builds both), dist/ diffed text for text; the head's
+own CI run builds everything with nothing waived. Never a deploy: the
+orchestrator merges, the deploy job runs, and the live site is read back.
