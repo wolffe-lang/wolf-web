@@ -140,8 +140,57 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises lets a forked child keep
-  running wolf code, and gives an editor the calls it asks of the
+  <p><strong>The release this page advertises lets a program call into C
+  with a variable argument list and be called that way, and read the name it
+  was started by and its arguments byte for byte.</strong>
+  <code>VaList</code> and its four operations, <code>va_start</code>,
+  <code>va_arg</code>, <code>va_copy</code> and <code>va_end</code>, join the
+  prelude: a hand-declared C call and an exported variadic definition work on
+  hosted linux x86-64 and the freestanding <code>x86_64-unknown-none</code>
+  target, on the native and release tiers, the way the SysV calling convention
+  lays them out; other targets refuse both by name (E0826), and so does the
+  checked machine. <code>env_arg0()</code> answers the name a program was
+  started by and <code>env_args_bytes()</code> every argument as bytes,
+  <code>argv[0]</code> first, and a text argument that is not UTF-8 now traps
+  by its index (<code>argument-utf8</code>) where it used to abort. A program
+  linked statically against musl reads its arguments too, because the entry
+  the compiler emits hands <code>argc</code>, <code>argv</code> and the
+  environment to the runtime. Programs start about as fast as they did at
+  v0.2.34 again; every spawn and a failed <code>os_exec</code> carry the
+  host's error number; <code>--linker</code> and <code>--assembler</code>
+  choose the tools by path; and the release publishes the musl runtime beside
+  its four host archives. The <code>std/</code> in the archive moved on to
+  wrap the previous release's calls — <code>fs.access</code>,
+  <code>fs.lock</code>, <code>fs.read_into</code>,
+  <code>process.core_limit</code> among them — and its list helpers now change
+  a list in place. The interpreter tested beside this release moved its
+  specification pin forward, to a revision one release behind the compiler,
+  mirrors the previous release's rows, and recognizes a variadic declaration
+  while refusing to run one by name, as the checked machine does: the
+  <a href="/play/">playground</a> measures the difference.</p>
+
+  <p><strong>v0.2.35 compiled the enums whose payloads disagree, gave a loop a
+  region for each turn, and named a stack overflow.</strong> An enum such as
+  <code>enum Value { Int(int), Text(str) }</code> builds natively and on the
+  release tier, each conflicting payload slot a union sized for its largest
+  member, which is what <code>std.json</code> needed. A <code>region</code>
+  block can write a scalar or an explicit <code>copy</code> into an outer
+  value without keeping the block's data, and <code>List.reserve</code> and
+  <code>List.reset</code> keep a buffer across turns. A main-thread stack
+  overflow reports <code>wolf-trap: stack-overflow</code> and exits 134
+  where it used to die without a word. A member read on an unhandled
+  <code>!T</code> is E0409 at the base, and the note spells the two ways to
+  handle it. A program gained the filesystem calls a shell and an editor ask
+  for — <code>fs_access</code>, <code>fs_lock</code>,
+  <code>fs_mkfifo</code>, <code>fs_set_nonblock</code>, a whole
+  <code>fs_fstat_record</code>, an open that refuses a symbolic link — and
+  process calls for a core limit, an adopted descriptor and the host's name;
+  <code>wolf test</code> took <code>--nocapture</code>. The interpreter it was
+  tested against released beside it without re-reading the specification,
+  so the gap widened at that release too.</p>
+
+  <p><strong>v0.2.34 let a forked child keep
+  running wolf code, and gave an editor the calls it asks of the
   host.</strong> <code>os_fork</code> answers the parent the child's
   process id and a handle the waits and polls serve, and answers the child
   <code>(0, -1)</code>; the child is one thread, the caller's, with the
@@ -164,16 +213,14 @@ fn main() -&gt; !int {
   those of a plain file that sorted before it (#799); and a program that
   names <code>os_signal_wait_fds</code> makes the signal hub and its wake
   pipe before <code>main</code>, as one that names
-  <code>os_signal_wait_fd</code> does. The <code>std/</code> in the archive
-  moved on to wrap the previous release's calls —
+  <code>os_signal_wait_fd</code> does. The <code>std/</code> in its archive
+  wrapped the previous release's calls —
   <code>signal.ignore_one</code> and <code>signal.reset_one</code>,
   <code>process.exit_signal</code>, and the core read beside
   <code>process.Status</code>, never inside it — with
-  <code>net.Addr</code> beside them. It wraps none of this release's calls
-  yet, so a program calls them as the prelude spells them. The interpreter
-  tested beside this release has learned the previous release's calls and
-  none of these: the <a href="/play/">playground</a> measures the
-  difference.</p>
+  <code>net.Addr</code> beside them, and none of its own, so a program
+  called those as the prelude spells them. The interpreter tested beside it
+  had learned the previous release's calls and none of these.</p>
 
   <p><strong>v0.2.33 let a program choose for
   one signal at a time, end itself by a signal, and learn that a child
