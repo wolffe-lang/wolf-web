@@ -165,8 +165,9 @@ fn main() -&gt; !int {
   <code>process.core_limit</code> among them — and its list helpers now change
   a list in place. The interpreter tested beside this release moved its
   specification pin forward, to a revision one release behind the compiler,
-  mirrors the previous release's rows, and recognizes a variadic declaration
-  while refusing to run one by name, as the checked machine does: the
+  runs the previous release's region and list programs, though not yet its
+  new calls or this one's, and recognizes a variadic declaration while
+  refusing to run one by name, as the checked machine does: the
   <a href="/play/">playground</a> measures the difference.</p>
 
   <p><strong>v0.2.35 compiled the enums whose payloads disagree, gave a loop a
