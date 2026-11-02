@@ -82,9 +82,22 @@
 # windows job's phrase check, which is page-wide and reads the two gitlinks
 # rather than the prose — a stronger gate than this file's, not a weaker one.
 # The trade belongs written down where the count drops.
-index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.35
-install/index.html __WOLF_VERSION__ 11 bound=2 audited-at-wolf=0.2.35
-install/index.html __LUPIN_VERSION__ 8 bound=4 audited-at-lupin=0.1.56
-spec/index.html __WOLF_VERSION__ 4 bound=4 audited-at-wolf=0.2.35
-play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.35
-play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.56
+#
+# r41q (wolf 0.2.36, lupin 0.1.58): every bound sentence re-read at the new
+# pins, and two of /spec/'s were false. "At (the stamp) the document and its
+# EBNF are v0.2.23's, byte for byte" stopped being true when v0.2.36 widened
+# one production (`, ...`), and "At (the stamp) a program forks a child" was
+# v0.2.34's news under a later stamp. Both now name their release, so /spec/'s
+# total drops 4 -> 2, bound 4 -> 2; the two left are its `grammar/1` status
+# line and 03's signal-wait clause, both true at 0.2.36. The front page's
+# arm-gate and four-archives sentences stood (the 0.2.36 arm run gate refuses
+# native and release by name, exit 2, and runs the checked tier; the release
+# carries the four host archives and, beside them, the musl runtime, which
+# /install/ now names). /install/'s tap-and-AUR sentence was read live: both
+# channels carry 0.2.36 and 0.1.58.
+index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.36
+install/index.html __WOLF_VERSION__ 11 bound=2 audited-at-wolf=0.2.36
+install/index.html __LUPIN_VERSION__ 8 bound=4 audited-at-lupin=0.1.58
+spec/index.html __WOLF_VERSION__ 2 bound=2 audited-at-wolf=0.2.36
+play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.36
+play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.58
