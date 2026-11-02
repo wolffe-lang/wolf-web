@@ -223,7 +223,13 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   <code>corpus/membrane/extern_let_image.lu</code> names a symbol only a
   link defines, and <code>corpus/membrane/extern_libc.lu</code> calls a
   bodyless C declaration, and the interpreter models neither a link nor a C
-  ABI. The declines this page named at v0.2.25's pin are gone: the atomics
+  ABI. Three wait on the interpreter's next mirror:
+  <code>corpus/os/arg0.lu</code> and <code>args_bytes.lu</code> read the
+  name a program was started by and its arguments as bytes, which the
+  interpreter's trunk already reads for its next release (wolf-interp#295),
+  and <code>corpus/os/core_limit_rows.lu</code> sets the core limit, one of
+  v0.2.35's calls the interpreter has not mirrored yet (wolf-interp#277).
+  The declines this page named at v0.2.25's pin are gone: the atomics
   and the volatile program, <code>corpus/conc/atomic_fence.lu</code>,
   <code>atomic_orders.lu</code>, <code>atomic_widths.lu</code> and
   <code>corpus/memory/volatile_widths.lu</code>, which lupin 0.1.48 had no
@@ -232,14 +238,27 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   pointer to a struct it read as bytes, all print what the compiler prints
   (wolf-interp#194, #185, #205). <code>corpus/conc/atomic_counter.lu</code>
   runs at a terminal and is declined in the tab only, for the tab's reason:
-  it spawns tasks, and a page has no thread to give them. One program
-  answers differently in the tab without being declined, and it is the
-  tab's too: <code>corpus/os/chdir_relative.lu</code> moves the working
+  it spawns tasks, and a page has no thread to give them. Four programs
+  answer differently in the tab without being declined, and they are the
+  tab's too. <code>corpus/os/chdir_relative.lu</code> moves the working
   directory, which a page does not have, so the tab's
   <code>os_chdir</code> answers the <code>io</code> row and the program
   exits 1 printing <code>error: io</code>, where at a terminal it prints
-  what its header says and exits 0 (wolf-interp#222). None of them is
-  worked around here.</p>
+  what its header says and exits 0 (wolf-interp#222).
+  <code>corpus/os/args_cwd.lu</code> and, since v0.2.35,
+  <code>corpus/memory/region_os_cwd_charged.lu</code> ask for that
+  directory's name, the tab's <code>os_cwd</code> answers the same row, and
+  both exit 1 the same way, where at a terminal each prints its header's
+  lines. <code>corpus/os/cpus.lu</code> exits 0 printing <code>answered
+  false</code>, because a page cannot say how many cores it may use and
+  <code>[os.cpus]</code> gives a host that cannot the <code>io</code> row.
+  Two more part from their headers in both places, by a reading the
+  specification allows: <code>corpus/faults/assert_msg_effect_fails.lu</code>
+  and <code>assert_msg_name_fails.lu</code> print a failed
+  <code>assert</code>'s message as a line before the trap, which
+  <code>[conf.trap.assert]</code> permits until formatting lands, where the
+  compiler prints no line (wolf-lang#556). None of them is worked around
+  here.</p>
 
   <p>The tab reads <code>cfg</code> as an x86-64 Linux host. The interpreter
   evaluates a <code>#[cfg(target = …)]</code> against the target it was
@@ -255,19 +274,88 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>The release above brought no program into the corpus's running set.
+  <p>The release above brought eight programs into the corpus's running
+  set, and the interpreter above answers each as its header says or
+  declines it by name. Four run in the tab and at a terminal and print
+  their headers' lines: <code>corpus/memory/read_lend_frame.lu</code> and
+  <code>read_lend_value_semantics.lu</code>, which pass a large value by
+  <code>read</code>, and <code>corpus/rows/else_fallback_bound_slice.lu</code>
+  and <code>else_fallback_paren_slice.lu</code>, which slice a string at an
+  index an <code>else</code> fallback computes. The tab declines
+  <code>corpus/fs/copy_chunk_failed_write.lu</code>, a copy whose write
+  fails and keeps what it read, at its first call with the filesystem tier,
+  and at a terminal it prints its header's lines.
+  <code>corpus/fs/copy_chunk_dev_full.lu</code> copies into
+  <code>/dev/full</code>, so at a terminal the interpreter declines it by
+  name, the path lying outside the tree it serves its filesystem in
+  (<code>[os.fs.path.domain]</code>), and the tab with the filesystem tier.
+  <code>corpus/os/arg0.lu</code> and <code>args_bytes.lu</code> read the
+  name a program was started by and its arguments as bytes, and that
+  release's <code>env_arg0</code> and <code>env_args_bytes</code> do not
+  resolve here or at a terminal: the interpreter's trunk reads them, for
+  its next release (wolf-interp#295). A variadic call, into C or to an
+  exported definition, is declined by name in both places, naming the call;
+  under lupin 0.1.56 the trailing <code>, ...</code> did not parse. The
+  census counts verdicts; a second walk feeds every running program in the
+  corpus to both modules, lupin 0.1.56's, which this site served until now,
+  and the one this build publishes, and compares what each prints. Nine
+  programs answer differently under the two, all of them v0.2.35's, below,
+  and every other program prints the same and is declined, where it is
+  declined, for the same reason.</p>
+
+  <p>At v0.2.35's pin the additions were never measured on this page, and
+  are now. Its running programs are region blocks that write into an outer
+  value, the list's <code>reserve</code> and <code>reset</code>, enums whose
+  payloads disagree, scalars a region holds no storage for, closures and
+  function values across modules, rows read through a member, and a
+  wrapping countdown. Under lupin 0.1.56, the interpreter this site served
+  at that pin, six of the region programs trapped
+  <code>region-fault</code> in the tab and three were declined, because
+  that interpreter sent <code>reserve</code> and <code>reset</code> to the
+  standard library: <code>corpus/memory/list_reserve.lu</code>,
+  <code>list_reset.lu</code>, <code>region_outer_write_reset.lu</code>,
+  <code>region_copy_shares_str.lu</code>,
+  <code>region_str_call_index_store.lu</code> and the
+  <code>region_outer_write_field</code>, <code>_map</code>,
+  <code>_str_push</code> and <code>_struct</code> programs. The interpreter
+  above prints their headers' lines, in the tab and at a terminal
+  (wolf-interp#289). The programs that span sibling files are declined in
+  the tab, which is one buffer, and two of them,
+  <code>corpus/typecheck/closure_module_to_entry/main.lu</code> and
+  <code>closure_module_to_module/main.lu</code>, are declined at a terminal
+  too, naming <code>lookup</code> as a function that does not resolve.
+  <code>corpus/os/signal_reserved_rows.lu</code> is declined in the tab
+  with the process tier and refused by name at a terminal, the signals a C
+  library reserves being its own and the interpreter admitting no
+  <code>unsafe</code>; <code>corpus/os/core_limit_rows.lu</code> stops in
+  both places at <code>os_set_core_limit</code>, which does not resolve.
+  So does every call that release added, made alone, in the tab and at a
+  terminal: <code>fs_access</code>, <code>fs_lock</code>,
+  <code>fs_unlock</code>, <code>fs_mkfifo</code>,
+  <code>fs_set_nonblock</code>, <code>fs_write_some</code>,
+  <code>fs_fstat_record</code>, <code>fs_adopt</code>,
+  <code>os_core_limit</code>, <code>os_set_core_limit</code>,
+  <code>os_core_off</code>, <code>os_name</code> and <code>os_arch</code>
+  (wolf-interp#277, #278).</p>
+
+  <p>At v0.2.34's pin the release brought no program into the running set.
   It took one row out of <code>corpus/os/term_editor_rows.lu</code>, a
   terminal mode with bit 5 set, which it made a field where it had been
   <code>invalid</code>; the tab declines the program at its first call with
-  the process tier, as it did, and at a terminal the interpreter above
-  prints what the header now says. Its new calls —
-  <code>os_fork</code>, <code>os_term_restore_at_exit</code>,
-  <code>os_signal_wait_fds</code>, <code>fs_sync</code>,
-  <code>fs_sync_dir</code>, <code>fs_realpath</code> and
-  <code>os_clock_ns</code> — each answer <code>unsupported</code> here when
-  a program makes one alone, naming the call as one that does not resolve,
-  and none of them runs at a terminal either until a later lupin release
-  mirrors it (wolf-interp#268, #269).</p>
+  the process tier, and at a terminal the interpreter above prints what the
+  header says. Its new calls — <code>os_fork</code>,
+  <code>os_term_restore_at_exit</code>, <code>os_signal_wait_fds</code>,
+  <code>fs_sync</code>, <code>fs_sync_dir</code>, <code>fs_realpath</code>
+  and <code>os_clock_ns</code> — did not resolve in lupin 0.1.55, the
+  interpreter this site served at that pin. lupin 0.1.56 mirrored them
+  (wolf-interp#268, #269), and each made alone is declined in the tab with
+  its tier: the first three with the process tier, the syncs and the
+  canonical path with the filesystem, the clock with time. At a terminal
+  the syncs, the canonical path and the clock answer; the restore and the
+  wait over descriptors answer a malformed call and a descriptor they cannot
+  use with the rows the compiler gives them; and the fork is refused by
+  name, since the interpreter has no fork and admits no
+  <code>unsafe</code>.</p>
 
   <p>At v0.2.33's pin the addition was one program.
   <code>corpus/os/signal_one_rows.lu</code> walks the shapes of one
@@ -289,9 +377,9 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   <code>os_signal_text</code> made alone is declined with that tier too, and
   at a terminal this interpreter refuses signal 0's words by name, where
   lupin 0.1.54 answered <code>invalid</code>. The census counts verdicts; a
-  second walk feeds every running program in the corpus to both modules —
-  the one this site served until now, lupin 0.1.54's, and the one this
-  build publishes — and compares what each prints. The measurement is four
+  second walk fed every running program in the corpus to both modules —
+  the one this site had served until then, lupin 0.1.54's, and the one it
+  published at that pin — and compared what each printed. The measurement is four
   walks, not one — both corpora through both modules — and no program that
   both corpora carry changed its answer, in its verdict or in its output.
   Three changed the reason they are declined for: the program above, and
@@ -503,11 +591,12 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   outright. This interpreter mirrors both texts, so every one of them runs in
   the tab now and answers what the compiler answers; the <a href="/play/">playground</a>
   counts them exactly. No program that ran in the tab at an earlier pin has
-  stopped, and of what the releases above add to the corpus none parts from
-  the compiler on a clause the interpreter has not mirrored: what does not
-  run here is declined for the tab's own reasons, named above, and the one
-  program that runs and parts in its output, <code>chdir_relative.lu</code>,
-  is the tab's too.</p>
+  stopped. Of what the releases above add to the corpus, what does not run
+  here is declined by name: for the tab's own reasons, or, for the three
+  named above, until the interpreter mirrors the calls they make. The
+  programs that run and part in their output are the tab's too, but for the
+  two whose <code>assert</code> message the specification lets either
+  implementation print.</p>
 
   <p>A gap of any width does not make the playground run everything, either,
   and it never did. <code>net_writev</code>, <code>net_nodelay</code> and
