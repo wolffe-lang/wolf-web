@@ -92,12 +92,16 @@
       attribute table gains <code>#[repr(c, packed)]</code> and
       <code>#[repr(c, align(N))]</code>, and a representation that cannot be
       laid out as written is <code>E0820</code>.
-      At v__WOLF_VERSION__ the document and its EBNF are v0.2.23's, byte for
-      byte: every release since wrote its clauses into the memory,
+      Through v0.2.35 the document and its EBNF stayed v0.2.23's, byte for
+      byte: every release between wrote its clauses into the memory,
       concurrency, ABI, conformance, package, types and OS documents, and the
       spellings v0.2.26 added — <code>-&gt; never</code>,
       <code>!</code> on an integer and <code>copy region { … }</code> — parse
-      under productions the grammar already had.
+      under productions the grammar already had. v0.2.36 widened one
+      production: a parameter list may end in <code>, ...</code>, a C
+      variable argument list, which is allowed only at the C membrane and
+      after at least one fixed parameter
+      (<code>[abi.c.variadic.syntax]</code>).
       Anchors <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
@@ -696,8 +700,8 @@
       <code>[os.signal.gaps.note]</code> records the three rulings behind
       them. windows answers <code>unsupported</code> for the disposition and
       the end by a signal once their shape is judged. Each of the new calls
-      is hosted: the freestanding target refuses it by name. At
-      v__WOLF_VERSION__ a program forks a child that keeps running wolf code
+      is hosted: the freestanding target refuses it by name. Since
+      v0.2.34 a program forks a child that keeps running wolf code
       (<code>[os.proc.fork]</code>): the fork answers <code>busy</code>,
       before the host is asked, while any task is live, from a task or a
       proc handler, or under the deterministic scheduler, and
