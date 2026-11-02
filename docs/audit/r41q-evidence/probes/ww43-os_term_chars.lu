@@ -1,0 +1,13 @@
+//! member: false
+//! ww43 probe: one call of os_term_chars, for the tab and for lupin at a terminal (chapter 34's builtins).
+fn main() -> !int {
+    let cs = os_term_chars(1) else |e| {
+        print(match e {
+            unsupported => "chars: unsupported",
+            io => "chars: io",
+        })
+        return 0
+    }
+    print("chars: {cs.len()}")
+    0
+}

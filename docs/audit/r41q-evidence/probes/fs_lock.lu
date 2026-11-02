@@ -1,0 +1,4 @@
+fn main() -> !int {
+    fs_lock(-1, 1)?
+    0
+}

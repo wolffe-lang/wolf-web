@@ -1,0 +1,4 @@
+fn main() -> !int {
+    fs_sync(-1)?
+    0
+}

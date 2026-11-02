@@ -1,0 +1,49 @@
+block2: waiting for block B from 2026-11-02T17:38:37Z
+web-build b5f5ac3d0f85e7ca26a70b9f8058f5d150b44418 build cpus=6-11 2026-11-02T19:45:47Z
+== STEP clone 2026-11-02T19:45:47Z
+head b5f5ac3d0f85e7ca26a70b9f8058f5d150b44418
+ 591cd5d0779764b7bf043ebe712ec52e1e356aa5 upstream/wolf-book (remotes/origin/bs72)
+ 28547b4324524d5477a6e54e4f6888462461a21f upstream/wolf-interp (v0.1.56)
+ cf0c13d38479f444b69bb8356ad5709d07eff323 upstream/wolf-lang (v0.2.35)
+ 5f49efd84140167c594c4107061769bf26841f84 upstream/wolf-std (remotes/origin/sc74-1-g5f49efd)
+typst 0.15.1 (9dfd3a08)
+rustc 1.97.1 (8bab26f4f 2026-07-14) (built from a source tarball)
+v22.23.2
+Python 3.14.7
+END clone exit=0
+== STEP pins 2026-11-02T19:45:55Z
+wolf-book 591cd5d
+wolf-interp 28547b4
+wolf-lang cf0c13d
+wolf-std 5f49efd
+upstream/wolf-lang carries 4059 commits
+END pins exit=0
+== STEP build 2026-11-02T19:45:55Z
+    Build at the pin with:  PATH="$HOME/.cargo/bin:$PATH" ./scripts/build.sh   (wolf-web#14)
+  no portability patch present; building the pin as it stands
+  stamping the interpreter commit as 28547b4
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1463 KiB raw, 533 KiB gzipped
+  wasm: 1.5M at dist/play/lupin.wasm
+
+▶ Docs and spec
+
+▶ The changelogs
+  changelog/wolf: rendered
+  changelog/lupin: rendered
+  changelog/book: rendered
+  changelog/site: rendered
+
+▶ Sample programs for the playground
+  samples: 36 programs from the pinned corpus
+  counts: 10 stamped across 7 page(s) — bookchapters 34, diagnostics 153, netprograms 18, samples 36, speccommits 1338, warnings 34
+
+▶ What could not be built
+  everything built
+
+▶ Version stamp
+
+✓ dist/ built (21M)
+END build exit=0
+WEB-BUILD-DONE b5f5ac3d0f85e7ca26a70b9f8058f5d150b44418
+R41Q_EXIT 0

@@ -1,0 +1,4 @@
+fn main() -> !int {
+    os_core_off()?
+    0
+}

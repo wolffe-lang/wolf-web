@@ -1,0 +1,13 @@
+//! member: false
+//! ww45 probe: one call of os_wait_status_core, for the tab and for lupin at a terminal (0.2.33's builtins, book §34.6).
+//! -1 is no child this program started: the wait has nothing to reap.
+fn main() -> !int {
+    let s = os_wait_status_core(-1) else |e| {
+        print(match e {
+            io => "wait_status_core: io",
+        })
+        return 0
+    }
+    print("wait_status_core: {s}")
+    0
+}

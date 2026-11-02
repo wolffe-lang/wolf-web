@@ -1,0 +1,731 @@
+comptime.lu: declined: `fib` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+comptime/fold_reaches_lane.lu: declined: `expand` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+comptime/layout_query_repr_c.lu: AS HEADER
+comptime/shift_value.lu: declined: `wrapped` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+conc/atomic_counter.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/atomic_fence.lu: AS HEADER
+conc/atomic_orders.lu: AS HEADER
+conc/atomic_widths.lu: AS HEADER
+conc/cancel_sibling.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/chan_closed_row.lu: AS HEADER
+conc/chan_default_rendezvous.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/chan_drain_after_inclusive_loop.lu: AS HEADER
+conc/chan_param_for.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/chan_payload_proc_param.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/chan_root_task.lu: AS HEADER
+conc/chan_send_closed_row.lu: AS HEADER
+conc/chan_sent_arg_legal.lu: AS HEADER
+conc/chan_sent_arg_legal_tasks.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/chan_struct_payload.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/freeze_proc_snapshot.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/freeze_publish.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/message_passing.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/par_fail_reraises.lu: AS HEADER
+conc/par_order.lu: AS HEADER
+conc/proc_cancel_defers.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_cap_fault_join.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_cross_module/main.lu: declined: `work.run` does not resolve
+conc/proc_join_param.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_join_value.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_kill_defers.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_link.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_link_root.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_link_root_death.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_must_join_legal.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_spawn_loop.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/reason_interp.lu: declined: the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/select_seeded.lu: AS HEADER
+conc/select_single_arm_loop.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/select_two_timeouts.lu: AS HEADER
+conc/spawn_cluster_split.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/spawn_fanout_loop.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/spawn_tail_send_raised_row.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/when_multi.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+ct/public_len.lu: AS HEADER
+entry_no_return.lu: AS HEADER
+faults/assert_fails.lu: AS HEADER
+faults/assert_msg_effect_fails.lu: DIFFERS: trap(assert) "effect\nm\n" want trap(assert) effect\n
+faults/assert_msg_holds.lu: AS HEADER
+faults/assert_msg_name.lu: AS HEADER
+faults/assert_msg_name_fails.lu: DIFFERS: trap(assert) "before\nboom\n" want trap(assert) before\n
+faults/assert_msg_try.lu: AS HEADER
+faults/bounds_slice.lu: AS HEADER
+faults/byte_view_slice_reversed.lu: AS HEADER
+faults/cast_float_nan_trap.lu: AS HEADER
+faults/cast_float_overflow_trap.lu: AS HEADER
+faults/cast_float_to_int_truncate.lu: AS HEADER
+faults/cast_narrow_sign_trap.lu: AS HEADER
+faults/cast_narrow_unsigned_to_signed_trap.lu: AS HEADER
+faults/cast_narrow_width_trap.lu: AS HEADER
+faults/char_cast_negative_trap.lu: AS HEADER
+faults/char_cast_range_trap.lu: AS HEADER
+faults/char_cast_surrogate_trap.lu: AS HEADER
+faults/div_zero_rem.lu: AS HEADER
+faults/index_origin_min_overflow.lu: AS HEADER
+faults/index_origin_zero.lu: AS HEADER
+faults/int_shift_count_negative.lu: AS HEADER
+faults/int_shift_left_overflow.lu: AS HEADER
+faults/int_shift_left_past_width.lu: AS HEADER
+faults/int_shift_left_sign_bit.lu: AS HEADER
+faults/int_truth_neg_u64_trap.lu: AS HEADER
+faults/int_truth_neg_u8_trap.lu: AS HEADER
+faults/int_truth_u64_add_trap.lu: AS HEADER
+faults/int_truth_u64_cast_trap.lu: AS HEADER
+faults/int_truth_uint_sub_trap.lu: AS HEADER
+faults/int_truth_wrap_div_zero.lu: AS HEADER
+faults/int_truth_wrap_rem_zero_signed.lu: AS HEADER
+faults/list_slice_oob.lu: AS HEADER
+faults/list_slice_reversed.lu: AS HEADER
+faults/overflow_add.lu: AS HEADER
+faults/overflow_call_result.lu: AS HEADER
+faults/overflow_elem_read.lu: AS HEADER
+faults/overflow_elem_write.lu: AS HEADER
+faults/overflow_field_read.lu: AS HEADER
+faults/overflow_interp_operand.lu: AS HEADER
+faults/overflow_list_pop_i32.lu: AS HEADER
+faults/overflow_list_pop_i64.lu: AS HEADER
+faults/region_cap_breach.lu: AS HEADER
+faults/repeat_negative.lu: AS HEADER
+faults/trap_skips_root_defers.lu: AS HEADER
+faults/wrap_high_as_i32.lu: AS HEADER
+faults/wrap_top_bit_as_int.lu: AS HEADER
+fs/bytes_dirs.lu: declined: `fs_create_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/change_rows.lu: declined: `fs_set_mode` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/copy_chunk.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/copy_chunk_dev_full.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/copy_chunk_failed_write.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/error_row.lu: declined: `fs_read_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/fstat.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/hard_link.lu: declined: `fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/mode_symlink.lu: declined: `fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/open_nonblock.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/os_error.lu: declined: `fs_open` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/read_at.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/remove_dir_refused.lu: declined: `fs_create_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/roundtrip.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/seek_tell.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/set_times.lu: declined: `fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/std_write_bytes.lu: declined: `fs_write_chunk` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/truncate.lu: declined: `fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+generics/box_method.lu: AS HEADER
+generics/explicit_apply.lu: AS HEADER
+generics/first_of_list.lu: AS HEADER
+generics/hundred_shapes.lu: AS HEADER
+generics/list_imported_elem/main.lu: AS HEADER
+generics/list_struct_elem.lu: AS HEADER
+generics/list_wrapping_elem.lu: AS HEADER
+generics/pair_of.lu: AS HEADER
+generics/two_instances.lu: AS HEADER
+generics/two_level_raise.lu: AS HEADER
+grammar/attr_implemented_set.lu: declined: `seven` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+grammar/bang_errunion.lu: no run check (pass): exit(0)
+grammar/bang_not.lu: no run check (pass): exit(0)
+grammar/bom_at_start.lu: no run check (): exit(0)
+grammar/brackets_generic_call.lu: AS HEADER
+grammar/cfg_target_arch.lu: AS HEADER
+grammar/cfg_target_freestanding.lu: AS HEADER
+grammar/defer_loop_turn.lu: AS HEADER
+grammar/else_chain.lu: no run check (pass): exit(0)
+grammar/else_default.lu: AS HEADER
+grammar/else_default_newline.lu: AS HEADER
+grammar/if_then_arm.lu: AS HEADER
+grammar/if_then_block.lu: AS HEADER
+grammar/if_then_chain.lu: AS HEADER
+grammar/if_then_ident.lu: AS HEADER
+grammar/if_then_let.lu: AS HEADER
+grammar/if_then_member.lu: AS HEADER
+grammar/if_then_paren_default.lu: AS HEADER
+grammar/if_then_stmt.lu: AS HEADER
+grammar/if_then_width.lu: AS HEADER
+grammar/index_origin_closure.lu: AS HEADER
+grammar/index_origin_file.lu: AS HEADER
+grammar/index_origin_scopes.lu: AS HEADER
+grammar/intdot_range.lu: no run check (pass): exit(0)
+grammar/interp_nested.lu: no run check (pass): exit(0)
+grammar/let_group.lu: AS HEADER
+grammar/let_group_destructure.lu: AS HEADER
+grammar/list_lit_arg.lu: AS HEADER
+grammar/list_lit_empty.lu: AS HEADER
+grammar/list_lit_index.lu: AS HEADER
+grammar/list_lit_let.lu: AS HEADER
+grammar/list_lit_multiline.lu: AS HEADER
+grammar/list_lit_nested.lu: AS HEADER
+grammar/match_arm_at_binding.lu: AS HEADER
+grammar/match_arm_deep_tree.lu: AS HEADER
+grammar/match_arm_or_inside_product.lu: AS HEADER
+grammar/match_arm_product_nested.lu: AS HEADER
+grammar/match_arm_str_in_product.lu: AS HEADER
+grammar/match_nullary_variant.lu: AS HEADER
+grammar/match_range.lu: AS HEADER
+grammar/match_range_char.lu: AS HEADER
+grammar/match_switch.lu: AS HEADER
+grammar/newline_trailing.lu: no run check (pass): exit(0)
+grammar/range_header_inclusive_max.lu: AS HEADER
+grammar/range_type_char.lu: AS HEADER
+grammar/range_type_inclusive.lu: AS HEADER
+grammar/range_type_overflow.lu: AS HEADER
+grammar/range_type_param.lu: AS HEADER
+grammar/range_type_return.lu: AS HEADER
+grammar/range_value_wide_iter.lu: AS HEADER
+grammar/shebang.lu: AS HEADER
+grammar/struct_pattern_match_arm.lu: AS HEADER
+grammar/structlit_paren.lu: AS HEADER
+grammar/tuple_pattern_match_arm.lu: AS HEADER
+hello.lu: AS HEADER
+io/eprint.lu: AS HEADER
+json/dup_count_distinct.lu: AS HEADER
+json/dup_kind.lu: AS HEADER
+json/dup_last_wins.lu: AS HEADER
+json/dup_nested.lu: AS HEADER
+json/dup_path.lu: AS HEADER
+json/dup_render.lu: AS HEADER
+json/dup_thrice.lu: AS HEADER
+json/query.lu: AS HEADER
+json/rows.lu: AS HEADER
+kernels/churn_b3.lu: AS HEADER
+kernels/ct_cswap.lu: AS HEADER
+kernels/ct_tag_compare.lu: AS HEADER
+kernels/guarded_stencil.lu: AS HEADER
+kernels/hot_counter.lu: AS HEADER
+kernels/hot_header.lu: AS HEADER
+kernels/hot_header_alias.lu: AS HEADER
+kernels/hot_scale_versioned.lu: AS HEADER
+kernels/hot_sum_reduce.lu: AS HEADER
+kernels/lshr_top_bits.lu: AS HEADER
+kernels/sha256_block.lu: AS HEADER
+kernels/walk_twice.lu: AS HEADER
+kernels/wrap_lshr_fold.lu: AS HEADER
+link/module_c.lu: declined: `c.go` does not resolve
+lints/allow_item.lu: AS HEADER
+lints/allow_nothing.lu: AS HEADER
+lints/allow_unknown_code.lu: AS HEADER
+lints/ancestor_import/main.lu: declined: `outer.base` does not resolve
+lints/as_view_consuming.lu: AS HEADER
+lints/assume_reassigned.lu: AS HEADER
+lints/binder_capitalized.lu: AS HEADER
+lints/discarded_result.lu: AS HEADER
+lints/else_arithmetic.lu: AS HEADER
+lints/else_comparison.lu: AS HEADER
+lints/float_zero_minus.lu: AS HEADER
+lints/get_prefix.lu: AS HEADER
+lints/get_without_row.lu: AS HEADER
+lints/index_origin_get.lu: AS HEADER
+lints/match_str_arm_unreachable.lu: AS HEADER
+lints/mut_in_interp.lu: AS HEADER
+lints/mut_param_unwritten.lu: AS HEADER
+lints/narrowing_literal.lu: AS HEADER
+lints/one_item_module/main.lu: declined: `solo.only` does not resolve
+lints/pkg_item_unused/main.lu: declined: `store.used` does not resolve
+lints/predicate_shape.lu: AS HEADER
+lints/prefix_statement.lu: AS HEADER
+lints/pub_undocumented.lu: AS HEADER
+lints/raw_interp_braces.lu: AS HEADER
+lints/region_call_allocates.lu: AS HEADER
+lints/region_never_allocates.lu: AS HEADER
+lints/safety_comment_missing.lu: AS HEADER
+lints/shadow_prelude.lu: AS HEADER
+lints/shadow_prelude_call.lu: AS HEADER
+lints/shadow_prelude_local.lu: AS HEADER
+lints/tag_case_payload.lu: AS HEADER
+lints/tag_name_collision.lu: AS HEADER
+lints/take_returned.lu: AS HEADER
+membrane/export_called.lu: AS HEADER
+membrane/export_child.lu: declined: `geo.kx_area` does not resolve
+membrane/extern_let_image.lu: declined: a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not model ([abi.link.extern])
+membrane/extern_libc.lu: declined: `strlen` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch
+memory/byte_list_ledger.lu: AS HEADER
+memory/byte_producers_ledger.lu: declined: `fs_write_bytes` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+memory/bytes_scan.lu: AS HEADER
+memory/carried_quotient_nested.lu: AS HEADER
+memory/carried_quotient_pair.lu: AS HEADER
+memory/checked_unsigned.lu: AS HEADER
+memory/closure_cluster_split.lu: AS HEADER
+memory/closure_kill_list.lu: AS HEADER
+memory/closure_value_paths.lu: AS HEADER
+memory/consumed_walk_charges_nothing.lu: AS HEADER
+memory/copy_independent.lu: AS HEADER
+memory/ctl_index_else_once.lu: AS HEADER
+memory/ctl_index_return_break_once.lu: AS HEADER
+memory/ctl_index_try_once.lu: AS HEADER
+memory/ctl_index_try_once_receivers.lu: AS HEADER
+memory/ctl_nested_index_try_once.lu: AS HEADER
+memory/ctl_slice_endpoints.lu: AS HEADER
+memory/ctl_slice_endpoints_call.lu: AS HEADER
+memory/ctl_slice_endpoints_indexed_base.lu: AS HEADER
+memory/ctl_slice_endpoints_nested.lu: AS HEADER
+memory/ctl_slice_endpoints_str.lu: AS HEADER
+memory/ctl_slice_try_once.lu: AS HEADER
+memory/ctl_store_index_try_once.lu: AS HEADER
+memory/ctl_store_order.lu: AS HEADER
+memory/ctl_store_order_captured.lu: AS HEADER
+memory/ctl_store_order_compound.lu: AS HEADER
+memory/ctl_store_order_map.lu: AS HEADER
+memory/ctl_store_order_nested.lu: AS HEADER
+memory/ctl_store_order_nested_index.lu: AS HEADER
+memory/ctl_store_order_raw.lu: AS HEADER
+memory/defer_order.lu: AS HEADER
+memory/destructure_bind.lu: AS HEADER
+memory/destructure_partial_live.lu: AS HEADER
+memory/distinct_copy_scalar.lu: AS HEADER
+memory/div_zero.lu: AS HEADER
+memory/elem_char_bool_key_revive.lu: AS HEADER
+memory/elem_const_dyn_loan.lu: AS HEADER
+memory/elem_const_field_mut_pair.lu: AS HEADER
+memory/elem_const_field_of_elem.lu: AS HEADER
+memory/elem_const_iter_mut.lu: AS HEADER
+memory/elem_const_move_heap.lu: AS HEADER
+memory/elem_const_mut_pair.lu: AS HEADER
+memory/elem_const_nested_call.lu: AS HEADER
+memory/elem_const_nested_mut.lu: AS HEADER
+memory/elem_const_read_after_mut.lu: AS HEADER
+memory/elem_const_read_while_take.lu: AS HEADER
+memory/elem_const_store_revives.lu: AS HEADER
+memory/elem_const_swap.lu: AS HEADER
+memory/elem_const_swap_heap.lu: AS HEADER
+memory/elem_const_take_while_mut.lu: AS HEADER
+memory/elem_dyn_proofs_legs.lu: AS HEADER
+memory/elem_dyn_read_after_mut.lu: AS HEADER
+memory/elem_header_methods_after_move.lu: AS HEADER
+memory/elem_header_methods_after_move_map.lu: AS HEADER
+memory/elem_header_methods_after_move_pool.lu: declined: handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/elem_header_methods_under_claim.lu: AS HEADER
+memory/elem_key_move_map.lu: AS HEADER
+memory/elem_len_after_move.lu: AS HEADER
+memory/elem_loop_induction_mut.lu: AS HEADER
+memory/elem_member_read_after_mut.lu: AS HEADER
+memory/elem_member_read_under_claims.lu: AS HEADER
+memory/elem_move_one_place.lu: AS HEADER
+memory/elem_offset_mut_pair.lu: AS HEADER
+memory/elem_pool_handle_revive.lu: declined: handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/elem_same_index_revive.lu: AS HEADER
+memory/elem_str_key_revive.lu: AS HEADER
+memory/elem_tuple_pos_move.lu: AS HEADER
+memory/elem_tuple_pos_mut.lu: AS HEADER
+memory/enum_union_copy.lu: AS HEADER
+memory/enum_union_take.lu: AS HEADER
+memory/excl_disjoint_ok.lu: AS HEADER
+memory/exclusivity.lu: AS HEADER
+memory/field_shorthand_copy.lu: AS HEADER
+memory/field_shorthand_mixed_runs.lu: AS HEADER
+memory/field_shorthand_nested_runs.lu: AS HEADER
+memory/field_shorthand_return_take.lu: AS HEADER
+memory/foreign_root_aliasing.lu: AS HEADER
+memory/handle_stale.lu: AS HEADER
+memory/index_store_copies_list.lu: AS HEADER
+memory/index_store_copies_map.lu: AS HEADER
+memory/index_store_copy_elem.lu: AS HEADER
+memory/index_store_read_param.lu: AS HEADER
+memory/list_elem_assign.lu: AS HEADER
+memory/list_elem_copy_loop.lu: AS HEADER
+memory/list_mixed_width_struct.lu: AS HEADER
+memory/list_pop_empty.lu: AS HEADER
+memory/list_reserve.lu: AS HEADER
+memory/list_reset.lu: AS HEADER
+memory/list_session_struct.lu: AS HEADER
+memory/list_slice.lu: AS HEADER
+memory/list_slice_edges.lu: AS HEADER
+memory/list_slice_inline_owned.lu: AS HEADER
+memory/list_slice_owned_call.lu: AS HEADER
+memory/map_absent_else.lu: AS HEADER
+memory/map_char_bool_keys.lu: AS HEADER
+memory/map_count.lu: AS HEADER
+memory/map_int_keys.lu: AS HEADER
+memory/map_remove.lu: AS HEADER
+memory/map_set_generic.lu: AS HEADER
+memory/map_std_keys.lu: AS HEADER
+memory/move_field_siblings_ok.lu: AS HEADER
+memory/move_ok.lu: AS HEADER
+memory/mut_arg_element.lu: AS HEADER
+memory/mut_claim_cond_write.lu: AS HEADER
+memory/mut_claim_if_else.lu: AS HEADER
+memory/mut_claim_if_no_else.lu: AS HEADER
+memory/mut_claim_match_arms.lu: AS HEADER
+memory/mut_claim_nested_copy_read.lu: AS HEADER
+memory/mut_claim_nested_disjoint_reads.lu: AS HEADER
+memory/mut_claim_nested_get.lu: AS HEADER
+memory/mut_claim_nested_header.lu: AS HEADER
+memory/mut_claim_nested_map.lu: AS HEADER
+memory/mut_claim_nested_read_elem.lu: AS HEADER
+memory/mut_claim_nested_read_whole.lu: AS HEADER
+memory/mut_claim_operand_read.lu: AS HEADER
+memory/mut_claim_two_phase_reads.lu: AS HEADER
+memory/mut_elem_excl.lu: AS HEADER
+memory/mut_param_aggregate_store.lu: AS HEADER
+memory/mut_param_field_lend.lu: AS HEADER
+memory/mut_param_restore_elem.lu: AS HEADER
+memory/mut_param_restore_field.lu: AS HEADER
+memory/mut_param_restore_map.lu: AS HEADER
+memory/mut_param_restore_whole.lu: AS HEADER
+memory/mut_place_nested.lu: AS HEADER
+memory/mut_read_overlap.lu: AS HEADER
+memory/mut_two_fields_one_region.lu: AS HEADER
+memory/nested_fn_mut_param.lu: AS HEADER
+memory/oob_bounds.lu: AS HEADER
+memory/packed_field_raw_read.lu: AS HEADER
+memory/packed_fields_at_offset_of.lu: AS HEADER
+memory/pool_accessors.lu: declined: `Pool` has no method `is_empty` in this machine's std subset
+memory/pool_place_write.lu: declined: handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/prov_addr_with_addr.lu: AS HEADER
+memory/prov_cast_round_trip.lu: AS HEADER
+memory/prov_expose_round_trip.lu: AS HEADER
+memory/prov_holy_grail.lu: AS HEADER
+memory/prov_is_null.lu: AS HEADER
+memory/prov_narrow_cast.lu: AS HEADER
+memory/prov_narrow_cast_trap.lu: AS HEADER
+memory/prov_two_phase.lu: AS HEADER
+memory/push_copies_element.lu: AS HEADER
+memory/push_grow_guarded_index.lu: AS HEADER
+memory/push_grow_nested_guarded_index.lu: AS HEADER
+memory/raw_aligned_control.lu: AS HEADER
+memory/raw_compound_assign.lu: AS HEADER
+memory/raw_deref.lu: AS HEADER
+memory/raw_deref_signed.lu: AS HEADER
+memory/raw_field_store.lu: AS HEADER
+memory/raw_field_store_compound.lu: AS HEADER
+memory/raw_field_store_nested.lu: AS HEADER
+memory/raw_field_store_packed.lu: AS HEADER
+memory/raw_lshr_top_bits.lu: AS HEADER
+memory/raw_ptr_mut_param.lu: AS HEADER
+memory/raw_ptr_private_sig.lu: AS HEADER
+memory/raw_repr_align_layout.lu: declined: a raw store writes an integer-shaped pointee, got A16
+memory/raw_repr_c_layout.lu: declined: a raw store writes an integer-shaped pointee, got C3
+memory/raw_repr_packed_layout.lu: declined: a raw store writes an integer-shaped pointee, got P3
+memory/raw_store_call_writes.lu: AS HEADER
+memory/read_lend_frame.lu: AS HEADER
+memory/read_lend_value_semantics.lu: AS HEADER
+memory/read_param_indexed_caller.lu: AS HEADER
+memory/read_param_move_legal.lu: AS HEADER
+memory/recv_claim_arg_reads.lu: AS HEADER
+memory/recv_view_arg_callee_view_write.lu: AS HEADER
+memory/recv_view_arg_elem.lu: AS HEADER
+memory/recv_view_arg_field_recv.lu: AS HEADER
+memory/recv_view_arg_list_field.lu: AS HEADER
+memory/recv_view_arg_nested_field.lu: AS HEADER
+memory/recv_view_arg_outside_write.lu: AS HEADER
+memory/recv_view_arg_relend.lu: AS HEADER
+memory/recv_view_arg_two_fields.lu: AS HEADER
+memory/recv_view_arg_two_view_third.lu: AS HEADER
+memory/region_ambient_ok.lu: AS HEADER
+memory/region_bytes_query.lu: AS HEADER
+memory/region_bytes_value.lu: AS HEADER
+memory/region_cap_boundary.lu: AS HEADER
+memory/region_container_freeze_ok.lu: AS HEADER
+memory/region_container_reclaim.lu: AS HEADER
+memory/region_copy_shares_str.lu: AS HEADER
+memory/region_copyout_exits.lu: AS HEADER
+memory/region_copyout_loop.lu: AS HEADER
+memory/region_copyout_map.lu: AS HEADER
+memory/region_copyout_struct.lu: AS HEADER
+memory/region_freeze_ok.lu: AS HEADER
+memory/region_infer_list_builder.lu: AS HEADER
+memory/region_infer_request_handler.lu: AS HEADER
+memory/region_infer_tree_transform.lu: AS HEADER
+memory/region_kept_arg_legal.lu: AS HEADER
+memory/region_multiopen_ok.lu: AS HEADER
+memory/region_multiopen_swap.lu: AS HEADER
+memory/region_multiopen_values_ok.lu: AS HEADER
+memory/region_net_read_charged.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+memory/region_os_cwd_charged.lu: DIFFERS: exit(1) "error: io\n" want 0 charged true | reclaimed true | got true
+memory/region_outer_write_call.lu: AS HEADER
+memory/region_outer_write_charged.lu: AS HEADER
+memory/region_outer_write_field.lu: AS HEADER
+memory/region_outer_write_index.lu: AS HEADER
+memory/region_outer_write_map.lu: AS HEADER
+memory/region_outer_write_reset.lu: AS HEADER
+memory/region_outer_write_scalar.lu: AS HEADER
+memory/region_outer_write_str_push.lu: AS HEADER
+memory/region_outer_write_struct.lu: AS HEADER
+memory/region_scalar_freeze.lu: AS HEADER
+memory/region_scalar_mut.lu: AS HEADER
+memory/region_scalar_store.lu: AS HEADER
+memory/region_scalar_value.lu: AS HEADER
+memory/region_str_call_index_store.lu: AS HEADER
+memory/region_str_call_inside.lu: AS HEADER
+memory/region_str_call_static.lu: AS HEADER
+memory/region_str_charged.lu: AS HEADER
+memory/region_str_producers_charged.lu: AS HEADER
+memory/region_str_view_for_inside.lu: AS HEADER
+memory/region_str_view_inside.lu: AS HEADER
+memory/region_unit_tail_call.lu: AS HEADER
+memory/region_value_pass.lu: AS HEADER
+memory/region_value_return.lu: AS HEADER
+memory/static_const_let.lu: AS HEADER
+memory/static_qualified/main.lu: declined: `limits.width` does not resolve
+memory/static_qualified_let/main.lu: declined: `*` is not defined on error limits.WIDTH and i32; operand types are the checker's
+memory/static_qualified_var/main.lu: declined: `counter` is not a local place
+memory/static_str_literals.lu: AS HEADER
+memory/static_var.lu: AS HEADER
+memory/static_var_call_deep.lu: AS HEADER
+memory/static_var_call_writes.lu: AS HEADER
+memory/static_wrapping.lu: AS HEADER
+memory/store_rhs_first_list.lu: AS HEADER
+memory/store_rhs_first_map.lu: AS HEADER
+memory/store_rhs_first_pool.lu: declined: handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/struct_destructure_partial_live.lu: AS HEADER
+memory/struct_pattern_binder.lu: AS HEADER
+memory/unsafe_c_alloc_native.lu: AS HEADER
+memory/unsafe_creation_not_use.lu: AS HEADER
+memory/unsafe_noalias.lu: AS HEADER
+memory/versioned_loop_cross_module/main.lu: declined: `ring.ring_at` does not resolve
+memory/versioned_loop_inlined_root.lu: AS HEADER
+memory/view_set_norm.lu: AS HEADER
+memory/volatile_widths.lu: AS HEADER
+methods/comb_map_filter_fold.lu: declined: `List.map` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/comb_sort_enumerate_zip.lu: declined: `List.sorted_by` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/comb_sorted_ord.lu: declined: `List.sorted` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/home_range_str_map.lu: declined: `a range.collect` is no builtin, so it reaches `range`'s home module `std.range` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/method_is_free_call.lu: declined: `List.any` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/wordcount_par.lu: declined: `List.sorted_by` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/wordcount_serial.lu: declined: `List.map` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+net/accept_posture.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/accept_race.lu: declined: `net_listen_with` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/byte_roundtrip.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/echo_bytes.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/echo_roundtrip.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/inherit_listener.lu: declined: `net_listen_with` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/line_reader_bytes.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/nodelay.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/peer_close_after_serve.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/read_deadline.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/refused_row.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/reuse_port.lu: declined: `net_listen_with` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/spawn_accept.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/syscall_first.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/unix_echo.lu: declined: `fs_exists` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+net/wait_readiness.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/writev_gather.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/writev_head_gather.lu: declined: `net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+os/arg0.lu: declined: `env_arg0` does not resolve
+os/args_bytes.lu: declined: `env_args_bytes` does not resolve
+os/args_cwd.lu: DIFFERS: exit(1) "argc: 0\nerror: io\n" want 0 argc: 0\nhas_cwd: true
+os/chdir_relative.lu: DIFFERS: exit(1) "error: io\n" want 0 moved=true\nrelative_read=found\ncwd_ends_inner=true\nup_sees_inner=true\nback=true\nmissing=not_found\nonto_a_file=io\n
+os/core_limit_rows.lu: declined: `os_set_core_limit` does not resolve
+os/cpus.lu: DIFFERS: exit(0) "cpus | answered false | at_least_one true | stable true\n" want 0 cpus | answered true | at_least_one true | stable true
+os/env_roundtrip.lu: AS HEADER
+os/env_unset.lu: AS HEADER
+os/exec_rows.lu: declined: `os_exec` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/exit_code.lu: AS HEADER
+os/group_rows.lu: declined: `os_signal_send_group` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/ids_read.lu: declined: `os_uid` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/ids_rows.lu: declined: `os_set_ids` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/job_poll_rows.lu: declined: `os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/job_rows.lu: declined: `os_spawn_job` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/pipe_round_trip.lu: declined: `os_pipe` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/random_differs.lu: declined: `os_random` is the OS entropy tier [os.random]; this wasm build has no host entropy shim (crypto.getRandomValues), so the tier is declined rather than seeded or mocked
+os/random_edges.lu: declined: `os_random` is the OS entropy tier [os.random]; this wasm build has no host entropy shim (crypto.getRandomValues), so the tier is declined rather than seeded or mocked
+os/random_negative_trap.lu: declined: `os_random` is the OS entropy tier [os.random]; this wasm build has no host entropy shim (crypto.getRandomValues), so the tier is declined rather than seeded or mocked
+os/signal_loopback.lu: declined: `os_signal_listen` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_one_rows.lu: declined: `os_signal_ignore_one` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_reserved_rows.lu: declined: `os_signal_realtime` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_shell_rows.lu: declined: `os_signal_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_supervisor.lu: declined: `os_signal_listen` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/spawn_fds_rows.lu: declined: `os_spawn_fds` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/spawn_rows.lu: declined: `os_spawn` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/term_editor_rows.lu: declined: `os_signal_wait_fd` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/umask.lu: declined: `os_umask` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+overflow.lu: AS HEADER
+procs.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+projects/count.lu: declined: `fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+projects/count_dir.lu: declined: `fs_create_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+projects/rpn.lu: AS HEADER
+projects/wordtree.lu: AS HEADER
+regions.lu: AS HEADER
+resolve/bare_sibling/pair.lu: declined: `helper` does not resolve
+resolve/forward/main.lu: declined: `later` does not resolve
+resolve/leaf_twins/main.lu: declined: `float.probe` does not resolve
+resolve/pkgvis/main.lu: declined: `store.limit` does not resolve
+resolve/plain_subdir/main.lu: declined: `sub.seven` does not resolve
+resolve/same_name/main.lu: declined: `lista.len` does not resolve
+resolve/standalone_pair/left.lu: AS HEADER
+resolve/standalone_pair/right.lu: AS HEADER
+resolve/two_mod/main.lu: declined: `geometry.area` does not resolve
+rows/cross_module_arms/main.lu: declined: `scan.miss` does not resolve
+rows/ctor_arg_qualified/main.lu: AS HEADER
+rows/defer_else_handles.lu: AS HEADER
+rows/else_fallback_bound_slice.lu: AS HEADER
+rows/else_fallback_paren_slice.lu: AS HEADER
+rows/else_own_failure.lu: AS HEADER
+rows/else_return_tag.lu: AS HEADER
+rows/else_tag_payload.lu: AS HEADER
+rows/else_try_block.lu: AS HEADER
+rows/else_try_call_arg.lu: AS HEADER
+rows/else_try_handler.lu: AS HEADER
+rows/else_try_index.lu: AS HEADER
+rows/else_try_nested_else.lu: AS HEADER
+rows/errdefer_block_loop_break.lu: AS HEADER
+rows/errdefer_block_nested.lu: AS HEADER
+rows/errdefer_block_row.lu: AS HEADER
+rows/errdefer_fn_tail_control.lu: AS HEADER
+rows/error_alias_ident.lu: AS HEADER
+rows/error_alias_qualified/main.lu: declined: `disk.size` does not resolve
+rows/error_alias_row.lu: AS HEADER
+rows/error_alias_transparent.lu: AS HEADER
+rows/error_alias_union.lu: AS HEADER
+rows/eu_bind_empty_row.lu: AS HEADER
+rows/eu_bind_empty_row_handled.lu: AS HEADER
+rows/eu_bind_empty_row_unit.lu: AS HEADER
+rows/eu_main_err_exit.lu: AS HEADER
+rows/first_list_literal_sum.lu: AS HEADER
+rows/handler_diverge_call.lu: AS HEADER
+rows/handler_diverge_trap.lu: AS HEADER
+rows/handler_match_tags.lu: AS HEADER
+rows/hof_tail.lu: AS HEADER
+rows/inferred_private.lu: AS HEADER
+rows/iter_diverging_else_bound.lu: AS HEADER
+rows/match_row_bare_tag.lu: AS HEADER
+rows/match_row_else_control.lu: AS HEADER
+rows/match_row_nested.lu: AS HEADER
+rows/match_row_payload_tag.lu: AS HEADER
+rows/match_row_try_scrutinee.lu: AS HEADER
+rows/match_row_wild_each_half.lu: AS HEADER
+rows/nested_row_merge_payload.lu: AS HEADER
+rows/nested_row_param.lu: AS HEADER
+rows/nested_row_return.lu: AS HEADER
+rows/open_row_growth.lu: AS HEADER
+rows/propagate/main.lu: declined: `parse.pair` does not resolve
+rows/qmark_defer.lu: AS HEADER
+rows/raised_call_arg_position.lu: AS HEADER
+rows/row_member_handled.lu: AS HEADER
+rows/row_union_payloads.lu: AS HEADER
+rows/tag_arg_position.lu: AS HEADER
+rows/tag_let_position.lu: AS HEADER
+rows/tag_shadow_local.lu: AS HEADER
+rows/to_int_parse.lu: AS HEADER
+rows/unit_discard_fallible_body_stmt.lu: AS HEADER
+rows/unit_discard_if_value.lu: AS HEADER
+rows/unit_discard_raise_stmts.lu: AS HEADER
+rows/unit_discard_raise_unit_fn.lu: AS HEADER
+rows/unit_discard_return_operand.lu: AS HEADER
+rows/unit_discard_tail_if.lu: AS HEADER
+rows/unit_discard_tail_if_chain.lu: AS HEADER
+rows/unit_discard_tail_if_closure.lu: AS HEADER
+rows/unit_discard_tail_if_leaves.lu: AS HEADER
+rows/unit_discard_tail_if_value_row.lu: AS HEADER
+rows/unit_discard_try_leaves.lu: AS HEADER
+rows/unit_discard_unit_main.lu: AS HEADER
+strings/boundary_battery.lu: AS HEADER
+strings/builtin_methods.lu: AS HEADER
+strings/byte_view.lu: AS HEADER
+strings/byte_view_lend.lu: AS HEADER
+strings/byte_view_slice_lent.lu: AS HEADER
+strings/bytes_roundtrip.lu: AS HEADER
+strings/bytes_view_walk.lu: AS HEADER
+strings/char_battery.lu: AS HEADER
+strings/char_interp.lu: AS HEADER
+strings/char_order.lu: AS HEADER
+strings/chars_walk.lu: AS HEADER
+strings/concat_mix_char.lu: AS HEADER
+strings/concat_plus.lu: AS HEADER
+strings/dollar_brace_escape.lu: AS HEADER
+strings/empty_needle.lu: AS HEADER
+strings/end_relative_get.lu: AS HEADER
+strings/equality_lanes.lu: AS HEADER
+strings/float_format.lu: AS HEADER
+strings/format_spec_full.lu: AS HEADER
+strings/format_spec_width.lu: AS HEADER
+strings/from_utf8_border.lu: AS HEADER
+strings/interp_value_position.lu: AS HEADER
+strings/interp_values.lu: AS HEADER
+strings/match_str_const_scrutinee.lu: AS HEADER
+strings/match_str_dispatch.lu: AS HEADER
+strings/multiline_escapes.lu: AS HEADER
+strings/raw_fences.lu: AS HEADER
+strings/slice_boundary_sweep.lu: AS HEADER
+strings/slice_oob_trap.lu: AS HEADER
+strings/split_clause.lu: AS HEADER
+strings/str_uni_leading_zeros.lu: AS HEADER
+strings/to_int.lu: AS HEADER
+test/conc_schedules_test.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+time/monotonic.lu: declined: `time_now_ms` is s40's time v0; this wasm build has no clock to read and no way to block, so the tier is declined rather than mocked
+traits/bound_literal_default.lu: AS HEADER
+traits/dyn_ok.lu: AS HEADER
+traits/op_eq_imported/main.lu: declined: `cmp.total_cmp` does not resolve
+traits/op_eq_inverting.lu: AS HEADER
+traits/op_eq_item_import/main.lu: declined: `cmp.total_cmp` does not resolve
+traits/op_money.lu: AS HEADER
+traits/op_ord_struct.lu: AS HEADER
+traits/op_total_num.lu: AS HEADER
+traits/prim_impl.lu: AS HEADER
+typecheck/bool_cmp.lu: AS HEADER
+typecheck/byte_casts.lu: AS HEADER
+typecheck/byte_shapes.lu: AS HEADER
+typecheck/cast_int_to_float.lu: AS HEADER
+typecheck/cast_narrow_in_range.lu: AS HEADER
+typecheck/cast_narrow_wrapping_truncates.lu: AS HEADER
+typecheck/cast_set.lu: AS HEADER
+typecheck/closure_captured_closure/main.lu: declined: `lib.apply` does not resolve
+typecheck/closure_entry_to_module/main.lu: declined: `lib.tier` does not resolve
+typecheck/closure_inlined_one_liner/main.lu: declined: `tty.render_env` does not resolve
+typecheck/closure_module_to_entry/main.lu: declined: `tty.apply` does not resolve
+typecheck/closure_module_to_module/main.lu: declined: `src.run` does not resolve
+typecheck/closure_param_call.lu: AS HEADER
+typecheck/closure_return.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+typecheck/enum_union_three.lu: AS HEADER
+typecheck/enum_union_tree.lu: AS HEADER
+typecheck/enum_union_two.lu: AS HEADER
+typecheck/float_nan_cmp.lu: AS HEADER
+typecheck/float_rem.lu: AS HEADER
+typecheck/fn_never_extern.lu: AS HEADER
+typecheck/fn_never_handler_arm.lu: AS HEADER
+typecheck/fn_never_trap.lu: AS HEADER
+typecheck/fn_param_shadows_import/main.lu: declined: `cmp.apply` does not resolve
+typecheck/fn_param_shadows_item.lu: AS HEADER
+typecheck/fn_value_captured_int.lu: AS HEADER
+typecheck/fn_value_capturing.lu: AS HEADER
+typecheck/fn_value_import/main.lu: declined: `txt.is_wolf` does not resolve
+typecheck/fn_value_two_file_module/main.lu: declined: `tty.tier_env` does not resolve
+typecheck/int_not_byte.lu: AS HEADER
+typecheck/int_not_mask.lu: AS HEADER
+typecheck/int_not_signed.lu: AS HEADER
+typecheck/int_shift_value.lu: AS HEADER
+typecheck/int_truth_signed_print.lu: AS HEADER
+typecheck/int_truth_u64_arith.lu: AS HEADER
+typecheck/int_truth_u64_cast.lu: AS HEADER
+typecheck/int_truth_u64_not.lu: AS HEADER
+typecheck/int_truth_unsigned_print.lu: AS HEADER
+typecheck/int_truth_wrap_div_signed.lu: AS HEADER
+typecheck/int_truth_wrap_div_unsigned.lu: AS HEADER
+typecheck/int_truth_wrap_mul_wide.lu: AS HEADER
+typecheck/int_truth_wrap_neg.lu: AS HEADER
+typecheck/int_truth_wrap_signed.lu: AS HEADER
+typecheck/int_truth_wrap_unsigned.lu: AS HEADER
+typecheck/let_shadow_var_ok.lu: AS HEADER
+typecheck/list_lit_elem_i32.lu: AS HEADER
+typecheck/list_tuple_elem.lu: AS HEADER
+typecheck/main_unit_row.lu: AS HEADER
+typecheck/match_arm_product_unreachable.lu: AS HEADER
+typecheck/match_chain_reuse.lu: AS HEADER
+typecheck/match_exhaustive.lu: AS HEADER
+typecheck/match_guard_const.lu: AS HEADER
+typecheck/match_narrow_scrutinee.lu: AS HEADER
+typecheck/match_unreachable.lu: AS HEADER
+typecheck/nested_fn_value.lu: AS HEADER
+typecheck/numlit_annotation_float.lu: AS HEADER
+typecheck/numlit_arith_through.lu: AS HEADER
+typecheck/numlit_binding_value_later_use.lu: AS HEADER
+typecheck/numlit_c2f.lu: AS HEADER
+typecheck/numlit_compare_adopts.lu: AS HEADER
+typecheck/numlit_div_float.lu: AS HEADER
+typecheck/numlit_div_int.lu: AS HEADER
+typecheck/numlit_extremes.lu: AS HEADER
+typecheck/numlit_list_element_width.lu: AS HEADER
+typecheck/numlit_radix.lu: AS HEADER
+typecheck/numlit_u64_edge.lu: AS HEADER
+typecheck/numlit_wrapping_countdown.lu: AS HEADER
+typecheck/receiver_modes.lu: AS HEADER
+typecheck/straight_line_as_char.lu: AS HEADER
+typecheck/straight_line_as_narrow.lu: AS HEADER
+typecheck/straight_line_as_sign.lu: AS HEADER
+typecheck/straight_line_shl_assign.lu: AS HEADER
+typecheck/straight_line_shl_const.lu: AS HEADER
+typecheck/straight_line_shr_var.lu: AS HEADER
+typecheck/straight_line_str_eq.lu: AS HEADER
+typecheck/straight_line_str_order.lu: AS HEADER
+typecheck/straight_line_wrap_div.lu: AS HEADER
+typecheck/straight_line_wrap_rem.lu: AS HEADER
+typecheck/unit_context_discard.lu: declined: the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+typecheck/unit_tail_value_discard.lu: AS HEADER
+typecheck/variant_value/main.lu: declined: `paint.favorite` does not resolve
+typecheck/wrap_as_int_in_range.lu: AS HEADER
+typecheck/wrap_narrow_cast.lu: AS HEADER
+header-check: 730 programs {"declined":145,"AS HEADER":572,"DIFFERS":6,"no run check (pass)":6,"no run check ()":1}

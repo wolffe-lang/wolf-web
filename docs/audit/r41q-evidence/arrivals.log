@@ -1,0 +1,93 @@
+block2: waiting for block B from 2026-11-02T19:54:33Z
+== STEP tab 2026-11-02T19:54:33Z
+5a24a0a0b923510dc8cf6911ee44a3ba49c16936feb19bd71d678c60986d3fbd  /home/mfwolffe/lanes/r41q/web/measure/lupin-0.1.56-live.wasm
+60d7517e4300c1375c870527fd64a72e099626488d04eaab283c84b0f13f18f2  /home/mfwolffe/lanes/r41q/web/measure/lupin-0.1.58-control.wasm
+d044071a5e2b855ac42b513401893690aa8a3250b47a35b787cf7c3ad8e4efdf  /home/mfwolffe/lanes/r41q/web/probes/book-34.6-0.lu
+03064be46b78e2296a9a3f6abdd2fd4ffca53e9a2cb6f0401ebd7947d3f8d036  /home/mfwolffe/lanes/r41q/web/probes/book-34.6-1.lu
+e9bb6674cc8190fb46d0213c061b2b241853d36e491ceb7340a0449161a51e31  /home/mfwolffe/lanes/r41q/web/probes/ch34-editor-0.lu
+ac62f1891c6281584209b1ae4e7a05fcbcab4961dd80a2e387d3254a6c026e72  /home/mfwolffe/lanes/r41q/web/probes/ch34-editor-1.lu
+00c366b5d45a1f68ff5d2ae904b5b7190bb6d95dfd3425e67190e2e8eb42c4b1  /home/mfwolffe/lanes/r41q/web/probes/ch34-fork-0.lu
+e5cde6a115d4f7eeb4d0c2163953a51b7ff7c618218c20449ebe0f84ac56f1f7  /home/mfwolffe/lanes/r41q/web/probes/ch34-fork-1.lu
+37b7e89830900389f451605f81bbf6c297d7ed92c25b1d36165f6e7ec3966345  /home/mfwolffe/lanes/r41q/web/probes/env_arg0.lu
+6a3ce8432961e8e52ce82fed39bd9aed2b32ae59a55d2793e483df3f9ebf7f4c  /home/mfwolffe/lanes/r41q/web/probes/env_args_bytes.lu
+09af496f6e57b58c7d4271456f3a195190a3bac9de567aee52d42b2bba264fd2  /home/mfwolffe/lanes/r41q/web/probes/fs_access.lu
+e366156c1903547d5bf509d1f3a536ac7a5f77c510fb58b8f1342680a3fe947f  /home/mfwolffe/lanes/r41q/web/probes/fs_adopt.lu
+0f0ef38d4d7b009888dfad7c54eb06c030b0600e2cb5dcacb356fb1dbfb53c28  /home/mfwolffe/lanes/r41q/web/probes/fs_fstat_record.lu
+3d58fc9c25d39ee9e4aa3073d40afefff3fb22747e6385161be913908407d3f7  /home/mfwolffe/lanes/r41q/web/probes/fs_lock.lu
+285140ce67b6ae264d9440a80101fbfece93272a5bbc29677469e9a1930bc27f  /home/mfwolffe/lanes/r41q/web/probes/fs_mkfifo.lu
+c87ad495313be48cdd94aafea17cb50a74fb4a5a2b9efe786537d0ec0ae0f856  /home/mfwolffe/lanes/r41q/web/probes/fs_realpath.lu
+f919c82c27a5d803b45ec21983f0d36402ef47081ea1332f0227bb05dd8c250b  /home/mfwolffe/lanes/r41q/web/probes/fs_set_nonblock.lu
+5cd0306b3436a11b11667423598f219231f696de815b26bcebc5a1b887bf0534  /home/mfwolffe/lanes/r41q/web/probes/fs_sync_dir.lu
+129ea969c052e6ca262a2a22a27ac7099183c74a82ad19c77ba5c07bffbe4fde  /home/mfwolffe/lanes/r41q/web/probes/fs_sync.lu
+b48f33223b531e3624a60916fe6c45770eccbed4081bd802363d744e53497e72  /home/mfwolffe/lanes/r41q/web/probes/fs_unlock.lu
+a2b2d521a13dd6802a4b04da6bb1c96eab212b30a03a78c006bf4db8d1f30f7f  /home/mfwolffe/lanes/r41q/web/probes/fs_write_some.lu
+d92f17f51854b03dd039ed09161266829e76332fa9eb20d410557e435a61d831  /home/mfwolffe/lanes/r41q/web/probes/os_arch.lu
+079e76190bf4ec6286a31328bd72fc213d9562ee94e207db4e342ef4151acd7a  /home/mfwolffe/lanes/r41q/web/probes/os_clock_ns.lu
+6e24625f559807a7032438c0b65df8f7855111bc89771cb08597d60f38d718e3  /home/mfwolffe/lanes/r41q/web/probes/os_core_limit.lu
+5aa9e940149567d829dcefc2d3066f01c67f3ce1d9cf1bd951396aa4d1bd04a3  /home/mfwolffe/lanes/r41q/web/probes/os_core_off.lu
+365afb7854e3aefa39c06fed47af2c9e86282afcf4501c86712494fd948ed44b  /home/mfwolffe/lanes/r41q/web/probes/os_fork.lu
+e889e2f9953eded6a7def5db01a7b70aeb4f8234eb622760c187956df0aad086  /home/mfwolffe/lanes/r41q/web/probes/os_name.lu
+41934969403df304e9ed531bc24aa2750f281763aca33764eb7fc25d365c21af  /home/mfwolffe/lanes/r41q/web/probes/os_set_core_limit.lu
+a1f7f6259bbad97831fe9cbce1c025b53402ddd298c1c95bf635c2f9c7ff8909  /home/mfwolffe/lanes/r41q/web/probes/os_signal_wait_fds.lu
+9430962f2efe2ecb5c5c8262eef1a2c11edf5e2396b5b72457b7a9e5a617cc6b  /home/mfwolffe/lanes/r41q/web/probes/os_term_restore_at_exit.lu
+28a91b208db141eec1698d056463da57b10e72a67efc9b3df6ea8d4a87fe82fd  /home/mfwolffe/lanes/r41q/web/probes/va_call_c.lu
+bf4535f6a4f09dcb5cdcd307b86db89a700e12b4fa2d1547398ff26ea9314bdf  /home/mfwolffe/lanes/r41q/web/probes/va_call_wolf.lu
+4753d26999788d4bd9901c723ab8e86a2b681f62490db3c9a37aa8f193c8227c  /home/mfwolffe/lanes/r41q/web/probes/ww42-os_pid.lu
+6b4651714595754de355f3e8656b812c41a7c70856a2d09360dc8f0e616b04f4  /home/mfwolffe/lanes/r41q/web/probes/ww42-os_ppid.lu
+b53a5b6c14464ea4e11c45c7469cd513da09a04fe6076703685aff4e6b602e1d  /home/mfwolffe/lanes/r41q/web/probes/ww42-os_signal_ignored.lu
+bd94ff3afde9fd9eb4caabfafa15cef6257abdd85835fb7c23f31178d785ad39  /home/mfwolffe/lanes/r41q/web/probes/ww42-os_signal_number.lu
+adafc3b73c6faa717b32c7802dd2a1869a63ba72159eaec72ecc615887e056c7  /home/mfwolffe/lanes/r41q/web/probes/ww42-os_signal_send.lu
+757dabf49bd15ecec771a0aaf3d988714940d99eed97af0968b92b5997e26d2e  /home/mfwolffe/lanes/r41q/web/probes/ww43-ch34-1.lu
+63d3527dfb3a35dbc8b62dd30722d7fb4de04f4524a3a4bfa335df7263530466  /home/mfwolffe/lanes/r41q/web/probes/ww43-ch34-2.lu
+b30140922a1600c7dd7f3818661c7207bde0bd0f8fbea187395e42bb14c18900  /home/mfwolffe/lanes/r41q/web/probes/ww43-ch34-3.lu
+3c83b65ce37b698d5dabd1642b8068610009bf23c30f20a51547deca5255d9b1  /home/mfwolffe/lanes/r41q/web/probes/ww43-ch34-4.lu
+7a3549f2cd9f9b5ecd9b7c3c908db2ce1161b2bd8853ca6861ddd076f734a3b4  /home/mfwolffe/lanes/r41q/web/probes/ww43-ch34-5.lu
+d4a866a82275824ca578adfa84e9fd45d6327eef1eae432804b37015124f1c22  /home/mfwolffe/lanes/r41q/web/probes/ww43-ch34-6.lu
+72132be93a9d4546f4aeaa782b79dc8a83b622fce4b1900c80d19ae5876b27c3  /home/mfwolffe/lanes/r41q/web/probes/ww43-ch34-7.lu
+cd67f089bf4b106ad3d80917f5732aa3986ec45ab4c8e3dd89914545fdc5bb48  /home/mfwolffe/lanes/r41q/web/probes/ww43-fs_set_owner_fd.lu
+13389d487f24d5e096177b93de367fbb7e8706c9e903243ff560d1a8a37249d3  /home/mfwolffe/lanes/r41q/web/probes/ww43-fs_set_owner.lu
+c201aa839c5f04d858d85b0157fd6d584f18ae194f56cc84cc1f163aa2e7c1da  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_egid.lu
+401d9cfbbc44eefbc5e14aa1b9cc8d35ce9011068db1cbdd7b4dac06c7036755  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_euid.lu
+54ca0a47d6cecaf9becb7022bb888348b94ca5b2f2fa4d4784d69f7ca6f2cc27  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_gid.lu
+60695239f5f8b6e53a6d995230ae7d6a5bc496e428b941013101ee001477bd5d  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_groups.lu
+20cefde9880ba321eab66e7677f7fa6de3cba57c29bf4f750a7008b636892f27  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_set_ids.lu
+c033222b786efa530019c54b8ff38a6653015a57938b4ed780fb916d259b413a  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_signal_wait_fd.lu
+051d00f63f57e2a39717d807cadcab34aff3601eaac1650f979de5a59e09c02c  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_term_chars.lu
+47e7c4bf8980ede3f7f4b1b800b378f0492d267f19bbc676e4cc010677c5a945  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_term_size.lu
+0d38e505c15c935ee6df192c841edd4a7d5fb294f7b4f3842cc8cdb555e7029b  /home/mfwolffe/lanes/r41q/web/probes/ww43-os_uid.lu
+7cfbf39e46715fb5fcfa23009a5c67be3e49b22536c360c66d6d585a42a62fc7  /home/mfwolffe/lanes/r41q/web/probes/ww44-ch03-rotate.lu
+34173d9da726ca55a810db5e7d655a39de5690f230db46e2c0352dadaaf56e88  /home/mfwolffe/lanes/r41q/web/probes/ww44-ch03-shift.lu
+4756fdb8d1b338d63931f855d0c9a484e627a0cd4f9925ea0b04ff39b1e548b8  /home/mfwolffe/lanes/r41q/web/probes/ww44-ch34-groups.lu
+e4c3382a04730e0165f360716d0cb5998124edc8a605cb33e9472b5b0d565e38  /home/mfwolffe/lanes/r41q/web/probes/ww44-ch34-jobs.lu
+a9903bfb2e7372fc914548e71d55cc03533df17ef898f6df2e654fe13eb491cd  /home/mfwolffe/lanes/r41q/web/probes/ww44-ch34-nochild.lu
+271b22bf3d003de22eb360ea7194c35dd8e43b193052682fb389a079a054b785  /home/mfwolffe/lanes/r41q/web/probes/ww44-os_set_pgid.lu
+6905eac73c0651223cb54420378adc389e014e78e3db9c2b7879ecf11b0cc20c  /home/mfwolffe/lanes/r41q/web/probes/ww44-os_signal_last.lu
+ac9de08a495522462d9a51cc7b8292633bb6bf01c462ee813f0ea606a123b05d  /home/mfwolffe/lanes/r41q/web/probes/ww44-os_signal_realtime.lu
+c3a7bf8bafafa9f663fa6cd7d5b1edb516394aee3249fb4ac38a378f1466544a  /home/mfwolffe/lanes/r41q/web/probes/ww44-os_signal_send_all.lu
+66bfaa4692f1f485600845cfd9d44d9acadb0dccbef8d74cabed838c126eca9a  /home/mfwolffe/lanes/r41q/web/probes/ww44-os_signal_send_group.lu
+453658c5beb0b46730172641538dcd0e41497d08935431eb384140de8d3545a9  /home/mfwolffe/lanes/r41q/web/probes/ww44-os_signal_text.lu
+a1087891cd2d869c6c3b2933aafd6b82598ef5b34dd0674ed783a717962cfa67  /home/mfwolffe/lanes/r41q/web/probes/ww44-os_wait_poll.lu
+597ebfd67bf58b8c83ed6fb29f1fae3da0c667a3169e85c28c0acc8da5b4dca8  /home/mfwolffe/lanes/r41q/web/probes/ww45-ch34-again.lu
+4796ef9eb4b9e38584dbfc447662ab0e11b9ad0bb4b140514bb4ec56a496276c  /home/mfwolffe/lanes/r41q/web/probes/ww45-ch34-groups.lu
+71a25a959f984b74d43159a5f57f4b2d18e7b7821fb1ba3045b269517100fd22  /home/mfwolffe/lanes/r41q/web/probes/ww45-ch34-jobs.lu
+3b51233ccefef0fde971c317bafdc6ce7b46b7fea9107e4a75027473200caa1a  /home/mfwolffe/lanes/r41q/web/probes/ww45-ch34-nochild.lu
+49a2a2c5a3c81bdd47fe22ec0d086c54f95ee207fec84c60f3fc94ed9cc5b9d6  /home/mfwolffe/lanes/r41q/web/probes/ww45-ch34-one.lu
+24d41b98aa4a01d28caa7e505fc1c87b08951e49c23742a8e217a612448273b2  /home/mfwolffe/lanes/r41q/web/probes/ww45-os_exit_signal.lu
+2df8eb93934b5dc9e73547ea86e98b539cad2393f5fd65e799d3114c999cf007  /home/mfwolffe/lanes/r41q/web/probes/ww45-os_signal_default_one.lu
+0d701389437d28912c10c88c8afd362e63b3dd286e8dd185dee84fb2ec84d031  /home/mfwolffe/lanes/r41q/web/probes/ww45-os_signal_ignore_one.lu
+81563d6f87dd81e1220c2f793bdef39201a63672ebc2286ae540d5dc60ba8d85  /home/mfwolffe/lanes/r41q/web/probes/ww45-os_signal_text_zero.lu
+d54803edc9d951c21b79eec86db373266e54926e1c65ba8012d864b8a227d100  /home/mfwolffe/lanes/r41q/web/probes/ww45-os_wait_poll_core.lu
+5a9869085f8a91cad86fa5a3637c3a8ea636dcd561dec96e5ece99b0619c407f  /home/mfwolffe/lanes/r41q/web/probes/ww45-os_wait_status_core.lu
+76 programs; instance deaths: 0
+76 programs; instance deaths: 0
+END tab exit=0
+== STEP headers 2026-11-02T19:54:33Z
+header-check: 730 programs {"declined":145,"AS HEADER":572,"DIFFERS":6,"no run check (pass)":6,"no run check ()":1}
+END headers exit=0
+== STEP arrivals 2026-11-02T19:54:39Z
+programs: 47
+lupin 0.1.58 (wolf-interp, reference interpreter at pin a5378e3)
+TERMINAL: 47 programs, 39 as their headers say, 6 declined by name (exit 4), 2 other
+END arrivals exit=0
+R41Q_ARRIVALS_DONE 2026-11-02T19:54:41Z
+R41Q_EXIT 0

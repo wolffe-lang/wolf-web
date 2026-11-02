@@ -1,0 +1,7 @@
+//! member: false
+//! ww44 probe: book/ch03.md:609 at wolf-book e9862f6, fence wolf,run(exit=0, stdout="144 1 200"), verbatim below this header.
+fn main() -> !int {
+    let flags: wrapping[u8] = 200
+    print("{flags << 1} {flags >> 7} {flags << 8}")
+    0
+}

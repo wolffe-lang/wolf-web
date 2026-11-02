@@ -1,0 +1,7 @@
+//! member: false
+//! ww43 probe: chapter 34 program 4, book/ch34.md:246 at wolf-book 95d68ad, fence wolf-run(exit=0, stdout="this process may be signalled"), verbatim below this header.
+fn main() -> !int {
+    os_signal_send(os_pid(), 0)?
+    print("this process may be signalled")
+    0
+}

@@ -1,0 +1,4 @@
+fn main() -> !int {
+    fs_fstat_record(-1)?
+    0
+}

@@ -1,0 +1,11 @@
+r41q: the two channels read live 2026-11-02T17:39:47Z
+== AUR (rpc v5, by maintainer espadon), the project's packages
+lobo-bin 0.1.5-1 https://github.com/wolffe-lang/lobo
+lupin 0.1.58-1 https://github.com/wolffe-lang/wolf-interp
+lupin-bin 0.1.58-1 https://github.com/wolffe-lang/wolf-interp
+wolf-lang 0.2.36-1 https://github.com/wolffe-lang/wolf-lang
+wolf-lang-bin 0.2.36-1 https://github.com/wolffe-lang/wolf-lang
+== tap wolffe-lang/homebrew-wolf trunk
+wolf.rb:  tag: "v0.2.36",
+lupin.rb:  tag: "v0.1.58",
+lobo.rb: 

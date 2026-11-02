@@ -1,0 +1,4 @@
+fn main() -> !int {
+    os_term_restore_at_exit(0, -1, List[byte]())?
+    0
+}

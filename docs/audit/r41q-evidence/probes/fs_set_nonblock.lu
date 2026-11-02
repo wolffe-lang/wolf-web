@@ -1,0 +1,4 @@
+fn main() -> !int {
+    fs_set_nonblock(-1, true)?
+    0
+}

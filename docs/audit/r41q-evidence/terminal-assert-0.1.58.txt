@@ -1,0 +1,26 @@
+lupin 0.1.58 (wolf-interp, reference interpreter at pin a5378e3)
+-- faults/assert_msg_effect_fails.lu --json
+{"protocol":1,"impl":"lupin","impl_version":"0.1.58","commit":"6240efe","file":"faults/assert_msg_effect_fails.lu","phase_reached":"run","seeded":false,"diagnostics":[],"warnings":[],"verdict":"trap(assert)","trap_message":"m","stdout_sha256":"21e13b4ba05e25ad05eaa9152351316468496e203dbf423f70775913f1f4df3e","stdout_inline":"effect\nm\n","x-trap-clause":"conf.trap.map","x-trap-span":[538,565]}
+exit=0
+-- faults/assert_msg_effect_fails.lu plain
+effect
+m
+exit=3
+stderr: faults/assert_msg_effect_fails.lu: trap(assert): assertion failed [conf.trap.map] at 19:5|
+-- faults/assert_msg_name_fails.lu --json
+{"protocol":1,"impl":"lupin","impl_version":"0.1.58","commit":"6240efe","file":"faults/assert_msg_name_fails.lu","phase_reached":"run","seeded":false,"diagnostics":[],"warnings":[],"verdict":"trap(assert)","trap_message":"boom","stdout_sha256":"068c3951c9607cc67e79020be06336f2d3627500c7a2f761cd2a9e2c5f403d5e","stdout_inline":"before\nboom\n","x-trap-clause":"conf.trap.map","x-trap-span":[589,607]}
+exit=0
+-- faults/assert_msg_name_fails.lu plain
+before
+boom
+exit=3
+stderr: faults/assert_msg_name_fails.lu: trap(assert): assertion failed [conf.trap.map] at 14:5|
+-- fs/copy_chunk_failed_write.lu (target/ present)
+copy=io took_nothing=true os_error_set=true offset_after=0
+retry=17 same=true
+cleaned=true
+exit=0
+stderr: 
+-- fs/copy_chunk_dev_full.lu (target/ present)
+exit=4
+stderr: fs/copy_chunk_dev_full.lu: unsupported: `fs_open_mode("/dev/full")` resolves outside the working directory — `..` applied and symlinks followed, as the host would (`[os.fs.path.domain]`); this machine serves the fs tier over REAL files inside its own tree and declines the rest by name rather than 

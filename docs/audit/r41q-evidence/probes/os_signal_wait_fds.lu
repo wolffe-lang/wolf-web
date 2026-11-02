@@ -1,0 +1,4 @@
+fn main() -> !int {
+    os_signal_wait_fds([0], 0, 0)?
+    0
+}

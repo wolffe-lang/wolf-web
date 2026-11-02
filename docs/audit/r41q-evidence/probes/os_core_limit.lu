@@ -1,0 +1,5 @@
+fn main() -> !int {
+    let (soft, hard) = os_core_limit()?
+    print("{soft} {hard}")
+    0
+}

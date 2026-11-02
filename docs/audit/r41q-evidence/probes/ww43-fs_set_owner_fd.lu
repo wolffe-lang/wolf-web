@@ -1,0 +1,19 @@
+//! member: false
+//! ww43 probe: one call of fs_set_owner_fd, for the tab and for lupin at a terminal (chapter 34's builtins).
+//! uid -2 is `invalid` before the host is asked: nothing changes.
+fn row() -> str {
+    fs_set_owner_fd(1, -2, -1) else |e| {
+        return match e {
+            denied => "denied",
+            invalid => "invalid",
+            unsupported => "unsupported",
+            io => "io",
+        }
+    }
+    "ok"
+}
+
+fn main() -> !int {
+    print("set_owner_fd: {row()}")
+    0
+}

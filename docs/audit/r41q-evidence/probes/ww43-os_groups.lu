@@ -1,0 +1,15 @@
+//! member: false
+//! ww43 probe: one call of os_groups, for the tab and for lupin at a terminal (chapter 34's builtins).
+fn main() -> !int {
+    let gs = os_groups() else |e| {
+        print(match e {
+            unsupported => "groups: unsupported",
+            io => "groups: io",
+        })
+        return 0
+    }
+    var n = 0
+    for _g in gs { n += 1 }
+    print("groups: {n >= 0}")
+    0
+}

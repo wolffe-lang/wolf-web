@@ -1,0 +1,6 @@
+//! member: false
+//! ww42 probe: one call of os_pid, for the tab and for lupin at a terminal.
+fn main() -> !int {
+    print("pid: {os_pid() > 0}")
+    0
+}

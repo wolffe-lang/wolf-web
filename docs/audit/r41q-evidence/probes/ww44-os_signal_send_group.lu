@@ -1,0 +1,21 @@
+//! member: false
+//! ww44 probe: one call of os_signal_send_group, for the tab and for lupin at a terminal (0.2.31's builtins, book §34.5).
+//! Group 2147483647 is led by nobody and meaning 0 sends nothing: the
+//! question `kill -0` asks, so no machine signals anything.
+fn row() -> str {
+    os_signal_send_group(2147483647, 0) else |e| {
+        return match e {
+            denied => "denied",
+            invalid => "invalid",
+            io => "io",
+            not_found => "not_found",
+            unsupported => "unsupported",
+        }
+    }
+    "ok"
+}
+
+fn main() -> !int {
+    print("send_group: {row()}")
+    0
+}

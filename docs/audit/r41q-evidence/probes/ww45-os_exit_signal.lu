@@ -1,0 +1,17 @@
+//! member: false
+//! ww45 probe: one call of os_exit_signal, for the tab and for lupin at a terminal (0.2.33's builtins, book §34.6).
+//! 0 is no meaning: `invalid` by its shape, so the call returns and the process does not end by a signal.
+fn row() -> str {
+    os_exit_signal(0) else |e| {
+        return match e {
+            invalid => "invalid",
+            unsupported => "unsupported",
+        }
+    }
+    "returned"
+}
+
+fn main() -> !int {
+    print("exit_signal: {row()}")
+    0
+}

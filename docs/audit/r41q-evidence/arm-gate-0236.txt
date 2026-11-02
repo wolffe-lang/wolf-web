@@ -1,0 +1,7 @@
+r41q: wolf-lang release run 40744446774 (v0.2.36), job 123045503944 'run gate (ubuntu-22.04-arm, glibc 2.35)', read 2026-11-02T17:55:49Z with gh run view --log; the gate's result lines:
+host: ldd (Ubuntu GLIBC 2.35-0ubuntu3.15) 2.35
+highest GLIBC symbol version needed: GLIBC_2.34
+wolf 0.2.36 (wolfgang, pin 5adf3d9)
+native tier: refuses by name, exit 2
+release tier: refuses by name, exit 2
+checked tier: exit(0), hello, wolf

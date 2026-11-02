@@ -1,0 +1,7 @@
+//! member: false
+//! ww44 probe: book/ch34.md:599 at wolf-book e9862f6, fence wolf,run(exit=0, stdout="nothing to report: -1, 0 live"), verbatim below this header.
+fn main() -> !int {
+    let (h, live) = os_wait_poll()?
+    print("nothing to report: {h}, {live} live")
+    0
+}

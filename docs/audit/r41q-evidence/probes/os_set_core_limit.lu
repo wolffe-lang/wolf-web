@@ -1,0 +1,4 @@
+fn main() -> !int {
+    os_set_core_limit(0, 0)?
+    0
+}

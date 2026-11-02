@@ -1,0 +1,25 @@
+//! member: false
+//! ww43 probe: chapter 34 program 7, book/ch34.md:383 at wolf-book 95d68ad, fence wolf-run(exit=0, stdout="size: io, keys: io"), verbatim below this header.
+fn size_row(fd: int) -> str {
+    let (rows, cols) = os_term_size(fd) else |e| {
+        return match e {
+            io => "io",
+            unsupported => "unsupported",
+        }
+    }
+    "{rows} rows, {cols} columns"
+}
+
+fn keys_row(fd: int) -> str {
+    let keys = os_term_chars(fd) else |e| {
+        return match e {
+            io => "io",
+            unsupported => "unsupported",
+        }
+    }
+    "interrupt is byte {keys[2]}"
+}
+
+fn main() {
+    print("size: {size_row(1)}, keys: {keys_row(1)}")
+}

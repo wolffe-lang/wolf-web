@@ -1,0 +1,4 @@
+fn main() -> !int {
+    fs_adopt(-1)?
+    0
+}

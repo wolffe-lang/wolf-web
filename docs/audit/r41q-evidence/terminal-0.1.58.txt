@@ -1,0 +1,100 @@
+corpus/conc/atomic_counter.lu: AS HEADER
+corpus/conc/atomic_fence.lu: AS HEADER
+corpus/conc/atomic_orders.lu: AS HEADER
+corpus/conc/atomic_widths.lu: AS HEADER
+corpus/conc/cancel_sibling.lu: AS HEADER
+corpus/conc/chan_closed_row.lu: AS HEADER
+corpus/conc/chan_default_rendezvous.lu: AS HEADER
+corpus/conc/chan_drain_after_inclusive_loop.lu: AS HEADER
+corpus/conc/chan_param_for.lu: AS HEADER
+corpus/conc/chan_payload_proc_param.lu: AS HEADER
+corpus/conc/chan_root_task.lu: AS HEADER
+corpus/conc/chan_send_closed_row.lu: AS HEADER
+corpus/conc/chan_sent_arg_legal.lu: AS HEADER
+corpus/conc/chan_sent_arg_legal_tasks.lu: AS HEADER
+corpus/conc/chan_struct_payload.lu: AS HEADER
+corpus/conc/freeze_proc_snapshot.lu: AS HEADER
+corpus/conc/freeze_publish.lu: AS HEADER
+corpus/conc/message_passing.lu: AS HEADER
+corpus/conc/par_fail_reraises.lu: AS HEADER
+corpus/conc/par_order.lu: AS HEADER
+corpus/conc/proc_cancel_defers.lu: AS HEADER
+corpus/conc/proc_cap_fault_join.lu: AS HEADER
+corpus/conc/proc_cross_module/main.lu: AS HEADER
+corpus/conc/proc_join_param.lu: AS HEADER
+corpus/conc/proc_join_value.lu: AS HEADER
+corpus/conc/proc_kill_defers.lu: AS HEADER
+corpus/conc/proc_link.lu: AS HEADER
+corpus/conc/proc_link_root_death.lu: exit 1 (check: run(exit=nonzero)) 
+corpus/conc/proc_link_root.lu: AS HEADER
+corpus/conc/proc_must_join_legal.lu: AS HEADER
+corpus/conc/proc_spawn_loop.lu: AS HEADER
+corpus/conc/reason_interp.lu: AS HEADER
+corpus/conc/select_seeded.lu: AS HEADER
+corpus/conc/select_single_arm_loop.lu: AS HEADER
+corpus/conc/select_two_timeouts.lu: AS HEADER
+corpus/conc/spawn_cluster_split.lu: AS HEADER
+corpus/conc/spawn_fanout_loop.lu: AS HEADER
+corpus/conc/spawn_tail_send_raised_row.lu: AS HEADER
+corpus/conc/when_multi.lu: AS HEADER
+corpus/fs/bytes_dirs.lu: AS HEADER
+corpus/fs/change_rows.lu: AS HEADER
+corpus/fs/copy_chunk_dev_full.lu: declined: fs/copy_chunk_dev_full.lu: unsupported: `fs_open_mode("/dev/full")` resolves outside the working directory — `..` applied and symlinks followed, as the host would (`[os.fs.path.domain]`); this machine
+corpus/fs/copy_chunk_failed_write.lu: AS HEADER
+corpus/fs/copy_chunk.lu: AS HEADER
+corpus/fs/error_row.lu: AS HEADER
+corpus/fs/fstat.lu: AS HEADER
+corpus/fs/hard_link.lu: AS HEADER
+corpus/fs/mode_symlink.lu: AS HEADER
+corpus/fs/open_nonblock.lu: AS HEADER
+corpus/fs/os_error.lu: AS HEADER
+corpus/fs/read_at.lu: AS HEADER
+corpus/fs/remove_dir_refused.lu: AS HEADER
+corpus/fs/roundtrip.lu: AS HEADER
+corpus/fs/seek_tell.lu: AS HEADER
+corpus/fs/set_times.lu: AS HEADER
+corpus/fs/std_write_bytes.lu: AS HEADER
+corpus/fs/truncate.lu: AS HEADER
+corpus/grammar/cfg_target_arch.lu: AS HEADER
+corpus/membrane/extern_let_image.lu: declined: membrane/extern_let_image.lu: unsupported: a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not model ([a
+corpus/membrane/extern_libc.lu: declined: membrane/extern_libc.lu: unsupported: `strlen` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch
+corpus/membrane/variadic_declarations.lu: declined: membrane/variadic_declarations.lu: unsupported: the program has no `main` in its root module (D32: directory = module)
+corpus/membrane/variadic_position.lu: exit 2 (check: fail(E0822)) membrane/variadic_position.lu: E0822: `...` belongs after the last named parameter of an `extern "c" fn` or `export fn` [abi.c.variadic.syntax] at 6:23
+corpus/memory/raw_repr_align_layout.lu: declined: memory/raw_repr_align_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got A16
+corpus/memory/raw_repr_c_layout.lu: declined: memory/raw_repr_c_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got C3
+corpus/memory/raw_repr_packed_layout.lu: declined: memory/raw_repr_packed_layout.lu: unsupported: a raw store writes an integer-shaped pointee, got P3
+corpus/memory/read_lend_frame.lu: AS HEADER
+corpus/memory/read_lend_value_semantics.lu: AS HEADER
+corpus/os/arg0.lu: declined: os/arg0.lu: unsupported: `env_arg0` does not resolve
+corpus/os/args_bytes.lu: declined: os/args_bytes.lu: unsupported: `env_args_bytes` does not resolve
+corpus/os/args_cwd.lu: AS HEADER
+corpus/os/chdir_relative.lu: AS HEADER
+corpus/os/core_limit_rows.lu: declined: os/core_limit_rows.lu: unsupported: `os_set_core_limit` does not resolve
+corpus/os/cpus.lu: AS HEADER
+corpus/os/env_roundtrip.lu: AS HEADER
+corpus/os/env_unset.lu: AS HEADER
+corpus/os/exec_rows.lu: AS HEADER
+corpus/os/exit_code.lu: AS HEADER
+corpus/os/group_rows.lu: AS HEADER
+corpus/os/ids_read.lu: declined: os/ids_read.lu: unsupported: `os_uid` reads who the process runs as, which is the host's `getuid`, `geteuid`, `getgid`, `getegid` or `getgroups` call; the standard library has none of them and this ma
+corpus/os/ids_rows.lu: AS HEADER
+corpus/os/job_poll_rows.lu: AS HEADER
+corpus/os/job_rows.lu: AS HEADER
+corpus/os/pipe_round_trip.lu: AS HEADER
+corpus/os/random_differs.lu: AS HEADER
+corpus/os/random_edges.lu: AS HEADER
+corpus/os/random_negative_trap.lu: exit 3 (check: run(exit=trap(assert))) os/random_negative_trap.lu: trap(assert): `os_random` needs a nonnegative, representable byte count [os.random.fill] at 19:13
+corpus/os/signal_loopback.lu: declined: os/signal_loopback.lu: unsupported: `os_signal_listen` arms a signal's trampoline, which is `sigaction`: std has none, and this machine admits no `unsafe` ([os.signal.listen], [os.term.note] R8)
+corpus/os/signal_one_rows.lu: AS HEADER
+corpus/os/signal_reserved_rows.lu: declined: os/signal_reserved_rows.lu: unsupported: `os_signal_realtime` reads the C library's signal range: std has no `SIGRTMIN` or `SIGRTMAX`, and this machine admits no `unsafe` ([os.signal.host], [os.signal
+corpus/os/signal_shell_rows.lu: AS HEADER
+corpus/os/signal_supervisor.lu: declined: os/signal_supervisor.lu: unsupported: `os_signal_listen` arms a signal's trampoline, which is `sigaction`: std has none, and this machine admits no `unsafe` ([os.signal.listen], [os.term.note] R8)
+corpus/os/spawn_fds_rows.lu: AS HEADER
+corpus/os/spawn_rows.lu: AS HEADER
+corpus/os/term_editor_rows.lu: AS HEADER
+corpus/os/umask.lu: declined: os/umask.lu: unsupported: `os_umask` sets the process's file mode creation mask, which is the host's `umask` call; the standard library has none and this machine has no `unsafe` to make one, so the ca
+corpus/rows/else_fallback_bound_slice.lu: AS HEADER
+corpus/rows/else_fallback_paren_slice.lu: AS HEADER
+corpus/rows/else_fallback_range_refused.lu: exit 2 (check: pass) rows/else_fallback_range_refused.lu: E0411: there is no `s[i]` character indexing in wolf (D25): a single index cannot honestly name "a character". Slice bytes with `s[a..b]`, take the byte view with 
+corpus/time/monotonic.lu: AS HEADER
+TERMINAL: 99 programs, 80 as their headers say, 15 declined by name (exit 4), 4 other

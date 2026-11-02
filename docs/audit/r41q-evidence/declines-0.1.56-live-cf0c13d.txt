@@ -1,0 +1,145 @@
+comptime.lu	unsupported	resolve	4	`fib` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+comptime/fold_reaches_lane.lu	unsupported	resolve	4	`expand` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+comptime/shift_value.lu	unsupported	resolve	4	`wrapped` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+conc/atomic_counter.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/cancel_sibling.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/chan_default_rendezvous.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/chan_param_for.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/chan_payload_proc_param.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/chan_sent_arg_legal_tasks.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/chan_struct_payload.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/freeze_proc_snapshot.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/freeze_publish.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/message_passing.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/proc_cancel_defers.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_cap_fault_join.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_cross_module/main.lu	unsupported	resolve	4	`work.run` does not resolve
+conc/proc_join_param.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_join_value.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_kill_defers.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_link.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_link_root.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_link_root_death.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_must_join_legal.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/proc_spawn_loop.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/reason_interp.lu	unsupported	resolve	4	the proc tier needs an OS thread per proc, and this wasm build has none to spawn; run the program under `lupin` for the supervision rungs
+conc/select_single_arm_loop.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/spawn_cluster_split.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/spawn_fanout_loop.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/spawn_tail_send_raised_row.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+conc/when_multi.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+fs/bytes_dirs.lu	unsupported	resolve	4	`fs_create_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/change_rows.lu	unsupported	resolve	4	`fs_set_mode` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/copy_chunk.lu	unsupported	resolve	4	`fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/error_row.lu	unsupported	resolve	4	`fs_read_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/fstat.lu	unsupported	resolve	4	`fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/hard_link.lu	unsupported	resolve	4	`fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/mode_symlink.lu	unsupported	resolve	4	`fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/open_nonblock.lu	unsupported	resolve	4	`fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/os_error.lu	unsupported	resolve	4	`fs_open` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/read_at.lu	unsupported	resolve	4	`fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/remove_dir_refused.lu	unsupported	resolve	4	`fs_create_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/roundtrip.lu	unsupported	resolve	4	`fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/seek_tell.lu	unsupported	resolve	4	`fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/set_times.lu	unsupported	resolve	4	`fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/std_write_bytes.lu	unsupported	resolve	4	`fs_write_chunk` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+fs/truncate.lu	unsupported	resolve	4	`fs_remove_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+grammar/attr_implemented_set.lu	unsupported	resolve	4	`seven` is a `comptime fn`; compile-time evaluation with its sandbox and budgets is the compiler's engine (s16), and nothing in `spec/` pins it — the `comptime` namespace is still a reserved forward one
+link/module_c.lu	unsupported	resolve	4	`c.go` does not resolve
+lints/ancestor_import/main.lu	unsupported	resolve	4	`outer.base` does not resolve
+lints/one_item_module/main.lu	unsupported	resolve	4	`solo.only` does not resolve
+lints/pkg_item_unused/main.lu	unsupported	resolve	4	`store.used` does not resolve
+membrane/export_child.lu	unsupported	resolve	4	`geo.kx_area` does not resolve
+membrane/extern_let_image.lu	unsupported	resolve	4	a link-time symbol (`extern "c" let __ehdr_start`): the link-time symbol `__ehdr_start` is defined by the image's link, which this machine does not model ([abi.link.extern])
+membrane/extern_libc.lu	unsupported	resolve	4	`strlen` has no body (extern or trait signature); the interpreter has no C ABI and no trait-method dispatch
+memory/byte_producers_ledger.lu	unsupported	resolve	4	`fs_write_bytes` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+memory/elem_header_methods_after_move_pool.lu	unsupported	resolve	4	handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/elem_pool_handle_revive.lu	unsupported	resolve	4	handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/list_reserve.lu	unsupported	resolve	4	`List.reserve` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+memory/list_reset.lu	unsupported	resolve	4	`List.reset` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+memory/pool_accessors.lu	unsupported	resolve	4	`Pool` has no method `is_empty` in this machine's std subset
+memory/pool_place_write.lu	unsupported	resolve	4	handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/raw_repr_align_layout.lu	unsupported	resolve	4	a raw store writes an integer-shaped pointee, got A16
+memory/raw_repr_c_layout.lu	unsupported	resolve	4	a raw store writes an integer-shaped pointee, got C3
+memory/raw_repr_packed_layout.lu	unsupported	resolve	4	a raw store writes an integer-shaped pointee, got P3
+memory/region_net_read_charged.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+memory/region_outer_write_reset.lu	unsupported	resolve	4	`List.reset` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+memory/static_qualified/main.lu	unsupported	resolve	4	`limits.width` does not resolve
+memory/static_qualified_let/main.lu	unsupported	resolve	4	`*` is not defined on error limits.WIDTH and i32; operand types are the checker's
+memory/static_qualified_var/main.lu	unsupported	resolve	4	`counter` is not a local place
+memory/store_rhs_first_pool.lu	unsupported	resolve	4	handle is not a `Map` key — a key is `str`, `int`, `char` or `bool` ([type.map.key]; the compiler's E0418 where the key type is spelled)
+memory/versioned_loop_cross_module/main.lu	unsupported	resolve	4	`ring.ring_at` does not resolve
+methods/comb_map_filter_fold.lu	unsupported	resolve	4	`List.map` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/comb_sort_enumerate_zip.lu	unsupported	resolve	4	`List.sorted_by` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/comb_sorted_ord.lu	unsupported	resolve	4	`List.sorted` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/home_range_str_map.lu	unsupported	resolve	4	`a range.collect` is no builtin, so it reaches `range`'s home module `std.range` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/method_is_free_call.lu	unsupported	resolve	4	`List.any` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/wordcount_par.lu	unsupported	resolve	4	`List.sorted_by` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+methods/wordcount_serial.lu	unsupported	resolve	4	`List.map` is no builtin, so it reaches `List`'s home module `std.list` ([type.method.resolve] step 2), and no std root is configured: pass `--std-root DIR`, set `LUPIN_STD`, or put a `std/` beside the `lupin` binary (the compiler reads `WOLF_STD`, a `std` path dependency in `wolf.pkg`, or the `std/` its release archive ships beside `wolf`) — the counterparty's E0301 ([type.method.root])
+net/accept_posture.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/accept_race.lu	unsupported	resolve	4	`net_listen_with` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/byte_roundtrip.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/echo_bytes.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/echo_roundtrip.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/inherit_listener.lu	unsupported	resolve	4	`net_listen_with` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/line_reader_bytes.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/nodelay.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/peer_close_after_serve.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/read_deadline.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/refused_row.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/reuse_port.lu	unsupported	resolve	4	`net_listen_with` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/spawn_accept.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/syscall_first.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/unix_echo.lu	unsupported	resolve	4	`fs_exists` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+net/wait_readiness.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/writev_gather.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+net/writev_head_gather.lu	unsupported	resolve	4	`net_listen` is the s39 net tier; this wasm build has no sockets to open, so the tier is declined rather than mocked
+os/core_limit_rows.lu	unsupported	resolve	4	`os_set_core_limit` does not resolve
+os/exec_rows.lu	unsupported	resolve	4	`os_exec` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/group_rows.lu	unsupported	resolve	4	`os_signal_send_group` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/ids_read.lu	unsupported	resolve	4	`os_uid` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/ids_rows.lu	unsupported	resolve	4	`os_set_ids` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/job_poll_rows.lu	unsupported	resolve	4	`os_wait_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/job_rows.lu	unsupported	resolve	4	`os_spawn_job` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/pipe_round_trip.lu	unsupported	resolve	4	`os_pipe` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/random_differs.lu	unsupported	resolve	4	`os_random` is the OS entropy tier [os.random]; this wasm build has no host entropy shim (crypto.getRandomValues), so the tier is declined rather than seeded or mocked
+os/random_edges.lu	unsupported	resolve	4	`os_random` is the OS entropy tier [os.random]; this wasm build has no host entropy shim (crypto.getRandomValues), so the tier is declined rather than seeded or mocked
+os/random_negative_trap.lu	unsupported	resolve	4	`os_random` is the OS entropy tier [os.random]; this wasm build has no host entropy shim (crypto.getRandomValues), so the tier is declined rather than seeded or mocked
+os/signal_loopback.lu	unsupported	resolve	4	`os_signal_listen` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_one_rows.lu	unsupported	resolve	4	`os_signal_ignore_one` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_reserved_rows.lu	unsupported	resolve	4	`os_signal_realtime` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_shell_rows.lu	unsupported	resolve	4	`os_signal_poll` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/signal_supervisor.lu	unsupported	resolve	4	`os_signal_listen` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/spawn_fds_rows.lu	unsupported	resolve	4	`os_spawn_fds` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/spawn_rows.lu	unsupported	resolve	4	`os_spawn` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/term_editor_rows.lu	unsupported	resolve	4	`os_signal_wait_fd` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+os/umask.lu	unsupported	resolve	4	`os_umask` belongs to the hosted-only process and signal tier ([os.proc], [os.signal]): this wasm build runs in a page, with no host process of its own to ask about, signal from or start another from, so the tier is declined rather than mocked
+procs.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+projects/count.lu	unsupported	resolve	4	`fs_write_text` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+projects/count_dir.lu	unsupported	resolve	4	`fs_create_dir_all` is the s38/s90 fs tier; this wasm build has no filesystem to open, so the tier is declined rather than mocked
+resolve/bare_sibling/pair.lu	unsupported	resolve	4	`helper` does not resolve
+resolve/forward/main.lu	unsupported	resolve	4	`later` does not resolve
+resolve/leaf_twins/main.lu	unsupported	resolve	4	`float.probe` does not resolve
+resolve/pkgvis/main.lu	unsupported	resolve	4	`store.limit` does not resolve
+resolve/plain_subdir/main.lu	unsupported	resolve	4	`sub.seven` does not resolve
+resolve/same_name/main.lu	unsupported	resolve	4	`lista.len` does not resolve
+resolve/two_mod/main.lu	unsupported	resolve	4	`geometry.area` does not resolve
+rows/cross_module_arms/main.lu	unsupported	resolve	4	`scan.miss` does not resolve
+rows/error_alias_qualified/main.lu	unsupported	resolve	4	`disk.size` does not resolve
+rows/propagate/main.lu	unsupported	resolve	4	`parse.pair` does not resolve
+test/conc_schedules_test.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+time/monotonic.lu	unsupported	resolve	4	`time_now_ms` is s40's time v0; this wasm build has no clock to read and no way to block, so the tier is declined rather than mocked
+traits/op_eq_imported/main.lu	unsupported	resolve	4	`cmp.total_cmp` does not resolve
+traits/op_eq_item_import/main.lu	unsupported	resolve	4	`cmp.total_cmp` does not resolve
+typecheck/closure_captured_closure/main.lu	unsupported	resolve	4	`lib.apply` does not resolve
+typecheck/closure_entry_to_module/main.lu	unsupported	resolve	4	`lib.tier` does not resolve
+typecheck/closure_inlined_one_liner/main.lu	unsupported	resolve	4	`tty.render_env` does not resolve
+typecheck/closure_module_to_entry/main.lu	unsupported	resolve	4	`tty.apply` does not resolve
+typecheck/closure_module_to_module/main.lu	unsupported	resolve	4	`src.run` does not resolve
+typecheck/closure_return.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+typecheck/fn_param_shadows_import/main.lu	unsupported	resolve	4	`cmp.apply` does not resolve
+typecheck/fn_value_import/main.lu	unsupported	resolve	4	`txt.is_wolf` does not resolve
+typecheck/fn_value_two_file_module/main.lu	unsupported	resolve	4	`tty.tier_env` does not resolve
+typecheck/unit_context_discard.lu	unsupported	resolve	4	the task tier needs one OS thread per task, and this wasm build has none to spawn; run the program under `lupin` for the concurrency rungs
+typecheck/variant_value/main.lu	unsupported	resolve	4	`paint.favorite` does not resolve
+declines: 722 programs {"unsupported":144,"exit(0)":511,"trap(assert)":7,"trap(bounds)":7,"trap(overflow)":31,"trap(div-zero)":4,"trap(alloc-contract)":1,"exit(12)":1,"exit(62)":1,"exit(9)":1,"trap(stale-handle)":1,"exit(240)":1,"trap(region-fault)":6,"exit(1)":5,"exit(7)":1}

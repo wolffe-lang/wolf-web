@@ -1,0 +1,28 @@
+memory/list_reserve.lu
+  A "unsupported" ""
+  B "exit(0)" "0 1000 0 999 3 7 8 9 true\n"
+memory/list_reset.lu
+  A "unsupported" ""
+  B "exit(0)" "5 0 3 10 11 12 2 b2 true\n"
+memory/region_copy_shares_str.lu
+  A "trap(region-fault)" "28\n"
+  B "exit(0)" "28\nbuilt in pass, 0 uses\n"
+memory/region_outer_write_field.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "t9 1 9 x1 2 7\n"
+memory/region_outer_write_map.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "40 v7 v39 true\n"
+memory/region_outer_write_reset.lu
+  A "unsupported" ""
+  B "exit(0)" "300 3 299 0 6\n"
+memory/region_outer_write_str_push.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "100 turn 0 turn 99 42 true\n"
+memory/region_outer_write_struct.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "50 r0 r49 3 49 98 147\n"
+memory/region_str_call_index_store.lu
+  A "trap(region-fault)" ""
+  B "exit(0)" "[piece 7 3-7]\n"
+stdout-all: 730 programs, 721 identical in verdict and stdout, 9 differ

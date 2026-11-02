@@ -1,0 +1,7 @@
+  staged the interpreter's toolchain pin: 1.97.1
+  warning: the staged pin does NOT govern this build — rustc is /run/current-system/sw/bin/rustc (rustc 1.97.1 (8bab26f4f 2026-07-14) (built from a source tarball)), which is not rustup's shim and ignores rust-toolchain.toml.
+    Build at the pin with:  PATH="$HOME/.cargo/bin:$PATH" ./scripts/build.sh   (wolf-web#14)
+  no portability patch present; building the pin as it stands
+  stamping the interpreter commit as 6240efe
+  wasm: imports 0 (the module is self-contained)
+  wasm: 1527 KiB raw, 551 KiB gzipped

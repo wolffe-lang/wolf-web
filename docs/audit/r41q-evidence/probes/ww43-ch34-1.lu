@@ -1,0 +1,11 @@
+//! member: false
+//! ww43 probe: chapter 34 program 1, book/ch34.md:9 at wolf-book 95d68ad, fence wolf-run(exit=0, stdout="heard reload: true"), verbatim below this header.
+use std.signal
+
+fn main() -> !int {
+    signal.listen(signal.reload())?
+    signal.raise(signal.reload())?
+    let heard = signal.wait(signal.reload() | signal.terminate())?
+    print("heard reload: {heard == signal.reload()}")
+    0
+}

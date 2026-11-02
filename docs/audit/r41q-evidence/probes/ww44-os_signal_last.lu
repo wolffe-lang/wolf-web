@@ -1,0 +1,12 @@
+//! member: false
+//! ww44 probe: one call of os_signal_last, for the tab and for lupin at a terminal (0.2.31's builtins, book §34.5).
+fn main() -> !int {
+    let n = os_signal_last() else |e| {
+        print(match e {
+            unsupported => "last: unsupported",
+        })
+        return 0
+    }
+    print("last: {n > 28}")
+    0
+}

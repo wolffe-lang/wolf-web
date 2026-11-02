@@ -1,0 +1,19 @@
+use std.signal
+use std.process
+use std.env
+
+fn main() -> !int {
+    for a in env.args() {
+        if a == "again" { process.exit_signal(signal.terminate())? }
+    }
+    var again = process.command(os_exe()?)
+    process.push_arg(mut again, "again")
+    let kid = process.start(again)?
+    let status = process.wait_status_core(take kid)?
+    let n = signal.number(signal.terminate())?
+    print("ended by terminate(): {status == 0 - n}")
+    print("and with a core: {status == 0 - (256 + n)}")
+    let quiet = process.poll_core()?
+    print("children left: {quiet.change.live}, core: {quiet.core}")
+    0
+}

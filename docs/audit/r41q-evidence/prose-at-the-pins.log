@@ -1,0 +1,194 @@
+version prose: docs/index.html: 'v0.1.0' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: '1.97.1' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.13' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.15' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.16' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.17' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.18' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.19' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.20' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.21' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.22' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.23' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.24' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.25' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.26' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.27' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.28' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.29' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.30' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.31' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.32' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.33' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: index.html: 'v0.2.34' ×2 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: index.html: 'v0.2.35' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: index.html: 'v0.2.7' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: '0.1.41' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.42' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.44' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.45' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.46' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.48' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.49' appears ×2, the allowlist says ×3
+version prose: install/index.html: '0.1.49' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.54' appears ×4, the allowlist says ×7
+version prose: install/index.html: '0.1.54' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: install/index.html: '0.1.57' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: install/index.html: '0.2.18' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.1' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.11' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.15' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.16' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.18' appears ×3, the allowlist says ×4
+version prose: install/index.html: 'v0.2.18' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.19' appears ×1, the allowlist says ×3
+version prose: install/index.html: 'v0.2.19' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.2' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.21' appears ×1, the allowlist says ×2
+version prose: install/index.html: 'v0.2.21' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.22' appears ×1, the allowlist says ×3
+version prose: install/index.html: 'v0.2.22' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.23' appears ×1, the allowlist says ×2
+version prose: install/index.html: 'v0.2.23' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.24' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.25' appears ×2, the allowlist says ×3
+version prose: install/index.html: 'v0.2.25' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.26' appears ×1, the allowlist says ×3
+version prose: install/index.html: 'v0.2.26' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.27' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.28' appears ×2, the allowlist says ×3
+version prose: install/index.html: 'v0.2.28' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.29' appears ×1, the allowlist says ×2
+version prose: install/index.html: 'v0.2.29' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.3' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.30' appears ×1, the allowlist says ×2
+version prose: install/index.html: 'v0.2.30' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.31' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.32' appears ×2, the allowlist says ×3
+version prose: install/index.html: 'v0.2.32' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.33' appears ×1, the allowlist says ×5
+version prose: install/index.html: 'v0.2.33' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.35' ×2 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: install/index.html: 'v0.2.4' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.5' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: install/index.html: 'v0.2.6' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: '0.1.22' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.23' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.24' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.25' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.28' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.35' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.37' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.39' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.40' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.41' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.42' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.44' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.45' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.46' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.48' appears ×3, the allowlist says ×2
+version prose: play/index.html: '0.1.48' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.49' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.53' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.54' appears ×5, the allowlist says ×6
+version prose: play/index.html: '0.1.54' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: play/index.html: '0.1.56' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: play/index.html: '0.1.57' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: play/index.html: 'v0.2.11' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.14' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.15' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.16' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.17' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.18' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.19' appears ×1, the allowlist says ×2
+version prose: play/index.html: 'v0.2.19' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.21' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.22' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.23' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.24' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: play/index.html: 'v0.2.25' appears ×3, the allowlist says ×4
+version prose: play/index.html: 'v0.2.25' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.26' appears ×2, the allowlist says ×3
+version prose: play/index.html: 'v0.2.26' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.28' appears ×2, the allowlist says ×3
+version prose: play/index.html: 'v0.2.28' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.29' appears ×2, the allowlist says ×3
+version prose: play/index.html: 'v0.2.29' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.30' appears ×2, the allowlist says ×3
+version prose: play/index.html: 'v0.2.30' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.31' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.32' appears ×3, the allowlist says ×4
+version prose: play/index.html: 'v0.2.32' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.33' appears ×2, the allowlist says ×4
+version prose: play/index.html: 'v0.2.33' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.35' ×2 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: play/index.html: 'v0.2.4' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: play/index.html: 'v0.2.8' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: '0.1.40' was audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read the sentence, then re-stamp its audited-at-lupin
+version prose: spec/index.html: 'v0.1.0' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.11' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.13' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.14' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.15' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.16' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.17' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.18' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.19' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.20' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.21' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.22' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.23' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.24' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.25' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.26' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.27' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.28' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.29' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.30' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.31' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.32' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.33' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.34' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: spec/index.html: 'v0.2.35' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: spec/index.html: 'v0.2.36' ×1 is not in version-allowlist.txt — a current-version claim belongs in a __WOLF_VERSION__ stamp; a historical mention gets a listed entry
+version prose: spec/index.html: 'v0.2.4' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.5' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.6' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.7' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: spec/index.html: 'v0.2.8' was audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read the sentence, then re-stamp its audited-at-wolf
+version prose: version-allowlist.txt lists '0.1.47' in install/index.html, which no longer carries it
+version prose: version-allowlist.txt lists '0.1.50' in install/index.html, which no longer carries it
+version prose: version-allowlist.txt lists '0.1.51' in install/index.html, which no longer carries it
+version prose: version-allowlist.txt lists '0.1.52' in install/index.html, which no longer carries it
+version prose: version-allowlist.txt lists '0.1.53' in install/index.html, which no longer carries it
+version prose: index.html: 3 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them, then re-stamp its audited-at-wolf
+version prose: install/index.html: 4 release-bound __LUPIN_VERSION__ sentence(s) were audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read them, then re-stamp its audited-at-lupin
+version prose: install/index.html: 2 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them, then re-stamp its audited-at-wolf
+version prose: play/index.html: 1 release-bound __LUPIN_VERSION__ sentence(s) were audited at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read them, then re-stamp its audited-at-lupin
+version prose: play/index.html: 1 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them, then re-stamp its audited-at-wolf
+version prose: spec/index.html: __WOLF_VERSION__ appears ×2, stamp-allowlist.txt says ×4
+version prose: spec/index.html: 4 release-bound __WOLF_VERSION__ sentence(s) were audited at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them, then re-stamp its audited-at-wolf
+END version-prose exit=1
+counts: index.html: 1 live 'eighteen' count(s) were read at book 591cd5d, the book pin is now 64bb3c7 — re-read them against what they count, then re-stamp its audited-at-book
+counts: index.html: 3 live 'five' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: index.html: 1 live 'seven' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: index.html: 1 live 'ten' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: install/index.html: 1 live 'Five' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: install/index.html: 1 live 'Six' count(s) were read at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read them against what they count, then re-stamp its audited-at-lupin
+counts: install/index.html: 1 live 'five' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: install/index.html: 2 live 'thirty-six' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: play/index.html: 1 live 'Seven' count(s) were read at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read them against what they count, then re-stamp its audited-at-lupin
+counts: play/index.html: 1 live 'Six' count(s) were read at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read them against what they count, then re-stamp its audited-at-lupin
+counts: play/index.html: 5 live 'five' count(s) were read at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read them against what they count, then re-stamp its audited-at-lupin
+counts: play/index.html: 1 live 'nine' count(s) were read at lupin 0.1.56, the lupin pin is now 0.1.58 — re-read them against what they count, then re-stamp its audited-at-lupin
+counts: play/index.html: 1 live 'six' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: reading/index.html: 1 live 'Six' count(s) were read at book 591cd5d, the book pin is now 64bb3c7 — re-read them against what they count, then re-stamp its audited-at-book
+counts: reading/index.html: 1 live 'Thirty-two' count(s) were read at book 591cd5d, the book pin is now 64bb3c7 — re-read them against what they count, then re-stamp its audited-at-book
+counts: reading/index.html: 1 live 'five' count(s) were read at book 591cd5d, the book pin is now 64bb3c7 — re-read them against what they count, then re-stamp its audited-at-book
+counts: spec/index.html: 1 live 'ten' count(s) were read at wolf 0.2.35, the wolf pin is now 0.2.36 — re-read them against what they count, then re-stamp its audited-at-wolf
+counts: count-allowlist.txt lists 'eleven' in install/index.html, which no longer carries it
+counts: count-allowlist.txt lists 'eleven' in play/index.html, which no longer carries it
+END counts exit=1
+lag phrases: install/index.html: still carries 'two releases' while the counted gap is 1 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+lag phrases: play/index.html: still carries 'two releases' while the counted gap is 1 — a lag paragraph was left unrewritten (the rule is page-wide: it cannot tell a quotation from a claim)
+END lag-phrases exit=1

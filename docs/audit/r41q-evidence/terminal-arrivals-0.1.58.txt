@@ -1,0 +1,48 @@
+corpus/fs/copy_chunk_dev_full.lu: DIFFERS: exit 1 want 0; stdout 'error: not_found' want 'copy=io os_error_set=true offset_after=0 left_to_read=17 of 17\ncleaned=true'; 
+corpus/fs/copy_chunk_failed_write.lu: DIFFERS: exit 1 want 0; stdout 'error: not_found' want 'copy=io took_nothing=true os_error_set=true offset_after=0\nretry=17 same=true\ncleaned=true'; 
+corpus/lints/shadow_prelude_local.lu: AS HEADER
+corpus/memory/distinct_copy_scalar.lu: AS HEADER
+corpus/memory/enum_union_copy.lu: AS HEADER
+corpus/memory/enum_union_take.lu: AS HEADER
+corpus/memory/list_reserve.lu: AS HEADER
+corpus/memory/list_reset.lu: AS HEADER
+corpus/memory/read_lend_frame.lu: AS HEADER
+corpus/memory/read_lend_value_semantics.lu: AS HEADER
+corpus/memory/read_param_indexed_caller.lu: AS HEADER
+corpus/memory/region_copy_shares_str.lu: AS HEADER
+corpus/memory/region_os_cwd_charged.lu: AS HEADER
+corpus/memory/region_outer_write_call.lu: AS HEADER
+corpus/memory/region_outer_write_charged.lu: AS HEADER
+corpus/memory/region_outer_write_field.lu: AS HEADER
+corpus/memory/region_outer_write_index.lu: AS HEADER
+corpus/memory/region_outer_write_map.lu: AS HEADER
+corpus/memory/region_outer_write_reset.lu: AS HEADER
+corpus/memory/region_outer_write_scalar.lu: AS HEADER
+corpus/memory/region_outer_write_str_push.lu: AS HEADER
+corpus/memory/region_outer_write_struct.lu: AS HEADER
+corpus/memory/region_scalar_freeze.lu: AS HEADER
+corpus/memory/region_scalar_mut.lu: AS HEADER
+corpus/memory/region_scalar_store.lu: AS HEADER
+corpus/memory/region_scalar_value.lu: AS HEADER
+corpus/memory/region_str_call_index_store.lu: AS HEADER
+corpus/memory/static_wrapping.lu: AS HEADER
+corpus/os/arg0.lu: declined: os/arg0.lu: unsupported: `env_arg0` does not resolve
+corpus/os/args_bytes.lu: declined: os/args_bytes.lu: unsupported: `env_args_bytes` does not resolve
+corpus/os/core_limit_rows.lu: declined: os/core_limit_rows.lu: unsupported: `os_set_core_limit` does not resolve
+corpus/os/signal_reserved_rows.lu: declined: os/signal_reserved_rows.lu: unsupported: `os_signal_realtime` reads the C library's signal range: std has no `SIGRTMIN` or `SIGRTMAX`, and this machine admits no `unsafe` ([os.signal.host], [os.signal
+corpus/rows/ctor_arg_qualified/main.lu: AS HEADER
+corpus/rows/else_fallback_bound_slice.lu: AS HEADER
+corpus/rows/else_fallback_paren_slice.lu: AS HEADER
+corpus/rows/row_member_handled.lu: AS HEADER
+corpus/rows/row_union_payloads.lu: AS HEADER
+corpus/typecheck/closure_captured_closure/main.lu: AS HEADER
+corpus/typecheck/closure_entry_to_module/main.lu: AS HEADER
+corpus/typecheck/closure_inlined_one_liner/main.lu: AS HEADER
+corpus/typecheck/closure_module_to_entry/main.lu: declined: typecheck/closure_module_to_entry/main.lu: unsupported: `lookup` does not resolve
+corpus/typecheck/closure_module_to_module/main.lu: declined: typecheck/closure_module_to_module/main.lu: unsupported: `lookup` does not resolve
+corpus/typecheck/enum_union_three.lu: AS HEADER
+corpus/typecheck/enum_union_tree.lu: AS HEADER
+corpus/typecheck/enum_union_two.lu: AS HEADER
+corpus/typecheck/fn_value_two_file_module/main.lu: AS HEADER
+corpus/typecheck/numlit_wrapping_countdown.lu: AS HEADER
+TERMINAL: 47 programs, 39 as their headers say, 6 declined by name (exit 4), 2 other

@@ -1,0 +1,4 @@
+fn main() -> !int {
+    fs_access("absent", 0)?
+    0
+}
