@@ -204,7 +204,13 @@
   the compiler's own checked machine does, and the two that need a link or
   a C ABI the interpreter does not model,
   <code>corpus/membrane/extern_let_image.lu</code> and
-  <code>extern_libc.lu</code>. At v0.2.25's pin the list was longer. The
+  <code>extern_libc.lu</code>; and three that wait on the interpreter's next
+  mirror, <code>corpus/os/arg0.lu</code> and <code>args_bytes.lu</code>,
+  whose <code>env_arg0</code> and <code>env_args_bytes</code> the
+  interpreter's trunk already reads for its next release (wolf-interp#295),
+  and <code>corpus/os/core_limit_rows.lu</code>, whose
+  <code>os_set_core_limit</code>, one of v0.2.35's calls, it has not
+  mirrored yet (wolf-interp#277). At v0.2.25's pin the list was longer. The
   atomics the release before it added, <code>corpus/conc/atomic_fence.lu</code>,
   <code>atomic_orders.lu</code> and <code>atomic_widths.lu</code>, answered
   that <code>fence</code> or <code>Order.seq_cst</code> does not resolve,
@@ -245,18 +251,31 @@
   naming <code>arch_bits</code> as a function that does not resolve
   (wolf-web#55).</p>
 
-  <p><strong>Nothing parts in its output.</strong> A verdict census cannot see
-  a disagreement that exits 0 on both sides, so every running program in the
-  corpus was walked a second time, through this module and through the one
-  this page served before it, and no program prints differently under the
-  two. One program from an earlier release parts from its header, and it is
-  the tab's:
-  <code>corpus/os/chdir_relative.lu</code> moves the
+  <p><strong>What parts in its output is the tab's, but for one pair the
+  specification allows.</strong> A verdict census cannot see a disagreement
+  that exits 0 on both sides, so every running program in the corpus was
+  walked a second time, through this module and through the one this page
+  served before it, lupin 0.1.56's. Nine print differently under the two,
+  each a v0.2.35 region or list program that trapped or was declined under
+  the old module and prints its header's lines under this one; every other
+  program prints the same. Held to their headers, four of the programs this
+  module runs part from them for the tab's reasons, and two by a reading the
+  specification allows. <code>corpus/os/chdir_relative.lu</code> moves the
   working directory, a page has none to move, and this build's
   <code>os_chdir</code> answers the <code>io</code> row rather than
   declining, so the program exits 1 printing <code>error: io</code>, where
   at a terminal this interpreter prints its header's lines and exits 0
-  (wolf-interp#222). At v0.2.22's
+  (wolf-interp#222); <code>corpus/os/args_cwd.lu</code> and v0.2.35's
+  <code>corpus/memory/region_os_cwd_charged.lu</code> ask for the
+  directory's name, this build's <code>os_cwd</code> answers the same row,
+  and each exits 1 the same way. <code>corpus/os/cpus.lu</code> is the
+  near miss below. And <code>corpus/faults/assert_msg_effect_fails.lu</code>
+  and <code>assert_msg_name_fails.lu</code> print a failed
+  <code>assert</code>'s message as a line before the trap, here and at a
+  terminal alike, where the compiler prints none:
+  <code>[conf.trap.assert]</code> lets an implementation print the line or
+  drop it until formatting lands, and the corpus pins one of the two
+  (wolf-lang#556). At v0.2.22's
   pin that walk is where <code>corpus/rows/unit_discard_if_value.lu</code>
   showed: it exited 0 here as there and printed <code>() none</code> where
   the compiler prints <code>() ()</code>, because lupin 0.1.45 bound the
@@ -280,38 +299,58 @@
   specification makes it and prints what the compiler prints.</p>
 
   <p><strong>The compiler's newest calls do not resolve here yet.</strong>
-  The release <a href="/install/">install</a> advertises brought no program
-  into the corpus's running set. It took one row out of
-  <code>corpus/os/term_editor_rows.lu</code>, a terminal mode with bit 5
-  set, which that release made a field where it had been
-  <code>invalid</code>, and the tab declines the program at its first call
-  with the process tier, as before. Its new calls are the fork
-  <a href="/book/ch34.html#34.7">§34.7 of the book</a> teaches and the
-  editor's calls of <a href="/book/ch34.html#34.8">§34.8</a>, and this
-  interpreter has mirrored none of them: <code>os_fork</code>,
-  <code>os_term_restore_at_exit</code>, <code>os_signal_wait_fds</code>,
-  <code>fs_sync</code>, <code>fs_sync_dir</code>, <code>fs_realpath</code>
-  and <code>os_clock_ns</code> each report <code>unsupported</code> when a
-  program makes one alone, naming the call, which does not resolve; nothing
-  runs, nothing traps, and the tab is ready for the next program. So does
-  this interpreter at a terminal, until a later lupin release mirrors them
-  (wolf-interp#268, #269). The sections' four programs stop sooner, each at
-  a call the tab declines for its own reason before a new name is reached:
-  the fork program at <code>os_pipe</code>, with the process tier; the one
-  that forks beside a live task at the task tier, since a page has no
-  thread to spawn one on; the editor's wait at <code>signal.listen</code>,
-  its first call into the standard library, which this tab does not have;
-  and its save at <code>fs_exists</code>, with the filesystem tier. At a terminal this
-  interpreter, installed alone, stops both fork programs at
-  <code>os_fork</code>, the wait at the same call into the standard library
-  and the save at <code>fs_sync</code>, each naming the call as one that
-  does not resolve.</p>
+  The release <a href="/install/">install</a> advertises brought eight
+  programs into the corpus's running set. Four of them run here and print
+  their headers' lines: <code>corpus/memory/read_lend_frame.lu</code> and
+  <code>read_lend_value_semantics.lu</code>, which pass a large value by
+  <code>read</code>, and <code>corpus/rows/else_fallback_bound_slice.lu</code>
+  and <code>else_fallback_paren_slice.lu</code>, which slice a string at an
+  index an <code>else</code> fallback computes. Two copy a file, which the
+  tab declines with the filesystem tier: <code>corpus/fs/copy_chunk_failed_write.lu</code>,
+  which at a terminal prints its header's lines, and
+  <code>corpus/fs/copy_chunk_dev_full.lu</code>, which copies into
+  <code>/dev/full</code> and which this interpreter declines at a terminal
+  too, the path lying outside the tree it serves its filesystem in. The
+  last two, <code>corpus/os/arg0.lu</code> and <code>args_bytes.lu</code>,
+  read the name a program was started by and its arguments as bytes, and
+  that release's <code>env_arg0</code> and <code>env_args_bytes</code> each
+  report <code>unsupported</code> here, naming the call, which does not
+  resolve; nothing runs, nothing traps, and the tab is ready for the next
+  program. So does this interpreter at a terminal, until its next release
+  carries the mirror its trunk has (wolf-interp#295). A variadic call, into
+  C or to an exported definition, is declined by name, naming the call,
+  where under lupin 0.1.56 the trailing <code>, ...</code> did not parse.
+  At v0.2.35's pin the release's thirteen new calls, the file calls a shell
+  and an editor ask for and the core limit, an adopted descriptor and the
+  names of the system and the architecture, did not resolve here, and they
+  still do not, in the tab or at a terminal (wolf-interp#277, #278); its
+  region and list programs trapped or were declined under lupin 0.1.56 and
+  print their headers' lines now (wolf-interp#289). At v0.2.34's pin the
+  new calls were the fork <a href="/book/ch34.html#34.7">§34.7 of the
+  book</a> teaches and the editor's calls of
+  <a href="/book/ch34.html#34.8">§34.8</a>, which lupin 0.1.55 did not
+  resolve. lupin 0.1.56 mirrored them (wolf-interp#268, #269), and each
+  made alone is declined here with its tier: <code>os_fork</code>,
+  <code>os_term_restore_at_exit</code> and <code>os_signal_wait_fds</code>
+  with the process tier, <code>fs_sync</code>, <code>fs_sync_dir</code> and
+  <code>fs_realpath</code> with the filesystem, <code>os_clock_ns</code>
+  with time. The sections' four programs stop where they did, each at a
+  call the tab declines for its own reason: the fork program at
+  <code>os_pipe</code>, with the process tier; the one that forks beside a
+  live task at the task tier, since a page has no thread to spawn one on;
+  the editor's wait at <code>signal.listen</code>, its first call into the
+  standard library, which this tab does not have; and its save at
+  <code>fs_exists</code>, with the filesystem tier. At a terminal this
+  interpreter, installed alone, refuses both fork programs by name at
+  <code>os_fork</code>, since it has no fork and admits no
+  <code>unsafe</code>, stops the wait at the same call into the standard
+  library, and runs the save to the four lines the compiler prints.</p>
 
   <p>At v0.2.33's pin the addition was one program,
   <code>corpus/os/signal_one_rows.lu</code>, which walks the shapes of one
   meaning's disposition and of the end by a signal. Its first call,
   <code>os_signal_ignore_one</code>, did not resolve in lupin 0.1.54, the
-  interpreter this page served before these pins, and the tab declined the
+  interpreter this page served at that pin, and the tab declined the
   program there, naming the call; this interpreter has mirrored that
   release's calls, so the tab declines the program at the same call with
   the process tier, and at a terminal this interpreter prints its header's
@@ -340,11 +379,10 @@
   book runs on the interpreter, polls with no child, and this build declines
   the poll with the process tier: at a terminal it answers <code>(-1,
   0)</code> without asking the host, and in this build the whole tier is
-  declined before that answer is reached. The module this page served until
-  now is lupin 0.1.54's, and the one this build publishes is this
-  interpreter's. The measurement is four walks: both corpora through both
-  modules, and no program both corpora carry changed its class in any of
-  them, nor what it prints. Three reasons moved:
+  declined before that answer is reached. The module this page had served
+  until that pin was lupin 0.1.54's. The measurement then was four walks:
+  both corpora through both modules, and no program both corpora carry
+  changed its class in any of them, nor what it printed. Three reasons moved:
   <code>corpus/os/signal_one_rows.lu</code>'s, and those of
   <code>corpus/os/signal_loopback.lu</code> and
   <code>signal_supervisor.lu</code>, whose first call,
@@ -576,13 +614,18 @@
   Money</code> — an interpreter honestly behind a clause it had not mirrored
   yet, which is a thing that ends. It ended here. The distinction is the
   reason a reader can tell, from the same word, which refusals are worth
-  waiting on. Among the programs you can run, the tab has none of the
-  second kind at these pins: the declines named above are the whole-struct
-  stores, which the interpreter declines as the compiler's checked machine
-  does, and the link symbol and the C call, which an interpreter has no link
-  or C ABI to serve, and neither is waiting on a release. The
-  atomics, the volatile program and the struct field that waited at
-  v0.2.25's pin had their mirrors released, and run.</p>
+  waiting on. Among the programs you can run, the tab has three of the
+  second kind at these pins, and two of them have their mirror written:
+  <code>corpus/os/arg0.lu</code> and <code>args_bytes.lu</code> answer that
+  <code>env_arg0</code> and <code>env_args_bytes</code> do not resolve, and
+  the interpreter's trunk reads them for its next release;
+  <code>corpus/os/core_limit_rows.lu</code> answers the same of
+  <code>os_set_core_limit</code>. The other declines named above are the
+  whole-struct stores, which the interpreter declines as the compiler's
+  checked machine does, and the link symbol and the C call, which an
+  interpreter has no link or C ABI to serve, and neither is waiting on a
+  release. The atomics, the volatile program and the struct field that
+  waited at v0.2.25's pin had their mirrors released, and run.</p>
 
   <p><strong>And the gap that opened after that cost nothing while it was
   open, and is closed now.</strong> The compiler tagged once more while the
