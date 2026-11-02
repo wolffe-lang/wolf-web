@@ -863,8 +863,11 @@ hello, wolf</code></pre>
   not tell an unserved host from a broken build. Every release since carries
   it. All four
   URLs are asked for a 200 by the same job that measures the Windows section,
-  every time this site changes. For a host outside the matrix, the source
-  recipe is the path.</p>
+  every time this site changes. Since v0.2.36 the release carries a fifth
+  file beside them that is no toolchain: the <code>wolf-rt</code> archive
+  for <code>x86_64-unknown-linux-musl</code>, the runtime a program linked
+  statically against musl needs. For a host
+  outside the matrix, the source recipe is the path.</p>
   <p>The <a href="/">front page</a> has the four lines that build the same
   toolchain from source, which is the path the project itself is known to
   work on.</p>
