@@ -246,7 +246,13 @@
       is held to the same rule. The callee's body is never read, so some
       correct calls are refused too, and the clause names the edit that is
       sound at the call. A <code>net_read</code> result is an allocation site
-      where it is read.
+      where it is read. Since v0.2.35 <code>[mem.region.outer-write]</code>
+      lets a <code>region</code> block write into a value declared outside it
+      and keep nothing of the block, when what it stores names no region or
+      is written <code>copy</code>: the copy is made in the outer region, so
+      a loop whose turn builds temporaries can open a region per turn. A
+      value whose type reaches no storage, a struct of scalars among them, is
+      no site for the region rules at all (<code>[mem.region.scalar]</code>).
       Anchors <code>[mem.*]</code>.</dd>
 
     <dt><a href="/spec/03-concurrency.md">03. Concurrency</a> (__KIB_spec/03-concurrency.md__ KiB)</dt>
@@ -376,7 +382,22 @@
       supplies, while <code>Pool</code>, <code>freeze</code>, channels,
       <code>spawn</code> and <code>par</code> stay refused by name. v0.2.27's
       <code>[abi.target.none.ambient]</code> gives each of a kernel's threads
-      its own ambient region. Anchors
+      its own ambient region. v0.2.35's <code>[abi.native.enum]</code> lays an
+      enum out as its tag and then payload slots shared by position, each
+      slot sized for the largest payload any variant puts there, so variants
+      whose payloads disagree in type compile natively. v0.2.36's
+      <code>[abi.c.variadic]</code> takes a C variable argument list across
+      the membrane in both directions, as the System V psABI lays it out: a
+      hand-declared <code>extern "c" fn</code> may end in <code>, ...</code>
+      and be called with more arguments, and an <code>export fn</code> may be
+      defined that way and read them through <code>VaList</code> and its four
+      builtins. Only linux x86-64 and <code>x86_64-unknown-none</code> serve
+      it; every other target refuses it, <code>E0826</code>
+      (<code>[abi.c.variadic.targets]</code>), and the checked machine answers
+      <code>unsupported</code> by name (<code>[abi.c.variadic.checked]</code>).
+      <code>[abi.target.main]</code> makes the C <code>main</code> the
+      compiler emits around wolf's, and the three arguments it hands the
+      runtime, part of the ABI. Anchors
       <code>[abi.*]</code>.</dd>
 
     <dt><a href="/spec/05-conformance.md">05. Conformance</a> (__KIB_spec/05-conformance.md__ KiB)</dt>
@@ -415,6 +436,10 @@
       alone each is the one blocking call it was, so a loop waiting on
       connections from tasks it spawned, or a large write to a task that
       will read it, answers instead of hanging (wolf-lang#720, #777).
+      Since v0.2.36 <code>[exec.checked.argv]</code> gives the checked
+      machine an argv of its own: <code>conform-run --checked</code> takes
+      <code>--argv-hex=HEX</code> once per argument, argv[0] first, and
+      without it the machine's argv is empty, never the compiler's own.
       Anchors <code>[conf.*]</code>.</dd>
 
     <dt><a href="/spec/06-differential-protocol.md">06. Differential Protocol</a> (__KIB_spec/06-differential-protocol.md__ KiB)</dt>
@@ -555,7 +580,11 @@
       traps, and both operands have one type. A constant shift is evaluated
       by the same rule. <code>wrapping[T]</code> keeps the machine's shift,
       the count taken modulo the width, and the clause records it as the
-      answer every machine already gave.
+      answer every machine already gave. Since v0.2.35
+      <code>[type.list.reserve]</code> grows a list's capacity in the list's
+      own region without changing its elements, and
+      <code>[type.list.reset]</code> empties a list and keeps its buffer, so
+      the next pushes reuse it.
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
@@ -720,7 +749,23 @@
       calls. windows answers <code>unsupported</code> for the fork, the
       restore, the wait over several descriptors and the directory sync;
       each of the new calls is hosted, and the freestanding target refuses
-      it by name. Anchors <code>[os.*]</code>.</dd>
+      it by name. v0.2.35 gave a shell and an editor the file calls they ask
+      for: an access check (<code>[os.fs.access]</code>), an advisory lock
+      (<code>[os.fs.lock]</code>), a fifo (<code>[os.fs.mkfifo]</code>), a
+      descriptor's non-blocking switch (<code>[os.fs.nonblock]</code>), a
+      handle's whole status record (<code>[os.fs.fstat.record]</code>) and an
+      open that does not follow a final link
+      (<code>[os.fs.open.nofollow]</code>). It added a descriptor adopted as
+      an fs handle (<code>[os.proc.adopt]</code>), the core limit
+      (<code>[os.proc.core]</code>), the name of the operating system and
+      of the architecture (<code>[os.uname]</code>), the signals a C library reserves
+      (<code>[os.signal.host.reserved]</code>) and a wait for write readiness
+      (<code>[os.signal.wait.write]</code>). At v0.2.36
+      <code>[os.env.argv]</code> reads the name a program was invoked by,
+      <code>env_arg0()</code>, and every argument as bytes,
+      <code>env_args_bytes()</code>, argv[0] first; a text reader handed an
+      argument that is not UTF-8 traps <code>argument-utf8</code>, naming
+      its index. Anchors <code>[os.*]</code>.</dd>
   </dl>
 </section>
 
