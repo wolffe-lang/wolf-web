@@ -20,6 +20,71 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## r41q (the site at 0.2.36, a variable argument list, and the program's own name) — 2026-11-02
+
+All four gitlinks move: the compiler to wolf 0.2.36, the interpreter to
+lupin 0.1.58, the release the compiler was tested against, the book to
+wolf-book `64bb3c76` and the standard library to wolf-std `dee6206f`, whose
+own compiler pin is the site's.
+
+**The lag closes to one release, on a development revision.** lupin 0.1.58
+is built to `a5378e3`, a commit of the compiler's trunk made between 0.2.35
+and 0.2.36 and tagged by neither, so the newest release whose text it reads
+whole is one release behind the one /install/ advertises, 123 commits back.
+lupin 0.1.48 through 0.1.56 had read the v0.2.24 tag, the widest gap the
+check has counted. Both pages' lag paragraphs were rewritten, and /install/'s
+second statement of the pin, which no gate reads, was corrected by hand.
+
+**What the tab and a terminal answer, measured again.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes
+and the one lupp.us served until now: 730 programs, 534 exit, 51 trap,
+145 unsupported, 0 fail, and no instance killed. The second walk through
+both found 9 programs answering differently, each a 0.2.35 region or list
+program that trapped `region-fault` or was declined under lupin 0.1.56 and
+prints its header's lines now; the other 721 print the same and are
+declined, where they are declined, for the same reason. 0.2.36's 8 running
+programs: 4 run in the tab and at a terminal; the 2 copies are declined in
+the tab with the filesystem tier, and at a terminal one runs and the other,
+which copies into `/dev/full`, is declined by name; `os/arg0.lu` and
+`os/args_bytes.lu` stop at `env_arg0` and `env_args_bytes`, which lupin
+0.1.58 does not resolve and its trunk does (wolf-interp#295). A variadic
+call is declined by name. Each of 0.2.35's 13 new calls, made alone, does
+not resolve in either place (wolf-interp#277, #278).
+
+**Sentences about the interpreter that were false at the last bump.** The
+pages still said lupin had mirrored none of 0.2.34's calls; lupin 0.1.56,
+served from the last bump on, had mirrored all 7. Made alone, each is
+declined in the tab with its tier. At a terminal, the syncs, the canonical
+path and the clock answer, the restore and the wait over descriptors give
+the compiler's rows, and the fork is refused by name. §34.8's save runs at a
+terminal to the compiler's lines. /play/ said no program in the tab waits on
+an interpreter release; three do, `os/arg0.lu`, `os/args_bytes.lu` and
+`os/core_limit_rows.lu`. Both pages named one program that parts from its
+header in the tab, `os/chdir_relative.lu`. Held to their headers for the
+first time, 4 part for the tab's reasons: that one, `os/args_cwd.lu` and
+`memory/region_os_cwd_charged.lu`, which ask a page for its working
+directory, and `os/cpus.lu`, which asks it for its cores. 2 more part in
+both places, by a rendering `[conf.trap.assert]` allows:
+`faults/assert_msg_effect_fails.lu` and `assert_msg_name_fails.lu` print an
+assert's message before the trap (wolf-lang#556). The earlier walks had
+compared the two modules, not the headers.
+
+lupin 0.1.58 compiles to WebAssembly as released, with no imports: 1527 KiB
+raw, 551 KiB gzipped, where 0.1.56's module was 1463 and 533.
+
+**Sentences that named the wrong release.** The front page leads with what
+0.2.36 changed: a C variable argument list in both directions at the
+membrane, the name a program was started by and its arguments as bytes, a
+static musl link that reads them, start-up as fast as at 0.2.34, the host's
+number on a failed spawn, and the musl runtime beside the four host
+archives. 0.2.35's story is told for the first time, and 0.2.34's moves into
+the history; until now the front page described 0.2.34 under the 0.2.35
+stamp. /spec/ no longer says the grammar is v0.2.23's byte for byte: v0.2.36
+widened one production, the trailing `, ...`. It describes the clauses
+0.2.35 and 0.2.36 added to the memory, ABI, conformance, types and OS
+documents. linux aarch64 holds as written: the 0.2.36 release's arm gate
+asserts the same refusals and the same checked run.
+
 ## ww50 (the standard-library reference) — 2026-10-25
 
 **The standard library has a reference at /std/.** Browse modules by subject,
