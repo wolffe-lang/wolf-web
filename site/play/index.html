@@ -127,33 +127,19 @@
   <p>The revision of the specification it reads is the compiler's own, and at
   these pins it is not the compiler's newest. This interpreter, lupin
   __LUPIN_VERSION__, was built to <code>__PIN_specrev_short__</code>, which is
-  a release tag and not a revision of the compiler's trunk; the compiler has
-  tagged release after release since while the interpreter kept that pin, so
-  the text this tab reads is eleven releases behind the one
-  <a href="/install/">install</a> advertises,
+  a development revision of the compiler's trunk and not a release tag, a
+  commit made on the way to the release <a href="/install/">install</a>
+  advertises. So the newest release whose text this tab reads whole is one
+  release behind that one,
   __COUNT_speccommits_word__ commits of the compiler's own history back. The
-  gap is a step wider than at v0.2.33's pin, when lupin 0.1.54 read the same
-  tag a step nearer: the compiler tagged once more and the interpreter
-  released beside it, on that pin again. The interpreter has released again
-  and again without re-pinning, and mirrored instead what the compiler had added — at
-  v0.2.26's pin volatile access and the atomics on raw pointers, the
-  kernel's papercuts, a child's descriptors and <code>copy region</code>
-  (wolf-interp#185, #194, #200), at v0.2.28's the unsigned and wrapping
-  integers, a repeated json name, <code>env_unset</code> and the calls that
-  change a file, at v0.2.29's as much of the shell's signals as it could
-  serve without <code>unsafe</code>, at v0.2.30's a file's owner and the
-  shape rows of the id and terminal calls, at v0.2.32's the shift rule,
-  the net calls' error number, the shape rows of the group calls and the
-  poll of a program with no child left, and at these pins v0.2.33's calls,
-  one meaning's disposition, the end by a signal and the core siblings of
-  the wait and the poll — so the programs those releases brought run here,
-  where a page has what they need, while the text the tab reads has fallen
-  further behind. The calls the newest release adds it has not mirrored at
-  all, and none of them resolves here. From v0.2.19's pin to
-  v0.2.25's the gap was a single step at every pair this site served. The
-  compiler's own second line names the interpreter in this tab: the release
-  <a href="/install/">install</a> advertises was tested against the
-  interpreter version above, and this site serves it. At v0.2.15's pin it did
+  gap is narrower than at v0.2.35's pin, when lupin 0.1.56 still read the
+  v0.2.24 tag it had kept since lupin 0.1.48 while the compiler released
+  again and again, mirroring instead what each of those releases added;
+  lupin 0.1.57, which this site never served, moved the pin, and the
+  interpreter above keeps it. The compiler's own second line names the
+  interpreter in this tab: the release <a href="/install/">install</a>
+  advertises was tested against the interpreter version above, and this
+  site serves it. At v0.2.15's pin it did
   not, and the reason was a fact about the two repositories rather than a
   judgement made here. The interpreter release of that day recorded, as the
   specification checkout it was built to, a compiler revision that the
@@ -189,10 +175,12 @@
   again at v0.2.30's, then the compiler tagging twice with the mirror
   releasing once between, still on that pin, so the gap was two steps wider
   still at v0.2.32's, then the compiler tagging once more with no mirror
-  release at all, so it was a step wider again at v0.2.33's — and now the
-  compiler tagging once more with the mirror releasing beside it, still on
-  that pin, so the gap this page shows is a step wider again, the widest
-  the check that holds these sentences has counted. The two
+  release at all, so it was a step wider again at v0.2.33's, then the
+  compiler tagging twice more with the mirror releasing beside it each
+  time, still on that pin, so the gap was two steps wider at v0.2.35's, the widest
+  the check that holds these sentences has counted — and now the mirror
+  re-pinning on a development revision made after the compiler's previous
+  release, so the gap this page shows is the single step again. The two
   implementations tag on their own schedules and the interpreter follows the compiler, so a gap opens at every compiler release
   and closes when the mirror catches up. A program that answers differently
   here from a __WOLF_VERSION__ you download today may be a disagreement about
