@@ -262,14 +262,22 @@ CHANGELOG.md Twenty-two 1 counted=0
 CHANGELOG.md sixty-one 1 counted=0
 CHANGELOG.md twenty-six 1 counted=0
 CHANGELOG.md Forty 1 counted=0
-index.html five 3 counted=3 audited-at-wolf=0.2.35
-index.html ten 1 counted=1 audited-at-wolf=0.2.35
-index.html eighteen 1 counted=1 audited-at-book=591cd5d
-index.html seven 1 counted=1 audited-at-wolf=0.2.35
+index.html five 3 counted=3 audited-at-wolf=0.2.36
+index.html ten 1 counted=1 audited-at-wolf=0.2.36
+index.html eighteen 1 counted=1 audited-at-book=64bb3c7
+index.html seven 1 counted=1 audited-at-wolf=0.2.36
 index.html twenty 1 counted=0
-install/index.html Five 1 counted=1 audited-at-wolf=0.2.35
-install/index.html Six 1 counted=1 audited-at-lupin=0.1.56
-install/index.html eight 2 counted=0
+install/index.html Five 1 counted=1 audited-at-wolf=0.2.36
+install/index.html Six 1 counted=1 audited-at-lupin=0.1.58
+# r41q: the lag phrase is `one release` at 0.2.36 (lupin 0.1.58 is built to a
+# development revision past v0.2.35), so the lag's `eleven` left. The new
+# `eight` counts the programs the release above brought into the running set
+# (a fact of the advertised release, read at its pin); the two before it stay
+# frozen. The new `six` is history: the v0.2.35 region programs that trapped
+# under lupin 0.1.56. `Nine` counts the programs the second walk found
+# answering differently under 0.1.56's module and 0.1.58's.
+install/index.html eight 3 counted=1 audited-at-wolf=0.2.36
+install/index.html Nine 1 counted=1 audited-at-lupin=0.1.58
 # ww45: the lag phrase moved from `eight releases` to `nine releases`, so
 # /install/'s third `eight` left (the two left are the low eight bits of a
 # status, a property of the platform) and its `nine` arrived. The `nine` is
@@ -279,21 +287,20 @@ install/index.html eight 2 counted=0
 # 0.1.55 released beside the compiler and kept the v0.2.24 pin), so the `nine`
 # left and the `ten` arrived, the lag phrase again and frozen for the same
 # reason.
-install/index.html eleven 1 counted=0
 # ww43: the lag phrase moved from `five releases` to `six releases`, so
 # /install/'s second `five` left and its second `six` arrived. The `five`
 # counted here is the AUR's packages; the new `six` is the lag phrase, held
 # page-wide by check-lag-phrases.py against the two gitlinks and not by any
 # clock here, so it is frozen beside v0.2.22's six programs.
-install/index.html five 1 counted=1 audited-at-wolf=0.2.35
-install/index.html six 1 counted=0
+install/index.html five 1 counted=1 audited-at-wolf=0.2.36
+install/index.html six 2 counted=0
 install/index.html sixteen 1 counted=0
-install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.35
+install/index.html thirty-six 2 counted=2 audited-at-wolf=0.2.36
 install/index.html twenty-one 1 counted=0
 # ww43: /play/'s second `six` is the lag phrase, held page-wide by
 # check-lag-phrases.py and not by this clock; the one counted here is the
 # six programs a release brought, as before.
-play/index.html six 1 counted=1 audited-at-wolf=0.2.35
+play/index.html six 1 counted=1 audited-at-wolf=0.2.36
 play/index.html Twenty-two 1 counted=0
 play/index.html twenty-two 2 counted=0
 # ww47: os_random now reads OS entropy at a terminal, even with a schedule
@@ -304,11 +311,11 @@ play/index.html twenty-two 2 counted=0
 # process tier and lupin at a terminal refuses it by name. So `Seven tiers`
 # replaces `Six tiers`; the remaining `Six` is the six programs that changed
 # which word they are refused with.
-play/index.html Six 1 counted=1 audited-at-lupin=0.1.56
-play/index.html Seven 1 counted=1 audited-at-lupin=0.1.56
+play/index.html Six 1 counted=1 audited-at-lupin=0.1.58
+play/index.html Seven 1 counted=1 audited-at-lupin=0.1.58
 # ww43: /play/'s lag-phrase `five` left with `five releases`; the five
 # counted here are the ones ww42 counted, and the sixth is frozen as before.
-play/index.html five 6 counted=5 audited-at-lupin=0.1.56
+play/index.html five 6 counted=5 audited-at-lupin=0.1.58
 # ww45: /play/'s lag-phrase `eight` left with `eight releases` and its
 # second `nine` is `nine releases`, held page-wide by check-lag-phrases.py
 # and not by this clock; the one counted here is the nine running `if_then`
@@ -316,13 +323,18 @@ play/index.html five 6 counted=5 audited-at-lupin=0.1.56
 # ww46: `nine releases` left with the lag's step to ten, so the one `nine` is
 # the `if_then` witnesses, counted as before, and the lag phrase's `ten`
 # arrives, held by check-lag-phrases.py and frozen here.
-play/index.html nine 1 counted=1 audited-at-lupin=0.1.56
-play/index.html eleven 1 counted=0
-play/index.html thirteen 1 counted=0
+play/index.html nine 1 counted=1 audited-at-lupin=0.1.58
+# r41q: the lag's `eleven` left with `eleven releases`. `eight` counts the
+# programs the release install advertises brought; `Nine` the programs the
+# second walk found answering differently under the two modules. The new
+# `thirteen` is history: the calls v0.2.35 added, frozen beside ww19's.
+play/index.html eight 1 counted=1 audited-at-wolf=0.2.36
+play/index.html Nine 1 counted=1 audited-at-lupin=0.1.58
+play/index.html thirteen 2 counted=0
 play/index.html twelve 1 counted=0
-spec/index.html ten 1 counted=1 audited-at-wolf=0.2.35
-reading/index.html Six 1 counted=1 audited-at-book=591cd5d
-reading/index.html Thirty-two 1 counted=1 audited-at-book=591cd5d
-reading/index.html five 1 counted=1 audited-at-book=591cd5d
+spec/index.html ten 1 counted=1 audited-at-wolf=0.2.36
+reading/index.html Six 1 counted=1 audited-at-book=64bb3c7
+reading/index.html Thirty-two 1 counted=1 audited-at-book=64bb3c7
+reading/index.html five 1 counted=1 audited-at-book=64bb3c7
 spec/index.html eleven 1 counted=0
 spec/index.html seven 3 counted=0
