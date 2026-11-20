@@ -29,7 +29,7 @@ jobs:
   std-reference:
     if: ${{ (github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-matrix') || contains(github.event.pull_request.labels.*.name, 'ci') || contains(github.event.pull_request.labels.*.name, 'release-matrix')) }}
     name: std reference gates
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # setup-python has no 3.9 for the 26.04 image behind ubuntu-latest
     steps:
       - uses: actions/checkout@v5
         with: {submodules: recursive}
@@ -56,7 +56,7 @@ jobs:
   build:
     if: ${{ (github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-matrix') || contains(github.event.pull_request.labels.*.name, 'ci') || contains(github.event.pull_request.labels.*.name, 'release-matrix')) }}
     name: build the site
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # setup-python has no 3.9 for the 26.04 image behind ubuntu-latest
     steps:
       - uses: actions/checkout@v5
         with: {submodules: recursive}
