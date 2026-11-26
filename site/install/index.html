@@ -178,19 +178,21 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   serves.</p>
 
   <p>Read the second line closely, because it is the one that moves, and at
-  these pins it moved forward: the interpreter released beside the
-  compiler on a new pin. <code>lupin __LUPIN_VERSION__</code> names
+  these pins it did not move with the compiler.
+  <code>lupin __LUPIN_VERSION__</code> names
   <code>__PIN_specrev_short__</code> as the specification it was built to.
   That is a development revision of the compiler's trunk rather than a
-  release tag, a commit the compiler made after its previous release and
-  before this one, so
-  the newest release whose text the interpreter carries whole is one release
-  behind the compiler you are installing, __COUNT_speccommits_word__ commits
-  back. At v0.2.35's pin the interpreter beside it still read the v0.2.24
+  release tag, a commit the compiler made after v0.2.36 and before v0.2.37,
+  so the newest release whose text the interpreter carries whole is five
+  releases behind the compiler you are installing,
+  __COUNT_speccommits_word__ commits back. lupin 0.1.60 moved its pin there,
+  and every interpreter release since has kept it, mirroring instead what
+  each compiler release added. That is the shape the gap had once before:
+  at v0.2.35's pin the interpreter beside it still read the v0.2.24
   tag: lupin 0.1.48 had pinned it, and every interpreter release after that
   kept it while the compiler tagged v0.2.25 through v0.2.35, mirroring
   instead what each of those releases added, until lupin 0.1.57, a release
-  this site never served, moved the pin to the revision above. It agrees
+  this site never served, moved the pin forward. It agrees
   with the compiler's own second line: the release above was tested against
   the interpreter version this page names, and the playground serves that
   interpreter, as it has at every pair this site has served since
@@ -224,11 +226,15 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   link defines, and <code>corpus/membrane/extern_libc.lu</code> calls a
   bodyless C declaration, and the interpreter models neither a link nor a C
   ABI. Three wait on the interpreter's next mirror:
-  <code>corpus/os/arg0.lu</code> and <code>args_bytes.lu</code> read the
-  name a program was started by and its arguments as bytes, which the
-  interpreter's trunk already reads for its next release (wolf-interp#295),
-  and <code>corpus/os/core_limit_rows.lu</code> sets the core limit, one of
-  v0.2.35's calls the interpreter has not mirrored yet (wolf-interp#277).
+  <code>corpus/net/connect_within_invalid.lu</code>,
+  <code>connect_within_ok.lu</code> and
+  <code>connect_within_refused.lu</code> dial with a budget, and the
+  interpreter does not resolve <code>net_connect_within</code> yet: at a
+  terminal each stops at that call, and the tab declines each earlier, at
+  its first socket. The programs that waited at the previous pins,
+  <code>corpus/os/arg0.lu</code>, <code>args_bytes.lu</code> and
+  <code>core_limit_rows.lu</code>, print what their headers say now, in
+  the tab and at a terminal.
   The declines this page named at v0.2.25's pin are gone: the atomics
   and the volatile program, <code>corpus/conc/atomic_fence.lu</code>,
   <code>atomic_orders.lu</code>, <code>atomic_widths.lu</code> and
@@ -257,8 +263,11 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   and <code>assert_msg_name_fails.lu</code> print a failed
   <code>assert</code>'s message as a line before the trap, which
   <code>[conf.trap.assert]</code> permits until formatting lands, where the
-  compiler prints no line (wolf-lang#556). None of them is worked around
-  here.</p>
+  compiler prints no line (wolf-lang#556). And
+  <code>corpus/memory/list_reset_reuse_ledger.lu</code>, which v0.2.37
+  added for the compiler's own reset rule (wolf-lang#943), prints
+  <code>8 false true</code> in both places where its header says
+  <code>8 true true</code>. None of them is worked around here.</p>
 
   <p>The tab reads <code>cfg</code> as an x86-64 Linux host. The interpreter
   evaluates a <code>#[cfg(target = …)]</code> against the target it was
@@ -274,9 +283,46 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   were dropped, and the program was declined, naming the function that does
   not resolve (wolf-web#55).</p>
 
-  <p>The release above brought eight programs into the corpus's running
-  set, and the interpreter above answers each as its header says or
-  declines it by name. Four run in the tab and at a terminal and print
+  <p>The five releases since v0.2.36 brought 71 programs into the corpus's
+  running set: 22 at v0.2.37, 16 at v0.2.38, 14 at v0.2.39, 1 at v0.2.40
+  and 18 at v__WOLF_VERSION__. At a terminal, measured with the interpreter's macOS
+  arm64 release archive, 57 print what their headers say and 13 are
+  declined by name. The held-directory calls of
+  <code>corpus/fs/at_rows.lu</code>, <code>link_at.lu</code>,
+  <code>mkdir_at.lu</code> and <code>symlink_at.lu</code>,
+  <code>corpus/fs/statfs_rows.lu</code>,
+  <code>corpus/os/chroot_rows.lu</code>, <code>priority_rows.lu</code> and
+  <code>signal_action_rows.lu</code>, the new session of
+  <code>corpus/os/session_rows.lu</code> and the one wait of
+  <code>corpus/os/ready_rows.lu</code> are each answered for their shapes
+  and declined where the call would reach the host; the three
+  <code>corpus/net/connect_within_*.lu</code> programs stop at a call that
+  does not resolve, above. In the tab 52 print what their headers say and
+  18 are declined: the filesystem, process and socket tiers decline the
+  programs above that reach them, and
+  <code>corpus/fs/mode_fd.lu</code>, <code>open_directory.lu</code> and
+  <code>corpus/os/term_lf_rows.lu</code> too, which print their headers'
+  lines at a terminal; <code>corpus/os/pty_rows.lu</code>,
+  <code>session_rows.lu</code> and <code>ready_rows.lu</code> stop first
+  at <code>os_name</code>, because a page has no <code>uname</code> to
+  read; and <code>corpus/lints/binder_variant_imported/main.lu</code> spans
+  sibling files, which the tab, one buffer, cannot hold. The one left over
+  in both places is the reset program above. The census counts verdicts;
+  a second walk feeds every running program in the corpus to both modules,
+  lupin 0.1.58's, which this site served until now, and the one this build
+  publishes, and compares what each prints. Under the new module 586
+  programs exit, 55 trap and 160 are declined, where the old one gave 581,
+  56 and 164. Five programs print differently under the two, each declined
+  or trapped under the old module and printing its header's lines under
+  this one: the three that waited on the mirror,
+  <code>corpus/lints/binder_variant_else.lu</code> and
+  <code>corpus/memory/region_outer_write_push_copy_call.lu</code>. Every
+  other program prints the same, and is declined, where it is declined,
+  for the same reason.</p>
+
+  <p>At v0.2.36's pin the release brought eight programs into the corpus's
+  running set, and lupin 0.1.58 answered each as its header says or
+  declined it by name. Four run in the tab and at a terminal and print
   their headers' lines: <code>corpus/memory/read_lend_frame.lu</code> and
   <code>read_lend_value_semantics.lu</code>, which pass a large value by
   <code>read</code>, and <code>corpus/rows/else_fallback_bound_slice.lu</code>
@@ -296,11 +342,11 @@ paired with lupin __LUPIN_VERSION__ (reference interpreter), pin …</code></pre
   its next release (wolf-interp#295). A variadic call, into C or to an
   exported definition, is declined by name in both places, naming the call;
   under lupin 0.1.56 the trailing <code>, ...</code> did not parse. The
-  census counts verdicts; a second walk feeds every running program in the
-  corpus to both modules, lupin 0.1.56's, which this site served until now,
-  and the one this build publishes, and compares what each prints. Nine
-  programs answer differently under the two, all of them v0.2.35's, below,
-  and every other program prints the same and is declined, where it is
+  census counted verdicts; a second walk fed every running program in the
+  corpus to both modules, lupin 0.1.56's, which this site served until
+  then, and lupin 0.1.58's, and compared what each printed. Nine
+  programs answered differently under the two, all of them v0.2.35's, below,
+  and every other program printed the same and was declined, where it was
   declined, for the same reason.</p>
 
   <p>At v0.2.35's pin the additions were never measured on this page, and
