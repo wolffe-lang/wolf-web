@@ -25,7 +25,7 @@ compiled to WebAssembly and run in the visitor's browser.
 Unlabelled pull requests run one cheap job; `ci` or `full-matrix` runs the
 full build-and-test checks. The nightly runs those checks without deploying.
 Every push to `trunk` still deploys automatically through the existing nginx
-host on almanta. Do not deploy a lane by hand.
+host. Do not deploy a lane by hand.
 `scripts/ci-deploy.sh` and `scripts/deploy.sh` implement that deployment.
 
 The book ships twice from the one pinned checkout: the web edition
