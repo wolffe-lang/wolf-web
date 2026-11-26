@@ -101,7 +101,23 @@
       production: a parameter list may end in <code>, ...</code>, a C
       variable argument list, which is allowed only at the C membrane and
       after at least one fixed parameter
-      (<code>[abi.c.variadic.syntax]</code>).
+      (<code>[abi.c.variadic.syntax]</code>). v0.2.38 and v0.2.39 wrote down
+      what the front end already did with patterns: a binder that spells a
+      variant (<code>[gram.pat.binder]</code>), a name bound twice in one
+      pattern (<code>[gram.pat.names]</code>), an or-pattern's alternatives
+      and the names they bind (<code>[gram.pat.or]</code>), a literal
+      pattern and its scrutinee's type (<code>[gram.pat.lit]</code>), a
+      nullary arm that binds nothing (<code>[gram.pat.nullary.scope]</code>),
+      a pattern's binding read as a <code>let</code>
+      (<code>[gram.pat.let]</code>), a variant or a field declared twice
+      (<code>[gram.item.type.names]</code>) and a tag a row spells twice
+      (<code>[gram.type.row.dup]</code>). v0.2.41 widened the grammar once
+      more: a braced <code>if</code> or <code>while</code> may open with a
+      binding header, <code>if let x = e; cond</code>, whose name scopes over
+      the whole conditional chain or one loop test and its body
+      (<code>[gram.expr.if.head]</code>). It is specified ahead of the
+      compiler: the 0.2.41 compiler does not accept it yet, and its
+      conformance programs wait outside the gated corpus.
       Anchors <code>[gram.*]</code>.</dd>
 
     <dt><a href="/spec/02-memory-model.md">02. Memory Model</a> (__KIB_spec/02-memory-model.md__ KiB)</dt>
@@ -397,7 +413,11 @@
       <code>unsupported</code> by name (<code>[abi.c.variadic.checked]</code>).
       <code>[abi.target.main]</code> makes the C <code>main</code> the
       compiler emits around wolf's, and the three arguments it hands the
-      runtime, part of the ABI. Anchors
+      runtime, part of the ABI. v0.2.41 lets a kernel give each processor
+      its own ambient region through a load and a store the program may
+      define (<code>[abi.target.none.ambient.storage]</code>), and states
+      what two processors may do at once and what stays undefined
+      (<code>[abi.target.none.ambient.concurrent]</code>). Anchors
       <code>[abi.*]</code>.</dd>
 
     <dt><a href="/spec/05-conformance.md">05. Conformance</a> (__KIB_spec/05-conformance.md__ KiB)</dt>
@@ -584,7 +604,11 @@
       <code>[type.list.reserve]</code> grows a list's capacity in the list's
       own region without changing its elements, and
       <code>[type.list.reset]</code> empties a list and keeps its buffer, so
-      the next pushes reuse it.
+      the next pushes reuse it. Since v0.2.39 <code>[type.min]</code> gives
+      the prelude's <code>min</code> a meaning on every tier, the smaller of
+      two values of one integer type, <code>[type.min.zip]</code> says why the
+      free <code>zip</code> has none, and <code>[type.rec]</code> refuses a
+      type that contains itself by value, which would have no finite size.
       Anchors <code>[type.*]</code>.</dd>
 
     <dt><a href="/spec/11-os.md">11. OS surface</a> (__KIB_spec/11-os.md__ KiB)</dt>
@@ -765,7 +789,32 @@
       <code>env_arg0()</code>, and every argument as bytes,
       <code>env_args_bytes()</code>, argv[0] first; a text reader handed an
       argument that is not UTF-8 traps <code>argument-utf8</code>, naming
-      its index. Anchors <code>[os.*]</code>.</dd>
+      its index. v0.2.37 gave the calls a walk over a tree needs: names looked
+      up in a directory the program holds (<code>[os.fs.at]</code> and its
+      open, stat, removal, directory, link, symbolic-link and listing
+      clauses), an open that insists on a directory
+      (<code>[os.fs.open.directory]</code>) and a mode set on a handle
+      (<code>[os.fs.mode.fd]</code>), with a file system's record
+      (<code>[os.fs.statfs]</code>), a root and a priority for the process
+      (<code>[os.proc.chroot]</code>, <code>[os.proc.priority]</code>) and one
+      signal's action read without changing it
+      (<code>[os.signal.action.one]</code>); its recommendations are recorded
+      beside them (<code>[os.fs.at.note]</code>,
+      <code>[os.surface.note]</code>). v0.2.39 added sessions
+      (<code>[os.proc.session]</code>, <code>[os.term.session]</code>) and
+      pseudo-terminals, their size and their settings
+      (<code>[os.term.pty]</code>, <code>[os.term.size.set]</code>,
+      <code>[os.term.attr]</code>), with notes for each
+      (<code>[os.proc.session.note]</code>, <code>[os.term.pty.note]</code>).
+      v0.2.40 added one wait over files, sockets and signals and a readiness
+      set the kernel holds (<code>[os.ready.wait]</code>,
+      <code>[os.ready.set]</code>, <code>[os.ready.facts]</code>,
+      <code>[os.ready.note]</code>), a send that answers what the host took
+      (<code>[os.net.write.some]</code>) and a Unix peer's credentials
+      (<code>[os.net.peer.cred]</code>). v0.2.41 added a dial with a budget
+      (<code>[os.net.connect.within]</code>) and a subreaper that reaps the
+      orphans it adopts (<code>[os.proc.subreaper]</code>,
+      <code>[os.proc.poll.adopted]</code>). Anchors <code>[os.*]</code>.</dd>
   </dl>
 </section>
 
