@@ -20,6 +20,39 @@ at one set of pins, and no later pin can make that false. The audits are not
 asking you to re-read them. They are making you derive a number, and check a
 version, before you serve it.
 
+## The site at 0.2.41 (sessions, pseudo-terminals, one wait, a subreaper) — 2026-11-26
+
+All four gitlinks move: the compiler to wolf 0.2.41, the interpreter to
+lupin 0.1.63, the release the compiler was tested against, the book to
+wolf-book `28103d9b` and the standard library to wolf-std `d58f9e1c`, whose
+own compiler pin is the site's.
+
+**The lag widens to five releases, on one development revision.** lupin
+0.1.63 is built to `5f1f1c9`, a commit of the compiler's trunk made between
+0.2.36 and 0.2.37; lupin 0.1.60 moved its pin there and every interpreter
+release since has kept it while mirroring what each compiler release added.
+Both pages' lag paragraphs were rewritten.
+
+**What the tab and a terminal answer, measured again.** Every `phase: run`
+program in the pinned corpus went through the module this build publishes
+and the one lupp.us served until now: 801 programs, 586 exit, 55 trap and
+160 declined under the new module, where the old one gave 581, 56 and 164.
+A second walk compared what each printed: 5 programs print differently, each
+one declined or trapped before that prints its header now. The 71 programs
+the releases since 0.2.36 brought into the running set were held to their
+headers in the tab and, with the interpreter's macOS arm64 release archive,
+at a terminal: 52 and 57 answer as their headers say, the rest are declined
+by name, and one parts in both places.
+
+**The front page advertises 0.2.41,** and the releases from 0.2.37 to 0.2.40
+are written as history beside the earlier ones. /spec/ lists the clauses
+those releases added, the binding header among them, which the specification
+carries ahead of the compiler.
+
+**The standard-library reference groups two new modules,** `bech32` with the
+encodings and `poll` with the os tier, as wolf-std's own README does; the
+reference had refused to generate without them.
+
 ## r41q (the site at 0.2.36, a variable argument list, and the program's own name) — 2026-11-02
 
 All four gitlinks move: the compiler to wolf 0.2.36, the interpreter to
