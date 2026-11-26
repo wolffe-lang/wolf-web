@@ -18,8 +18,8 @@ GROUPS = [
     ('Containers and regions', 'list map set deque pool iter range mem'),
     ('Strings', 'str strbuf bytes unicode'),
     ('Numerics', 'math rand sort search'),
-    ('Formatting and encodings', 'fmt hex base64 json'),
-    ('The os tier', 'fs io net time env process signal term os'),
+    ('Formatting and encodings', 'fmt hex base64 bech32 json'),
+    ('The os tier', 'fs io net time env process signal term os poll'),
     ('Nursery', 'x'),
 ]
 KINDS = {'fn': 'functions', 'struct': 'types', 'enum': 'types',
