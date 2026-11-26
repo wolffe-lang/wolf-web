@@ -140,9 +140,100 @@ fn main() -&gt; !int {
        apart is the point — a showcase written at one release and left under
        the next release's stamp reads as a claim about the wrong release, and
        the stamp cannot fossilize, so nothing else would catch it. -->
-  <p><strong>The release this page advertises lets a program call into C
-  with a variable argument list and be called that way, and read the name it
-  was started by and its arguments byte for byte.</strong>
+  <p><strong>The release this page advertises lets a program adopt the
+  orphans of its children and reap them, give a connection attempt a time
+  budget, and refuses a <code>select</code> that a cancellation could
+  leave with nowhere to go.</strong> <code>os_subreaper_set</code>
+  marks the process a child subreaper and <code>os_subreaper</code> reads
+  the mark, so an orphaned descendant goes to the program instead of to
+  process 1, and <code>os_wait_adopted_poll</code> reaps each one the
+  process table does not hold without touching a child it does; Linux
+  answers all three, and macOS and windows answer
+  <code>unsupported</code> (wolf-lang#1153).
+  <code>net_connect_within</code> dials as <code>net_connect</code> does
+  under one budget for every address a name resolves to, and answers
+  <code>timeout</code> when the budget is spent (wolf-lang#1146). Programs
+  that read freed memory or lost a write are refused now: a
+  <code>?</code> that carries an error payload built inside a
+  <code>region</code> block out of it (E1010), a write to a closure
+  parameter declared without a mode (E1014), and a <code>select</code>
+  that can block with no <code>timeout</code> arm in a function whose
+  signature has no row for <code>cancelled</code> (E0604, or E0602 where a
+  declared row lacks it). A join returns only once its proc has exited,
+  and a proc that dies by a kill or a contained trap first ends every proc
+  it still owes, before its own regions free. A float cast to a narrow
+  integer no longer stops the x86-64 compiler with an internal error.
+  Builds place functions by module and name, so a program's bytes no
+  longer depend on the order the compiler's workers finish, and
+  <code>--cold-function</code> moves the functions a program names out of
+  the way of the rest. <code>wolf fmt</code> keeps a one-armed
+  <code>then</code> guard on one line. The <code>std/</code> in the
+  archive adds Bech32, strict raw base64, a guarded OS random source, a
+  byte comparison that takes the same time for every input, and
+  <code>std.poll</code> on the previous release's one wait. The
+  interpreter tested beside this release gets the specification's answer
+  for programs it used to answer wrongly without a word, and does not
+  resolve this release's new calls: the
+  <a href="/play/">playground</a> measures the difference.</p>
+
+  <p><strong>v0.2.40 gave a program one wait over files, sockets and
+  signals, and the answer for every ready entry.</strong>
+  <code>os_wait_ready</code> takes file and socket handles together, a
+  signal set and a deadline, and answers every element that is ready with
+  what it is ready for; a readiness set the kernel holds
+  (<code>os_ready_open</code>, <code>os_ready_set</code>,
+  <code>os_ready_wait</code>, <code>os_ready_close</code>) answers in the
+  kernel's order, through epoll on Linux and kqueue on macOS, and a
+  handle's close removes it from every set. <code>net_write_some</code>
+  sends once and answers how much the host took, never parking, and
+  <code>net_peer_cred</code> answers a Unix-domain peer's process, user and
+  group. Its <code>std/</code> wrapped the previous release's sessions and
+  pseudo-terminals.</p>
+
+  <p><strong>v0.2.39 gave a program sessions and pseudo-terminals, and wrote
+  down what the front end does where the specification had been
+  silent.</strong> <code>os_spawn_session</code> starts a child that leads a
+  session of its own, <code>os_setsid</code> moves the process into one and
+  <code>os_sid</code> reads it; <code>os_term_open_pty</code> opens a
+  pseudo-terminal pair; its size is set with <code>os_term_set_size</code>
+  and each of its settings by the RFC 4254 opcode a remote shell sends. A literal pattern its
+  scrutinee's type cannot hold is E0415, a name bound twice in one pattern
+  or a parameter declared twice is E0827, the alternatives of an
+  or-pattern bind the same names (E0828), a type that holds itself by
+  value is E0404, and a name a <code>match</code> arm or a <code>for</code>
+  header binds cannot be assigned (E0410). A
+  capitalized name nothing declares is E0301 at the name, where the
+  compiler used to blame itself, <code>min</code> compiles on every tier,
+  and on Linux <code>wolf build</code> names the lld it links with.</p>
+
+  <p><strong>v0.2.38 described wolf's types to a debugger, and found a
+  map's keys by hashing.</strong> With <code>-g</code>, structures, lists,
+  maps, enums and error unions reach gdb and lldb as what they are, and the
+  call frames a debugger unwinds with are written too. A <code>Map</code>
+  keeps a hashed index over its entries, so 100,000 string inserts and
+  lookups that took 16.0 s natively on x86-64 Linux take 0.020 s. A bare variant inside a payload pattern tests that variant on
+  every tier, a <code>let</code> that binds a name spelling a variant warns
+  (W0801), and a <code>select</code> arm that spells one is refused
+  (E0806).</p>
+
+  <p><strong>v0.2.37 let a program work relative to a directory it holds,
+  and gave a coreutils written in wolf the calls it had asked
+  for.</strong> <code>fs_open_at</code>, <code>fs_stat_at</code>,
+  <code>fs_remove_at</code>, <code>fs_create_dir_at</code>,
+  <code>fs_symlink_at</code>, <code>fs_link_at</code> and
+  <code>fs_read_dir_entries_at</code> look a name up in a directory handle,
+  whatever its path has become, so a walk cannot be carried out of its tree
+  by a swapped symbolic link; <code>fs_statfs</code>,
+  <code>os_chroot</code>, <code>os_getpriority</code>,
+  <code>os_setpriority</code> and <code>os_signal_action_one</code> serve
+  <code>df</code>, <code>chroot</code>, <code>nice</code> and
+  <code>env</code>. A plain push of a heap value into a list that outlives
+  its <code>region</code> block is E1010, and long builds report their
+  progress on a terminal.</p>
+
+  <p><strong>v0.2.36 let a program call into C with a variable argument
+  list and be called that way, and read the name it was started by and its
+  arguments byte for byte.</strong>
   <code>VaList</code> and its four operations, <code>va_start</code>,
   <code>va_arg</code>, <code>va_copy</code> and <code>va_end</code>, join the
   prelude: a hand-declared C call and an exported variadic definition work on
@@ -163,12 +254,12 @@ fn main() -&gt; !int {
   wrap the previous release's calls — <code>fs.access</code>,
   <code>fs.lock</code>, <code>fs.read_into</code>,
   <code>process.core_limit</code> among them — and its list helpers now change
-  a list in place. The interpreter tested beside this release moved its
-  specification pin forward, to a revision one release behind the compiler,
-  runs the previous release's region and list programs, though not yet its
-  new calls or this one's, and recognizes a variadic declaration while
-  refusing to run one by name, as the checked machine does: the
-  <a href="/play/">playground</a> measures the difference.</p>
+  a list in place. The interpreter tested beside it, lupin 0.1.58,
+  moved its specification pin to a development revision short of that
+  release, ran the previous release's region and list programs, though not
+  yet its new calls or that release's own, and recognized a variadic
+  declaration while refusing to run one by name, as the checked machine
+  does.</p>
 
   <p><strong>v0.2.35 compiled the enums whose payloads disagree, gave a loop a
   region for each turn, and named a stack overflow.</strong> An enum such as
