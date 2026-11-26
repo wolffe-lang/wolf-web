@@ -111,12 +111,12 @@
       a pattern's binding read as a <code>let</code>
       (<code>[gram.pat.let]</code>), a variant or a field declared twice
       (<code>[gram.item.type.names]</code>) and a tag a row spells twice
-      (<code>[gram.type.row.dup]</code>). v0.2.41 widened the grammar once
+      (<code>[gram.type.row.dup]</code>). v__WOLF_VERSION__ widened the grammar once
       more: a braced <code>if</code> or <code>while</code> may open with a
       binding header, <code>if let x = e; cond</code>, whose name scopes over
       the whole conditional chain or one loop test and its body
       (<code>[gram.expr.if.head]</code>). It is specified ahead of the
-      compiler: the 0.2.41 compiler does not accept it yet, and its
+      compiler: the __WOLF_VERSION__ compiler does not accept it yet, and its
       conformance programs wait outside the gated corpus.
       Anchors <code>[gram.*]</code>.</dd>
 
@@ -413,7 +413,7 @@
       <code>unsupported</code> by name (<code>[abi.c.variadic.checked]</code>).
       <code>[abi.target.main]</code> makes the C <code>main</code> the
       compiler emits around wolf's, and the three arguments it hands the
-      runtime, part of the ABI. v0.2.41 lets a kernel give each processor
+      runtime, part of the ABI. v__WOLF_VERSION__ lets a kernel give each processor
       its own ambient region through a load and a store the program may
       define (<code>[abi.target.none.ambient.storage]</code>), and states
       what two processors may do at once and what stays undefined
@@ -811,7 +811,7 @@
       <code>[os.ready.set]</code>, <code>[os.ready.facts]</code>,
       <code>[os.ready.note]</code>), a send that answers what the host took
       (<code>[os.net.write.some]</code>) and a Unix peer's credentials
-      (<code>[os.net.peer.cred]</code>). v0.2.41 added a dial with a budget
+      (<code>[os.net.peer.cred]</code>). v__WOLF_VERSION__ added a dial with a budget
       (<code>[os.net.connect.within]</code>) and a subreaper that reaps the
       orphans it adopts (<code>[os.proc.subreaper]</code>,
       <code>[os.proc.poll.adopted]</code>). Anchors <code>[os.*]</code>.</dd>
