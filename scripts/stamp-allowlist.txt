@@ -95,9 +95,9 @@
 # carries the four host archives and, beside them, the musl runtime, which
 # /install/ now names). /install/'s tap-and-AUR sentence was read live: both
 # channels carry 0.2.36 and 0.1.58.
-index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.36
-install/index.html __WOLF_VERSION__ 11 bound=2 audited-at-wolf=0.2.36
-install/index.html __LUPIN_VERSION__ 8 bound=4 audited-at-lupin=0.1.58
-spec/index.html __WOLF_VERSION__ 2 bound=2 audited-at-wolf=0.2.36
-play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.36
-play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.58
+index.html __WOLF_VERSION__ 5 bound=3 audited-at-wolf=0.2.41
+install/index.html __WOLF_VERSION__ 12 bound=3 audited-at-wolf=0.2.41
+install/index.html __LUPIN_VERSION__ 8 bound=4 audited-at-lupin=0.1.63
+spec/index.html __WOLF_VERSION__ 6 bound=6 audited-at-wolf=0.2.41
+play/index.html __WOLF_VERSION__ 1 bound=1 audited-at-wolf=0.2.41
+play/index.html __LUPIN_VERSION__ 1 bound=1 audited-at-lupin=0.1.63
